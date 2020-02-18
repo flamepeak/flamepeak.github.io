@@ -1,0 +1,575 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inconsolata:400">
+    <title>poj 并查集汇总 | FlamePeak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FlamePeak">
+    
+
+    
+    <meta name="description" content="基础介绍：  2492:A Bug’s Life BackgroundProfessor Hopper is researching the sexual behavior of a rare species of bugs. He assumes that they feature two different genders and that they only interact with bu">
+<meta name="keywords" content="C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="poj 并查集汇总">
+<meta property="og:url" content="http://flamepeak.com/2019/03/05/poj-bing-cha-ji/index.html">
+<meta property="og:site_name" content="FlamePeak">
+<meta property="og:description" content="基础介绍：  2492:A Bug’s Life BackgroundProfessor Hopper is researching the sexual behavior of a rare species of bugs. He assumes that they feature two different genders and that they only interact with bu">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-05T23:41:59.957Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="poj 并查集汇总">
+<meta name="twitter:description" content="基础介绍：  2492:A Bug’s Life BackgroundProfessor Hopper is researching the sexual behavior of a rare species of bugs. He assumes that they feature two different genders and that they only interact with bu">
+
+    
+    <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+  <meta name="google-site-verification" content="rYNq4pSdFJQ3Ir4VuV4A6TqVEEUP8o-rrwmST28FhQY">
+  <meta name="baidu-site-verification" content="AL6EYSh1WZ">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="FlamePeak">FlamePeak</a></h1>
+				<h2 class="blog-motto">We know something, but we do not know more.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/notes">Notes</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:flamepeak.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/03/05/poj-bing-cha-ji/" title="poj 并查集汇总" itemprop="url">poj 并查集汇总</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="FlamePeak" target="_blank" itemprop="author">FlamePeak</a>
+		
+  <p class="article-time">
+    <time datetime="2019-03-05T02:56:10.000Z" itemprop="datePublished"> Published 2019-03-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<p><a href="https://blog.csdn.net/fkjslee/article/details/48809903" target="_blank" rel="noopener">基础介绍：</a></p>
+<hr>
+<p><a href="http://bailian.openjudge.cn/practice/2492/" target="_blank" rel="noopener">2492:A Bug’s Life</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Background</span><br><span class="line">Professor Hopper is researching the sexual behavior of a rare species of bugs. He assumes that they feature two different genders and that they only interact with bugs of the opposite gender. In his experiment, individual bugs and their interactions were easy to identify, because numbers were printed on their backs.</span><br><span class="line">Problem</span><br><span class="line">Given a list of bug interactions, decide whether the experiment supports his assumption of two genders with no homosexual bugs or if it contains some bug interactions that falsify it.</span><br><span class="line">输入</span><br><span class="line">The first line of the input contains the number of scenarios. Each scenario starts with one line giving the number of bugs (at least one, and up to 2000) and the number of interactions (up to 1000000) separated by a single space. In the following lines, each interaction is given in the form of two distinct bug numbers separated by a single space. Bugs are numbered consecutively starting from one.</span><br><span class="line">输出</span><br><span class="line">The output for every scenario is a line containing &quot;Scenario #i:&quot;, where i is the number of the scenario starting at 1, followed by one line saying either &quot;No suspicious bugs found!&quot; if the experiment is consistent with his assumption about the bugs&apos; sexual behavior, or &quot;Suspicious bugs found!&quot; if Professor Hopper&apos;s assumption is definitely wrong.</span><br><span class="line"></span><br><span class="line">样例输入</span><br><span class="line">2</span><br><span class="line">3 3</span><br><span class="line">1 2</span><br><span class="line">2 3</span><br><span class="line">1 3</span><br><span class="line">4 2</span><br><span class="line">1 2</span><br><span class="line">3 4</span><br><span class="line">样例输出</span><br><span class="line">Scenario #1:</span><br><span class="line">Suspicious bugs found!</span><br><span class="line"></span><br><span class="line">Scenario #2:</span><br><span class="line">No suspicious bugs found!</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> par[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (x != par[x])</span><br><span class="line">		par[x] = find(par[x]);</span><br><span class="line">	<span class="keyword">return</span> par[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x = find(a);</span><br><span class="line">	<span class="keyword">int</span> y = find(b);</span><br><span class="line">	<span class="keyword">if</span> (x != y)</span><br><span class="line">		par[x] = y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">judge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	x = find(x);</span><br><span class="line">	y = find(y);</span><br><span class="line">	<span class="keyword">if</span> (x != y)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t, n, m, cas = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= t; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">2</span> * n; i++)</span><br><span class="line">			par[i] = i;</span><br><span class="line">		<span class="keyword">bool</span> l = <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">int</span> x, y;</span><br><span class="line">		<span class="keyword">while</span> (m--)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</span><br><span class="line">			<span class="keyword">if</span> (judge(x, y) || judge(x + n, y + n))</span><br><span class="line">			&#123;</span><br><span class="line">				merge(x, y + n);</span><br><span class="line">				merge(x + n, y);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				l = <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (i != <span class="number">1</span>)</span><br><span class="line">			<span class="built_in">puts</span>(<span class="string">""</span>); </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Scenario #%d:\n"</span>, cas++);</span><br><span class="line">		<span class="keyword">if</span> (l)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"No suspicious bugs found!\n"</span>);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"Suspicious bugs found!\n"</span>);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://bailian.openjudge.cn/practice/1703/" target="_blank" rel="noopener">1703:发现它，抓住它</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">一个城市中有两个犯罪团伙A和B，你需要帮助警察判断任意两起案件是否是同一个犯罪团伙所为，警察所获得的信息是有限的。假设现在有N起案件（N&lt;=100000），编号为1到N，每起案件由团伙A或团伙B所为。你将按时间顺序获得M条信息（M&lt;=100000），这些信息分为两类：</span><br><span class="line">1. D [a] [b]</span><br><span class="line">其中[a]和[b]表示两起案件的编号，这条信息表明它们属于不同的团伙所为</span><br><span class="line"></span><br><span class="line">2. A [a] [b]</span><br><span class="line">其中[a]和[b]表示两起案件的编号，这条信息需要你回答[a]和[b]是否是同一个团伙所为</span><br><span class="line">注意你获得信息的时间是有先后顺序的，在回答的时候只能根据已经接收到的信息做出判断。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输入</span><br><span class="line">第一行是测试数据的数量T（1&lt;=T&lt;=20）。</span><br><span class="line">每组测试数据的第一行包括两个数N和M，分别表示案件的数量和信息的数量，其后M行表示按时间顺序收到的M条信息。</span><br><span class="line">输出</span><br><span class="line">对于每条需要回答的信息，你需要输出一行答案。如果是同一个团伙所为，回答&quot;In the same gang.&quot;，如果不是，回答&quot;In different gangs.&quot;，如果不确定，回答”Not sure yet.&quot;。</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> cmd;</span><br><span class="line"><span class="keyword">int</span> T, N, M, num1, num2, fx, fy;</span><br><span class="line"><span class="keyword">int</span> father[<span class="number">100100</span>], relation[<span class="number">100100</span>]; <span class="comment">//father[i] 表示 i 的父节点是谁; relation[i] 表示 i 这个节点和他父节点的关系，0表示同一个犯罪组织，1表示不同。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find_father</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (x == father[x])</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">else</span><span class="comment">//路径压缩</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> F = Find_father(father[x]);<span class="comment">//递归找到根节点</span></span><br><span class="line">		relation[x] = (relation[father[x]] + relation[x]) % <span class="number">2</span>;<span class="comment">//修改关系</span></span><br><span class="line">		father[x] = F;</span><br><span class="line">		<span class="keyword">return</span> F;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Union</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span><span class="comment">//x和y是两个不同的犯罪团伙</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	fx = Find_father(x);</span><br><span class="line">	fy = Find_father(y);</span><br><span class="line">	father[fx] = fy;<span class="comment">//将x那一支归并到y的祖先节点下</span></span><br><span class="line">	<span class="keyword">if</span> (relation[y] == <span class="number">0</span>)<span class="comment">//y和fy相同</span></span><br><span class="line">		relation[fx] = <span class="number">1</span> - relation[x];</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		relation[fx] = relation[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">	<span class="keyword">while</span> (T--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;N, &amp;M);<span class="comment">//N个案件，M条信息</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			father[i] = i;<span class="comment">//将父节点初始化为本身</span></span><br><span class="line">			relation[i] = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span> (M--)</span><br><span class="line">		&#123;</span><br><span class="line">			getchar();<span class="comment">//debug时发现如果不加这个读回车，cmd就变成了回车。</span></span><br><span class="line"></span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%c%d%d"</span>, &amp;cmd, &amp;num1, &amp;num2);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (cmd == <span class="string">'D'</span>)</span><br><span class="line">				Union(num1, num2);</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (cmd == <span class="string">'A'</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				fx = Find_father(num1);</span><br><span class="line">				fy = Find_father(num2);</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span> (fx != fy)<span class="comment">//不在并查集中</span></span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"Not sure yet.\n"</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (relation[num1] == relation[num2])<span class="comment">//与祖先节点关系相同</span></span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"In the same gang.\n"</span>);</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"In different gangs.\n"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://poj.org/problem?id=1988" target="_blank" rel="noopener">1988 Cube Stacking</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Description</span><br><span class="line"></span><br><span class="line">Farmer John and Betsy are playing a game with N (1 &lt;= N &lt;= 30,000)identical cubes labeled 1 through N. They start with N stacks, each containing a single cube. Farmer John asks Betsy to perform P (1&lt;= P &lt;= 100,000) operation. There are two types of operations: </span><br><span class="line">moves and counts. </span><br><span class="line">* In a move operation, Farmer John asks Bessie to move the stack containing cube X on top of the stack containing cube Y. </span><br><span class="line">* In a count operation, Farmer John asks Bessie to count the number of cubes on the stack with cube X that are under the cube X and report that value. </span><br><span class="line"></span><br><span class="line">Write a program that can verify the results of the game. </span><br><span class="line">Input</span><br><span class="line"></span><br><span class="line">* Line 1: A single integer, P </span><br><span class="line"></span><br><span class="line">* Lines 2..P+1: Each of these lines describes a legal operation. Line 2 describes the first operation, etc. Each line begins with a &apos;M&apos; for a move operation or a &apos;C&apos; for a count operation. For move operations, the line also contains two integers: X and Y.For count operations, the line also contains a single integer: X. </span><br><span class="line"></span><br><span class="line">Note that the value for N does not appear in the input file. No move operation will request a move a stack onto itself. </span><br><span class="line">Output</span><br><span class="line"></span><br><span class="line">Print the output from each of the count operations in the same order as the input file. </span><br><span class="line">Sample Input</span><br><span class="line"></span><br><span class="line">6</span><br><span class="line">M 1 6</span><br><span class="line">C 1</span><br><span class="line">M 2 4</span><br><span class="line">M 2 6</span><br><span class="line">C 3</span><br><span class="line">C 4</span><br><span class="line">Sample Output</span><br><span class="line"></span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 30010</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> f[MAXN], top[MAXN], ans[MAXN];</span><br><span class="line"><span class="comment">//f 数组表示该元素所在堆栈的最上方元素（根）</span></span><br><span class="line"><span class="comment">//top 数组表示该元素上方有多少元素</span></span><br><span class="line"><span class="comment">//ans 数组表示该堆栈最上方元素所在堆栈的元素总数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getf</span><span class="params">( <span class="keyword">int</span> v )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( v != f[v] )<span class="comment">//若该元素不是堆栈最上方元素（根），需更新数组</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t = f[v];<span class="comment">//该元素当前的根</span></span><br><span class="line">        f[v] = getf(f[v]);<span class="comment">//更新该元素所在堆栈的最上方元素（根）</span></span><br><span class="line">        top[v] += top[t];<span class="comment">//该元素上方元素个数为本身个数加上根元素上方个数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[v];<span class="comment">//返回最上方（根）元素</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">lian</span><span class="params">( <span class="keyword">int</span> t1, <span class="keyword">int</span> t2 )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> v1 = getf(t1);<span class="comment">//需要移动的那个堆栈的最上方（根）元素</span></span><br><span class="line">    <span class="keyword">int</span> v2 = getf(t2);<span class="comment">//加入该堆栈之前，该堆栈的最上方（根）元素</span></span><br><span class="line">    <span class="keyword">if</span>( v1 != v2 )<span class="comment">//两个不是同一堆栈（其实肯定不是同一堆栈）</span></span><br><span class="line">    &#123;</span><br><span class="line">        f[v2] = v1;<span class="comment">//新堆栈的最上方（根）元素</span></span><br><span class="line">        top[v2] = ans[v1];<span class="comment">//之前堆栈根元素上方就有了加入的堆栈的所有元素</span></span><br><span class="line">        ans[v1] += ans[v2];<span class="comment">//新堆栈的元素总数就是两个堆栈元素数之和</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>( ~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n) )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt; MAXN; i++ )</span><br><span class="line">        &#123;</span><br><span class="line">            f[i] = i;<span class="comment">//初始化所有根节点都是自己</span></span><br><span class="line">            ans[i] = <span class="number">1</span>;<span class="comment">//初始化所有元素所在堆栈的元素个数是1（自己一个）</span></span><br><span class="line">            top[i] = <span class="number">0</span>;<span class="comment">//初始化所有元素上方无元素</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">char</span> cz;</span><br><span class="line">        <span class="keyword">int</span> t1, t2;</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++ )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;cz;</span><br><span class="line">            <span class="keyword">if</span>( cz == <span class="string">'M'</span> )</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;t1,&amp;t2);</span><br><span class="line">                lian(t1,t2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t1);</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans[getf(t1)]-top[t1]<span class="number">-1</span>);</span><br><span class="line">                <span class="comment">//t1下方元素个数就是t1所在堆栈的总元素个数-t1上方元素个数-本身</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1232" target="_blank" rel="noopener">畅通工程</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Problem Description</span><br><span class="line">某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通过道路可达即可）。问最少还需要建设多少条道路？ </span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Input</span><br><span class="line">测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是城镇数目N ( &lt; 1000 )和道路数目M；随后的M行对应M条道路，每行给出一对正整数，分别是该条道路直接连通的两个城镇的编号。为简单起见，城镇从1到N编号。 </span><br><span class="line">注意:两个城市之间可以有多条道路相通,也就是说</span><br><span class="line">3 3</span><br><span class="line">1 2</span><br><span class="line">1 2</span><br><span class="line">2 1</span><br><span class="line">这种输入也是合法的</span><br><span class="line">当N为0时，输入结束，该用例不被处理。 </span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Output</span><br><span class="line">对每个测试用例，在1行里输出最少还需要建设的道路数目。 </span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Sample Input</span><br><span class="line">4 2</span><br><span class="line">1 3</span><br><span class="line">4 3</span><br><span class="line">3 3</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">2 3</span><br><span class="line">5 2</span><br><span class="line">1 2</span><br><span class="line">3 5</span><br><span class="line">999 0</span><br><span class="line">0</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Sample Output</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">2</span><br><span class="line">998</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/qq_41658955/article/details/81392960" target="_blank" rel="noopener">参考1：HDU1232畅通工程(经典并查集)</a></p>
+<p><a href="https://blog.csdn.net/lttree/article/details/23820679" target="_blank" rel="noopener">参考2：ACM-并查集之畅通工程——hdu1232</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/C/">C</a>
+  </div>
+
+</div>
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://flamepeak.com/2019/03/05/poj-bing-cha-ji/" data-title="poj 并查集汇总 | FlamePeak" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2019/03/07/poj-recursion-examples/" title="poj 递归">
+  <strong>上一篇：</strong><br/>
+  <span>
+  poj 递归</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2019/02/28/poj-2812-frog/"  title="poj 2812 恼人的青蛙">
+ <strong>下一篇：</strong><br/> 
+ <span>poj 2812 恼人的青蛙
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Cryptography/" title="Cryptography">Cryptography<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hardware/" title="Hardware">Hardware<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Life/" title="Life">Life<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Network-Security/" title="Network Security">Network Security<sup>19</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>17</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web前端/" title="Web前端">Web前端<sup>20</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web后端/" title="Web后端">Web后端<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/人工智能/" title="人工智能">人工智能<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/百家杂谈/" title="百家杂谈">百家杂谈<sup>21</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C">C<sup>21</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>18</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://laod.cn/hosts/2017-google-hosts.html" target="_blank" title="Google Hosts">Google Hosts</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://overapi.com" target="_blank" title="OverAPI">OverAPI</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://devdocs.io" target="_blank" title="DevDocs">DevDocs</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 善良   善学   勇敢   坚毅 <br/>
+			努力   克制   谦虚   执着</p>
+	</section>
+	 
+	<div id="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="FlamePeak">FlamePeak</a>
+		
+		
+
+
+
+
+
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          $('#toc.toc-aside').css('display', 'block');
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+      
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+<!--%- partial('analytics') %-->
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
+

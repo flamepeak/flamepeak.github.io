@@ -1,0 +1,614 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inconsolata:400">
+    <title>Apache Php Mysql install and notices | FlamePeak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FlamePeak">
+    
+
+    
+    <meta name="description" content="参考 首先，感谢一下Hcoder,这个网址的教程比较完善，可以参考  Apache 安装 下载地址：https://httpd.apache.org/ Apache本身不提供已编译的安装包，只提供源码，如果你自己无法编译，可以选择下面这些官方推荐的第三方提供编译的网站。 其中后两个是有名的wamp以及xampp集成环境，如果只想下载apache可以选择前三个网站。 需要注意的是xampp只有32">
+<meta name="keywords" content="PHP,Apache">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apache Php Mysql install and notices">
+<meta property="og:url" content="http://flamepeak.com/2017/05/13/Web-Apache-Php-Mysql-install-and-notice-20170513/index.html">
+<meta property="og:site_name" content="FlamePeak">
+<meta property="og:description" content="参考 首先，感谢一下Hcoder,这个网址的教程比较完善，可以参考  Apache 安装 下载地址：https://httpd.apache.org/ Apache本身不提供已编译的安装包，只提供源码，如果你自己无法编译，可以选择下面这些官方推荐的第三方提供编译的网站。 其中后两个是有名的wamp以及xampp集成环境，如果只想下载apache可以选择前三个网站。 需要注意的是xampp只有32">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-05-13T02:49:46.816Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Apache Php Mysql install and notices">
+<meta name="twitter:description" content="参考 首先，感谢一下Hcoder,这个网址的教程比较完善，可以参考  Apache 安装 下载地址：https://httpd.apache.org/ Apache本身不提供已编译的安装包，只提供源码，如果你自己无法编译，可以选择下面这些官方推荐的第三方提供编译的网站。 其中后两个是有名的wamp以及xampp集成环境，如果只想下载apache可以选择前三个网站。 需要注意的是xampp只有32">
+
+    
+    <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+  <meta name="google-site-verification" content="rYNq4pSdFJQ3Ir4VuV4A6TqVEEUP8o-rrwmST28FhQY">
+  <meta name="baidu-site-verification" content="AL6EYSh1WZ">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="FlamePeak">FlamePeak</a></h1>
+				<h2 class="blog-motto">We know something, but we do not know more.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/notes">Notes</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:flamepeak.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/05/13/Web-Apache-Php-Mysql-install-and-notice-20170513/" title="Apache Php Mysql install and notices" itemprop="url">Apache Php Mysql install and notices</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="FlamePeak" target="_blank" itemprop="author">FlamePeak</a>
+		
+  <p class="article-time">
+    <time datetime="2017-05-13T02:10:12.000Z" itemprop="datePublished"> Published 2017-05-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<h3 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h3>
+<p>首先，感谢一下<a href="http://www.hcoder.net/books/read/info/1135.html" target="_blank" rel="noopener">Hcoder</a>,这个网址的教程比较完善，可以参考</p>
+<h3 id="apache-安装"><a class="markdownIt-Anchor" href="#apache-安装"></a> Apache 安装</h3>
+<p>下载地址：<a href="https://httpd.apache.org/" target="_blank" rel="noopener">https://httpd.apache.org/</a></p>
+<p>Apache本身不提供已编译的安装包，只提供源码，如果你自己无法编译，可以选择下面这些官方推荐的第三方提供编译的网站。<br>
+其中后两个是有名的wamp以及xampp集成环境，如果只想下载apache可以选择前三个网站。<br>
+需要注意的是xampp只有32位的版本可用，在64位上的机器上有可能出问题，需要在64位机器上运行的话可以使用wamp</p>
+<p>下载后会得到一个压缩文件（httpd-2.4.18-x64-vc11.zip），将文件解压并复制到安装目录。<br>
+本教程安装目录为 d:\phpserver，apache的安装目录为 <code>d:\apache</code></p>
+<p><strong>修改配置文件</strong></p>
+<p>配置文件位置：<code>D:\apache\conf\httpd.conf</code></p>
+<p>修改配置文件的第38行<br>
+<code>Define SRVROOT &quot;/Apache24&quot;</code><br>
+修改为<br>
+<code>Define SRVROOT &quot;D:\apache&quot;</code></p>
+<p><strong>安装apche服务</strong></p>
+<p>命令行下进入到apache下面的bin目录，输入<br>
+<code>httpd -k install</code><br>
+把apache安装成windows后台服务。</p>
+<p><strong>使用ApacheMonitor.exe来管理apache</strong></p>
+<p>打开 <code>D:\apache\bin\ApacheMonitor.exe</code> 即可启动apacheMonitor来管理apache（可以发生到桌面快捷方式哦）。</p>
+<p>点击启动apache 即可启动apache。</p>
+<p>访问 localhost 可以观看效果。</p>
+<h3 id="php7-安装与设置"><a class="markdownIt-Anchor" href="#php7-安装与设置"></a> PHP7 安装与设置</h3>
+<p>下载地址：<a href="http://windows.php.net/download/" target="_blank" rel="noopener">http://windows.php.net/download/</a></p>
+<p><strong>php non-thread-safe和thread-safe的区别</strong></p>
+<p>从PHP5.2.10版本开始，有 <strong>None-Thread Safe</strong> 与 <strong>Thread Safe</strong> 两种版本的可供选择，这两种版本有何不同，作为使用者来说又应该如何选择呢？<br>
+先从字面意思上理解，None-Thread Safe就是非线程安全，在执行时不进行线程（thread）安全检查；<br>
+Thread Safe就是线程安全，执行时会进行线程（thread）安全检查，以防止有新要求就启动新线程的 CGI 执行方式耗尽系统资源。</p>
+<p><strong>PHP的两种执行方式：ISAPI和FastCGI</strong></p>
+<p><strong>FastCGI</strong> 执行方式是以单一线程来执行操作，所以不需要进行线程的安全检查，除去线程安全检查的防护反而可以提高执行效率，所以，如果是以 FastCGI（搭配IIS）执行 PHP ，都建议下载执行 non-thread safe 的 PHP （PHP 的二进位档有两种包装方式：msi 、zip ，请下载 zip 套件）。</p>
+<p>而线程安全检查正是为ISAPI方式的PHP准备的，因为有许多php模块都不是线程安全的，所以需要使用Thread Safe的PHP(搭配apache)。</p>
+<p>如果你还搞不清楚，那么只需知道你是php+apache还是php+iis组合<br>
+non-thread-safe 非 线程安全与IIS搭配环境<br>
+thread-safe 线程安全 与apache搭配环境</p>
+<p>另外php还有VC6 VC9版本区分<br>
+VC6和VC9一个支持apache一个支持IIS<br>
+VC9用在apache上也没问题,如果你用iis就必须用vc9的，如果你用apache vc6和vc9都可以用。</p>
+<p><strong>安装</strong></p>
+<p>下载后得到php7的安装包（例:php-7.0.0-Win32-VC14-x64.zip）。<br>
+解压后复制php文件到安装目录：<code>D:\php7</code></p>
+<p><strong>修改apache配置文件加载php 7</strong></p>
+<p>apache配置文件位置：<code>D:\apache\conf\http.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LoadModule php7_module &quot;D:\phpserver\php\php7apache2_4.dll&quot;</span><br><span class="line">AddType application/x-httpd-php .php</span><br><span class="line">AddType application/x-httpd-php .php3</span><br></pre></td></tr></table></figure>
+<p><strong>修改apache配置文件设置index.php为默认首页</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;IfModule dir_module&gt;</span><br><span class="line">    DirectoryIndex index.html index.php</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+<p>安装完毕，新建一个index.php文件，内容如下：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">phpinfo();</span><br><span class="line">？&gt;</span><br></pre></td></tr></table></figure>
+<p>可显示出结果</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Web后端/">Web后端</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/PHP/">PHP</a><a href="/tags/Apache/">Apache</a>
+  </div>
+
+</div>
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://flamepeak.com/2017/05/13/Web-Apache-Php-Mysql-install-and-notice-20170513/" data-title="Apache Php Mysql install and notices | FlamePeak" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/05/23/Android-app-network-data-capture-20170518/" title="Android app 网络数据抓取相关设置">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Android app 网络数据抓取相关设置</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/04/24/Python-Algorithms-part2-count-20170424/"  title="Python Algorithms 读书笔记 递归">
+ <strong>下一篇：</strong><br/> 
+ <span>Python Algorithms 读书笔记 递归
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">1.</span> <span class="toc-text"> 参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apache-安装"><span class="toc-number">2.</span> <span class="toc-text"> Apache 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php7-安装与设置"><span class="toc-number">3.</span> <span class="toc-text"> PHP7 安装与设置</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Cryptography/" title="Cryptography">Cryptography<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hardware/" title="Hardware">Hardware<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Life/" title="Life">Life<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Network-Security/" title="Network Security">Network Security<sup>19</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>17</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web前端/" title="Web前端">Web前端<sup>20</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web后端/" title="Web后端">Web后端<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/人工智能/" title="人工智能">人工智能<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/百家杂谈/" title="百家杂谈">百家杂谈<sup>21</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C">C<sup>21</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>18</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://laod.cn/hosts/2017-google-hosts.html" target="_blank" title="Google Hosts">Google Hosts</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://overapi.com" target="_blank" title="OverAPI">OverAPI</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://devdocs.io" target="_blank" title="DevDocs">DevDocs</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 善良   善学   勇敢   坚毅 <br/>
+			努力   克制   谦虚   执着</p>
+	</section>
+	 
+	<div id="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="FlamePeak">FlamePeak</a>
+		
+		
+
+
+
+
+
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          $('#toc.toc-aside').css('display', 'block');
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+      
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+<!--%- partial('analytics') %-->
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
+

@@ -1,0 +1,700 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inconsolata:400">
+    <title>TensorFlow 学习(一) | FlamePeak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FlamePeak">
+    
+
+    
+    <meta name="description" content="Basic Usage To use TensorFlow you need to understand how TensorFlow:  Represents computations as graphs. Executes graphs in the context of Sessions. Represents data as tensors. Maintains state with V">
+<meta name="keywords" content="Learning,TensorFlow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow 学习(一)">
+<meta property="og:url" content="http://flamepeak.com/2017/01/03/TensorFlow-learning-part1-20170103/index.html">
+<meta property="og:site_name" content="FlamePeak">
+<meta property="og:description" content="Basic Usage To use TensorFlow you need to understand how TensorFlow:  Represents computations as graphs. Executes graphs in the context of Sessions. Represents data as tensors. Maintains state with V">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://flamepeak.com/sourcepictures/2017/01/06/softmax-regression-scalargraph.png">
+<meta property="og:image" content="http://flamepeak.com/sourcepictures/2017/01/06/softmax-regression-scalarequation.png">
+<meta property="og:image" content="http://flamepeak.com/sourcepictures/2017/01/06/softmax-regression-vectorequation.png">
+<meta property="og:updated_time" content="2017-02-06T13:09:22.266Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TensorFlow 学习(一)">
+<meta name="twitter:description" content="Basic Usage To use TensorFlow you need to understand how TensorFlow:  Represents computations as graphs. Executes graphs in the context of Sessions. Represents data as tensors. Maintains state with V">
+<meta name="twitter:image" content="http://flamepeak.com/sourcepictures/2017/01/06/softmax-regression-scalargraph.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+  <meta name="google-site-verification" content="rYNq4pSdFJQ3Ir4VuV4A6TqVEEUP8o-rrwmST28FhQY">
+  <meta name="baidu-site-verification" content="AL6EYSh1WZ">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="FlamePeak">FlamePeak</a></h1>
+				<h2 class="blog-motto">We know something, but we do not know more.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/notes">Notes</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:flamepeak.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/01/03/TensorFlow-learning-part1-20170103/" title="TensorFlow 学习(一)" itemprop="url">TensorFlow 学习(一)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="FlamePeak" target="_blank" itemprop="author">FlamePeak</a>
+		
+  <p class="article-time">
+    <time datetime="2017-01-03T01:43:14.000Z" itemprop="datePublished"> Published 2017-01-03</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<h3 id="basic-usage"><a class="markdownIt-Anchor" href="#basic-usage"></a> Basic Usage</h3>
+<p>To use TensorFlow you need to understand how TensorFlow:</p>
+<ul>
+<li>Represents computations as graphs.</li>
+<li>Executes graphs in the context of <code>Sessions</code>.</li>
+<li>Represents data as tensors.</li>
+<li>Maintains state with <code>Variables</code>.</li>
+<li>Uses feeds and fetches to get data into and out of arbitrary operations.</li>
+</ul>
+<h4 id="overview"><a class="markdownIt-Anchor" href="#overview"></a> Overview</h4>
+<p>TensorFlow is a programming system in which you represent computations as graphs. Nodes in the graph are called ops (short for operations). An op takes zero or more <code>Tensors</code>, performs some computation, and produces zero or more <code>Tensors</code>. In TensorFlow terminology, a <code>Tensor</code> is a typed multi-dimensional array. For example, you can represent a mini-batch of images as a 4-D array of floating point numbers with dimensions <code>[batch, height, width, channels]</code>.</p>
+<p>A TensorFlow graph is a description of computations. To compute anything, a graph must be launched in a <code>Session</code>. A <code>Session</code> places the graph ops onto <code>Devices</code>, such as CPUs or GPUs, and provides methods to execute them. These methods return tensors produced by ops as <code>numpy</code> <code>ndarray</code> objects in <code>Python</code>, and as <code>tensorflow::Tensor</code> instances in C and C++.</p>
+<h4 id="the-computation-graph"><a class="markdownIt-Anchor" href="#the-computation-graph"></a> The computation graph</h4>
+<p>TensorFlow programs are usually structured into a construction phase, that assembles a graph, and an execution phase that uses a session to execute ops in the graph.</p>
+<p>For example, it is common to create a graph to represent and train a neural network in the construction phase, and then repeatedly execute a set of training ops in the graph in the execution phase.</p>
+<p>First Example:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> tf</span><br><span class="line"></span><br><span class="line">matrix1 = tf.constant([[<span class="number">3.</span>, <span class="number">3.</span>]])</span><br><span class="line">tallies into our predicted probabilities y using the <span class="string">"softmax"</span> function:</span><br><span class="line">matrix2 = tf.constant([[<span class="number">2.</span>],[<span class="number">2.</span>]])</span><br><span class="line"></span><br><span class="line">product = tf.matmul(matrix1, matrix2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    result = sess.run([product])</span><br><span class="line">    <span class="keyword">print</span> (result)</span><br></pre></td></tr></table></figure>
+<h4 id="interactive-usage"><a class="markdownIt-Anchor" href="#interactive-usage"></a> Interactive Usage</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">sess = tf.InterativeSession()</span><br><span class="line"></span><br><span class="line">x = tf.Variable([<span class="number">1.0</span>, <span class="number">2.0</span>])</span><br><span class="line">a = tf.constant([<span class="number">3.0</span>, <span class="number">3.0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Initialize 'x' using the run() method of its initializer op.</span></span><br><span class="line">x.initializer.run()</span><br><span class="line"></span><br><span class="line">sub = tf.sub(x, a)</span><br><span class="line"><span class="keyword">print</span> (sub.eval())</span><br><span class="line"></span><br><span class="line">sess.close()</span><br></pre></td></tr></table></figure>
+<h4 id="tensor"><a class="markdownIt-Anchor" href="#tensor"></a> Tensor</h4>
+<p>TensorFlow programs use a tensor data structure to represent all data – only tensors are passed between operations in the computation graph. You can think of a TensorFlow tensor as an n-dimensional array or list. A tensor has a static type, a rank, and a shape.</p>
+<h4 id="variables"><a class="markdownIt-Anchor" href="#variables"></a> Variables</h4>
+<p>Variables maintain state across executions of the graph.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Create a Variable, that will be initialized to the scalar value 0.</span></span><br><span class="line">state = tf.Variable(<span class="number">0</span>, name=<span class="string">"conunter"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create an Op to add one to 'state'.</span></span><br><span class="line">one = tf.constant(<span class="number">1</span>)</span><br><span class="line">new_value = tf.add(state, one)</span><br><span class="line">update = tf.assign(state, new_value)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Varibale must be initialized by running an 'init' Op after having</span></span><br><span class="line"><span class="comment"># launched the graph. We first have to add the 'init' Op to the graph.</span></span><br><span class="line">init_op = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Launch the graph and run the ops.</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    <span class="comment"># Run the 'init' op</span></span><br><span class="line">    sess.run(init_op)</span><br><span class="line">    <span class="comment"># Print the initial value of 'state'</span></span><br><span class="line">    <span class="keyword">print</span> (sess.run(state))</span><br><span class="line">    <span class="comment"># Run the op that updates 'state' and print 'state'</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        sess.run(update)</span><br><span class="line">        <span class="keyword">print</span> (sess.run(state))</span><br></pre></td></tr></table></figure>
+<h4 id="fetches"><a class="markdownIt-Anchor" href="#fetches"></a> Fetches</h4>
+<p>To fetch the outputs of operations, execute the graph with a <code>run()</code> call on the <strong>Session</strong> object and pass in the tensors to retrieve.<br>
+为了取回操作的输出内容, 可以在使用 Session 对象的 run() 调用 执行图时, 传入一些 tensor, 这些 tensor 会帮助你取回结果.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">input1 = tf.constant([<span class="number">3.0</span>])</span><br><span class="line">input2 = tf.constant([<span class="number">2.0</span>])</span><br><span class="line">input3 = tf.constant([<span class="number">5.0</span>])</span><br><span class="line">intermed = tf.add(input2, input3)</span><br><span class="line">mul = tf.mul(input1, intermed)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    result = sess.run([mul, intermed])</span><br><span class="line">    <span class="keyword">print</span> (result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="comment"># [array([ 21.], dtype=float32), array([ 7.], dtype=float32)]</span></span><br></pre></td></tr></table></figure>
+<h4 id="feeds"><a class="markdownIt-Anchor" href="#feeds"></a> Feeds</h4>
+<p>The examples above introduce tensors into the computation graph by storing them in <strong>Constants</strong> and <strong>Variables</strong>. TensorFlow also provides a feed mechanism for patching a tensor directly into any operation in the graph.</p>
+<p>A feed temporarily replaces the output of an operation with a tensor value. You supply feed data as an argument to a run() call. The feed is only used for the run call to which it is passed. The most common use case involves designating specific operations to be “feed” operations by using <code>tf.placeholder()</code> to create them:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">input1 = tf.placeholder(tf.float32)</span><br><span class="line">input2 = tf.placeholder(tf.float32)</span><br><span class="line">output = tf.mul(input1, input2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">  print(sess.run([output], feed_dict=&#123;input1:[<span class="number">7.</span>], input2:[<span class="number">2.</span>]&#125;))</span><br><span class="line"></span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="comment"># [array([ 14.], dtype=float32)]</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="mnist-for-ml-beginners"><a class="markdownIt-Anchor" href="#mnist-for-ml-beginners"></a> MNIST for ML Beginners</h3>
+<p>MNIST is a simple computer vision dataset.</p>
+<h4 id="softmax-regressions"><a class="markdownIt-Anchor" href="#softmax-regressions"></a> Softmax Regressions</h4>
+<p>If you want to assign probabilities to an object being one of several different things, softmax is the thing to do, because softmax gives us a list of values between 0 and 1 that add up to 1. Even later on, when we train more sophisticated models, the final step will be a layer of softmax.</p>
+<p>A softmax regression has two steps: first we add up the evidence of our input being in certain classes, and then we convert that evidence into probabilities.</p>
+<p>To tally up the evidence that a given image is in a particular class, we do a weighted sum of the pixel intensities. The weight is negative if that pixel having a high intensity is evidence against the image being in that class, and positive if it is evidence in favor.<br>
+为了得到一张给定图片属于某个特定数字类的证据(evidence),我们对图片像素值进行加权求和。如果这个像素具有很强的证据说明这张图片不属于该类,那么相应的权值为负数,相反如果这个像素拥有有利的证据支持这张图片属于这个类,那么权值是正数。</p>
+<p>We also add some extra evidence called a bias. Basically, we want to be able to say that some things are more likely independent of the input. The result is that the evidence for a class <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> given an input <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> is:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mtext>evidence</mtext><mi>i</mi></msub><mo>=</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>W</mi><mrow><mi>i</mi><mo separator="true">,</mo><mtext> </mtext><mi>j</mi></mrow></msub><msub><mi>x</mi><mi>j</mi></msub><mo>+</mo><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\text{evidence}_i = \sum_j W_{i,~ j} x_j + b_i
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">evidence</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.463782em;vertical-align:-1.413777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8723309999999997em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.413777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mspace nobreak mtight"><span class="mtight"> </span></span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>where <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>W</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">W_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the weights and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">b_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the bias for class <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>, and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span> is an index for summing over the pixels in our input image <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>.</p>
+<p>We then convert the evidence tallies into our predicted probabilities <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> using the “softmax” function:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mtext>softmax</mtext><mo stretchy="false">(</mo><mtext>evidence</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">y = \text{softmax}(\text{evidence})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">softmax</span></span><span class="mopen">(</span><span class="mord text"><span class="mord">evidence</span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>Here softmax is serving as an “activation”(激励函数) or “link”（链接函数） function, shaping the output of our linear function into the form we want.<br>
+You can think of it as converting tallies of evidence into probabilities of our input being in each class. It’s defined as:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>softmax</mtext><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mtext>normalize</mtext><mo stretchy="false">(</mo><mi>exp</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\text{softmax}(x) = \text{normalize}(\exp(x))
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">softmax</span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">normalize</span></span><span class="mopen">(</span><span class="mop">exp</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></span></p>
+<p>If you expand that equation out, you get:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>softmax</mtext><mo stretchy="false">(</mo><mi>x</mi><msub><mo stretchy="false">)</mo><mi>i</mi></msub><mo>=</mo><mfrac><mrow><mi>exp</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><mrow><munder><mo>∑</mo><mi>j</mi></munder><mi>exp</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{softmax}(x)_i = \frac{\exp(x_i)}{\sum_j \exp(x_j)}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">softmax</span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.5488180000000003em;vertical-align:-1.1218180000000002em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16195399999999993em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">exp</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop">exp</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.1218180000000002em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>But it’s often more helpful to think of softmax the first way: exponentiating its inputs and then normalizing them. The exponentiation means that one more unit of evidence increases the weight given to any hypothesis multiplicatively. And conversely, having one less unit of evidence means that a hypothesis gets a fraction of its earlier weight. No hypothesis ever has zero or negative weight. Softmax then normalizes these weights, so that they add up to one, forming a valid probability distribution.</p>
+<p>You can picture our softmax regression as looking something like the following, although with a lot more <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>s. For each output, we compute a weighted sum of the <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>s, add a bias, and then apply softmax.<br>
+<img src="/sourcepictures/2017/01/06/softmax-regression-scalargraph.png" alt="softmax-regression-scalargraph.png"></p>
+<p>If we write that out as equations, we get:<br>
+<img src="/sourcepictures/2017/01/06/softmax-regression-scalarequation.png" alt="softmax-regression-scalarequation.png"></p>
+<p>We can “vectorize” this procedure, turning it into a matrix multiplication and vector addition. This is helpful for computational efficiency.<br>
+<img src="/sourcepictures/2017/01/06/softmax-regression-vectorequation.png" alt="softmax-regression-vectorequation.png"></p>
+<p>More compactly, we can just write:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mtext>softmax</mtext><mo stretchy="false">(</mo><mi>W</mi><mi>x</mi><mo>+</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">y = \text{softmax}(Wx + b)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">softmax</span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span></span></p>
+<h4 id="implementing-the-regression"><a class="markdownIt-Anchor" href="#implementing-the-regression"></a> Implementing the Regression</h4>
+<p>Instead of running a single expensive operation independently from Python, TensorFlow lets us describe a graph of interacting operations that run entirely outside Python.</p>
+<p>We describe these interacting operations by manipulating symbolic variables. Let’s create one:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x = tf.placeholder(tf.float32, [None, 784])</span><br></pre></td></tr></table></figure>
+<p>x isn’t a specific value. It’s a <strong>placeholder</strong>, a value that we’ll input when we ask TensorFlow to run a computation.</p>
+<p>We represent this as a 2-D tensor of floating-point numbers, with a shape [<strong>None</strong>, 784]. (Here <strong>None</strong> means that a dimension can be of any length.)</p>
+<p>A <strong>Variable</strong> is a modifiable tensor that lives in TensorFlow’s graph of interacting operations. It can be used and even modified by the computation. For machine learning applications, one generally has the model parameters be <strong>Variables</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">W = tf.Variable(tf.zeros([784, 10]))</span><br><span class="line">b = tf.Variable(tf.zeros([10]))</span><br></pre></td></tr></table></figure>
+<p>We can now implement our model. It only takes one line to define it!</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">y = tf.nn.softmax(tf.matmul(x, W)+b)</span><br></pre></td></tr></table></figure>
+<h4 id="training"><a class="markdownIt-Anchor" href="#training"></a> Training</h4>
+<p>In order to train our model, we need to define what it means for the model to be good. Well, actually, in machine learning we typically define what it means for a model to be bad. We call this the cost, or the loss, and it represents how far off our model is from our desired outcome. We try to minimize that error, and the smaller the error margin, the better our model is.</p>
+<p>One very common, very nice function to determine the loss of a model is called “cross-entropy.” Cross-entropy arises from thinking about information compressing codes in information theory but it winds up being an important idea in lots of areas, from gambling to machine learning. It’s defined as:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>H</mi><msup><mi>y</mi><mo mathvariant="normal">′</mo></msup></msub><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mo>−</mo><munder><mo>∑</mo><mi>i</mi></munder><msubsup><mi>y</mi><mi>i</mi><mo mathvariant="normal">′</mo></msubsup><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H_{y&#x27;}(y) = -\sum_i y&#x27;_i \log(y_i)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32798em;"><span style="top:-2.5500000000000003em;margin-left:-0.08125em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6828285714285715em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.327674em;vertical-align:-1.277669em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0500050000000003em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8018919999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>Where <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> is our predicted probability distribution, and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mi mathvariant="normal">′</mi></mrow><annotation encoding="application/x-tex">y′</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord">′</span></span></span></span> is the true distribution (the one-hot vector with the digit labels). In some rough sense, the cross-entropy is measuring how inefficient our predictions are for describing the truth.</p>
+<p>mplement cross-entropy we need to first add a new placeholder to input the correct answers:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">y_ = tf.placeholder(tf.float32, [None, 10])</span><br></pre></td></tr></table></figure>
+<p>Then we can implement the cross-entroy function,  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mo>∑</mo><mo stretchy="false">(</mo><msup><mi>y</mi><mo mathvariant="normal">′</mo></msup><mo>∗</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">-\sum(y&#x27;*\log(y))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001902em;vertical-align:-0.25001em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cross_entroy = tf.reduce_mean(-tf.reduce_sum(y_*tf.log(y),reduction_indices=[1]))</span><br></pre></td></tr></table></figure>
+<p>Now that we know what we want our model to do, it’s very easy to have TensorFlow train it to do so. Because TensorFlow knows the entire graph of your computations, it can automatically use the backpropagation algorithm to efficiently determine how your variables affect the loss you ask it to minimize. Then it can apply your choice of optimization algorithm to modify the variables and reduce the loss.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)</span><br></pre></td></tr></table></figure>
+<p>Now we have our model set up to train. One last thing before we launch it, we have to create an operation to initialize the variables we created. Note that this defines the operation but does not run it yet:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">init = tf.global_variables_initializer()</span><br></pre></td></tr></table></figure>
+<p>We can now launch the model in a Session, and now we run the operation that initializes the variables:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)</span><br></pre></td></tr></table></figure>
+<p>Let’s train – we’ll run the training step 1000 times!</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for i in range(1000):</span><br><span class="line">  batch_xs, batch_ys = mnist.train.next_batch(100)</span><br><span class="line">  sess.run(train_step, feed_dict=&#123;x: batch_xs, y_: batch_ys&#125;)</span><br></pre></td></tr></table></figure>
+<p>Each step of the loop, we get a “batch” of one hundred random data points from our training set. We run <code>train_step</code> feeding in the batches data to replace the <code>placeholders</code>.</p>
+<p>Using small batches of random data is called stochastic training – in this case, stochastic gradient descent.</p>
+<h4 id="evaluating-our-model"><a class="markdownIt-Anchor" href="#evaluating-our-model"></a> Evaluating Our Model</h4>
+<p>Well, first let’s figure out where we predicted the correct label. <strong>tf.argmax</strong> is an extremely useful function which gives you the index of the highest entry in a tensor along some axis.<br>
+For example, <strong>tf.argmax(y,1)</strong> is the label our model thinks is most likely for each input, while <strong>tf.argmax(y_,1)</strong> is the correct label. We can use tf.equal to check if our prediction matches the truth.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))</span><br></pre></td></tr></table></figure>
+<p>That gives us a list of booleans. To determine what fraction are correct, we cast to floating point numbers and then take the mean.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))</span><br></pre></td></tr></table></figure>
+<p>Finally, we ask for our accuracy on our test data.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">print(sess.run(accuracy, feed_dict=&#123;x: mnist.test.images, y_: mnist.test.labels&#125;))</span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/人工智能/">人工智能</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Learning/">Learning</a><a href="/tags/TensorFlow/">TensorFlow</a>
+  </div>
+
+</div>
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://flamepeak.com/2017/01/03/TensorFlow-learning-part1-20170103/" data-title="TensorFlow 学习(一) | FlamePeak" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/01/04/Linux-file-directory-tips-20170104/" title="Linux 使用技巧">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Linux 使用技巧</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/01/03/My-program-for-2017-20170103/"  title="2017年学习计划">
+ <strong>下一篇：</strong><br/> 
+ <span>2017年学习计划
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#basic-usage"><span class="toc-number">1.</span> <span class="toc-text"> Basic Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#overview"><span class="toc-number">1.1.</span> <span class="toc-text"> Overview</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#the-computation-graph"><span class="toc-number">1.2.</span> <span class="toc-text"> The computation graph</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#interactive-usage"><span class="toc-number">1.3.</span> <span class="toc-text"> Interactive Usage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tensor"><span class="toc-number">1.4.</span> <span class="toc-text"> Tensor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#variables"><span class="toc-number">1.5.</span> <span class="toc-text"> Variables</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fetches"><span class="toc-number">1.6.</span> <span class="toc-text"> Fetches</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#feeds"><span class="toc-number">1.7.</span> <span class="toc-text"> Feeds</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mnist-for-ml-beginners"><span class="toc-number">2.</span> <span class="toc-text"> MNIST for ML Beginners</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#softmax-regressions"><span class="toc-number">2.1.</span> <span class="toc-text"> Softmax Regressions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#implementing-the-regression"><span class="toc-number">2.2.</span> <span class="toc-text"> Implementing the Regression</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#training"><span class="toc-number">2.3.</span> <span class="toc-text"> Training</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#evaluating-our-model"><span class="toc-number">2.4.</span> <span class="toc-text"> Evaluating Our Model</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Cryptography/" title="Cryptography">Cryptography<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hardware/" title="Hardware">Hardware<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Life/" title="Life">Life<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Network-Security/" title="Network Security">Network Security<sup>19</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>17</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web前端/" title="Web前端">Web前端<sup>20</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web后端/" title="Web后端">Web后端<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/人工智能/" title="人工智能">人工智能<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/百家杂谈/" title="百家杂谈">百家杂谈<sup>21</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C">C<sup>21</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>18</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://laod.cn/hosts/2017-google-hosts.html" target="_blank" title="Google Hosts">Google Hosts</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://overapi.com" target="_blank" title="OverAPI">OverAPI</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://devdocs.io" target="_blank" title="DevDocs">DevDocs</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 善良   善学   勇敢   坚毅 <br/>
+			努力   克制   谦虚   执着</p>
+	</section>
+	 
+	<div id="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="FlamePeak">FlamePeak</a>
+		
+		
+
+
+
+
+
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          $('#toc.toc-aside').css('display', 'block');
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+      
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+<!--%- partial('analytics') %-->
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
+

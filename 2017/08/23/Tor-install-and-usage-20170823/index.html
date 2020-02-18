@@ -1,0 +1,623 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inconsolata:400">
+    <title>Tor polipo在CentoS上的安装与使用 | FlamePeak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FlamePeak">
+    
+
+    
+    <meta name="description" content="推荐阅读： Setting up Tor Proxy and Hidden Services in Linux  Install Tor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of">
+<meta name="keywords" content="Tor,CentOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tor polipo在CentoS上的安装与使用">
+<meta property="og:url" content="http://flamepeak.com/2017/08/23/Tor-install-and-usage-20170823/index.html">
+<meta property="og:site_name" content="FlamePeak">
+<meta property="og:description" content="推荐阅读： Setting up Tor Proxy and Hidden Services in Linux  Install Tor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-08-24T21:35:57.255Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tor polipo在CentoS上的安装与使用">
+<meta name="twitter:description" content="推荐阅读： Setting up Tor Proxy and Hidden Services in Linux  Install Tor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of">
+
+    
+    <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+  <meta name="google-site-verification" content="rYNq4pSdFJQ3Ir4VuV4A6TqVEEUP8o-rrwmST28FhQY">
+  <meta name="baidu-site-verification" content="AL6EYSh1WZ">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="FlamePeak">FlamePeak</a></h1>
+				<h2 class="blog-motto">We know something, but we do not know more.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/notes">Notes</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:flamepeak.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/08/23/Tor-install-and-usage-20170823/" title="Tor polipo在CentoS上的安装与使用" itemprop="url">Tor polipo在CentoS上的安装与使用</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="FlamePeak" target="_blank" itemprop="author">FlamePeak</a>
+		
+  <p class="article-time">
+    <time datetime="2017-08-23T02:24:12.000Z" itemprop="datePublished"> Published 2017-08-23</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<p>推荐阅读： <a href="http://www.devdungeon.com/content/setting-tor-proxy-and-hidden-services-linux" target="_blank" rel="noopener">Setting up Tor Proxy and Hidden Services in Linux</a></p>
+<h3 id="install"><a class="markdownIt-Anchor" href="#install"></a> Install</h3>
+<p>Tor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of their repos.</p>
+<p>Instead do:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install epel-release</span><br><span class="line">yum install tor</span><br></pre></td></tr></table></figure>
+<h3 id="configure-tor"><a class="markdownIt-Anchor" href="#configure-tor"></a> Configure Tor</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Review/modify the configuration</span></span><br><span class="line">vim /etc/tor/torrc</span><br></pre></td></tr></table></figure>
+<p>You can change the default port, or specify multiple IP addresses and ports for binding.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SOCKSPort 9050 <span class="comment"># Default</span></span><br><span class="line">SOCKSPort 10.10.1.23:9999 <span class="comment"># Bind to specific IP/port</span></span><br></pre></td></tr></table></figure>
+<p>只更改第一个也可以，开了第二个有可能出错</p>
+<h3 id="start-tor"><a class="markdownIt-Anchor" href="#start-tor"></a> Start Tor</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Control the service using standard systemctl or service commands</span></span><br><span class="line">service tor restart</span><br><span class="line">systemctl restart tor</span><br></pre></td></tr></table></figure>
+<h3 id="test-tor"><a class="markdownIt-Anchor" href="#test-tor"></a> Test Tor</h3>
+<p>Test out your connection by setting your browser to use SOCKS5 localhost:9050 or follow the examples using cURL or Go.<br>
+Making Tor requests with command-line cURL<br>
+Making HTTP Tor requests with Go</p>
+<h4 id="making-tor-requests-with-command-line-curl"><a class="markdownIt-Anchor" href="#making-tor-requests-with-command-line-curl"></a> Making Tor Requests with command-line cURL</h4>
+<p>Making requests with the Tor network is easy with cURL. Since Tor uses the common SOCKS5 protocol, it works well with anything that has SOCKS5 support. cURL comes with a simple command-line option to specify a proxy.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Linux default Tor proxy port is 9050</span></span><br><span class="line">curl --socks5-hostname localhost:9050 https://check.torproject.org</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Windows/Tor Browser Bundle default to port 9150</span></span><br><span class="line">curl --socks5-hostname localhost:9150 https://check.torproject.org</span><br></pre></td></tr></table></figure>
+<p>通过这种方法会检测出是否经过Tor访问，在Server版本中由于没有界面会显示html文本，可以看到：Congratulations. This browser is configured to use Tor.Your IP address appears to be: 198.X.X.X</p>
+<h4 id="making-tor-http-requests-with-go"><a class="markdownIt-Anchor" href="#making-tor-http-requests-with-go"></a> Making Tor HTTP Requests with Go</h4>
+<p>Go provides standard packages for working with HTTP, URLs, and proxies. Below is an example of how to make an HTTP request using a Tor proxy with the Go programming language. The key difference from making a standard HTTP request is that you must configure the HTTP client to use the proxy. This is done by creating a proxy dialer, creating an HTTP transport that uses that proxy dialer, and then creating an HTTP client that uses that transport. Check out the example below.</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"io/ioutil"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">	<span class="string">"net/url"</span></span><br><span class="line">	<span class="string">"time"</span></span><br><span class="line"></span><br><span class="line">	<span class="string">"golang.org/x/net/proxy"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// URL to fetch</span></span><br><span class="line"><span class="keyword">var</span> webUrl <span class="keyword">string</span> = <span class="string">"https://check.torproject.org"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Specify Tor proxy ip and port</span></span><br><span class="line"><span class="keyword">var</span> torProxy <span class="keyword">string</span> = <span class="string">"socks5://127.0.0.1:9050"</span> <span class="comment">// 9150 w/ Tor Browser</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// Parse Tor proxy URL string to a URL type</span></span><br><span class="line">	torProxyUrl, err := url.Parse(torProxy)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"Error parsing Tor proxy URL:"</span>, torProxy, <span class="string">"."</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Create proxy dialer using Tor SOCKS proxy</span></span><br><span class="line">	torDialer, err := proxy.FromURL(torProxyUrl, proxy.Direct)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"Error setting Tor proxy."</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Set up a custom HTTP transport to use the proxy and create the client</span></span><br><span class="line">	torTransport := &amp;http.Transport&#123;Dial: torDialer.Dial&#125;</span><br><span class="line">	client := &amp;http.Client&#123;Transport: torTransport, Timeout: time.Second * <span class="number">5</span>&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Make request</span></span><br><span class="line">	resp, err := client.Get(webUrl)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"Error making GET request."</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> resp.Body.Close()</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Read response</span></span><br><span class="line">	body, err := ioutil.ReadAll(resp.Body)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"Error reading body of response."</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	log.Println(<span class="keyword">string</span>(body))</span><br><span class="line">	log.Println(<span class="string">"Return status code:"</span>, resp.StatusCode)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<hr>
+<h3 id="polipo"><a class="markdownIt-Anchor" href="#polipo"></a> Polipo</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install  texinfo  -y       <span class="comment">#编译时依赖软件</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/jech/polipo.git</span><br><span class="line"><span class="built_in">cd</span> polipo</span><br><span class="line">make all</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>建立配置文件</p>
+<p>官方文档中，默认的配置文件路径为： <code>~/.polipo or /etc/polipo/config</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir /etc/polipo</span><br><span class="line">vim /etc/polipo/config</span><br><span class="line">cp config.sample /opt/polipo/config</span><br></pre></td></tr></table></figure>
+<p>编辑配置文件</p>
+<p>在使用TOR时，如下配置以下内容：</p>
+<p>Polipo is configured by setting a number of configuration variables in Polipo’s configuration file, which is either ~/.polipo or /etc/polipo/config, whichever exists. In order to tell Polipo to use tor and not to cache any fetched pages on disk, you will want to add the following lines to your configuration file:</p>
+<blockquote>
+<p>socksParentProxy = localhost:9050   #注意此处没有加引号<br>
+diskCacheRoot=&quot;&quot;</p>
+</blockquote>
+<p>You will also want to disable the local configuration interface in order to protect yourself from browser vulnerabilities:</p>
+<blockquote>
+<p>disableLocalInterface = true</p>
+</blockquote>
+<p>如果想后台运行Polipo，还需要：</p>
+<blockquote>
+<p>daemonise = true</p>
+</blockquote>
+<p>注意： polipo配置文件的路径要注意，如果没有把握的话就在运行polipo的时候加上 <code>-c</code>参数，例如：<code>polipo -c /opt/polipo/config</code>,这是我走过的坑</p>
+<p><strong>以下设置对于CentOS 7 可行</strong></p>
+<p>新建启动脚本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/systemd/system/polipo.service</span><br></pre></td></tr></table></figure>
+<p>内容为</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=polipo web proxy</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/tmp</span><br><span class="line">User=polipo</span><br><span class="line">Group=polipo</span><br><span class="line">ExecStart=/usr/bin/polipo -c /opt/polipo/config</span><br><span class="line">Restart=always</span><br><span class="line">SyslogIdentifier=Polipo</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>打开防火墙</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=8123/tcp</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p>尝试启动服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start polipo</span><br></pre></td></tr></table></figure>
+<p>测试现在的ip地址：</p>
+<p><code>curl --proxy localhost:8123 ifconfig.me</code></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Tools/">Tools</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Tor/">Tor</a><a href="/tags/CentOS/">CentOS</a>
+  </div>
+
+</div>
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://flamepeak.com/2017/08/23/Tor-install-and-usage-20170823/" data-title="Tor polipo在CentoS上的安装与使用 | FlamePeak" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/08/24/Linux-process-run-in-background-20170824/" title="Linux 技巧：让进程在后台可靠运行的几种方法">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Linux 技巧：让进程在后台可靠运行的几种方法</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/08/22/Scrapy-thumbnail-quality-and-size-compare-20170822/"  title="Scrapy 缩略图图片大小与quality值比较">
+ <strong>下一篇：</strong><br/> 
+ <span>Scrapy 缩略图图片大小与quality值比较
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#install"><span class="toc-number">1.</span> <span class="toc-text"> Install</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#configure-tor"><span class="toc-number">2.</span> <span class="toc-text"> Configure Tor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#start-tor"><span class="toc-number">3.</span> <span class="toc-text"> Start Tor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#test-tor"><span class="toc-number">4.</span> <span class="toc-text"> Test Tor</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#making-tor-requests-with-command-line-curl"><span class="toc-number">4.1.</span> <span class="toc-text"> Making Tor Requests with command-line cURL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#making-tor-http-requests-with-go"><span class="toc-number">4.2.</span> <span class="toc-text"> Making Tor HTTP Requests with Go</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#polipo"><span class="toc-number">5.</span> <span class="toc-text"> Polipo</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Cryptography/" title="Cryptography">Cryptography<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hardware/" title="Hardware">Hardware<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Life/" title="Life">Life<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Network-Security/" title="Network Security">Network Security<sup>19</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>17</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web前端/" title="Web前端">Web前端<sup>20</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web后端/" title="Web后端">Web后端<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/人工智能/" title="人工智能">人工智能<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/百家杂谈/" title="百家杂谈">百家杂谈<sup>21</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C">C<sup>21</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>18</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://laod.cn/hosts/2017-google-hosts.html" target="_blank" title="Google Hosts">Google Hosts</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://overapi.com" target="_blank" title="OverAPI">OverAPI</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://devdocs.io" target="_blank" title="DevDocs">DevDocs</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 善良   善学   勇敢   坚毅 <br/>
+			努力   克制   谦虚   执着</p>
+	</section>
+	 
+	<div id="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="FlamePeak">FlamePeak</a>
+		
+		
+
+
+
+
+
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          $('#toc.toc-aside').css('display', 'block');
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+      
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+<!--%- partial('analytics') %-->
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
+

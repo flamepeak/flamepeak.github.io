@@ -1,0 +1,622 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inconsolata:400">
+    <title>MongoDB 学习笔记(五)：特殊的索引与集合 | FlamePeak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FlamePeak">
+    
+
+    
+    <meta name="description" content="固定集合 MongoDb中的“普通”集合是动态创建的，而且可以自动增长以容纳更多的数据。MongoDB中还有另一种不同类型的结合叫做固定集合，固定集合需要事先创建，而且他的大小是固定的。 如果向固定集合插入文档的话，最老的文档会被删除以释放空间。  capped collection A fixed-sized collection that automatically overwrites i">
+<meta name="keywords" content="MongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB 学习笔记(五)：特殊的索引与集合">
+<meta property="og:url" content="http://flamepeak.com/2016/10/30/MongoDB-learning-part5-20161030/index.html">
+<meta property="og:site_name" content="FlamePeak">
+<meta property="og:description" content="固定集合 MongoDb中的“普通”集合是动态创建的，而且可以自动增长以容纳更多的数据。MongoDB中还有另一种不同类型的结合叫做固定集合，固定集合需要事先创建，而且他的大小是固定的。 如果向固定集合插入文档的话，最老的文档会被删除以释放空间。  capped collection A fixed-sized collection that automatically overwrites i">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-01-31T00:31:37.478Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MongoDB 学习笔记(五)：特殊的索引与集合">
+<meta name="twitter:description" content="固定集合 MongoDb中的“普通”集合是动态创建的，而且可以自动增长以容纳更多的数据。MongoDB中还有另一种不同类型的结合叫做固定集合，固定集合需要事先创建，而且他的大小是固定的。 如果向固定集合插入文档的话，最老的文档会被删除以释放空间。  capped collection A fixed-sized collection that automatically overwrites i">
+
+    
+    <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+  <meta name="google-site-verification" content="rYNq4pSdFJQ3Ir4VuV4A6TqVEEUP8o-rrwmST28FhQY">
+  <meta name="baidu-site-verification" content="AL6EYSh1WZ">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="FlamePeak">FlamePeak</a></h1>
+				<h2 class="blog-motto">We know something, but we do not know more.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/notes">Notes</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:flamepeak.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/10/30/MongoDB-learning-part5-20161030/" title="MongoDB 学习笔记(五)：特殊的索引与集合" itemprop="url">MongoDB 学习笔记(五)：特殊的索引与集合</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="FlamePeak" target="_blank" itemprop="author">FlamePeak</a>
+		
+  <p class="article-time">
+    <time datetime="2016-10-30T03:53:20.000Z" itemprop="datePublished"> Published 2016-10-30</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<h2 id="固定集合"><a class="markdownIt-Anchor" href="#固定集合"></a> 固定集合</h2>
+<p>MongoDb中的“普通”集合是动态创建的，而且可以自动增长以容纳更多的数据。MongoDB中还有另一种不同类型的结合叫做<strong>固定集合</strong>，固定集合需要事先创建，而且他的大小是固定的。<br>
+如果向固定集合插入文档的话，最老的文档会被删除以释放空间。</p>
+<blockquote>
+<p><strong>capped collection</strong><br>
+A fixed-sized collection that automatically overwrites its oldest entries when it reaches its maximum size. The MongoDB oplog that is used in replication is a capped collection.</p>
+</blockquote>
+<h3 id="固定集合的创建"><a class="markdownIt-Anchor" href="#固定集合的创建"></a> 固定集合的创建</h3>
+<p>不同于普通集合，固定集合的创建必须在使用之前显示创建。<br>
+<code>db.createCollection(name, options)</code><br>
+Creates a new collection explicitly.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.createCollection(&lt;name&gt;, &#123; capped: &lt;boolean&gt;,</span><br><span class="line">                              autoIndexId: &lt;boolean&gt;,</span><br><span class="line">                              size: &lt;number&gt;,</span><br><span class="line">                              max: &lt;number&gt;,</span><br><span class="line">                              storageEngine: &lt;document&gt;,</span><br><span class="line">                              validator: &lt;document&gt;,</span><br><span class="line">                              validationLevel: &lt;string&gt;,</span><br><span class="line">                              validationAction: &lt;string&gt;,</span><br><span class="line">                              indexOptionDefaults: &lt;document&gt; &#125; )</span><br></pre></td></tr></table></figure>
+<p>参数</p>
+<blockquote>
+<p><strong>capped</strong><br>
+Optional. To create a capped collection, specify true. If you specify true, you must also set a maximum size in the size field.</p>
+</blockquote>
+<blockquote>
+<p><strong>size</strong><br>
+Optional. Specify a maximum size in bytes for a capped collection. Once a capped collection reaches its maximum size, MongoDB removes the older documents to make space for the new documents. The size field is required for capped collections and ignored for other collections.</p>
+</blockquote>
+<blockquote>
+<p><strong>max</strong><br>
+Optional. The maximum number of documents allowed in the capped collection. The size limit takes precedence over this limit. If a capped collection reaches the size limit before it reaches the maximum number of documents, MongoDB removes old documents. If you prefer to use the max limit, ensure that the size limit, which is required for a capped collection, is sufficient to contain the maximum number of documents.</p>
+</blockquote>
+<blockquote>
+<p><strong>autoIndexId</strong><br>
+Optional. Specify false to disable the automatic creation of an index on the _id field.</p>
+</blockquote>
+<p>例如:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.createCollection(<span class="string">"my_collection2"</span>,&#123;<span class="string">"capped"</span>:<span class="literal">true</span>, <span class="string">"size"</span>:<span class="number">100000</span>, <span class="string">"max"</span>:<span class="number">10</span>&#125;)</span><br><span class="line">&#123; <span class="string">"ok"</span> : <span class="number">1</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>固定集合创建后就不能改变了，如果需要修改固定集合的属性，只能将其删除之后再重建。因此，在创建固定集合前应该考虑好它的大小。</p>
+<h3 id="自然排序"><a class="markdownIt-Anchor" href="#自然排序"></a> 自然排序</h3>
+<p>对固定集合可以进行一种特殊的排序，称为<strong>自然排序</strong>(natural sort). 自然排序返回的就是集合中文档文档在磁盘中的顺序。<br>
+例如：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.my_collection2.find()</span><br><span class="line">&gt; <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">... db.my_collection2.insert(&#123;<span class="string">"news"</span>:<span class="string">"article"</span>+i&#125;)</span><br><span class="line">... &#125;</span><br><span class="line">WriteResult(&#123; <span class="string">"nInserted"</span> : <span class="number">1</span> &#125;)</span><br><span class="line">&gt; db.my_collection2.find()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a65e"</span>), <span class="string">"news"</span> : <span class="string">"article0"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a65f"</span>), <span class="string">"news"</span> : <span class="string">"article1"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a660"</span>), <span class="string">"news"</span> : <span class="string">"article2"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a661"</span>), <span class="string">"news"</span> : <span class="string">"article3"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a662"</span>), <span class="string">"news"</span> : <span class="string">"article4"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a663"</span>), <span class="string">"news"</span> : <span class="string">"article5"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a664"</span>), <span class="string">"news"</span> : <span class="string">"article6"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a665"</span>), <span class="string">"news"</span> : <span class="string">"article7"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a666"</span>), <span class="string">"news"</span> : <span class="string">"article8"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a667"</span>), <span class="string">"news"</span> : <span class="string">"article9"</span> &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; db.my_collection2.find().sort(&#123;<span class="string">"$natural"</span>:<span class="number">-1</span>&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a667"</span>), <span class="string">"news"</span> : <span class="string">"article9"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a666"</span>), <span class="string">"news"</span> : <span class="string">"article8"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a665"</span>), <span class="string">"news"</span> : <span class="string">"article7"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a664"</span>), <span class="string">"news"</span> : <span class="string">"article6"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a663"</span>), <span class="string">"news"</span> : <span class="string">"article5"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a662"</span>), <span class="string">"news"</span> : <span class="string">"article4"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a661"</span>), <span class="string">"news"</span> : <span class="string">"article3"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a660"</span>), <span class="string">"news"</span> : <span class="string">"article2"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a65f"</span>), <span class="string">"news"</span> : <span class="string">"article1"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a65e"</span>), <span class="string">"news"</span> : <span class="string">"article0"</span> &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; db.my_collection2.insert(&#123;<span class="string">"news"</span>:<span class="string">"article10"</span>&#125;)</span><br><span class="line">WriteResult(&#123; <span class="string">"nInserted"</span> : <span class="number">1</span> &#125;)</span><br><span class="line">&gt; db.my_collection2.find().sort(&#123;<span class="string">"$natural"</span>:<span class="number">-1</span>&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816486fd7f38c449494a668"</span>), <span class="string">"news"</span> : <span class="string">"article10"</span></span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a667"</span>), <span class="string">"news"</span> : <span class="string">"article9"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a666"</span>), <span class="string">"news"</span> : <span class="string">"article8"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a665"</span>), <span class="string">"news"</span> : <span class="string">"article7"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a664"</span>), <span class="string">"news"</span> : <span class="string">"article6"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a663"</span>), <span class="string">"news"</span> : <span class="string">"article5"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a662"</span>), <span class="string">"news"</span> : <span class="string">"article4"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a661"</span>), <span class="string">"news"</span> : <span class="string">"article3"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a660"</span>), <span class="string">"news"</span> : <span class="string">"article2"</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5816476cd7f38c449494a65f"</span>), <span class="string">"news"</span> : <span class="string">"article1"</span> &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="循环游标tailable-cursor"><a class="markdownIt-Anchor" href="#循环游标tailable-cursor"></a> 循环游标(Tailable Cursor)</h3>
+<blockquote>
+<p>By default, MongoDB will automatically close a cursor when the client has exhausted all results in the cursor. However, for <strong>capped collections</strong> you may use a Tailable Cursor that remains open after the client exhausts the results in the initial cursor.<br>
+After clients insert new additional documents into a capped collection, the tailable cursor will continue to retrieve documents.</p>
+</blockquote>
+<p>循环游标通常用于当文档插入到固定集合时，对新插入的文档进行处理。</p>
+<h2 id="没有_id索引的集合"><a class="markdownIt-Anchor" href="#没有_id索引的集合"></a> 没有_id索引的集合</h2>
+<p>默认情况下，每一个集合都有一个&quot;_id&quot;索引。但是，如果在调用createCollection创建集合时指定<code>autoIndexId</code>选项为false，创建的集合就不会自动创建_id。</p>
+<h2 id="ttltime-to-live索引"><a class="markdownIt-Anchor" href="#ttltime-to-live索引"></a> TTL(time to live)索引</h2>
+<blockquote>
+<p>Expire Data from Collections by Setting TTL<br>
+TTL collections make it possible to store data in MongoDB and have the mongod automatically remove data after a specified number of seconds or at a specific clock time.<br>
+To create a TTL index, use the <strong>db.collection.createIndex()</strong> method with the <strong>expireAfterSeconds</strong> option on a field whose value is either a date or an array that contains date values.</p>
+</blockquote>
+<p>例如：<br>
+For example, the following operation creates an index on the log_events collection’s createdAt field and specifies the expireAfterSeconds value of 3600 to set the expiration time to be one hour after the time specified by createdAt.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.log_events.createIndex( &#123; <span class="string">"createdAt"</span>: <span class="number">1</span> &#125;, &#123; <span class="attr">expireAfterSeconds</span>: <span class="number">3600</span> &#125; )</span><br></pre></td></tr></table></figure>
+<p>When adding documents to the log_events collection, set the createdAt field to the current time:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.log_events.insert( &#123;</span><br><span class="line">   <span class="string">"createdAt"</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(),</span><br><span class="line">   <span class="string">"logEvent"</span>: <span class="number">2</span>,</span><br><span class="line">   <span class="string">"logMessage"</span>: <span class="string">"Success!"</span></span><br><span class="line">&#125; )</span><br></pre></td></tr></table></figure>
+<p>MongoDB will automatically delete documents from the log_events collection when the document’s createdAt value is older than the number of seconds specified in expireAfterSeconds.</p>
+<p>MongoDB每分钟对TTL索引进行一次清理，所以不应该依赖以秒为单位的时间保证索引的存活状态。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Web后端/">Web后端</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/MongoDB/">MongoDB</a>
+  </div>
+
+</div>
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://flamepeak.com/2016/10/30/MongoDB-learning-part5-20161030/" data-title="MongoDB 学习笔记(五)：特殊的索引与集合 | FlamePeak" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/10/30/MongoDB-learning-part6-20161030/" title="MongoDB 学习笔记(六)：聚合(Aggregation)">
+  <strong>上一篇：</strong><br/>
+  <span>
+  MongoDB 学习笔记(六)：聚合(Aggregation)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/10/26/MongoDB-learning-part4-20161026/"  title="MongoDB 学习笔记(四)：索引">
+ <strong>下一篇：</strong><br/> 
+ <span>MongoDB 学习笔记(四)：索引
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#固定集合"><span class="toc-number">1.</span> <span class="toc-text"> 固定集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#固定集合的创建"><span class="toc-number">1.1.</span> <span class="toc-text"> 固定集合的创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自然排序"><span class="toc-number">1.2.</span> <span class="toc-text"> 自然排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#循环游标tailable-cursor"><span class="toc-number">1.3.</span> <span class="toc-text"> 循环游标(Tailable Cursor)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#没有_id索引的集合"><span class="toc-number">2.</span> <span class="toc-text"> 没有_id索引的集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ttltime-to-live索引"><span class="toc-number">3.</span> <span class="toc-text"> TTL(time to live)索引</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Cryptography/" title="Cryptography">Cryptography<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hardware/" title="Hardware">Hardware<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Life/" title="Life">Life<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Network-Security/" title="Network Security">Network Security<sup>19</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>17</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web前端/" title="Web前端">Web前端<sup>20</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web后端/" title="Web后端">Web后端<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/人工智能/" title="人工智能">人工智能<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/百家杂谈/" title="百家杂谈">百家杂谈<sup>21</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C">C<sup>21</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>18</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://laod.cn/hosts/2017-google-hosts.html" target="_blank" title="Google Hosts">Google Hosts</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://overapi.com" target="_blank" title="OverAPI">OverAPI</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://devdocs.io" target="_blank" title="DevDocs">DevDocs</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 善良   善学   勇敢   坚毅 <br/>
+			努力   克制   谦虚   执着</p>
+	</section>
+	 
+	<div id="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="FlamePeak">FlamePeak</a>
+		
+		
+
+
+
+
+
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          $('#toc.toc-aside').css('display', 'block');
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+      
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+<!--%- partial('analytics') %-->
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
+

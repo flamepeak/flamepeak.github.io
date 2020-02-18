@@ -1,0 +1,625 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inconsolata:400">
+    <title>使用Live CD重置linux密码 | FlamePeak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FlamePeak">
+    
+
+    
+    <meta name="description" content="参考：http://www.microhowto.info/howto/reset_a_forgotten_root_password_using_a_live_distribution.html  前情  使用live CD进入系统 查看/dev下面有多少磁盘文件，然后使用mount挂载，挂载之后进入文件目录查看，是不是原系统的root分区 明显的标志就是分区里面有/etc、 /dev目录，找到">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Live CD重置linux密码">
+<meta property="og:url" content="http://flamepeak.com/2018/08/07/linux-change-shadow-passwd-20180807/index.html">
+<meta property="og:site_name" content="FlamePeak">
+<meta property="og:description" content="参考：http://www.microhowto.info/howto/reset_a_forgotten_root_password_using_a_live_distribution.html  前情  使用live CD进入系统 查看/dev下面有多少磁盘文件，然后使用mount挂载，挂载之后进入文件目录查看，是不是原系统的root分区 明显的标志就是分区里面有/etc、 /dev目录，找到">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-09T07:00:50.355Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Live CD重置linux密码">
+<meta name="twitter:description" content="参考：http://www.microhowto.info/howto/reset_a_forgotten_root_password_using_a_live_distribution.html  前情  使用live CD进入系统 查看/dev下面有多少磁盘文件，然后使用mount挂载，挂载之后进入文件目录查看，是不是原系统的root分区 明显的标志就是分区里面有/etc、 /dev目录，找到">
+
+    
+    <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+  <meta name="google-site-verification" content="rYNq4pSdFJQ3Ir4VuV4A6TqVEEUP8o-rrwmST28FhQY">
+  <meta name="baidu-site-verification" content="AL6EYSh1WZ">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="FlamePeak">FlamePeak</a></h1>
+				<h2 class="blog-motto">We know something, but we do not know more.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/notes">Notes</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:flamepeak.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/08/07/linux-change-shadow-passwd-20180807/" title="使用Live CD重置linux密码" itemprop="url">使用Live CD重置linux密码</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="FlamePeak" target="_blank" itemprop="author">FlamePeak</a>
+		
+  <p class="article-time">
+    <time datetime="2018-08-07T06:58:00.000Z" itemprop="datePublished"> Published 2018-08-07</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<p>参考：<a href="http://www.microhowto.info/howto/reset_a_forgotten_root_password_using_a_live_distribution.html" target="_blank" rel="noopener">http://www.microhowto.info/howto/reset_a_forgotten_root_password_using_a_live_distribution.html</a></p>
+<h4 id="前情"><a class="markdownIt-Anchor" href="#前情"></a> 前情</h4>
+<ol>
+<li>使用live CD进入系统</li>
+<li>查看/dev下面有多少磁盘文件，然后使用mount挂载，挂载之后进入文件目录查看，是不是原系统的root分区</li>
+<li>明显的标志就是分区里面有<code>/etc</code>、 <code>/dev</code>目录，找到之后就继续操作</li>
+</ol>
+<h4 id="挂载根分区"><a class="markdownIt-Anchor" href="#挂载根分区"></a> 挂载根分区：</h4>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir /mnt/recover</span><br><span class="line">mount /dev/sda2 /mnt/recover</span><br></pre></td></tr></table></figure>
+<h4 id="使用chroot进入根分区"><a class="markdownIt-Anchor" href="#使用chroot进入根分区"></a> 使用chroot进入根分区</h4>
+<p>The <code>chroot</code> command allows you to move the filesystem root to some subdirectory of the current root. In this case you want to move it to <code>/mnt/recover</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chroot /mnt/recover</span><br></pre></td></tr></table></figure>
+<h4 id="更改原系统密码"><a class="markdownIt-Anchor" href="#更改原系统密码"></a> 更改原系统密码：</h4>
+<p>As the root user of the system to be recovered you should now be able to change the root password in the normal manner:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
+<p>The passwords for other local accounts can be changed similarly:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">passwd user</span><br></pre></td></tr></table></figure>
+<p>Because you are root, it should not be necessary to enter the previous password.</p>
+<p>Note that passwords provided by a remote authentication protocol such as Kerberos or LDAP cannot be reset using this method.</p>
+<h4 id="退出chroot"><a class="markdownIt-Anchor" href="#退出chroot"></a> 退出chroot:</h4>
+<p>You can exit from the <code>chroot</code> shell in the same way as any other shell, for example using the <code>exit</code> command:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+<h4 id="取消挂载"><a class="markdownIt-Anchor" href="#取消挂载"></a> 取消挂载</h4>
+<p>Unmount the root partition</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">umount /mnt/recover</span><br></pre></td></tr></table></figure>
+<h3 id="另一种方法直接修改password文件"><a class="markdownIt-Anchor" href="#另一种方法直接修改password文件"></a> 另一种方法：直接修改password文件</h3>
+<p>Directly editing the password file</p>
+<p>It is possible to achieve the same effect by directly editing the password file. This is significantly more risky than using the <code>passwd</code> command, but may prove useful if you can edit files but are unable to execute binaries.</p>
+<p>The file you need to edit is <code>/etc/passwd</code>. Each line is a colon-separated list of fields, the first two of which are the username and password for an account. Here is a sample:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">daemon:x:1:1:daemon:/usr/sbin:/bin/sh</span><br><span class="line">bin:x:2:2:bin:/bin:/bin/sh</span><br><span class="line">sys:x:3:3:sys:/dev:/bin/sh</span><br></pre></td></tr></table></figure>
+<p>In each of these four entries of this example the password field is set to <code>x</code>, meaning that the encrypted password can be found in <code>/etc/shadow</code>. If you replace the <code>x</code> (or whatever else is in the second field) with the empty string then no password will be needed:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">root::0:0:root:/root:/bin/bash</span><br></pre></td></tr></table></figure>
+<p>It would be prudent to make a backup of <code>/etc/passwd</code> before making any changes, because the mapping between usernames and UIDs would be very tedious to reconstruct if it were lost. You should also consider isolating the machine from any networks while it is without a root password, as it will obviously be very insecure during this period.</p>
+<p>The <code>x</code> should be re-inserted before setting a new root password, otherwise it will be stored in <code>/etc/passwd</code> instead of <code>/etc/shadow</code>.</p>
+<h3 id="可能遇到的错误"><a class="markdownIt-Anchor" href="#可能遇到的错误"></a> 可能遇到的错误</h3>
+<h4 id="如果你更改了磁盘的名字那它可能不是以sda开头-那应该怎么办"><a class="markdownIt-Anchor" href="#如果你更改了磁盘的名字那它可能不是以sda开头-那应该怎么办"></a> 如果你更改了磁盘的名字，那它可能不是以/sda开头。那应该怎么办？</h4>
+<ol>
+<li>查看物理卷：pvs</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PV       VG       Fmt   Attr PSize PFree </span><br><span class="line">/dev/sda2   VolGroup00 lvm2 a- 279.22G 32.00M</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>查看卷组：vgs</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">VG       #PV #LV #SN Attr VSize VFree </span><br><span class="line">VolGroup00 1 4 0 wz--n- 279.22G 32.00M</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>查看逻辑卷：lvdisplay</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--- Logical volume ---</span><br><span class="line">   LV Name             /dev/VolGroup00/LogVol03</span><br><span class="line">   VG Name             VolGroup00</span><br><span class="line">   LV UUID             YhG8Fu-ZGPk-qt8D-AxgC-DzOU-dg1F-z71feI</span><br><span class="line">   LV Write Access        read/write</span><br><span class="line">  LV Status              unenable</span><br><span class="line">   # open                 1</span><br><span class="line">   LV Size             245.97 GB</span><br><span class="line">   Current LE          7871</span><br><span class="line">   Segments             1</span><br><span class="line">   Allocation          inherit</span><br><span class="line">   Read ahead sectors     auto</span><br><span class="line">   - currently set to     256</span><br><span class="line">   Block device           253:2</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>如果未激活，需要激活逻辑卷：<br>
+<code>vgchange -ay /dev/VolGroup00</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LV Status              available</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>挂载逻辑卷：<br>
+<code>mount /dev/VolGroup00/LogVol03 /home/lvm</code></li>
+</ol>
+<h4 id="mount-unknown-filesystem-type-lvm2_member解决方案"><a class="markdownIt-Anchor" href="#mount-unknown-filesystem-type-lvm2_member解决方案"></a> mount: unknown filesystem type 'LVM2_member’解决方案</h4>
+<p>解决办法：</p>
+<p>需要安装 lvm2:  <code>yum install lvm2</code></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Linux/">Linux</a>
+  </div>
+
+</div>
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://flamepeak.com/2018/08/07/linux-change-shadow-passwd-20180807/" data-title="使用Live CD重置linux密码 | FlamePeak" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/08/09/Linux-Check-kernel-version-and-distribution-20180809/" title="Linux Check kernel version and distribution 20180809">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Linux Check kernel version and distribution 20180809</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/08/06/guo-jia-min-yun-yu-ge-ren-ming-yun-20180806/"  title="演讲：国家命运与个人命运">
+ <strong>下一篇：</strong><br/> 
+ <span>演讲：国家命运与个人命运
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#前情"><span class="toc-number">1.</span> <span class="toc-text"> 前情</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#挂载根分区"><span class="toc-number">2.</span> <span class="toc-text"> 挂载根分区：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用chroot进入根分区"><span class="toc-number">3.</span> <span class="toc-text"> 使用chroot进入根分区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更改原系统密码"><span class="toc-number">4.</span> <span class="toc-text"> 更改原系统密码：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#退出chroot"><span class="toc-number">5.</span> <span class="toc-text"> 退出chroot:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#取消挂载"><span class="toc-number">6.</span> <span class="toc-text"> 取消挂载</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#另一种方法直接修改password文件"><span class="toc-number"></span> <span class="toc-text"> 另一种方法：直接修改password文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可能遇到的错误"><span class="toc-number"></span> <span class="toc-text"> 可能遇到的错误</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如果你更改了磁盘的名字那它可能不是以sda开头-那应该怎么办"><span class="toc-number">1.</span> <span class="toc-text"> 如果你更改了磁盘的名字，那它可能不是以/sda开头。那应该怎么办？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mount-unknown-filesystem-type-lvm2_member解决方案"><span class="toc-number">2.</span> <span class="toc-text"> mount: unknown filesystem type &#39;LVM2_member’解决方案</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Cryptography/" title="Cryptography">Cryptography<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hardware/" title="Hardware">Hardware<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Life/" title="Life">Life<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Network-Security/" title="Network Security">Network Security<sup>19</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>17</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web前端/" title="Web前端">Web前端<sup>20</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web后端/" title="Web后端">Web后端<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/人工智能/" title="人工智能">人工智能<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/百家杂谈/" title="百家杂谈">百家杂谈<sup>21</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C">C<sup>21</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>18</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://laod.cn/hosts/2017-google-hosts.html" target="_blank" title="Google Hosts">Google Hosts</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://overapi.com" target="_blank" title="OverAPI">OverAPI</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://devdocs.io" target="_blank" title="DevDocs">DevDocs</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 善良   善学   勇敢   坚毅 <br/>
+			努力   克制   谦虚   执着</p>
+	</section>
+	 
+	<div id="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="FlamePeak">FlamePeak</a>
+		
+		
+
+
+
+
+
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          $('#toc.toc-aside').css('display', 'block');
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+      
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+<!--%- partial('analytics') %-->
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
+

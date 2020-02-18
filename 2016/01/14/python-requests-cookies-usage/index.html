@@ -1,0 +1,585 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inconsolata:400">
+    <title>python requests 301/302/303重定向cookie和Location问题 | FlamePeak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FlamePeak">
+    
+
+    
+    <meta name="description" content="Simple One:适用cookie 不会变化的情形 import requestsparams = &amp;#123;&apos;username&apos;: &apos;Ryan&apos;,\           &apos;password&apos;: &apos;password&apos;&amp;#125;r = requests.post(&quot;http://pythonscraping.com/pages/cookies/welcome.php&quot;, data=para">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python requests 301&#x2F;302&#x2F;303重定向cookie和Location问题">
+<meta property="og:url" content="http://flamepeak.com/2016/01/14/python-requests-cookies-usage/index.html">
+<meta property="og:site_name" content="FlamePeak">
+<meta property="og:description" content="Simple One:适用cookie 不会变化的情形 import requestsparams = &amp;#123;&apos;username&apos;: &apos;Ryan&apos;,\           &apos;password&apos;: &apos;password&apos;&amp;#125;r = requests.post(&quot;http://pythonscraping.com/pages/cookies/welcome.php&quot;, data=para">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-09T23:51:22.932Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python requests 301&#x2F;302&#x2F;303重定向cookie和Location问题">
+<meta name="twitter:description" content="Simple One:适用cookie 不会变化的情形 import requestsparams = &amp;#123;&apos;username&apos;: &apos;Ryan&apos;,\           &apos;password&apos;: &apos;password&apos;&amp;#125;r = requests.post(&quot;http://pythonscraping.com/pages/cookies/welcome.php&quot;, data=para">
+
+    
+    <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+  <meta name="google-site-verification" content="rYNq4pSdFJQ3Ir4VuV4A6TqVEEUP8o-rrwmST28FhQY">
+  <meta name="baidu-site-verification" content="AL6EYSh1WZ">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="FlamePeak">FlamePeak</a></h1>
+				<h2 class="blog-motto">We know something, but we do not know more.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/notes">Notes</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:flamepeak.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/01/14/python-requests-cookies-usage/" title="python requests 301/302/303重定向cookie和Location问题" itemprop="url">python requests 301/302/303重定向cookie和Location问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="FlamePeak" target="_blank" itemprop="author">FlamePeak</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-14T07:37:00.000Z" itemprop="datePublished"> Published 2016-01-14</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<hr>
+<p>Simple One:适用cookie 不会变化的情形</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">params = &#123;<span class="string">'username'</span>: <span class="string">'Ryan'</span>,\</span><br><span class="line">           <span class="string">'password'</span>: <span class="string">'password'</span>&#125;</span><br><span class="line">r = requests.post(<span class="string">"http://pythonscraping.com/pages/cookies/welcome.php"</span>, data=params)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Cookie is set to:"</span></span><br><span class="line"><span class="keyword">print</span> r.cookies.get_dict()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"-----------------"</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Going to profile page..."</span></span><br><span class="line">r = requests.get(<span class="string">"http://pythonscraping.com/pages/cookies/profile.php"</span>, cookies = r.cookies)</span><br><span class="line"><span class="keyword">print</span> r.text</span><br></pre></td></tr></table></figure>
+<p>Complex One:适用于cookie可能会被修改的情况下, 使用request.Session</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">sess = requests.Session()</span><br><span class="line">params = &#123;<span class="string">'username'</span>: <span class="string">'Ryan'</span>,\</span><br><span class="line">           <span class="string">'password'</span>: <span class="string">'password'</span>&#125;</span><br><span class="line">s = sess.post(<span class="string">"http://pythonscraping.com/pages/cookies/welcome.php"</span>, data=params)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Cookie is set to:"</span></span><br><span class="line"><span class="keyword">print</span> s.cookies.get_dict()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"----------------"</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Going to profile page..."</span></span><br><span class="line">s = sess.get(<span class="string">"http://pythonscraping.com/pages/cookies/profile.php"</span>)</span><br><span class="line"><span class="keyword">print</span> s.text</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a href="http://docs.python-requests.org/zh_CN/latest/user/advanced.html" target="_blank" rel="noopener">python requests session的用法</a></p>
+<p>跨请求保持一些 cookie</p>
+<hr>
+<p>在爬取网页时，要注意返回的response里是否有<code>Location</code>，如果有Location就意味着可能会有跳转，即重定向</p>
+<p>可以参考: <a href="https://www.cnblogs.com/zengguowang/archive/2018/02/02/8404087.html" target="_blank" rel="noopener">Python requests 301/302/303重定向（跨域/本域）cookie、Location问题</a></p>
+<p>原文如下：</p>
+<p>今天使用request的get方法获取一个网站的登录页信息，结果使用charles抓包的时候发现该网站登录页303(重定向的问题)，网上查了很多资料，原因如下：</p>
+<h3 id="一-cookie"><a class="markdownIt-Anchor" href="#一-cookie"></a> 一、 Cookie</h3>
+<p>原因：利用requests模拟登录时，直接使用request.get(url),容易造成 301/302/303 重定向，因为cookie不持久，造成重定向之后的cookie等信息获取不到</p>
+<h4 id="1-同一个host下边重定向"><a class="markdownIt-Anchor" href="#1-同一个host下边重定向"></a> （1） 同一个Host下边重定向</h4>
+<p>解决方法：使用requests.Session()方法，会使该连接持久化，并且保存请求的状态（session、cookie等），这样在重定向之后，我们使用requests.cookies就能获取到cookie了</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">result = requests.Session()</span><br><span class="line">header = &#123;</span><br><span class="line">    <span class="string">'Host'</span> : <span class="string">'xxxxx'</span>,</span><br><span class="line">    <span class="string">'Accept'</span> : <span class="string">'xxxx'</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'xxxx'</span> <span class="comment"># 这个最重要，建议手动设置（有时候没有设置，造成获取数据失败，本人被坑过......）</span></span><br><span class="line">&#125;</span><br><span class="line">response = result.get(url, headers=header)</span><br></pre></td></tr></table></figure>
+<p><code>注意：上面讲的重定向是在同一个host下重定向，跨域的重定向用上边的方法就获取不到cookie</code></p>
+<h4 id="2-跨域重定向"><a class="markdownIt-Anchor" href="#2-跨域重定向"></a> (2) 跨域重定向</h4>
+<p>示例：A(<a href="http://a.kuyu.com/login" target="_blank" rel="noopener">http://a.kuyu.com/login</a>)-&gt;B(<a href="http://b.baidu.com/xxxxx" target="_blank" rel="noopener">http://b.baidu.com/xxxxx</a>)-&gt;C(<a href="http://b.baidu.com/xxxx/xxxx" target="_blank" rel="noopener">http://b.baidu.com/xxxx/xxxx</a>)，类似这种形式，那么使用第一种解决办法就无法获取到cookie，这时候就需要变换一种方式来进行获取</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 获取请求url域名</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHost</span><span class="params">(url)</span>:</span></span><br><span class="line">    pattern = re.compile(<span class="string">r'(.*?)://(.*?)/'</span>, re.S)</span><br><span class="line">    response = re.search(pattern, url)</span><br><span class="line">    <span class="keyword">if</span> response:</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">'header'</span>:str(response.group(<span class="number">1</span>)).strip(), <span class="string">'host'</span>: str(response.group(<span class="number">2</span>)).strip()&#125;</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">cookieType = &#123;&#125; <span class="comment"># 保存域名对应的cookie</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getRedirectCookie</span><span class="params">(url)</span>:</span></span><br><span class="line">    locationList = set()</span><br><span class="line">    cookie = <span class="string">''</span></span><br><span class="line">    resUrl = url  <span class="comment"># 获取最后请求url</span></span><br><span class="line">    header = &#123;</span><br><span class="line">        <span class="string">'User-Agen'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            <span class="comment"># 请求</span></span><br><span class="line">            response = requests.get(url, headers=header, allow_redirects=<span class="keyword">False</span>)</span><br><span class="line">            <span class="comment"># 获取host</span></span><br><span class="line">            hostObj = getHost(resUrl)</span><br><span class="line">            <span class="keyword">if</span> hostObj <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">            <span class="comment"># 处理cookie</span></span><br><span class="line">            cookie = response.cookies.get_dict()</span><br><span class="line">            <span class="keyword">if</span> cookie == &#123;&#125;:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                cookieType[str(hostObj[<span class="string">'host'</span>]).strip()] = json.dumps(cookie)  <span class="comment"># 保存cookie</span></span><br><span class="line">            <span class="comment"># 获取跳转的url</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">'Location'</span> <span class="keyword">in</span> response.headers.keys():</span><br><span class="line">                url = response.headers.get(<span class="string">'Location'</span>)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> <span class="string">'http'</span> <span class="keyword">in</span> url:</span><br><span class="line">                    url = hostObj[<span class="string">'header'</span>] + <span class="string">'://'</span> + hostObj[<span class="string">'host'</span>] + url  <span class="comment"># 拼接host域名</span></span><br><span class="line"></span><br><span class="line">                resUrl = url</span><br><span class="line">                <span class="keyword">if</span> url <span class="keyword">in</span> locationList: <span class="keyword">break</span></span><br><span class="line">                locationList.add(url)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">'url'</span>: str(resUrl), <span class="string">'content'</span>: response.content, <span class="string">'header'</span>: response.headers&#125;</span><br><span class="line">    <span class="keyword">except</span> urllib2.URLError, e:</span><br><span class="line">        <span class="keyword">if</span> hasattr(e, <span class="string">'reason'</span>):</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'请求失败，原因：'</span> + e.reason</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>： 有时候执行带有重定向的时候会出现：&quot;requests.exceptions.TooManyRedirects: Exceeded 30 redirects.&quot;的情况，那么这时候是说重定向次数上限了，也可以使用上边的这种方式来解决</p>
+<h3 id="location重定向url获取重定向url"><a class="markdownIt-Anchor" href="#location重定向url获取重定向url"></a> Location（重定向url）:获取重定向url</h3>
+<p>有时候遇到重定向，我们只需要获取重定向的url即可，这个时候使用上述方法开启一个保持状态的长连接，并请求时获取不到的请求的headers的，那么我们该怎么办呢？</p>
+<p>解决：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">result = requests.Session()</span><br><span class="line">header = &#123;</span><br><span class="line">    <span class="string">'Host'</span> : <span class="string">'xxxxx'</span>,</span><br><span class="line">    <span class="string">'Accept'</span> : <span class="string">'xxxx'</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'xxxx'</span> <span class="comment"># 这个最重要，建议手动设置（有时候没有设置，造成获取数据失败，本人被坑过......）</span></span><br><span class="line">&#125;</span><br><span class="line">response = result.get(url, headers=header, allow_redirects=<span class="keyword">False</span>)</span><br><span class="line">location = response.headers[<span class="string">'Location'</span>] <span class="comment"># 注意有些header返回的Location中的url是不带host部分的，需要注意一下</span></span><br></pre></td></tr></table></figure>
+<p><code>allow_redirects=False</code> 的意义为拒绝默认的301/302/303重定向从而可以通过response.headers[‘Location’]拿到重定向的URL。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Python/">Python</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Python/">Python</a>
+  </div>
+
+</div>
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://flamepeak.com/2016/01/14/python-requests-cookies-usage/" data-title="python requests 301/302/303重定向cookie和Location问题 | FlamePeak" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/01/15/Python-Selenium-and-PhantomJS/" title="Python Selenium 和 PhantomJS 简介">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Python Selenium 和 PhantomJS 简介</span>
+</a>
+</div>
+
+
+</nav>
+
+	
+
+</div>  
+
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-cookie"><span class="toc-number">1.</span> <span class="toc-text"> 一、 Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-同一个host下边重定向"><span class="toc-number">1.1.</span> <span class="toc-text"> （1） 同一个Host下边重定向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-跨域重定向"><span class="toc-number">1.2.</span> <span class="toc-text"> (2) 跨域重定向</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#location重定向url获取重定向url"><span class="toc-number">2.</span> <span class="toc-text"> Location（重定向url）:获取重定向url</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Cryptography/" title="Cryptography">Cryptography<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hardware/" title="Hardware">Hardware<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Life/" title="Life">Life<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Network-Security/" title="Network Security">Network Security<sup>19</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>17</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web前端/" title="Web前端">Web前端<sup>20</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web后端/" title="Web后端">Web后端<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/人工智能/" title="人工智能">人工智能<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/百家杂谈/" title="百家杂谈">百家杂谈<sup>21</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C">C<sup>21</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>18</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://laod.cn/hosts/2017-google-hosts.html" target="_blank" title="Google Hosts">Google Hosts</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://overapi.com" target="_blank" title="OverAPI">OverAPI</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://devdocs.io" target="_blank" title="DevDocs">DevDocs</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 善良   善学   勇敢   坚毅 <br/>
+			努力   克制   谦虚   执着</p>
+	</section>
+	 
+	<div id="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="FlamePeak">FlamePeak</a>
+		
+		
+
+
+
+
+
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          $('#toc.toc-aside').css('display', 'block');
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+      
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+<!--%- partial('analytics') %-->
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
+

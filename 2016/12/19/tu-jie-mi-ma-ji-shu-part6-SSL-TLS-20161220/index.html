@@ -1,0 +1,661 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inconsolata:400">
+    <title>图解密码技术 读书笔记：SSL/TLS | FlamePeak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FlamePeak">
+    
+
+    
+    <meta name="description" content="SSL/TLS——为了更安全的通信 SSL/TLS是世界上应用最广发的密码通信方法。使用SSL/TLS可以对通信对象进行认证，还可以确保通信内容的机密性。 严格来说，SSL（Secure Socket Layer）与TLS（Transport Layer Security）是不同的，TLS相当于是SSL的后续版本。  什么是SSL/TLS 我们可以用SSL或者TLS作为对通信进行加密的协议，然后在">
+<meta name="keywords" content="笔记,cryptography">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图解密码技术 读书笔记：SSL&#x2F;TLS">
+<meta property="og:url" content="http://flamepeak.com/2016/12/19/tu-jie-mi-ma-ji-shu-part6-SSL-TLS-20161220/index.html">
+<meta property="og:site_name" content="FlamePeak">
+<meta property="og:description" content="SSL/TLS——为了更安全的通信 SSL/TLS是世界上应用最广发的密码通信方法。使用SSL/TLS可以对通信对象进行认证，还可以确保通信内容的机密性。 严格来说，SSL（Secure Socket Layer）与TLS（Transport Layer Security）是不同的，TLS相当于是SSL的后续版本。  什么是SSL/TLS 我们可以用SSL或者TLS作为对通信进行加密的协议，然后在">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://flamepeak.com/sourcepictures/20161220/TLS_protocol.png">
+<meta property="og:image" content="http://flamepeak.com/sourcepictures/20161220/TLS_record_protocol.png">
+<meta property="og:image" content="http://flamepeak.com/sourcepictures/20161220/TLS_handshake_protocol.png">
+<meta property="og:image" content="http://flamepeak.com/sourcepictures/20161220/TLS_used_cipher_tech.png">
+<meta property="og:updated_time" content="2017-01-31T00:42:14.935Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图解密码技术 读书笔记：SSL&#x2F;TLS">
+<meta name="twitter:description" content="SSL/TLS——为了更安全的通信 SSL/TLS是世界上应用最广发的密码通信方法。使用SSL/TLS可以对通信对象进行认证，还可以确保通信内容的机密性。 严格来说，SSL（Secure Socket Layer）与TLS（Transport Layer Security）是不同的，TLS相当于是SSL的后续版本。  什么是SSL/TLS 我们可以用SSL或者TLS作为对通信进行加密的协议，然后在">
+<meta name="twitter:image" content="http://flamepeak.com/sourcepictures/20161220/TLS_protocol.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+  <meta name="google-site-verification" content="rYNq4pSdFJQ3Ir4VuV4A6TqVEEUP8o-rrwmST28FhQY">
+  <meta name="baidu-site-verification" content="AL6EYSh1WZ">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="FlamePeak">FlamePeak</a></h1>
+				<h2 class="blog-motto">We know something, but we do not know more.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/notes">Notes</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:flamepeak.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/19/tu-jie-mi-ma-ji-shu-part6-SSL-TLS-20161220/" title="图解密码技术 读书笔记：SSL/TLS" itemprop="url">图解密码技术 读书笔记：SSL/TLS</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="FlamePeak" target="_blank" itemprop="author">FlamePeak</a>
+		
+  <p class="article-time">
+    <time datetime="2016-12-19T12:52:04.000Z" itemprop="datePublished"> Published 2016-12-19</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<p>SSL/TLS——为了更安全的通信</p>
+<p>SSL/TLS是世界上应用最广发的密码通信方法。使用SSL/TLS可以对通信对象进行认证，还可以确保通信内容的机密性。</p>
+<p>严格来说，SSL（Secure Socket Layer）与TLS（Transport Layer Security）是不同的，TLS相当于是SSL的后续版本。</p>
+<h3 id="什么是ssltls"><a class="markdownIt-Anchor" href="#什么是ssltls"></a> 什么是SSL/TLS</h3>
+<p>我们可以用SSL或者TLS作为对通信进行加密的协议，然后在此之上承载HTTP。通过将这两种协议进行叠加，我们就可以对HTTP的通信进行加密，从而防止窃听。通过SSL/TLS进行通信时，URL不是以<code>http://</code>开头，而是以<code>https://</code>开头。</p>
+<p>要确保机密性，可以使用<strong>对称密码</strong>。由于对称密码的密钥不能被攻击者预测，因此我们使用<strong>伪随机数生成器</strong>来生成密钥。若要将对称密码的密钥发送给通信对象，可以使用<strong>公钥密码</strong>或者<strong>Diffie-Hellman</strong>密钥交换。<br>
+要识别篡改，对数据进行认证，可以使用<strong>消息认证码</strong>。消息认证码是使用<strong>单向散列函数</strong>来实现的。<br>
+要对通信对象进行认证，可以使用对公钥加上<strong>数字签名</strong>所生成的证书。</p>
+<p>SSL/TLS提供了一种密码通信的框架，这意味着SSL/TLS中使用对称密码、公钥密码、数字签名、单向散列函数等技术，都是可以像零件一样进行替换的。也就是说，如果发现现在所使用的某个密码技术存在弱点，那么只需要将这一部分进行替换就可以了。</p>
+<p>由于实际进行对话的客户端和服务器必须使用相同的密码技术才能通信，如果选择过于自由就难以保证整体的兼容性。为此，SSL/TLS就规定了一些<strong>密码套件</strong>（cipher suite）。</p>
+<h3 id="使用ssltls进行通信"><a class="markdownIt-Anchor" href="#使用ssltls进行通信"></a> 使用SSL/TLS进行通信</h3>
+<p>下面内容基于TLS 1.0。</p>
+<h4 id="层次化的协议"><a class="markdownIt-Anchor" href="#层次化的协议"></a> 层次化的协议</h4>
+<p><strong>TLS协议</strong>是由“TLS记录协议”（TLS record protocol）和“TLS握手协议”（TLS handshake protocol）这两层协议叠加而成的。位于底层的TLS记录协议负责加密，而位于上层的TLS握手协议则负责除加密以外的其他各种操作。上层的TLS握手协议又可以分为4个子协议。<br>
+TLS协议的层次结构如下：<br>
+<img src="/sourcepictures/20161220/TLS_protocol.png" alt="TLS protocol"></p>
+<p><strong>TLS记录协议</strong><br>
+TLS记录协议位于TLS握手协议的下层，是负责使用对称密码对消息进行加密通信的部分。<br>
+TLS记录协议中使用了对称密码和消息认证码，但是具体的算法和共享密钥则是通过后面将要介绍的握手协议在服务器和客户端之间协商决定的。</p>
+<p><strong>TLS握手协议</strong><br>
+TLS握手协议分为以下4个子协议：握手协议、密码规格变更协议、警告协议和应用数据协议。</p>
+<ul>
+<li>握手协议<br>
+<strong>握手协议</strong>是TLS握手协议的一部分，负责在客户端和服务器之间协商决定密码算法和共享密钥。基于证书的认证操作也在这个协议中完成。它是4个子协议中最复杂的一个。<br>
+这个协议大致相当于下面这段对话：<br>
+客户端：“你好。我能够理解的密码套件有RSA/3DES，或者DSS/AES，请问我们使用哪种密码套件进行通信？”<br>
+服务器端：“你好。那么我们用DSS/3DES来进行通信吧，这是我的证书。”<br>
+在服务器和客户端之间通过握手协议协商一致之后，就会相互发出信号来切换密码。负责发出信号的就是下面要介绍的密码规格变更协议。</li>
+<li>密码规格变更协议<br>
+<strong>密码规格变更协议</strong>负责向通信对象传达变更密码方式的信号。简单的说，就跟向对方喊“1、2、3！”差不多。<br>
+这个协议所发送的消息，大致相当于下面的对话。<br>
+客户端：“好，我们按照刚才的约定切换密码吧。1、2、3！”<br>
+当协议中途发生错误时，就会通过下面的警告协议传达给对方。</li>
+<li>警告协议<br>
+<strong>警告协议</strong>负责在发送错误时将错误传达给对方。<br>
+这个协议所发送的消息，大致相当于下面的对话：<br>
+服务器：“刚才的消息无法正确解密哦！”<br>
+如果没有发生错误，则会使用下面的应用协议来进行通信。</li>
+<li>应用数据协议<br>
+<strong>应用数据协议</strong>是将TLS上面承载的应用数据传达给通信对象的协议。</li>
+</ul>
+<h4 id="tls记录协议"><a class="markdownIt-Anchor" href="#tls记录协议"></a> TLS记录协议</h4>
+<p>TLS记录协议负责消息的压缩、加密以及数据的认证，处理过程如下：<br>
+<img src="/sourcepictures/20161220/TLS_record_protocol.png" alt="TLS record protocol"></p>
+<ol>
+<li>首先，消息被分割成多个较短的片段（fragment），然后分别对每个片段进行压缩。压缩算法需要与通信对象协商决定。</li>
+<li>接下来，经过压缩的片段会被加上消息认证码，这是为了保证完整性，并进行数据的认证。通过附加消息认证码的MAC值，可以识别出篡改。与此同时，为了防止重放攻击，在计算消息认证码时，还加上了片段的编号。单向散列函数的算法，以及消息认证码所使用的共享密钥都需要与通信对象协商决定。</li>
+<li>再接下来，经过压缩的片段再加上消息认证码会一起通过对称密码进行加密。加密使用CBC模式。CBC模式的初始化向量（IV）通过主密码（master secret）生成，而对称密码算法以及共享密钥需要与通信对象协商决定。在TLS 1.1中，为防止CBC攻击，初始化向量改为由外部输入的方式。</li>
+<li>最后，上述经过加密的数据再加上由数据类型、版本号、压缩后的长度组成的报头（header）就是最终的报文数据。其中，数据类型为TLS记录协议所承载的4个子协议的其中之一。</li>
+</ol>
+<h4 id="tls握手协议"><a class="markdownIt-Anchor" href="#tls握手协议"></a> TLS握手协议</h4>
+<ul>
+<li><strong>握手协议</strong><br>
+握手协议是TLS握手协议的一部分，负责生成共享密钥以及交换证书。其中，生成共享密钥是为了进行密码通信，交换证书是为了通信双方相互进行认证。<br>
+由于握手协议中的信息交换是在没有加密的情况下进行的，所有数据都可能被窃听者窃听，因此在这一过程中必须使用公钥密码或者Diffie-Hellman密钥交换。<br>
+流程如下：<br>
+<img src="/sourcepictures/20161220/TLS_handshake_protocol.png" alt="TLS handshake protocol"></li>
+</ul>
+<h4 id="主密码"><a class="markdownIt-Anchor" href="#主密码"></a> 主密码</h4>
+<p>主密码是TLS客户端和服务器之间协商出来的一个秘密数值。这个数值非常重要，TLS密码通信的机密性和数据的认证全部依靠这个数值。</p>
+<ul>
+<li>
+<p><strong>主密码的计算</strong><br>
+主密码是客户端和服务器根据下列信息计算出来的：</p>
+<ul>
+<li>预备主密码</li>
+<li>客户端随机数</li>
+<li>服务器随机数</li>
+</ul>
+<p>当使用RSA公钥密码时，客户端会在发送ClientKeyExchange消息时，将经过加密的预备主密码一起发送给服务器。<br>
+当使用Diffie-Hellman密钥交换时，客户端会在发送ClientKeyExchange消息时，将Diffie-Hellman的公开值一起发送给服务器。根据这个值，客户端和服务器各自生成预备主密码。<br>
+客户端随机数和服务器随机数的作用相当于防止攻击者事先计算出密钥的盐。<br>
+当根据预备主密码计算主密码时，会使用由两个单向单向散列函数（MD5和SHA-1）组合而成的伪随机数生成器。之所以同时使用两个单向散列函数，是为了提高安全性。</p>
+</li>
+<li>
+<p><strong>主密码的目的</strong><br>
+主密码主要用于生成以下信息：</p>
+<ul>
+<li>对称密码的密钥</li>
+<li>消息认证码的密钥</li>
+<li>对称密码的CBC模式所使用的初始化向量</li>
+</ul>
+<p><img src="/sourcepictures/20161220/TLS_used_cipher_tech.png" alt="TLS tech"></p>
+</li>
+</ul>
+<h3 id="对ssltls的攻击"><a class="markdownIt-Anchor" href="#对ssltls的攻击"></a> 对SSL/TLS的攻击</h3>
+<h4 id="对各个密码技术的攻击"><a class="markdownIt-Anchor" href="#对各个密码技术的攻击"></a> 对各个密码技术的攻击</h4>
+<p>针对SSL/TLS中使用的各个密码技术的攻击，会直接成为对SSL/TLS的攻击。</p>
+<h4 id="对伪随机数生成器的攻击"><a class="markdownIt-Anchor" href="#对伪随机数生成器的攻击"></a> 对伪随机数生成器的攻击</h4>
+<h4 id="利用证书的时间差进行攻击"><a class="markdownIt-Anchor" href="#利用证书的时间差进行攻击"></a> 利用证书的时间差进行攻击</h4>
+<p>SSL/TLS中，客户端会使用服务器证书对服务器进行认证。在这个过程中，客户端需要使用合法认证机构的公钥证书所附带的数字签名进行验证。要验证证书需要使用最新版的CRL（证书作废清单），而Web浏览器没有获取最新版的CRL，即使使用SSL/TLS也无法保证通信安全。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Cryptography/">Cryptography</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/笔记/">笔记</a><a href="/tags/cryptography/">cryptography</a>
+  </div>
+
+</div>
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://flamepeak.com/2016/12/19/tu-jie-mi-ma-ji-shu-part6-SSL-TLS-20161220/" data-title="图解密码技术 读书笔记：SSL/TLS | FlamePeak" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/12/20/tu-jie-mi-ma-ji-shu-part7-cryptography-and-life-20161221/" title="图解密码技术 读书笔记：密码技术与现实社会">
+  <strong>上一篇：</strong><br/>
+  <span>
+  图解密码技术 读书笔记：密码技术与现实社会</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/12/19/tu-jie-mi-ma-ji-shu-part5-PGP-20161219/"  title="图解密码技术 读书笔记：PGP">
+ <strong>下一篇：</strong><br/> 
+ <span>图解密码技术 读书笔记：PGP
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是ssltls"><span class="toc-number">1.</span> <span class="toc-text"> 什么是SSL/TLS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用ssltls进行通信"><span class="toc-number">2.</span> <span class="toc-text"> 使用SSL/TLS进行通信</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#层次化的协议"><span class="toc-number">2.1.</span> <span class="toc-text"> 层次化的协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tls记录协议"><span class="toc-number">2.2.</span> <span class="toc-text"> TLS记录协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tls握手协议"><span class="toc-number">2.3.</span> <span class="toc-text"> TLS握手协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主密码"><span class="toc-number">2.4.</span> <span class="toc-text"> 主密码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对ssltls的攻击"><span class="toc-number">3.</span> <span class="toc-text"> 对SSL/TLS的攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对各个密码技术的攻击"><span class="toc-number">3.1.</span> <span class="toc-text"> 对各个密码技术的攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对伪随机数生成器的攻击"><span class="toc-number">3.2.</span> <span class="toc-text"> 对伪随机数生成器的攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用证书的时间差进行攻击"><span class="toc-number">3.3.</span> <span class="toc-text"> 利用证书的时间差进行攻击</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Cryptography/" title="Cryptography">Cryptography<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hardware/" title="Hardware">Hardware<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Life/" title="Life">Life<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Network-Security/" title="Network Security">Network Security<sup>19</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>17</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web前端/" title="Web前端">Web前端<sup>20</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web后端/" title="Web后端">Web后端<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/人工智能/" title="人工智能">人工智能<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/百家杂谈/" title="百家杂谈">百家杂谈<sup>21</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C">C<sup>21</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>18</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://laod.cn/hosts/2017-google-hosts.html" target="_blank" title="Google Hosts">Google Hosts</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://overapi.com" target="_blank" title="OverAPI">OverAPI</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://devdocs.io" target="_blank" title="DevDocs">DevDocs</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 善良   善学   勇敢   坚毅 <br/>
+			努力   克制   谦虚   执着</p>
+	</section>
+	 
+	<div id="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="FlamePeak">FlamePeak</a>
+		
+		
+
+
+
+
+
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          $('#toc.toc-aside').css('display', 'block');
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+      
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+<!--%- partial('analytics') %-->
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
+

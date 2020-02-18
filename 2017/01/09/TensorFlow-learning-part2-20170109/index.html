@@ -1,0 +1,633 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inconsolata:400">
+    <title>TensorFlow 学习（二） | FlamePeak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="FlamePeak">
+    
+
+    
+    <meta name="description" content="Start TensorFlow InteractiveSession TensorFlow relies on a highly efficient C++ backend to do its computation. The connection to this backend is called a session. The common usage for TensorFlow prog">
+<meta name="keywords" content="TensorFlow,ML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow 学习（二）">
+<meta property="og:url" content="http://flamepeak.com/2017/01/09/TensorFlow-learning-part2-20170109/index.html">
+<meta property="og:site_name" content="FlamePeak">
+<meta property="og:description" content="Start TensorFlow InteractiveSession TensorFlow relies on a highly efficient C++ backend to do its computation. The connection to this backend is called a session. The common usage for TensorFlow prog">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-02-06T13:09:32.054Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TensorFlow 学习（二）">
+<meta name="twitter:description" content="Start TensorFlow InteractiveSession TensorFlow relies on a highly efficient C++ backend to do its computation. The connection to this backend is called a session. The common usage for TensorFlow prog">
+
+    
+    <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+  <meta name="google-site-verification" content="rYNq4pSdFJQ3Ir4VuV4A6TqVEEUP8o-rrwmST28FhQY">
+  <meta name="baidu-site-verification" content="AL6EYSh1WZ">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="FlamePeak">FlamePeak</a></h1>
+				<h2 class="blog-motto">We know something, but we do not know more.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/notes">Notes</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:flamepeak.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/01/09/TensorFlow-learning-part2-20170109/" title="TensorFlow 学习（二）" itemprop="url">TensorFlow 学习（二）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="FlamePeak" target="_blank" itemprop="author">FlamePeak</a>
+		
+  <p class="article-time">
+    <time datetime="2017-01-09T06:55:58.000Z" itemprop="datePublished"> Published 2017-01-09</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<h3 id="start-tensorflow-interactivesession"><a class="markdownIt-Anchor" href="#start-tensorflow-interactivesession"></a> Start TensorFlow InteractiveSession</h3>
+<p>TensorFlow relies on a highly efficient C++ backend to do its computation. The connection to this backend is called a session. The common usage for TensorFlow programs is to first create a graph and then launch it in a session.</p>
+<p>Here we instead use the convenient <strong>InteractiveSession</strong> class, which makes TensorFlow more flexible about how you structure your code. It allows you to interleave operations which build a <strong>computation graph</strong> with ones that run the graph. This is particularly convenient when working in interactive contexts like IPython. If you are not using an InteractiveSession, then you should build the entire computation graph before starting a session and launching the graph.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">sess = tf.InteractiveSession()</span><br></pre></td></tr></table></figure>
+<p>Instead of running a single expensive operation independently from Python, TensorFlow lets us describe a graph of interacting operations that run entirely outside Python. This approach is similar to that used in Theano or Torch.</p>
+<p>The role of the Python code is therefore to build this external computation graph, and to dictate which parts of the computation graph should be run.</p>
+<h3 id="build-a-softmax-regression-model"><a class="markdownIt-Anchor" href="#build-a-softmax-regression-model"></a> Build a Softmax Regression Model</h3>
+<h4 id="placeholders"><a class="markdownIt-Anchor" href="#placeholders"></a> Placeholders</h4>
+<p>We start building the computation graph by creating nodes for the input images and target output classes.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x = tf.placeholder(tf.float32, shape=[None, 784])</span><br><span class="line">y_ = tf.placeholder(tf.float32, shape=[None, 10])</span><br></pre></td></tr></table></figure>
+<p>Here x and y_ aren’t specific values. Rather, they are each a placeholder – a value that we’ll input when we ask TensorFlow to run a computation.</p>
+<p>The <strong>shape</strong> argument to <strong>placeholder</strong> is optional, but it allows TensorFlow to automatically catch bugs stemming from inconsistent tensor shapes.</p>
+<h4 id="variables"><a class="markdownIt-Anchor" href="#variables"></a> Variables</h4>
+<p>We now define the weights <strong>W</strong> and biases <strong>b</strong> for our model. We could imagine treating these like additional inputs, but TensorFlow has an even better way to handle them: <strong>Variable</strong>. A <strong>Variable</strong> is a value that lives in TensorFlow’s computation graph. It can be used and even modified by the computation. In machine learning applications, one generally has the model parameters(模型参数) be <strong>Variables</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">W = tf.Variable(tf.zeros([784,10]))</span><br><span class="line">b = tf.Variable(tf.zeros([10]))</span><br></pre></td></tr></table></figure>
+<p>Before <strong>Variables</strong> can be used within a session, they must be initialized using that session. This step takes the initial values (in this case tensors full of zeros) that have already been specified, and assigns them to each <strong>Variable</strong>. This can be done for all <strong>Variables</strong> at once:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sess.run(tf.global_variables_initializer())</span><br></pre></td></tr></table></figure>
+<h3 id="predicted-class-and-loss-function"><a class="markdownIt-Anchor" href="#predicted-class-and-loss-function"></a> Predicted Class and Loss Function</h3>
+<p>We can now implement our regression model. It only takes one line! We multiply the vectorized input images <strong>x</strong> by the weight matrix <strong>W</strong>, add the bias <strong>b</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">y = tf.matmul(x,W) + b</span><br></pre></td></tr></table></figure>
+<p>We can specify a loss function just as easily. Loss indicates how bad the model’s prediction was on a single example; we try to minimize that while training across all the examples. Here, our loss function is the cross-entropy between the target and the softmax activation function applied to the model’s prediction.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(y, y_))</span><br></pre></td></tr></table></figure>
+<h3 id="train-the-model"><a class="markdownIt-Anchor" href="#train-the-model"></a> Train the Model</h3>
+<p>Now that we have defined our model and training loss function, it is straightforward to train using TensorFlow. Because TensorFlow knows the entire computation graph, it can use automatic differentiation(自动微分法) to find the gradients of the loss with respect to each of the variables. TensorFlow has a variety of built-in optimization algorithms. For this example, we will use steepest gradient descent, with a step length of 0.5, to descend the cross entropy.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)</span><br></pre></td></tr></table></figure>
+<p>What TensorFlow actually did in that single line was to add new operations to the computation graph. These operations included ones to compute gradients, compute parameter update steps, and apply update steps to the parameters.</p>
+<p>The returned operation <strong>train_step</strong>, when run, will apply the gradient descent(梯度下降) updates to the parameters. Training the model can therefore be accomplished by repeatedly running <strong>train_step</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for i in range(1000):</span><br><span class="line">  batch = mnist.train.next_batch(100)</span><br><span class="line">  train_step.run(feed_dict=&#123;x: batch[0], y_: batch[1]&#125;)</span><br></pre></td></tr></table></figure>
+<p>Note that you can replace any tensor in your computation graph using <strong>feed_dict</strong> – it’s not restricted to just <strong>placeholders</strong>.</p>
+<h3 id="evaluate-the-model"><a class="markdownIt-Anchor" href="#evaluate-the-model"></a> Evaluate the Model</h3>
+<p>First we’ll figure out where we predicted the correct label. <strong>tf.argmax</strong> is an extremely useful function which gives you the index of the highest entry in a tensor along some axis. For example, <strong>tf.argmax(y,1)</strong> is the label our model thinks is most likely for each input, while <strong>tf.argmax(y_,1)</strong> is the true label. We can use <strong>tf.equal</strong> to check if our prediction matches the truth.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))</span><br></pre></td></tr></table></figure>
+<p>That gives us a list of booleans. To determine what fraction are correct, we cast to floating point numbers and then take the mean. For example, <strong>[True, False, True, True]</strong> would become <strong>[1,0,1,1]</strong> which would become <strong>0.75</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="build-a-multilayer-convolutional-network多层卷积网络"><a class="markdownIt-Anchor" href="#build-a-multilayer-convolutional-network多层卷积网络"></a> Build a Multilayer Convolutional Network（多层卷积网络）</h2>
+<p>Getting 92% accuracy on MNIST is bad. It’s almost embarrassingly bad. In this section, we’ll fix that, jumping from a very simple model to something moderately sophisticated: a small convolutional neural network（卷积神经网络）.</p>
+<h3 id="weight-initialization"><a class="markdownIt-Anchor" href="#weight-initialization"></a> Weight Initialization</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def weight_variable(shape):</span><br><span class="line">  initial = tf.truncated_normal(shape, stddev=0.1)</span><br><span class="line">  return tf.Variable(initial)</span><br><span class="line"></span><br><span class="line">def bias_variable(shape):</span><br><span class="line">  initial = tf.constant(0.1, shape=shape)</span><br><span class="line">  return tf.Variable(initial)</span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/人工智能/">人工智能</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/TensorFlow/">TensorFlow</a><a href="/tags/ML/">ML</a>
+  </div>
+
+</div>
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://flamepeak.com/2017/01/09/TensorFlow-learning-part2-20170109/" data-title="TensorFlow 学习（二） | FlamePeak" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/01/13/Programming-Collective-Intelligence-part1-20170113/" title="机器学习（一）推荐">
+  <strong>上一篇：</strong><br/>
+  <span>
+  机器学习（一）推荐</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/01/09/vim-can-not-use-backspace-delete-characters-20170109/"  title="Vim 插入模式无法用backspace删除字符问题">
+ <strong>下一篇：</strong><br/> 
+ <span>Vim 插入模式无法用backspace删除字符问题
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#start-tensorflow-interactivesession"><span class="toc-number">1.</span> <span class="toc-text"> Start TensorFlow InteractiveSession</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build-a-softmax-regression-model"><span class="toc-number">2.</span> <span class="toc-text"> Build a Softmax Regression Model</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#placeholders"><span class="toc-number">2.1.</span> <span class="toc-text"> Placeholders</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#variables"><span class="toc-number">2.2.</span> <span class="toc-text"> Variables</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#predicted-class-and-loss-function"><span class="toc-number">3.</span> <span class="toc-text"> Predicted Class and Loss Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#train-the-model"><span class="toc-number">4.</span> <span class="toc-text"> Train the Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#evaluate-the-model"><span class="toc-number">5.</span> <span class="toc-text"> Evaluate the Model</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#build-a-multilayer-convolutional-network多层卷积网络"><span class="toc-number"></span> <span class="toc-text"> Build a Multilayer Convolutional Network（多层卷积网络）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#weight-initialization"><span class="toc-number">1.</span> <span class="toc-text"> Weight Initialization</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Cryptography/" title="Cryptography">Cryptography<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hardware/" title="Hardware">Hardware<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Life/" title="Life">Life<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Network-Security/" title="Network Security">Network Security<sup>19</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>17</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web前端/" title="Web前端">Web前端<sup>20</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web后端/" title="Web后端">Web后端<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/人工智能/" title="人工智能">人工智能<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/百家杂谈/" title="百家杂谈">百家杂谈<sup>21</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C">C<sup>21</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/笔记/" title="笔记">笔记<sup>18</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://laod.cn/hosts/2017-google-hosts.html" target="_blank" title="Google Hosts">Google Hosts</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://overapi.com" target="_blank" title="OverAPI">OverAPI</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://devdocs.io" target="_blank" title="DevDocs">DevDocs</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 善良   善学   勇敢   坚毅 <br/>
+			努力   克制   谦虚   执着</p>
+	</section>
+	 
+	<div id="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="FlamePeak">FlamePeak</a>
+		
+		
+
+
+
+
+
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          $('#toc.toc-aside').css('display', 'block');
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+      
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+<!--%- partial('analytics') %-->
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
+

