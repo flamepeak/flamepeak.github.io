@@ -1,0 +1,6 @@
+[submodule "themes/ghost-casper"]
+	path = themes/ghost-casper
+	url = git@bitbucket.org:flamepeak/ghost-casper.git
+[submodule "themes/jacman"]
+	path = themes/jacman
+	url = git@github.com:flamepeak/jacman.git

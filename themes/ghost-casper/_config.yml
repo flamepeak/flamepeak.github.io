@@ -1,0 +1,29 @@
+# config
+cover: //demo.ghost.io/content/images/2014/09/testimg-home-1.jpg
+bio: 'We know something, but we do not know more.'
+location: Big Country
+website: flamepeak(at)flamepeak.com
+
+# Add social network profile links
+social:
+  twitter: https://twitter.com/**profile**
+  google+: https://plus.google.com/**profile**
+  github: https://github.com/**profile**
+
+#opengraph
+twitter_profile: 
+googleplus_profile: 
+fb_admins:
+fb_app_id:
+
+fancybox:
+fitvids:
+#disqus: flamepeak
+
+excerpt_link: Read More
+
+# Miscellaneous
+rss: /atom.xml
+
+# rocket_up
+rocket_up: true
