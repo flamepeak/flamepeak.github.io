@@ -101,9 +101,11 @@
 <p>对于幂函数<code>pow</code>，是用数值逼近的方法给出的，并不保证严格精确，执行效率也不高，在不同平台精确度可能有一定的差异，所以也就会导致结果不是我们预期想要的。</p>
 <p>例如：在CodeBlocks中，</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">trans</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>, i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(x!=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sum += (x%<span class="number">10</span>)*<span class="built_in">pow</span>(N,i++);</span><br><span class="line">        x /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p, q, r;</span><br><span class="line">    <span class="comment">//cin&gt;&gt;p&gt;&gt;q&gt;&gt;r;</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;trans(<span class="number">42</span>,<span class="number">13</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>会输出错误结果53，而不是正确结果54.</p>
 <p>可以做如下修改：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">trans</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>, i=<span class="number">0</span>, powVal=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(x!=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sum += (x%<span class="number">10</span>)*powVal;</span><br><span class="line">        x /= <span class="number">10</span>;</span><br><span class="line">        powVal *= N;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p, q, r;</span><br><span class="line">    <span class="comment">//cin&gt;&gt;p&gt;&gt;q&gt;&gt;r;</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;trans(<span class="number">42</span>,<span class="number">13</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -194,7 +196,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -202,7 +204,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -235,11 +237,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -251,15 +253,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -267,7 +265,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -275,7 +281,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -287,27 +293,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

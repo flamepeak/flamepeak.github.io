@@ -13,19 +13,19 @@
     
 
     
-    <meta name="description" content="插入排序 假设前n−1n-1n−1个元素已经完成排序了，现在要将第nnn个元素插入到正确的位置，这种方式称为插入排序法（insertion sort）。 递归版的插入排序 def ins_sort_rec(seq, i):    if i==0:        return    ins_sort_rec(seq, i-1)    j = i    while j&amp;gt;0 and seq[j-">
+    <meta name="description" content="插入排序假设前$n-1$个元素已经完成排序了，现在要将第$n$个元素插入到正确的位置，这种方式称为插入排序法（insertion sort）。 递归版的插入排序 def ins_sort_rec(seq, i):    if i==0:        return    ins_sort_rec(seq, i-1)    j = i    while j&amp;gt;0 and seq[j-1]&amp;gt;">
 <meta name="keywords" content="Python,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python Algorithms 读书笔记 递归">
 <meta property="og:url" content="http://flamepeak.com/2017/04/24/Python-Algorithms-part2-count-20170424/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="插入排序 假设前n−1n-1n−1个元素已经完成排序了，现在要将第nnn个元素插入到正确的位置，这种方式称为插入排序法（insertion sort）。 递归版的插入排序 def ins_sort_rec(seq, i):    if i==0:        return    ins_sort_rec(seq, i-1)    j = i    while j&amp;gt;0 and seq[j-">
+<meta property="og:description" content="插入排序假设前$n-1$个元素已经完成排序了，现在要将第$n$个元素插入到正确的位置，这种方式称为插入排序法（insertion sort）。 递归版的插入排序 def ins_sort_rec(seq, i):    if i==0:        return    ins_sort_rec(seq, i-1)    j = i    while j&amp;gt;0 and seq[j-1]&amp;gt;">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/2017/04/24/DAG.png">
 <meta property="og:updated_time" content="2017-06-02T02:38:59.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Algorithms 读书笔记 递归">
-<meta name="twitter:description" content="插入排序 假设前n−1n-1n−1个元素已经完成排序了，现在要将第nnn个元素插入到正确的位置，这种方式称为插入排序法（insertion sort）。 递归版的插入排序 def ins_sort_rec(seq, i):    if i==0:        return    ins_sort_rec(seq, i-1)    j = i    while j&amp;gt;0 and seq[j-">
+<meta name="twitter:description" content="插入排序假设前$n-1$个元素已经完成排序了，现在要将第$n$个元素插入到正确的位置，这种方式称为插入排序法（insertion sort）。 递归版的插入排序 def ins_sort_rec(seq, i):    if i==0:        return    ins_sort_rec(seq, i-1)    j = i    while j&amp;gt;0 and seq[j-1]&amp;gt;">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/2017/04/24/DAG.png">
 
     
@@ -99,36 +99,38 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="插入排序"><a class="markdownIt-Anchor" href="#插入排序"></a> 插入排序</h3>
-<p>假设前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>个元素已经完成排序了，现在要将第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个元素插入到正确的位置，这种方式称为插入排序法（insertion sort）。</p>
+		<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>假设前$n-1$个元素已经完成排序了，现在要将第$n$个元素插入到正确的位置，这种方式称为插入排序法（insertion sort）。</p>
 <p><strong>递归版的插入排序</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ins_sort_rec</span><span class="params">(seq, i)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> i==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    ins_sort_rec(seq, i<span class="number">-1</span>)</span><br><span class="line">    j = i</span><br><span class="line">    <span class="keyword">while</span> j&gt;<span class="number">0</span> <span class="keyword">and</span> seq[j<span class="number">-1</span>]&gt;seq[j]:</span><br><span class="line">        seq[j<span class="number">-1</span>], seq[j] = seq[j], seq[j<span class="number">-1</span>]</span><br><span class="line">        j -= <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>插入排序</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ins_sort</span><span class="params">(seq)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(seq)):</span><br><span class="line">        j = i</span><br><span class="line">        <span class="keyword">while</span> j&gt;<span class="number">0</span> <span class="keyword">and</span> seq[j<span class="number">-1</span>]&gt;seq[j]:</span><br><span class="line">            seq[j<span class="number">-1</span>], seq[j] = seq[j], seq[j<span class="number">-1</span>]</span><br><span class="line">            j -= <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<h3 id="选择排序"><a class="markdownIt-Anchor" href="#选择排序"></a> 选择排序</h3>
-<p>先找到最大的元素，并将其放到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>的位置上，然后继续递归排序剩下的元素，被称为选择排序法（selection sort）。</p>
+
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>先找到最大的元素，并将其放到$n$的位置上，然后继续递归排序剩下的元素，被称为选择排序法（selection sort）。</p>
 <p><strong>递归版的选择排序</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sel_sort_rec</span><span class="params">(seq, i)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> i==<span class="number">0</span>:<span class="keyword">return</span></span><br><span class="line">    max_j = i                                <span class="comment"># Idx. of largest value so far</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i):                       <span class="comment"># Look for a larger value</span></span><br><span class="line">        <span class="keyword">if</span> seq[j] &gt; seq[max_j]: max_j = j    <span class="comment"># Found one? Update max_j</span></span><br><span class="line">    seq[i], seq[max_j] = seq[max_j], seq[i]  <span class="comment"># Switch largest into place</span></span><br><span class="line">    sel_sort_rec(seq, i<span class="number">-1</span>)                   <span class="comment"># Sort 0..i-1</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>选择排序</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sel_sort</span><span class="params">(seq)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(seq)<span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>):       <span class="comment"># n..i+i sorted so far</span></span><br><span class="line">        max_j = i                            <span class="comment"># Idx. of largest value so far</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i):                   <span class="comment"># Look for a larger value</span></span><br><span class="line">            <span class="keyword">if</span> seq[j] &gt; seq[max_j]: max_j = j  <span class="comment"># Found one? Update max_j</span></span><br><span class="line">        seq[i], seq[max_j] = seq[max_j], seq[i]   <span class="comment">#Switch largest into place</span></span><br></pre></td></tr></table></figure>
+
 <p>两者都是先找出最大元素，并将其交换到序列尾端。</p>
-<h3 id="明星问题"><a class="markdownIt-Anchor" href="#明星问题"></a> 明星问题</h3>
-<p>所谓明星问题，就是要在人群中找出一位明星人士。它被用于社交网络的分析中，比如Facebook、Twitter。问题的思路是这样的：该明星不认识人群中的其他人，但人人都认识这位明星。它的核心表现形式是一个图结构，我们要寻找的是一个其他所有节点对它都有入边，但它自身却没有出边的节点。</p>
+<h3 id="明星问题"><a href="#明星问题" class="headerlink" title="明星问题"></a>明星问题</h3><p>所谓明星问题，就是要在人群中找出一位明星人士。它被用于社交网络的分析中，比如Facebook、Twitter。问题的思路是这样的：该明星不认识人群中的其他人，但人人都认识这位明星。它的核心表现形式是一个图结构，我们要寻找的是一个其他所有节点对它都有入边，但它自身却没有出边的节点。</p>
 <p><strong>朴素版的明星问题方案</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">naive_celeb</span><span class="params">(G)</span>:</span></span><br><span class="line">    n = len(G)</span><br><span class="line">    <span class="keyword">for</span> u <span class="keyword">in</span> range(n):              <span class="comment"># For every candidate...</span></span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> range(n):          <span class="comment"># For everyone else...</span></span><br><span class="line">            <span class="keyword">if</span> u ==v :<span class="keyword">continue</span>      <span class="comment"># Same person? Skip</span></span><br><span class="line">            <span class="keyword">if</span> G[u][v]:<span class="keyword">break</span>        <span class="comment"># Candidate knows other</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> G[v][u]: <span class="keyword">break</span>   <span class="comment"># Other doesn't know candidate</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">          <span class="keyword">return</span> u                  <span class="comment"># No breaks? Celebrity</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">None</span>                     <span class="comment"># Couldn't find anyone</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>明星问题的解决方案</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">celeb</span><span class="params">(G)</span>:</span></span><br><span class="line">    n = len(G)</span><br><span class="line">    u, v = <span class="number">0</span>, <span class="number">1</span>                 <span class="comment"># The first two</span></span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> range(<span class="number">2</span>, n+<span class="number">1</span>):     <span class="comment"># Others to check</span></span><br><span class="line">      <span class="keyword">if</span> G[u][v]:               <span class="comment"># u knows v? Replace u</span></span><br><span class="line">          u = c                 </span><br><span class="line">      <span class="keyword">else</span>:                     <span class="comment"># Ohterwise, replace v</span></span><br><span class="line">          v = c                 </span><br><span class="line">    <span class="keyword">if</span> u == n:                  <span class="comment"># u was replaced last; use v</span></span><br><span class="line">        c = v                   </span><br><span class="line">    <span class="keyword">else</span>:                       </span><br><span class="line">        c = u                   <span class="comment"># Otherwise, u is a candidate</span></span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> range(n):          <span class="comment"># For everyone else...</span></span><br><span class="line">        <span class="keyword">if</span> c == v: <span class="keyword">continue</span>     <span class="comment"># Same person? Skip</span></span><br><span class="line">        <span class="keyword">if</span> G[c][v]: <span class="keyword">break</span>       <span class="comment"># Candidate knows other</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> G[v][c]: <span class="keyword">break</span>   <span class="comment"># Other doesn't know candidate</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> c                <span class="comment"># No breaks? Celebrity</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">None</span>                 <span class="comment"># Couldn't find anyone</span></span><br></pre></td></tr></table></figure>
-<h3 id="拓扑排序topological-sorting问题"><a class="markdownIt-Anchor" href="#拓扑排序topological-sorting问题"></a> 拓扑排序(topological sorting)问题</h3>
-<p>拓扑排序问题往往出现在一些中等复杂程度的计算系统中，这些系统往往会有一堆事情要做，而这些事又依赖于另外一些事。。。所以从哪里开始是个问题。</p>
-<p><strong>有向无环路图（DAG）</strong><br>
-<img src="/sourcepictures/2017/04/24/DAG.png" alt="DAG"></p>
+
+<h3 id="拓扑排序-topological-sorting-问题"><a href="#拓扑排序-topological-sorting-问题" class="headerlink" title="拓扑排序(topological sorting)问题"></a>拓扑排序(topological sorting)问题</h3><p>拓扑排序问题往往出现在一些中等复杂程度的计算系统中，这些系统往往会有一堆事情要做，而这些事又依赖于另外一些事。。。所以从哪里开始是个问题。</p>
+<p><strong>有向无环路图（DAG）</strong><br><img src="/sourcepictures/2017/04/24/DAG.png" alt="DAG"></p>
 <p><strong>朴素版的拓扑排序法</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">naive_topsort</span><span class="params">(G, S=None)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> S <span class="keyword">is</span> <span class="keyword">None</span>: S = set(G)        <span class="comment"># Default: All nodes</span></span><br><span class="line">    <span class="keyword">if</span> len(S) == <span class="number">1</span>: <span class="keyword">return</span> list(S)  <span class="comment"># Base case, single node</span></span><br><span class="line">    v = S.pop()                     <span class="comment"># Reduction: Remove a node</span></span><br><span class="line">    seq = naive_topsort(G, S)       <span class="comment"># Recursion (assumption), n-1</span></span><br><span class="line">    min_i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i, u <span class="keyword">in</span> enumerate(seq):</span><br><span class="line">        <span class="keyword">if</span> v <span class="keyword">in</span> G[u]: min_i = i+<span class="number">1</span>   <span class="comment"># After all dependencies</span></span><br><span class="line">    seq.insert(min_i, v)</span><br><span class="line">    <span class="keyword">return</span> seq</span><br></pre></td></tr></table></figure>
+
 <p><strong>有向无环路图的拓扑排序</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">top_sort</span><span class="params">(G)</span>:</span></span><br><span class="line">    count = dict((u，<span class="number">0</span>) <span class="keyword">for</span> u <span class="keyword">in</span> G)      <span class="comment"># The in-degree for each node</span></span><br><span class="line">    <span class="keyword">for</span> u <span class="keyword">in</span> G:</span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> G[u]:</span><br><span class="line">            count[v] += <span class="number">1</span>                <span class="comment"># Count every in-edge</span></span><br><span class="line">    Q = [u <span class="keyword">for</span> u <span class="keyword">in</span> G <span class="keyword">if</span> count[u] == <span class="number">0</span>]  <span class="comment"># Valid initial nodes</span></span><br><span class="line">    S = []                               <span class="comment"># The result</span></span><br><span class="line">    <span class="keyword">while</span> Q:                             <span class="comment"># While we have start nodes...</span></span><br><span class="line">        u = Q.pop()                      <span class="comment"># Pick one</span></span><br><span class="line">        S.append(u)                      <span class="comment"># Use it as first of the rest</span></span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> G[u]:</span><br><span class="line">            count[v] -= <span class="number">1</span>                <span class="comment"># "Uncount" its out-edges</span></span><br><span class="line">            <span class="keyword">if</span> count[v] == <span class="number">0</span>:            <span class="comment"># New valid start nodes?</span></span><br><span class="line">                Q.append(v)              <span class="comment"># Deal with them next</span></span><br><span class="line">    <span class="keyword">return</span> S</span><br></pre></td></tr></table></figure>
+
 <hr>
-<h3 id="遍历"><a class="markdownIt-Anchor" href="#遍历"></a> 遍历</h3>
-  
+<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -190,7 +192,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#插入排序"><span class="toc-number">1.</span> <span class="toc-text"> 插入排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择排序"><span class="toc-number">2.</span> <span class="toc-text"> 选择排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#明星问题"><span class="toc-number">3.</span> <span class="toc-text"> 明星问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拓扑排序topological-sorting问题"><span class="toc-number">4.</span> <span class="toc-text"> 拓扑排序(topological sorting)问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历"><span class="toc-number">5.</span> <span class="toc-text"> 遍历</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#插入排序"><span class="toc-number">1.</span> <span class="toc-text">插入排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择排序"><span class="toc-number">2.</span> <span class="toc-text">选择排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#明星问题"><span class="toc-number">3.</span> <span class="toc-text">明星问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拓扑排序-topological-sorting-问题"><span class="toc-number">4.</span> <span class="toc-text">拓扑排序(topological sorting)问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历"><span class="toc-number">5.</span> <span class="toc-text">遍历</span></a></li></ol>
  
   </div>
 
@@ -223,7 +225,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -231,7 +233,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -264,11 +266,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -280,15 +282,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -296,7 +294,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -304,7 +310,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -316,27 +322,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

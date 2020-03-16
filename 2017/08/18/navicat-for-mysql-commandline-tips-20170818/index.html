@@ -13,19 +13,19 @@
     
 
     
-    <meta name="description" content="本文主要参考：使用数据库管理工具navicat----命令行界面 命令行界面使用起来有很多优势，在普通界面速度慢，或者实现普通界面难以实现的问题时，命令行界面优势很明显   先打开navicat，建立好连接，我MySQL服务器就是装在自己的机子上的，所以连接localhost；   使用快捷键F6或者在“工具”----“命令列界面”打开命令列界面   注意在使用navicat的命令行界面时，输入的">
+    <meta name="description" content="本文主要参考：使用数据库管理工具navicat—-命令行界面 命令行界面使用起来有很多优势，在普通界面速度慢，或者实现普通界面难以实现的问题时，命令行界面优势很明显  先打开navicat，建立好连接，我MySQL服务器就是装在自己的机子上的，所以连接localhost；  使用快捷键F6或者在“工具”—-“命令列界面”打开命令列界面  注意在使用navicat的命令行界面时，输入的命令末尾必须加">
 <meta name="keywords" content="Mysql,Tool,Navicat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Navicat for mysql 命令行界面使用介绍">
 <meta property="og:url" content="http://flamepeak.com/2017/08/18/navicat-for-mysql-commandline-tips-20170818/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="本文主要参考：使用数据库管理工具navicat----命令行界面 命令行界面使用起来有很多优势，在普通界面速度慢，或者实现普通界面难以实现的问题时，命令行界面优势很明显   先打开navicat，建立好连接，我MySQL服务器就是装在自己的机子上的，所以连接localhost；   使用快捷键F6或者在“工具”----“命令列界面”打开命令列界面   注意在使用navicat的命令行界面时，输入的">
+<meta property="og:description" content="本文主要参考：使用数据库管理工具navicat—-命令行界面 命令行界面使用起来有很多优势，在普通界面速度慢，或者实现普通界面难以实现的问题时，命令行界面优势很明显  先打开navicat，建立好连接，我MySQL服务器就是装在自己的机子上的，所以连接localhost；  使用快捷键F6或者在“工具”—-“命令列界面”打开命令列界面  注意在使用navicat的命令行界面时，输入的命令末尾必须加">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/2017/08/18/20150824195856985.png">
 <meta property="og:updated_time" content="2017-08-18T18:19:40.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Navicat for mysql 命令行界面使用介绍">
-<meta name="twitter:description" content="本文主要参考：使用数据库管理工具navicat----命令行界面 命令行界面使用起来有很多优势，在普通界面速度慢，或者实现普通界面难以实现的问题时，命令行界面优势很明显   先打开navicat，建立好连接，我MySQL服务器就是装在自己的机子上的，所以连接localhost；   使用快捷键F6或者在“工具”----“命令列界面”打开命令列界面   注意在使用navicat的命令行界面时，输入的">
+<meta name="twitter:description" content="本文主要参考：使用数据库管理工具navicat—-命令行界面 命令行界面使用起来有很多优势，在普通界面速度慢，或者实现普通界面难以实现的问题时，命令行界面优势很明显  先打开navicat，建立好连接，我MySQL服务器就是装在自己的机子上的，所以连接localhost；  使用快捷键F6或者在“工具”—-“命令列界面”打开命令列界面  注意在使用navicat的命令行界面时，输入的命令末尾必须加">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/2017/08/18/20150824195856985.png">
 
     
@@ -99,20 +99,16 @@
 </header>
 	<div class="article-content">
 		
-		<p>本文主要参考：<a href="http://blog.csdn.net/hlsdbd1990/article/details/47955751" target="_blank" rel="noopener">使用数据库管理工具navicat----命令行界面</a></p>
+		<p>本文主要参考：<a href="http://blog.csdn.net/hlsdbd1990/article/details/47955751" target="_blank" rel="noopener">使用数据库管理工具navicat—-命令行界面</a></p>
 <p>命令行界面使用起来有很多优势，在普通界面速度慢，或者实现普通界面难以实现的问题时，命令行界面优势很明显</p>
 <ol>
-<li>
-<p>先打开navicat，建立好连接，我MySQL服务器就是装在自己的机子上的，所以连接localhost；</p>
+<li><p>先打开navicat，建立好连接，我MySQL服务器就是装在自己的机子上的，所以连接localhost；</p>
 </li>
-<li>
-<p>使用快捷键F6或者在“工具”----“命令列界面”打开命令列界面</p>
+<li><p>使用快捷键F6或者在“工具”—-“命令列界面”打开命令列界面</p>
 </li>
-<li>
-<p>注意在使用navicat的命令行界面时，输入的命令末尾必须加上&quot; ; &quot;(英文格式的分号)；</p>
+<li><p>注意在使用navicat的命令行界面时，输入的命令末尾必须加上” ; “(英文格式的分号)；</p>
 </li>
-<li>
-<p>可以输入的命令有：</p>
+<li><p>可以输入的命令有：</p>
 </li>
 </ol>
 <p>（1）查看当前的数据库，命令：  <code>show databases;</code></p>
@@ -217,7 +213,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -225,7 +221,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -258,11 +254,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -274,15 +270,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -290,7 +282,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -298,7 +298,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -310,27 +310,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

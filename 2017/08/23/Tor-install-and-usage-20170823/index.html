@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="推荐阅读： Setting up Tor Proxy and Hidden Services in Linux  Install Tor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of">
+    <meta name="description" content="推荐阅读： Setting up Tor Proxy and Hidden Services in Linux InstallTor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of th">
 <meta name="keywords" content="Tor,CentOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tor polipo在CentoS上的安装与使用">
 <meta property="og:url" content="http://flamepeak.com/2017/08/23/Tor-install-and-usage-20170823/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="推荐阅读： Setting up Tor Proxy and Hidden Services in Linux  Install Tor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of">
+<meta property="og:description" content="推荐阅读： Setting up Tor Proxy and Hidden Services in Linux InstallTor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of th">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-08-24T21:35:57.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tor polipo在CentoS上的安装与使用">
-<meta name="twitter:description" content="推荐阅读： Setting up Tor Proxy and Hidden Services in Linux  Install Tor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of">
+<meta name="twitter:description" content="推荐阅读： Setting up Tor Proxy and Hidden Services in Linux InstallTor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of th">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -98,42 +98,41 @@
 	<div class="article-content">
 		
 		<p>推荐阅读： <a href="http://www.devdungeon.com/content/setting-tor-proxy-and-hidden-services-linux" target="_blank" rel="noopener">Setting up Tor Proxy and Hidden Services in Linux</a></p>
-<h3 id="install"><a class="markdownIt-Anchor" href="#install"></a> Install</h3>
-<p>Tor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of their repos.</p>
+<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>Tor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of their repos.</p>
 <p>Instead do:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install epel-release</span><br><span class="line">yum install tor</span><br></pre></td></tr></table></figure>
-<h3 id="configure-tor"><a class="markdownIt-Anchor" href="#configure-tor"></a> Configure Tor</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Review/modify the configuration</span></span><br><span class="line">vim /etc/tor/torrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="Configure-Tor"><a href="#Configure-Tor" class="headerlink" title="Configure Tor"></a>Configure Tor</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Review/modify the configuration</span></span><br><span class="line">vim /etc/tor/torrc</span><br></pre></td></tr></table></figure>
+
 <p>You can change the default port, or specify multiple IP addresses and ports for binding.</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SOCKSPort 9050 <span class="comment"># Default</span></span><br><span class="line">SOCKSPort 10.10.1.23:9999 <span class="comment"># Bind to specific IP/port</span></span><br></pre></td></tr></table></figure>
+
 <p>只更改第一个也可以，开了第二个有可能出错</p>
-<h3 id="start-tor"><a class="markdownIt-Anchor" href="#start-tor"></a> Start Tor</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Control the service using standard systemctl or service commands</span></span><br><span class="line">service tor restart</span><br><span class="line">systemctl restart tor</span><br></pre></td></tr></table></figure>
-<h3 id="test-tor"><a class="markdownIt-Anchor" href="#test-tor"></a> Test Tor</h3>
-<p>Test out your connection by setting your browser to use SOCKS5 localhost:9050 or follow the examples using cURL or Go.<br>
-Making Tor requests with command-line cURL<br>
-Making HTTP Tor requests with Go</p>
-<h4 id="making-tor-requests-with-command-line-curl"><a class="markdownIt-Anchor" href="#making-tor-requests-with-command-line-curl"></a> Making Tor Requests with command-line cURL</h4>
-<p>Making requests with the Tor network is easy with cURL. Since Tor uses the common SOCKS5 protocol, it works well with anything that has SOCKS5 support. cURL comes with a simple command-line option to specify a proxy.</p>
+<h3 id="Start-Tor"><a href="#Start-Tor" class="headerlink" title="Start Tor"></a>Start Tor</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Control the service using standard systemctl or service commands</span></span><br><span class="line">service tor restart</span><br><span class="line">systemctl restart tor</span><br></pre></td></tr></table></figure>
+
+<h3 id="Test-Tor"><a href="#Test-Tor" class="headerlink" title="Test Tor"></a>Test Tor</h3><p>Test out your connection by setting your browser to use SOCKS5 localhost:9050 or follow the examples using cURL or Go.<br>Making Tor requests with command-line cURL<br>Making HTTP Tor requests with Go</p>
+<h4 id="Making-Tor-Requests-with-command-line-cURL"><a href="#Making-Tor-Requests-with-command-line-cURL" class="headerlink" title="Making Tor Requests with command-line cURL"></a>Making Tor Requests with command-line cURL</h4><p>Making requests with the Tor network is easy with cURL. Since Tor uses the common SOCKS5 protocol, it works well with anything that has SOCKS5 support. cURL comes with a simple command-line option to specify a proxy.</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Linux default Tor proxy port is 9050</span></span><br><span class="line">curl --socks5-hostname localhost:9050 https://check.torproject.org</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Windows/Tor Browser Bundle default to port 9150</span></span><br><span class="line">curl --socks5-hostname localhost:9150 https://check.torproject.org</span><br></pre></td></tr></table></figure>
+
 <p>通过这种方法会检测出是否经过Tor访问，在Server版本中由于没有界面会显示html文本，可以看到：Congratulations. This browser is configured to use Tor.Your IP address appears to be: 198.X.X.X</p>
-<h4 id="making-tor-http-requests-with-go"><a class="markdownIt-Anchor" href="#making-tor-http-requests-with-go"></a> Making Tor HTTP Requests with Go</h4>
-<p>Go provides standard packages for working with HTTP, URLs, and proxies. Below is an example of how to make an HTTP request using a Tor proxy with the Go programming language. The key difference from making a standard HTTP request is that you must configure the HTTP client to use the proxy. This is done by creating a proxy dialer, creating an HTTP transport that uses that proxy dialer, and then creating an HTTP client that uses that transport. Check out the example below.</p>
+<h4 id="Making-Tor-HTTP-Requests-with-Go"><a href="#Making-Tor-HTTP-Requests-with-Go" class="headerlink" title="Making Tor HTTP Requests with Go"></a>Making Tor HTTP Requests with Go</h4><p>Go provides standard packages for working with HTTP, URLs, and proxies. Below is an example of how to make an HTTP request using a Tor proxy with the Go programming language. The key difference from making a standard HTTP request is that you must configure the HTTP client to use the proxy. This is done by creating a proxy dialer, creating an HTTP transport that uses that proxy dialer, and then creating an HTTP client that uses that transport. Check out the example below.</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"io/ioutil"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">	<span class="string">"net/url"</span></span><br><span class="line">	<span class="string">"time"</span></span><br><span class="line"></span><br><span class="line">	<span class="string">"golang.org/x/net/proxy"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// URL to fetch</span></span><br><span class="line"><span class="keyword">var</span> webUrl <span class="keyword">string</span> = <span class="string">"https://check.torproject.org"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Specify Tor proxy ip and port</span></span><br><span class="line"><span class="keyword">var</span> torProxy <span class="keyword">string</span> = <span class="string">"socks5://127.0.0.1:9050"</span> <span class="comment">// 9150 w/ Tor Browser</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// Parse Tor proxy URL string to a URL type</span></span><br><span class="line">	torProxyUrl, err := url.Parse(torProxy)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"Error parsing Tor proxy URL:"</span>, torProxy, <span class="string">"."</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Create proxy dialer using Tor SOCKS proxy</span></span><br><span class="line">	torDialer, err := proxy.FromURL(torProxyUrl, proxy.Direct)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"Error setting Tor proxy."</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Set up a custom HTTP transport to use the proxy and create the client</span></span><br><span class="line">	torTransport := &amp;http.Transport&#123;Dial: torDialer.Dial&#125;</span><br><span class="line">	client := &amp;http.Client&#123;Transport: torTransport, Timeout: time.Second * <span class="number">5</span>&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Make request</span></span><br><span class="line">	resp, err := client.Get(webUrl)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"Error making GET request."</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> resp.Body.Close()</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Read response</span></span><br><span class="line">	body, err := ioutil.ReadAll(resp.Body)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"Error reading body of response."</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	log.Println(<span class="keyword">string</span>(body))</span><br><span class="line">	log.Println(<span class="string">"Return status code:"</span>, resp.StatusCode)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <hr>
 <hr>
-<h3 id="polipo"><a class="markdownIt-Anchor" href="#polipo"></a> Polipo</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install  texinfo  -y       <span class="comment">#编译时依赖软件</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/jech/polipo.git</span><br><span class="line"><span class="built_in">cd</span> polipo</span><br><span class="line">make all</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h3 id="Polipo"><a href="#Polipo" class="headerlink" title="Polipo"></a>Polipo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install  texinfo  -y       <span class="comment">#编译时依赖软件</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/jech/polipo.git</span><br><span class="line"><span class="built_in">cd</span> polipo</span><br><span class="line">make all</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
 <p>建立配置文件</p>
 <p>官方文档中，默认的配置文件路径为： <code>~/.polipo or /etc/polipo/config</code></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir /etc/polipo</span><br><span class="line">vim /etc/polipo/config</span><br><span class="line">cp config.sample /opt/polipo/config</span><br></pre></td></tr></table></figure>
+
 <p>编辑配置文件</p>
 <p>在使用TOR时，如下配置以下内容：</p>
 <p>Polipo is configured by setting a number of configuration variables in Polipo’s configuration file, which is either ~/.polipo or /etc/polipo/config, whichever exists. In order to tell Polipo to use tor and not to cache any fetched pages on disk, you will want to add the following lines to your configuration file:</p>
 <blockquote>
-<p>socksParentProxy = localhost:9050   #注意此处没有加引号<br>
-diskCacheRoot=&quot;&quot;</p>
+<p>socksParentProxy = localhost:9050   #注意此处没有加引号<br>  diskCacheRoot=””</p>
 </blockquote>
 <p>You will also want to disable the local configuration interface in order to protect yourself from browser vulnerabilities:</p>
 <blockquote>
@@ -147,12 +146,16 @@ diskCacheRoot=&quot;&quot;</p>
 <p><strong>以下设置对于CentOS 7 可行</strong></p>
 <p>新建启动脚本</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/systemd/system/polipo.service</span><br></pre></td></tr></table></figure>
+
 <p>内容为</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=polipo web proxy</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/tmp</span><br><span class="line">User=polipo</span><br><span class="line">Group=polipo</span><br><span class="line">ExecStart=/usr/bin/polipo -c /opt/polipo/config</span><br><span class="line">Restart=always</span><br><span class="line">SyslogIdentifier=Polipo</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
 <p>打开防火墙</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=8123/tcp</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
 <p>尝试启动服务</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start polipo</span><br></pre></td></tr></table></figure>
+
 <p>测试现在的ip地址：</p>
 <p><code>curl --proxy localhost:8123 ifconfig.me</code></p>
   
@@ -217,7 +220,7 @@ diskCacheRoot=&quot;&quot;</p>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#install"><span class="toc-number">1.</span> <span class="toc-text"> Install</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#configure-tor"><span class="toc-number">2.</span> <span class="toc-text"> Configure Tor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#start-tor"><span class="toc-number">3.</span> <span class="toc-text"> Start Tor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#test-tor"><span class="toc-number">4.</span> <span class="toc-text"> Test Tor</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#making-tor-requests-with-command-line-curl"><span class="toc-number">4.1.</span> <span class="toc-text"> Making Tor Requests with command-line cURL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#making-tor-http-requests-with-go"><span class="toc-number">4.2.</span> <span class="toc-text"> Making Tor HTTP Requests with Go</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#polipo"><span class="toc-number">5.</span> <span class="toc-text"> Polipo</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Install"><span class="toc-number">1.</span> <span class="toc-text">Install</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure-Tor"><span class="toc-number">2.</span> <span class="toc-text">Configure Tor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Start-Tor"><span class="toc-number">3.</span> <span class="toc-text">Start Tor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Test-Tor"><span class="toc-number">4.</span> <span class="toc-text">Test Tor</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Making-Tor-Requests-with-command-line-cURL"><span class="toc-number">4.1.</span> <span class="toc-text">Making Tor Requests with command-line cURL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Making-Tor-HTTP-Requests-with-Go"><span class="toc-number">4.2.</span> <span class="toc-text">Making Tor HTTP Requests with Go</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polipo"><span class="toc-number">5.</span> <span class="toc-text">Polipo</span></a></li></ol>
  
   </div>
 
@@ -250,7 +253,7 @@ diskCacheRoot=&quot;&quot;</p>
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -258,7 +261,7 @@ diskCacheRoot=&quot;&quot;</p>
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -291,11 +294,11 @@ diskCacheRoot=&quot;&quot;</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -307,15 +310,11 @@ diskCacheRoot=&quot;&quot;</p>
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -323,7 +322,15 @@ diskCacheRoot=&quot;&quot;</p>
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -331,7 +338,7 @@ diskCacheRoot=&quot;&quot;</p>
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -343,27 +350,23 @@ diskCacheRoot=&quot;&quot;</p>
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

@@ -100,12 +100,15 @@
 		<p>在使用Scrapy 爬取文章时，把下载的文章存储为缩略图，在APP显示时出现图片质量差，模糊的问题。</p>
 <p>查看Scrapy源代码，看到Scrapy图片缩略图生成使用的函数是thumbnail，</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ImagesPipeline</span><span class="params">(FilesPipeline)</span>:</span></span><br><span class="line">    <span class="comment">#此处省略。。。。。</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">convert_image</span><span class="params">(self, image, size=None)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> image.format == <span class="string">'PNG'</span> <span class="keyword">and</span> image.mode == <span class="string">'RGBA'</span>:</span><br><span class="line">            background = Image.new(<span class="string">'RGBA'</span>, image.size, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>))</span><br><span class="line">            background.paste(image, image)</span><br><span class="line">            image = background.convert(<span class="string">'RGB'</span>)</span><br><span class="line">        <span class="keyword">elif</span> image.mode == <span class="string">'P'</span>:</span><br><span class="line">            image = image.convert(<span class="string">"RGBA"</span>)</span><br><span class="line">            background = Image.new(<span class="string">'RGBA'</span>, image.size, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>))</span><br><span class="line">            background.paste(image, image)</span><br><span class="line">            image = background.convert(<span class="string">'RGB'</span>)</span><br><span class="line">        <span class="keyword">elif</span> image.mode != <span class="string">'RGB'</span>:</span><br><span class="line">            image = image.convert(<span class="string">'RGB'</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> size:</span><br><span class="line">            image = image.copy()</span><br><span class="line">            image.thumbnail(size, Image.ANTIALIAS)</span><br><span class="line"></span><br><span class="line">        buf = BytesIO()</span><br><span class="line">        image.save(buf, <span class="string">'JPEG'</span>)</span><br><span class="line">        <span class="keyword">return</span> image, buf</span><br></pre></td></tr></table></figure>
+
 <p>使用python的PIL库的thumbnail方法生成缩略图的质量很差，需要使用resize方法来生成缩略图，并指定缩略图质量，代码如下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">image = image.resize((x, y), Image.ANTIALIAS)</span><br><span class="line"></span><br><span class="line">quality_val = <span class="number">95</span></span><br><span class="line">image.save(filename, <span class="string">'JPEG'</span>, quality=quality_val)</span><br></pre></td></tr></table></figure>
+
 <p>这样生成图片的质量比直接使用thumbnail方法会好很多。</p>
 <p>参考： <a href="https://groups.google.com/forum/#!topic/scrapy-users/uPB6U4cOiz4" target="_blank" rel="noopener">How do you create a custom image pipeline that can manipulate the images with PIL?</a></p>
 <p>附上Scrapy Pipeline代码：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#MyImagesPipeline #self</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyImagesPipeline</span><span class="params">(ImagesPipeline)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">convert_image</span><span class="params">(self, image, size=None)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> image.format == <span class="string">'PNG'</span> <span class="keyword">and</span> image.mode == <span class="string">'RGBA'</span>:</span><br><span class="line">            background = Image.new(<span class="string">'RGBA'</span>, image.size, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>))</span><br><span class="line">            background.paste(image, image)</span><br><span class="line">            image = background.convert(<span class="string">'RGB'</span>)</span><br><span class="line">        <span class="keyword">elif</span> image.mode == <span class="string">'P'</span>:</span><br><span class="line">            image = image.convert(<span class="string">"RGBA"</span>)</span><br><span class="line">            background = Image.new(<span class="string">'RGBA'</span>, image.size, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>))</span><br><span class="line">            background.paste(image, image)</span><br><span class="line">            image = background.convert(<span class="string">'RGB'</span>)</span><br><span class="line">        <span class="keyword">elif</span> image.mode != <span class="string">'RGB'</span>:</span><br><span class="line">            image = image.convert(<span class="string">'RGB'</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> size:</span><br><span class="line">            image = image.copy()</span><br><span class="line">            <span class="comment">#image.thumbnail(size, Image.ANTIALIAS)</span></span><br><span class="line">            image = image.resize(size, Image.ANTIALIAS)</span><br><span class="line"></span><br><span class="line">        buf = BytesIO()</span><br><span class="line">        quality_val = <span class="number">95</span></span><br><span class="line">        image.save(buf, <span class="string">'JPEG'</span>, quality=quality_val)</span><br><span class="line">        <span class="keyword">return</span> image, buf</span><br></pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -201,7 +204,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -209,7 +212,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -242,11 +245,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -258,15 +261,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -274,7 +273,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -282,7 +289,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -294,27 +301,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

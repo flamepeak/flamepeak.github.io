@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="微信PC版 本文都是参考大佬的文章，自己实现了一下，膜拜大佬。在此，描述一下全流程，以及一些坑 首次，核心代码在看雪论坛：微信数据库解密算法, 作者称这里提供拿到密码之后的解密算法，兼容安卓上的、pc上的微信数据库。（免去到处找sqlcipher，又怕版本错误的问题） #include &quot;stdafx.h&quot;#include &amp;lt;Windows.h&amp;gt;#include &amp;lt;opens">
+    <meta name="description" content="微信PC版本文都是参考大佬的文章，自己实现了一下，膜拜大佬。在此，描述一下全流程，以及一些坑 首次，核心代码在看雪论坛：微信数据库解密算法, 作者称这里提供拿到密码之后的解密算法，兼容安卓上的、pc上的微信数据库。（免去到处找sqlcipher，又怕版本错误的问题） #include &quot;stdafx.h&quot;#include &amp;lt;Windows.h&amp;gt;#include &amp;lt;openssl">
 <meta name="keywords" content="WeChat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信数据库解密与实现">
 <meta property="og:url" content="http://flamepeak.com/2019/04/09/WeChat-decrypt-20190409/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="微信PC版 本文都是参考大佬的文章，自己实现了一下，膜拜大佬。在此，描述一下全流程，以及一些坑 首次，核心代码在看雪论坛：微信数据库解密算法, 作者称这里提供拿到密码之后的解密算法，兼容安卓上的、pc上的微信数据库。（免去到处找sqlcipher，又怕版本错误的问题） #include &quot;stdafx.h&quot;#include &amp;lt;Windows.h&amp;gt;#include &amp;lt;opens">
+<meta property="og:description" content="微信PC版本文都是参考大佬的文章，自己实现了一下，膜拜大佬。在此，描述一下全流程，以及一些坑 首次，核心代码在看雪论坛：微信数据库解密算法, 作者称这里提供拿到密码之后的解密算法，兼容安卓上的、pc上的微信数据库。（免去到处找sqlcipher，又怕版本错误的问题） #include &quot;stdafx.h&quot;#include &amp;lt;Windows.h&amp;gt;#include &amp;lt;openssl">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-07-31T08:09:17.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信数据库解密与实现">
-<meta name="twitter:description" content="微信PC版 本文都是参考大佬的文章，自己实现了一下，膜拜大佬。在此，描述一下全流程，以及一些坑 首次，核心代码在看雪论坛：微信数据库解密算法, 作者称这里提供拿到密码之后的解密算法，兼容安卓上的、pc上的微信数据库。（免去到处找sqlcipher，又怕版本错误的问题） #include &quot;stdafx.h&quot;#include &amp;lt;Windows.h&amp;gt;#include &amp;lt;opens">
+<meta name="twitter:description" content="微信PC版本文都是参考大佬的文章，自己实现了一下，膜拜大佬。在此，描述一下全流程，以及一些坑 首次，核心代码在看雪论坛：微信数据库解密算法, 作者称这里提供拿到密码之后的解密算法，兼容安卓上的、pc上的微信数据库。（免去到处找sqlcipher，又怕版本错误的问题） #include &quot;stdafx.h&quot;#include &amp;lt;Windows.h&amp;gt;#include &amp;lt;openssl">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -98,13 +98,13 @@
 	<div class="article-content">
 		
 		<hr>
-<h3 id="微信pc版"><a class="markdownIt-Anchor" href="#微信pc版"></a> 微信PC版</h3>
-<p>本文都是参考大佬的文章，自己实现了一下，膜拜大佬。在此，描述一下全流程，以及一些坑</p>
+<h3 id="微信PC版"><a href="#微信PC版" class="headerlink" title="微信PC版"></a>微信PC版</h3><p>本文都是参考大佬的文章，自己实现了一下，膜拜大佬。在此，描述一下全流程，以及一些坑</p>
 <p>首次，核心代码在看雪论坛：<a href="https://bbs.pediy.com/thread-222652.htm" target="_blank" rel="noopener">微信数据库解密算法</a>, 作者称<code>这里提供拿到密码之后的解密算法，兼容安卓上的、pc上的微信数据库。（免去到处找sqlcipher，又怕版本错误的问题）</code></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;openssl/rand.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;openssl/evp.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;openssl/aes.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;openssl/hmac.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//#define ANDROID_WECHAT</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SQLITE_FILE_HEADER <span class="meta-string">"SQLite format 3"</span> <span class="comment">//length == 16</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IV_SIZE 16</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> HMAC_SHA1_SIZE 20</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> KEY_SIZE 32</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ANDROID_WECHAT</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DEFAULT_PAGESIZE 4096</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DEFAULT_ITER 64000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NO_USE_HMAC_SHA1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DEFAULT_PAGESIZE 1024</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DEFAULT_ITER 4000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//安卓端这里密码是7位，pc端是经过算法得到的32位pass。</span></span><br><span class="line"><span class="comment">//下面附pc端拿密码的OD图</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> pass[] = &#123; <span class="number">0x20</span>, <span class="number">0x5B</span>, <span class="number">0xD4</span>, <span class="number">0xF8</span>, <span class="number">0xCE</span>, <span class="number">0x57</span>, <span class="number">0x4E</span>, <span class="number">0x52</span>, <span class="number">0xA4</span>, <span class="number">0xF2</span>, <span class="number">0x63</span>, <span class="number">0x95</span>, <span class="number">0xA1</span>, <span class="number">0xFE</span>, <span class="number">0x4D</span>, <span class="number">0x4B</span>, <span class="number">0x91</span>, <span class="number">0xD6</span>, <span class="number">0x87</span>, <span class="number">0xCA</span>, <span class="number">0x57</span>, <span class="number">0x46</span>, <span class="number">0x4D</span>, <span class="number">0x8B</span>, <span class="number">0x83</span>, <span class="number">0xD1</span>, <span class="number">0x3B</span>, <span class="number">0x4B</span>, <span class="number">0xC0</span>, <span class="number">0xDB</span>, <span class="number">0xA7</span>, <span class="number">0x70</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> _tmain(<span class="keyword">int</span> argc, _TCHAR* argv[])</span><br><span class="line">&#123;</span><br><span class="line">	FILE *fpdb = fopen(<span class="string">"MicroMsg.db"</span>, <span class="string">"rb+"</span>);</span><br><span class="line">	<span class="keyword">if</span> (!fpdb)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Open file error!\n"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	fseek(fpdb, <span class="number">0</span>, SEEK_END);</span><br><span class="line">	<span class="keyword">long</span> nFileSize = ftell(fpdb);</span><br><span class="line">	fseek(fpdb, <span class="number">0</span>, SEEK_SET);</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> *pDbBuffer = <span class="keyword">new</span> <span class="keyword">unsigned</span> <span class="keyword">char</span>[nFileSize];</span><br><span class="line">	fread(pDbBuffer, <span class="number">1</span>, nFileSize, fpdb);</span><br><span class="line">	fclose(fpdb);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> salt[<span class="number">16</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">	<span class="built_in">memcpy</span>(salt, pDbBuffer, <span class="number">16</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> NO_USE_HMAC_SHA1</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> mac_salt[<span class="number">16</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">	<span class="built_in">memcpy</span>(mac_salt, salt, <span class="number">16</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(salt); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		mac_salt[i] ^= <span class="number">0x3a</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> reserve = IV_SIZE;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> NO_USE_HMAC_SHA1</span></span><br><span class="line">	reserve += HMAC_SHA1_SIZE;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	reserve = ((reserve % AES_BLOCK_SIZE) == <span class="number">0</span>) ? reserve : ((reserve / AES_BLOCK_SIZE) + <span class="number">1</span>) * AES_BLOCK_SIZE;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> key[KEY_SIZE] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> mac_key[KEY_SIZE] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line">	OpenSSL_add_all_algorithms();</span><br><span class="line">	PKCS5_PBKDF2_HMAC_SHA1((<span class="keyword">const</span> <span class="keyword">char</span> *)pass, <span class="keyword">sizeof</span>(pass), salt, <span class="keyword">sizeof</span>(salt), DEFAULT_ITER, <span class="keyword">sizeof</span>(key), key);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> NO_USE_HMAC_SHA1</span></span><br><span class="line">	PKCS5_PBKDF2_HMAC_SHA1((<span class="keyword">const</span> <span class="keyword">char</span> *)key, <span class="keyword">sizeof</span>(key), mac_salt, <span class="keyword">sizeof</span>(mac_salt), <span class="number">2</span>, <span class="keyword">sizeof</span>(mac_key), mac_key);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> *pTemp = pDbBuffer;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> pDecryptPerPageBuffer[DEFAULT_PAGESIZE];</span><br><span class="line">	<span class="keyword">int</span> nPage = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> offset = <span class="number">16</span>;</span><br><span class="line">	<span class="keyword">while</span> (pTemp &lt; pDbBuffer + nFileSize)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"decrypt page:%d/%d \n"</span>, nPage, nFileSize / DEFAULT_PAGESIZE);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> NO_USE_HMAC_SHA1</span></span><br><span class="line">		<span class="comment">//check hmac</span></span><br><span class="line">		<span class="keyword">unsigned</span> <span class="keyword">char</span> hash_mac[HMAC_SHA1_SIZE] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">		<span class="keyword">unsigned</span> <span class="keyword">int</span> hash_len = <span class="number">0</span>;</span><br><span class="line">		HMAC_CTX hctx;</span><br><span class="line">		HMAC_CTX_init(&amp;hctx);</span><br><span class="line">		HMAC_Init_ex(&amp;hctx, mac_key, <span class="keyword">sizeof</span>(mac_key), EVP_sha1(), <span class="literal">NULL</span>);</span><br><span class="line">		HMAC_Update(&amp;hctx, pTemp + offset, DEFAULT_PAGESIZE - reserve - offset + IV_SIZE);</span><br><span class="line">		HMAC_Update(&amp;hctx, (<span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *)&amp;nPage, <span class="keyword">sizeof</span>(nPage));</span><br><span class="line">		HMAC_Final(&amp;hctx, hash_mac, &amp;hash_len);</span><br><span class="line">		HMAC_CTX_cleanup(&amp;hctx);</span><br><span class="line">		<span class="keyword">if</span> (<span class="number">0</span> != <span class="built_in">memcmp</span>(hash_mac, pTemp + DEFAULT_PAGESIZE - reserve + IV_SIZE, <span class="keyword">sizeof</span>(hash_mac)))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//hash check err</span></span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">		<span class="comment">//</span></span><br><span class="line">		<span class="keyword">if</span> (nPage == <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">memcpy</span>(pDecryptPerPageBuffer, SQLITE_FILE_HEADER, offset);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//aes decrypt</span></span><br><span class="line">		EVP_CIPHER_CTX* ectx = EVP_CIPHER_CTX_new();</span><br><span class="line">		EVP_CipherInit_ex(ectx, EVP_get_cipherbyname(<span class="string">"aes-256-cbc"</span>), <span class="literal">NULL</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">		EVP_CIPHER_CTX_set_padding(ectx, <span class="number">0</span>);</span><br><span class="line">		EVP_CipherInit_ex(ectx, <span class="literal">NULL</span>, <span class="literal">NULL</span>, key, pTemp + (DEFAULT_PAGESIZE - reserve), <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> nDecryptLen = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> nTotal = <span class="number">0</span>;</span><br><span class="line">		EVP_CipherUpdate(ectx, pDecryptPerPageBuffer + offset, &amp;nDecryptLen, pTemp + offset, DEFAULT_PAGESIZE - reserve - offset);</span><br><span class="line">		nTotal = nDecryptLen;</span><br><span class="line">		EVP_CipherFinal_ex(ectx, pDecryptPerPageBuffer + offset + nDecryptLen, &amp;nDecryptLen);</span><br><span class="line">		nTotal += nDecryptLen;</span><br><span class="line">		EVP_CIPHER_CTX_free(ectx);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//assert(nTotal == DEFAULT_PAGESIZE - reserve - offset);</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">//no necessary ,just like sqlcipher</span></span><br><span class="line">		<span class="built_in">memcpy</span>(pDecryptPerPageBuffer + DEFAULT_PAGESIZE - reserve, pTemp + DEFAULT_PAGESIZE - reserve, reserve);</span><br><span class="line"></span><br><span class="line">		FILE *fp = fopen(<span class="string">"MicroMsg_Decrypt.db"</span>, <span class="string">"ab+"</span>);</span><br><span class="line">		&#123;</span><br><span class="line">			fwrite(pDecryptPerPageBuffer, <span class="number">1</span>, DEFAULT_PAGESIZE, fp);</span><br><span class="line">			fclose(fp);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		nPage++;</span><br><span class="line">		offset = <span class="number">0</span>;</span><br><span class="line">		pTemp += DEFAULT_PAGESIZE;</span><br><span class="line">	&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>在上文的评论中，有一个留言详细的介绍了openssl的编译，以及vs的搭建，可以参考</p>
 <ol start="2">
-<li>参考文章 <a href="http://techotaku.me/2018/04/13/%E8%A7%A3%E5%AF%86%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%95%B0%E6%8D%AE%E5%BA%93" target="_blank" rel="noopener">解密微信聊天数据库</a></li>
+<li>参考文章 <a href="http://techotaku.me/2018/04/13/解密微信聊天数据库" target="_blank" rel="noopener">解密微信聊天数据库</a></li>
 </ol>
 <p>解密算法需要用到openssl库，win10请用1.0.2版本，为避免各种问题，可以直接使用 <a href="http://slproweb.com/products/Win32OpenSSL.html" target="_blank" rel="noopener">slproweb.com</a>提供的安装版，切勿使用名字含Light的轻量版，安装完毕后，项目属性配置如下，当然将包含的头文件和依赖的lib文件复制到项目目录更好，最后需要注意的是不要忘了<code>libeay32.dll</code>，安装openssl库之后默认路径<code>C:\Windows\SysWOW64\libeay32.dll</code>，编译成可执行文件发布请附带<code>libeay32.dll</code>。</p>
 <ol start="3">
@@ -113,7 +113,7 @@
 <p>参考 <a href="https://luozikuan.github.io/computer/2018/10/07/get_wechat_decrypt_key" target="_blank" rel="noopener">解密PC版微信数据库  使用OllyDbg获取解密密钥</a></p>
 <p>需要指出的是最后获取的密钥是32字节</p>
 <ol start="4">
-<li>VS调试代码过程</li>
+<li>VS调试代码过程 </li>
 </ol>
 <p>参考：<a href="http://flamepeak.com/2019/04/09/visual-studio-error-lnk2019/">vs2013 error LNK2019 无法解析的外部符号</a></p>
 <hr>
@@ -179,7 +179,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#微信pc版"><span class="toc-number">1.</span> <span class="toc-text"> 微信PC版</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#微信PC版"><span class="toc-number">1.</span> <span class="toc-text">微信PC版</span></a></li></ol>
  
   </div>
 
@@ -212,7 +212,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -220,7 +220,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -253,11 +253,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -269,15 +269,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -285,7 +281,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -293,7 +297,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -305,27 +309,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

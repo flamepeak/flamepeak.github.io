@@ -100,9 +100,11 @@
 		<p>在写爬虫的时候遇到要保存gif图片，发现Scrapy并没有提供这个功能，查阅了一些gif资料最后添加成功。</p>
 <p>这里提供一段网上的代码，对我帮助很大，好像来自Google Group 忘记了，致谢！</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyImagesPipeline</span><span class="params">(ImagesPipeline)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">check_gif</span><span class="params">(self, image)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> image.format == <span class="string">'GIF'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="comment"># The library reads GIF87a and GIF89a versions of the GIF file format.</span></span><br><span class="line">        <span class="keyword">return</span> image.info.get(<span class="string">'version'</span>) <span class="keyword">in</span> [<span class="string">'GIF89a'</span>, <span class="string">'GIF87a'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">persist_gif</span><span class="params">(self, key, data, info)</span>:</span></span><br><span class="line">        root, ext = os.path.splitext(key)</span><br><span class="line">        key = key + <span class="string">'.gif'</span></span><br><span class="line">        absolute_path = self.store._get_filesystem_path(key)</span><br><span class="line">        self.store._mkdir(os.path.dirname(absolute_path), info)</span><br><span class="line">        f = open(absolute_path, <span class="string">'wb'</span>)   <span class="comment"># use 'b' to write binary data.</span></span><br><span class="line">        f.write(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">image_downloaded</span><span class="params">(self, response, request, info)</span>:</span></span><br><span class="line">        checksum = <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">for</span> key, image, buf <span class="keyword">in</span> self.get_images(response, request, info):</span><br><span class="line">            <span class="keyword">if</span> checksum <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">                buf.seek(<span class="number">0</span>)</span><br><span class="line">                checksum = md5sum(buf)</span><br><span class="line">            <span class="keyword">if</span> key.startswith(<span class="string">'full'</span>) <span class="keyword">and</span> self.check_gif(image):</span><br><span class="line">                <span class="comment"># Save gif from response directly.</span></span><br><span class="line">                self.persist_gif(key, response.body, info)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                self.store.persist_image(key, image, buf, info)</span><br><span class="line">        <span class="keyword">return</span> checksum</span><br></pre></td></tr></table></figure>
+
 <p>我的方法与这个代码基本相同，只不过我没有写<code>persist_gif</code>函数，修改了<code>get_images</code>函数，这里就不贴出来我那丑陋的代码了。。。</p>
 <p>最后列出一些gif知识：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#orig_image = Image.open('3.jpg')</span></span><br><span class="line">orig_image = Image.open(<span class="string">'1.gif'</span>)</span><br><span class="line"><span class="keyword">print</span> orig_image.info</span><br><span class="line"><span class="comment">#print dir(orig_image)</span></span><br><span class="line"><span class="keyword">print</span> vars(orig_image)</span><br><span class="line"><span class="keyword">print</span> orig_image.size</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">'format:'</span>, orig_image.format</span><br><span class="line"><span class="keyword">print</span> <span class="string">'mode:'</span>, orig_image.mode</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> orig_image.info[<span class="string">'version'</span>] <span class="keyword">in</span> [<span class="string">'GIF89a'</span>, <span class="string">'GIF87a'</span>]</span><br></pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -138,10 +140,10 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/09/20/C-data-structure-20170920/" title="C data structure 20170920">
+ <a href="/2017/09/20/python-json-dumps-problems/" title="python中json使用遇到一些编码问题">
   <strong>上一篇：</strong><br/>
   <span>
-  C data structure 20170920</span>
+  python中json使用遇到一些编码问题</span>
 </a>
 </div>
 
@@ -198,7 +200,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -206,7 +208,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -239,11 +241,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -255,15 +257,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -271,7 +269,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -279,7 +285,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -291,27 +297,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

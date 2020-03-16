@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="首先，下载安装Android Studio 运行android studio会提示下载安装SDK，自动下载安装即可 在android Studio界面，找到Configure-&amp;gt;Android SDK打开可以看到SDK的路径，也可以修改路径   遇到的问题 一. Windows下adb命令找不到，应该是环境变量的问题  找到SDK安装路径，adb.exe位于platform-tools文件">
+    <meta name="description" content="首先，下载安装Android Studio   运行android studio会提示下载安装SDK，自动下载安装即可   在android Studio界面，找到Configure-&amp;gt;Android SDK打开可以看到SDK的路径，也可以修改路径    遇到的问题一. Windows下adb命令找不到，应该是环境变量的问题    找到SDK安装路径，adb.exe位于platform-t">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="adb shell 使用">
 <meta property="og:url" content="http://flamepeak.com/2018/06/06/adb-shell-tips-20180606/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="首先，下载安装Android Studio 运行android studio会提示下载安装SDK，自动下载安装即可 在android Studio界面，找到Configure-&amp;gt;Android SDK打开可以看到SDK的路径，也可以修改路径   遇到的问题 一. Windows下adb命令找不到，应该是环境变量的问题  找到SDK安装路径，adb.exe位于platform-tools文件">
+<meta property="og:description" content="首先，下载安装Android Studio   运行android studio会提示下载安装SDK，自动下载安装即可   在android Studio界面，找到Configure-&amp;gt;Android SDK打开可以看到SDK的路径，也可以修改路径    遇到的问题一. Windows下adb命令找不到，应该是环境变量的问题    找到SDK安装路径，adb.exe位于platform-t">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-02-26T04:05:07.931Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="adb shell 使用">
-<meta name="twitter:description" content="首先，下载安装Android Studio 运行android studio会提示下载安装SDK，自动下载安装即可 在android Studio界面，找到Configure-&amp;gt;Android SDK打开可以看到SDK的路径，也可以修改路径   遇到的问题 一. Windows下adb命令找不到，应该是环境变量的问题  找到SDK安装路径，adb.exe位于platform-tools文件">
+<meta name="twitter:description" content="首先，下载安装Android Studio   运行android studio会提示下载安装SDK，自动下载安装即可   在android Studio界面，找到Configure-&amp;gt;Android SDK打开可以看到SDK的路径，也可以修改路径    遇到的问题一. Windows下adb命令找不到，应该是环境变量的问题    找到SDK安装路径，adb.exe位于platform-t">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -98,31 +98,25 @@
 	<div class="article-content">
 		
 		<ol>
-<li>首先，下载安装Android Studio</li>
-<li>运行android studio会提示下载安装SDK，自动下载安装即可</li>
-<li>在android Studio界面，找到Configure-&gt;Android SDK打开可以看到SDK的路径，也可以修改路径</li>
+<li>首先，下载安装Android Studio  </li>
+<li>运行android studio会提示下载安装SDK，自动下载安装即可  </li>
+<li>在android Studio界面，找到Configure-&gt;Android SDK打开可以看到SDK的路径，也可以修改路径  </li>
 </ol>
-<h3 id="遇到的问题"><a class="markdownIt-Anchor" href="#遇到的问题"></a> 遇到的问题</h3>
-<p>一. Windows下adb命令找不到，应该是环境变量的问题</p>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>一. Windows下adb命令找不到，应该是环境变量的问题  </p>
 <ol>
-<li>找到SDK安装路径，adb.exe位于platform-tools文件夹下， 复制路径<code>D:\Dev\Android\SDK\platform-tools</code></li>
-<li>在系统环境变量修改界面，新建系统环境变量 Android， 值设为上一步的路径</li>
-<li>修改环境变量Path值, 添加%Android%</li>
+<li>找到SDK安装路径，adb.exe位于platform-tools文件夹下， 复制路径<code>D:\Dev\Android\SDK\platform-tools</code>    </li>
+<li>在系统环境变量修改界面，新建系统环境变量 Android， 值设为上一步的路径  </li>
+<li>修改环境变量Path值, 添加%Android%  </li>
 </ol>
-<p>二. adb shell 连接夜神模拟器失败解决方案<br>
-正常安装后运行<code>adb devices</code>看不到夜神模拟器，请参考以下方法：</p>
+<p>二. adb shell 连接夜神模拟器失败解决方案<br>正常安装后运行<code>adb devices</code>看不到夜神模拟器，请参考以下方法：  </p>
 <ol>
-<li>
-<p>进入设置-关于平板电脑里面 ，点击版本号将夜神模拟器点击成开发者模式,点击5下就可以</p>
+<li><p>进入设置-关于平板电脑里面 ，点击版本号将夜神模拟器点击成开发者模式,点击5下就可以</p>
 </li>
-<li>
-<p>找到android 的adb.exe 去替换夜神模拟器 安装目录bin下面的nox_adb.exe</p>
+<li><p>找到android 的adb.exe 去替换夜神模拟器 安装目录bin下面的nox_adb.exe</p>
 </li>
-<li>
-<p>配置nox_adb.exe 的安装目录到 系统环境里面，即新建系统环境变量nox_adb，值设为nox_adb.exe的路径</p>
+<li><p>配置nox_adb.exe 的安装目录到 系统环境里面，即新建系统环境变量nox_adb，值设为nox_adb.exe的路径</p>
 </li>
-<li>
-<p>重新启动androidStudio 和 夜神模拟器</p>
+<li><p>重新启动androidStudio 和 夜神模拟器</p>
 </li>
 </ol>
   
@@ -187,7 +181,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#遇到的问题"><span class="toc-number">1.</span> <span class="toc-text"> 遇到的问题</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#遇到的问题"><span class="toc-number">1.</span> <span class="toc-text">遇到的问题</span></a></li></ol>
  
   </div>
 
@@ -220,7 +214,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -228,7 +222,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -261,11 +255,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -277,15 +271,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -293,7 +283,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -301,7 +299,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -313,27 +311,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

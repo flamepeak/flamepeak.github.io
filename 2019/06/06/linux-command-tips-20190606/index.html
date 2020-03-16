@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="SS 命令 ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但请">
+    <meta name="description" content="SS 命令ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但请相信">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux 常用命令的收集与整理">
 <meta property="og:url" content="http://flamepeak.com/2019/06/06/linux-command-tips-20190606/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="SS 命令 ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但请">
+<meta property="og:description" content="SS 命令ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但请相信">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-07-23T09:19:30.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 常用命令的收集与整理">
-<meta name="twitter:description" content="SS 命令 ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但请">
+<meta name="twitter:description" content="SS 命令ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但请相信">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,58 +97,49 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="ss-命令"><a class="markdownIt-Anchor" href="#ss-命令"></a> SS 命令</h3>
-<p><code>ss</code>命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比<code>netstat</code>更快速更高效。</p>
+		<h3 id="SS-命令"><a href="#SS-命令" class="headerlink" title="SS 命令"></a>SS 命令</h3><p><code>ss</code>命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比<code>netstat</code>更快速更高效。</p>
 <p>当服务器的socket连接数量变得非常大时，无论是使用<code>netstat</code>命令还是直接<code>cat /proc/net/tcp</code>，执行速度都会很慢。可能你不会有切身的感受，但请相信我，当服务器维持的连接达到上万个的时候，使用<code>netstat</code>等于浪费 生命，而用ss才是节省时间。</p>
 <p>天下武功唯快不破。<code>ss</code>快的秘诀在于，它利用到了TCP协议栈中tcp_diag。tcp_diag是一个用于分析统计的模块，可以获得Linux 内核中第一手的信息，这就确保了ss的快捷高效。当然，如果你的系统中没有tcp_diag，<code>ss</code>也可以正常运行，只是效率会变得稍慢。</p>
 <p>选项：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-h：显示帮助信息；</span><br><span class="line">-V：显示指令版本信息；</span><br><span class="line">-n：不解析服务名称，以数字方式显示；</span><br><span class="line">-a：显示所有的套接字；</span><br><span class="line">-l：显示处于监听状态的套接字；</span><br><span class="line">-o：显示计时器信息；</span><br><span class="line">-m：显示套接字的内存使用情况；</span><br><span class="line">-p：显示使用套接字的进程信息；</span><br><span class="line">-i：显示内部的TCP信息；</span><br><span class="line">-4：只显示ipv4的套接字；</span><br><span class="line">-6：只显示ipv6的套接字；</span><br><span class="line">-t：只显示tcp套接字；</span><br><span class="line">-u：只显示udp套接字；</span><br><span class="line">-d：只显示DCCP套接字；</span><br><span class="line">-w：仅显示RAW套接字；</span><br><span class="line">-x：仅显示UNIX域套接字。</span><br></pre></td></tr></table></figure>
-<p>列出所有打开的网络连接端口<br>
-<code>ss -l</code></p>
-<p>列出所有打开的网络连接端口，只显示TCP<br>
-<code>ss -lt</code></p>
+
+<p>列出所有打开的网络连接端口<br><code>ss -l</code></p>
+<p>列出所有打开的网络连接端口，只显示TCP<br><code>ss -lt</code></p>
 <hr>
-<h3 id="mkdir"><a class="markdownIt-Anchor" href="#mkdir"></a> mkdir</h3>
-<p><code>mkdir /data/site{a,b,c} -pv</code><br>
-这个命令可以创建/data/sitea , /data/siteb, /data/sitec，使用<code>-p</code>可以递归创建多层目录</p>
-<h3 id="bc"><a class="markdownIt-Anchor" href="#bc"></a> bc</h3>
-<p><code>bc</code> 命令是任意精度计算器语言，通常在linux下当计算器用，可以进行基本数学运算。</p>
+<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h3><p><code>mkdir /data/site{a,b,c} -pv</code><br>这个命令可以创建/data/sitea , /data/siteb, /data/sitec，使用<code>-p</code>可以递归创建多层目录</p>
+<h3 id="bc"><a href="#bc" class="headerlink" title="bc"></a>bc</h3><p><code>bc</code> 命令是任意精度计算器语言，通常在linux下当计算器用，可以进行基本数学运算。</p>
 <p>输入<code>bc</code>命令，进入交互模式，可以进行加、减、乘、除、指数（^）、模（%）运算，输入<code>quit</code>退出。</p>
 <p>也可以通过管道符使用：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo 15*5 |bc</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># scale=2 设小数位，2 代表保留两位:</span><br><span class="line">echo &quot;scale=2;sqrt(8)&quot;|bc</span><br><span class="line"></span><br><span class="line">#  ibase 和 obase 来其它进制的运算</span><br><span class="line">abc = 11000000</span><br><span class="line">echo &quot;obase=10;ibase=2;$abc&quot; | bc</span><br><span class="line"></span><br><span class="line">abc=8</span><br><span class="line">echo &quot;obase=2;$abc&quot; | bc</span><br></pre></td></tr></table></figure>
-<h3 id="apt-get-只升级单个包"><a class="markdownIt-Anchor" href="#apt-get-只升级单个包"></a> apt-get 只升级单个包</h3>
-<p>只需要做<code>apt-get install --only-upgrade &lt;packagename&gt;</code>。这将仅升级该单个软件包，并且仅在已安装时才升级。</p>
-<h3 id="grep-过滤空行和注释行"><a class="markdownIt-Anchor" href="#grep-过滤空行和注释行"></a> grep 过滤空行和注释行</h3>
-<p>在查看配置文件时，我们希望过滤到注释行和大量的空行，只显示有效的配置信息，这时我们可以使用grep</p>
+
+<h3 id="apt-get-只升级单个包"><a href="#apt-get-只升级单个包" class="headerlink" title="apt-get 只升级单个包"></a>apt-get 只升级单个包</h3><p>只需要做<code>apt-get install --only-upgrade &lt;packagename&gt;</code>。这将仅升级该单个软件包，并且仅在已安装时才升级。</p>
+<h3 id="grep-过滤空行和注释行"><a href="#grep-过滤空行和注释行" class="headerlink" title="grep 过滤空行和注释行"></a>grep 过滤空行和注释行</h3><p>在查看配置文件时，我们希望过滤到注释行和大量的空行，只显示有效的配置信息，这时我们可以使用grep</p>
 <p>grep的排除选项为 -v</p>
 <ol>
 <li>去掉<code>#</code>号开头的行</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grep -v &quot;^#&quot;  filename</span><br></pre></td></tr></table></figure>
+
 <ol start="2">
 <li>去掉空行</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grep -v &quot;^$&quot; filename</span><br></pre></td></tr></table></figure>
+
 <ol start="3">
 <li>去掉空行及<code>#</code>开头的行</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grep -v &quot;^#&quot; |grep -v &quot;^$&quot;</span><br><span class="line"></span><br><span class="line">例如：</span><br><span class="line">more  /etc/zabbix/zabbix_server.conf |grep -v &quot;^#&quot;|grep -v &quot;^$&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="wc命令"><a class="markdownIt-Anchor" href="#wc命令"></a> WC命令</h3>
-<p>Linux wc命令用于计算字数。</p>
-<p>利用wc指令我们可以计算文件的Byte数、字数、或是列数，若不指定文件名称、或是所给予的文件名为&quot;-&quot;，则wc指令会从标准输入设备读取数据。</p>
+
+<h3 id="WC命令"><a href="#WC命令" class="headerlink" title="WC命令"></a>WC命令</h3><p>Linux wc命令用于计算字数。</p>
+<p>利用wc指令我们可以计算文件的Byte数、字数、或是列数，若不指定文件名称、或是所给予的文件名为”-“，则wc指令会从标准输入设备读取数据。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-c或--bytes或--chars 只显示Bytes数。</span><br><span class="line">-l或--lines 只显示行数。</span><br><span class="line">-w或--words 只显示字数。</span><br></pre></td></tr></table></figure>
+
 <p>例如： ps aux |wc -l</p>
-<h3 id="dig命令"><a class="markdownIt-Anchor" href="#dig命令"></a> dig命令</h3>
-<p>dig 命令主要用来从 DNS 域名服务器查询主机地址信息</p>
-<p>dig 命令默认的输出信息比较丰富，大概可以分为 5 个部分。<br>
-第一部分显示 dig 命令的版本和输入的参数。<br>
-第二部分显示服务返回的一些技术详情，比较重要的是 status。如果 status 的值为 NOERROR 则说明本次查询成功结束。<br>
-第三部分中的 “QUESTION SECTION” 显示我们要查询的域名。<br>
-第四部分的 “ANSWER SECTION” 是查询到的结果。<br>
-第五部分则是本次查询的一些统计信息，比如用了多长时间，查询了哪个 DNS 服务器，在什么时间进行的查询等等。</p>
-<h3 id="dhclient"><a class="markdownIt-Anchor" href="#dhclient"></a> dhclient</h3>
-<p>获取动态ip</p>
+<h3 id="dig命令"><a href="#dig命令" class="headerlink" title="dig命令"></a>dig命令</h3><p>dig 命令主要用来从 DNS 域名服务器查询主机地址信息</p>
+<p>dig 命令默认的输出信息比较丰富，大概可以分为 5 个部分。<br>第一部分显示 dig 命令的版本和输入的参数。<br>第二部分显示服务返回的一些技术详情，比较重要的是 status。如果 status 的值为 NOERROR 则说明本次查询成功结束。<br>第三部分中的 “QUESTION SECTION” 显示我们要查询的域名。<br>第四部分的 “ANSWER SECTION” 是查询到的结果。<br>第五部分则是本次查询的一些统计信息，比如用了多长时间，查询了哪个 DNS 服务器，在什么时间进行的查询等等。</p>
+<h3 id="dhclient"><a href="#dhclient" class="headerlink" title="dhclient"></a>dhclient</h3><p>获取动态ip</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -211,7 +202,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ss-命令"><span class="toc-number">1.</span> <span class="toc-text"> SS 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir"><span class="toc-number">2.</span> <span class="toc-text"> mkdir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bc"><span class="toc-number">3.</span> <span class="toc-text"> bc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apt-get-只升级单个包"><span class="toc-number">4.</span> <span class="toc-text"> apt-get 只升级单个包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep-过滤空行和注释行"><span class="toc-number">5.</span> <span class="toc-text"> grep 过滤空行和注释行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wc命令"><span class="toc-number">6.</span> <span class="toc-text"> WC命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dig命令"><span class="toc-number">7.</span> <span class="toc-text"> dig命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dhclient"><span class="toc-number">8.</span> <span class="toc-text"> dhclient</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SS-命令"><span class="toc-number">1.</span> <span class="toc-text">SS 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir"><span class="toc-number">2.</span> <span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bc"><span class="toc-number">3.</span> <span class="toc-text">bc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apt-get-只升级单个包"><span class="toc-number">4.</span> <span class="toc-text">apt-get 只升级单个包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep-过滤空行和注释行"><span class="toc-number">5.</span> <span class="toc-text">grep 过滤空行和注释行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WC命令"><span class="toc-number">6.</span> <span class="toc-text">WC命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dig命令"><span class="toc-number">7.</span> <span class="toc-text">dig命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dhclient"><span class="toc-number">8.</span> <span class="toc-text">dhclient</span></a></li></ol>
  
   </div>
 
@@ -244,7 +235,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -252,7 +243,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -285,11 +276,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -301,15 +292,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -317,7 +304,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -325,7 +320,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -337,27 +332,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

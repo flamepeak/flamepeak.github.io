@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Installation pip install virtualenv   Usage virtualenv ENV Where ENV is a directory to place the new virtual environment. It has a number of usual effects :  ENV/lib/ and ENV/include/ are created, co">
+    <meta name="description" content="Installationpip install virtualenv  Usagevirtualenv ENV Where ENV is a directory to place the new virtual environment. It has a number of usual effects :    ENV/lib/ and ENV/include/ are created, cont">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python virtualenv 使用与设置">
 <meta property="og:url" content="http://flamepeak.com/2017/09/13/Python-virtualenv-usage-20170913/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Installation pip install virtualenv   Usage virtualenv ENV Where ENV is a directory to place the new virtual environment. It has a number of usual effects :  ENV/lib/ and ENV/include/ are created, co">
+<meta property="og:description" content="Installationpip install virtualenv  Usagevirtualenv ENV Where ENV is a directory to place the new virtual environment. It has a number of usual effects :    ENV/lib/ and ENV/include/ are created, cont">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-09-13T07:51:16.747Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python virtualenv 使用与设置">
-<meta name="twitter:description" content="Installation pip install virtualenv   Usage virtualenv ENV Where ENV is a directory to place the new virtual environment. It has a number of usual effects :  ENV/lib/ and ENV/include/ are created, co">
+<meta name="twitter:description" content="Installationpip install virtualenv  Usagevirtualenv ENV Where ENV is a directory to place the new virtual environment. It has a number of usual effects :    ENV/lib/ and ENV/include/ are created, cont">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,20 +97,18 @@
 </header>
 	<div class="article-content">
 		
-		<h2 id="installation"><a class="markdownIt-Anchor" href="#installation"></a> Installation</h2>
-<p><code>pip install virtualenv</code></p>
+		<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p><code>pip install virtualenv</code></p>
 <hr>
-<h2 id="usage"><a class="markdownIt-Anchor" href="#usage"></a> Usage</h2>
-<p><code>virtualenv ENV</code></p>
-<p>Where <code>ENV</code> is a directory to place the new virtual environment. It has a number of usual effects :</p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p><code>virtualenv ENV</code></p>
+<p>Where <code>ENV</code> is a directory to place the new virtual environment. It has a number of usual effects :  </p>
 <ul>
-<li><code>ENV/lib/</code> and <code>ENV/include/</code> are created, containing supporting library files for a new virtualenv python. Packages installed in this environment will live under <code>ENV/lib/pythonX.X/site-packages/</code>.</li>
-<li><code>ENV/bin</code> is created, where executables live - noticeably a new python. Thus running a script with <code>#! /path/to/ENV/bin/python</code> would run that script under this virtualenv’s python.</li>
-<li>The crucial packages pip and setuptools are installed, which allow other packages to be easily installed to the environment. This associated pip can be run from <code>ENV/bin/pip</code>.</li>
+<li><code>ENV/lib/</code> and <code>ENV/include/</code> are created, containing supporting library files for a new virtualenv python. Packages installed in this environment will live under <code>ENV/lib/pythonX.X/site-packages/</code>.  </li>
+<li><code>ENV/bin</code> is created, where executables live - noticeably a new python. Thus running a script with <code>#! /path/to/ENV/bin/python</code> would run that script under this virtualenv’s python.  </li>
+<li>The crucial packages pip and setuptools are installed, which allow other packages to be easily installed to the environment. This associated pip can be run from <code>ENV/bin/pip</code>.  </li>
 </ul>
-<h3 id="activate-script"><a class="markdownIt-Anchor" href="#activate-script"></a> activate script</h3>
-<p>For Windows systems, activation scripts are provided for the Command Prompt and Powershell.</p>
+<h3 id="activate-script"><a href="#activate-script" class="headerlink" title="activate script"></a>activate script</h3><p>For Windows systems, activation scripts are provided for the Command Prompt and Powershell.</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ENV</span><br><span class="line"><span class="built_in">cd</span> Scripts</span><br><span class="line">activate</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">退出：</span><br><span class="line">`deactivate`</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">For Linux:</span><br><span class="line"><span class="built_in">cd</span> ENV</span><br><span class="line"><span class="built_in">source</span> bin/activate</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">退出：</span><br><span class="line">`deactivate`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 需求文件requirements.txt的创建及使用</span></span><br><span class="line"></span><br><span class="line">python项目中可以包含一个 `requirements.txt` 文件，用于记录所有依赖包及其精确的版本号,以便新环境部署.</span><br><span class="line"></span><br><span class="line">如果一个项目使用时virtualenv环境，还好办 `pip freeze` 就可以解决, 在虚拟环境中运行：  </span><br><span class="line">`(venv) $ pip freeze &gt;requirements.txt`</span><br><span class="line"></span><br><span class="line">安装或升级包后，最好更新这个文件。</span><br><span class="line"></span><br><span class="line">当需要创建这个虚拟环境的完全副本，可以创建一个新的虚拟环境，并在其上运行以下命令：  </span><br><span class="line">`(venv) $ pip install -r requirements.txt`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">***</span><br><span class="line"></span><br><span class="line"><span class="comment">## Linux Crontab and virtualenv</span></span><br><span class="line"></span><br><span class="line">如果在python代码在一个virtualenv环境中，那应该怎么把这个脚本加到计划任务定时执行呢？</span><br><span class="line"></span><br><span class="line">应该使用虚拟环境中的`python`，一般的路径在`virtual_env_dir/bin/python`:  </span><br><span class="line"></span><br><span class="line">```Python</span><br><span class="line">/home/my/virtual/bin/python /home/my/project/manage.py <span class="built_in">command</span> arg</span><br></pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -173,7 +171,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#installation"><span class="toc-number">1.</span> <span class="toc-text"> Installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#usage"><span class="toc-number">2.</span> <span class="toc-text"> Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#activate-script"><span class="toc-number">2.1.</span> <span class="toc-text"> activate script</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation"><span class="toc-number">1.</span> <span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Usage"><span class="toc-number">2.</span> <span class="toc-text">Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#activate-script"><span class="toc-number">2.1.</span> <span class="toc-text">activate script</span></a></li></ol></li></ol>
  
   </div>
 
@@ -206,7 +204,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -214,7 +212,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -247,11 +245,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -263,15 +261,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -279,7 +273,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -287,7 +289,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -299,27 +301,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

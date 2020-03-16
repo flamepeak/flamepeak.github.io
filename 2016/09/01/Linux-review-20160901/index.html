@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="环境变量 echo variabename读取变量的值，variabename  读取变量的值，variabename读取变量的值，表示引用一个变量的值 环境变量三种，涉及三个命令:set env export    命令 说明     set 显示当前shell的变量，包括当前用户的变量   env 显示当前用户的变量   export 显示当前导出成用户变量的shell变量    添加自定义">
+    <meta name="description" content="环境变量echo $variabename  读取变量的值，$表示引用一个变量的值环境变量三种，涉及三个命令:set env export    命令 说明    set 显示当前shell的变量，包括当前用户的变量   env 显示当前用户的变量   export 显示当前导出成用户变量的shell变量   添加自定义路径到环境变量PATH=$PATH:/home/test注意要使用绝对路径 在">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 温习(二):环境变量 文件搜索 文件打包与压缩">
 <meta property="og:url" content="http://flamepeak.com/2016/09/01/Linux-review-20160901/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="环境变量 echo variabename读取变量的值，variabename  读取变量的值，variabename读取变量的值，表示引用一个变量的值 环境变量三种，涉及三个命令:set env export    命令 说明     set 显示当前shell的变量，包括当前用户的变量   env 显示当前用户的变量   export 显示当前导出成用户变量的shell变量    添加自定义">
+<meta property="og:description" content="环境变量echo $variabename  读取变量的值，$表示引用一个变量的值环境变量三种，涉及三个命令:set env export    命令 说明    set 显示当前shell的变量，包括当前用户的变量   env 显示当前用户的变量   export 显示当前导出成用户变量的shell变量   添加自定义路径到环境变量PATH=$PATH:/home/test注意要使用绝对路径 在">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:46:35.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 温习(二):环境变量 文件搜索 文件打包与压缩">
-<meta name="twitter:description" content="环境变量 echo variabename读取变量的值，variabename  读取变量的值，variabename读取变量的值，表示引用一个变量的值 环境变量三种，涉及三个命令:set env export    命令 说明     set 显示当前shell的变量，包括当前用户的变量   env 显示当前用户的变量   export 显示当前导出成用户变量的shell变量    添加自定义">
+<meta name="twitter:description" content="环境变量echo $variabename  读取变量的值，$表示引用一个变量的值环境变量三种，涉及三个命令:set env export    命令 说明    set 显示当前shell的变量，包括当前用户的变量   env 显示当前用户的变量   export 显示当前导出成用户变量的shell变量   添加自定义路径到环境变量PATH=$PATH:/home/test注意要使用绝对路径 在">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,9 +97,7 @@
 </header>
 	<div class="article-content">
 		
-		<h2 id="环境变量"><a class="markdownIt-Anchor" href="#环境变量"></a> 环境变量</h2>
-<p>echo <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>a</mi><mi>b</mi><mi>e</mi><mi>n</mi><mi>a</mi><mi>m</mi><mi>e</mi><mi mathvariant="normal">读</mi><mi mathvariant="normal">取</mi><mi mathvariant="normal">变</mi><mi mathvariant="normal">量</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">值</mi><mi mathvariant="normal">，</mi></mrow><annotation encoding="application/x-tex">variabename  读取变量的值，</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">i</span><span class="mord mathdefault">a</span><span class="mord mathdefault">b</span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span><span class="mord mathdefault">a</span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span><span class="mord cjk_fallback">读</span><span class="mord cjk_fallback">取</span><span class="mord cjk_fallback">变</span><span class="mord cjk_fallback">量</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">值</span><span class="mord cjk_fallback">，</span></span></span></span>表示引用一个变量的值<br>
-环境变量三种，涉及三个命令:set env export</p>
+		<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>echo $variabename  读取变量的值，$表示引用一个变量的值<br>环境变量三种，涉及三个命令:set env export</p>
 <table>
 <thead>
 <tr>
@@ -107,8 +105,7 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>set</td>
 <td>显示当前shell的变量，包括当前用户的变量</td>
 </tr>
@@ -120,32 +117,15 @@
 <td>export</td>
 <td>显示当前导出成用户变量的shell变量</td>
 </tr>
-</tbody>
-</table>
-<p><strong>添加自定义路径到环境变量</strong><br>
-<code>PATH=$PATH:/home/test</code><br>
-注意要使用绝对路径</p>
-<p>在每个用户的<code>home</code>目录中有一个Shell每次启动都会默认执行的一个配置脚本，以初始化环境，包括添加一些用户自定义环境变量。zsh的配置文件是<font color="Crimsom" size="3">.zshrc</font>, 相应BASH的配置文件是<font color="Crimsom" size="3">.bashrc</font>。可以使用下面的方式添加环境变量：<br>
-<code>echo &quot;PATH=$PATH:/home/test&quot; &gt;&gt; .zshrc</code></p>
-<p><strong>环境变量删除：</strong><br>
-<code>unset varname</code></p>
-<p><strong>source命令：</strong><br>
-source命令也称为“点命令”，也就是一个点符号（.）,是bash的内部命令。<br>
-功能：使Shell读入指定的Shell程序文件并依次执行文件中的所有语句<br>
-source命令通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录。<br>
-用法：<br>
-source filename 或 . filename</p>
-<h2 id="文件搜索"><a class="markdownIt-Anchor" href="#文件搜索"></a> 文件搜索</h2>
-<p>whereis　查看文件的位置<br>
-which　　查看可执行文件的位置<br>
-locate　 配合数据库查看文件位置<br>
-find　　 实际搜索硬盘查询文件名称</p>
-<p><em>whereis</em>查找的速度非常快，这是因为<em>linux</em>系统会将所有文件都记录在一个数据库文件中，当使用<em>whereis</em>和<em>locate</em>时，会从数据库中查找数据，而不是像find命令那样，通 过遍历硬盘来查找，效率自然会很高。<br>
-但是该数据库文件并不是实时更新，默认情况下时一星期更新一次，因此，我们在用<em>whereis</em>和<em>locate</em>查找文件时，有时会找到已经被删除的数据，或者刚刚建立文件，却无法查找到，原因就是因为数据库文件没有被更新。</p>
+</tbody></table>
+<p><strong>添加自定义路径到环境变量</strong><br><code>PATH=$PATH:/home/test</code><br>注意要使用绝对路径</p>
+<p>在每个用户的<code>home</code>目录中有一个Shell每次启动都会默认执行的一个配置脚本，以初始化环境，包括添加一些用户自定义环境变量。zsh的配置文件是<font color="Crimsom" size="3">.zshrc</font>, 相应BASH的配置文件是<font color="Crimsom" size="3">.bashrc</font>。可以使用下面的方式添加环境变量：<br><code>echo &quot;PATH=$PATH:/home/test&quot; &gt;&gt; .zshrc</code></p>
+<p><strong>环境变量删除：</strong><br><code>unset varname</code></p>
+<p><strong>source命令：</strong><br>source命令也称为“点命令”，也就是一个点符号（.）,是bash的内部命令。<br>功能：使Shell读入指定的Shell程序文件并依次执行文件中的所有语句<br>source命令通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录。<br>用法：<br>    source filename 或 . filename</p>
+<h2 id="文件搜索"><a href="#文件搜索" class="headerlink" title="文件搜索"></a>文件搜索</h2><p>whereis　查看文件的位置<br>which　　查看可执行文件的位置<br>locate　 配合数据库查看文件位置<br>find　　 实际搜索硬盘查询文件名称</p>
+<p><em>whereis</em>查找的速度非常快，这是因为<em>linux</em>系统会将所有文件都记录在一个数据库文件中，当使用<em>whereis</em>和<em>locate</em>时，会从数据库中查找数据，而不是像find命令那样，通 过遍历硬盘来查找，效率自然会很高。<br>但是该数据库文件并不是实时更新，默认情况下时一星期更新一次，因此，我们在用<em>whereis</em>和<em>locate</em>查找文件时，有时会找到已经被删除的数据，或者刚刚建立文件，却无法查找到，原因就是因为数据库文件没有被更新。</p>
 <p><em>which</em>是通过<em>PATH</em>环境变量到该路径内查找可执行文件，所以基本的功能是寻找可执行文件</p>
-<p>find<br>
-find [path] [option] [action]<br>
-时间参数：</p>
+<p>find<br>find [path] [option] [action]<br>时间参数：</p>
 <table>
 <thead>
 <tr>
@@ -153,8 +133,7 @@ find [path] [option] [action]<br>
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>-atime</td>
 <td>最后的访问时间</td>
 </tr>
@@ -166,18 +145,29 @@ find [path] [option] [action]<br>
 <td>-mtime</td>
 <td>最后修改时间</td>
 </tr>
-</tbody>
-</table>
-<p>e.g:</p>
-<ul>
-<li>-mtime n: n 为数字，表示为在n天之前的”一天之内“修改过的文件</li>
-<li>-mtime +n: 列出在n天之前（不包含n天本身）被修改过的文件</li>
-<li>-mtime -n: 列出在n天之内（包含n天本身）被修改过的文件</li>
-<li>newer file: file为一个已存在的文件，列出比file还要新的文件名</li>
-</ul>
+<tr>
+<td>e.g:</td>
+<td></td>
+</tr>
+<tr>
+<td>- -mtime n: n 为数字，表示为在n天之前的”一天之内“修改过的文件</td>
+<td></td>
+</tr>
+<tr>
+<td>- -mtime +n: 列出在n天之前（不包含n天本身）被修改过的文件</td>
+<td></td>
+</tr>
+<tr>
+<td>- -mtime -n: 列出在n天之内（包含n天本身）被修改过的文件</td>
+<td></td>
+</tr>
+<tr>
+<td>- newer file: file为一个已存在的文件，列出比file还要新的文件名</td>
+<td></td>
+</tr>
+</tbody></table>
 <p>注意：数字位置表示过去的天数，数字为负表示将来的天数，0表示今天</p>
-<h2 id="文件打包与压缩"><a class="markdownIt-Anchor" href="#文件打包与压缩"></a> 文件打包与压缩</h2>
-<p>Linux压缩包文件格式：<code>*.zip</code>, <code>*.rar</code>, <code>*.7z</code>, <code>*.gz</code>, <code>*.xz</code>, <code>*.bz2</code>, <code>*.tar</code>, <code>*.tar.gz</code>, <code>*.tar.xz</code>, <code>*.tar.bz2</code></p>
+<h2 id="文件打包与压缩"><a href="#文件打包与压缩" class="headerlink" title="文件打包与压缩"></a>文件打包与压缩</h2><p>Linux压缩包文件格式：<code>*.zip</code>, <code>*.rar</code>, <code>*.7z</code>, <code>*.gz</code>, <code>*.xz</code>, <code>*.bz2</code>, <code>*.tar</code>, <code>*.tar.gz</code>, <code>*.tar.xz</code>, <code>*.tar.bz2</code></p>
 <table>
 <thead>
 <tr>
@@ -185,8 +175,7 @@ find [path] [option] [action]<br>
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>*.zip</td>
 <td>zip程序打包压缩的文件</td>
 </tr>
@@ -230,19 +219,11 @@ find [path] [option] [action]<br>
 <td>*.tar.7z</td>
 <td>tar打包，7z程序压缩的文件</td>
 </tr>
-</tbody>
-</table>
-<p><code>zip -r -9 -q -l -o file.zip /home/destdir</code><br>
-其中<code>-r</code>代表递归子目录，<code>-9</code>表示压缩效果最好，速度最慢，取值范围(1-9),<code>-q</code>表示安静模式，<code>-o</code>表示输出文件，后跟打包输出的文件名, <code>-l</code>参数将<code>LF</code>转换为<code>CR+LF</code>，确保生成的zip在Windows中没有问题。</p>
-<p><code>unzip -q file.zip</code><br>
-中文编码的问题，通常 Windows 系统上面创建的压缩文件，如果有有包含中文的文档或以中文作为文件名的文件时默认会采用 GBK 或其它编码，而 Linux 上面默认使用的是 UTF-8 编码，如果不加任何处理，直接解压的话可能会出现中文乱码的问题，为了解决这个问题，我们可以在解压时指定编码类型。<br>
-<code>unzip -O GBK 中文压缩文件.zip</code></p>
-<p><strong>tar</strong><br>
-打包：<code>tar -cf destfile.tar sourcefile</code><br>
-解包：<code>tar -xf sourcefile.tar -C destdir</code>,解包sourcefile.tar到指定路径的已存在目录</p>
-<p>使用gzip压缩打包<br>
-压缩：<code>tar -czf destfile.tar.gz sourcefile</code><br>
-解压：<code>tar -xzf destfile.tar.gz</code></p>
+</tbody></table>
+<p><code>zip -r -9 -q -l -o file.zip /home/destdir</code><br>其中<code>-r</code>代表递归子目录，<code>-9</code>表示压缩效果最好，速度最慢，取值范围(1-9),<code>-q</code>表示安静模式，<code>-o</code>表示输出文件，后跟打包输出的文件名, <code>-l</code>参数将<code>LF</code>转换为<code>CR+LF</code>，确保生成的zip在Windows中没有问题。</p>
+<p><code>unzip -q file.zip</code><br>中文编码的问题，通常 Windows 系统上面创建的压缩文件，如果有有包含中文的文档或以中文作为文件名的文件时默认会采用 GBK 或其它编码，而 Linux 上面默认使用的是 UTF-8 编码，如果不加任何处理，直接解压的话可能会出现中文乱码的问题，为了解决这个问题，我们可以在解压时指定编码类型。<br><code>unzip -O GBK 中文压缩文件.zip</code></p>
+<p><strong>tar</strong><br>打包：<code>tar -cf destfile.tar  sourcefile</code><br>解包：<code>tar -xf sourcefile.tar -C destdir</code>,解包sourcefile.tar到指定路径的已存在目录</p>
+<p>使用gzip压缩打包<br>压缩：<code>tar -czf destfile.tar.gz  sourcefile</code><br>解压：<code>tar -xzf destfile.tar.gz</code></p>
 <table>
 <thead>
 <tr>
@@ -250,8 +231,7 @@ find [path] [option] [action]<br>
 <th>参数</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>*.tar.gz</td>
 <td>-z</td>
 </tr>
@@ -263,8 +243,7 @@ find [path] [option] [action]<br>
 <td>*.tar.bz2</td>
 <td>-j</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -327,7 +306,7 @@ find [path] [option] [action]<br>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境变量"><span class="toc-number">1.</span> <span class="toc-text"> 环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件搜索"><span class="toc-number">2.</span> <span class="toc-text"> 文件搜索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件打包与压缩"><span class="toc-number">3.</span> <span class="toc-text"> 文件打包与压缩</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境变量"><span class="toc-number">1.</span> <span class="toc-text">环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件搜索"><span class="toc-number">2.</span> <span class="toc-text">文件搜索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件打包与压缩"><span class="toc-number">3.</span> <span class="toc-text">文件打包与压缩</span></a></li></ol>
  
   </div>
 
@@ -360,7 +339,7 @@ find [path] [option] [action]<br>
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -368,7 +347,7 @@ find [path] [option] [action]<br>
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -401,11 +380,11 @@ find [path] [option] [action]<br>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -417,15 +396,11 @@ find [path] [option] [action]<br>
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -433,7 +408,15 @@ find [path] [option] [action]<br>
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -441,7 +424,7 @@ find [path] [option] [action]<br>
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -453,27 +436,23 @@ find [path] [option] [action]<br>
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

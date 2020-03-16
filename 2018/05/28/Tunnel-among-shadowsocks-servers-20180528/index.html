@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="目的 主要目的是实现Shadowsocks的中转（中继），或者说转发。  致谢 本文的很多内容参考自：利用python-proxy翻墙 在此表示感谢（FISHMAN：人活世上,为了利益和开心而已）  主要内容 主要实现的手段是 python-proxy，HTTP/Socks/Shadowsocks/Redirect asynchronous tunnel proxy implemented in">
+    <meta name="description" content="目的主要目的是实现Shadowsocks的中转（中继），或者说转发。 致谢本文的很多内容参考自：利用python-proxy翻墙在此表示感谢（FISHMAN：人活世上,为了利益和开心而已） 主要内容主要实现的手段是 python-proxy，HTTP/Socks/Shadowsocks/Redirect asynchronous tunnel proxy implemented in Python">
 <meta name="keywords" content="Python,VPN,Shadowsocks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tunnel among shadowsocks servers">
 <meta property="og:url" content="http://flamepeak.com/2018/05/28/Tunnel-among-shadowsocks-servers-20180528/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="目的 主要目的是实现Shadowsocks的中转（中继），或者说转发。  致谢 本文的很多内容参考自：利用python-proxy翻墙 在此表示感谢（FISHMAN：人活世上,为了利益和开心而已）  主要内容 主要实现的手段是 python-proxy，HTTP/Socks/Shadowsocks/Redirect asynchronous tunnel proxy implemented in">
+<meta property="og:description" content="目的主要目的是实现Shadowsocks的中转（中继），或者说转发。 致谢本文的很多内容参考自：利用python-proxy翻墙在此表示感谢（FISHMAN：人活世上,为了利益和开心而已） 主要内容主要实现的手段是 python-proxy，HTTP/Socks/Shadowsocks/Redirect asynchronous tunnel proxy implemented in Python">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-05-28T10:12:22.842Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tunnel among shadowsocks servers">
-<meta name="twitter:description" content="目的 主要目的是实现Shadowsocks的中转（中继），或者说转发。  致谢 本文的很多内容参考自：利用python-proxy翻墙 在此表示感谢（FISHMAN：人活世上,为了利益和开心而已）  主要内容 主要实现的手段是 python-proxy，HTTP/Socks/Shadowsocks/Redirect asynchronous tunnel proxy implemented in">
+<meta name="twitter:description" content="目的主要目的是实现Shadowsocks的中转（中继），或者说转发。 致谢本文的很多内容参考自：利用python-proxy翻墙在此表示感谢（FISHMAN：人活世上,为了利益和开心而已） 主要内容主要实现的手段是 python-proxy，HTTP/Socks/Shadowsocks/Redirect asynchronous tunnel proxy implemented in Python">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,55 +97,51 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="目的"><a class="markdownIt-Anchor" href="#目的"></a> 目的</h3>
-<p>主要目的是实现Shadowsocks的中转（中继），或者说转发。</p>
-<h3 id="致谢"><a class="markdownIt-Anchor" href="#致谢"></a> 致谢</h3>
-<p>本文的很多内容参考自：<a href="http://briteming.blogspot.com/2018/03/python-proxy.html" target="_blank" rel="noopener">利用python-proxy翻墙</a><br>
-在此表示感谢（FISHMAN：人活世上,为了利益和开心而已）</p>
-<h3 id="主要内容"><a class="markdownIt-Anchor" href="#主要内容"></a> 主要内容</h3>
-<p>主要实现的手段是 <a href="https://github.com/qwj/python-proxy" target="_blank" rel="noopener">python-proxy</a>，HTTP/Socks/Shadowsocks/Redirect asynchronous tunnel proxy implemented in Python3 asyncio.</p>
-<h4 id="python3与pip3的安装"><a class="markdownIt-Anchor" href="#python3与pip3的安装"></a> Python3与pip3的安装</h4>
-<p>由于pproxy需要使用asyncio，所以要安装python3.6以上版本</p>
+		<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>主要目的是实现Shadowsocks的中转（中继），或者说转发。</p>
+<h3 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h3><p>本文的很多内容参考自：<a href="http://briteming.blogspot.com/2018/03/python-proxy.html" target="_blank" rel="noopener">利用python-proxy翻墙</a><br>在此表示感谢（FISHMAN：人活世上,为了利益和开心而已）</p>
+<h3 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h3><p>主要实现的手段是 <a href="https://github.com/qwj/python-proxy" target="_blank" rel="noopener">python-proxy</a>，HTTP/Socks/Shadowsocks/Redirect asynchronous tunnel proxy implemented in Python3 asyncio.</p>
+<h4 id="Python3与pip3的安装"><a href="#Python3与pip3的安装" class="headerlink" title="Python3与pip3的安装"></a>Python3与pip3的安装</h4><p>由于pproxy需要使用asyncio，所以要安装python3.6以上版本</p>
 <p>可能需要的依赖包：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y groupinstall <span class="string">"Development tools"</span></span><br><span class="line">yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel</span><br></pre></td></tr></table></figure>
+
 <p>获取python3</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz</span><br></pre></td></tr></table></figure>
+
 <p>解压、编译python3.6.4环境：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar zxvf Python-3.6.4.tgz</span><br><span class="line"><span class="built_in">cd</span> Python-3.6.4</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/python-3.6.4</span><br><span class="line">make </span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
 <p>最后创建软链接:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ln -s /usr/<span class="built_in">local</span>/python-3.6.4/bin/python3 /usr/bin/python3</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/python-3.6.4/bin/pip3 /usr/bin/pip3</span><br></pre></td></tr></table></figure>
-<h4 id="安装pproxy"><a class="markdownIt-Anchor" href="#安装pproxy"></a> 安装pproxy</h4>
-<p><code>pip3.6 install pproxy</code></p>
-<p>如果不行的话，可以用下面方法解决：<br>
-使用git下载到本地，<br>
-<code>git clone https://github.com/qwj/python-proxy.git</code></p>
-<p>然后,</p>
+
+<h4 id="安装pproxy"><a href="#安装pproxy" class="headerlink" title="安装pproxy"></a>安装pproxy</h4><p><code>pip3.6 install pproxy</code></p>
+<p>如果不行的话，可以用下面方法解决：<br>使用git下载到本地，<br><code>git clone https://github.com/qwj/python-proxy.git</code>  </p>
+<p>然后,  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> python-proxy</span><br><span class="line">sudo python3 setup.py install</span><br></pre></td></tr></table></figure>
-<p>添加环境变量PATH（对所有系统用户生效，永久生效）<br>
-修改 <code>/etc/profile</code> 文件，在文件末尾加上如下两行代码</p>
+
+<p>添加环境变量PATH（对所有系统用户生效，永久生效）<br>修改 <code>/etc/profile</code> 文件，在文件末尾加上如下两行代码   </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/python-3.6.4/bin </span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
+
 <p>最后执行命令 <code>source /etc/profile</code> 或执行点命令 <code>./profile</code> 使其修改生效。</p>
 <p>这样运行pprxoy应该就可以了</p>
-<h4 id="使用二三事"><a class="markdownIt-Anchor" href="#使用二三事"></a> 使用二三事</h4>
-<p>安装完成后，得到的可执行文件是pproxy.</p>
+<h4 id="使用二三事"><a href="#使用二三事" class="headerlink" title="使用二三事"></a>使用二三事</h4><p>安装完成后，得到的可执行文件是pproxy.  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pproxy -i ss://aes-256-cfb:my-password@:12345 &gt; /dev/null &amp;</span><br></pre></td></tr></table></figure>
+
 <p>最好用daemonize来运行：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">daemonize -c . /usr/<span class="built_in">local</span>/python-3.6.4/bin/pproxy -i ss://aes-256-cfb:my-password@:12345</span><br></pre></td></tr></table></figure>
-<p>这样在服务器上，就成功搭建了一个ss服务器-服务器的ip就是你vps的ip,端口号为12345，密码为my-password,加密方式为aes-256-cfb。把这4个参数填入你在本地机器的ss客户端里，即可用<br>
-该ss客户端翻墙。</p>
-<p>在你的本地机器（linux桌面系统或mac), 按照上面的蓝色文字，编译python3.6.4环境。<br>
-然后运行:</p>
+
+<p>这样在服务器上，就成功搭建了一个ss服务器-服务器的ip就是你vps的ip,端口号为12345，密码为my-password,加密方式为aes-256-cfb。把这4个参数填入你在本地机器的ss客户端里，即可用<br>该ss客户端翻墙。</p>
+<p>在你的本地机器（linux桌面系统或mac), 按照上面的蓝色文字，编译python3.6.4环境。<br>然后运行:   </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pproxy -i ss://:8888 -r ss://aes-256-cfb:my-password@my-vps-ip:12345</span><br></pre></td></tr></table></figure>
+
 <p>然后设置本地浏览器的socks5代理服务器为127.0.0.1:8888 , 本地浏览器即可翻墙。</p>
-<p><strong>中转代理</strong><br>
-local–&gt; A.A.A.A --&gt; ss server(B.B.B.B)</p>
-<p>local:  本地可以直接使用界面client,<br>
-关键配置：ip: A.A.A.A<br>
-端口：8888</p>
-<p>A.A.A.A :</p>
+<p><strong>中转代理</strong><br>local–&gt; A.A.A.A –&gt; ss server(B.B.B.B)</p>
+<p>local:  本地可以直接使用界面client,<br>关键配置：ip: A.A.A.A<br>端口：8888</p>
+<p>A.A.A.A : </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pproxy -i ss://aes-256-cfb:password@:8888 -r ss://aes-256-cfb:password@B.B.B.B:8888 -v</span><br></pre></td></tr></table></figure>
+
 <p>SS Server（B.B.B.B）:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pproxy -i ss://aes-256-cfb:password@:8888 -v</span><br></pre></td></tr></table></figure>
+
 <p>大概就是这个模式</p>
   
 	</div>
@@ -209,7 +205,7 @@ local–&gt; A.A.A.A --&gt; ss server(B.B.B.B)</p>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#目的"><span class="toc-number">1.</span> <span class="toc-text"> 目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#致谢"><span class="toc-number">2.</span> <span class="toc-text"> 致谢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主要内容"><span class="toc-number">3.</span> <span class="toc-text"> 主要内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#python3与pip3的安装"><span class="toc-number">3.1.</span> <span class="toc-text"> Python3与pip3的安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装pproxy"><span class="toc-number">3.2.</span> <span class="toc-text"> 安装pproxy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用二三事"><span class="toc-number">3.3.</span> <span class="toc-text"> 使用二三事</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#目的"><span class="toc-number">1.</span> <span class="toc-text">目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#致谢"><span class="toc-number">2.</span> <span class="toc-text">致谢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主要内容"><span class="toc-number">3.</span> <span class="toc-text">主要内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python3与pip3的安装"><span class="toc-number">3.1.</span> <span class="toc-text">Python3与pip3的安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装pproxy"><span class="toc-number">3.2.</span> <span class="toc-text">安装pproxy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用二三事"><span class="toc-number">3.3.</span> <span class="toc-text">使用二三事</span></a></li></ol></li></ol>
  
   </div>
 
@@ -242,7 +238,7 @@ local–&gt; A.A.A.A --&gt; ss server(B.B.B.B)</p>
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -250,7 +246,7 @@ local–&gt; A.A.A.A --&gt; ss server(B.B.B.B)</p>
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -283,11 +279,11 @@ local–&gt; A.A.A.A --&gt; ss server(B.B.B.B)</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -299,15 +295,11 @@ local–&gt; A.A.A.A --&gt; ss server(B.B.B.B)</p>
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -315,7 +307,15 @@ local–&gt; A.A.A.A --&gt; ss server(B.B.B.B)</p>
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -323,7 +323,7 @@ local–&gt; A.A.A.A --&gt; ss server(B.B.B.B)</p>
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -335,27 +335,23 @@ local–&gt; A.A.A.A --&gt; ss server(B.B.B.B)</p>
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

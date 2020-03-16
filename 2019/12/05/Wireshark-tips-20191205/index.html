@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="字符串搜索   搜索字符串用ctrl + F，配置选项，选择Packet Bytes和String，然后输入想要查询的内容即可；   可以在过滤框中直接输入tcp and frame contains &amp;quot;xxxxxxx&amp;quot;，来搜索内容   可以使用frame matches &amp;quot;xxxxxx&amp;quot;，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。">
+    <meta name="description" content="字符串搜索 搜索字符串用ctrl + F，配置选项，选择Packet Bytes和String，然后输入想要查询的内容即可；  可以在过滤框中直接输入tcp and frame contains &amp;quot;xxxxxxx&amp;quot;，来搜索内容  可以使用frame matches &amp;quot;xxxxxx&amp;quot;，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如： f">
 <meta name="keywords" content="Wireshark">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Wireshark 使用技巧">
 <meta property="og:url" content="http://flamepeak.com/2019/12/05/Wireshark-tips-20191205/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="字符串搜索   搜索字符串用ctrl + F，配置选项，选择Packet Bytes和String，然后输入想要查询的内容即可；   可以在过滤框中直接输入tcp and frame contains &amp;quot;xxxxxxx&amp;quot;，来搜索内容   可以使用frame matches &amp;quot;xxxxxx&amp;quot;，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。">
+<meta property="og:description" content="字符串搜索 搜索字符串用ctrl + F，配置选项，选择Packet Bytes和String，然后输入想要查询的内容即可；  可以在过滤框中直接输入tcp and frame contains &amp;quot;xxxxxxx&amp;quot;，来搜索内容  可以使用frame matches &amp;quot;xxxxxx&amp;quot;，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如： f">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-12-05T01:53:09.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wireshark 使用技巧">
-<meta name="twitter:description" content="字符串搜索   搜索字符串用ctrl + F，配置选项，选择Packet Bytes和String，然后输入想要查询的内容即可；   可以在过滤框中直接输入tcp and frame contains &amp;quot;xxxxxxx&amp;quot;，来搜索内容   可以使用frame matches &amp;quot;xxxxxx&amp;quot;，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。">
+<meta name="twitter:description" content="字符串搜索 搜索字符串用ctrl + F，配置选项，选择Packet Bytes和String，然后输入想要查询的内容即可；  可以在过滤框中直接输入tcp and frame contains &amp;quot;xxxxxxx&amp;quot;，来搜索内容  可以使用frame matches &amp;quot;xxxxxx&amp;quot;，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如： f">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,20 +97,17 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="字符串搜索"><a class="markdownIt-Anchor" href="#字符串搜索"></a> 字符串搜索</h3>
-<ol>
-<li>
-<p>搜索字符串用<code>ctrl + F</code>，配置选项，选择<code>Packet Bytes</code>和<code>String</code>，然后输入想要查询的内容即可；</p>
+		<h3 id="字符串搜索"><a href="#字符串搜索" class="headerlink" title="字符串搜索"></a>字符串搜索</h3><ol>
+<li><p>搜索字符串用<code>ctrl + F</code>，配置选项，选择<code>Packet Bytes</code>和<code>String</code>，然后输入想要查询的内容即可；</p>
 </li>
-<li>
-<p>可以在过滤框中直接输入<code>tcp and frame contains &quot;xxxxxxx&quot;</code>，来搜索内容</p>
+<li><p>可以在过滤框中直接输入<code>tcp and frame contains &quot;xxxxxxx&quot;</code>，来搜索内容</p>
 </li>
-<li>
-<p>可以使用<code>frame matches &quot;xxxxxx&quot;</code>，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如：</p>
+<li><p>可以使用<code>frame matches &quot;xxxxxx&quot;</code>，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">frame matches &quot;(?i)bhi&quot;   #其中(?i)表示忽略大小写</span><br><span class="line">frame matches &quot;(?i)bh[is]&quot;    #匹配 BHS  BHI bHi bhi等</span><br><span class="line">frame matches &quot;(?i)(username|password)&quot;   #匹配username 或 password，忽略大小写</span><br><span class="line">frame matches &quot;\.(?i)(exe|zip|doc|xls|ppt|jar)&quot;  #\.表示转义，扩展名匹配</span><br><span class="line">frame matches &quot;\.com$&quot;   #匹配.com结尾   ^表示开头，$表示结尾</span><br></pre></td></tr></table></figure>
+
+<p>The ‘frame matches’ is a little different. This is a fairly flexible display filter and we will not cover all the options here. The keyword ‘matches’ is a “Regex next” to Wireshark - a Perl-compatible regular expression. </p>
 </li>
 </ol>
-<p>The ‘frame matches’ is a little different. This is a fairly flexible display filter and we will not cover all the options here. The keyword ‘matches’ is a “Regex next” to Wireshark - a Perl-compatible regular expression.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -173,7 +170,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串搜索"><span class="toc-number">1.</span> <span class="toc-text"> 字符串搜索</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串搜索"><span class="toc-number">1.</span> <span class="toc-text">字符串搜索</span></a></li></ol>
  
   </div>
 
@@ -206,7 +203,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -214,7 +211,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -247,11 +244,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -263,15 +260,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -279,7 +272,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -287,7 +288,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -299,27 +300,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="获取进程的完整路径 Linux在启动一个进程时，系统会在/proc下创建一个以PID命名的文件夹，在这个文件夹下面有进程的信息，其中名为exe的文件记录了绝对路径。 ps -All /proc/PID   查看发行版 cat /etc/issue/etc/issue文件通常包括系统的一段短说明或欢迎信息.内容由系统管理员确定。cat /etc/*-release  查看内核版本 uname -a">
+    <meta name="description" content="获取进程的完整路径Linux在启动一个进程时，系统会在/proc下创建一个以PID命名的文件夹，在这个文件夹下面有进程的信息，其中名为exe的文件记录了绝对路径。 ps -All /proc/PID   查看发行版cat /etc/issue/etc/issue文件通常包括系统的一段短说明或欢迎信息.内容由系统管理员确定。cat /etc/*-release  查看内核版本uname -a 查看已">
 <meta name="keywords" content="Python,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 使用技巧 命令">
 <meta property="og:url" content="http://flamepeak.com/2016/12/30/Linux-get-program-path-201612303/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="获取进程的完整路径 Linux在启动一个进程时，系统会在/proc下创建一个以PID命名的文件夹，在这个文件夹下面有进程的信息，其中名为exe的文件记录了绝对路径。 ps -All /proc/PID   查看发行版 cat /etc/issue/etc/issue文件通常包括系统的一段短说明或欢迎信息.内容由系统管理员确定。cat /etc/*-release  查看内核版本 uname -a">
+<meta property="og:description" content="获取进程的完整路径Linux在启动一个进程时，系统会在/proc下创建一个以PID命名的文件夹，在这个文件夹下面有进程的信息，其中名为exe的文件记录了绝对路径。 ps -All /proc/PID   查看发行版cat /etc/issue/etc/issue文件通常包括系统的一段短说明或欢迎信息.内容由系统管理员确定。cat /etc/*-release  查看内核版本uname -a 查看已">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-08-14T18:20:30.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 使用技巧 命令">
-<meta name="twitter:description" content="获取进程的完整路径 Linux在启动一个进程时，系统会在/proc下创建一个以PID命名的文件夹，在这个文件夹下面有进程的信息，其中名为exe的文件记录了绝对路径。 ps -All /proc/PID   查看发行版 cat /etc/issue/etc/issue文件通常包括系统的一段短说明或欢迎信息.内容由系统管理员确定。cat /etc/*-release  查看内核版本 uname -a">
+<meta name="twitter:description" content="获取进程的完整路径Linux在启动一个进程时，系统会在/proc下创建一个以PID命名的文件夹，在这个文件夹下面有进程的信息，其中名为exe的文件记录了绝对路径。 ps -All /proc/PID   查看发行版cat /etc/issue/etc/issue文件通常包括系统的一段短说明或欢迎信息.内容由系统管理员确定。cat /etc/*-release  查看内核版本uname -a 查看已">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,43 +97,40 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="获取进程的完整路径"><a class="markdownIt-Anchor" href="#获取进程的完整路径"></a> 获取进程的完整路径</h3>
-<p>Linux在启动一个进程时，系统会在/proc下创建一个以PID命名的文件夹，在这个文件夹下面有进程的信息，其中名为exe的文件记录了绝对路径。</p>
+		<h3 id="获取进程的完整路径"><a href="#获取进程的完整路径" class="headerlink" title="获取进程的完整路径"></a>获取进程的完整路径</h3><p>Linux在启动一个进程时，系统会在/proc下创建一个以PID命名的文件夹，在这个文件夹下面有进程的信息，其中名为exe的文件记录了绝对路径。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ps -A</span><br><span class="line"></span><br><span class="line">ll /proc/PID</span><br></pre></td></tr></table></figure>
+
 <hr>
-<h3 id="查看发行版"><a class="markdownIt-Anchor" href="#查看发行版"></a> 查看发行版</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat /etc/issue</span><br><span class="line">/etc/issue文件通常包括系统的一段短说明或欢迎信息.内容由系统管理员确定。</span><br><span class="line"></span><br><span class="line">cat /etc/*-release</span><br></pre></td></tr></table></figure>
-<h3 id="查看内核版本"><a class="markdownIt-Anchor" href="#查看内核版本"></a> 查看内核版本</h3>
-<p><code>uname -a</code></p>
-<h3 id="查看已经安装的程序"><a class="markdownIt-Anchor" href="#查看已经安装的程序"></a> 查看已经安装的程序:</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -l</span><br><span class="line">rpm -qa</span><br></pre></td></tr></table></figure>
+<h3 id="查看发行版"><a href="#查看发行版" class="headerlink" title="查看发行版"></a>查看发行版</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat /etc/issue</span><br><span class="line">/etc/issue文件通常包括系统的一段短说明或欢迎信息.内容由系统管理员确定。</span><br><span class="line"></span><br><span class="line">cat /etc/*-release</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看内核版本"><a href="#查看内核版本" class="headerlink" title="查看内核版本"></a>查看内核版本</h3><p><code>uname -a</code></p>
+<h3 id="查看已经安装的程序"><a href="#查看已经安装的程序" class="headerlink" title="查看已经安装的程序:"></a>查看已经安装的程序:</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -l</span><br><span class="line">rpm -qa</span><br></pre></td></tr></table></figure>
+
 <hr>
-<h3 id="passwd和shadow"><a class="markdownIt-Anchor" href="#passwd和shadow"></a> passwd和shadow</h3>
-<p>大多linux系统的密码都和<code>/etc/passwd</code>和<code>/etc/shadow</code>这两个配置文件息息相关。passwd里面储存了用户，shadow里面是密码的hash。出于安全考虑passwd是全用户可读，root可写的。shadow是仅root可读写的。</p>
+<h3 id="passwd和shadow"><a href="#passwd和shadow" class="headerlink" title="passwd和shadow"></a>passwd和shadow</h3><p>大多linux系统的密码都和<code>/etc/passwd</code>和<code>/etc/shadow</code>这两个配置文件息息相关。passwd里面储存了用户，shadow里面是密码的hash。出于安全考虑passwd是全用户可读，root可写的。shadow是仅root可读写的。</p>
 <p>这里是一个典型的passwd文件</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">daemon:x:1:1:daemon:/usr/sbin:/bin/sh</span><br><span class="line">bin:x:2:2:bin:/bin:/bin/sh</span><br><span class="line">sys:x:3:3:sys:/dev:/bin/sh</span><br><span class="line">sync:x:4:65534:sync:/bin:/bin/sync</span><br><span class="line">games:x:5:60:games:/usr/games:/bin/sh</span><br><span class="line">man:x:6:12:man:/var/cache/man:/bin/sh</span><br><span class="line">lp:x:7:7:lp:/var/spool/lpd:/bin/sh</span><br><span class="line">mail:x:8:8:mail:/var/mail:/bin/sh</span><br><span class="line">news:x:9:9:news:/var/spool/news:/bin/sh</span><br><span class="line">uucp:x:10:10:uucp:/var/spool/uucp:/bin/sh</span><br><span class="line">proxy:x:13:13:proxy:/bin:/bin/sh</span><br><span class="line">www-data:x:33:33:www-data:/var/www:/bin/sh</span><br><span class="line">backup:x:34:34:backup:/var/backups:/bin/sh</span><br><span class="line">list:x:38:38:Mailing List Manager:/var/list:/bin/sh</span><br><span class="line">irc:x:39:39:ircd:/var/run/ircd:/bin/sh</span><br><span class="line">nobody:x:65534:65534:nobody:/nonexistent:/bin/sh</span><br><span class="line">ibuuid:x:100:101::/var/lib/libuuid:/bin/sh</span><br><span class="line">syslog:x:101:103::/home/syslog:/bin/false</span><br><span class="line">sshd:x:104:65534::/var/run/sshd:/usr/sbin/nologin</span><br></pre></td></tr></table></figure>
+
 <p><code>passwd</code>由冒号分割，第一列是用户名，第二列是密码，<code>x</code>代表密码hash被放在<code>shadow</code>里面了（这样非root就看不到了）。而<code>shadow</code>里面最重要的就是密码的hash</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">root:$6$URgq7sJf$4x8e9ntqTwAPIubi9YLxLQ2mZTTZKnGz0g/wWzOdPB5eGuz.S5iRtFdvfFd9VIVEWouiodB/hh9BYOLgAD8u5/:16902:0:99999:7:::</span><br><span class="line">daemon:*:15730:0:99999:7:::</span><br><span class="line">bin:*:15730:0:99999:7:::</span><br><span class="line">sys:*:15730:0:99999:7:::</span><br><span class="line">sync:*:15730:0:99999:7:::</span><br><span class="line">games:*:15730:0:99999:7:::</span><br><span class="line">man:*:15730:0:99999:7:::</span><br><span class="line">lp:*:15730:0:99999:7:::</span><br><span class="line">mail:*:15730:0:99999:7:::</span><br><span class="line">news:*:15730:0:99999:7:::</span><br><span class="line">uucp:*:15730:0:99999:7:::</span><br><span class="line">proxy:*:15730:0:99999:7:::</span><br><span class="line">www-data:*:15730:0:99999:7:::</span><br><span class="line">backup:*:15730:0:99999:7:::</span><br><span class="line">list:*:15730:0:99999:7:::</span><br><span class="line">irc:*:15730:0:99999:7:::</span><br><span class="line">gnats:*:15730:0:99999:7:::</span><br><span class="line">nobody:*:15730:0:99999:7:::</span><br><span class="line">libuuid:!:15730:0:99999:7:::</span><br><span class="line">syslog:*:15730:0:99999:7:::</span><br><span class="line">mysql:!:15730:0:99999:7:::</span><br><span class="line">dovecot:*:15730:0:99999:7:::</span><br><span class="line">sshd:*:15730:0:99999:7:::</span><br><span class="line">postfix:*:15730:0:99999:7:::</span><br></pre></td></tr></table></figure>
+
 <p>如果passwd可写，我们就可以把root的密码字段(x)替换成一个已知密码的hash（比如本机shadow里面的root密码hash），这样系统在验证密码时以passwd的为准，密码就已知了。如果shadow可读，我们可以读走root的hash，然后用hashcat或者john暴力破解之。</p>
 <hr>
-<h3 id="python模拟一个终端设备"><a class="markdownIt-Anchor" href="#python模拟一个终端设备"></a> Python模拟一个终端设备</h3>
-<p>有了（疑似）root密码怎么办？你一定想ssh登陆。然而ssh很可能禁止root登陆，或是防火墙规则将你排除在外了。返回来想，我们不是有一个低权shell了吗？找个办法再上面“输入”密码就好了。显然，直接在低权shell里面用sudo是不奏效的。这是因为出于安全考虑，linux要求用户必须从 <strong>终端设备（tty）</strong> 中输入密码，而不是标准输入（stdin）。换句话说，<code>sudo</code>在你输入密码的时候本质上是读取了键盘，而不是bash里面输入的字符。因此为了能够输入密码，我们必须模拟一个终端设备。python就有这样的功能。在shell里面输入：</p>
-<p><code>python -c 'import pty;pty.spawn(&quot;/bin/sh&quot;)'</code><br>
-就用python建立了一个虚拟终端，然后就可以使用sudo等等命令了。</p>
+<h3 id="Python模拟一个终端设备"><a href="#Python模拟一个终端设备" class="headerlink" title="Python模拟一个终端设备"></a>Python模拟一个终端设备</h3><p>有了（疑似）root密码怎么办？你一定想ssh登陆。然而ssh很可能禁止root登陆，或是防火墙规则将你排除在外了。返回来想，我们不是有一个低权shell了吗？找个办法再上面“输入”密码就好了。显然，直接在低权shell里面用sudo是不奏效的。这是因为出于安全考虑，linux要求用户必须从 <strong>终端设备（tty）</strong> 中输入密码，而不是标准输入（stdin）。换句话说，<code>sudo</code>在你输入密码的时候本质上是读取了键盘，而不是bash里面输入的字符。因此为了能够输入密码，我们必须模拟一个终端设备。python就有这样的功能。在shell里面输入：</p>
+<p><code>python -c &#39;import pty;pty.spawn(&quot;/bin/sh&quot;)&#39;</code><br>就用python建立了一个虚拟终端，然后就可以使用sudo等等命令了。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python -c <span class="string">'import pty;pty.spawn("/bin/sh")'</span></span><br><span class="line">$ sudo su</span><br><span class="line">sudo su</span><br><span class="line">[sudo] password <span class="keyword">for</span> www-data: 123456</span><br><span class="line">Sorry, try again.</span><br><span class="line">[sudo] password <span class="keyword">for</span> www-data:</span><br></pre></td></tr></table></figure>
+
 <hr>
-<h3 id="linux计划任务"><a class="markdownIt-Anchor" href="#linux计划任务"></a> Linux计划任务</h3>
-<p>系统内可能会有一些定时执行的任务，一般这些任务由<code>crontab</code>来管理，具有所属用户的权限。非root权限的用户是不可以列出root用户的计划任务的。但是<code>/etc/</code>内系统的计划任务可以被列出</p>
+<h3 id="Linux计划任务"><a href="#Linux计划任务" class="headerlink" title="Linux计划任务"></a>Linux计划任务</h3><p>系统内可能会有一些定时执行的任务，一般这些任务由<code>crontab</code>来管理，具有所属用户的权限。非root权限的用户是不可以列出root用户的计划任务的。但是<code>/etc/</code>内系统的计划任务可以被列出</p>
 <p><code>ls -l /etc/cron*</code></p>
 <hr>
-<h3 id="网络与隐藏的服务"><a class="markdownIt-Anchor" href="#网络与隐藏的服务"></a> 网络与隐藏的服务</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -antup <span class="comment">#查看各种网络服务</span></span><br></pre></td></tr></table></figure>
+<h3 id="网络与隐藏的服务"><a href="#网络与隐藏的服务" class="headerlink" title="网络与隐藏的服务"></a>网络与隐藏的服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -antup <span class="comment">#查看各种网络服务</span></span><br></pre></td></tr></table></figure>
+
 <hr>
-<h3 id="netcat做个转发"><a class="markdownIt-Anchor" href="#netcat做个转发"></a> netcat做个转发</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfifo backpipe</span><br><span class="line">nc -l 8082 0&lt;backpipe | nc remote_host 445 1&gt;backpipe</span><br></pre></td></tr></table></figure>
+<h3 id="netcat做个转发"><a href="#netcat做个转发" class="headerlink" title="netcat做个转发"></a>netcat做个转发</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfifo backpipe</span><br><span class="line">nc -l 8082 0&lt;backpipe | nc remote_host 445 1&gt;backpipe</span><br></pre></td></tr></table></figure>
+
 <hr>
-<h3 id><a class="markdownIt-Anchor" href="#"></a> </h3>
-  
+<h3 id><a href="#" class="headerlink" title></a></h3>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -195,7 +192,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取进程的完整路径"><span class="toc-number">1.</span> <span class="toc-text"> 获取进程的完整路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看发行版"><span class="toc-number">2.</span> <span class="toc-text"> 查看发行版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看内核版本"><span class="toc-number">3.</span> <span class="toc-text"> 查看内核版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看已经安装的程序"><span class="toc-number">4.</span> <span class="toc-text"> 查看已经安装的程序:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passwd和shadow"><span class="toc-number">5.</span> <span class="toc-text"> passwd和shadow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python模拟一个终端设备"><span class="toc-number">6.</span> <span class="toc-text"> Python模拟一个终端设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux计划任务"><span class="toc-number">7.</span> <span class="toc-text"> Linux计划任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络与隐藏的服务"><span class="toc-number">8.</span> <span class="toc-text"> 网络与隐藏的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#netcat做个转发"><span class="toc-number">9.</span> <span class="toc-text"> netcat做个转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">10.</span> <span class="toc-text"> </span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取进程的完整路径"><span class="toc-number">1.</span> <span class="toc-text">获取进程的完整路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看发行版"><span class="toc-number">2.</span> <span class="toc-text">查看发行版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看内核版本"><span class="toc-number">3.</span> <span class="toc-text">查看内核版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看已经安装的程序"><span class="toc-number">4.</span> <span class="toc-text">查看已经安装的程序:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passwd和shadow"><span class="toc-number">5.</span> <span class="toc-text">passwd和shadow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python模拟一个终端设备"><span class="toc-number">6.</span> <span class="toc-text">Python模拟一个终端设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux计划任务"><span class="toc-number">7.</span> <span class="toc-text">Linux计划任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络与隐藏的服务"><span class="toc-number">8.</span> <span class="toc-text">网络与隐藏的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#netcat做个转发"><span class="toc-number">9.</span> <span class="toc-text">netcat做个转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">10.</span> <span class="toc-text"></span></a></li></ol>
  
   </div>
 
@@ -228,7 +225,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -236,7 +233,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -269,11 +266,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -285,15 +282,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -301,7 +294,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -309,7 +310,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -321,27 +322,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

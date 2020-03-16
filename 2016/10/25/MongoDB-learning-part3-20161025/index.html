@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="官方的一些关于查询的帮助页面： Query Modifiers Query and Projection Operators  find 简介 官方定义：  db.collection.find()：Performs a query on a collection and returns a cursor object.  db.collection.find( { &amp;lt;query&amp;gt; }">
+    <meta name="description" content="官方的一些关于查询的帮助页面：Query ModifiersQuery and Projection Operators find 简介官方定义：  db.collection.find()：Performs a query on a collection and returns a cursor object.  db.collection.find( { &amp;lt;query&amp;gt; } )._">
 <meta name="keywords" content="MongoDB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB 学习笔记(三)：查询">
 <meta property="og:url" content="http://flamepeak.com/2016/10/25/MongoDB-learning-part3-20161025/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="官方的一些关于查询的帮助页面： Query Modifiers Query and Projection Operators  find 简介 官方定义：  db.collection.find()：Performs a query on a collection and returns a cursor object.  db.collection.find( { &amp;lt;query&amp;gt; }">
+<meta property="og:description" content="官方的一些关于查询的帮助页面：Query ModifiersQuery and Projection Operators find 简介官方定义：  db.collection.find()：Performs a query on a collection and returns a cursor object.  db.collection.find( { &amp;lt;query&amp;gt; } )._">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:31:26.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB 学习笔记(三)：查询">
-<meta name="twitter:description" content="官方的一些关于查询的帮助页面： Query Modifiers Query and Projection Operators  find 简介 官方定义：  db.collection.find()：Performs a query on a collection and returns a cursor object.  db.collection.find( { &amp;lt;query&amp;gt; }">
+<meta name="twitter:description" content="官方的一些关于查询的帮助页面：Query ModifiersQuery and Projection Operators find 简介官方定义：  db.collection.find()：Performs a query on a collection and returns a cursor object.  db.collection.find( { &amp;lt;query&amp;gt; } )._">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,28 +97,24 @@
 </header>
 	<div class="article-content">
 		
-		<p>官方的一些关于查询的帮助页面：<br>
-<a href="https://docs.mongodb.com/manual/reference/operator/query-modifier/" target="_blank" rel="noopener">Query Modifiers</a><br>
-<a href="https://docs.mongodb.com/manual/reference/operator/query/" target="_blank" rel="noopener">Query and Projection Operators</a></p>
-<h2 id="find-简介"><a class="markdownIt-Anchor" href="#find-简介"></a> find 简介</h2>
-<p>官方定义：</p>
+		<p>官方的一些关于查询的帮助页面：<br><a href="https://docs.mongodb.com/manual/reference/operator/query-modifier/" target="_blank" rel="noopener">Query Modifiers</a><br><a href="https://docs.mongodb.com/manual/reference/operator/query/" target="_blank" rel="noopener">Query and Projection Operators</a></p>
+<h2 id="find-简介"><a href="#find-简介" class="headerlink" title="find 简介"></a>find 简介</h2><p>官方定义：</p>
 <blockquote>
 <p><a href="https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find" target="_blank" rel="noopener"><strong>db.collection.find()</strong></a>：Performs a query on a collection and returns a cursor object.</p>
 </blockquote>
-<p><code>db.collection.find( { &lt;query&gt; } )._addSpecial( &lt;option&gt; ) db.collection.find( { $query: { &lt;query&gt; }, &lt;option&gt; } )</code></p>
-<p>find的第一个参数决定了要返回哪些文档，这个参数是一个文档，用于指定查询条件。<br>
-空的查询文档(<code>{}</code>)会匹配集合的全部内容。如果不指定查询文档，默认就是<code>{}</code></p>
+<p><code>db.collection.find( { &lt;query&gt; } )._addSpecial( &lt;option&gt; )
+db.collection.find( { $query: { &lt;query&gt; }, &lt;option&gt; } )</code></p>
+<p>find的第一个参数决定了要返回哪些文档，这个参数是一个文档，用于指定查询条件。<br>空的查询文档(<code>{}</code>)会匹配集合的全部内容。如果不指定查询文档，默认就是<code>{}</code></p>
 <p>多个查询条件：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.users.find(&#123;<span class="string">"username"</span>:<span class="string">"joe"</span>, <span class="string">"age"</span>:<span class="number">27</span>&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="指定需要返回的键"><a class="markdownIt-Anchor" href="#指定需要返回的键"></a> 指定需要返回的键</h3>
-<p>可以使用find的第二个参数来指定想要的键。<br>
-例如：如果只对用户集合的&quot;name&quot;,&quot;age&quot;感兴趣，可以使用一下查询：</p>
+
+<h3 id="指定需要返回的键"><a href="#指定需要返回的键" class="headerlink" title="指定需要返回的键"></a>指定需要返回的键</h3><p>可以使用find的第二个参数来指定想要的键。<br>例如：如果只对用户集合的”name”,”age”感兴趣，可以使用一下查询：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.users.find()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580f860132248ee52c95818d"</span>), <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="number">30</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580fee3acaf94008421f72a4"</span>), <span class="string">"rep"</span> : <span class="number">28</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580fef20caf94008421f72a5"</span>), <span class="string">"rep"</span> : <span class="number">28</span> &#125;</span><br><span class="line">&gt; db.users.find(&#123;&#125;,&#123;<span class="string">"name"</span>:<span class="number">1</span>, <span class="string">"age"</span>:<span class="number">1</span>&#125;).pretty()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580f860132248ee52c95818d"</span>), <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="number">30</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580fee3acaf94008421f72a4"</span>) &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580fef20caf94008421f72a5"</span>) &#125;</span><br></pre></td></tr></table></figure>
+
 <p>当然也可以把<code>_id</code>键去除：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.users.find(&#123;&#125;,&#123;<span class="string">"name"</span>:<span class="number">1</span>,<span class="string">"age"</span>:<span class="number">1</span>, <span class="string">"_id"</span>:<span class="number">0</span>&#125;)</span><br><span class="line">&#123; <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="number">30</span> &#125;</span><br><span class="line">&#123;  &#125;</span><br><span class="line">&#123;  &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="查询条件"><a class="markdownIt-Anchor" href="#查询条件"></a> 查询条件</h2>
-<h3 id="comparison"><a class="markdownIt-Anchor" href="#comparison"></a> Comparison</h3>
-<p>比较操作符有以下几种：</p>
+
+<h2 id="查询条件"><a href="#查询条件" class="headerlink" title="查询条件"></a>查询条件</h2><h3 id="Comparison"><a href="#Comparison" class="headerlink" title="Comparison"></a>Comparison</h3><p>比较操作符有以下几种：</p>
 <table>
 <thead>
 <tr>
@@ -126,8 +122,7 @@
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>$eq</code></td>
 <td>Matches values that are <strong>equal to</strong> a specified value.</td>
 </tr>
@@ -159,23 +154,22 @@
 <td><code>$nin</code></td>
 <td>Matches <strong>none</strong> of the values specified <strong>in an array</strong>.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>例如：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.users.find(&#123;<span class="string">"age"</span>: &#123;<span class="string">"$gte"</span>:<span class="number">18</span>, <span class="string">"$lte"</span>:<span class="number">30</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
 <p>以及时间查询：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; start = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"01/01/2007"</span>)</span><br><span class="line">ISODate(<span class="string">"2007-01-01T08:00:00Z"</span>)</span><br><span class="line">&gt; db.temp.find(&#123;<span class="string">"createAt"</span>:&#123;<span class="string">"$gt"</span>:start&#125;&#125;).pretty()</span><br><span class="line">&#123;</span><br><span class="line">        <span class="string">"_id"</span> : ObjectId(<span class="string">"580ff0d1caf94008421f72a6"</span>),</span><br><span class="line">        <span class="string">"createAt"</span> : ISODate(<span class="string">"2016-10-25T23:54:57.159Z"</span>)</span><br><span class="line">&#125;</span><br><span class="line">&gt; db.temp.find(&#123;<span class="string">"createAt"</span>:&#123;<span class="string">"$lt"</span>:start&#125;&#125;).pretty()</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
 <p>由于文档中的日期是精确到毫秒的，精确匹配用处不大，范围查询就很有必要。</p>
-<h3 id="logical"><a class="markdownIt-Anchor" href="#logical"></a> Logical</h3>
-<table>
+<h3 id="Logical"><a href="#Logical" class="headerlink" title="Logical"></a>Logical</h3><table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>$or</code></td>
 <td>Joins query clauses with a logical OR returns all documents that <strong>match</strong> the conditions of <strong>either clause</strong>.</td>
 </tr>
@@ -191,26 +185,22 @@
 <td><code>$nor</code></td>
 <td>Joins query clauses with a logical NOR returns all documents that <strong>fail to match both</strong> clauses.</td>
 </tr>
-</tbody>
-</table>
-<p>比较：<br>
-<code>$in</code>可以用来查询一个键的多个值；<br>
-<code>$or</code>可以在多个键中查询给定的任意值。<br>
-例如：</p>
+</tbody></table>
+<p>比较：<br><code>$in</code>可以用来查询一个键的多个值；<br><code>$or</code>可以在多个键中查询给定的任意值。<br>例如：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.users.find()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580f860132248ee52c95818d"</span>), <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="number">30</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580fee3acaf94008421f72a4"</span>), <span class="string">"rep"</span> : <span class="number">28</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580fef20caf94008421f72a5"</span>), <span class="string">"name"</span> : <span class="string">"tink"</span>, <span class="string">"rep"</span> : <span class="number">12</span> &#125;</span><br><span class="line">&gt; db.users.find(&#123;<span class="string">"rep"</span>:&#123;<span class="string">"$in"</span>:[<span class="number">28</span>, <span class="number">10</span>]&#125;&#125;).pretty()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580fee3acaf94008421f72a4"</span>), <span class="string">"rep"</span> : <span class="number">28</span> &#125;</span><br><span class="line"></span><br><span class="line">&gt; db.users.find(&#123;<span class="string">"$or"</span>:[&#123;<span class="string">"name"</span>:<span class="string">"joe"</span>&#125;, &#123;<span class="string">"rep"</span>:<span class="number">12</span>&#125;]&#125;).pretty()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580f860132248ee52c95818d"</span>), <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="number">30</span> &#125;</span><br><span class="line">&#123;</span><br><span class="line">        <span class="string">"_id"</span> : ObjectId(<span class="string">"580fef20caf94008421f72a5"</span>),</span><br><span class="line">        <span class="string">"name"</span> : <span class="string">"tink"</span>,</span><br><span class="line">        <span class="string">"rep"</span> : <span class="number">12</span></span><br><span class="line">&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
 <p><strong>$not</strong>用法</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.users.find(&#123;<span class="string">"rep"</span>:&#123;<span class="string">"$not"</span>:&#123;<span class="string">"$mod"</span>:[<span class="number">3</span>,<span class="number">1</span>]&#125;&#125;&#125;).pretty()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580f860132248ee52c95818d"</span>), <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="number">30</span> &#125;</span><br><span class="line">&#123;</span><br><span class="line">        <span class="string">"_id"</span> : ObjectId(<span class="string">"580fef20caf94008421f72a5"</span>),</span><br><span class="line">        <span class="string">"name"</span> : <span class="string">"tink"</span>,</span><br><span class="line">        <span class="string">"rep"</span> : <span class="number">12</span></span><br><span class="line">&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
 <p><code>$mod</code>将查询的值除以第一个给定值，如果余数与第二个值相等则匹配成功。</p>
-<h3 id="element"><a class="markdownIt-Anchor" href="#element"></a> Element</h3>
-<table>
+<h3 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h3><table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>$exists</code></td>
 <td>Matches documents that have the specified field.</td>
 </tr>
@@ -218,25 +208,24 @@
 <td><code>$type</code></td>
 <td>Selects documents if a field is of the specified type.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>例如一下情形：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.users.find()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580f860132248ee52c95818d"</span>), <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="number">30</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580fee3acaf94008421f72a4"</span>), <span class="string">"rep"</span> : <span class="number">28</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580fef20caf94008421f72a5"</span>), <span class="string">"name"</span> : <span class="string">"tink"</span>, <span class="string">"rep"</span> : <span class="number">12</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5810325c32248ee52c958192"</span>), <span class="string">"y"</span> : <span class="literal">null</span> &#125;</span><br></pre></td></tr></table></figure>
+
 <p>从中提取null的文档：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.users.find(&#123;<span class="string">"y"</span>:<span class="literal">null</span>&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580f860132248ee52c95818d"</span>), <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="number">30</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580fee3acaf94008421f72a4"</span>), <span class="string">"rep"</span> : <span class="number">28</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580fef20caf94008421f72a5"</span>), <span class="string">"name"</span> : <span class="string">"tink"</span>, <span class="string">"rep"</span> : <span class="number">12</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5810325c32248ee52c958192"</span>), <span class="string">"y"</span> : <span class="literal">null</span> &#125;</span><br></pre></td></tr></table></figure>
-<p>结果不正确，null不仅会匹配某个键的值为null的文档，而且还会匹配不包含这个键的文档。<br>
-所以，我们不仅要检查键值是否为null，还要通过<code>$exists</code>检查键存在。</p>
+
+<p>结果不正确，null不仅会匹配某个键的值为null的文档，而且还会匹配不包含这个键的文档。<br>所以，我们不仅要检查键值是否为null，还要通过<code>$exists</code>检查键存在。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.users.find(&#123;<span class="string">"y"</span>:&#123;<span class="string">"$eq"</span>:<span class="literal">null</span>, <span class="string">"$exists"</span>:<span class="literal">true</span>&#125;&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5810325c32248ee52c958192"</span>), <span class="string">"y"</span> : <span class="literal">null</span> &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="evaluation"><a class="markdownIt-Anchor" href="#evaluation"></a> Evaluation</h3>
-<table>
+
+<h3 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h3><table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>$mod</code></td>
 <td>Performs a <strong>modulo operation</strong>(模操作) on the value of a field and selects documents with a specified result.</td>
 </tr>
@@ -252,31 +241,25 @@
 <td><code>$where</code></td>
 <td>Matches documents that <strong>satisfy a JavaScript expression</strong>.</td>
 </tr>
-</tbody>
-</table>
-<p>说说正则表达式，MongoDB使用Perl兼容的正则表达式(PCRE)库来匹配。<br>
-<code>$regex</code>: Provides regular expression capabilities for pattern matching <strong>strings</strong> in queries<br>
-有三种语法：</p>
+</tbody></table>
+<p>说说正则表达式，MongoDB使用Perl兼容的正则表达式(PCRE)库来匹配。<br><code>$regex</code>: Provides regular expression capabilities for pattern matching <strong>strings</strong> in queries<br>有三种语法：</p>
 <figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">&#123; &lt;field&gt;: &#123; $regex: <span class="regexp">/pattern/</span>, $options: <span class="string">'&lt;options&gt;'</span> &#125; &#125;</span><br><span class="line">&#123; &lt;field&gt;: &#123; $regex: <span class="string">'pattern'</span>, $options: <span class="string">'&lt;options&gt;'</span> &#125; &#125;</span><br><span class="line">&#123; &lt;field&gt;: &#123; $regex: <span class="regexp">/pattern/</span>&lt;options&gt; &#125; &#125;</span><br></pre></td></tr></table></figure>
+
 <p>在MongoDB中，你同样可以使用正则表达式对象(regular expression objects)（例如：<code>/pattern/</code>）来指定正则表达式。</p>
 <figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">&#123; &lt;field&gt;: <span class="regexp">/pattern/</span>&lt;options&gt; &#125;</span><br></pre></td></tr></table></figure>
-<p>可用的<code>options</code>有以下几种：<br>
-<code>i</code><br>
-<code>m</code><br>
-<code>x</code><br>
-<code>s</code></p>
+
+<p>可用的<code>options</code>有以下几种：<br><code>i</code><br><code>m</code><br><code>x</code><br><code>s</code></p>
 <p>例如：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.users.find(&#123;<span class="string">"name"</span>:<span class="regexp">/Joe/i</span>&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580f860132248ee52c95818d"</span>), <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="number">30</span> &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; db.users.find(&#123;<span class="string">"name"</span>:&#123;<span class="string">"$regex"</span>:<span class="regexp">/Joe/</span>, <span class="string">"$options"</span>:<span class="string">"i"</span>&#125;&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580f860132248ee52c95818d"</span>), <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="number">30</span> &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; db.users.find(&#123;<span class="string">"name"</span>:&#123;<span class="string">"$regex"</span>:<span class="regexp">/Joe/i</span>&#125;&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580f860132248ee52c95818d"</span>), <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="number">30</span> &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="array"><a class="markdownIt-Anchor" href="#array"></a> Array</h3>
-<table>
+
+<h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>$all</code></td>
 <td>Matches arrays that contain all elements specified in the query.</td>
 </tr>
@@ -288,29 +271,27 @@
 <td><code>$size</code></td>
 <td>Selects documents if the array field is a specified size.</td>
 </tr>
-</tbody>
-</table>
-<p><strong>$all</strong><br>
-例如：</p>
+</tbody></table>
+<p><strong>$all</strong><br>例如：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.food.find()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103fb432248ee52c958194"</span>), <span class="string">"fruit"</span> : [ <span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"peach"</span> ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103fd532248ee52c958195"</span>), <span class="string">"fruit"</span> : [ <span class="string">"apple"</span>, <span class="string">"kumquat"</span>,<span class="string">"orange"</span> ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103ff032248ee52c958196"</span>), <span class="string">"fruit"</span> : [ <span class="string">"cherry"</span>, <span class="string">"banana"</span>,<span class="string">"apple"</span> ] &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; db.food.find(&#123;<span class="string">"fruit"</span>:&#123;<span class="string">"$all"</span>:[<span class="string">"apple"</span>, <span class="string">"banana"</span>]&#125;&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103fb432248ee52c958194"</span>), <span class="string">"fruit"</span> : [ <span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"peach"</span> ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103ff032248ee52c958196"</span>), <span class="string">"fruit"</span> : [ <span class="string">"cherry"</span>, <span class="string">"banana"</span>,<span class="string">"apple"</span> ] &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<p>注意观察上面结果，<code>$all</code>与顺序无关。<br>
-如果想查询数组特定位置上的元素，需要使用<code>key.index</code>语法指定下标，下标从0开始，如下：</p>
+
+<p>注意观察上面结果，<code>$all</code>与顺序无关。<br>如果想查询数组特定位置上的元素，需要使用<code>key.index</code>语法指定下标，下标从0开始，如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.food.find(&#123;<span class="string">"fruit.2"</span>:<span class="string">"peach"</span>&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103fb432248ee52c958194"</span>), <span class="string">"fruit"</span> : [ <span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"peach"</span> ] &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>$size</strong><br>
-查询特定长度的数组</p>
+
+<p><strong>$size</strong><br>查询特定长度的数组</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.food.find(&#123;<span class="string">"fruit"</span>:&#123;<span class="string">"$size"</span>:<span class="number">3</span>&#125;&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103fb432248ee52c958194"</span>), <span class="string">"fruit"</span> : [ <span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"peach"</span> ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103fd532248ee52c958195"</span>), <span class="string">"fruit"</span> : [ <span class="string">"apple"</span>, <span class="string">"kumquat"</span>,<span class="string">"orange"</span> ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103ff032248ee52c958196"</span>), <span class="string">"fruit"</span> : [ <span class="string">"cherry"</span>, <span class="string">"banana"</span>,<span class="string">"apple"</span> ] &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
 <p>但是，<code>$size</code>并不能与其它查询条件（比如<code>$gt</code>）组合使用。错误如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.food.find(&#123;<span class="string">"fruit"</span>:&#123;<span class="string">"$size"</span>:&#123;<span class="string">"$gt"</span>:<span class="number">2</span>&#125;&#125;&#125;)</span><br><span class="line"><span class="built_in">Error</span>: error: &#123;</span><br><span class="line">        <span class="string">"waitedMS"</span> : NumberLong(<span class="number">0</span>),</span><br><span class="line">        <span class="string">"ok"</span> : <span class="number">0</span>,</span><br><span class="line">        <span class="string">"errmsg"</span> : <span class="string">"$size needs a number"</span>,</span><br><span class="line">        <span class="string">"code"</span> : <span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="projection-operators"><a class="markdownIt-Anchor" href="#projection-operators"></a> Projection Operators</h3>
-<table>
+
+<h3 id="Projection-Operators"><a href="#Projection-Operators" class="headerlink" title="Projection Operators"></a>Projection Operators</h3><table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>$</code></td>
 <td>Projects the <strong>first element</strong> in an array that matches the query condition.</td>
 </tr>
@@ -326,37 +307,32 @@
 <td><code>$slice</code></td>
 <td><strong>Limits</strong> the number of elements projected from an array. Supports skip and limit slices.</td>
 </tr>
-</tbody>
-</table>
-<p>**<span class="katex-error" title="ParseError: KaTeX parse error: Expected &#039;}&#039;, got &#039;EOF&#039; at end of input: …e }, { array: {">silice**
-`db.collection.find( { field: value }, { array: {</span>slice: count } } )`</p>
-<p><code>$slice</code>操作符可以返回某个键匹配的元素的一个子集。<br>
-例如：<br>
-<code>{&quot;$slice&quot;:10}</code>：返回前10个<br>
-<code>{&quot;$slice&quot;:-10}</code>：返回后10个<br>
-<code>{&quot;$slice&quot;: [23,10]}</code>：跳过前23个，返回24—33个元素。</p>
+</tbody></table>
+<p><strong>$silice</strong><br><code>db.collection.find( { field: value }, { array: {$slice: count } } )</code></p>
+<p><code>$slice</code>操作符可以返回某个键匹配的元素的一个子集。<br>例如：<br><code>{&quot;$slice&quot;:10}</code>：返回前10个<br><code>{&quot;$slice&quot;:-10}</code>：返回后10个<br><code>{&quot;$slice&quot;: [23,10]}</code>：跳过前23个，返回24—33个元素。</p>
 <p>例如：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.food.find()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103fb432248ee52c958194"</span>), <span class="string">"fruit"</span> : [ <span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"peach"</span> ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103fd532248ee52c958195"</span>), <span class="string">"fruit"</span> : [ <span class="string">"apple"</span>, <span class="string">"kumquat"</span>,<span class="string">"orange"</span> ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103ff032248ee52c958196"</span>), <span class="string">"fruit"</span> : [ <span class="string">"cherry"</span>, <span class="string">"banana"</span>,<span class="string">"apple"</span> ] &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; db.food.findOne(&#123;&#125;,&#123;<span class="string">"fruit"</span>:&#123;<span class="attr">$slice</span>:<span class="number">1</span>&#125;&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103fb432248ee52c958194"</span>), <span class="string">"fruit"</span> : [ <span class="string">"apple"</span> ] &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; db.food.find(&#123;&#125;,&#123;<span class="string">"fruit"</span>:&#123;<span class="attr">$slice</span>:<span class="number">1</span>&#125;&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103fb432248ee52c958194"</span>), <span class="string">"fruit"</span> : [ <span class="string">"apple"</span> ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103fd532248ee52c958195"</span>), <span class="string">"fruit"</span> : [ <span class="string">"apple"</span> ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103ff032248ee52c958196"</span>), <span class="string">"fruit"</span> : [ <span class="string">"cherry"</span> ] &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; db.food.find(&#123;&#125;,&#123;<span class="string">"fruit"</span>:&#123;<span class="attr">$slice</span>:[<span class="number">1</span>,<span class="number">1</span>]&#125;&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103fb432248ee52c958194"</span>), <span class="string">"fruit"</span> : [ <span class="string">"banana"</span> ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103fd532248ee52c958195"</span>), <span class="string">"fruit"</span> : [ <span class="string">"kumquat"</span> ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"58103ff032248ee52c958196"</span>), <span class="string">"fruit"</span> : [ <span class="string">"banana"</span> ] &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
 <p>注意范围查询，面对数组是没有用的，范围会匹配任意多元素数组：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5810dea832248ee52c958197"</span>), <span class="string">"x"</span> : <span class="number">5</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5810deaf32248ee52c958198"</span>), <span class="string">"x"</span> : <span class="number">15</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5810deb332248ee52c958199"</span>), <span class="string">"x"</span> : <span class="number">25</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5810deba32248ee52c95819a"</span>), <span class="string">"x"</span> : [ <span class="number">5</span>, <span class="number">25</span> ] &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; db.test.find(&#123;<span class="string">"x"</span>:&#123;<span class="string">"$gt"</span>:<span class="number">10</span>,<span class="string">"$lt"</span>:<span class="number">20</span>&#125;&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5810deaf32248ee52c958198"</span>), <span class="string">"x"</span> : <span class="number">15</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5810deba32248ee52c95819a"</span>), <span class="string">"x"</span> : [ <span class="number">5</span>, <span class="number">25</span> ] &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<p>返回结果明显不是我们想要的。<br>
-这时可以使用<code>$elemMatch</code>要求MongoDB同时使用查询条件中的两个语句与一个数组元素进行比较。但是，还有一个问题，<code>$elemMatch</code>不会匹配非数组元素。如下：</p>
+
+<p>返回结果明显不是我们想要的。<br>这时可以使用<code>$elemMatch</code>要求MongoDB同时使用查询条件中的两个语句与一个数组元素进行比较。但是，还有一个问题，<code>$elemMatch</code>不会匹配非数组元素。如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.test.find(&#123;<span class="string">"x"</span>:&#123;<span class="attr">$elemMatch</span>:&#123;<span class="string">"$gt"</span>:<span class="number">10</span>,<span class="string">"$lt"</span>:<span class="number">20</span>&#125;&#125;&#125;)</span><br><span class="line">&gt;<span class="comment">//查不到任何结果</span></span><br></pre></td></tr></table></figure>
+
 <p>如果查询字段上创建过索引，可以使用<code>min()</code>和<code>max()</code>将查询条件遍历的索引范围限制为<code>$gt</code>和<code>$lt</code>的值：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.test.find(&#123;<span class="string">"x"</span>:&#123;<span class="string">"$gt"</span>:<span class="number">10</span>,<span class="string">"$lt"</span>:<span class="number">20</span>&#125;&#125;).min(&#123;<span class="string">"x"</span>:<span class="number">10</span>&#125;).max(&#123;<span class="string">"x"</span>:<span class="number">20</span>&#125;)</span><br><span class="line">&gt;&#123;<span class="string">"x"</span>:<span class="number">15</span>&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>在可能包含数组的文档上应用范围查询时，使用min()和max()是非常好的：如果在整个索引范围内对数组使用<code>$gt/$lt</code>查询，效率是非常低的。查询条件会与所有值进行比较，会查询每一个索引，而不仅仅是指定索引范围内的值。</p>
 </blockquote>
-<h3 id="geospatial"><a class="markdownIt-Anchor" href="#geospatial"></a> Geospatial</h3>
-<table>
+<h3 id="Geospatial"><a href="#Geospatial" class="headerlink" title="Geospatial"></a>Geospatial</h3><table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>$geoWithin</code></td>
 <td>Selects geometries within a bounding GeoJSON geometry. The 2dsphere and 2d indexes support $geoWithin.</td>
 </tr>
@@ -372,18 +348,15 @@
 <td><code>$nearSphere</code></td>
 <td>Returns geospatial objects in proximity to a point on a sphere. Requires a geospatial index. The 2dsphere and 2d indexes support $nearSphere.</td>
 </tr>
-</tbody>
-</table>
-<h3 id="bitwise"><a class="markdownIt-Anchor" href="#bitwise"></a> Bitwise</h3>
-<table>
+</tbody></table>
+<h3 id="Bitwise"><a href="#Bitwise" class="headerlink" title="Bitwise"></a>Bitwise</h3><table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>$bitsAllSet</code></td>
 <td>Matches numeric or binary values in which a set of bit positions all have a value of 1.</td>
 </tr>
@@ -399,37 +372,28 @@
 <td><code>$bitsAnyClear</code></td>
 <td>Matches numeric or binary values in which any bit from a set of bit positions has a value of 0.</td>
 </tr>
-</tbody>
-</table>
-<h3 id="内嵌文档的查询"><a class="markdownIt-Anchor" href="#内嵌文档的查询"></a> 内嵌文档的查询</h3>
-<p>内嵌文档查询可以用点表示法：<br>
-例如：</p>
+</tbody></table>
+<h3 id="内嵌文档的查询"><a href="#内嵌文档的查询" class="headerlink" title="内嵌文档的查询"></a>内嵌文档的查询</h3><p>内嵌文档查询可以用点表示法：<br>例如：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.people.find().pretty()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5810e52632248ee52c95819b"</span>), <span class="string">"age"</span> : <span class="number">45</span> &#125;</span><br><span class="line">&#123;</span><br><span class="line">        <span class="string">"_id"</span> : ObjectId(<span class="string">"5810e63732248ee52c95819c"</span>),</span><br><span class="line">        <span class="string">"name"</span> : &#123;</span><br><span class="line">                <span class="string">"first"</span> : <span class="string">"Joe"</span>,</span><br><span class="line">                <span class="string">"last"</span> : <span class="string">"Schmoe"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">"age"</span> : <span class="number">45</span></span><br><span class="line">&#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; db.people.find(&#123;<span class="string">"name.first"</span>:<span class="string">"Joe"</span>&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5810e63732248ee52c95819c"</span>), <span class="string">"name"</span> : &#123; <span class="string">"first"</span> : <span class="string">"Joe"</span>, <span class="string">"last"</span> : <span class="string">"Schmoe"</span> &#125;, <span class="string">"age"</span> : <span class="number">45</span> &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; db.people.find(&#123;<span class="string">"name.first"</span>:<span class="string">"Joe"</span>, <span class="string">"age"</span>:<span class="number">45</span>&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5810e63732248ee52c95819c"</span>), <span class="string">"name"</span> : &#123; <span class="string">"first"</span> : <span class="string">"Joe"</span>, <span class="string">"last"</span> : <span class="string">"Schmoe"</span> &#125;, <span class="string">"age"</span> : <span class="number">45</span> &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="游标"><a class="markdownIt-Anchor" href="#游标"></a> 游标</h3>
-<p>数据库使用游标返回find的执行结果。<br>
-要想从shell中创建一个游标，首先要对集合填充一些文档，然后对其执行查询，并将结果分配给一个局部变量（用var声明的变量就是局部变量）。<br>
-例如：</p>
+
+<h3 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h3><p>数据库使用游标返回find的执行结果。<br>要想从shell中创建一个游标，首先要对集合填充一些文档，然后对其执行查询，并将结果分配给一个局部变量（用var声明的变量就是局部变量）。<br>例如：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;<span class="number">100</span>;i++)&#123;</span><br><span class="line">... db.collection.insert(&#123;<span class="attr">x</span>:i&#125;);</span><br><span class="line">... &#125;</span><br><span class="line">WriteResult(&#123; <span class="string">"nInserted"</span> : <span class="number">1</span> &#125;)</span><br><span class="line">&gt; db.collection.find()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c95819d"</span>), <span class="string">"x"</span> : <span class="number">0</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c95819e"</span>), <span class="string">"x"</span> : <span class="number">1</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c95819f"</span>), <span class="string">"x"</span> : <span class="number">2</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581a0"</span>), <span class="string">"x"</span> : <span class="number">3</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581a1"</span>), <span class="string">"x"</span> : <span class="number">4</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581a2"</span>), <span class="string">"x"</span> : <span class="number">5</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581a3"</span>), <span class="string">"x"</span> : <span class="number">6</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581a4"</span>), <span class="string">"x"</span> : <span class="number">7</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581a5"</span>), <span class="string">"x"</span> : <span class="number">8</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581a6"</span>), <span class="string">"x"</span> : <span class="number">9</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581a7"</span>), <span class="string">"x"</span> : <span class="number">10</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581a8"</span>), <span class="string">"x"</span> : <span class="number">11</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581a9"</span>), <span class="string">"x"</span> : <span class="number">12</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581aa"</span>), <span class="string">"x"</span> : <span class="number">13</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581ab"</span>), <span class="string">"x"</span> : <span class="number">14</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581ac"</span>), <span class="string">"x"</span> : <span class="number">15</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581ad"</span>), <span class="string">"x"</span> : <span class="number">16</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581ae"</span>), <span class="string">"x"</span> : <span class="number">17</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581af"</span>), <span class="string">"x"</span> : <span class="number">18</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581b0"</span>), <span class="string">"x"</span> : <span class="number">19</span> &#125;</span><br><span class="line">Type <span class="string">"it"</span> <span class="keyword">for</span> more</span><br><span class="line">&gt; <span class="keyword">var</span> cursor = db.collection.find();</span><br><span class="line">&gt; cursor.hasNext()</span><br><span class="line"><span class="literal">true</span></span><br><span class="line">&gt;</span><br><span class="line">&gt; cursor.next()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c95819d"</span>), <span class="string">"x"</span> : <span class="number">0</span> &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; cursor.next()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c95819e"</span>), <span class="string">"x"</span> : <span class="number">1</span> &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
 <p>如果要迭代结果，可以使用游标的<code>next</code>方法；也可以使用<code>hasNext</code>来查看游标中是否还有其它结果。典型的结果遍历如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">while</span> (cursor.hasNext())&#123;</span><br><span class="line">... obj = cursor.next();</span><br><span class="line">... <span class="comment">//do stuff</span></span><br><span class="line">···&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="limit-skip和sort"><a class="markdownIt-Anchor" href="#limit-skip和sort"></a> limit、skip和sort</h3>
-<p>最常用的查询选项就是限制返回结果的数量、忽略一定数量的结果以及排序。</p>
+
+<h3 id="limit、skip和sort"><a href="#limit、skip和sort" class="headerlink" title="limit、skip和sort"></a>limit、skip和sort</h3><p>最常用的查询选项就是限制返回结果的数量、忽略一定数量的结果以及排序。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.collection.find().limit(<span class="number">4</span>)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c95819d"</span>), <span class="string">"x"</span> : <span class="number">0</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c95819e"</span>), <span class="string">"x"</span> : <span class="number">1</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c95819f"</span>), <span class="string">"x"</span> : <span class="number">2</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581a0"</span>), <span class="string">"x"</span> : <span class="number">3</span> &#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; db.collection.find().skip(<span class="number">97</span>)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581fe"</span>), <span class="string">"x"</span> : <span class="number">97</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581ff"</span>), <span class="string">"x"</span> : <span class="number">98</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c958200"</span>), <span class="string">"x"</span> : <span class="number">99</span> &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
 <p>sort接受一个对象作为参数，这个对象时一组键值对，键对应文档的键名，值代表排序的方向。排序的方向可以是1（升序）或者-1（降序）。如果指定了多个键，则按照这些键被指定的顺序逐个排序。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.collection.find().limit(<span class="number">15</span>).sort(&#123;<span class="string">"x"</span>:<span class="number">-1</span>&#125;)</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c958200"</span>), <span class="string">"x"</span> : <span class="number">99</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581ff"</span>), <span class="string">"x"</span> : <span class="number">98</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581fe"</span>), <span class="string">"x"</span> : <span class="number">97</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581fd"</span>), <span class="string">"x"</span> : <span class="number">96</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581fc"</span>), <span class="string">"x"</span> : <span class="number">95</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581fb"</span>), <span class="string">"x"</span> : <span class="number">94</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581fa"</span>), <span class="string">"x"</span> : <span class="number">93</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581f9"</span>), <span class="string">"x"</span> : <span class="number">92</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581f8"</span>), <span class="string">"x"</span> : <span class="number">91</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581f7"</span>), <span class="string">"x"</span> : <span class="number">90</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581f6"</span>), <span class="string">"x"</span> : <span class="number">89</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581f5"</span>), <span class="string">"x"</span> : <span class="number">88</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581f4"</span>), <span class="string">"x"</span> : <span class="number">87</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581f3"</span>), <span class="string">"x"</span> : <span class="number">86</span> &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5811002a32248ee52c9581f2"</span>), <span class="string">"x"</span> : <span class="number">85</span> &#125;</span><br></pre></td></tr></table></figure>
+
 <p>注意观察以上返回结果，与预期不同。事实上，是先排序，然后在使用limit或者skip。</p>
-<h3 id="高级查询选项"><a class="markdownIt-Anchor" href="#高级查询选项"></a> 高级查询选项</h3>
-<p>有两种类型的查询：<strong>简单查询</strong>(plain query) 和 <strong>封装查询</strong>(wrapped query)。<br>
-简单查询就是我们上面进行的查询。<br>
-高级查询的长用选项：</p>
+<h3 id="高级查询选项"><a href="#高级查询选项" class="headerlink" title="高级查询选项"></a>高级查询选项</h3><p>有两种类型的查询：<strong>简单查询</strong>(plain query) 和 <strong>封装查询</strong>(wrapped query)。<br>简单查询就是我们上面进行的查询。<br>高级查询的长用选项：</p>
 <ul>
-<li><code>$maxscan</code>：<em>interger</em><br>
-指定本次查询中扫描文档数量的上限。<br>
-<code>db.foo.find(criteria)._addSpecial(&quot;$maxscan&quot;, 20)</code></li>
-<li><code>$min</code>：<em>document</em><br>
-查询的开始条件。</li>
-<li><code>$max</code>：<em>document</em><br>
-查询的结束条件。</li>
+<li><code>$maxscan</code>：<em>interger</em><br>指定本次查询中扫描文档数量的上限。<br><code>db.foo.find(criteria)._addSpecial(&quot;$maxscan&quot;, 20)</code></li>
+<li><code>$min</code>：<em>document</em><br>查询的开始条件。</li>
+<li><code>$max</code>：<em>document</em><br>查询的结束条件。</li>
 </ul>
   
 	</div>
@@ -493,7 +457,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#find-简介"><span class="toc-number">1.</span> <span class="toc-text"> find 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#指定需要返回的键"><span class="toc-number">1.1.</span> <span class="toc-text"> 指定需要返回的键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询条件"><span class="toc-number">2.</span> <span class="toc-text"> 查询条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#comparison"><span class="toc-number">2.1.</span> <span class="toc-text"> Comparison</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#logical"><span class="toc-number">2.2.</span> <span class="toc-text"> Logical</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#element"><span class="toc-number">2.3.</span> <span class="toc-text"> Element</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#evaluation"><span class="toc-number">2.4.</span> <span class="toc-text"> Evaluation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#array"><span class="toc-number">2.5.</span> <span class="toc-text"> Array</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#projection-operators"><span class="toc-number">2.6.</span> <span class="toc-text"> Projection Operators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#geospatial"><span class="toc-number">2.7.</span> <span class="toc-text"> Geospatial</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bitwise"><span class="toc-number">2.8.</span> <span class="toc-text"> Bitwise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内嵌文档的查询"><span class="toc-number">2.9.</span> <span class="toc-text"> 内嵌文档的查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#游标"><span class="toc-number">2.10.</span> <span class="toc-text"> 游标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#limit-skip和sort"><span class="toc-number">2.11.</span> <span class="toc-text"> limit、skip和sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级查询选项"><span class="toc-number">2.12.</span> <span class="toc-text"> 高级查询选项</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#find-简介"><span class="toc-number">1.</span> <span class="toc-text">find 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#指定需要返回的键"><span class="toc-number">1.1.</span> <span class="toc-text">指定需要返回的键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询条件"><span class="toc-number">2.</span> <span class="toc-text">查询条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Comparison"><span class="toc-number">2.1.</span> <span class="toc-text">Comparison</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Logical"><span class="toc-number">2.2.</span> <span class="toc-text">Logical</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Element"><span class="toc-number">2.3.</span> <span class="toc-text">Element</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Evaluation"><span class="toc-number">2.4.</span> <span class="toc-text">Evaluation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array"><span class="toc-number">2.5.</span> <span class="toc-text">Array</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Projection-Operators"><span class="toc-number">2.6.</span> <span class="toc-text">Projection Operators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Geospatial"><span class="toc-number">2.7.</span> <span class="toc-text">Geospatial</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bitwise"><span class="toc-number">2.8.</span> <span class="toc-text">Bitwise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内嵌文档的查询"><span class="toc-number">2.9.</span> <span class="toc-text">内嵌文档的查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#游标"><span class="toc-number">2.10.</span> <span class="toc-text">游标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#limit、skip和sort"><span class="toc-number">2.11.</span> <span class="toc-text">limit、skip和sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级查询选项"><span class="toc-number">2.12.</span> <span class="toc-text">高级查询选项</span></a></li></ol></li></ol>
  
   </div>
 
@@ -526,7 +490,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -534,7 +498,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -567,11 +531,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -583,15 +547,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -599,7 +559,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -607,7 +575,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -619,27 +587,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

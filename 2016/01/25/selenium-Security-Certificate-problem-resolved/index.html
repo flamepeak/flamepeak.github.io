@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="在使用selenium登录复杂的网站时遇到安全证书问题。由于证书的问题，网页不能直接打开，会显示包含如下内容的网页：  此网站的安全证书有问题。 此网站出具的安全证书已过期或还未生效。 安全证书问题可能显示试图欺骗您或截获您向服务器发送的数据。 建议关闭此网页，并且不要继续浏览该网站。 单击此处关闭该网页。 继续浏览此网站(不推荐)。  通过中文搜索引擎没有找到可行的解决方案，无论是导入证书还是更">
+    <meta name="description" content="在使用selenium登录复杂的网站时遇到安全证书问题。由于证书的问题，网页不能直接打开，会显示包含如下内容的网页：  此网站的安全证书有问题。此网站出具的安全证书已过期或还未生效。安全证书问题可能显示试图欺骗您或截获您向服务器发送的数据。建议关闭此网页，并且不要继续浏览该网站。单击此处关闭该网页。继续浏览此网站(不推荐)。  通过中文搜索引擎没有找到可行的解决方案，无论是导入证书还是更改浏览器设">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Selenium 此网站的安全证书有问题 解决办法">
 <meta property="og:url" content="http://flamepeak.com/2016/01/25/selenium-Security-Certificate-problem-resolved/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="在使用selenium登录复杂的网站时遇到安全证书问题。由于证书的问题，网页不能直接打开，会显示包含如下内容的网页：  此网站的安全证书有问题。 此网站出具的安全证书已过期或还未生效。 安全证书问题可能显示试图欺骗您或截获您向服务器发送的数据。 建议关闭此网页，并且不要继续浏览该网站。 单击此处关闭该网页。 继续浏览此网站(不推荐)。  通过中文搜索引擎没有找到可行的解决方案，无论是导入证书还是更">
+<meta property="og:description" content="在使用selenium登录复杂的网站时遇到安全证书问题。由于证书的问题，网页不能直接打开，会显示包含如下内容的网页：  此网站的安全证书有问题。此网站出具的安全证书已过期或还未生效。安全证书问题可能显示试图欺骗您或截获您向服务器发送的数据。建议关闭此网页，并且不要继续浏览该网站。单击此处关闭该网页。继续浏览此网站(不推荐)。  通过中文搜索引擎没有找到可行的解决方案，无论是导入证书还是更改浏览器设">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:44:23.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Selenium 此网站的安全证书有问题 解决办法">
-<meta name="twitter:description" content="在使用selenium登录复杂的网站时遇到安全证书问题。由于证书的问题，网页不能直接打开，会显示包含如下内容的网页：  此网站的安全证书有问题。 此网站出具的安全证书已过期或还未生效。 安全证书问题可能显示试图欺骗您或截获您向服务器发送的数据。 建议关闭此网页，并且不要继续浏览该网站。 单击此处关闭该网页。 继续浏览此网站(不推荐)。  通过中文搜索引擎没有找到可行的解决方案，无论是导入证书还是更">
+<meta name="twitter:description" content="在使用selenium登录复杂的网站时遇到安全证书问题。由于证书的问题，网页不能直接打开，会显示包含如下内容的网页：  此网站的安全证书有问题。此网站出具的安全证书已过期或还未生效。安全证书问题可能显示试图欺骗您或截获您向服务器发送的数据。建议关闭此网页，并且不要继续浏览该网站。单击此处关闭该网页。继续浏览此网站(不推荐)。  通过中文搜索引擎没有找到可行的解决方案，无论是导入证书还是更改浏览器设">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -99,19 +99,15 @@
 		
 		<p>在使用selenium登录复杂的网站时遇到安全证书问题。由于证书的问题，网页不能直接打开，会显示包含如下内容的网页：</p>
 <blockquote>
-<p>此网站的安全证书有问题。<br>
-此网站出具的安全证书已过期或还未生效。<br>
-安全证书问题可能显示试图欺骗您或截获您向服务器发送的数据。<br>
-建议关闭此网页，并且不要继续浏览该网站。<br>
-单击此处关闭该网页。<br>
-继续浏览此网站(不推荐)。</p>
+<p>此网站的安全证书有问题。<br>此网站出具的安全证书已过期或还未生效。<br>安全证书问题可能显示试图欺骗您或截获您向服务器发送的数据。<br>建议关闭此网页，并且不要继续浏览该网站。<br>单击此处关闭该网页。<br>继续浏览此网站(不推荐)。</p>
 </blockquote>
-<p>通过中文搜索引擎没有找到可行的解决方案，无论是导入证书还是更改浏览器设置，都不可行。<br>
-最后通过google在stackoverflow中找到解决方案：</p>
+<p>通过中文搜索引擎没有找到可行的解决方案，无论是导入证书还是更改浏览器设置，都不可行。<br>最后通过google在stackoverflow中找到解决方案：</p>
 <p>#region SSL workaround for IE</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">"Certificate Error"</span> <span class="keyword">in</span> driver.title:</span><br><span class="line">    driver.get(<span class="string">"javascript:document.getElementById('overridelink').click();"</span>)</span><br></pre></td></tr></table></figure>
+
 <p>对于中文的IE浏览器，我们只需修改一下即可：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">u'证书错误'</span> <span class="keyword">in</span> driver.title:</span><br><span class="line">    driver.get(<span class="string">"javascript:document.getElementById('overridelink').click();"</span>)</span><br></pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -202,7 +198,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -210,7 +206,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -243,11 +239,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -259,15 +255,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -275,7 +267,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -283,7 +283,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -295,27 +295,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

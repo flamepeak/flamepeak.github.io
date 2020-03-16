@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="在看Programming Collection Intelligence时，由于generatefeedvector.py代码使用的feed数据部分失效，导致有些feed无法打开，程序出错。 详细来说，由于d = feedparser.parse(url)使用的url失效，导致d.feed.title、d.status等出现下列错误 AttributeError: object has no a">
+    <meta name="description" content="在看Programming Collection Intelligence时，由于generatefeedvector.py代码使用的feed数据部分失效，导致有些feed无法打开，程序出错。详细来说，由于d = feedparser.parse(url)使用的url失效，导致d.feed.title、d.status等出现下列错误 AttributeError: object has no at">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python feedparser 网页无法打开问题解决">
 <meta property="og:url" content="http://flamepeak.com/2017/01/16/Python-feedparser-usage-20170116/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="在看Programming Collection Intelligence时，由于generatefeedvector.py代码使用的feed数据部分失效，导致有些feed无法打开，程序出错。 详细来说，由于d = feedparser.parse(url)使用的url失效，导致d.feed.title、d.status等出现下列错误 AttributeError: object has no a">
+<meta property="og:description" content="在看Programming Collection Intelligence时，由于generatefeedvector.py代码使用的feed数据部分失效，导致有些feed无法打开，程序出错。详细来说，由于d = feedparser.parse(url)使用的url失效，导致d.feed.title、d.status等出现下列错误 AttributeError: object has no at">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:45:10.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python feedparser 网页无法打开问题解决">
-<meta name="twitter:description" content="在看Programming Collection Intelligence时，由于generatefeedvector.py代码使用的feed数据部分失效，导致有些feed无法打开，程序出错。 详细来说，由于d = feedparser.parse(url)使用的url失效，导致d.feed.title、d.status等出现下列错误 AttributeError: object has no a">
+<meta name="twitter:description" content="在看Programming Collection Intelligence时，由于generatefeedvector.py代码使用的feed数据部分失效，导致有些feed无法打开，程序出错。详细来说，由于d = feedparser.parse(url)使用的url失效，导致d.feed.title、d.status等出现下列错误 AttributeError: object has no at">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,16 +97,14 @@
 </header>
 	<div class="article-content">
 		
-		<p>在看Programming Collection Intelligence时，由于generatefeedvector.py代码使用的feed数据部分失效，导致有些feed无法打开，程序出错。<br>
-详细来说，由于d = feedparser.parse(url)使用的url失效，导致d.feed.title、d.status等出现下列错误</p>
+		<p>在看Programming Collection Intelligence时，由于generatefeedvector.py代码使用的feed数据部分失效，导致有些feed无法打开，程序出错。<br>详细来说，由于d = feedparser.parse(url)使用的url失效，导致d.feed.title、d.status等出现下列错误</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">AttributeError: object has no attribute &apos;title&apos;</span><br><span class="line">AttributeError: object has no attribute &apos;status&apos;</span><br></pre></td></tr></table></figure>
-<p>在查询<a href="https://pythonhosted.org/feedparser/" target="_blank" rel="noopener">feedparser官方文档</a>之后，发现有一种方法可以解决：Bozo Detection<br>
-Universal Feed Parser can parse feeds whether they are well-formed XML or not. However, since some applications may wish to reject or warn users about non-well-formed feeds, Universal Feed Parser sets the <code>bozo</code> bit when it detects that a feed is not well-formed.</p>
+
+<p>在查询<a href="https://pythonhosted.org/feedparser/" target="_blank" rel="noopener">feedparser官方文档</a>之后，发现有一种方法可以解决：Bozo Detection<br>Universal Feed Parser can parse feeds whether they are well-formed XML or not. However, since some applications may wish to reject or warn users about non-well-formed feeds, Universal Feed Parser sets the <code>bozo</code> bit when it detects that a feed is not well-formed.</p>
 <p><strong>Detecting a non-well-formed feed</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = feedparser.parse(<span class="string">'http://feedparser.org/docs/examples/atom10.xml'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.bozo</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = feedparser.parse(<span class="string">'http://feedparser.org/tests/illformed/rss/aaa_illformed.xml'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.bozo</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.bozo_exception</span><br><span class="line">&lt;xml.sax._exceptions.SAXParseException instance at <span class="number">0x00BAAA08</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>exc = d.bozo_exception</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>exc.getMessage()</span><br><span class="line"><span class="string">"expected '&gt;'\\n"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>exc.getLineNumber()</span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
-<p>所以我们可以判断<code>d.bozo</code>值是否为1来确定是否获取了正确的feed。<br>
-经过测试，还有一种方法可行，判断<code>d.feed</code>是否为<code>{}</code>:</p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">d = feedparser.parse(url)</span><br><span class="line"><span class="keyword">if</span> d.feed == &#123;&#125;:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>所以我们可以判断<code>d.bozo</code>值是否为1来确定是否获取了正确的feed。<br>经过测试，还有一种方法可行，判断<code>d.feed</code>是否为<code>{}</code>:<br>  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">d = feedparser.parse(url)</span><br><span class="line"><span class="keyword">if</span> d.feed == &#123;&#125;:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
 <p>s</p>
   
 	</div>
@@ -203,7 +201,7 @@ Universal Feed Parser can parse feeds whether they are well-formed XML or not. H
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -211,7 +209,7 @@ Universal Feed Parser can parse feeds whether they are well-formed XML or not. H
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -244,11 +242,11 @@ Universal Feed Parser can parse feeds whether they are well-formed XML or not. H
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -260,15 +258,11 @@ Universal Feed Parser can parse feeds whether they are well-formed XML or not. H
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -276,7 +270,15 @@ Universal Feed Parser can parse feeds whether they are well-formed XML or not. H
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -284,7 +286,7 @@ Universal Feed Parser can parse feeds whether they are well-formed XML or not. H
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -296,27 +298,23 @@ Universal Feed Parser can parse feeds whether they are well-formed XML or not. H
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

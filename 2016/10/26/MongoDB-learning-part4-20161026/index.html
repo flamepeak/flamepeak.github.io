@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="索引可以用来优化查询，而且在某些特定类型的查询中，索引是必不可少的。 为集合选择合适的索引是提高性能的关键。  索引介绍 官方文档：Indexes 不使用索引的查询称为全表扫描，服务器必须查找完一整本书才能找到查询结果。通常来说，应该尽量避卖弄全表扫描，因为对于大集合来说，全表扫描的效率非常低。 例如： &amp;gt; for(i=0; i&amp;lt;100000;i++)&amp;#123;... db.user">
+    <meta name="description" content="索引可以用来优化查询，而且在某些特定类型的查询中，索引是必不可少的。为集合选择合适的索引是提高性能的关键。 索引介绍官方文档：Indexes 不使用索引的查询称为全表扫描，服务器必须查找完一整本书才能找到查询结果。通常来说，应该尽量避卖弄全表扫描，因为对于大集合来说，全表扫描的效率非常低。 例如： &amp;gt; for(i=0; i&amp;lt;100000;i++)&amp;#123;... db.users.i">
 <meta name="keywords" content="MongoDB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB 学习笔记(四)：索引">
 <meta property="og:url" content="http://flamepeak.com/2016/10/26/MongoDB-learning-part4-20161026/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="索引可以用来优化查询，而且在某些特定类型的查询中，索引是必不可少的。 为集合选择合适的索引是提高性能的关键。  索引介绍 官方文档：Indexes 不使用索引的查询称为全表扫描，服务器必须查找完一整本书才能找到查询结果。通常来说，应该尽量避卖弄全表扫描，因为对于大集合来说，全表扫描的效率非常低。 例如： &amp;gt; for(i=0; i&amp;lt;100000;i++)&amp;#123;... db.user">
+<meta property="og:description" content="索引可以用来优化查询，而且在某些特定类型的查询中，索引是必不可少的。为集合选择合适的索引是提高性能的关键。 索引介绍官方文档：Indexes 不使用索引的查询称为全表扫描，服务器必须查找完一整本书才能找到查询结果。通常来说，应该尽量避卖弄全表扫描，因为对于大集合来说，全表扫描的效率非常低。 例如： &amp;gt; for(i=0; i&amp;lt;100000;i++)&amp;#123;... db.users.i">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:31:30.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB 学习笔记(四)：索引">
-<meta name="twitter:description" content="索引可以用来优化查询，而且在某些特定类型的查询中，索引是必不可少的。 为集合选择合适的索引是提高性能的关键。  索引介绍 官方文档：Indexes 不使用索引的查询称为全表扫描，服务器必须查找完一整本书才能找到查询结果。通常来说，应该尽量避卖弄全表扫描，因为对于大集合来说，全表扫描的效率非常低。 例如： &amp;gt; for(i=0; i&amp;lt;100000;i++)&amp;#123;... db.user">
+<meta name="twitter:description" content="索引可以用来优化查询，而且在某些特定类型的查询中，索引是必不可少的。为集合选择合适的索引是提高性能的关键。 索引介绍官方文档：Indexes 不使用索引的查询称为全表扫描，服务器必须查找完一整本书才能找到查询结果。通常来说，应该尽量避卖弄全表扫描，因为对于大集合来说，全表扫描的效率非常低。 例如： &amp;gt; for(i=0; i&amp;lt;100000;i++)&amp;#123;... db.users.i">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,38 +97,34 @@
 </header>
 	<div class="article-content">
 		
-		<p>索引可以用来优化查询，而且在某些特定类型的查询中，索引是必不可少的。<br>
-为集合选择合适的索引是提高性能的关键。</p>
-<h2 id="索引介绍"><a class="markdownIt-Anchor" href="#索引介绍"></a> 索引介绍</h2>
-<p>官方文档：<a href="https://docs.mongodb.com/manual/indexes/" target="_blank" rel="noopener">Indexes</a></p>
+		<p>索引可以用来优化查询，而且在某些特定类型的查询中，索引是必不可少的。<br>为集合选择合适的索引是提高性能的关键。</p>
+<h2 id="索引介绍"><a href="#索引介绍" class="headerlink" title="索引介绍"></a>索引介绍</h2><p>官方文档：<a href="https://docs.mongodb.com/manual/indexes/" target="_blank" rel="noopener">Indexes</a></p>
 <p>不使用索引的查询称为<em>全表扫描</em>，服务器必须查找完一整本书才能找到查询结果。通常来说，应该尽量避卖弄全表扫描，因为对于大集合来说，全表扫描的效率非常低。</p>
 <p>例如：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">100000</span>;i++)&#123;</span><br><span class="line">... db.users.insert(</span><br><span class="line">... &#123;<span class="string">"i"</span>:i,</span><br><span class="line">... <span class="string">"usersname"</span>:<span class="string">"user"</span>+i,</span><br><span class="line">... <span class="string">"age"</span>:<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">120</span>),</span><br><span class="line">... <span class="string">"created"</span>:<span class="keyword">new</span> <span class="built_in">Date</span>()&#125;</span><br><span class="line">... );</span><br><span class="line">... &#125;</span><br></pre></td></tr></table></figure>
+
 <p>我们在这个集合上做查询，可以使用<code>explain()</code>函数查看MongoDB在执行查询过程中做的事情。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.users.find(&#123;<span class="string">"username"</span>:<span class="string">"user101"</span>&#125;).explain()</span><br><span class="line">&#123;</span><br><span class="line">        <span class="string">"queryPlanner"</span> : &#123;</span><br><span class="line">                <span class="string">"plannerVersion"</span> : <span class="number">1</span>,</span><br><span class="line">                <span class="string">"namespace"</span> : <span class="string">"users.users"</span>,</span><br><span class="line">                <span class="string">"indexFilterSet"</span> : <span class="literal">false</span>,</span><br><span class="line">                <span class="string">"parsedQuery"</span> : &#123;</span><br><span class="line">                        <span class="string">"username"</span> : &#123;</span><br><span class="line">                                <span class="string">"$eq"</span> : <span class="string">"user101"</span></span><br><span class="line">                        &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="string">"winningPlan"</span> : &#123;</span><br><span class="line">                        <span class="string">"stage"</span> : <span class="string">"COLLSCAN"</span>,</span><br><span class="line">                        <span class="string">"filter"</span> : &#123;</span><br><span class="line">                                <span class="string">"username"</span> : &#123;</span><br><span class="line">                                        <span class="string">"$eq"</span> : <span class="string">"user101"</span></span><br><span class="line">                                &#125;</span><br><span class="line">                        &#125;,</span><br><span class="line">                        <span class="string">"direction"</span> : <span class="string">"forward"</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="string">"rejectedPlans"</span> : [ ]</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">"serverInfo"</span> : &#123;</span><br><span class="line">                <span class="string">"host"</span> : <span class="string">"Ten-PC"</span>,</span><br><span class="line">                <span class="string">"port"</span> : <span class="number">27017</span>,</span><br><span class="line">                <span class="string">"version"</span> : <span class="string">"3.2.10"</span>,</span><br><span class="line">                <span class="string">"gitVersion"</span> : <span class="string">"79d9b3ab5ce20f51c272b4411202710a082d0317"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">"ok"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>关于cursor.explain()<br>
-explain()在3.0版本发生了变化，主要是参数和输出格式的变化。<br>
-<code>db.collection.find().explain()</code><br>
-参数verbose有三种模式：<code>queryPlanner</code>(默认)、<code>executionStats</code>和<code>allPlansExecution</code>，模式的区别在于返回的信息的数量不同。<br>
-详细请参考：<a href="https://docs.mongodb.com/manual/reference/method/cursor.explain/" target="_blank" rel="noopener">cursor.explain()</a></p>
+<p>关于cursor.explain()<br>explain()在3.0版本发生了变化，主要是参数和输出格式的变化。<br><code>db.collection.find().explain()</code><br>参数verbose有三种模式：<code>queryPlanner</code>(默认)、<code>executionStats</code>和<code>allPlansExecution</code>，模式的区别在于返回的信息的数量不同。<br>详细请参考：<a href="https://docs.mongodb.com/manual/reference/method/cursor.explain/" target="_blank" rel="noopener">cursor.explain()</a></p>
 </blockquote>
-<h3 id="创建索引"><a class="markdownIt-Anchor" href="#创建索引"></a> 创建索引</h3>
-<p>首先明确一下，<code>db.collection.ensureIndex()</code>自3.0版本开始已经不再使用。取而代之的是<code>db.collection.createIndex()</code>。<br>
-官方原话是：</p>
+<h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><p>首先明确一下，<code>db.collection.ensureIndex()</code>自3.0版本开始已经不再使用。取而代之的是<code>db.collection.createIndex()</code>。<br>官方原话是：</p>
 <blockquote>
-<p>Deprecated since version 3.0.0: <code>db.collection.ensureIndex()</code> is now an alias for <code>db.collection.createIndex()</code>.<br>
-Use <code>db.collection.createIndex()</code> <strong>rather than</strong> <code>db.collection.ensureIndex()</code> to create new indexes.</p>
+<p>Deprecated since version 3.0.0: <code>db.collection.ensureIndex()</code> is now an alias for <code>db.collection.createIndex()</code>.<br>Use <code>db.collection.createIndex()</code> <strong>rather than</strong> <code>db.collection.ensureIndex()</code> to create new indexes.</p>
 </blockquote>
-<p>定义：Creates indexes on collections.<br>
-<code>db.collection.createIndex(keys, options)</code></p>
+<p>定义：Creates indexes on collections.<br><code>db.collection.createIndex(keys, options)</code></p>
 <p>例如：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.users.createIndex(&#123;<span class="string">"username"</span>:<span class="number">-1</span>&#125;)</span><br></pre></td></tr></table></figure>
+
 <p><strong>复合索引</strong>(compound index)</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.users.createIndex(&#123;<span class="string">"age"</span>:<span class="number">1</span>, <span class="string">"username"</span>:<span class="number">1</span>&#125;)</span><br><span class="line">&#123;</span><br><span class="line">        <span class="string">"createdCollectionAutomatically"</span> : <span class="literal">false</span>,</span><br><span class="line">        <span class="string">"numIndexesBefore"</span> : <span class="number">4</span>,</span><br><span class="line">        <span class="string">"numIndexesAfter"</span> : <span class="number">5</span>,</span><br><span class="line">        <span class="string">"ok"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.users.find(&#123;&#125;,&#123;<span class="string">"_id"</span>:<span class="number">0</span>, <span class="string">"i"</span>:<span class="number">0</span>, <span class="string">"created"</span>:<span class="number">0</span>&#125;)</span><br><span class="line">&#123; <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="number">30</span> &#125;</span><br><span class="line">&#123; <span class="string">"rep"</span> : <span class="number">28</span> &#125;</span><br><span class="line">&#123; <span class="string">"name"</span> : <span class="string">"tink"</span>, <span class="string">"rep"</span> : <span class="number">12</span> &#125;</span><br><span class="line">&#123; <span class="string">"y"</span> : <span class="literal">null</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user0"</span>, <span class="string">"age"</span> : <span class="number">62</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user1"</span>, <span class="string">"age"</span> : <span class="number">52</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user2"</span>, <span class="string">"age"</span> : <span class="number">44</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user3"</span>, <span class="string">"age"</span> : <span class="number">51</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user4"</span>, <span class="string">"age"</span> : <span class="number">46</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user5"</span>, <span class="string">"age"</span> : <span class="number">34</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user6"</span>, <span class="string">"age"</span> : <span class="number">103</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user7"</span>, <span class="string">"age"</span> : <span class="number">109</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user8"</span>, <span class="string">"age"</span> : <span class="number">22</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user9"</span>, <span class="string">"age"</span> : <span class="number">39</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user10"</span>, <span class="string">"age"</span> : <span class="number">113</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user11"</span>, <span class="string">"age"</span> : <span class="number">0</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user12"</span>, <span class="string">"age"</span> : <span class="number">110</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user13"</span>, <span class="string">"age"</span> : <span class="number">101</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user14"</span>, <span class="string">"age"</span> : <span class="number">40</span> &#125;</span><br><span class="line">&#123; <span class="string">"usersname"</span> : <span class="string">"user15"</span>, <span class="string">"age"</span> : <span class="number">99</span> &#125;</span><br><span class="line">Type <span class="string">"it"</span> <span class="keyword">for</span> more</span><br></pre></td></tr></table></figure>
+
 <p><strong>索引嵌套文档</strong></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.user.createIndex(&#123;<span class="string">"loc.city"</span>:<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -191,7 +187,7 @@ Use <code>db.collection.createIndex()</code> <strong>rather than</strong> <code>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#索引介绍"><span class="toc-number">1.</span> <span class="toc-text"> 索引介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建索引"><span class="toc-number">1.1.</span> <span class="toc-text"> 创建索引</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#索引介绍"><span class="toc-number">1.</span> <span class="toc-text">索引介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建索引"><span class="toc-number">1.1.</span> <span class="toc-text">创建索引</span></a></li></ol></li></ol>
  
   </div>
 
@@ -224,7 +220,7 @@ Use <code>db.collection.createIndex()</code> <strong>rather than</strong> <code>
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -232,7 +228,7 @@ Use <code>db.collection.createIndex()</code> <strong>rather than</strong> <code>
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -265,11 +261,11 @@ Use <code>db.collection.createIndex()</code> <strong>rather than</strong> <code>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -281,15 +277,11 @@ Use <code>db.collection.createIndex()</code> <strong>rather than</strong> <code>
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -297,7 +289,15 @@ Use <code>db.collection.createIndex()</code> <strong>rather than</strong> <code>
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -305,7 +305,7 @@ Use <code>db.collection.createIndex()</code> <strong>rather than</strong> <code>
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -317,27 +317,23 @@ Use <code>db.collection.createIndex()</code> <strong>rather than</strong> <code>
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

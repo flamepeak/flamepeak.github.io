@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="获得当前系统已安装的程序列表 获得当前系统已安装的程序列表 命令如下： wmic /NAMESPACE:&quot;\\root\CIMV2&quot; PATH Win32_Product 过滤： wmic /NAMESPACE:&quot;\\root\CIMV2&quot; PATH Win32_Product get name /FORMAT:table  获取进程参数 在windows下查看某个运行程序（或进程）的命令行参数">
+    <meta name="description" content="获得当前系统已安装的程序列表获得当前系统已安装的程序列表 命令如下： wmic /NAMESPACE:&quot;\\root\CIMV2&quot; PATH Win32_Product  过滤：   wmic /NAMESPACE:&quot;\\root\CIMV2&quot; PATH Win32_Product get name /FORMAT:table  获取进程参数在windows下查看某个运行程序（或进程）的命令行参数">
 <meta name="keywords" content="Network Security,wmic">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Wmic collections 20180206">
 <meta property="og:url" content="http://flamepeak.com/2018/02/06/Wmic-collections-20180206/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="获得当前系统已安装的程序列表 获得当前系统已安装的程序列表 命令如下： wmic /NAMESPACE:&quot;\\root\CIMV2&quot; PATH Win32_Product 过滤： wmic /NAMESPACE:&quot;\\root\CIMV2&quot; PATH Win32_Product get name /FORMAT:table  获取进程参数 在windows下查看某个运行程序（或进程）的命令行参数">
+<meta property="og:description" content="获得当前系统已安装的程序列表获得当前系统已安装的程序列表 命令如下： wmic /NAMESPACE:&quot;\\root\CIMV2&quot; PATH Win32_Product  过滤：   wmic /NAMESPACE:&quot;\\root\CIMV2&quot; PATH Win32_Product get name /FORMAT:table  获取进程参数在windows下查看某个运行程序（或进程）的命令行参数">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-08-15T03:11:15.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wmic collections 20180206">
-<meta name="twitter:description" content="获得当前系统已安装的程序列表 获得当前系统已安装的程序列表 命令如下： wmic /NAMESPACE:&quot;\\root\CIMV2&quot; PATH Win32_Product 过滤： wmic /NAMESPACE:&quot;\\root\CIMV2&quot; PATH Win32_Product get name /FORMAT:table  获取进程参数 在windows下查看某个运行程序（或进程）的命令行参数">
+<meta name="twitter:description" content="获得当前系统已安装的程序列表获得当前系统已安装的程序列表 命令如下： wmic /NAMESPACE:&quot;\\root\CIMV2&quot; PATH Win32_Product  过滤：   wmic /NAMESPACE:&quot;\\root\CIMV2&quot; PATH Win32_Product get name /FORMAT:table  获取进程参数在windows下查看某个运行程序（或进程）的命令行参数">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,18 +97,20 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="获得当前系统已安装的程序列表"><a class="markdownIt-Anchor" href="#获得当前系统已安装的程序列表"></a> 获得当前系统已安装的程序列表</h3>
-<p><a href="http://www.4hou.com/technology/10206.html" target="_blank" rel="noopener">获得当前系统已安装的程序列表</a></p>
+		<h3 id="获得当前系统已安装的程序列表"><a href="#获得当前系统已安装的程序列表" class="headerlink" title="获得当前系统已安装的程序列表"></a>获得当前系统已安装的程序列表</h3><p><a href="http://www.4hou.com/technology/10206.html" target="_blank" rel="noopener">获得当前系统已安装的程序列表</a></p>
 <p>命令如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wmic /NAMESPACE:<span class="string">"\\root\CIMV2"</span> PATH Win32_Product</span><br></pre></td></tr></table></figure>
-<p>过滤：</p>
+
+<p>过滤：  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wmic /NAMESPACE:<span class="string">"\\root\CIMV2"</span> PATH Win32_Product get name /FORMAT:table</span><br></pre></td></tr></table></figure>
-<h3 id="获取进程参数"><a class="markdownIt-Anchor" href="#获取进程参数"></a> 获取进程参数</h3>
-<p>在windows下查看某个运行程序（或进程）的命令行参数</p>
+
+<h3 id="获取进程参数"><a href="#获取进程参数" class="headerlink" title="获取进程参数"></a>获取进程参数</h3><p>在windows下查看某个运行程序（或进程）的命令行参数</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wmic process get caption,commandline /value &gt;&gt; tmp.txt</span><br></pre></td></tr></table></figure>
+
 <p>![wmic_temp.PNG])(/sourcepictures/2018/08/15/wmic_temp.PNG)</p>
 <p>如果想查询某一个进程的命令行参数，使用下列方式：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wmic process <span class="built_in">where</span> caption=”svchost.exe” get caption,commandline /value</span><br></pre></td></tr></table></figure>
+
 <p>这样就可以得到进程的可执行文件位置等信息。</p>
   
 	</div>
@@ -172,7 +174,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#获得当前系统已安装的程序列表"><span class="toc-number">1.</span> <span class="toc-text"> 获得当前系统已安装的程序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取进程参数"><span class="toc-number">2.</span> <span class="toc-text"> 获取进程参数</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#获得当前系统已安装的程序列表"><span class="toc-number">1.</span> <span class="toc-text">获得当前系统已安装的程序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取进程参数"><span class="toc-number">2.</span> <span class="toc-text">获取进程参数</span></a></li></ol>
  
   </div>
 
@@ -205,7 +207,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -213,7 +215,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -246,11 +248,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -262,15 +264,11 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -278,7 +276,15 @@
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -286,7 +292,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -298,27 +304,23 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="利用repne scas byte ptr es:[edi]计算字符串长度 edi:存放字符串 al：存放字符x repne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到字符x则停止 汇编中一个很经典的计算字符串长度的方法便是利用了这条指令。 |.  89FA          mov edx,edi   |.  89C7          mov ed">
+    <meta name="description" content="利用repne scas byte ptr es:[edi]计算字符串长度 edi:存放字符串al：存放字符xrepne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到字符x则停止  汇编中一个很经典的计算字符串长度的方法便是利用了这条指令。 |.  89FA          mov edx,edi   |.  89C7          mov edi">
 <meta name="keywords" content="逆向">
 <meta property="og:type" content="article">
 <meta property="og:title" content="逆向收集">
 <meta property="og:url" content="http://flamepeak.com/2019/04/02/reverse-collect-20190402/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="利用repne scas byte ptr es:[edi]计算字符串长度 edi:存放字符串 al：存放字符x repne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到字符x则停止 汇编中一个很经典的计算字符串长度的方法便是利用了这条指令。 |.  89FA          mov edx,edi   |.  89C7          mov ed">
+<meta property="og:description" content="利用repne scas byte ptr es:[edi]计算字符串长度 edi:存放字符串al：存放字符xrepne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到字符x则停止  汇编中一个很经典的计算字符串长度的方法便是利用了这条指令。 |.  89FA          mov edx,edi   |.  89C7          mov edi">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-08-08T06:36:57.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逆向收集">
-<meta name="twitter:description" content="利用repne scas byte ptr es:[edi]计算字符串长度 edi:存放字符串 al：存放字符x repne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到字符x则停止 汇编中一个很经典的计算字符串长度的方法便是利用了这条指令。 |.  89FA          mov edx,edi   |.  89C7          mov ed">
+<meta name="twitter:description" content="利用repne scas byte ptr es:[edi]计算字符串长度 edi:存放字符串al：存放字符xrepne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到字符x则停止  汇编中一个很经典的计算字符串长度的方法便是利用了这条指令。 |.  89FA          mov edx,edi   |.  89C7          mov edi">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -99,19 +99,17 @@
 		
 		<hr>
 <p><a href="https://www.cnblogs.com/Viwilla/p/5033588.html" target="_blank" rel="noopener">利用repne scas byte ptr es:[edi]计算字符串长度</a></p>
-<p>edi:存放字符串<br>
-al：存放字符x<br>
-repne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到字符x则停止</p>
+<p>edi:存放字符串<br>al：存放字符x<br>repne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到字符x则停止 </p>
 <p>汇编中一个很经典的计算字符串长度的方法便是利用了这条指令。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|.  89FA          mov edx,edi   </span><br><span class="line">|.  89C7          mov edi,eax         ;edi里为存放的字符串</span><br><span class="line">|.  B9 FFFFFFFF   mov ecx,-0x1      ;ecx放入-1</span><br><span class="line">|.  30C0          xor al,al                 ;al=0，将遍历所有字符串</span><br><span class="line">|.  F2:AE         repne scas byte ptr es:[edi]    ;以字节为单位遍历字符串，每循环一次cx-1</span><br><span class="line">|.  B8 FEFFFFFF   mov eax,-0x2     </span><br><span class="line">|.  29C8          sub eax,ecx        ;由于cx末尾多减了一次，因此要用-2来减去得到真正的长度</span><br><span class="line">|.  89D7          mov edi,edx</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str[] = <span class="string">"123456789"</span>;</span><br><span class="line">    <span class="keyword">int</span> strCount=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">    _asm</span><br><span class="line">    &#123;</span><br><span class="line">        lea edi,str</span><br><span class="line">        mov ecx,<span class="number">0xFFFFFFFF</span></span><br><span class="line">        xor al,al</span><br><span class="line">        repne scas byte ptr es:[esi]</span><br><span class="line">        mov eax,<span class="number">0xFFFFFFFE</span></span><br><span class="line">        sub eax,ecx</span><br><span class="line">        mov c,ecx</span><br><span class="line"></span><br><span class="line">        mov strCount,eax</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"ecx=%d  count = %d"</span>,c,strCount);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <hr>
 <hr>
 <p><a href="https://blog.csdn.net/runninghui/article/details/9094123" target="_blank" rel="noopener">汇编浮点数运算指令大全</a></p>
 <hr>
-<h3 id="vb"><a class="markdownIt-Anchor" href="#vb"></a> VB</h3>
-<h3 id="常见函数"><a class="markdownIt-Anchor" href="#常见函数"></a> 常见函数</h3>
-<p><a href="https://www.cnblogs.com/bbdxf/p/3780187.html" target="_blank" rel="noopener">VB程序逆向反汇编常见的函数</a></p>
+<h3 id="VB"><a href="#VB" class="headerlink" title="VB"></a>VB</h3><h3 id="常见函数"><a href="#常见函数" class="headerlink" title="常见函数"></a>常见函数</h3><p><a href="https://www.cnblogs.com/bbdxf/p/3780187.html" target="_blank" rel="noopener">VB程序逆向反汇编常见的函数</a></p>
 <p>bp rtcMsgBox  弹出信息框</p>
   
 	</div>
@@ -175,7 +173,7 @@ repne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vb"><span class="toc-number">1.</span> <span class="toc-text"> VB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见函数"><span class="toc-number">2.</span> <span class="toc-text"> 常见函数</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#VB"><span class="toc-number">1.</span> <span class="toc-text">VB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见函数"><span class="toc-number">2.</span> <span class="toc-text">常见函数</span></a></li></ol>
  
   </div>
 
@@ -208,7 +206,7 @@ repne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到�
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -216,7 +214,7 @@ repne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到�
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -249,11 +247,11 @@ repne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到�
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -265,15 +263,11 @@ repne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到�
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -281,7 +275,15 @@ repne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到�
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -289,7 +291,7 @@ repne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到�
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -301,27 +303,23 @@ repne scas byte ptr es:[edi] ：遍历字符串，每循环一次ecx-1，遇到�
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			

@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="JavaScript DOM编程艺术 DOM Scripting ——Web Design with JavaScript and the Document Object Model DOM（文档对象模型） DOM是一套对文档的内容进行抽象和概念化的方法。 DOM是一种API。W3C对DOM的定义是：“一个与系统平台和编程语言无关的接口，程序和脚本可以通过这个接口动态的访问和修改文档的内容、结构和">
+    <meta name="description" content="JavaScript DOM编程艺术DOM Scripting——Web Design with JavaScript and the Document Object Model  DOM（文档对象模型）DOM是一套对文档的内容进行抽象和概念化的方法。DOM是一种API。W3C对DOM的定义是：“一个与系统平台和编程语言无关的接口，程序和脚本可以通过这个接口动态的访问和修改文档的内容、结构和样式。">
 <meta name="keywords" content="JavaScript,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript DOM 编程艺术：JavaScript语法">
 <meta property="og:url" content="http://flamepeak.com/2016/12/20/JavaScript-DOM-learning-part1-20161220/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="JavaScript DOM编程艺术 DOM Scripting ——Web Design with JavaScript and the Document Object Model DOM（文档对象模型） DOM是一套对文档的内容进行抽象和概念化的方法。 DOM是一种API。W3C对DOM的定义是：“一个与系统平台和编程语言无关的接口，程序和脚本可以通过这个接口动态的访问和修改文档的内容、结构和">
+<meta property="og:description" content="JavaScript DOM编程艺术DOM Scripting——Web Design with JavaScript and the Document Object Model  DOM（文档对象模型）DOM是一套对文档的内容进行抽象和概念化的方法。DOM是一种API。W3C对DOM的定义是：“一个与系统平台和编程语言无关的接口，程序和脚本可以通过这个接口动态的访问和修改文档的内容、结构和样式。">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-04-06T06:26:23.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript DOM 编程艺术：JavaScript语法">
-<meta name="twitter:description" content="JavaScript DOM编程艺术 DOM Scripting ——Web Design with JavaScript and the Document Object Model DOM（文档对象模型） DOM是一套对文档的内容进行抽象和概念化的方法。 DOM是一种API。W3C对DOM的定义是：“一个与系统平台和编程语言无关的接口，程序和脚本可以通过这个接口动态的访问和修改文档的内容、结构和">
+<meta name="twitter:description" content="JavaScript DOM编程艺术DOM Scripting——Web Design with JavaScript and the Document Object Model  DOM（文档对象模型）DOM是一套对文档的内容进行抽象和概念化的方法。DOM是一种API。W3C对DOM的定义是：“一个与系统平台和编程语言无关的接口，程序和脚本可以通过这个接口动态的访问和修改文档的内容、结构和样式。">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,114 +97,89 @@
 </header>
 	<div class="article-content">
 		
-		<p>JavaScript DOM编程艺术<br>
-DOM Scripting<br>
-——Web Design with JavaScript and the Document Object Model</p>
-<p>DOM（文档对象模型）<br>
-DOM是一套对文档的内容进行抽象和概念化的方法。<br>
-DOM是一种API。W3C对DOM的定义是：“一个与系统平台和编程语言无关的接口，程序和脚本可以通过这个接口动态的访问和修改文档的内容、结构和样式。”<br>
-今天，几乎所有的浏览器都内置了对DOM的支持。</p>
+		<p>JavaScript DOM编程艺术<br>DOM Scripting<br>——Web Design with JavaScript and the Document Object Model</p>
+<p> DOM（文档对象模型）<br>DOM是一套对文档的内容进行抽象和概念化的方法。<br>DOM是一种API。W3C对DOM的定义是：“一个与系统平台和编程语言无关的接口，程序和脚本可以通过这个接口动态的访问和修改文档的内容、结构和样式。”<br>今天，几乎所有的浏览器都内置了对DOM的支持。</p>
 <hr>
-<h2 id="javascript-语法"><a class="markdownIt-Anchor" href="#javascript-语法"></a> JavaScript 语法</h2>
-<p>JavaScript编写的代码必须通过HTML/XHTML文档才能执行。有两种方式可以做到这点：<br>
-第一种方式是将JavaScript代码放到文档<code>&lt;head&gt;</code>标签中的<code>&lt;script&gt;</code>标签之间；</p>
+<h2 id="JavaScript-语法"><a href="#JavaScript-语法" class="headerlink" title="JavaScript 语法"></a>JavaScript 语法</h2><p>JavaScript编写的代码必须通过HTML/XHTML文档才能执行。有两种方式可以做到这点：<br>第一种方式是将JavaScript代码放到文档<code>&lt;head&gt;</code>标签中的<code>&lt;script&gt;</code>标签之间；</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span> = <span class="string">"utf-8"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    *JavaScript goes here...*</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>一种更好的方式是把JavaScript代码存为一个扩展名为<code>.js</code>的文件。典型的做法是在文档的<code>&lt;head&gt;</code>部分放一个<code>&lt;script&gt;</code>标签，并把它的<code>src</code>属性指向该文件;</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span> = <span class="string">"utf-8"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span> = <span class="string">"file.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>但最好的做法是把<code>&lt;script&gt;</code>标签放到HTML文档的最后，<code>&lt;/body&gt;</code>标签之前，这样才能使浏览器更快的加载页面：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span> = <span class="string">"utf-8"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  *Mark-up goes here...*</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span> = <span class="string">"file.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="语法"><a class="markdownIt-Anchor" href="#语法"></a> 语法</h3>
-<p>JavaScript的语法与Java和C++语言的语法非常类似。</p>
-<h4 id="语句statement"><a class="markdownIt-Anchor" href="#语句statement"></a> 语句statement</h4>
-<p>多条语句放在同一行，就必须用分号分割它们。<br>
-建议在每条语句的末尾都加上一个分号，这个一个良好的编程习惯。</p>
-<h4 id="注释comment"><a class="markdownIt-Anchor" href="#注释comment"></a> 注释comment</h4>
-<p>使用两个斜线<code>//</code>作为一行的开始，会被当作注释。<br>
-注释多行可以使用<code>/*</code>和<code>*/</code>.</p>
-<h4 id="变量variable"><a class="markdownIt-Anchor" href="#变量variable"></a> 变量variable</h4>
-<p>赋值 assignment<br>
-在JavaScript脚本中，如果程序员在对某个变量赋值之前未声明，赋值操作将会自动声明该变量。虽然JavaScript没有强制要求程序员必须提前声明变量，但是提前声明变量是一种良好的编程习惯。</p>
+
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>JavaScript的语法与Java和C++语言的语法非常类似。</p>
+<h4 id="语句statement"><a href="#语句statement" class="headerlink" title="语句statement"></a>语句statement</h4><p>多条语句放在同一行，就必须用分号分割它们。<br>建议在每条语句的末尾都加上一个分号，这个一个良好的编程习惯。</p>
+<h4 id="注释comment"><a href="#注释comment" class="headerlink" title="注释comment"></a>注释comment</h4><p>使用两个斜线<code>//</code>作为一行的开始，会被当作注释。<br>注释多行可以使用<code>/*</code>和<code>*/</code>.</p>
+<h4 id="变量variable"><a href="#变量variable" class="headerlink" title="变量variable"></a>变量variable</h4><p>赋值 assignment<br>在JavaScript脚本中，如果程序员在对某个变量赋值之前未声明，赋值操作将会自动声明该变量。虽然JavaScript没有强制要求程序员必须提前声明变量，但是提前声明变量是一种良好的编程习惯。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mood, age;</span><br><span class="line">mood = <span class="string">"mad"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> age = <span class="number">33</span>;</span><br><span class="line"><span class="keyword">var</span> mood=<span class="string">"mad"</span>, age=<span class="number">34</span>;</span><br></pre></td></tr></table></figure>
-<p>JavaScript变量名允许包含字母、数字、美元符号和下划线（但第一个字符不允许是数字）。为了使较长的变量名更可读，可以在变量名中的适当位置加入下划线，或者使用驼峰格式（camel case），单词后面的每个新单词改用大写字母。<br>
-<code>var myMood = &quot;Happy&quot;;</code><br>
-通常驼峰格式是函数名、方法名和对象属性命名的首选格式。</p>
-<h4 id="数据类型"><a class="markdownIt-Anchor" href="#数据类型"></a> 数据类型</h4>
-<p>必须明确类型声明（typing）的语言称为<strong>强类型</strong>（strongly typed）语言。JavaScript不需要进行类型声明，因此它是一种<strong>弱类型</strong>（weakly typed）语言。这意味着程序员可以在任何阶段改变变量的数据类型。</p>
-<p>JavaScript中最重要的几种数据类型：<br>
-<strong>字符串</strong><br>
-字符串必须包含在引号里，单引号或者双引号都可以。</p>
+
+<p>JavaScript变量名允许包含字母、数字、美元符号和下划线（但第一个字符不允许是数字）。为了使较长的变量名更可读，可以在变量名中的适当位置加入下划线，或者使用驼峰格式（camel case），单词后面的每个新单词改用大写字母。<br><code>var myMood = &quot;Happy&quot;;</code><br>通常驼峰格式是函数名、方法名和对象属性命名的首选格式。</p>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>必须明确类型声明（typing）的语言称为<strong>强类型</strong>（strongly typed）语言。JavaScript不需要进行类型声明，因此它是一种<strong>弱类型</strong>（weakly typed）语言。这意味着程序员可以在任何阶段改变变量的数据类型。</p>
+<p>JavaScript中最重要的几种数据类型：<br><strong>字符串</strong><br>字符串必须包含在引号里，单引号或者双引号都可以。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mood = <span class="string">"happy"</span>;</span><br><span class="line"><span class="keyword">var</span> mood = <span class="string">'happy'</span>;</span><br></pre></td></tr></table></figure>
+
 <p>JavaScript使用反斜线<code>\</code>进行转义：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mood = <span class="string">'don\'t ask'</span>;</span><br><span class="line"><span class="keyword">var</span> height = <span class="string">"about 5'10\" tall"</span>;</span><br></pre></td></tr></table></figure>
-<p><strong>数值</strong><br>
-JavaScript允许使用带小数点的数值，并允许任意位小数，即浮点数（float-point number）.</p>
+
+<p><strong>数值</strong><br>JavaScript允许使用带小数点的数值，并允许任意位小数，即浮点数（float-point number）.</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="number">33.25</span>;</span><br><span class="line"><span class="keyword">var</span> temperature = <span class="number">-20</span>;</span><br></pre></td></tr></table></figure>
-<p><strong>布尔型</strong> boolean<br>
-true  false</p>
-<p><strong>数组</strong><br>
-在JavaScript中，数组可以用关键字Array声明。声明数组的同时还可以指定数组初始元素的个数，也就是这个数组的长度（length）。<br>
-<code>var beatles = Array(4);</code><br>
-在声明时也可以不给出元素个数。<br>
-<code>var beatles = Array();</code><br>
-向数组中添加元素的操作称为填充(populating)。在填充数组时，不仅需要给出新元素的值，还需要给出新元素在数组中的存放位置，这个位置就是元素的下标（index）。数组里一个元素一个下标。下标必须用方括号括起来：<br>
-<code>array[index] = element;</code><br>
-也可以在声明数组的同时进行填充。</p>
+
+<p><strong>布尔型</strong> boolean<br>true  false</p>
+<p><strong>数组</strong><br>在JavaScript中，数组可以用关键字Array声明。声明数组的同时还可以指定数组初始元素的个数，也就是这个数组的长度（length）。<br><code>var beatles = Array(4);</code><br>在声明时也可以不给出元素个数。<br><code>var beatles = Array();</code><br>向数组中添加元素的操作称为填充(populating)。在填充数组时，不仅需要给出新元素的值，还需要给出新元素在数组中的存放位置，这个位置就是元素的下标（index）。数组里一个元素一个下标。下标必须用方括号括起来：<br><code>array[index] = element;</code><br>也可以在声明数组的同时进行填充。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> beatles = <span class="built_in">Array</span>(<span class="string">"John"</span>, <span class="string">"Paul"</span>, <span class="string">"George"</span>, <span class="string">"Ringo"</span>);</span><br><span class="line"><span class="keyword">var</span> years = [<span class="number">1940</span>, <span class="number">1941</span>, <span class="number">1942</span>, <span class="number">1943</span>];</span><br></pre></td></tr></table></figure>
-<p><strong>关联数组</strong><br>
-可以通过在填充数组时为每个新元素明确的给出下标来改变这种默认的行为。在为新元素给出下标时，不必局限于使用整个数字。可以使用字符串。</p>
+
+<p><strong>关联数组</strong><br>可以通过在填充数组时为每个新元素明确的给出下标来改变这种默认的行为。在为新元素给出下标时，不必局限于使用整个数字。可以使用字符串。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> lennon = <span class="built_in">Array</span>();</span><br><span class="line">lennon[<span class="string">"name"</span>] = <span class="string">"John"</span>;</span><br><span class="line">lennon[<span class="string">"year"</span>] = <span class="number">1940</span>;</span><br><span class="line">lennon[<span class="string">"living"</span>] = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+
 <p>这种数字叫做关联数组。这种用法不是一个好习惯，不推荐使用。本质上，在创建关联数组时，你创建的是Array对象的属性。在JavaScript中，所有变量实际上都是某种类型的对象。比如，一个布尔型就是一个Boolean类型的对象，一个数组就是一个Array类型的对象。在上面的例子中，你实际上是给lennon数组添加了name、year和living三个属性。理想情况下，你不应该修改Array对象的属性，而是应该使用通用的对象（Object）。</p>
-<p><strong>对象</strong><br>
-与数组类似，对象也是使用一个名字表示一组值。对象的每个值都是对象的一个属性。例如，上面的lennon数组也可以创建成下面这个对象：</p>
+<p><strong>对象</strong><br>与数组类似，对象也是使用一个名字表示一组值。对象的每个值都是对象的一个属性。例如，上面的lennon数组也可以创建成下面这个对象：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> lennon = <span class="built_in">Object</span>();</span><br><span class="line">lennon.name = <span class="string">"John"</span>;</span><br><span class="line">lennon.year = <span class="number">1940</span>;</span><br><span class="line">lennon.living = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
-<p>创建对象还有一种更简洁的语法，即花括号语法：<br>
-<code>{propertyName:value, propertyName:value}</code><br>
-比如：</p>
+
+<p>创建对象还有一种更简洁的语法，即花括号语法：<br><code>{propertyName:value, propertyName:value}</code><br>比如：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> lennon = &#123;<span class="attr">name</span>:<span class="string">"John"</span>, <span class="attr">year</span>:<span class="number">1940</span>, <span class="attr">living</span>:<span class="literal">false</span>&#125;;</span><br></pre></td></tr></table></figure>
+
 <p>属性名与JavaScript变量的命名规则有相同之处，属性值可以是任何JavaScript值，包括其他对象。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> beatles = &#123;&#125;;</span><br><span class="line">beatles.vocalist = lennon;</span><br></pre></td></tr></table></figure>
+
 <p>那么，beatles.vocalist.name的值是“John”，beatles.vocalist.year的值是1940, beatles.vocalist.living的值是false。</p>
-<h3 id="操作"><a class="markdownIt-Anchor" href="#操作"></a> 操作</h3>
-<h4 id="算术操作arithmetic-operation符"><a class="markdownIt-Anchor" href="#算术操作arithmetic-operation符"></a> 算术操作（arithmetic operation）符</h4>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"I am feeling"</span> + <span class="string">"happy"</span>;</span><br><span class="line"><span class="keyword">var</span> year =<span class="number">2010</span>;</span><br><span class="line"><span class="keyword">var</span> message = <span class="string">"The year is"</span>;</span><br><span class="line">message += year;</span><br></pre></td></tr></table></figure>
-<h3 id="条件语句-conditional-statement"><a class="markdownIt-Anchor" href="#条件语句-conditional-statement"></a> 条件语句 conditional statement</h3>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(condition)&#123;</span><br><span class="line">  statement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="算术操作（arithmetic-operation）符"><a href="#算术操作（arithmetic-operation）符" class="headerlink" title="算术操作（arithmetic operation）符"></a>算术操作（arithmetic operation）符</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"I am feeling"</span> + <span class="string">"happy"</span>;</span><br><span class="line"><span class="keyword">var</span> year =<span class="number">2010</span>;</span><br><span class="line"><span class="keyword">var</span> message = <span class="string">"The year is"</span>;</span><br><span class="line">message += year;</span><br></pre></td></tr></table></figure>
+
+<h3 id="条件语句-conditional-statement"><a href="#条件语句-conditional-statement" class="headerlink" title="条件语句 conditional statement"></a>条件语句 conditional statement</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(condition)&#123;</span><br><span class="line">  statement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>相等操作符<code>==</code>并不表示严格相等，这一点很容易让人犯糊涂。例如，比较false与一个空字符串会得到什么结果？</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">if</span> (a==b)</span><br><span class="line">&#123;alert(<span class="string">"a equals b"</span>);&#125;</span><br></pre></td></tr></table></figure>
-<p>这个条件语句的求值结果是true，为什么？因为相等操作符<mark>认为空字符串与false的含义相同。要进行严格比较，就要使用另一种等号（</mark>=）。这个全等操作符会执行严格的比较，不仅比较值，而且会比较变量的类型：</p>
+
+<p>这个条件语句的求值结果是true，为什么？因为相等操作符==认为空字符串与false的含义相同。要进行严格比较，就要使用另一种等号（===）。这个全等操作符会执行严格的比较，不仅比较值，而且会比较变量的类型：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">if</span> (a === b)</span><br><span class="line">&#123;alert(<span class="string">"a equals b"</span>);&#125;</span><br></pre></td></tr></table></figure>
-<p>这次表达式求值结果就是false了。因为即使可以认为false与空字符串具有相同的含义，但Boolean和String可不是一种类型。<br>
-当然，对于不等操作符<code>!=</code>也是如此。如果想比较严格不相等，就要使用<code>!==</code>。</p>
-<h3 id="循环语句"><a class="markdownIt-Anchor" href="#循环语句"></a> 循环语句</h3>
-<h4 id="while循环"><a class="markdownIt-Anchor" href="#while循环"></a> while循环</h4>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (condition)&#123;</span><br><span class="line">statements;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这次表达式求值结果就是false了。因为即使可以认为false与空字符串具有相同的含义，但Boolean和String可不是一种类型。<br>当然，对于不等操作符<code>!=</code>也是如此。如果想比较严格不相等，就要使用<code>!==</code>。</p>
+<h3 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h3><h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (condition)&#123;</span><br><span class="line">statements;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">statements;</span><br><span class="line">&#125; <span class="keyword">while</span>(condition);</span><br></pre></td></tr></table></figure>
-<h4 id="for循环"><a class="markdownIt-Anchor" href="#for循环"></a> for循环</h4>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (initial_condition; test_condition; alter_condition)&#123;</span><br><span class="line">statements;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (initial_condition; test_condition; alter_condition)&#123;</span><br><span class="line">statements;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>for循环最常见的用途之一是对某个数组里的全体元素进行遍历处理。这往往用到数组的<code>array.length</code>属性。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> beatles = <span class="built_in">Array</span>(<span class="string">"John"</span>, <span class="string">"Paul"</span>, <span class="string">"George"</span>, <span class="string">"Ringo"</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> count=<span class="number">0</span>; count &lt; beatles.length; count++)&#123;</span><br><span class="line">alert(beatles[count]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="函数"><a class="markdownIt-Anchor" href="#函数"></a> 函数</h3>
-<p>作为一个良好的编程习惯，应先对函数做出定义再调用它们。</p>
+
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>作为一个良好的编程习惯，应先对函数做出定义再调用它们。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">name</span>(<span class="params">arguments</span>)</span>&#123;</span><br><span class="line">statements;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="对象object"><a class="markdownIt-Anchor" href="#对象object"></a> 对象object</h3>
-<p>对象是自包含的数据集合，包含在对象里的数据可以通过两种形式访问——属性（property）和方法（method）。</p>
+
+<h3 id="对象object"><a href="#对象object" class="headerlink" title="对象object"></a>对象object</h3><p>对象是自包含的数据集合，包含在对象里的数据可以通过两种形式访问——属性（property）和方法（method）。</p>
 <ul>
 <li>属性是隶属于某个特定对象的变量；</li>
 <li>方法是只有某个特定对象才能调用的函数；</li>
 </ul>
-<p>对象就是由一些属性和方法组合在一起而构成的一个数据实体。<br>
-在JavaScript里，属性和方法都使用“点”语法来访问：<br>
-<code>Object.property</code><br>
-<code>Object.method()</code></p>
+<p>对象就是由一些属性和方法组合在一起而构成的一个数据实体。<br>在JavaScript里，属性和方法都使用“点”语法来访问：<br><code>Object.property</code><br><code>Object.method()</code></p>
 <p>为给定对象创建一个新的实例需要使用<code>new</code>关键字，如下所示：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> jeremy = <span class="keyword">new</span> Person;</span><br></pre></td></tr></table></figure>
-<h4 id="内建对象-native-object"><a class="markdownIt-Anchor" href="#内建对象-native-object"></a> 内建对象 native object</h4>
-<p>Math<br>
-Date</p>
+
+<h4 id="内建对象-native-object"><a href="#内建对象-native-object" class="headerlink" title="内建对象 native object"></a>内建对象 native object</h4><p>Math<br>Date</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> current_date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="keyword">var</span> beatles = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br></pre></td></tr></table></figure>
-<h4 id="宿主对象-host-object"><a class="markdownIt-Anchor" href="#宿主对象-host-object"></a> 宿主对象 host object</h4>
-<p>除了内建对象，还可以在JavaScript脚本里使用一些已经预先定义好的其他对象。这些对象不是由JavaScript语言本身而是由它的运行环境提供的。具体到Web应用，这个环境就是浏览器。由浏览器提供的预定义对象称为宿主对象。<br>
-宿主对象包括Form、Image和Element等。另一种宿主对象也能用来获得网页上的任何一个元素的信息，它就是<code>document</code>对象。</p>
+
+<h4 id="宿主对象-host-object"><a href="#宿主对象-host-object" class="headerlink" title="宿主对象 host object"></a>宿主对象 host object</h4><p>除了内建对象，还可以在JavaScript脚本里使用一些已经预先定义好的其他对象。这些对象不是由JavaScript语言本身而是由它的运行环境提供的。具体到Web应用，这个环境就是浏览器。由浏览器提供的预定义对象称为宿主对象。<br>宿主对象包括Form、Image和Element等。另一种宿主对象也能用来获得网页上的任何一个元素的信息，它就是<code>document</code>对象。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -267,7 +242,7 @@ Date</p>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript-语法"><span class="toc-number">1.</span> <span class="toc-text"> JavaScript 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-number">1.1.</span> <span class="toc-text"> 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#语句statement"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 语句statement</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注释comment"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 注释comment</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量variable"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 变量variable</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据类型"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 数据类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作"><span class="toc-number">1.2.</span> <span class="toc-text"> 操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#算术操作arithmetic-operation符"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 算术操作（arithmetic operation）符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件语句-conditional-statement"><span class="toc-number">1.3.</span> <span class="toc-text"> 条件语句 conditional statement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#循环语句"><span class="toc-number">1.4.</span> <span class="toc-text"> 循环语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#while循环"><span class="toc-number">1.4.1.</span> <span class="toc-text"> while循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for循环"><span class="toc-number">1.4.2.</span> <span class="toc-text"> for循环</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-number">1.5.</span> <span class="toc-text"> 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象object"><span class="toc-number">1.6.</span> <span class="toc-text"> 对象object</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#内建对象-native-object"><span class="toc-number">1.6.1.</span> <span class="toc-text"> 内建对象 native object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#宿主对象-host-object"><span class="toc-number">1.6.2.</span> <span class="toc-text"> 宿主对象 host object</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript-语法"><span class="toc-number">1.</span> <span class="toc-text">JavaScript 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-number">1.1.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#语句statement"><span class="toc-number">1.1.1.</span> <span class="toc-text">语句statement</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注释comment"><span class="toc-number">1.1.2.</span> <span class="toc-text">注释comment</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量variable"><span class="toc-number">1.1.3.</span> <span class="toc-text">变量variable</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据类型"><span class="toc-number">1.1.4.</span> <span class="toc-text">数据类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作"><span class="toc-number">1.2.</span> <span class="toc-text">操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#算术操作（arithmetic-operation）符"><span class="toc-number">1.2.1.</span> <span class="toc-text">算术操作（arithmetic operation）符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件语句-conditional-statement"><span class="toc-number">1.3.</span> <span class="toc-text">条件语句 conditional statement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#循环语句"><span class="toc-number">1.4.</span> <span class="toc-text">循环语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#while循环"><span class="toc-number">1.4.1.</span> <span class="toc-text">while循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for循环"><span class="toc-number">1.4.2.</span> <span class="toc-text">for循环</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-number">1.5.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象object"><span class="toc-number">1.6.</span> <span class="toc-text">对象object</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#内建对象-native-object"><span class="toc-number">1.6.1.</span> <span class="toc-text">内建对象 native object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#宿主对象-host-object"><span class="toc-number">1.6.2.</span> <span class="toc-text">宿主对象 host object</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -300,7 +275,7 @@ Date</p>
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>40</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
 		  
 		
 		  
@@ -308,7 +283,7 @@ Date</p>
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>35</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
 		  
 		
 		  
@@ -341,11 +316,11 @@ Date</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>38</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 			
 		
 			
@@ -357,15 +332,11 @@ Date</p>
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
@@ -373,7 +344,15 @@ Date</p>
 			
 		
 			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -381,7 +360,7 @@ Date</p>
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -393,27 +372,23 @@ Date</p>
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>3</sup></a></li>
+				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
