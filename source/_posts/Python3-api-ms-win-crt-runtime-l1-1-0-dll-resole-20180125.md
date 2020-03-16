@@ -28,6 +28,37 @@ python -V  #查看这个环境的版本
 ```
 这样即可启动这个虚拟环境
 
+但是python3中的venv不是完全版的virtualenv有很多功能没有继承，例如`--relocatable`构建可移植的环境,例如在离线环境中使用python
+
+可以尝试如下方法
+```
+#online
+pip download virtualenv
+
+#online env1
+python -m virtualenv myenv
+cd myenv
+source bin/activate
+pip install Flask
+pip freeze > requirements.txt
+
+#online env2 
+pip download -r requirements.txt
+
+
+#copy to offline
+
+#offline
+python -m virtualenv myenv2
+cd myenv2
+source bin/activate
+cd -
+cd offline
+pip install --no-index --find-links="/path/to/download/dir/" -r requirements.txt
+pip list
+
+```
+
 
 ### Pip的使用
 

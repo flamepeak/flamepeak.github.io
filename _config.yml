@@ -88,14 +88,15 @@ deploy:
   repository: 
     github: git@github.com:flamepeak/flamepeak.github.io.git
     bitbucket: git@bitbucket.org:flamepeak/flamepeak.bitbucket.io.git
-    coding: git@git.coding.net:flamepeak/flamepeak.git
+#    coding: git@git.coding.net:flamepeak/flamepeak.git
+#    coding: git@e.coding.net:flamepeak/flamepeak.git
   branch: master
 
 plugins: hexo-generator-feed
 mathjax: true
 
 #pandoc
-pandoc:
-  filters:
-  extra:
-  meta:
+#pandoc:
+#  filters:
+#  extra:
+#  meta:

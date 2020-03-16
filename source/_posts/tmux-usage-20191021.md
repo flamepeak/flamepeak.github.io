@@ -111,7 +111,7 @@ prefix z　　放大当前窗格(再次按下将还原)
 
 prefix i　　显示当前窗格信息
 ```
- 
+
 
 　　
 #### 其他命令
@@ -128,4 +128,31 @@ tmux中多窗口表示时，没有滚动条，可以使用下面的方法翻页�
 使用 PgUp PgDn 实现上下翻页
 键 q 退出
 ```
+
+使用鼠标翻页：
+
+```
+使用命令：prefix  b:
+输入：set -g mouse on  #在2.1版本只需这个命令
+```
+
+Note: In tmux < 2.1, the option was named `mode-mouse`, and not `mouse`
+
+当然，可以将这个命令写入` ~/.tmux.conf`文件，这样每次启动都可以使用鼠标翻页操作。
+
+https://superuser.com/questions/210125/scroll-shell-output-with-mouse-in-tmux
+
+复制和粘贴：
+
+在鼠标操作模式下，必须先按住shift，然后选中需要复制的内容，此时选中内容为白底，右键可以复制，粘贴
+
+注意：如果为黄底内容，那就复制不了
+
+但是，在多个垂直pane存在的时候，直接复制的话，会把所有的pane内容都复制下来。很显然，这不是我们希望的结果，一种临时的解决办法是：prefix+Z，将要复制的pane放大至最大，然后复制。复制完后，再次：prefix+Z恢复pane。
+
+
+
+
+
+
 
