@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://flamepeak.com/"/>
-  <updated>2020-03-16T00:52:40.269Z</updated>
+  <updated>2020-06-19T07:56:55.060Z</updated>
   <id>http://flamepeak.com/</id>
   
   <author>
@@ -14,6 +14,138 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>blob视频网址分析</title>
+    <link href="http://flamepeak.com/2020/06/16/Blob-video-get-url-20200619/"/>
+    <id>http://flamepeak.com/2020/06/16/Blob-video-get-url-20200619/</id>
+    <published>2020-06-16T01:35:12.000Z</published>
+    <updated>2020-06-19T07:56:55.060Z</updated>
+    
+    <content type="html"><![CDATA[<p>Blob格式视频下载一直比较困难，在此记录一些思路：</p>
+<ol>
+<li><p>首先找到blob网址，如下：<code>blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978</code></p>
+</li>
+<li><p>在Chrome浏览器中，F12打开开发者工具</p>
+</li>
+<li><p>刷新含有视频的目标网页，然后在Network选项卡中查看请求列表</p>
+</li>
+<li><p>寻找m3u8扩展名，然后打开指定链接：如<code>https://1252524126.vod2.xxxx.com/522ff1e0vodcq1252524126/867b83575285890790665095068/playlist.f3.m3u8?time=1592553016262</code></p>
+</li>
+<li><p>事实上，m3u8是一个文本文件，使用记事本之类工具打开，可以看到如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-TARGETDURATION:18</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXTINF:16.666667,</span><br><span class="line">playlist.f3.ts?start=0&amp;end=5506707&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=5506708&amp;end=8260155&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=8260156&amp;end=11013603&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=11013604&amp;end=13767427&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=13767428&amp;end=16520875&amp;type=mpegts</span><br><span class="line">#EXTINF:16.666667,</span><br><span class="line">playlist.f3.ts?start=16520876&amp;end=22027771&amp;type=mpegts</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以分析出视频地址了，就是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">`https://1252524126.vod2.xxxx.com/522ff1e0vodcq1252524126/867b83575285890790665095068/playlist.f3.ts</span><br></pre></td></tr></table></figure>
+
+<p>直接下载视频即可</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Blob格式视频下载一直比较困难，在此记录一些思路：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;首先找到blob网址，如下：&lt;code&gt;blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978&lt;/code
+    
+    </summary>
+    
+      <category term="Tools" scheme="http://flamepeak.com/categories/Tools/"/>
+    
+    
+      <category term="Tools" scheme="http://flamepeak.com/tags/Tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7 最小化安装遇到的问题</title>
+    <link href="http://flamepeak.com/2020/06/16/Linux-CentOS-minimal-install-20200616/"/>
+    <id>http://flamepeak.com/2020/06/16/Linux-CentOS-minimal-install-20200616/</id>
+    <published>2020-06-16T01:35:12.000Z</published>
+    <updated>2020-06-16T00:09:38.480Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="ifconfig-not-found"><a href="#ifconfig-not-found" class="headerlink" title="ifconfig not  found"></a>ifconfig not  found</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ifconfig 在centos 最小化安装时，是不自带的</span><br><span class="line">可以使用ip addr 查看ip</span><br></pre></td></tr></table></figure>
+
+<h3 id="没有ip地址"><a href="#没有ip地址" class="headerlink" title="没有ip地址"></a>没有ip地址</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ip addr发现ens33 没有inet 这个属性，那么就没法通过IP地址连接虚拟机。</span><br><span class="line">查看ens33网卡的配置：vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line">从配置清单中可以发现 CentOS 7 默认是不启动网卡的（ONBOOT=no）。</span><br><span class="line">把这一项改为YES（ONBOOT=yes）</span><br><span class="line">重启网络服务： sudo service network restart</span><br></pre></td></tr></table></figure>
+
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;ifconfig-not-found&quot;&gt;&lt;a href=&quot;#ifconfig-not-found&quot; class=&quot;headerlink&quot; title=&quot;ifconfig not  found&quot;&gt;&lt;/a&gt;ifconfig not  found&lt;/h3&gt;&lt;figure
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="CentOS" scheme="http://flamepeak.com/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vim 使用汇总</title>
+    <link href="http://flamepeak.com/2020/03/28/vim-usage-20200328/"/>
+    <id>http://flamepeak.com/2020/03/28/vim-usage-20200328/</id>
+    <published>2020-03-28T01:18:00.000Z</published>
+    <updated>2020-03-28T01:20:07.510Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="搜索高亮"><a href="#搜索高亮" class="headerlink" title="搜索高亮"></a>搜索高亮</h3><p>vim搜索设置高亮</p>
+<p>linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显示。有两种方法：  </p>
+<p>1、临时设置：vim打开文档<br>命令行形式输入：<code>set hlsearch</code>。<br>缺点：关闭文档后，下次打开，又需要重新设置一遍。  </p>
+<p>2、永久设置（推荐）：在<code>~/.vimrc</code>中设置<br>在文件中加上<code>set hlsearch</code><br>然后保存退出便可。<br>优点：一次设置，永久生效。  </p>
+<p>取消方法：<br><code>:noh</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;搜索高亮&quot;&gt;&lt;a href=&quot;#搜索高亮&quot; class=&quot;headerlink&quot; title=&quot;搜索高亮&quot;&gt;&lt;/a&gt;搜索高亮&lt;/h3&gt;&lt;p&gt;vim搜索设置高亮&lt;/p&gt;
+&lt;p&gt;linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显示。有两种方法：  &lt;/p
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://flamepeak.com/tags/Linux/"/>
+    
+      <category term="tmux" scheme="http://flamepeak.com/tags/tmux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7 禁用自动更新</title>
+    <link href="http://flamepeak.com/2020/03/17/Linux-CentOS-disable-autoupdate-20200317/"/>
+    <id>http://flamepeak.com/2020/03/17/Linux-CentOS-disable-autoupdate-20200317/</id>
+    <published>2020-03-17T01:35:12.000Z</published>
+    <updated>2020-03-17T01:49:19.035Z</updated>
+    
+    <content type="html"><![CDATA[<p>PackageKit是基于RedHat的linux中的图形化软件升级工具，下面描述一下如何禁止和启用自动升级。</p>
+<p>默认状态下是开启的。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">systemctl status packagekit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停用</span></span><br><span class="line">systemctl stop packagekit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止自启动</span></span><br><span class="line">systemctl mask packagekit</span><br><span class="line">  Created symlink from /etc/systemd/system/packagekit.service to /dev/null.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载PackageKit</span></span><br><span class="line">yum remove PackageKit*</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装PackageKit</span></span><br><span class="line">yum install gnome-packagekit PackageKit-yum</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自启动</span></span><br><span class="line">systemctl unmask packagekit</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看状态</span></span><br><span class="line">systemctl status packagekit</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动</span></span><br><span class="line">systemctl start packagekit</span><br></pre></td></tr></table></figure>
+
+<p>systemctl的常见用法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl 提供了一组子命令来管理单个的 unit，其命令格式为：</span><br><span class="line">systemctl [command] [unit]</span><br><span class="line">command 主要有：</span><br><span class="line">start：立刻启动后面接的 unit。</span><br><span class="line">stop：立刻关闭后面接的 unit。</span><br><span class="line">restart：立刻关闭后启动后面接的 unit，亦即执行 stop 再 start 的意思。</span><br><span class="line">reload：不关闭 unit 的情况下，重新载入配置文件，让设置生效。</span><br><span class="line">enable：设置下次开机时，后面接的 unit 会被启动。</span><br><span class="line">disable：设置下次开机时，后面接的 unit 不会被启动。</span><br><span class="line">status：目前后面接的这个 unit 的状态，会列出有没有正在执行、开机时是否启动等信息。</span><br><span class="line">is-active：目前有没有正在运行中。</span><br><span class="line">is-enable：开机时有没有默认要启用这个 unit。</span><br><span class="line">kill ：不要被 kill 这个名字吓着了，它其实是向运行 unit 的进程发送信号。</span><br><span class="line">show：列出 unit 的配置。</span><br><span class="line">mask：注销 unit，注销后你就无法启动这个 unit 了。</span><br><span class="line">unmask：取消对 unit 的注销。</span><br></pre></td></tr></table></figure>
+
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PackageKit是基于RedHat的linux中的图形化软件升级工具，下面描述一下如何禁止和启用自动升级。&lt;/p&gt;
+&lt;p&gt;默认状态下是开启的。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://flamepeak.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://flamepeak.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Python 在virtualenv中使用Idle</title>
@@ -565,7 +697,7 @@
     <link href="http://flamepeak.com/2019/12/03/kali-replace-burpsuite-pro-20191203/"/>
     <id>http://flamepeak.com/2019/12/03/kali-replace-burpsuite-pro-20191203/</id>
     <published>2019-12-03T04:06:51.000Z</published>
-    <updated>2020-01-16T08:15:43.042Z</updated>
+    <updated>2020-07-24T06:56:20.816Z</updated>
     
     <content type="html"><![CDATA[<p>参考：<a href="https://www.cnblogs.com/dbxiaobai/p/10646298.html" target="_blank" rel="noopener">kali linux 2019.1 替换burpsuite pro 1.7.37</a></p>
 <p>文章中的办法总体可行，但是，具体实现有问题</p>
@@ -588,8 +720,8 @@
 <p>内容为</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment">#java -jar burp-loader-keygen-2_1_07.jar</span></span><br><span class="line">java -noverify -Xbootclasspath/p:/usr/bin/burp-loader-keygen-2_1_07.jar -jar /usr/bin/burpsuite_pro_v2.1.07.jar</span><br></pre></td></tr></table></figure>
 
-<p>此处，调试很长时间都不行，个人认为和burp的破解版本有关系，也就是<code>burp_loader.jar</code>或者<code>burp_helper.jar</code>，在一些版本中上面方法可行，但是有些版本又不行。  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">java -jar /usr/bin/burp-loader-keygen-2_1_05.jar</span><br></pre></td></tr></table></figure>
+<p>此处，调试很长时间都不行，个人认为和burp的破解版本有关系，也就是<code>burp_loader.jar</code>或者<code>burp_helper.jar</code>，在一些版本中上面方法可行，但是有些版本又不行。  多尝试几个版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 将burp-loader-keygen-2_1_07.jar和burpsuite_pro_v2.1.07.jar放入/usr/bin目录</span><br><span class="line">2. bash界面，进入/usr/bin目录<span class="built_in">cd</span> /usr/bin；运行：java -jar /usr/bin/burp-loader-keygen-2_1_05.jar</span><br><span class="line">3. 正常情况下会进入破解的流程，如果无法启动主程序，那么需要更换其它help.jar 和loader.jar尝试；</span><br><span class="line">4. 破解成功之后，如果需要运行burp,直接在bash中输入burpsuite即可</span><br></pre></td></tr></table></figure>
 
 
 
@@ -669,329 +801,6 @@
     <summary type="html">
     
       &lt;p&gt;本文参考了&lt;a href=&quot;https://blog.csdn.net/nzjdsds/article/details/82811791&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/nzjdsds/articl
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://flamepeak.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kali 启用自动登录</title>
-    <link href="http://flamepeak.com/2019/11/22/Kali-enable-autologin-20191122/"/>
-    <id>http://flamepeak.com/2019/11/22/Kali-enable-autologin-20191122/</id>
-    <published>2019-11-22T01:37:24.000Z</published>
-    <updated>2019-12-02T03:40:44.416Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="kali2019-3"><a href="#kali2019-3" class="headerlink" title="kali2019.3"></a>kali2019.3</h3><p>Kali Linux use <code>GDM3</code> as a default Display Manager. First confirm that your Kali Linux is set to use <code>GDM3</code> as a default display manager: </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># cat /etc/X11/default-display-manager</span><br><span class="line">/usr/sbin/gdm3</span><br></pre></td></tr></table></figure>
-
-<p>Next, edit <code>/etc/gdm3/daemon.conf</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">AutomaticLoginEnable = true</span><br><span class="line">AutomaticLogin = root</span><br></pre></td></tr></table></figure>
-
-<h3 id="kali2019-4"><a href="#kali2019-4" class="headerlink" title="kali2019.4"></a>kali2019.4</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">cat /etc/X11/default-display-manager</span><br><span class="line">/usr/sbin/lightdm</span><br><span class="line"></span><br><span class="line">vim /etc/lightdm/lightdm.conf </span><br><span class="line"></span><br><span class="line">autologin-guest=True</span><br><span class="line">autologin-user=root</span><br><span class="line">autologin-user-timeout=0</span><br></pre></td></tr></table></figure>
-
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;kali2019-3&quot;&gt;&lt;a href=&quot;#kali2019-3&quot; class=&quot;headerlink&quot; title=&quot;kali2019.3&quot;&gt;&lt;/a&gt;kali2019.3&lt;/h3&gt;&lt;p&gt;Kali Linux use &lt;code&gt;GDM3&lt;/code&gt; as a 
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
-    
-    
-      <category term="Kali" scheme="http://flamepeak.com/tags/Kali/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kali Win 安装Docker和Docker-Compose</title>
-    <link href="http://flamepeak.com/2019/11/22/Docker-install-on-kali-and-win-20191122/"/>
-    <id>http://flamepeak.com/2019/11/22/Docker-install-on-kali-and-win-20191122/</id>
-    <published>2019-11-22T01:16:49.000Z</published>
-    <updated>2019-12-09T09:32:10.320Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="On-Kali"><a href="#On-Kali" class="headerlink" title="On Kali"></a>On Kali</h2><h3 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h3><p>Add Docker PGP key:  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -</span><br></pre></td></tr></table></figure>
-
-<p>Configure Docker APT repository (Kali is based on Debian testing, which will be called buster upon release, and Docker now has support for it):</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'deb [arch=amd64] https://download.docker.com/linux/debian buster stable'</span> &gt; /etc/apt/sources.list.d/docker.list</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
-
-<h3 id="Install-Docker"><a href="#Install-Docker" class="headerlink" title="Install Docker"></a>Install Docker</h3><p>If you had older versions of Docker installed, uninstall them:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get remove docker docker-engine docker.io</span><br></pre></td></tr></table></figure>
-
-<p>Install Docker:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install docker-ce</span><br></pre></td></tr></table></figure>
-
-<h4 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
-
-<p>After installation, Docker service will be started, but not enabled (i.e. it will not be started automatically after reboot). To start it:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
-
-<p>To start Docker automatically upon reboot (do it on your own risk!):</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="Install-Docker-Compose"><a href="#Install-Docker-Compose" class="headerlink" title="Install Docker-Compose"></a>Install Docker-Compose</h3><h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><ol>
-<li>Run this command to download the current stable release of Docker Compose: </li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.24.1/docker-compose-<span class="variable">$(uname -s)</span>-<span class="variable">$(uname -m)</span>"</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>Apply executable permissions to the binary:</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
-
-<p> <strong>Note</strong>: If the command <code>docker-compose</code> fails after installation, check your path. You can also create a symbolic link to <code>/usr/bin</code>or any other directory in your path. </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ln -s /usr/<span class="built_in">local</span>/bin/docker-compose /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
-
-<h4 id="Test-1"><a href="#Test-1" class="headerlink" title="Test"></a>Test</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker-compose --version</span><br><span class="line">docker-compose version 1.24.1, build 1110ad01</span><br></pre></td></tr></table></figure>
-
-<h2 id="On-Win"><a href="#On-Win" class="headerlink" title="On Win"></a>On Win</h2><p>win7、win8 等需要利用 docker toolbox 来安装，国内可以使用阿里云的镜像来下载，下载地址：<a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/</a></p>
-<p>官网下载的desktop安装包，无法直接在win7运行，可以在win10运行</p>
-<p>docker toolbox 是一个工具集，它主要包含以下一些内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Docker CLI 客户端，用来运行docker引擎创建镜像和容器</span><br><span class="line">Docker Machine. 可以让你在windows的命令行中运行docker引擎命令</span><br><span class="line">Docker Compose. 用来运行docker-compose命令</span><br><span class="line">Kitematic. 这是Docker的GUI版本</span><br><span class="line">Docker QuickStart shell. 这是一个已经配置好Docker的命令行环境</span><br><span class="line">Oracle VM Virtualbox. 虚拟机</span><br></pre></td></tr></table></figure>
-
-<p> 注意：安装路径千万不要有中文！！！！ </p>
-<p>可以参考：<a href="[https://blog.chemcyber.com/2017/05/18/windows7%E4%B8%8B%E5%AE%89%E8%A3%85docker%E3%80%81%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F%E5%92%8C%E8%BF%90%E8%A1%8Copentsdb%E5%AE%B9%E5%99%A8/](https://blog.chemcyber.com/2017/05/18/windows7下安装docker、下载镜像和运行opentsdb容器/)">Windows7下安装Docker、下载镜像和运行OpenTsdb容器</a></p>
-<p> 通过Git Bash(CMD)查看docker是否安装成功，输入<code>docker-machine</code>，出现版本等信息，安装能够运行，还会给出一些选项，包括machine安装路劲等 </p>
-<p>查看一些配置：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-machine config</span><br></pre></td></tr></table></figure>
-
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;On-Kali&quot;&gt;&lt;a href=&quot;#On-Kali&quot; class=&quot;headerlink&quot; title=&quot;On Kali&quot;&gt;&lt;/a&gt;On Kali&lt;/h2&gt;&lt;h3 id=&quot;Preparation&quot;&gt;&lt;a href=&quot;#Preparation&quot; class=&quot;he
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
-    
-    
-      <category term="Docker" scheme="http://flamepeak.com/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gdb和gdb-peda安装、使用与调试</title>
-    <link href="http://flamepeak.com/2019/10/30/gdb-and-gdb-peda-usage-and-debug/"/>
-    <id>http://flamepeak.com/2019/10/30/gdb-and-gdb-peda-usage-and-debug/</id>
-    <published>2019-10-30T11:42:11.000Z</published>
-    <updated>2019-12-02T06:44:35.855Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>gdb-peda安装</strong></p>
-<p>gdb安装</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install gdb</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/longld/peda.git ~/peda</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"source ~/peda/peda.py"</span> &gt;&gt; ~/.gdbinit</span><br></pre></td></tr></table></figure>
-
-<p><strong>gdb-peda测试</strong>  </p>
-<p>运行gdb，查看是否出错，是否显示<code>gdb-peda$</code></p>
-<p>参考<a href="https://introspelliam.github.io/2017/08/03/gdb%E7%9A%84%E8%B0%83%E8%AF%95%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">上善若水</a></p>
-<h3 id="1-调试的快捷键"><a href="#1-调试的快捷键" class="headerlink" title="1. 调试的快捷键"></a>1. 调试的快捷键</h3><p><font color="#f00">peda带有的功能，直接输入命令，其就会给予提示（如果不是这样，基本上也是该命令就可以不带参数）。这儿就不多做介绍</font></p>
-<h4 id="1-1-基础的调试快捷键"><a href="#1-1-基础的调试快捷键" class="headerlink" title="1.1 基础的调试快捷键"></a>1.1 基础的调试快捷键</h4><ul>
-<li>s step，si步入</li>
-<li>n 执行下一条指令  ni步入</li>
-<li>b 在某处下断点，可以用 <ul>
-<li>b * adrress</li>
-<li>b function_name</li>
-<li>info b  查看断点信息</li>
-<li>delete 1删除第一个断点</li>
-</ul>
-</li>
-<li>c 继续</li>
-<li>r 执行</li>
-<li>disas addr 查看addr处前后的反汇编代码</li>
-</ul>
-<h4 id="1-2-显示数据"><a href="#1-2-显示数据" class="headerlink" title="1.2 显示数据"></a>1.2 显示数据</h4><ul>
-<li>p 系列<ul>
-<li>p system/main  显示某个函数地址<ul>
-<li>p $esp    显示寄存器</li>
-</ul>
-</li>
-<li>p/x  p/a p/b p/s。。。</li>
-<li>p 0xff - 0xea   <font color="#f00">计算器</font></li>
-<li>print &amp;VarName 查看变量地址</li>
-<li>p * 0xffffebac   查看某个地址处的值</li>
-</ul>
-</li>
-<li>x系列<ul>
-<li>x/xw addr 显示某个地址处开始的16进制内容，如果有符号表会加载符号表</li>
-<li>x/x $esp 查看esp寄存器中的值</li>
-<li>x/s addr 查看addr处的字符串</li>
-<li>x/b addr 查看addr处的字符</li>
-<li>x/i  addr 查看addr处的反汇编结果</li>
-</ul>
-</li>
-<li>info系列<ul>
-<li>info register $ebp  查看寄存器ebp中的内容 (简写为 i r ebp)</li>
-<li>i r eflags 查看状态寄存器</li>
-<li>i r ss        查看段寄存器</li>
-<li>i b            查看断点信息</li>
-<li>i functions  查看所有的函数</li>
-</ul>
-</li>
-<li>disas addr 查看addr处前后的反汇编代码</li>
-<li>stack 20   查看栈内20个值</li>
-<li>show args  查看参数</li>
-<li>vmmap 查看映射状况 <font color="#f00">peda带有</font></li>
-<li>readelf 查看elf文件中各个段的起始地址  <font color="#f00">peda带有</font></li>
-<li>parseheap 显示堆状况  <font color="#f00">peda带有</font></li>
-</ul>
-<h4 id="1-3-查找数据"><a href="#1-3-查找数据" class="headerlink" title="1.3 查找数据"></a>1.3 查找数据</h4><ul>
-<li>find 查找字符串    <font color="#f00">peda带有</font></li>
-<li>searchmem 查找字符串  <font color="#f00">peda带有</font></li>
-<li>ropsearch “xor eax,eax;ret”  0x08048080 0x08050000   查找某段的rop  <font color="#f00">peda带有</font></li>
-<li>ropgadget  提供多个pop|ret可行结果  <font color="#f00">peda带有</font></li>
-</ul>
-<h4 id="1-4-修改数据"><a href="#1-4-修改数据" class="headerlink" title="1.4 修改数据"></a>1.4 修改数据</h4><ul>
-<li>set $esp=0x110  修改寄存器的值</li>
-<li>set *0xf7ff3234=0x08042334 修改内存的值</li>
-<li>set args “asdasg” “afdasgasg” “agasdsa”  分别给参数1,2,3赋值</li>
-<li>set args “`python -c ‘print “1234\x7f\xde”‘`“    这个参数中用python脚本重写了一下，避免有些字符无法正确设置</li>
-<li>r “arg1” “arg2” “arg3”   设置参数</li>
-<li>run `$(perl -e ‘print “A”x20’)`</li>
-</ul>
-<h4 id="1-1-peda插件"><a href="#1-1-peda插件" class="headerlink" title="1.1 peda插件"></a>1.1 peda插件</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Enhance the display of gdb: colorize and display disassembly codes, registers, memory information during debugging.</span><br><span class="line">Add commands to support debugging and exploit development (for a full list of commands use peda help):</span><br><span class="line">aslr -- Show/set ASLR setting of GDB</span><br><span class="line">checksec -- Check for various security options of binary</span><br><span class="line">dumpargs -- Display arguments passed to a function when stopped at a call instruction</span><br><span class="line">dumprop -- Dump all ROP gadgets in specific memory range</span><br><span class="line">elfheader -- Get headers information from debugged ELF file</span><br><span class="line">elfsymbol -- Get non-debugging symbol information from an ELF file</span><br><span class="line">lookup -- Search for all addresses/references to addresses which belong to a memory range</span><br><span class="line">patch -- Patch memory start at an address with string/hexstring/int</span><br><span class="line">pattern -- Generate, search, or write a cyclic pattern to memory</span><br><span class="line">procinfo -- Display various info from /proc/pid/</span><br><span class="line">pshow -- Show various PEDA options and other settings</span><br><span class="line">pset -- Set various PEDA options and other settings</span><br><span class="line">readelf -- Get headers information from an ELF file</span><br><span class="line">ropgadget -- Get common ROP gadgets of binary or library</span><br><span class="line">ropsearch -- Search for ROP gadgets in memory</span><br><span class="line">searchmem|find -- Search for a pattern in memory; support regex search</span><br><span class="line">shellcode -- Generate or download common shellcodes.</span><br><span class="line">skeleton -- Generate python exploit code template</span><br><span class="line">vmmap -- Get virtual mapping address ranges of section(s) in debugged process</span><br><span class="line">xormem -- XOR a memory region with a key</span><br></pre></td></tr></table></figure>
-
-<p><strong>vmmap：查看当前程序映射的内存块</strong><br><strong>dumprop：</strong></p>
-<h3 id="2-查找某个plt、got、plt-2"><a href="#2-查找某个plt、got、plt-2" class="headerlink" title="2. 查找某个plt、got、plt_2"></a>2. 查找某个plt、got、plt_2</h3><ul>
-<li>plt 可以直接使用pwntools中的ELF(elf).symbols(function_name)</li>
-<li>got 可以直接使用pwntools中的ELF(elf).got(function_name)</li>
-<li>plt_2 可以直接使用pwntools中的ELF(lib).symbols(function_name)</li>
-</ul>
-<h3 id="3-查找程序所动态链接的库"><a href="#3-查找程序所动态链接的库" class="headerlink" title="3. 查找程序所动态链接的库"></a>3. 查找程序所动态链接的库</h3><ul>
-<li><p>file pwn3</p>
-<ul>
-<li>pwn3: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.24, BuildID[sha1]=916959406d0c545f6971223c8e06bff1ed9ae74d, not stripped</li>
-</ul>
-</li>
-<li><p>checksec pwn3</p>
-<ul>
-<li>[*] ‘/root/Desktop/Pwnable/fmt/normal/fmt_string_write_got/pwn3’<br>Arch:     i386-32-little<br>RELRO:    Partial RELRO<br>Stack:    No canary found<br>NX:       NX enabled<br>PIE:      No PIE (0x8048000)</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>ldd pwn3<ul>
-<li>linux-gate.so.1 (0xf77ad000)<br>libc.so.6 =&gt; /lib32/libc.so.6 (0xf75d2000)<br>/lib/ld-linux.so.2 (0x56601000)</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-编译32位可执行文件"><a href="#4-编译32位可执行文件" class="headerlink" title="4. 编译32位可执行文件"></a>4. 编译32位可执行文件</h3><ul>
-<li><p>gcc -m32 test.c -o test</p>
-<ul>
-<li>一般而言此时的目标文件为32位，且不能生成调试信息</li>
-</ul>
-</li>
-<li><p>gcc -m32 -g test.c -o test</p>
-<ul>
-<li><p>生成的目标文件是32位，且可以利用操作系统的“原生格式（native format）”生成调试</p>
-<p>信息。GDB 可以直接利用这个信息，其它调试器也可以使用这个调试信息</p>
-</li>
-</ul>
-</li>
-<li><p>其它保护状态的开启，请参考<a href="/2017/09/30/linux程序的常用保护机制/"><em>linux程序的常用保护机制</em></a></p>
-</li>
-</ul>
-<h3 id="5-开启PIE之后的调试"><a href="#5-开启PIE之后的调试" class="headerlink" title="5. 开启PIE之后的调试"></a>5. 开启PIE之后的调试</h3><p>开启PIE之后，地址会一直在变，这十分不利于gdb的调试，所以这时候应该在本地关闭ASLR</p>
-<p>常用的方法是：echo 0 &gt; /proc/sys/kernel/randomize_va_space</p>
-<p>开启的方式是：echo 2 &gt; /proc/sys/kernel/randomize_va_space</p>
-<h3 id="6-运行时查看文件执行"><a href="#6-运行时查看文件执行" class="headerlink" title="6. 运行时查看文件执行"></a>6. 运行时查看文件执行</h3><p>做了一道题，在你不执行的时候，只能找到相对地址，但是下断点需要实际的执行地址。若关闭PIE，那么每次的执行地址将会一致，这个时候就需要找到执行的开始地址。peda的常用指令中有vmmap，可以找到实际地址。</p>
-<p>这道题很让人苦恼的是，如果gdb中执行run，那么将陷入循环而不能使用vmmap，若强制结束，最后vmmap会报错。这个时候，就有另外的一些办法：</p>
-<ul>
-<li>执行./pwn &amp;，这个时候会将pwn程序放入后台，而且你能快速知道这个程序的PID，这个时候cat /proc/pwn的PID/maps，就能找到对应的执行时地址。之后kill -9 pwn的PID</li>
-<li>编写一个小脚本，任意放置一个断点，并开启gdb调试，这个时候断点会崩溃，但是gdb-peda中使用vmmap仍能找到对应地址</li>
-</ul>
-<h3 id="gdb使用之layout"><a href="#gdb使用之layout" class="headerlink" title="gdb使用之layout"></a>gdb使用之layout</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">layout：用于分割窗口，可以一边查看代码，一边测试。主要有以下几种用法：</span><br><span class="line">layout src：显示源代码窗口</span><br><span class="line">layout asm：显示汇编窗口</span><br><span class="line">layout regs：显示源代码/汇编和寄存器窗口</span><br><span class="line">layout split：显示源代码和汇编窗口</span><br><span class="line">layout next：显示下一个layout</span><br><span class="line">layout prev：显示上一个layout</span><br><span class="line">Ctrl + L：刷新窗口</span><br><span class="line">Ctrl + x，再按1：单窗口模式，显示一个窗口</span><br><span class="line">Ctrl + x，再按2：双窗口模式，显示两个窗口</span><br><span class="line">Ctrl + x，再按a：回到传统模式，即退出layout，回到执行layout之前的调试窗口。</span><br></pre></td></tr></table></figure>
-
-<p>ROPgadget –binary –string ‘/bin/sh’</p>
-<h3 id="gdb-peda不是完美的"><a href="#gdb-peda不是完美的" class="headerlink" title="gdb-peda不是完美的"></a>gdb-peda不是完美的</h3><p>gdb-peda不是完美的，有些在gdb下正常工作的命令，在gdb-peda中会报错。比如find</p>
-<p>一个例子可以参考，<a href="http://www.vuln.cn/6645" target="_blank" rel="noopener">Ret2libc – Bypass DEP 通过ret2libc绕过DEP防护</a>，在level2的pwn过程中，如果在peda下运行find会出错，但是在gdb下很好的返回正确结果</p>
-<p>那么，已经安装了peda，我该怎么办？卸载吗？  </p>
-<p>不需要！  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Actually peda-gdb doesn&apos;t really install a executable in your computer.</span><br><span class="line"></span><br><span class="line">All the peda-gdb does is to modify the config file of gdb. This file is by default located at ~/.gdbinit.</span><br><span class="line"></span><br><span class="line">use cat ~/.gdbinit can you peek how does peda do</span><br></pre></td></tr></table></figure>
-
-<p>返回纯净的gdb模式，有两种办法：<br>一是，不需要卸载的方法，推荐使用：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gdb --nx</span><br><span class="line">或者</span><br><span class="line">gdb -nx</span><br></pre></td></tr></table></figure>
-
-<p>This is a better way, since you may need peda someday</p>
-<p>二是，卸载：  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rm -rf ~/.gdbinit</span><br></pre></td></tr></table></figure>
-
-<p>This will remove the config file of gdb, so what peda did will have no effect on your gdb now.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;gdb-peda安装&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;gdb安装&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apt-get 
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
-    
-    
-      <category term="gdb" scheme="http://flamepeak.com/tags/gdb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 二进制分析常用工具和命令</title>
-    <link href="http://flamepeak.com/2019/10/22/Linux-binary-analysis-tools-collections-20191022/"/>
-    <id>http://flamepeak.com/2019/10/22/Linux-binary-analysis-tools-collections-20191022/</id>
-    <published>2019-10-22T00:16:23.000Z</published>
-    <updated>2019-12-02T06:43:07.599Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="XXD"><a href="#XXD" class="headerlink" title="XXD"></a>XXD</h3><hr>
-<h3 id="objdump"><a href="#objdump" class="headerlink" title="objdump"></a>objdump</h3><p>objdump命令是Linux下的反汇编目标文件或者可执行文件的命令，它以一种可阅读的格式让你更多地了解二进制文件可能带有的附加信息。</p>
-<p><a href="https://blog.csdn.net/q2519008/article/details/82349869" target="_blank" rel="noopener">objdump命令解析</a></p>
-<p>参数选项:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--archive-headers </span><br><span class="line">-a </span><br><span class="line">显示档案库的成员信息,类似ls -l将lib*.a的信息列出。 </span><br><span class="line"></span><br><span class="line">-b bfdname </span><br><span class="line">--target=bfdname </span><br><span class="line">指定目标码格式。这不是必须的，objdump能自动识别许多格式，比如： </span><br><span class="line"></span><br><span class="line">objdump -b oasys -m vax -h fu.o </span><br><span class="line">显示fu.o的头部摘要信息，明确指出该文件是Vax系统下用Oasys编译器生成的目标文件。objdump -i将给出这里可以指定的目标码格式列表。 </span><br><span class="line"></span><br><span class="line">-C </span><br><span class="line">--demangle </span><br><span class="line">将底层的符号名解码成用户级名字，除了去掉所开头的下划线之外，还使得C++函数名以可理解的方式显示出来。 </span><br><span class="line"></span><br><span class="line">--debugging </span><br><span class="line">-g </span><br><span class="line">显示调试信息。企图解析保存在文件中的调试信息并以C语言的语法显示出来。仅仅支持某些类型的调试信息。</span><br><span class="line">有些其他的格式被readelf -w支持。 </span><br><span class="line"></span><br><span class="line">-e </span><br><span class="line">--debugging-tags </span><br><span class="line">类似-g选项，但是生成的信息是和ctags工具相兼容的格式。 </span><br><span class="line"></span><br><span class="line">--disassemble </span><br><span class="line">-d </span><br><span class="line">从objfile中反汇编那些特定指令机器码的section。 </span><br><span class="line"></span><br><span class="line">-D </span><br><span class="line">--disassemble-all </span><br><span class="line">与 -d 类似，但反汇编所有section. </span><br><span class="line"></span><br><span class="line">--prefix-addresses </span><br><span class="line">反汇编的时候，显示每一行的完整地址。这是一种比较老的反汇编格式。 </span><br><span class="line"></span><br><span class="line">-EB </span><br><span class="line">-EL </span><br><span class="line">--endian=&#123;big|little&#125; </span><br><span class="line">指定目标文件的小端。这个项将影响反汇编出来的指令。在反汇编的文件没描述小端信息的时候用。例如S-records. </span><br><span class="line"></span><br><span class="line">-f </span><br><span class="line">--file-headers </span><br><span class="line">显示objfile中每个文件的整体头部摘要信息。 </span><br><span class="line"></span><br><span class="line">-h </span><br><span class="line">--section-headers </span><br><span class="line">--headers </span><br><span class="line">显示目标文件各个section的头部摘要信息。 </span><br><span class="line"></span><br><span class="line">-H </span><br><span class="line">--help </span><br><span class="line">简短的帮助信息。 </span><br><span class="line"></span><br><span class="line">-i </span><br><span class="line">--info </span><br><span class="line">显示对于 -b 或者 -m 选项可用的架构和目标格式列表。 </span><br><span class="line"></span><br><span class="line">-j name</span><br><span class="line">--section=name </span><br><span class="line">仅仅显示指定名称为name的section的信息 </span><br><span class="line"></span><br><span class="line">-l</span><br><span class="line">--line-numbers </span><br><span class="line">用文件名和行号标注相应的目标代码，仅仅和-d、-D或者-r一起使用使用-ld和使用-d的区别不是很大，</span><br><span class="line">在源码级调试的时候有用，要求编译时使用了-g之类的调试编译选项。 </span><br><span class="line"></span><br><span class="line">-m machine </span><br><span class="line">--architecture=machine </span><br><span class="line">指定反汇编目标文件时使用的架构，当待反汇编文件本身没描述架构信息的时候(比如S-records),</span><br><span class="line">这个选项很有用。可以用-i选项列出这里能够指定的架构. </span><br><span class="line"></span><br><span class="line">--reloc </span><br><span class="line">-r </span><br><span class="line">显示文件的重定位入口。如果和-d或者-D一起使用，重定位部分以反汇编后的格式显示出来。 </span><br><span class="line"></span><br><span class="line">--dynamic-reloc </span><br><span class="line">-R </span><br><span class="line">显示文件的动态重定位入口，仅仅对于动态目标文件意义，比如某些共享库。 </span><br><span class="line"></span><br><span class="line">-s </span><br><span class="line">--full-contents </span><br><span class="line">显示指定section的完整内容。默认所有的非空section都会被显示。 </span><br><span class="line"></span><br><span class="line">-S </span><br><span class="line">--source </span><br><span class="line">尽可能反汇编出源代码，尤其当编译的时候指定了-g这种调试参数时，效果比较明显。隐含了-d参数。 </span><br><span class="line"></span><br><span class="line">--show-raw-insn </span><br><span class="line">反汇编的时候，显示每条汇编指令对应的机器码，如不指定--prefix-addresses，这将是缺省选项。 </span><br><span class="line"></span><br><span class="line">--no-show-raw-insn </span><br><span class="line">反汇编时，不显示汇编指令的机器码，如不指定--prefix-addresses，这将是缺省选项。 </span><br><span class="line"></span><br><span class="line">--start-address=address </span><br><span class="line">从指定地址开始显示数据，该选项影响-d、-r和-s选项的输出。 </span><br><span class="line"></span><br><span class="line">--stop-address=address </span><br><span class="line">显示数据直到指定地址为止，该项影响-d、-r和-s选项的输出。 </span><br><span class="line"></span><br><span class="line">-t </span><br><span class="line">--syms </span><br><span class="line">显示文件的符号表入口。类似于nm -s提供的信息 </span><br><span class="line"></span><br><span class="line">-T </span><br><span class="line">--dynamic-syms </span><br><span class="line">显示文件的动态符号表入口，仅仅对动态目标文件意义，比如某些共享库。它显示的信息类似于 nm -D|--dynamic 显示的信息。 </span><br><span class="line"></span><br><span class="line">-V </span><br><span class="line">--version </span><br><span class="line">版本信息 </span><br><span class="line"></span><br><span class="line">--all-headers </span><br><span class="line">-x </span><br><span class="line">显示所可用的头信息，包括符号表、重定位入口。-x 等价于-a -f -h -r -t 同时指定。 </span><br><span class="line"></span><br><span class="line">-z </span><br><span class="line">--disassemble-zeroes </span><br><span class="line">一般反汇编输出将省略大块的零，该选项使得这些零块也被反汇编。 </span><br><span class="line"></span><br><span class="line">@file </span><br><span class="line">可以将选项集中到一个文件中，然后使用这个@file选项载入。</span><br></pre></td></tr></table></figure>
-
-
-
-<p>关于符号表字段下面直接只介绍部分常用的：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.text：已编译程序的机器代码。</span><br><span class="line">.rodata：只读数据，比如printf语句中的格式串和开关（switch）语句的跳转表。</span><br><span class="line">.data：已初始化的全局C变量。局部C变量在运行时被保存在栈中，既不出现在.data中，也不出现在.bss节中。</span><br><span class="line">.bss：未初始化的全局C变量。在目标文件中这个节不占据实际的空间，它仅仅是一个占位符。目标文件格式区分初始化</span><br><span class="line">	  和未初始化变量是为了空间效率在：在目标文件中，未初始化变量不需要占据任何实际的磁盘空间。</span><br><span class="line">.symtab：一个符号表（symbol table），它存放在程序中被定义和引用的函数和全局变量的信息。一些程序员</span><br><span class="line">      错误地认为必须通过-g选项来编译一个程序，得到符号表信息。实际上，每个可重定位目标文件在.symtab中</span><br><span class="line">      都有一张符号表。然而，和编译器中的符号表不同，.symtab符号表不包含局部变量的表目。</span><br><span class="line">.rel.text：当链接噐把这个目标文件和其他文件结合时，.text节中的许多位置都需要修改。一般而言，任何调用</span><br><span class="line">      外部函数或者引用全局变量的指令都需要修改。另一方面调用本地函数的指令则不需要修改。注意，可执行</span><br><span class="line">      目标文件中并不需要重定位信息，因此通常省略，除非使用者显式地指示链接器包含这些信息。</span><br><span class="line">.rel.data：被模块定义或引用的任何全局变量的信息。一般而言，任何已初始化全局变量的初始值是全局变量或者</span><br><span class="line">      外部定义函数的地址都需要被修改。</span><br><span class="line">.debug：一个调试符号表，其有些表目是程序中定义的局部变量和类型定义，有些表目是程序中定义和引用的全局变量，</span><br><span class="line">      有些是原始的C源文件。只有以-g选项调用编译驱动程序时，才会得到这张表。</span><br><span class="line">.line：原始C源程序中的行号和.text节中机器指令之间的映射。只有以-g选项调用编译驱动程序时，才会得到这张表。</span><br><span class="line">.strtab：一个字符串表，其内容包括.symtab和.debug节中的符号表，以及节头部中的节名字。字符串表就是</span><br><span class="line">      以null结尾的字符串序列。</span><br></pre></td></tr></table></figure>
-
-<p>使用举例：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#反汇编应用程序</span></span><br><span class="line">objdump -d  main.o  </span><br><span class="line"></span><br><span class="line"><span class="comment">#显示文件头信息 </span></span><br><span class="line">objdump -f main.o</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示制定section段信息(comment段)</span></span><br><span class="line">objdump -s -j .comment main.o</span><br><span class="line"></span><br><span class="line">objdump -b binary -m i386 -D sh.bin</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看进程所用空间可写或可执行权限"><a href="#查看进程所用空间可写或可执行权限" class="headerlink" title="查看进程所用空间可写或可执行权限"></a>查看进程所用空间可写或可执行权限</h3><p>显示进程映射了的内存区域和访问权限</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">cat /proc/`pidof yourProcessName`/maps</span><br><span class="line"><span class="comment">#注意不是引号</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="nc"><a href="#nc" class="headerlink" title="nc"></a>nc</h3><p><a href="https://www.cnblogs.com/zzPrince/p/6842951.html" target="_blank" rel="noopener">linux ncat命令</a></p>
-<p>server:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>client:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="kali-安装-pip"><a href="#kali-安装-pip" class="headerlink" title="kali 安装 pip"></a>kali 安装 pip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install python2-pip</span><br><span class="line">apt-get install python3-pip</span><br></pre></td></tr></table></figure>
-
-<p>安装ipython</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install ipython</span><br></pre></td></tr></table></figure>
-
-<h3 id="pwntools"><a href="#pwntools" class="headerlink" title="pwntools"></a>pwntools</h3><p>安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install pwntools</span><br><span class="line">apt-get install --upgrade capstone</span><br></pre></td></tr></table></figure>
-
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;XXD&quot;&gt;&lt;a href=&quot;#XXD&quot; class=&quot;headerlink&quot; title=&quot;XXD&quot;&gt;&lt;/a&gt;XXD&lt;/h3&gt;&lt;hr&gt;
-&lt;h3 id=&quot;objdump&quot;&gt;&lt;a href=&quot;#objdump&quot; class=&quot;headerlink&quot; title=&quot;ob
     
     </summary>
     

@@ -14,14 +14,14 @@
 
     
     <meta name="description" content="推荐阅读： Setting up Tor Proxy and Hidden Services in Linux InstallTor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of th">
-<meta name="keywords" content="Tor,CentOS">
+<meta name="keywords" content="CentOS,Tor">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tor polipo在CentoS上的安装与使用">
 <meta property="og:url" content="http://flamepeak.com/2017/08/23/Tor-install-and-usage-20170823/index.html">
 <meta property="og:site_name" content="FlamePeak">
 <meta property="og:description" content="推荐阅读： Setting up Tor Proxy and Hidden Services in Linux InstallTor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of th">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-08-24T21:35:57.255Z">
+<meta property="og:updated_time" content="2020-07-07T07:39:17.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tor polipo在CentoS上的安装与使用">
 <meta name="twitter:description" content="推荐阅读： Setting up Tor Proxy and Hidden Services in Linux InstallTor no longer recommends using their repo for CentoOS and to instead use epel repos. You’ll just end up with a very old version out of th">
@@ -143,21 +143,29 @@
 <p>daemonise = true</p>
 </blockquote>
 <p>注意： polipo配置文件的路径要注意，如果没有把握的话就在运行polipo的时候加上 <code>-c</code>参数，例如：<code>polipo -c /opt/polipo/config</code>,这是我走过的坑</p>
+<p>打开防火墙</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=8123/tcp</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<p>运行测试：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">polipo</span><br><span class="line">curl --proxy localhost:8123 ifconfig.me</span><br></pre></td></tr></table></figure>
+
 <p><strong>以下设置对于CentOS 7 可行</strong></p>
+<p>参考：<a href="https://github.com/tsgates/arch-wiki-markdown/blob/master/wiki/Polipo.md" target="_blank" rel="noopener">https://github.com/tsgates/arch-wiki-markdown/blob/master/wiki/Polipo.md</a></p>
 <p>新建启动脚本</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/systemd/system/polipo.service</span><br></pre></td></tr></table></figure>
 
 <p>内容为</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=polipo web proxy</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/tmp</span><br><span class="line">User=polipo</span><br><span class="line">Group=polipo</span><br><span class="line">ExecStart=/usr/bin/polipo -c /opt/polipo/config</span><br><span class="line">Restart=always</span><br><span class="line">SyslogIdentifier=Polipo</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
 
-<p>打开防火墙</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=8123/tcp</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
 <p>尝试启动服务</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start polipo</span><br></pre></td></tr></table></figure>
 
 <p>测试现在的ip地址：</p>
 <p><code>curl --proxy localhost:8123 ifconfig.me</code></p>
+<h3 id="503-504-错误"><a href="#503-504-错误" class="headerlink" title="503 504 错误"></a>503 504 错误</h3><p>如果遇到503, Socks5 connection refused.<br>这种情况下，可能不是polipo或Privoxy的原因，可能是tor配置的错误。</p>
+<p>你需要修改<code>/etc/tor/torrc</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SocksPolicy accept 127.0.0.1/32</span><br></pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -171,7 +179,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Tor/">Tor</a><a href="/tags/CentOS/">CentOS</a>
+  <span></span> <a href="/tags/CentOS/">CentOS</a><a href="/tags/Tor/">Tor</a>
   </div>
 
 </div>
@@ -220,7 +228,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Install"><span class="toc-number">1.</span> <span class="toc-text">Install</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure-Tor"><span class="toc-number">2.</span> <span class="toc-text">Configure Tor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Start-Tor"><span class="toc-number">3.</span> <span class="toc-text">Start Tor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Test-Tor"><span class="toc-number">4.</span> <span class="toc-text">Test Tor</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Making-Tor-Requests-with-command-line-cURL"><span class="toc-number">4.1.</span> <span class="toc-text">Making Tor Requests with command-line cURL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Making-Tor-HTTP-Requests-with-Go"><span class="toc-number">4.2.</span> <span class="toc-text">Making Tor HTTP Requests with Go</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polipo"><span class="toc-number">5.</span> <span class="toc-text">Polipo</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Install"><span class="toc-number">1.</span> <span class="toc-text">Install</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure-Tor"><span class="toc-number">2.</span> <span class="toc-text">Configure Tor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Start-Tor"><span class="toc-number">3.</span> <span class="toc-text">Start Tor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Test-Tor"><span class="toc-number">4.</span> <span class="toc-text">Test Tor</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Making-Tor-Requests-with-command-line-cURL"><span class="toc-number">4.1.</span> <span class="toc-text">Making Tor Requests with command-line cURL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Making-Tor-HTTP-Requests-with-Go"><span class="toc-number">4.2.</span> <span class="toc-text">Making Tor HTTP Requests with Go</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polipo"><span class="toc-number">5.</span> <span class="toc-text">Polipo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#503-504-错误"><span class="toc-number">6.</span> <span class="toc-text">503 504 错误</span></a></li></ol>
  
   </div>
 
@@ -253,7 +261,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
 		  
 		
 		  
@@ -261,11 +269,11 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>39</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>17</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>18</sup></a></li>
 		  
 		
 		  
@@ -294,11 +302,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>42</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
 			
 		
 			
@@ -318,11 +326,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -338,10 +346,6 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -354,15 +358,19 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
@@ -370,7 +378,7 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

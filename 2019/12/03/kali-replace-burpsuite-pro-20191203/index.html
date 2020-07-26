@@ -21,7 +21,7 @@
 <meta property="og:site_name" content="FlamePeak">
 <meta property="og:description" content="参考：kali linux 2019.1 替换burpsuite pro 1.7.37 文章中的办法总体可行，但是，具体实现有问题  先切换JDK版本为1.8.执行 update-alternatives  --config  java  然后会显示多个jdk版本，1.8选2  输入java –version会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到/usr/bin。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-16T08:15:43.042Z">
+<meta property="og:updated_time" content="2020-07-24T06:56:20.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kali linux 2019.4 替换burpsuite pro">
 <meta name="twitter:description" content="参考：kali linux 2019.1 替换burpsuite pro 1.7.37 文章中的办法总体可行，但是，具体实现有问题  先切换JDK版本为1.8.执行 update-alternatives  --config  java  然后会显示多个jdk版本，1.8选2  输入java –version会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到/usr/bin。">
@@ -118,8 +118,8 @@
 <p>内容为</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment">#java -jar burp-loader-keygen-2_1_07.jar</span></span><br><span class="line">java -noverify -Xbootclasspath/p:/usr/bin/burp-loader-keygen-2_1_07.jar -jar /usr/bin/burpsuite_pro_v2.1.07.jar</span><br></pre></td></tr></table></figure>
 
-<p>此处，调试很长时间都不行，个人认为和burp的破解版本有关系，也就是<code>burp_loader.jar</code>或者<code>burp_helper.jar</code>，在一些版本中上面方法可行，但是有些版本又不行。  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">java -jar /usr/bin/burp-loader-keygen-2_1_05.jar</span><br></pre></td></tr></table></figure>
+<p>此处，调试很长时间都不行，个人认为和burp的破解版本有关系，也就是<code>burp_loader.jar</code>或者<code>burp_helper.jar</code>，在一些版本中上面方法可行，但是有些版本又不行。  多尝试几个版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 将burp-loader-keygen-2_1_07.jar和burpsuite_pro_v2.1.07.jar放入/usr/bin目录</span><br><span class="line">2. bash界面，进入/usr/bin目录<span class="built_in">cd</span> /usr/bin；运行：java -jar /usr/bin/burp-loader-keygen-2_1_05.jar</span><br><span class="line">3. 正常情况下会进入破解的流程，如果无法启动主程序，那么需要更换其它help.jar 和loader.jar尝试；</span><br><span class="line">4. 破解成功之后，如果需要运行burp,直接在bash中输入burpsuite即可</span><br></pre></td></tr></table></figure>
 
 
 
@@ -232,7 +232,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
 		  
 		
 		  
@@ -240,11 +240,11 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>39</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>17</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>18</sup></a></li>
 		  
 		
 		  
@@ -273,11 +273,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>42</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
 			
 		
 			
@@ -297,11 +297,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -317,10 +317,6 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -333,15 +329,19 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
@@ -349,7 +349,7 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

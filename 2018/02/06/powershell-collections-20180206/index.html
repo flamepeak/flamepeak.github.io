@@ -21,7 +21,7 @@
 <meta property="og:site_name" content="FlamePeak">
 <meta property="og:description" content="powershell基础知识 Windows PowerShell基本语法及常用命令 powershell命令大全与命令简写  Test-Path, 可以用来测试一个目录或者文件是否存在； 也可以用来测试一个路径到底是目录还是文件，通过添加参数 -pathType 来进行，参数可取 container 和 leaf 两个值  Test-Path C:\Scripts\Archive -pathTy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-11T01:48:55.019Z">
+<meta property="og:updated_time" content="2020-03-18T14:45:52.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Powershell 使用方法收集">
 <meta name="twitter:description" content="powershell基础知识 Windows PowerShell基本语法及常用命令 powershell命令大全与命令简写  Test-Path, 可以用来测试一个目录或者文件是否存在； 也可以用来测试一个路径到底是目录还是文件，通过添加参数 -pathType 来进行，参数可取 container 和 leaf 两个值  Test-Path C:\Scripts\Archive -pathTy">
@@ -115,12 +115,17 @@
 <p> 允许运行签名脚本<br>    首次在计算机上启动 Windows PowerShell 时，现用执行策略很可能是 Restricted（默认设置）。<br>    Restricted 策略不允许任何脚本运行。<br>    若要了解计算机上的现用执行策略，请键入：<br>        get-executionpolicy<br>    若要在本地计算机上运行您编写的未签名脚本和来自其他用户的签名脚本，请使用以下命令将计算机上的<br>    执行策略更改为 RemoteSigned：<br>        set-executionpolicy remotesigned</p>
 </blockquote>
 <p>powershell脚本的执行策略有：<code>&lt;Unrestricted&gt; | &lt;RemoteSigned&gt; | &lt;AllSigned&gt; | &lt;Restricted&gt; | &lt;Default&gt; | &lt;Bypass&gt; | &lt;Undefined&gt;</code></p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> unrestricted</span><br></pre></td></tr></table></figure>
+
 <p>关于没有系统管理员权限的情况下如何绕过：<br><a href="https://blog.csdn.net/qq_27446553/article/details/50577296" target="_blank" rel="noopener">哪些方法可以绕过PowerShell Execution Policy？</a></p>
 <p>####</p>
 <hr>
 <h3 id="获得当前系统已安装的程序列表"><a href="#获得当前系统已安装的程序列表" class="headerlink" title="获得当前系统已安装的程序列表"></a>获得当前系统已安装的程序列表</h3><p><a href="http://www.4hou.com/technology/10206.html" target="_blank" rel="noopener">获得当前系统已安装的程序列表</a>  </p>
 <ol>
 <li>使用powershell调用wmi<br><code>Get-WmiObject -class Win32_Product</code><br>结果过滤：<br><code>Get-WmiObject -class Win32_Product | Select-Object -Property name</code></li>
+</ol>
+<ol start="2">
+<li></li>
 </ol>
   
 	</div>
@@ -217,7 +222,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
 		  
 		
 		  
@@ -225,11 +230,11 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>39</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>17</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>18</sup></a></li>
 		  
 		
 		  
@@ -258,11 +263,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>42</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
 			
 		
 			
@@ -282,11 +287,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -302,10 +307,6 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -318,15 +319,19 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
@@ -334,7 +339,7 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

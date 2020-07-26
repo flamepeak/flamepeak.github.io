@@ -21,7 +21,7 @@
 <meta property="og:site_name" content="FlamePeak">
 <meta property="og:description" content="参考 tmux基本结构tmux的结构包括会话(session)、窗口(window)、窗格(pane)三部分，会话实质是伪终端的集合，每个窗格表示一个伪终端，多个窗格展现在一个屏幕上，这一屏幕就叫窗口。 基本用法tmux默认的快捷键前缀是Ctrl+b(下文用prefix指代)，按下前缀组合键后松开，再按下命令键进行快捷操作，比如使用prefix d分离会话（应该写作prefix d而不是prefi">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-02-20T03:10:31.842Z">
+<meta property="og:updated_time" content="2020-03-28T00:36:11.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tmux 使用">
 <meta name="twitter:description" content="参考 tmux基本结构tmux的结构包括会话(session)、窗口(window)、窗格(pane)三部分，会话实质是伪终端的集合，每个窗格表示一个伪终端，多个窗格展现在一个屏幕上，这一屏幕就叫窗口。 基本用法tmux默认的快捷键前缀是Ctrl+b(下文用prefix指代)，按下前缀组合键后松开，再按下命令键进行快捷操作，比如使用prefix d分离会话（应该写作prefix d而不是prefi">
@@ -108,7 +108,8 @@
 
 <h4 id="窗格管理"><a href="#窗格管理" class="headerlink" title="窗格管理"></a>窗格管理</h4><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">prefix %　　垂直方向创建窗格</span><br><span class="line"></span><br><span class="line">prefix <span class="string">"　　水平方向创建窗格</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix Up|Down|Left|Right　　根据箭头方向切换窗格</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix q　　显示窗格编号</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix o　　顺时针切换窗格</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix &#125;　　与下一个窗格交换位置</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix &#123;　　与上一个窗格交换位置</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix x　　关闭当前窗格</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix space(空格键)　　重新排列当前窗口下的所有窗格</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix !　　将当前窗格置于新窗口</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix Ctrl+o　　逆时针旋转当前窗口的窗格</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix t　　在当前窗格显示时间</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix z　　放大当前窗格(再次按下将还原)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">prefix i　　显示当前窗格信息</span></span><br></pre></td></tr></table></figure>
 
-<p>　　</p>
+<p>分屏，可以用 <code>C-b o</code> 来切换到下一个pane，或者用 <code>C-b Up</code> 切换到当前pane上方的pane, 用<code>C-b Down</code>切换到当前pane下方的pane. 还有一种切换方法是 <code>C-b q</code>，tmux会显示每个pane的序号，按这个序号就可以跳过去了（按慢了可不行，得在数字消失前按）。</p>
+<p>如果你用的是<code>tmux &gt;= 1.8</code>，那么可以用 <code>C-b z</code> 来最大化一个pane，想恢复的时候再次按 <code>C-b z</code> 就是了</p>
 <h4 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h4><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tmux list-key　　列出所有绑定的键，等同于prefix ?</span><br><span class="line">tmux list-command　　列出所有命令</span><br></pre></td></tr></table></figure>
 
 <p>翻页scroll的使用  </p>
@@ -168,9 +169,9 @@
 
 
 <div class="next">
-<a href="/2019/10/19/Kali-install-sougou-20191019/"  title="Kali install google-pinyin input">
+<a href="/2019/10/19/Kali-install-sougou-20191019/"  title="Linux install google-pinyin 中文输入法">
  <strong>下一篇：</strong><br/> 
- <span>Kali install google-pinyin input
+ <span>Linux install google-pinyin 中文输入法
 </span>
 </a>
 </div>
@@ -219,7 +220,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
 		  
 		
 		  
@@ -227,11 +228,11 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>38</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>39</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>17</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>18</sup></a></li>
 		  
 		
 		  
@@ -260,11 +261,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>41</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>42</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>32</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
 			
 		
 			
@@ -284,11 +285,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -304,10 +305,6 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -320,15 +317,19 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HackTheBox/" title="HackTheBox">HackTheBox<sup>3</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
@@ -336,7 +337,7 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>
