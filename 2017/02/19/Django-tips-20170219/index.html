@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="对于初学者，可以去自强学堂Django学习 那project和app什么关系呢？ 一个项目一般包含多个应用，一个应用也可以用在多个项目中。 版本的选择Django 1.8.x 支持 Python 2.7, 3.2, 3.3, 3.4 和 3.5.  （长期支持版本 LTS) Django 1.9.x 支持 Python 2.7, 3.4 和 3.5. 不支持 3.3 了 Django 1.10.x">
+    <meta name="description" content="对于初学者，可以去自强学堂Django学习 那project和app什么关系呢？ 一个项目一般包含多个应用，一个应用也可以用在多个项目中。  版本的选择 Django 1.8.x 支持 Python 2.7, 3.2, 3.3, 3.4 和 3.5.  （长期支持版本 LTS) Django 1.9.x 支持 Python 2.7, 3.4 和 3.5. 不支持 3.3 了 Django 1.10">
 <meta name="keywords" content="Python,Django">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Django tips">
 <meta property="og:url" content="http://flamepeak.com/2017/02/19/Django-tips-20170219/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="对于初学者，可以去自强学堂Django学习 那project和app什么关系呢？ 一个项目一般包含多个应用，一个应用也可以用在多个项目中。 版本的选择Django 1.8.x 支持 Python 2.7, 3.2, 3.3, 3.4 和 3.5.  （长期支持版本 LTS) Django 1.9.x 支持 Python 2.7, 3.4 和 3.5. 不支持 3.3 了 Django 1.10.x">
+<meta property="og:description" content="对于初学者，可以去自强学堂Django学习 那project和app什么关系呢？ 一个项目一般包含多个应用，一个应用也可以用在多个项目中。  版本的选择 Django 1.8.x 支持 Python 2.7, 3.2, 3.3, 3.4 和 3.5.  （长期支持版本 LTS) Django 1.9.x 支持 Python 2.7, 3.4 和 3.5. 不支持 3.3 了 Django 1.10">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-01-26T08:31:39.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django tips">
-<meta name="twitter:description" content="对于初学者，可以去自强学堂Django学习 那project和app什么关系呢？ 一个项目一般包含多个应用，一个应用也可以用在多个项目中。 版本的选择Django 1.8.x 支持 Python 2.7, 3.2, 3.3, 3.4 和 3.5.  （长期支持版本 LTS) Django 1.9.x 支持 Python 2.7, 3.4 和 3.5. 不支持 3.3 了 Django 1.10.x">
+<meta name="twitter:description" content="对于初学者，可以去自强学堂Django学习 那project和app什么关系呢？ 一个项目一般包含多个应用，一个应用也可以用在多个项目中。  版本的选择 Django 1.8.x 支持 Python 2.7, 3.2, 3.3, 3.4 和 3.5.  （长期支持版本 LTS) Django 1.9.x 支持 Python 2.7, 3.4 和 3.5. 不支持 3.3 了 Django 1.10">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -100,59 +100,62 @@
 		<p>对于初学者，可以去<a href="https://code.ziqiangxuetang.com/django" target="_blank" rel="noopener">自强学堂Django</a>学习</p>
 <p>那project和app什么关系呢？</p>
 <p>一个项目一般包含多个应用，一个应用也可以用在多个项目中。</p>
-<h3 id="版本的选择"><a href="#版本的选择" class="headerlink" title="版本的选择"></a>版本的选择</h3><p>Django 1.8.x 支持 Python 2.7, 3.2, 3.3, 3.4 和 3.5.  （长期支持版本 LTS)</p>
+<h3 id="版本的选择"><a class="markdownIt-Anchor" href="#版本的选择"></a> 版本的选择</h3>
+<p>Django 1.8.x 支持 Python 2.7, 3.2, 3.3, 3.4 和 3.5.  （长期支持版本 LTS)</p>
 <p>Django 1.9.x 支持 Python 2.7, 3.4 和 3.5. 不支持 3.3 了</p>
-<p>Django 1.10.x 支持 Python 2.7, 3.4 和 3.5. </p>
+<p>Django 1.10.x 支持 Python 2.7, 3.4 和 3.5.</p>
 <p>Django 1.11.x 支持 Python 2.7, 3.4, 3.5 和 3.6（长期支持版本 LTS) 最后一个支持 Python 2.7 的版本</p>
 <p>Django 2.0.x 支持 Python 3.4, 3.5 和 3.6 （注意，不再支持 Python 2）</p>
 <p>这么看，对于现在来说，最好的选择是1.11.x版本，具体1.11的哪个版本，可以去<a href="https://docs.djangoproject.com/en/dev/releases/" target="_blank" rel="noopener">releases notes</a>查看</p>
 <p>然后使用<code>pip install django == 1.11.10</code>来安装</p>
-<h3 id="Basic-command"><a href="#Basic-command" class="headerlink" title="Basic command"></a>Basic command</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">django-admin startproject mysite  <span class="comment">#创建project</span></span><br><span class="line"><span class="built_in">cd</span> mysite</span><br><span class="line">python manage.py migrate</span><br><span class="line">python manage.py runserver  <span class="comment">#goto :localhost:8000</span></span><br><span class="line">python manage.py runserver 127.0.0.1:8001 --settings=mysite.settings</span><br><span class="line">python manage.py startapp blog</span><br><span class="line"></span><br><span class="line"><span class="comment">#models</span></span><br><span class="line">python manage.py makemigrations blog</span><br><span class="line">python manage.py sqlmigrate blog 0001</span><br><span class="line">python manage.py migrate</span><br><span class="line"></span><br><span class="line"><span class="comment">#administration</span></span><br><span class="line">python manage.py createsuperuser</span><br><span class="line"><span class="comment"># Register your models here. admin.py</span></span><br><span class="line">admin.site.register(Post)</span><br><span class="line"></span><br><span class="line"><span class="comment">#open python shell</span></span><br><span class="line">python manage.py shell</span><br></pre></td></tr></table></figure>
-
-<h3 id="Projects-and-Applications"><a href="#Projects-and-Applications" class="headerlink" title="Projects and Applications"></a>Projects and Applications</h3><p>In Django, a project is considered a Django installation with some settings; and an application is a group of models, views, templates, and URLs. Applications interact with the framework to provide some specific functionalities and may be reused in various projects. You can think of the project as your website, which contains several applications like blog, wiki, or forum, which can be used in other projects.</p>
-<h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><p>A model is a Python class that subclasses <code>django.db.models.Model</code>, in which each attribute represents a database field. Django will create a table for each model defined in the <code>models.py</code> file. When you create a model, Django offers you a practical API to query the database easily.</p>
-<p>Since we are going to deal with datetimes, we will install the <code>pytz</code> module. This module provides timezone definitions for Python and is required by SQLite to work with datetimes.<br><code>pip install pytz</code></p>
+<h3 id="basic-command"><a class="markdownIt-Anchor" href="#basic-command"></a> Basic command</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">django-admin startproject mysite  <span class="comment">#创建project</span></span><br><span class="line"><span class="built_in">cd</span> mysite</span><br><span class="line">python manage.py migrate</span><br><span class="line">python manage.py runserver  <span class="comment">#goto :localhost:8000</span></span><br><span class="line">python manage.py runserver 127.0.0.1:8001 --settings=mysite.settings</span><br><span class="line">python manage.py startapp blog</span><br><span class="line"></span><br><span class="line"><span class="comment">#models</span></span><br><span class="line">python manage.py makemigrations blog</span><br><span class="line">python manage.py sqlmigrate blog 0001</span><br><span class="line">python manage.py migrate</span><br><span class="line"></span><br><span class="line"><span class="comment">#administration</span></span><br><span class="line">python manage.py createsuperuser</span><br><span class="line"><span class="comment"># Register your models here. admin.py</span></span><br><span class="line">admin.site.register(Post)</span><br><span class="line"></span><br><span class="line"><span class="comment">#open python shell</span></span><br><span class="line">python manage.py shell</span><br></pre></td></tr></table></figure>
+<h3 id="projects-and-applications"><a class="markdownIt-Anchor" href="#projects-and-applications"></a> Projects and Applications</h3>
+<p>In Django, a project is considered a Django installation with some settings; and an application is a group of models, views, templates, and URLs. Applications interact with the framework to provide some specific functionalities and may be reused in various projects. You can think of the project as your website, which contains several applications like blog, wiki, or forum, which can be used in other projects.</p>
+<h3 id="model"><a class="markdownIt-Anchor" href="#model"></a> model</h3>
+<p>A model is a Python class that subclasses <code>django.db.models.Model</code>, in which each attribute represents a database field. Django will create a table for each model defined in the <code>models.py</code> file. When you create a model, Django offers you a practical API to query the database easily.</p>
+<p>Since we are going to deal with datetimes, we will install the <code>pytz</code> module. This module provides timezone definitions for Python and is required by SQLite to work with datetimes.<br>
+<code>pip install pytz</code></p>
 <p>Django comes with a migration system to track the changes you do to your models and propagate them into database. The <code>migrate</code> command applies migrations for all applications listed in <code>INSTALLED_APPS</code>; it synchronizes the database with the current models and migrations.</p>
 <p>If you edit your <code>models.py</code> file in order to add, remove, or change fields of existing models, or if you add new models, you will have to make a new migration using the <code>makemigrations</code> command. The migration will allow Django to keep track of model changes. Then you will have to apply it with the <code>migrate</code> command to keep the database in sync with your models.</p>
-<h3 id="views"><a href="#views" class="headerlink" title="views"></a>views</h3><p>Creating an <code>urls.py</code> file for each app is the best way to make your applications reusable by other projects.</p>
-<h3 id="urls-py-name详解"><a href="#urls-py-name详解" class="headerlink" title="urls.py name详解"></a>urls.py name详解</h3><p><a href="https://code.ziqiangxuetang.com/django/django-url-name.html" target="_blank" rel="noopener">urls.py name详解</a></p>
+<h3 id="views"><a class="markdownIt-Anchor" href="#views"></a> views</h3>
+<p>Creating an <code>urls.py</code> file for each app is the best way to make your applications reusable by other projects.</p>
+<h3 id="urlspy"><a class="markdownIt-Anchor" href="#urlspy"></a> <a href="http://urls.py" target="_blank" rel="noopener">urls.py</a> name详解</h3>
+<p><a href="https://code.ziqiangxuetang.com/django/django-url-name.html" target="_blank" rel="noopener">urls.py name详解</a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from django.conf.urls import url</span><br><span class="line">from django.contrib import admin</span><br><span class="line">from calc import views as calc_views</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(r&apos;^add/$&apos;, calc_views.add, name=&apos;add&apos;),</span><br><span class="line">    url(r&apos;^add/(\d+)/(\d+)/$&apos;, calc_views.add2, name=&apos;add2&apos;),</span><br><span class="line">    url(r&apos;^admin/&apos;, admin.site.urls),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p><code>url(r&#39;^add/$&#39;, calc_views.add, name=&#39;add&#39;)</code>, 这里的 name=’add’ 是用来干什么的呢？</p>
+<p><code>url(r'^add/$', calc_views.add, name='add')</code>, 这里的 name=‘add’ 是用来干什么的呢？</p>
 <p>简单说，name 可以用于在 templates, models, views ……中得到对应的网址，相当于“给网址取了个名字”，只要这个名字不变，网址变了也能通过名字获取到。</p>
 <p>如果网页里面写成死网址，例如<code>&lt;a href=&quot;/add/4/5/&quot;&gt;计算 4+5&lt;/a&gt;</code>，会造成后期修改代价很大，容易造成死链接。</p>
-<p>首先介绍一下如何在Django中用Python获取对应的网址(可以用在views.py、models.py等需要转换得到网址的地方)，</p>
+<p>首先介绍一下如何在Django中用Python获取对应的网址(<a href="http://xn--views-ok2h341avug3y9e.py" target="_blank" rel="noopener">可以用在views.py</a>、models.py等需要转换得到网址的地方)，</p>
 <p>进入shell, <code>python manage.py shell</code></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; from django.core.urlresolvers import reverse  # django 1.4.x - django 1.10.x</span><br><span class="line">或者</span><br><span class="line">&gt;&gt;&gt; from django.urls import reverse  # Django 1.10.x - Django 2.x 新的，更加规范了</span><br><span class="line"> </span><br><span class="line">&gt;&gt;&gt; reverse(&apos;add2&apos;, args=(4,5))</span><br><span class="line">u&apos;/add/4/5/&apos;</span><br><span class="line">&gt;&gt;&gt; reverse(&apos;add2&apos;, args=(444,555))</span><br><span class="line">u&apos;/add/444/555/&apos;</span><br></pre></td></tr></table></figure>
-
 <p><strong>reverse 接收url中的name作为第一个参数</strong>，这样，我们就可以通过<code>reverse()</code>来获取对应的网址，只要是url中的name不改，就不需要更改代码中的网址。</p>
 <p>在网页模板中也是如此，可以很方便的使用：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">不带参数的：</span><br><span class="line">&#123;% url &apos;name&apos;%&#125;</span><br><span class="line"></span><br><span class="line">带参数的：参数可以是变量名</span><br><span class="line">&#123;% url &apos;name&apos; 参数 %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>例如：  </p>
+<p>例如：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;&#123;% url &apos;add2&apos; 4 5 %&#125;&quot;&gt;link&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-
 <p>将被渲染为</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;/add/4/5/&quot;&gt;link&lt;/a&gt;</span><br><span class="line">```  </span><br><span class="line">当urls.py更改时，前提是不更改name(这个参数设定好后不要轻易更改), 获取网址也会动态变化，比如更改为:</span><br></pre></td></tr></table></figure>
-
-<p>url(r’^new_add/(\d+)/(\d+)/$’, calc_views.add2, name=’add2’),</p>
+<p>url(r’^new_add/(\d+)/(\d+)/$’, calc_views.add2, name=‘add2’),</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">网址将会被渲染为：</span><br></pre></td></tr></table></figure>
-
 <p><a href="/new_add/4/5/">link</a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">用在views.py和models.py等地方的reverse()函数，同样会根据name对应url获取到新网址。</span><br><span class="line"></span><br><span class="line">想要改网址的时候，只需修改urls.py中的正则表达式，其它部分都不需要修改。</span><br><span class="line"></span><br><span class="line">**另外，比如用户的收藏夹中的URL是旧的，如何让以前的/add/3/4自动跳转到新的网址呢？**</span><br><span class="line"></span><br><span class="line">Django没有替你完成这个工作，需要自己来写一个跳转方法。</span><br><span class="line"></span><br><span class="line">具体的，在views.py写一个跳转函数：</span><br></pre></td></tr></table></figure>
-
-<p>from django.http import HttpResponseRedirect<br>from django.urls import reverse</p>
-<p>def old_add2_redirect(request, a, b):<br>    return HttpResponseRedirect(<br>        reverse(‘add2’, args=(a, b))<br>    )</p>
+<p>from django.http import HttpResponseRedirect<br>
+from django.urls import reverse</p>
+<p>def old_add2_redirect(request, a, b):<br>
+return HttpResponseRedirect(<br>
+reverse(‘add2’, args=(a, b))<br>
+)</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">在urls.py中：</span><br></pre></td></tr></table></figure>
-
-<p>url(r’^add/(\d+)/(\d+)/$’, calc_views.old_add2_redirect),<br>url(r’new_add/(\d+)/(\d+)/$’, calc_views.add2, name=’add2’),</p>
+<p>url(r’^add/(\d+)/(\d+)/<span class="katex-error" title="ParseError: KaTeX parse error: Undefined control sequence: \d at position 50: …url(r&#039;new_add/(\̲d̲+)/(\d+)/">&#039;, calc_views.old_add2_redirect),
+url(r&#039;new_add/(\d+)/(\d+)/</span>’, calc_views.add2, name=‘add2’),</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">开始可能觉得直接写网址简单，但是用多了你一定会发现，用“死网址”的方法很糟糕。</span><br><span class="line"></span><br><span class="line">### Django 网页模板 继承</span><br><span class="line"></span><br><span class="line">[Django template](https://code.ziqiangxuetang.com/django/django-template.html)</span><br><span class="line"></span><br><span class="line">[Django template 进阶](https://code.ziqiangxuetang.com/django/django-template2.html)</span><br><span class="line"></span><br><span class="line">一般的变量之类的用 `&#123;&#123; &#125;&#125;`（变量），功能类的，比如循环，条件判断是用 `&#123;%  %&#125;`（标签）</span><br><span class="line"></span><br><span class="line">例如：  </span><br><span class="line">views.py</span><br></pre></td></tr></table></figure>
-
-<p>def home(request):<br>    TutorialList = [“HTML”, “CSS”, “jQuery”, “Python”, “Django”]<br>    return render(request, ‘home.html’, {‘TutorialList’: TutorialList})</p>
+<p>def home(request):<br>
+TutorialList = [“HTML”, “CSS”, “jQuery”, “Python”, “Django”]<br>
+return render(request, ‘home.html’, {‘TutorialList’: TutorialList})</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">home.html</span><br></pre></td></tr></table></figure>
 
-
-<p>```</p>
+<pre class="highlight"><code class></code></pre>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -215,7 +218,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#版本的选择"><span class="toc-number">1.</span> <span class="toc-text">版本的选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-command"><span class="toc-number">2.</span> <span class="toc-text">Basic command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Projects-and-Applications"><span class="toc-number">3.</span> <span class="toc-text">Projects and Applications</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#model"><span class="toc-number">4.</span> <span class="toc-text">model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#views"><span class="toc-number">5.</span> <span class="toc-text">views</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#urls-py-name详解"><span class="toc-number">6.</span> <span class="toc-text">urls.py name详解</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#版本的选择"><span class="toc-number">1.</span> <span class="toc-text"> 版本的选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#basic-command"><span class="toc-number">2.</span> <span class="toc-text"> Basic command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#projects-and-applications"><span class="toc-number">3.</span> <span class="toc-text"> Projects and Applications</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#model"><span class="toc-number">4.</span> <span class="toc-text"> model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#views"><span class="toc-number">5.</span> <span class="toc-text"> views</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#urlspy"><span class="toc-number">6.</span> <span class="toc-text"> urls.py name详解</span></a></li></ol>
  
   </div>
 
@@ -305,19 +308,19 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -333,6 +336,10 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -341,15 +348,11 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
@@ -357,15 +360,15 @@
 			
 		
 			
-				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
 			
 		
 		</ul>

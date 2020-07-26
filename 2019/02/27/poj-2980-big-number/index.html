@@ -100,7 +100,6 @@
 		<p><a href="http://bailian.openjudge.cn/practice/2980/" target="_blank" rel="noopener">2980</a></p>
 <p>要注意：0的问题</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> S1[<span class="number">202</span>], S2[<span class="number">202</span>];</span><br><span class="line"><span class="keyword">int</span> A[<span class="number">202</span>], B[<span class="number">202</span>];</span><br><span class="line"><span class="keyword">int</span> C[<span class="number">410</span>];</span><br><span class="line"><span class="keyword">bool</span> zeroFlag=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s%s"</span>, S1, S2);</span><br><span class="line">    <span class="keyword">int</span> len1 = <span class="built_in">strlen</span>(S1);</span><br><span class="line">    <span class="keyword">int</span> len2 = <span class="built_in">strlen</span>(S2);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len1;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        A[i] = (S1[len1<span class="number">-1</span>-i]-<span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len2;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        B[i] = (S2[len2<span class="number">-1</span>-i]-<span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len2;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len1;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            C[i+j] += B[j]*A[i];</span><br><span class="line">            <span class="keyword">if</span>(C[i+j]!=<span class="number">0</span>)</span><br><span class="line">                zeroFlag = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(zeroFlag)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len1+len2;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        C[i+<span class="number">1</span>] += C[i]/<span class="number">10</span>;</span><br><span class="line">        C[i] %= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=len1+len2;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(C[i]==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(flag)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;C[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(flag)</span><br><span class="line">            &#123;</span><br><span class="line">                flag = <span class="literal">false</span>;</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;C[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;C[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -248,19 +247,19 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -276,6 +275,10 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -284,15 +287,11 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
@@ -300,15 +299,15 @@
 			
 		
 			
-				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
 			
 		
 		</ul>

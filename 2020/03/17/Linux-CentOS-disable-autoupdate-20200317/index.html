@@ -100,12 +100,9 @@
 		<p>PackageKit是基于RedHat的linux中的图形化软件升级工具，下面描述一下如何禁止和启用自动升级。</p>
 <p>默认状态下是开启的。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">systemctl status packagekit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停用</span></span><br><span class="line">systemctl stop packagekit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止自启动</span></span><br><span class="line">systemctl mask packagekit</span><br><span class="line">  Created symlink from /etc/systemd/system/packagekit.service to /dev/null.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载PackageKit</span></span><br><span class="line">yum remove PackageKit*</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装PackageKit</span></span><br><span class="line">yum install gnome-packagekit PackageKit-yum</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自启动</span></span><br><span class="line">systemctl unmask packagekit</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看状态</span></span><br><span class="line">systemctl status packagekit</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动</span></span><br><span class="line">systemctl start packagekit</span><br></pre></td></tr></table></figure>
-
 <p>systemctl的常见用法：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl 提供了一组子命令来管理单个的 unit，其命令格式为：</span><br><span class="line">systemctl [command] [unit]</span><br><span class="line">command 主要有：</span><br><span class="line">start：立刻启动后面接的 unit。</span><br><span class="line">stop：立刻关闭后面接的 unit。</span><br><span class="line">restart：立刻关闭后启动后面接的 unit，亦即执行 stop 再 start 的意思。</span><br><span class="line">reload：不关闭 unit 的情况下，重新载入配置文件，让设置生效。</span><br><span class="line">enable：设置下次开机时，后面接的 unit 会被启动。</span><br><span class="line">disable：设置下次开机时，后面接的 unit 不会被启动。</span><br><span class="line">status：目前后面接的这个 unit 的状态，会列出有没有正在执行、开机时是否启动等信息。</span><br><span class="line">is-active：目前有没有正在运行中。</span><br><span class="line">is-enable：开机时有没有默认要启用这个 unit。</span><br><span class="line">kill ：不要被 kill 这个名字吓着了，它其实是向运行 unit 的进程发送信号。</span><br><span class="line">show：列出 unit 的配置。</span><br><span class="line">mask：注销 unit，注销后你就无法启动这个 unit 了。</span><br><span class="line">unmask：取消对 unit 的注销。</span><br></pre></td></tr></table></figure>
-
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -258,19 +255,19 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -286,6 +283,10 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -294,15 +295,11 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
@@ -310,15 +307,15 @@
 			
 		
 			
-				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
 			
 		
 		</ul>

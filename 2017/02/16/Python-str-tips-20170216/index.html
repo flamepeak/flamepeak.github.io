@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="maketransPython maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。注：两个字符串的长度必须相同，为一一对应的关系。 Python3.4已经没有string.maketrans()了，取而代之的是内建函数:bytearray.maketrans()、bytes.make">
+    <meta name="description" content="maketrans Python maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式， 第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。 注：两个字符串的长度必须相同，为一一对应的关系。 Python3.4已经没有string.maketrans()了，取而代之的是内建函数: bytearray.maketrans()、bytes">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python数据处理的一些技巧">
 <meta property="og:url" content="http://flamepeak.com/2017/02/16/Python-str-tips-20170216/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="maketransPython maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。注：两个字符串的长度必须相同，为一一对应的关系。 Python3.4已经没有string.maketrans()了，取而代之的是内建函数:bytearray.maketrans()、bytes.make">
+<meta property="og:description" content="maketrans Python maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式， 第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。 注：两个字符串的长度必须相同，为一一对应的关系。 Python3.4已经没有string.maketrans()了，取而代之的是内建函数: bytearray.maketrans()、bytes">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-09-14T08:20:23.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python数据处理的一些技巧">
-<meta name="twitter:description" content="maketransPython maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。注：两个字符串的长度必须相同，为一一对应的关系。 Python3.4已经没有string.maketrans()了，取而代之的是内建函数:bytearray.maketrans()、bytes.make">
+<meta name="twitter:description" content="maketrans Python maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式， 第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。 注：两个字符串的长度必须相同，为一一对应的关系。 Python3.4已经没有string.maketrans()了，取而代之的是内建函数: bytearray.maketrans()、bytes">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,40 +97,47 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="maketrans"><a href="#maketrans" class="headerlink" title="maketrans"></a>maketrans</h3><p>Python maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式，<br>第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。<br>注：两个字符串的长度必须相同，为一一对应的关系。</p>
-<p>Python3.4已经没有string.maketrans()了，取而代之的是内建函数:<br><code>bytearray.maketrans()</code>、<code>bytes.maketrans()</code>、<code>str.maketrans()</code></p>
+		<h3 id="maketrans"><a class="markdownIt-Anchor" href="#maketrans"></a> maketrans</h3>
+<p>Python maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式，<br>
+第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。<br>
+注：两个字符串的长度必须相同，为一一对应的关系。</p>
+<p>Python3.4已经没有string.maketrans()了，取而代之的是内建函数:<br>
+<code>bytearray.maketrans()</code>、<code>bytes.maketrans()</code>、<code>str.maketrans()</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">intab = <span class="string">"abcd"</span>  </span><br><span class="line">outtab = <span class="string">"1234"</span>  </span><br><span class="line">str_trantab = str.maketrans(intab,outtab)  </span><br><span class="line"></span><br><span class="line">test_str = <span class="string">"csdn blog: http://blog.csdn.net/wirelessqa"</span>  </span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (test_str.translate(str_trantab))</span><br></pre></td></tr></table></figure>
-
-<h3 id="re-sub-正则替换"><a href="#re-sub-正则替换" class="headerlink" title="re.sub() 正则替换"></a>re.sub() 正则替换</h3><p>对于输入的一个字符串，利用正则表达式（的强大的字符串处理功能），去实现（相对复杂的）字符串替换处理，然后返回被替换后的字符串</p>
-<p>Python的正则替换功能强大，用法相对复杂，这里列举一下。<br><code>re.sub(pattern, repl, string, count=0, flags=0)</code></p>
+<h3 id="resub-正则替换"><a class="markdownIt-Anchor" href="#resub-正则替换"></a> re.sub() 正则替换</h3>
+<p>对于输入的一个字符串，利用正则表达式（的强大的字符串处理功能），去实现（相对复杂的）字符串替换处理，然后返回被替换后的字符串</p>
+<p>Python的正则替换功能强大，用法相对复杂，这里列举一下。<br>
+<code>re.sub(pattern, repl, string, count=0, flags=0)</code></p>
 <blockquote>
 <p>Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement <code>repl</code>. If the pattern isn’t found, <code>string</code> is returned unchanged. <code>repl</code> can be a string or a function; if it is a string, any backslash escapes in it are processed. That is, <code>\n</code> is converted to a single newline character, <code>\r</code> is converted to a carriage return, and so forth. Unknown escapes such as <code>\&amp;</code> are left alone. Backreferences, such as <code>\6</code>, are replaced with the substring matched by group 6 in the pattern.</p>
 </blockquote>
-<p>re.sub共有五个参数。<br>其中三个必选参数：<code>pattern</code>, <code>repl</code>, <code>string</code><br>两个可选参数：<code>count</code>, <code>flags</code></p>
+<p>re.sub共有五个参数。<br>
+其中三个必选参数：<code>pattern</code>, <code>repl</code>, <code>string</code><br>
+两个可选参数：<code>count</code>, <code>flags</code></p>
 <p><code>re.sub</code>是个正则表达式方面的函数，用来实现通过正则表达式，实现比普通字符串的<code>replace</code>更加强大的替换功能；</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">inputStr = <span class="string">"hello 111 world 111"</span></span><br></pre></td></tr></table></figure>
-
 <p>可以通过</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">replacedStr = inputStr.replace(<span class="string">"111"</span>, <span class="string">"222"</span>)</span><br></pre></td></tr></table></figure>
-
 <p>换成</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"hello 222 world 222"</span></span><br></pre></td></tr></table></figure>
-
 <p>但是，如果输入字符串：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">inputStr = <span class="string">"hello 123 world 456"</span></span><br></pre></td></tr></table></figure>
-
 <p>想要把123和456都替换为同样的数，通过replace就比较复杂了，然而通过正则表达式，就可以简单的实现：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">replacedStr = re.sub(<span class="string">'\d+'</span>, <span class="string">'222'</span>, inputStr)</span><br></pre></td></tr></table></figure>
-
-<p><strong>参数：pattern</strong><br>表示正则中的模式字符串<br>需要知道的是：<br>反斜杠加数字（<code>\N</code>），则对应着匹配的组（matched group）<br>比如<code>\6</code>，表示匹配前面pattern中的第6个group</p>
+<p><strong>参数：pattern</strong><br>
+表示正则中的模式字符串<br>
+需要知道的是：<br>
+反斜杠加数字（<code>\N</code>），则对应着匹配的组（matched group）<br>
+比如<code>\6</code>，表示匹配前面pattern中的第6个group</p>
 <p>比如要处理：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hello flame, nihao flame</span><br></pre></td></tr></table></figure>
-
 <p>要求把flame替换为同样的字符串peak，可以这样实现</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">inputStr = <span class="string">"hello flame, nihao flame"</span></span><br><span class="line">replacedStr = re.sub(<span class="string">r"hello (\w+), nihao \1"</span>, <span class="string">"peak"</span>, inputStr) <span class="comment">#注意不加r， 会出错，必须加r使其成为pattern</span></span><br><span class="line"><span class="keyword">print</span> (replacedStr)<span class="comment">#输出： 'peak'</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>参数：repl</strong><br>列个网站： <a href="http://pythex.org/" target="_blank" rel="noopener">pythex</a>:可以在线调试正则文本<br><a href="https://regex101.com/" target="_blank" rel="noopener">Regex101</a></p>
-<p>即replacement， 被替换的字符<br><code>repl</code>可以是字符串，也可以是函数。</p>
+<p><strong>参数：repl</strong><br>
+列个网站： <a href="http://pythex.org/" target="_blank" rel="noopener">pythex</a>:可以在线调试正则文本<br>
+<a href="https://regex101.com/" target="_blank" rel="noopener">Regex101</a></p>
+<p>即replacement， 被替换的字符<br>
+<code>repl</code>可以是字符串，也可以是函数。</p>
 <p>如果repl是字符串的话，其中的任何反斜杠转义字符，都会被处理的。即：</p>
 <ul>
 <li><code>\n</code>：会被处理为对应的换行符；</li>
@@ -141,45 +148,38 @@
 </ul>
 <p>如果想要把<code>hello flame, nihao flame</code>中的flame提取出来：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>inputStr = <span class="string">"hello flame, nihao flame"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.sub(<span class="string">r"hello (\w+), nihao \1"</span>, <span class="string">"\g&lt;1&gt;"</span>, inputStr)</span><br><span class="line"><span class="string">'flame'</span></span><br></pre></td></tr></table></figure>
-
 <p>对应的带命名的组（named group）的版本是：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>inputStr = <span class="string">"hello flame, nihao flame"</span>;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>replacedStr = re.sub(<span class="string">r"hello (?P&lt;name&gt;\w+), nihao (?P=name)"</span>, <span class="string">"\g&lt;name&gt;"</span>, inputStr);</span><br><span class="line"><span class="string">'flame'</span></span><br></pre></td></tr></table></figure>
-
 <p>看一个实际的例子</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">新闻:&lt;ahref=\&quot;http://xueqiu.com/S/SH600633\&quot;target=\&quot;_blank\&quot;&gt;$浙报传媒(SH600633)$&lt;/a&gt;下属全资子公司上海分众软件技术有限公司近日获得</span><br></pre></td></tr></table></figure>
-
 <p>这是一段文字，我们需要将中间的html链接去掉，但是需要留下其中的公司名称与代码，达到如下目的：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">新闻:浙报传媒(SH600633)下属全资子公司上海分众软件技术有限公司近日获得</span><br></pre></td></tr></table></figure>
-
 <p>这里就可以用re.sub()以及name group来实现：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>inputStr = <span class="string">'新闻:&lt;ahref=\"http://xueqiu.com/S/SH600633\"target=\"_blank\"&gt;$浙报传媒(SH600633)$&lt;/a&gt;下属全资子公司上海分众软件技术有限公司近日获得'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.sub(<span class="string">r"(&lt;ahref=.+&gt;\$)(.*)(\$&lt;/a&gt;)"</span>, <span class="string">"\g&lt;2&gt;"</span>,inputStr)</span><br><span class="line"><span class="string">'新闻:浙报传媒(SH600633)下属全资子公司上海分众软件技术有限公司近日获得'</span></span><br></pre></td></tr></table></figure>
-
 <p>就是数括号的个数啦！</p>
-<p><strong>参数：string</strong><br>要被处理的字符串</p>
-<h3 id="Python-判断变量类型时，为什么不推荐使用type-方法"><a href="#Python-判断变量类型时，为什么不推荐使用type-方法" class="headerlink" title="Python 判断变量类型时，为什么不推荐使用type()方法"></a>Python 判断变量类型时，为什么不推荐使用type()方法</h3><p><a href="https://segmentfault.com/q/1010000000127305" target="_blank" rel="noopener">为什么不推荐使用type()方法</a></p>
+<p><strong>参数：string</strong><br>
+要被处理的字符串</p>
+<h3 id="python-判断变量类型时为什么不推荐使用type方法"><a class="markdownIt-Anchor" href="#python-判断变量类型时为什么不推荐使用type方法"></a> Python 判断变量类型时，为什么不推荐使用type()方法</h3>
+<p><a href="https://segmentfault.com/q/1010000000127305" target="_blank" rel="noopener">为什么不推荐使用type()方法</a></p>
 <p>实际上还有一种方法是用<code>isinstance</code> 比如：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="number">111</span></span><br><span class="line">isinstance(a, int)</span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
-
 <p><code>isinstance</code> 和 <code>type</code> 的区别在于：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">isinstance(A(), A)  <span class="comment"># returns True</span></span><br><span class="line">type(A()) == A      <span class="comment"># returns True</span></span><br><span class="line">isinstance(B(), A)    <span class="comment"># returns True</span></span><br><span class="line">type(B()) == A        <span class="comment"># returns False</span></span><br></pre></td></tr></table></figure>
-
 <p>区别就是 对于subclass之类的 type就不行事了</p>
-<h3 id="Testing-if-a-Variable-Is-Defined"><a href="#Testing-if-a-Variable-Is-Defined" class="headerlink" title="Testing if a Variable Is Defined"></a>Testing if a Variable Is Defined</h3><p>在抓取数据的时遇到一个问题，有些时候因为未知的原因，数据未获取成功，接下来的代码会提示<code>variable used before defined</code>类似错误。<br>解决方案如下：</p>
+<h3 id="testing-if-a-variable-is-defined"><a class="markdownIt-Anchor" href="#testing-if-a-variable-is-defined"></a> Testing if a Variable Is Defined</h3>
+<p>在抓取数据的时遇到一个问题，有些时候因为未知的原因，数据未获取成功，接下来的代码会提示<code>variable used before defined</code>类似错误。<br>
+解决方案如下：</p>
 <p>In Python, all variables are expected to be defined before use. The <code>None</code> object is a value you often assign to signify that you have no real value for a variable, as in:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  x</span><br><span class="line"><span class="keyword">except</span> NameError:</span><br><span class="line">  x = <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
-
 <p>Then it’s easy to test whether a variable is bound to <code>None</code>:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> x <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">    some_fallback_operation(  )</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    some_operation(x)</span><br></pre></td></tr></table></figure>
-
 <p>Python doesn’t have a specific function to test whether a variable is defined, since all variables are expected to have been defined before use, even if initially assigned the <code>None</code> object. Attempting to access a variable that hasn’t previously been defined raises a <code>NameError</code> exception (which you can handle with a <code>try/except</code> statement, as you can for any other Python exception).</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    x</span><br><span class="line">    some_operation(x)</span><br><span class="line"><span class="keyword">except</span> NameError:</span><br><span class="line">    some_fallback_operation(  )</span><br></pre></td></tr></table></figure>
-
-<h3 id><a href="#" class="headerlink" title></a></h3><p>使用 <code>dir()</code>，<code>vars()</code> 或者 <code>inspect</code> 模块来获取你对感兴趣的内容。</p>
+<h3 id><a class="markdownIt-Anchor" href="#"></a> </h3>
+<p>使用 <code>dir()</code>，<code>vars()</code> 或者 <code>inspect</code> 模块来获取你对感兴趣的内容。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">orig_image = Image.open(<span class="string">'1.gif'</span>)</span><br><span class="line"><span class="keyword">print</span> orig_image.info</span><br><span class="line"><span class="keyword">print</span> dir(orig_image)</span><br><span class="line"><span class="keyword">print</span> vars(orig_image)</span><br><span class="line"><span class="keyword">print</span> orig_image.size</span><br></pre></td></tr></table></figure>
-
 <p>输出结果：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">'background'</span>: 53, <span class="string">'extension'</span>: (<span class="string">'NETSCAPE2.0'</span>, 411L), <span class="string">'version'</span>: <span class="string">'GIF89a'</span>, <span class="string">'transparency'</span>: 53, <span class="string">'duration'</span>: 100, <span class="string">'loop'</span>: 0&#125;</span><br><span class="line"></span><br><span class="line">[<span class="string">'_GifImageFile__fp'</span>, <span class="string">'_GifImageFile__frame'</span>, <span class="string">'_GifImageFile__offset'</span>, <span class="string">'_GifImageFile__rewind'</span>, <span class="string">'_Image__transformer'</span>, <span class="string">'__array_interface__'</span>, <span class="string">'__class__'</span>, <span class="string">'__copy__'</span>, <span class="string">'__delattr__'</span>, <span class="string">'__dict__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__enter__'</span>, <span class="string">'__eq__'</span>, <span class="string">'__exit__'</span>, <span class="string">'__format__'</span>, <span class="string">'__getattribute__'</span>, <span class="string">'__getstate__'</span>, <span class="string">'__hash__'</span>, <span class="string">'__init__'</span>, <span class="string">'__module__'</span>, <span class="string">'__ne__'</span>, <span class="string">'__new__'</span>, <span class="string">'__reduce__'</span>, <span class="string">'__reduce_ex__'</span>, <span class="string">'__repr__'</span>, <span class="string">'__setattr__'</span>, <span class="string">'__setstate__'</span>, <span class="string">'__sizeof__'</span>, <span class="string">'__str__'</span>, <span class="string">'__subclasshook__'</span>, <span class="string">'__weakref__'</span>, <span class="string">'_close_exclusive_fp_after_loading'</span>, <span class="string">'_copy'</span>, <span class="string">'_crop'</span>, <span class="string">'_dump'</span>, <span class="string">'_exclusive_fp'</span>, <span class="string">'_expand'</span>, <span class="string">'_is_animated'</span>, <span class="string">'_n_frames'</span>, <span class="string">'_new'</span>, <span class="string">'_open'</span>, <span class="string">'_prev_im'</span>, <span class="string">'_repr_png_'</span>, <span class="string">'_seek'</span>, <span class="string">'alpha_composite'</span>, <span class="string">'category'</span>, <span class="string">'close'</span>, <span class="string">'convert'</span>, <span class="string">'copy'</span>, <span class="string">'crop'</span>, <span class="string">'data'</span>, <span class="string">'decoderconfig'</span>, <span class="string">'decodermaxblock'</span>, <span class="string">'disposal_method'</span>, <span class="string">'dispose'</span>, <span class="string">'dispose_extent'</span>, <span class="string">'draft'</span>, <span class="string">'effect_spread'</span>, <span class="string">'filename'</span>, <span class="string">'filter'</span>, <span class="string">'format'</span>, <span class="string">'format_description'</span>, <span class="string">'fp'</span>, <span class="string">'frombytes'</span>, <span class="string">'fromstring'</span>, <span class="string">'getbands'</span>, <span class="string">'getbbox'</span>, <span class="string">'getcolors'</span>, <span class="string">'getdata'</span>, <span class="string">'getextrema'</span>, <span class="string">'getim'</span>, <span class="string">'getpalette'</span>, <span class="string">'getpixel'</span>, <span class="string">'getprojection'</span>, <span class="string">'global_palette'</span>, <span class="string">'height'</span>, <span class="string">'histogram'</span>, <span class="string">'im'</span>, <span class="string">'info'</span>, <span class="string">'is_animated'</span>, <span class="string">'load'</span>, <span class="string">'load_end'</span>, <span class="string">'load_prepare'</span>, <span class="string">'mode'</span>, <span class="string">'n_frames'</span>, <span class="string">'offset'</span>, <span class="string">'palette'</span>, <span class="string">'paste'</span>, <span class="string">'point'</span>, <span class="string">'putalpha'</span>, <span class="string">'putdata'</span>, <span class="string">'putpalette'</span>, <span class="string">'putpixel'</span>, <span class="string">'pyaccess'</span>, <span class="string">'quantize'</span>, <span class="string">'readonly'</span>, <span class="string">'remap_palette'</span>, <span class="string">'resize'</span>, <span class="string">'rotate'</span>, <span class="string">'save'</span>, <span class="string">'seek'</span>, <span class="string">'show'</span>, <span class="string">'size'</span>, <span class="string">'split'</span>, <span class="string">'tell'</span>, <span class="string">'thumbnail'</span>, <span class="string">'tile'</span>, <span class="string">'tobitmap'</span>, <span class="string">'tobytes'</span>, <span class="string">'toqimage'</span>, <span class="string">'toqpixmap'</span>, <span class="string">'tostring'</span>, <span class="string">'transform'</span>, <span class="string">'transpose'</span>, <span class="string">'verify'</span>, <span class="string">'width'</span>]</span><br><span class="line"></span><br><span class="line">&#123;<span class="string">'_GifImageFile__rewind'</span>: 397L, <span class="string">'_GifImageFile__fp'</span>: &lt;open file <span class="string">'1.gif'</span>, mode <span class="string">'rb'</span> at 0x0000000002ABD540&gt;, <span class="string">'dispose_extent'</span>: (0, 0, 619, 347), <span class="string">'_GifImageFile__frame'</span>: 0, <span class="string">'im'</span>: None, <span class="string">'decodermaxblock'</span>: 65536, <span class="string">'_exclusive_fp'</span>: True, <span class="string">'size'</span>: (619, 347), <span class="string">'category'</span>: 0, <span class="string">'palette'</span>: &lt;PIL.ImagePalette.ImagePalette object at 0x0000000002D94080&gt;, <span class="string">'_is_animated'</span>: None, <span class="string">'dispose'</span>: None, <span class="string">'filename'</span>: <span class="string">'1.gif'</span>, <span class="string">'readonly'</span>: 1, <span class="string">'tile'</span>: [(<span class="string">'gif'</span>, (0, 0, 619, 347), 435L, (7, False))], <span class="string">'fp'</span>: &lt;open file <span class="string">'1.gif'</span>, mode <span class="string">'rb'</span> at 0x0000000002ABD540&gt;, <span class="string">'disposal_method'</span>: 1, <span class="string">'pyaccess'</span>: None, <span class="string">'decoderconfig'</span>: (), <span class="string">'_n_frames'</span>: None, <span class="string">'info'</span>: &#123;<span class="string">'background'</span>: 53, <span class="string">'extension'</span>: (<span class="string">'NETSCAPE2.0'</span>, 411L), <span class="string">'version'</span>: <span class="string">'GIF89a'</span>, <span class="string">'transparency'</span>: 53, <span class="string">'duration'</span>: 100, <span class="string">'loop'</span>: 0&#125;, <span class="string">'_prev_im'</span>: None, <span class="string">'_GifImageFile__offset'</span>: 435L, <span class="string">'global_palette'</span>: &lt;PIL.ImagePalette.ImagePalette object at 0x0000000002D940B8&gt;, <span class="string">'mode'</span>: <span class="string">'P'</span>&#125;</span><br><span class="line"></span><br><span class="line">(619, 347)</span><br></pre></td></tr></table></figure>
-
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -242,7 +242,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#maketrans"><span class="toc-number">1.</span> <span class="toc-text">maketrans</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#re-sub-正则替换"><span class="toc-number">2.</span> <span class="toc-text">re.sub() 正则替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-判断变量类型时，为什么不推荐使用type-方法"><span class="toc-number">3.</span> <span class="toc-text">Python 判断变量类型时，为什么不推荐使用type()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Testing-if-a-Variable-Is-Defined"><span class="toc-number">4.</span> <span class="toc-text">Testing if a Variable Is Defined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">5.</span> <span class="toc-text"></span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#maketrans"><span class="toc-number">1.</span> <span class="toc-text"> maketrans</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#resub-正则替换"><span class="toc-number">2.</span> <span class="toc-text"> re.sub() 正则替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python-判断变量类型时为什么不推荐使用type方法"><span class="toc-number">3.</span> <span class="toc-text"> Python 判断变量类型时，为什么不推荐使用type()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#testing-if-a-variable-is-defined"><span class="toc-number">4.</span> <span class="toc-text"> Testing if a Variable Is Defined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">5.</span> <span class="toc-text"> </span></a></li></ol>
  
   </div>
 
@@ -332,19 +332,19 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -360,6 +360,10 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -368,15 +372,11 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
@@ -384,15 +384,15 @@
 			
 		
 			
-				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
 			
 		
 		</ul>

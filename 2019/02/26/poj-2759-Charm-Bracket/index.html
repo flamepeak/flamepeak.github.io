@@ -99,20 +99,15 @@
 		
 		<p><a href="http://bailian.openjudge.cn/practice/2759/" target="_blank" rel="noopener">2759 Charm Bracket</a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2759:神奇的口袋(2)</span><br><span class="line">查看 提交 统计 提示 提问</span><br><span class="line">总时间限制: 1000ms 内存限制: 65536kB</span><br><span class="line">描述</span><br><span class="line">有一个神奇的口袋，总的容积是400，用这个口袋可以变出一些物品，这些物品的总体积必须是400。John现在有n个想要得到的物品，每个物品的体积分别是a1，a2……an。John可以从这些物品中选择一些，如果选出的物体的总体积是400，那么利用这个神奇的口袋，John就可以得到这些物品。现在的问题是，John有多少种不同的选择物品的方式。</span><br><span class="line">输入</span><br><span class="line">输入的第一行是正整数n (1 &lt;= n &lt;= 200)，表示不同的物品的数目。接下来的n行，每行有一个1到400之间的正整数，分别给出a1，a2……an的值。</span><br><span class="line">输出</span><br><span class="line">输出不同的选择物品的方式的数目对10000取模的结果（因为结果可能很大，为了避免高精度计算，只要求对10000取模的结果）。</span><br></pre></td></tr></table></figure>
-
 <p>有几种解法：</p>
 <p>方法一：不会超时</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> nl=<span class="number">404</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">10000</span>;</span><br><span class="line"><span class="keyword">int</span> a[nl];</span><br><span class="line"><span class="keyword">int</span> f[nl];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    f[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">400</span>;j&gt;=a[i];j--)&#123;</span><br><span class="line">            f[j]+=f[j-a[i]];</span><br><span class="line">            f[j]%=mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;f[<span class="number">400</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>或者：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans[<span class="number">410</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)</span><br><span class="line">    &#123;</span><br><span class="line">        ans[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> w;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;w;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> v = <span class="number">400</span>;v&gt;=w;v--)</span><br><span class="line">            &#123;</span><br><span class="line">                ans[v] +=ans[v-w];</span><br><span class="line">                ans[v]%=<span class="number">10000</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans[<span class="number">400</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>方法二：可能超时</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> A[<span class="number">205</span>], n;</span><br><span class="line"><span class="keyword">int</span> cnt=<span class="number">0</span>, maxvol=<span class="number">40</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> vol)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(vol==maxvol)</span><br><span class="line">    &#123;</span><br><span class="line">        cnt++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(index==n+<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    dfs(index+<span class="number">1</span>,vol);</span><br><span class="line">    dfs(index+<span class="number">1</span>,vol+A[index]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;A[i];</span><br><span class="line">    dfs(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;cnt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>方法三:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">25</span>;</span><br><span class="line"><span class="keyword">int</span> n, a[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">work</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (w == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (num &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> work(num - <span class="number">1</span>, w) + work(num - <span class="number">1</span>, w - a[num]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; work(n, <span class="number">40</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -260,19 +255,19 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -288,6 +283,10 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -296,15 +295,11 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
@@ -312,15 +307,15 @@
 			
 		
 			
-				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
 			
 		
 		</ul>

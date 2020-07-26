@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="收集一下使用Python做ACM的知识点 python的排序，sort与sorted 参考：排序函数(sort()、sorted()、argsort()函数) 注意区别： 如果使用list.sort()，那么list 本身将会被修改；然而，使用sorted(L)会返回一个排序之后的序列，原序列不会被修改 .list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted 方法">
+    <meta name="description" content="收集一下使用Python做ACM的知识点  python的排序，sort与sorted 参考：排序函数(sort()、sorted()、argsort()函数) 注意区别： 如果使用list.sort()，那么list 本身将会被修改；然而，使用sorted(L)会返回一个排序之后的序列，原序列不会被修改 . list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python acm tips 20190325">
 <meta property="og:url" content="http://flamepeak.com/2019/03/25/python-acm-tips-20190325/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="收集一下使用Python做ACM的知识点 python的排序，sort与sorted 参考：排序函数(sort()、sorted()、argsort()函数) 注意区别： 如果使用list.sort()，那么list 本身将会被修改；然而，使用sorted(L)会返回一个排序之后的序列，原序列不会被修改 .list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted 方法">
+<meta property="og:description" content="收集一下使用Python做ACM的知识点  python的排序，sort与sorted 参考：排序函数(sort()、sorted()、argsort()函数) 注意区别： 如果使用list.sort()，那么list 本身将会被修改；然而，使用sorted(L)会返回一个排序之后的序列，原序列不会被修改 . list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-03-27T18:17:00.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python acm tips 20190325">
-<meta name="twitter:description" content="收集一下使用Python做ACM的知识点 python的排序，sort与sorted 参考：排序函数(sort()、sorted()、argsort()函数) 注意区别： 如果使用list.sort()，那么list 本身将会被修改；然而，使用sorted(L)会返回一个排序之后的序列，原序列不会被修改 .list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted 方法">
+<meta name="twitter:description" content="收集一下使用Python做ACM的知识点  python的排序，sort与sorted 参考：排序函数(sort()、sorted()、argsort()函数) 注意区别： 如果使用list.sort()，那么list 本身将会被修改；然而，使用sorted(L)会返回一个排序之后的序列，原序列不会被修改 . list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,14 +97,15 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="收集一下使用Python做ACM的知识点"><a href="#收集一下使用Python做ACM的知识点" class="headerlink" title="收集一下使用Python做ACM的知识点"></a>收集一下使用Python做ACM的知识点</h3><hr>
+		<h3 id="收集一下使用python做acm的知识点"><a class="markdownIt-Anchor" href="#收集一下使用python做acm的知识点"></a> 收集一下使用Python做ACM的知识点</h3>
+<hr>
 <p>python的排序，sort与sorted</p>
 <p>参考：<a href="https://www.cnblogs.com/yushuo1990/p/5880041.html" target="_blank" rel="noopener">排序函数(sort()、sorted()、argsort()函数)</a></p>
 <p>注意区别：</p>
-<p>如果使用<code>list.sort()</code>，那么list <strong>本身将会被修改</strong>；然而，使用<code>sorted(L)</code>会返回一个排序之后的序列，<strong>原序列不会被修改</strong> .<br>list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted 方法返回的是一个新的 list，而不是在原来的基础上进行的操作。</p>
+<p>如果使用<code>list.sort()</code>，那么list <strong>本身将会被修改</strong>；然而，使用<code>sorted(L)</code>会返回一个排序之后的序列，<strong>原序列不会被修改</strong> .<br>
+list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted 方法返回的是一个新的 list，而不是在原来的基础上进行的操作。</p>
 <p>如下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">L=[<span class="number">9</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> sorted(L)</span><br><span class="line"><span class="keyword">print</span> L</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> L.sort()</span><br><span class="line"><span class="keyword">print</span> L</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出结果</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">9</span>]</span><br><span class="line">[<span class="number">9</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">None</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
-
 <hr>
 <p>python字符串的逆序：</p>
 <p>参考：<a href="https://www.pythontab.com/html/2018/pythonjichu_0426/1283.html" target="_blank" rel="noopener">python对指定字符串逆序的6种方法</a></p>
@@ -112,10 +113,8 @@
 <hr>
 <p>python 以逗号分隔输出列表：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#python3</span></span><br><span class="line">a=&#123;<span class="number">1</span>:<span class="number">1</span>,<span class="number">2</span>:<span class="number">2</span>,<span class="number">3</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> a.keys():</span><br><span class="line">    print(item, end=<span class="string">','</span>)</span><br></pre></td></tr></table></figure>
-
 <p>这种写法在输出的最后有一个逗号，不符合要求，如果以空格分隔，有可能可以</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a=&#123;<span class="number">1</span>:<span class="number">1</span>,<span class="number">2</span>:<span class="number">2</span>,<span class="number">3</span>:<span class="number">3</span>&#125; </span><br><span class="line"><span class="keyword">print</span> <span class="string">','</span>.join(str(i) <span class="keyword">for</span> i <span class="keyword">in</span> sorted(a.keys()))</span><br></pre></td></tr></table></figure>
-
 <p><a href="https://www.cnblogs.com/fat39/p/7159881.html" target="_blank" rel="noopener">python基础_格式化输出（%用法和format用法）</a></p>
 <hr>
 <p><code>ord()</code>函数主要用来返回对应字符的ascii码；</p>
@@ -123,11 +122,8 @@
 <hr>
 <p>一个深搜的例子: 在C中可以用二维数组，在python中如何标记已访问位置？</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">下过象棋的人都知道，马只能走&apos;日&apos;字形（包括旋转90°的日），现在想象一下，给你一个n行m列网格棋盘，</span><br><span class="line">棋盘的左下角有一匹马，请你计算至少需要几步可以将它移动到棋盘的右上角，若无法走到，则输出-1.</span><br><span class="line">如n=1，m=2,则至少需要1步；若n=1，m=3,则输出-1。</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">vis=dict()</span><br><span class="line">dr=(<span class="number">1</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">-2</span>,<span class="number">-2</span>)</span><br><span class="line">dc=(<span class="number">2</span>,<span class="number">-2</span>,<span class="number">2</span>,<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">-1</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(r,c,step)</span>:</span></span><br><span class="line">    <span class="keyword">if</span>(r&lt;<span class="number">0</span> <span class="keyword">or</span> c&lt;<span class="number">0</span> <span class="keyword">or</span> r&gt;n <span class="keyword">or</span> c&gt;m):<span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span>(step &lt; vis.setdefault((r,c),<span class="number">9999999</span>)):</span><br><span class="line">        vis[(r,c)]=step</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">8</span>):</span><br><span class="line">            dfs(r+dr[i],c+dc[i],step+<span class="number">1</span>)</span><br><span class="line">dfs(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">print(vis.setdefault((n,m),<span class="number">-1</span>))</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python中setdefault的使用</span><br><span class="line">setdefault(key[, default])</span><br><span class="line">If key is in the dictionary, return its value. If not, insert key with a value of default and return default. default defaults to None.</span><br></pre></td></tr></table></figure>
-
 <hr>
   
 	</div>
@@ -191,7 +187,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#收集一下使用Python做ACM的知识点"><span class="toc-number">1.</span> <span class="toc-text">收集一下使用Python做ACM的知识点</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#收集一下使用python做acm的知识点"><span class="toc-number">1.</span> <span class="toc-text"> 收集一下使用Python做ACM的知识点</span></a></li></ol>
  
   </div>
 
@@ -281,19 +277,19 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -309,6 +305,10 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -317,15 +317,11 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
@@ -333,15 +329,15 @@
 			
 		
 			
-				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
 			
 		
 		</ul>

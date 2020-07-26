@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="C指针一直没有稳固的掌握，两层就开始晕，希望这次能有所突破。 从读《深入理解C指针》开始认识指针星号两边的空白符无关紧要，下面的声明是等价的： int* pi;int * pi;int *pi;int*pi;  简洁引用操作符(*)返回指针变量指向的值，一般称为解引指针。 地址操作符&amp;amp;会返回操作数的地址。 声明指向函数的指针： void (*foo)();  size_tsize_t 类">
+    <meta name="description" content="C指针一直没有稳固的掌握，两层就开始晕，希望这次能有所突破。  从读《深入理解C指针》开始  认识指针 星号两边的空白符无关紧要，下面的声明是等价的： int* pi;int * pi;int *pi;int*pi; 简洁引用操作符(*)返回指针变量指向的值，一般称为解引指针。 地址操作符&amp;amp;会返回操作数的地址。 声明指向函数的指针： void (*foo)(); size_t size_">
 <meta name="keywords" content="C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="再学C指针">
 <meta property="og:url" content="http://flamepeak.com/2018/12/27/C-pointer-learn-20181227/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="C指针一直没有稳固的掌握，两层就开始晕，希望这次能有所突破。 从读《深入理解C指针》开始认识指针星号两边的空白符无关紧要，下面的声明是等价的： int* pi;int * pi;int *pi;int*pi;  简洁引用操作符(*)返回指针变量指向的值，一般称为解引指针。 地址操作符&amp;amp;会返回操作数的地址。 声明指向函数的指针： void (*foo)();  size_tsize_t 类">
+<meta property="og:description" content="C指针一直没有稳固的掌握，两层就开始晕，希望这次能有所突破。  从读《深入理解C指针》开始  认识指针 星号两边的空白符无关紧要，下面的声明是等价的： int* pi;int * pi;int *pi;int*pi; 简洁引用操作符(*)返回指针变量指向的值，一般称为解引指针。 地址操作符&amp;amp;会返回操作数的地址。 声明指向函数的指针： void (*foo)(); size_t size_">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-12-28T06:10:59.573Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="再学C指针">
-<meta name="twitter:description" content="C指针一直没有稳固的掌握，两层就开始晕，希望这次能有所突破。 从读《深入理解C指针》开始认识指针星号两边的空白符无关紧要，下面的声明是等价的： int* pi;int * pi;int *pi;int*pi;  简洁引用操作符(*)返回指针变量指向的值，一般称为解引指针。 地址操作符&amp;amp;会返回操作数的地址。 声明指向函数的指针： void (*foo)();  size_tsize_t 类">
+<meta name="twitter:description" content="C指针一直没有稳固的掌握，两层就开始晕，希望这次能有所突破。  从读《深入理解C指针》开始  认识指针 星号两边的空白符无关紧要，下面的声明是等价的： int* pi;int * pi;int *pi;int*pi; 简洁引用操作符(*)返回指针变量指向的值，一般称为解引指针。 地址操作符&amp;amp;会返回操作数的地址。 声明指向函数的指针： void (*foo)(); size_t size_">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -99,27 +99,28 @@
 		
 		<hr>
 <p>C指针一直没有稳固的掌握，两层就开始晕，希望这次能有所突破。</p>
-<h2 id="从读《深入理解C指针》开始"><a href="#从读《深入理解C指针》开始" class="headerlink" title="从读《深入理解C指针》开始"></a>从读《深入理解C指针》开始</h2><h3 id="认识指针"><a href="#认识指针" class="headerlink" title="认识指针"></a>认识指针</h3><p>星号两边的空白符无关紧要，下面的声明是等价的：</p>
+<h2 id="从读深入理解c指针开始"><a class="markdownIt-Anchor" href="#从读深入理解c指针开始"></a> 从读《深入理解C指针》开始</h2>
+<h3 id="认识指针"><a class="markdownIt-Anchor" href="#认识指针"></a> 认识指针</h3>
+<p>星号两边的空白符无关紧要，下面的声明是等价的：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int* pi;</span><br><span class="line">int * pi;</span><br><span class="line">int *pi;</span><br><span class="line">int*pi;</span><br></pre></td></tr></table></figure>
-
 <p>简洁引用操作符(<code>*</code>)返回指针变量指向的值，一般称为解引指针。</p>
 <p>地址操作符<code>&amp;</code>会返回操作数的地址。</p>
 <p>声明指向函数的指针：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void (*foo)();</span><br></pre></td></tr></table></figure>
-
-<p><strong>size_t</strong><br><code>size_t</code> 类型标识C中任何对象所能达到的最大长度。它是无符号整数，因为付好没有意义。用来做sizeof操作符的返回值类型，同时也是很多函数的参数类型，包括malloc和strlen。</p>
+<p><strong>size_t</strong><br>
+<code>size_t</code> 类型标识C中任何对象所能达到的最大长度。它是无符号整数，因为付好没有意义。用来做sizeof操作符的返回值类型，同时也是很多函数的参数类型，包括malloc和strlen。</p>
 <p>在打印size_t类型的时候，要小心，因为它是无符号值，如果选错格式说明符，可能会得到不可靠的结果。推荐使用说明符<code>%zu</code>，或者使用<code>%u</code>和<code>%lu</code>。</p>
 <p><code>sizeof</code>操作符用来判断指针长度。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">printf(&quot;Size of *char: %d\n&quot;, sizeof(char*));</span><br><span class="line"></span><br><span class="line">Size of *char: 4</span><br></pre></td></tr></table></figure>
-
 <p><strong>指针的运算</strong></p>
 <ol>
-<li>给指针加上整数<br>给指针加上一个整数实际上加的数是这个整数和指针数据类型对应字节数的乘积。</li>
+<li>给指针加上整数<br>
+给指针加上一个整数实际上加的数是这个整数和指针数据类型对应字节数的乘积。</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int vector[] = &#123; 28, 42, 7 &#125;;</span><br><span class="line">int *pi = vector;</span><br><span class="line"></span><br><span class="line">printf(&quot;%d  %d\n&quot;, *pi, pi);</span><br><span class="line">pi += 1;</span><br><span class="line">printf(&quot;%d  %d\n&quot;, *pi, pi);</span><br><span class="line">pi += 1;</span><br><span class="line">printf(&quot;%d  %d\n&quot;, *pi, pi);</span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line">28  3537788</span><br><span class="line">42  3537792</span><br><span class="line">7  3537796</span><br></pre></td></tr></table></figure>
-
 <ol start="2">
-<li>指针相减<br>一个指针减去另一个指针会得到两个地址的差值。这个差值一般没有什么用用，但是可以用来判断数组中元素的顺序。  </li>
+<li>指针相减<br>
+一个指针减去另一个指针会得到两个地址的差值。这个差值一般没有什么用用，但是可以用来判断数组中元素的顺序。</li>
 </ol>
   
 	</div>
@@ -183,7 +184,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#从读《深入理解C指针》开始"><span class="toc-number">1.</span> <span class="toc-text">从读《深入理解C指针》开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#认识指针"><span class="toc-number">1.1.</span> <span class="toc-text">认识指针</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#从读深入理解c指针开始"><span class="toc-number">1.</span> <span class="toc-text"> 从读《深入理解C指针》开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#认识指针"><span class="toc-number">1.1.</span> <span class="toc-text"> 认识指针</span></a></li></ol></li></ol>
  
   </div>
 
@@ -273,19 +274,19 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -301,6 +302,10 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -309,15 +314,11 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
@@ -325,15 +326,15 @@
 			
 		
 			
-				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
 			
 		
 		</ul>

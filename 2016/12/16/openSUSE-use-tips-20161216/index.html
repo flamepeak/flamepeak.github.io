@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="截图、截屏工具在openSUSE 42.1版本中的截图工具为ksnapshot，但是在openSUSE 42.2中截图工具更改为spectacle。ksnapshot &amp;lt; 16.08.2 is obsoleted by (installed) spectacle-16.08.2-1.1.x86_64 安装使用SublimeText 3SublimeText提供了deb安装包和bz2的压缩包，">
+    <meta name="description" content="截图、截屏工具 在openSUSE 42.1版本中的截图工具为ksnapshot，但是在openSUSE 42.2中截图工具更改为spectacle。 ksnapshot &amp;lt; 16.08.2 is obsoleted by (installed) spectacle-16.08.2-1.1.x86_64  安装使用SublimeText 3 SublimeText提供了deb安装包和bz2">
 <meta name="keywords" content="Linux,openSUSE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="openSUSE 使用问题与解决技巧">
 <meta property="og:url" content="http://flamepeak.com/2016/12/16/openSUSE-use-tips-20161216/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="截图、截屏工具在openSUSE 42.1版本中的截图工具为ksnapshot，但是在openSUSE 42.2中截图工具更改为spectacle。ksnapshot &amp;lt; 16.08.2 is obsoleted by (installed) spectacle-16.08.2-1.1.x86_64 安装使用SublimeText 3SublimeText提供了deb安装包和bz2的压缩包，">
+<meta property="og:description" content="截图、截屏工具 在openSUSE 42.1版本中的截图工具为ksnapshot，但是在openSUSE 42.2中截图工具更改为spectacle。 ksnapshot &amp;lt; 16.08.2 is obsoleted by (installed) spectacle-16.08.2-1.1.x86_64  安装使用SublimeText 3 SublimeText提供了deb安装包和bz2">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-03-02T01:43:15.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="openSUSE 使用问题与解决技巧">
-<meta name="twitter:description" content="截图、截屏工具在openSUSE 42.1版本中的截图工具为ksnapshot，但是在openSUSE 42.2中截图工具更改为spectacle。ksnapshot &amp;lt; 16.08.2 is obsoleted by (installed) spectacle-16.08.2-1.1.x86_64 安装使用SublimeText 3SublimeText提供了deb安装包和bz2的压缩包，">
+<meta name="twitter:description" content="截图、截屏工具 在openSUSE 42.1版本中的截图工具为ksnapshot，但是在openSUSE 42.2中截图工具更改为spectacle。 ksnapshot &amp;lt; 16.08.2 is obsoleted by (installed) spectacle-16.08.2-1.1.x86_64  安装使用SublimeText 3 SublimeText提供了deb安装包和bz2">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,20 +97,22 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="截图、截屏工具"><a href="#截图、截屏工具" class="headerlink" title="截图、截屏工具"></a>截图、截屏工具</h3><p>在openSUSE 42.1版本中的截图工具为ksnapshot，但是在openSUSE 42.2中截图工具更改为spectacle。<br><code>ksnapshot &lt; 16.08.2 is obsoleted by (installed) spectacle-16.08.2-1.1.x86_64</code></p>
-<h3 id="安装使用SublimeText-3"><a href="#安装使用SublimeText-3" class="headerlink" title="安装使用SublimeText 3"></a>安装使用SublimeText 3</h3><p>SublimeText提供了deb安装包和bz2的压缩包，下面介绍压缩包的使用：<br>首先解压缩，</p>
+		<h3 id="截图-截屏工具"><a class="markdownIt-Anchor" href="#截图-截屏工具"></a> 截图、截屏工具</h3>
+<p>在openSUSE 42.1版本中的截图工具为ksnapshot，但是在openSUSE 42.2中截图工具更改为spectacle。<br>
+<code>ksnapshot &lt; 16.08.2 is obsoleted by (installed) spectacle-16.08.2-1.1.x86_64</code></p>
+<h3 id="安装使用sublimetext-3"><a class="markdownIt-Anchor" href="#安装使用sublimetext-3"></a> 安装使用SublimeText 3</h3>
+<p>SublimeText提供了deb安装包和bz2的压缩包，下面介绍压缩包的使用：<br>
+首先解压缩，</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -xvf sublime_text_3_build_3126_x64.tar.bz2</span><br></pre></td></tr></table></figure>
-
 <p>然后，将解压后的文件放到合适的位置。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv sublime_text_3  /opt</span><br></pre></td></tr></table></figure>
-
 <p>最后，我们使用命令行创建一个<em>symbolic link</em>：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ln -s /opt/sublime_text_3/sublime_text /usr/bin/sublime</span><br></pre></td></tr></table></figure>
-
-<p>这样，我们就可以在命令行中直接输入<strong>sublime</strong>即可使用。<br>如果需要加入Unity luncher,那就:</p>
+<p>这样，我们就可以在命令行中直接输入<strong>sublime</strong>即可使用。<br>
+如果需要加入Unity luncher,那就:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp /opt/sublime_text_3/sublime_text.desktop  /usr/share/applications</span><br></pre></td></tr></table></figure>
-
-<h3 id="SublimeText"><a href="#SublimeText" class="headerlink" title="SublimeText"></a>SublimeText</h3><p>Markdown highlight : Monokai Extended</p>
+<h3 id="sublimetext"><a class="markdownIt-Anchor" href="#sublimetext"></a> SublimeText</h3>
+<p>Markdown highlight : Monokai Extended</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -173,7 +175,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#截图、截屏工具"><span class="toc-number">1.</span> <span class="toc-text">截图、截屏工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装使用SublimeText-3"><span class="toc-number">2.</span> <span class="toc-text">安装使用SublimeText 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SublimeText"><span class="toc-number">3.</span> <span class="toc-text">SublimeText</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#截图-截屏工具"><span class="toc-number">1.</span> <span class="toc-text"> 截图、截屏工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装使用sublimetext-3"><span class="toc-number">2.</span> <span class="toc-text"> 安装使用SublimeText 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sublimetext"><span class="toc-number">3.</span> <span class="toc-text"> SublimeText</span></a></li></ol>
  
   </div>
 
@@ -263,19 +265,19 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -291,6 +293,10 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -299,15 +305,11 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
@@ -315,15 +317,15 @@
 			
 		
 			
-				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
 			
 		
 		</ul>

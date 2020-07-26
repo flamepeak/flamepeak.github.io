@@ -13,13 +13,13 @@
     
 
     
-    <meta name="description" content="分为两个部分：  公钥密码 混合密码系统   一、公钥密码1.密钥分发问题(key distribution problem)解决密码分发问题有以下几种方法：  通过事先共享密钥来解决 通过密钥分发中心来解决 通过Diffie-Hellman密钥交换来解决 通过公钥密码来解决  通过事先共享密钥来解决这是密钥分发中最简单的解决办法，就是事先用安全的方式将密钥交给对方。这种方式有效，但是有一定局限性">
+    <meta name="description" content="分为两个部分：  公钥密码 混合密码系统    一、公钥密码  1.密钥分发问题(key distribution problem) 解决密码分发问题有以下几种方法：  通过事先共享密钥来解决 通过密钥分发中心来解决 通过Diffie-Hellman密钥交换来解决 通过公钥密码来解决   通过事先共享密钥来解决 这是密钥分发中最简单的解决办法，就是事先用安全的方式将密钥交给对方。 这种方式有效，但">
 <meta name="keywords" content="笔记,cryptography">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图解密码技术 读书笔记:公钥密码与混合密码系统">
 <meta property="og:url" content="http://flamepeak.com/2016/11/22/tu-jie-mi-ma-ji-shu-public-key-crypto20161121/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="分为两个部分：  公钥密码 混合密码系统   一、公钥密码1.密钥分发问题(key distribution problem)解决密码分发问题有以下几种方法：  通过事先共享密钥来解决 通过密钥分发中心来解决 通过Diffie-Hellman密钥交换来解决 通过公钥密码来解决  通过事先共享密钥来解决这是密钥分发中最简单的解决办法，就是事先用安全的方式将密钥交给对方。这种方式有效，但是有一定局限性">
+<meta property="og:description" content="分为两个部分：  公钥密码 混合密码系统    一、公钥密码  1.密钥分发问题(key distribution problem) 解决密码分发问题有以下几种方法：  通过事先共享密钥来解决 通过密钥分发中心来解决 通过Diffie-Hellman密钥交换来解决 通过公钥密码来解决   通过事先共享密钥来解决 这是密钥分发中最简单的解决办法，就是事先用安全的方式将密钥交给对方。 这种方式有效，但">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20161121/RSA_man_in_middle_attack.png">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20161121/compare_sm_asm.png">
@@ -27,7 +27,7 @@
 <meta property="og:updated_time" content="2017-01-31T00:42:11.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图解密码技术 读书笔记:公钥密码与混合密码系统">
-<meta name="twitter:description" content="分为两个部分：  公钥密码 混合密码系统   一、公钥密码1.密钥分发问题(key distribution problem)解决密码分发问题有以下几种方法：  通过事先共享密钥来解决 通过密钥分发中心来解决 通过Diffie-Hellman密钥交换来解决 通过公钥密码来解决  通过事先共享密钥来解决这是密钥分发中最简单的解决办法，就是事先用安全的方式将密钥交给对方。这种方式有效，但是有一定局限性">
+<meta name="twitter:description" content="分为两个部分：  公钥密码 混合密码系统    一、公钥密码  1.密钥分发问题(key distribution problem) 解决密码分发问题有以下几种方法：  通过事先共享密钥来解决 通过密钥分发中心来解决 通过Diffie-Hellman密钥交换来解决 通过公钥密码来解决   通过事先共享密钥来解决 这是密钥分发中最简单的解决办法，就是事先用安全的方式将密钥交给对方。 这种方式有效，但">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/20161121/RSA_man_in_middle_attack.png">
 
     
@@ -107,15 +107,21 @@
 <li>混合密码系统</li>
 </ul>
 <hr>
-<h2 id="一、公钥密码"><a href="#一、公钥密码" class="headerlink" title="一、公钥密码"></a>一、公钥密码</h2><h3 id="1-密钥分发问题-key-distribution-problem"><a href="#1-密钥分发问题-key-distribution-problem" class="headerlink" title="1.密钥分发问题(key distribution problem)"></a>1.密钥分发问题(key distribution problem)</h3><p>解决密码分发问题有以下几种方法：</p>
+<h2 id="一-公钥密码"><a class="markdownIt-Anchor" href="#一-公钥密码"></a> 一、公钥密码</h2>
+<h3 id="1密钥分发问题key-distribution-problem"><a class="markdownIt-Anchor" href="#1密钥分发问题key-distribution-problem"></a> 1.密钥分发问题(key distribution problem)</h3>
+<p>解决密码分发问题有以下几种方法：</p>
 <ul>
 <li>通过事先共享密钥来解决</li>
 <li>通过密钥分发中心来解决</li>
 <li>通过Diffie-Hellman密钥交换来解决</li>
 <li>通过公钥密码来解决</li>
 </ul>
-<h4 id="通过事先共享密钥来解决"><a href="#通过事先共享密钥来解决" class="headerlink" title="通过事先共享密钥来解决"></a>通过事先共享密钥来解决</h4><p>这是密钥分发中最简单的解决办法，就是事先用安全的方式将密钥交给对方。<br>这种方式有效，但是有一定局限性。如何保证安全？如何解决密钥数量巨大的情况？</p>
-<h4 id="通过密钥分发中心来解决"><a href="#通过密钥分发中心来解决" class="headerlink" title="通过密钥分发中心来解决"></a>通过密钥分发中心来解决</h4><p>如果参加加密通信的人都事先需要共享密钥，那么数量会很大，在这样的情况下，我们可以通过使用<strong>密钥分发中心</strong>(Key Distribution Center, KDC)来解决密钥分发问题。<br>当需要进行加密通信时，密钥分配中心会生成一个通信密钥，每个人只要和密钥分发中心事先共享密钥就可以。</p>
+<h4 id="通过事先共享密钥来解决"><a class="markdownIt-Anchor" href="#通过事先共享密钥来解决"></a> 通过事先共享密钥来解决</h4>
+<p>这是密钥分发中最简单的解决办法，就是事先用安全的方式将密钥交给对方。<br>
+这种方式有效，但是有一定局限性。如何保证安全？如何解决密钥数量巨大的情况？</p>
+<h4 id="通过密钥分发中心来解决"><a class="markdownIt-Anchor" href="#通过密钥分发中心来解决"></a> 通过密钥分发中心来解决</h4>
+<p>如果参加加密通信的人都事先需要共享密钥，那么数量会很大，在这样的情况下，我们可以通过使用<strong>密钥分发中心</strong>(Key Distribution Center, KDC)来解决密钥分发问题。<br>
+当需要进行加密通信时，密钥分配中心会生成一个通信密钥，每个人只要和密钥分发中心事先共享密钥就可以。</p>
 <p>当Alice向Bob发送加密邮件时，就需要进行以下步骤：</p>
 <ol>
 <li>Alice想密钥分发中心发出希望与Bob进行通信的请求。</li>
@@ -129,52 +135,88 @@
 <li>Bob用会话密钥对来自Alice的密文进行解密。</li>
 <li>Alice和Bob删除会话密钥。</li>
 </ol>
-<p>这就是通过密钥分发中欧给你新完成Alice和Bob的通信的过程。<br>密钥分发中心尽管有效，但是也有局限性。首先，随着需求的增大，密钥分发中心的负荷也会随之增加，而且一旦密钥分发中心故障，整个系统就会瘫痪。另外，一旦入侵者攻入密钥分发中心，并盗取数据库，那么所有加密通信都会被破译。</p>
-<h4 id="通过Diffie-Hellman密钥交换来解决密钥分发问题"><a href="#通过Diffie-Hellman密钥交换来解决密钥分发问题" class="headerlink" title="通过Diffie-Hellman密钥交换来解决密钥分发问题"></a>通过Diffie-Hellman密钥交换来解决密钥分发问题</h4><p>在Diffie-Hellman密钥交换中，进行加密通信的双方需要交换信息，而这些信息即使被窃听者听到也没有问题。根据交换的信息，双方可以各自生成相同的密钥，而窃听者Eve却无法生成相同的密钥。</p>
-<h4 id="通过公钥密码来解决密钥分发问题"><a href="#通过公钥密码来解决密钥分发问题" class="headerlink" title="通过公钥密码来解决密钥分发问题"></a>通过公钥密码来解决密钥分发问题</h4><p>在对称密码中，加密密钥和解密密钥是相同的，但是公钥密码中，加密密钥和解密密钥是不同的。只要有加密密钥，任何人都可以进行加密，但只有拥有解密密钥的人才可以解密。</p>
+<p>这就是通过密钥分发中欧给你新完成Alice和Bob的通信的过程。<br>
+密钥分发中心尽管有效，但是也有局限性。首先，随着需求的增大，密钥分发中心的负荷也会随之增加，而且一旦密钥分发中心故障，整个系统就会瘫痪。另外，一旦入侵者攻入密钥分发中心，并盗取数据库，那么所有加密通信都会被破译。</p>
+<h4 id="通过diffie-hellman密钥交换来解决密钥分发问题"><a class="markdownIt-Anchor" href="#通过diffie-hellman密钥交换来解决密钥分发问题"></a> 通过Diffie-Hellman密钥交换来解决密钥分发问题</h4>
+<p>在Diffie-Hellman密钥交换中，进行加密通信的双方需要交换信息，而这些信息即使被窃听者听到也没有问题。根据交换的信息，双方可以各自生成相同的密钥，而窃听者Eve却无法生成相同的密钥。</p>
+<h4 id="通过公钥密码来解决密钥分发问题"><a class="markdownIt-Anchor" href="#通过公钥密码来解决密钥分发问题"></a> 通过公钥密码来解决密钥分发问题</h4>
+<p>在对称密码中，加密密钥和解密密钥是相同的，但是公钥密码中，加密密钥和解密密钥是不同的。只要有加密密钥，任何人都可以进行加密，但只有拥有解密密钥的人才可以解密。</p>
 <hr>
-<h3 id="2-公钥密码-public-key-cryptography"><a href="#2-公钥密码-public-key-cryptography" class="headerlink" title="2. 公钥密码(public-key cryptography)"></a>2. 公钥密码(public-key cryptography)</h3><p>又称为<strong>非对称密码</strong>（asymmetric cryptography）<br>公钥(public key)<br>私钥(private key)：有时被称为私人密钥、私有密钥、非公开密钥、秘密密钥(secret key)</p>
+<h3 id="2-公钥密码public-key-cryptography"><a class="markdownIt-Anchor" href="#2-公钥密码public-key-cryptography"></a> 2. 公钥密码(public-key cryptography)</h3>
+<p>又称为<strong>非对称密码</strong>（asymmetric cryptography）<br>
+公钥(public key)<br>
+私钥(private key)：有时被称为私人密钥、私有密钥、非公开密钥、秘密密钥(secret key)</p>
 <p>公钥和私钥是一一对应的，一对公私钥统称为(key pair)。</p>
 <p>英国电子通信安全局(Communications Electronics Security Group):是GCHQ旗下的信息安全部门，它主要负责英国境内的信息安全保障。其于1973年设计出了与RSA类似的密码，早于RSA。</p>
 <p>公钥密码问题：</p>
 <ol>
-<li>公钥密码解决了密钥分发的问题，但是这并不意味着他能解决所有问题，因为我们需要判断所得到的公钥是否正确合法，这个问题被称为<em>公钥认证**</em>问题。</li>
+<li>公钥密码解决了密钥分发的问题，但是这并不意味着他能解决所有问题，因为我们需要判断所得到的公钥是否正确合法，这个问题被称为<em>公钥认证</em>**问题。</li>
 <li>公钥密码的速度只有对称密码的几百分之一。</li>
 </ol>
 <hr>
-<h3 id="3-RSA"><a href="#3-RSA" class="headerlink" title="3. RSA"></a>3. RSA</h3><p>详细描述可以参考：<br><a href="http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html" target="_blank" rel="noopener">阮一峰博客：RSA算法原理一</a><br><a href="http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html" target="_blank" rel="noopener">阮一峰博客：RSA算法原理二</a><br>RSA是一种公钥密码算法，可以被用于公钥密码和数字签名。<br>在RSA中，明文、密钥和密文都是数字。RSA的加密是求<strong>明文的E次方mod N</strong>，因此只要知道E和N这两个数，任何人都可以完成加密运算，E和N的组合就是公钥。一般写为”公钥（E, N）”或者”公钥{E，N}”</p>
-<p>RSA的解密：对密文进行D次方mod N就可以得到明文，D和N的组合就是私钥。<br>密钥生成步骤：</p>
+<h3 id="3-rsa"><a class="markdownIt-Anchor" href="#3-rsa"></a> 3. RSA</h3>
+<p>详细描述可以参考：<br>
+<a href="http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html" target="_blank" rel="noopener">阮一峰博客：RSA算法原理一</a><br>
+<a href="http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html" target="_blank" rel="noopener">阮一峰博客：RSA算法原理二</a><br>
+RSA是一种公钥密码算法，可以被用于公钥密码和数字签名。<br>
+在RSA中，明文、密钥和密文都是数字。RSA的加密是求<strong>明文的E次方mod N</strong>，因此只要知道E和N这两个数，任何人都可以完成加密运算，E和N的组合就是公钥。一般写为&quot;公钥（E, N）“或者&quot;公钥{E，N}”</p>
+<p>RSA的解密：对密文进行D次方mod N就可以得到明文，D和N的组合就是私钥。<br>
+密钥生成步骤：</p>
 <ol>
 <li>随机选择两个不相等的质数p和q;</li>
 <li>计算p和q的乘积n;</li>
-<li>计算欧拉函数φ(n);<br><code>φ(n)=(p-1)(q-1)</code></li>
+<li>计算欧拉函数φ(n);<br>
+<code>φ(n)=(p-1)(q-1)</code></li>
 <li>随机选择一个整数e，条件是<code>1&lt;e&lt;φ(n)</code>,且e与φ(n)互质;</li>
 <li>计算e对于φ(n)的模反元素d;</li>
 <li>那么公钥就是(n,e),私钥就是(n,d);</li>
 </ol>
 <blockquote>
-<p>模反元素<br>如果两个正整数a和n互质，那么一定可以找到整数b，使得<code>ab-1</code>被n整除，或者说ab被n整除的余数是1。这时，b就叫做a对于n的模反元素。</p>
+<p>模反元素<br>
+如果两个正整数a和n互质，那么一定可以找到整数b，使得<code>ab-1</code>被n整除，或者说ab被n整除的余数是1。这时，b就叫做a对于n的模反元素。</p>
 </blockquote>
 <p>在RSA中：</p>
 <blockquote>
-<p>计算e对于φ(n)的模反元素d，模反元素就是指有一个整数d，可以使得ed被φ(n)除的余数为1.<br><code>ed ≡ 1 (mod φ(n))</code><br>这个式子等价于：<br><code>ed - 1 = kφ(n)</code><br>于是，找到模反元素d，实质上就是对下面这个二元一次方程求解。<br><code>ex + φ(n)y = 1</code>, 已知e和φ(n)<br>这个方程可以用扩展欧几里德算法求解。</p>
+<p>计算e对于φ(n)的模反元素d，模反元素就是指有一个整数d，可以使得ed被φ(n)除的余数为1.<br>
+<code>ed ≡ 1 (mod φ(n))</code><br>
+这个式子等价于：<br>
+<code>ed - 1 = kφ(n)</code><br>
+于是，找到模反元素d，实质上就是对下面这个二元一次方程求解。<br>
+<code>ex + φ(n)y = 1</code>, 已知e和φ(n)<br>
+这个方程可以用扩展欧几里德算法求解。</p>
 </blockquote>
 <p>注意：<strong>质数p和q不能被密码破译者知道</strong>，把p和q交给密码破译者与私钥交给破译者是等价的。</p>
-<p>有效的攻击方法：中间人攻击<br><img src="/sourcepictures/20161121/RSA_man_in_middle_attack.png" alt="RSA中间人攻击"><br>存在问题：<br>只要对N进行质因数分解并求出p和q，就能求出D。<br>但是至于“求D”与“对N进行质因数分解”是否等价，这个问题没有得到数学方法的证明。也就是说可能存在不需要对N进行质因数分解也可以由E和N求出D的方法，虽然现在还没有出现这种方法。</p>
-<h3 id="4-其它公钥密码"><a href="#4-其它公钥密码" class="headerlink" title="4. 其它公钥密码"></a>4. 其它公钥密码</h3><h4 id="ElGamal方式"><a href="#ElGamal方式" class="headerlink" title="ElGamal方式"></a>ElGamal方式</h4><p>ElGamal方式是由Taher ElGamal设计的公钥算法。RSA利用了质因数分解的困难度，而ElGamal方式则利用了mod N下求离散对数的困难度。<br>ElGamal方式有一个缺点，就是经过加密的密文长度会变为明文长度的两倍。密码软件GnuPG中就支持这种方式。</p>
-<h4 id="Rabin方式"><a href="#Rabin方式" class="headerlink" title="Rabin方式"></a>Rabin方式</h4><p>Rabin方式是由M.O.Rabin设计的公钥算法。Rabin方式利用了mod N下求平方根的困难度。破译Rabin公钥密码的困难度与质因数分解则是相当的，这一点已经被证明。</p>
-<h4 id="椭圆曲线密码ECC"><a href="#椭圆曲线密码ECC" class="headerlink" title="椭圆曲线密码ECC"></a>椭圆曲线密码ECC</h4><p>椭圆曲线密码(Elliptic Curve Cryptosystem, ECC)是一种备受关注的公钥密码算法。它的特点是所需的密钥长度比RSA短。<br>椭圆曲线密码是通过将椭圆曲线上的特定点进行特殊的乘法运算实现的，它利用了这种乘法运算的逆运算非常困难这一特性。</p>
-<h4 id="公钥密码与对称密码比较"><a href="#公钥密码与对称密码比较" class="headerlink" title="公钥密码与对称密码比较"></a>公钥密码与对称密码比较</h4><p>公钥密码与对称密码抵御暴力破解的密钥长度对比<br><img src="/sourcepictures/20161121/compare_sm_asm.png" alt="公钥密码与对称密码抵御暴力破解的密钥长度对比"></p>
-<p>质数会不会被用光？<br>不会。512比特能容纳的质数数量大约为10的150次方，这个数量比整个宇宙中原子的数量还要多。</p>
+<p>有效的攻击方法：中间人攻击<br>
+<img src="/sourcepictures/20161121/RSA_man_in_middle_attack.png" alt="RSA中间人攻击"><br>
+存在问题：<br>
+只要对N进行质因数分解并求出p和q，就能求出D。<br>
+但是至于“求D”与“对N进行质因数分解”是否等价，这个问题没有得到数学方法的证明。也就是说可能存在不需要对N进行质因数分解也可以由E和N求出D的方法，虽然现在还没有出现这种方法。</p>
+<h3 id="4-其它公钥密码"><a class="markdownIt-Anchor" href="#4-其它公钥密码"></a> 4. 其它公钥密码</h3>
+<h4 id="elgamal方式"><a class="markdownIt-Anchor" href="#elgamal方式"></a> ElGamal方式</h4>
+<p>ElGamal方式是由Taher ElGamal设计的公钥算法。RSA利用了质因数分解的困难度，而ElGamal方式则利用了mod N下求离散对数的困难度。<br>
+ElGamal方式有一个缺点，就是经过加密的密文长度会变为明文长度的两倍。密码软件GnuPG中就支持这种方式。</p>
+<h4 id="rabin方式"><a class="markdownIt-Anchor" href="#rabin方式"></a> Rabin方式</h4>
+<p>Rabin方式是由M.O.Rabin设计的公钥算法。Rabin方式利用了mod N下求平方根的困难度。破译Rabin公钥密码的困难度与质因数分解则是相当的，这一点已经被证明。</p>
+<h4 id="椭圆曲线密码ecc"><a class="markdownIt-Anchor" href="#椭圆曲线密码ecc"></a> 椭圆曲线密码ECC</h4>
+<p>椭圆曲线密码(Elliptic Curve Cryptosystem, ECC)是一种备受关注的公钥密码算法。它的特点是所需的密钥长度比RSA短。<br>
+椭圆曲线密码是通过将椭圆曲线上的特定点进行特殊的乘法运算实现的，它利用了这种乘法运算的逆运算非常困难这一特性。</p>
+<h4 id="公钥密码与对称密码比较"><a class="markdownIt-Anchor" href="#公钥密码与对称密码比较"></a> 公钥密码与对称密码比较</h4>
+<p>公钥密码与对称密码抵御暴力破解的密钥长度对比<br>
+<img src="/sourcepictures/20161121/compare_sm_asm.png" alt="公钥密码与对称密码抵御暴力破解的密钥长度对比"></p>
+<p>质数会不会被用光？<br>
+不会。512比特能容纳的质数数量大约为10的150次方，这个数量比整个宇宙中原子的数量还要多。</p>
 <hr>
-<h2 id="二、混合密码系统"><a href="#二、混合密码系统" class="headerlink" title="二、混合密码系统"></a>二、混合密码系统</h2><p>基本思想：用对称密码提高加解密速度，用公钥密码保护会话密钥<br>机制如下:</p>
+<h2 id="二-混合密码系统"><a class="markdownIt-Anchor" href="#二-混合密码系统"></a> 二、混合密码系统</h2>
+<p>基本思想：用对称密码提高加解密速度，用公钥密码保护会话密钥<br>
+机制如下:</p>
 <ul>
 <li>用对称密码加密消息</li>
 <li>通过伪随机数生成器生成对称密码加密中使用的会话密钥</li>
 <li>用公钥密码加密会话密钥</li>
 <li>从混合密码系统外部赋予公钥密码加密时使用的密钥</li>
 </ul>
-<p>混合密码系统加密：<br><img src="/sourcepictures/20161121/hybrid_encrypt.png" alt="混合密码系统加密"></p>
+<p>混合密码系统加密：<br>
+<img src="/sourcepictures/20161121/hybrid_encrypt.png" alt="混合密码系统加密"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -237,7 +279,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、公钥密码"><span class="toc-number">1.</span> <span class="toc-text">一、公钥密码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-密钥分发问题-key-distribution-problem"><span class="toc-number">1.1.</span> <span class="toc-text">1.密钥分发问题(key distribution problem)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#通过事先共享密钥来解决"><span class="toc-number">1.1.1.</span> <span class="toc-text">通过事先共享密钥来解决</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过密钥分发中心来解决"><span class="toc-number">1.1.2.</span> <span class="toc-text">通过密钥分发中心来解决</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过Diffie-Hellman密钥交换来解决密钥分发问题"><span class="toc-number">1.1.3.</span> <span class="toc-text">通过Diffie-Hellman密钥交换来解决密钥分发问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过公钥密码来解决密钥分发问题"><span class="toc-number">1.1.4.</span> <span class="toc-text">通过公钥密码来解决密钥分发问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-公钥密码-public-key-cryptography"><span class="toc-number">1.2.</span> <span class="toc-text">2. 公钥密码(public-key cryptography)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-RSA"><span class="toc-number">1.3.</span> <span class="toc-text">3. RSA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-其它公钥密码"><span class="toc-number">1.4.</span> <span class="toc-text">4. 其它公钥密码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ElGamal方式"><span class="toc-number">1.4.1.</span> <span class="toc-text">ElGamal方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Rabin方式"><span class="toc-number">1.4.2.</span> <span class="toc-text">Rabin方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#椭圆曲线密码ECC"><span class="toc-number">1.4.3.</span> <span class="toc-text">椭圆曲线密码ECC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#公钥密码与对称密码比较"><span class="toc-number">1.4.4.</span> <span class="toc-text">公钥密码与对称密码比较</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、混合密码系统"><span class="toc-number">2.</span> <span class="toc-text">二、混合密码系统</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-公钥密码"><span class="toc-number">1.</span> <span class="toc-text"> 一、公钥密码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1密钥分发问题key-distribution-problem"><span class="toc-number">1.1.</span> <span class="toc-text"> 1.密钥分发问题(key distribution problem)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#通过事先共享密钥来解决"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 通过事先共享密钥来解决</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过密钥分发中心来解决"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 通过密钥分发中心来解决</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过diffie-hellman密钥交换来解决密钥分发问题"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 通过Diffie-Hellman密钥交换来解决密钥分发问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过公钥密码来解决密钥分发问题"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 通过公钥密码来解决密钥分发问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-公钥密码public-key-cryptography"><span class="toc-number">1.2.</span> <span class="toc-text"> 2. 公钥密码(public-key cryptography)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-rsa"><span class="toc-number">1.3.</span> <span class="toc-text"> 3. RSA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-其它公钥密码"><span class="toc-number">1.4.</span> <span class="toc-text"> 4. 其它公钥密码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#elgamal方式"><span class="toc-number">1.4.1.</span> <span class="toc-text"> ElGamal方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rabin方式"><span class="toc-number">1.4.2.</span> <span class="toc-text"> Rabin方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#椭圆曲线密码ecc"><span class="toc-number">1.4.3.</span> <span class="toc-text"> 椭圆曲线密码ECC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#公钥密码与对称密码比较"><span class="toc-number">1.4.4.</span> <span class="toc-text"> 公钥密码与对称密码比较</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-混合密码系统"><span class="toc-number">2.</span> <span class="toc-text"> 二、混合密码系统</span></a></li></ol>
  
   </div>
 
@@ -327,19 +369,19 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -355,6 +397,10 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -363,15 +409,11 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
@@ -379,15 +421,15 @@
 			
 		
 			
-				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
 			
 		
 		</ul>

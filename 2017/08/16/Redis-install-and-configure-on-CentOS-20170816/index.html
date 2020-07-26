@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="重要参考：Install and Configure Redis on CentOS 7 Redis 命令参考 Install Redis Add the EPEL repository, and update YUM to confirm your change:  sudo yum install epel-releasesudo yum update   Install Redis:sudo">
+    <meta name="description" content="重要参考：Install and Configure Redis on CentOS 7 Redis 命令参考  Install Redis  Add the EPEL repository, and update YUM to confirm your change:  sudo yum install epel-releasesudo yum update   Install Redis: s">
 <meta name="keywords" content="Linux,Redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis 在CentOS上的安装与配置">
 <meta property="og:url" content="http://flamepeak.com/2017/08/16/Redis-install-and-configure-on-CentOS-20170816/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="重要参考：Install and Configure Redis on CentOS 7 Redis 命令参考 Install Redis Add the EPEL repository, and update YUM to confirm your change:  sudo yum install epel-releasesudo yum update   Install Redis:sudo">
+<meta property="og:description" content="重要参考：Install and Configure Redis on CentOS 7 Redis 命令参考  Install Redis  Add the EPEL repository, and update YUM to confirm your change:  sudo yum install epel-releasesudo yum update   Install Redis: s">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-09-13T13:02:24.780Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis 在CentOS上的安装与配置">
-<meta name="twitter:description" content="重要参考：Install and Configure Redis on CentOS 7 Redis 命令参考 Install Redis Add the EPEL repository, and update YUM to confirm your change:  sudo yum install epel-releasesudo yum update   Install Redis:sudo">
+<meta name="twitter:description" content="重要参考：Install and Configure Redis on CentOS 7 Redis 命令参考  Install Redis  Add the EPEL repository, and update YUM to confirm your change:  sudo yum install epel-releasesudo yum update   Install Redis: s">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -99,29 +99,45 @@
 		
 		<p>重要参考：<a href="https://www.linode.com/docs/databases/redis/install-and-configure-redis-on-centos-7" target="_blank" rel="noopener">Install and Configure Redis on CentOS 7</a></p>
 <p><a href="http://redisdoc.com/index.html" target="_blank" rel="noopener">Redis 命令参考</a></p>
-<h3 id="Install-Redis"><a href="#Install-Redis" class="headerlink" title="Install Redis"></a>Install Redis</h3><ol>
+<h3 id="install-redis"><a class="markdownIt-Anchor" href="#install-redis"></a> Install Redis</h3>
+<ol>
 <li>Add the EPEL repository, and update YUM to confirm your change:</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum install epel-release</span><br><span class="line">sudo yum update</span><br></pre></td></tr></table></figure>
-
 <ol start="2">
-<li><p>Install Redis:<br><code>sudo yum install redis</code></p>
+<li>
+<p>Install Redis:<br>
+<code>sudo yum install redis</code></p>
 </li>
-<li><p>Start Redis:<br><code>sudo systemctl start redis</code></p>
+<li>
+<p>Start Redis:<br>
+<code>sudo systemctl start redis</code></p>
 </li>
 </ol>
-<p><strong>Optional</strong>: To automatically start Redis on boot:<br><code>sudo systemctl enable redis</code></p>
+<p><strong>Optional</strong>: To automatically start Redis on boot:<br>
+<code>sudo systemctl enable redis</code></p>
 <p>在CentOS 6.5 中是没有 systemctl 命令的，可以通过chkconfig 和 service来实现。可以参考： <a href="http://www.cnblogs.com/shineqiujuan/p/4706028.html" target="_blank" rel="noopener">Linux中设置服务自启动的三种方式</a></p>
-<p><strong>具体如下：</strong><br>如果需要自启动某些服务，只需使用<code>chkconfig 服务名 on</code>即可，若想关闭，将on改为off</p>
-<p><code>--list</code>选项可查看指定服务的启动状态，chkconfig不带任何选项则查看所有服务状态<br><code>chkconfig --list sshd</code><br><code>chkconfig --list</code></p>
-<p>如果想手动启动某服务，传统的方式是 <code>/etc/init.d 服务名 start</code><br>还可以这样，<code>service 服务名 start</code><br>对于redis： <code>service redis start</code></p>
+<p><strong>具体如下：</strong><br>
+如果需要自启动某些服务，只需使用<code>chkconfig 服务名 on</code>即可，若想关闭，将on改为off</p>
+<p><code>--list</code>选项可查看指定服务的启动状态，chkconfig不带任何选项则查看所有服务状态<br>
+<code>chkconfig --list sshd</code><br>
+<code>chkconfig --list</code></p>
+<p>如果想手动启动某服务，传统的方式是 <code>/etc/init.d 服务名 start</code><br>
+还可以这样，<code>service 服务名 start</code><br>
+对于redis： <code>service redis start</code></p>
 <hr>
-<h3 id="Verify-the-Installation"><a href="#Verify-the-Installation" class="headerlink" title="Verify the Installation"></a>Verify the Installation</h3><p>Verify that Redis is running with <code>redis-cli</code>:<br><code>redis-cli ping</code></p>
-<p>If Redis is running, it will return:<br><code>PONG</code></p>
+<h3 id="verify-the-installation"><a class="markdownIt-Anchor" href="#verify-the-installation"></a> Verify the Installation</h3>
+<p>Verify that Redis is running with <code>redis-cli</code>:<br>
+<code>redis-cli ping</code></p>
+<p>If Redis is running, it will return:<br>
+<code>PONG</code></p>
 <hr>
-<h3 id="Configure-Redis"><a href="#Configure-Redis" class="headerlink" title="Configure Redis"></a>Configure Redis</h3><p><a href="https://www.linode.com/docs/databases/redis/install-and-configure-redis-on-centos-7" target="_blank" rel="noopener">Install and Configure Redis on CentOS 7</a></p>
+<h3 id="configure-redis"><a class="markdownIt-Anchor" href="#configure-redis"></a> Configure Redis</h3>
+<p><a href="https://www.linode.com/docs/databases/redis/install-and-configure-redis-on-centos-7" target="_blank" rel="noopener">Install and Configure Redis on CentOS 7</a></p>
 <p>上面这篇文章非常好，关于配置请前往阅读。</p>
-<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><p>查看所有key： <code>keys *</code><br>删除key: <code>del key_name</code></p>
+<h3 id="usage"><a class="markdownIt-Anchor" href="#usage"></a> Usage</h3>
+<p>查看所有key： <code>keys *</code><br>
+删除key: <code>del key_name</code></p>
 <p>区分大小写</p>
   
 	</div>
@@ -185,7 +201,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-Redis"><span class="toc-number">1.</span> <span class="toc-text">Install Redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Verify-the-Installation"><span class="toc-number">2.</span> <span class="toc-text">Verify the Installation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure-Redis"><span class="toc-number">3.</span> <span class="toc-text">Configure Redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Usage"><span class="toc-number">4.</span> <span class="toc-text">Usage</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#install-redis"><span class="toc-number">1.</span> <span class="toc-text"> Install Redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#verify-the-installation"><span class="toc-number">2.</span> <span class="toc-text"> Verify the Installation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#configure-redis"><span class="toc-number">3.</span> <span class="toc-text"> Configure Redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usage"><span class="toc-number">4.</span> <span class="toc-text"> Usage</span></a></li></ol>
  
   </div>
 
@@ -275,19 +291,19 @@
 			
 		
 			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -303,6 +319,10 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -311,15 +331,11 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
@@ -327,15 +343,15 @@
 			
 		
 			
-				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
 			
 		
 		</ul>
