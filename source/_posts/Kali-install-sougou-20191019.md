@@ -1,5 +1,5 @@
 ---
-title: Kali install google-pinyin input
+title: Linux install google-pinyin 中文输入法
 date: 2019-10-19 16:21:49
 tags: [Linux, Kali]
 categories: [Linux]
@@ -120,4 +120,24 @@ apt-get install ttf-wqy-microhei
 ```
 
 在终端中使用`kali-undercover`可以在两个主题之间切换，一个win10既视感。
+
+
+
+## CentOS 7
+
+
+```
+Applications -- System Tools -- Setting -- Regin & Language
+
+点击左下角的 “+”号, 找到Chinese(China) 或者其它Chinese(..)
+
+看到一个Chinese(Intelligent Pinyin)
+
+选中，设置
+
+看看屏幕右上角，是否多了一个中文选项
+
+切换：shift
+```
+
 

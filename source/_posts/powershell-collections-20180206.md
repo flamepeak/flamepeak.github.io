@@ -41,6 +41,10 @@ categories: [Network Security]
 
 powershell脚本的执行策略有：`<Unrestricted> | <RemoteSigned> | <AllSigned> | <Restricted> | <Default> | <Bypass> | <Undefined>`
 
+```powershell
+set-executionpolicy unrestricted
+```
+
 关于没有系统管理员权限的情况下如何绕过：  
 [哪些方法可以绕过PowerShell Execution Policy？](https://blog.csdn.net/qq_27446553/article/details/50577296)
 
@@ -57,4 +61,7 @@ powershell脚本的执行策略有：`<Unrestricted> | <RemoteSigned> | <AllSign
 结果过滤：  
 `Get-WmiObject -class Win32_Product | Select-Object -Property name`
 
+
+
+2. 
 

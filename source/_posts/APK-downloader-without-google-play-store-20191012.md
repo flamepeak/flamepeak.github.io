@@ -5,6 +5,8 @@ tags: [Tools]
 categories: [Android]
 ---
 
+### 正常的网站
+
 已经被墙的：
 
 [APKpure](https://apkpure.com/)
@@ -34,4 +36,15 @@ categories: [Android]
 
 [SoftPedia APK](https://mobile.softpedia.com/apk/)
 
+
+
+### 在线生成
+
+1. https://apk.support/apk-downloader
+
+   这个网站直接从play store下载apk，可以选择型号和版本
+
+   We are committed and support to downloading apk are original, safe, and not modified. Directly from Android App Store
+
+2. 
 

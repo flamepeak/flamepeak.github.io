@@ -165,7 +165,28 @@ You will also want to disable the local configuration interface in order to prot
 注意： polipo配置文件的路径要注意，如果没有把握的话就在运行polipo的时候加上 `-c`参数，例如：`polipo -c /opt/polipo/config`,这是我走过的坑
 
 
+
+打开防火墙
+
+```Bash
+firewall-cmd --permanent --add-port=8123/tcp
+firewall-cmd --reload
+```
+
+
+运行测试：
+```
+polipo
+curl --proxy localhost:8123 ifconfig.me
+```
+
+
+
+
+
 **以下设置对于CentOS 7 可行**
+
+参考：https://github.com/tsgates/arch-wiki-markdown/blob/master/wiki/Polipo.md
 
 新建启动脚本
 
@@ -195,12 +216,7 @@ WantedBy=multi-user.target
 ```
 
 
-打开防火墙
 
-```Bash
-firewall-cmd --permanent --add-port=8123/tcp
-firewall-cmd --reload
-```
 
 尝试启动服务
 
@@ -211,3 +227,15 @@ systemctl start polipo
 测试现在的ip地址：
 
 `curl --proxy localhost:8123 ifconfig.me`
+
+
+### 503 504 错误
+
+如果遇到503, Socks5 connection refused.
+这种情况下，可能不是polipo或Privoxy的原因，可能是tor配置的错误。
+
+你需要修改`/etc/tor/torrc`
+
+```
+SocksPolicy accept 127.0.0.1/32
+```

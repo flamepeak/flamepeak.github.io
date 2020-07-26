@@ -39,14 +39,16 @@ categories: [Linux]
    #!/bin/sh
    #java -jar burp-loader-keygen-2_1_07.jar
    java -noverify -Xbootclasspath/p:/usr/bin/burp-loader-keygen-2_1_07.jar -jar /usr/bin/burpsuite_pro_v2.1.07.jar
-
+   
    ```
 
-   此处，调试很长时间都不行，个人认为和burp的破解版本有关系，也就是`burp_loader.jar`或者`burp_helper.jar`，在一些版本中上面方法可行，但是有些版本又不行。  
+   此处，调试很长时间都不行，个人认为和burp的破解版本有关系，也就是`burp_loader.jar`或者`burp_helper.jar`，在一些版本中上面方法可行，但是有些版本又不行。  多尝试几个版本
 
    ```bash
-   #!/bin/sh
-   java -jar /usr/bin/burp-loader-keygen-2_1_05.jar
+   1. 将burp-loader-keygen-2_1_07.jar和burpsuite_pro_v2.1.07.jar放入/usr/bin目录
+   2. bash界面，进入/usr/bin目录cd /usr/bin；运行：java -jar /usr/bin/burp-loader-keygen-2_1_05.jar
+   3. 正常情况下会进入破解的流程，如果无法启动主程序，那么需要更换其它help.jar 和loader.jar尝试；
+   4. 破解成功之后，如果需要运行burp,直接在bash中输入burpsuite即可
    ```
 
    
@@ -65,3 +67,4 @@ categories: [Linux]
    此处，本人修改为`Exec=sh -c "cd /usr/bin; /usr/bin/burpsuite"`
 
 8. 然后就可以点桌面的快捷方式运行，开始快乐的使用吧！
+
