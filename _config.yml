@@ -96,7 +96,7 @@ plugins: hexo-generator-feed
 mathjax: true
 
 #pandoc
-#pandoc:
-#  filters:
-#  extra:
-#  meta:
+pandoc:
+  filters:
+  extra:
+  meta:

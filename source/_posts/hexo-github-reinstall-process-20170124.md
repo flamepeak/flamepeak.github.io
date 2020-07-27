@@ -30,8 +30,13 @@ npm install hexo --save
 
 ```bash
 npm install hexo-deployer-git --save
-npm install hexo-renderer-pandoc --save
 npm install hexo-renderer-marked --save
+npm install hexo-renderer-pandoc --save
+
+
+如果出问题的话，可以尝试更换渲染工具为 hexo-renderer-pandoc：
+npm uninstall hexo-renderer-marked --save
+npm install hexo-renderer-pandoc --save
 ```
 
 注意：如果要使用pandoc, 主机上要安装pandoc，官网: [Pandoc](http://www.pandoc.org/)

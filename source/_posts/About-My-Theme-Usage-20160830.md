@@ -101,6 +101,7 @@ Debugging tips: use 'mathjax27/MathJax.js', inspect 'MathJax.Hub.lastError' in t
 
 #### 使用Staticfile CDN加速Latex公式渲染
 参考：[使用Staticfile CDN加速Latex公式渲染](https://metaquant.org/shi-yong-staticfile-cdnjia-su-latexgong-shi-xuan-ran.html)
+
 多亏了Mathjax与Markdown,我们现在可以在markdwon文件中标记出latex代码，然后mathjax脚本可以正确的渲染这些代码，从而显示出清晰美观的公式。这比传统的插入公式图片等方式要更加便利，显示效果也更加优秀。
 
 引入Mathjax脚本最简单的方式是直接使用Mathjax提供的CDN,可以用以下脚本实现：

@@ -3,6 +3,7 @@ title: Hexo 主题测试
 date: 2017-01-24 15:09:04
 tags: [Hexo]
 categories: [Web前端]
+mathjax: true
 ---
 
 # Heading 1
@@ -71,3 +72,35 @@ alert('Hello World!');
 **Bold**
 
 *italic*
+
+
+
+
+
+## Pandoc公式测试
+
+在含有公式的文章里开头设置`mathjax: true`
+
+首先，插入一个行内公式，需要使用`$...$`来实现：$x^2+y^2=z^2$
+插入单独一行的公式，需要使用`$$...$$`的方式来实现，如：
+$$
+\theta_i = \theta_i - \alpha\frac\partial{\partial\theta_i}J(\theta)
+$$
+
+
+**行内公式**
+
+霍夫曼树又称最优二叉树，是一种带权路径长度最短的二叉树。所谓树的带权路径长度，就是树中所有的叶结点的权值乘上其到根结点的路径长度（若根结点为0层，叶结点到根结点的路径长度为叶结点的层数）。树的路径长度是从树根到每一结点的路径长度之和，记为 $WPL=（W_1*L_1+W_2*L_2+W_3*L_3+...+W_n*L_n）$，$N$个权值$W_i$（$i=1,2,...n$）构成一棵有$N$个叶结点的二叉树，相应的叶结点的路径长度为$L_i$（$i=1,2,...n$）。可以证明霍夫曼树的WPL是最小的。
+
+class $i$ given an input $x$ is ，测试$x$
+
+
+
+**行间公式**
+$$
+\text{softmax}(x)_i = \frac{\exp(x_i)}{\sum_j \exp(x_j)}
+$$
+
+
+
+
