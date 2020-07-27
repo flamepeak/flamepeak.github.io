@@ -13,13 +13,13 @@
     
 
     
-    <meta name="description" content="PGP（Pretty Good Privacy）——密码技术的完美组合  PGP简介  什么是PGP PGP是于1990年左右由Philip Zimmermann编写的密码软件。 PGP支持多个平台，版本包括商用版和免费版，此外还有一个GNU遵照OpenGPG（RFC4880）规范编写的叫做GnuPG（GNU Privacy Guard）的免费软件。  PGP的功能  对称密码 支持用对称密码进行">
+    <meta name="description" content="PGP（Pretty Good Privacy）——密码技术的完美组合 PGP简介 什么是PGP PGP是于1990年左右由Philip Zimmermann编写的密码软件。 PGP支持多个平台，版本包括商用版和免费版，此外还有一个GNU遵照OpenGPG（RFC4880）规范编写的叫做GnuPG（GNU Privacy Guard）的免费软件。 PGP的功能  对称密码 支持用对称密">
 <meta name="keywords" content="笔记,cryptography">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图解密码技术 读书笔记：PGP">
 <meta property="og:url" content="http://flamepeak.com/2016/12/19/tu-jie-mi-ma-ji-shu-part5-PGP-20161219/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="PGP（Pretty Good Privacy）——密码技术的完美组合  PGP简介  什么是PGP PGP是于1990年左右由Philip Zimmermann编写的密码软件。 PGP支持多个平台，版本包括商用版和免费版，此外还有一个GNU遵照OpenGPG（RFC4880）规范编写的叫做GnuPG（GNU Privacy Guard）的免费软件。  PGP的功能  对称密码 支持用对称密码进行">
+<meta property="og:description" content="PGP（Pretty Good Privacy）——密码技术的完美组合 PGP简介 什么是PGP PGP是于1990年左右由Philip Zimmermann编写的密码软件。 PGP支持多个平台，版本包括商用版和免费版，此外还有一个GNU遵照OpenGPG（RFC4880）规范编写的叫做GnuPG（GNU Privacy Guard）的免费软件。 PGP的功能  对称密码 支持用对称密">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20161219/PGP_encryption.png">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20161219/PGP_decryption.png">
@@ -30,7 +30,7 @@
 <meta property="og:updated_time" content="2017-01-31T00:42:15.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图解密码技术 读书笔记：PGP">
-<meta name="twitter:description" content="PGP（Pretty Good Privacy）——密码技术的完美组合  PGP简介  什么是PGP PGP是于1990年左右由Philip Zimmermann编写的密码软件。 PGP支持多个平台，版本包括商用版和免费版，此外还有一个GNU遵照OpenGPG（RFC4880）规范编写的叫做GnuPG（GNU Privacy Guard）的免费软件。  PGP的功能  对称密码 支持用对称密码进行">
+<meta name="twitter:description" content="PGP（Pretty Good Privacy）——密码技术的完美组合 PGP简介 什么是PGP PGP是于1990年左右由Philip Zimmermann编写的密码软件。 PGP支持多个平台，版本包括商用版和免费版，此外还有一个GNU遵照OpenGPG（RFC4880）规范编写的叫做GnuPG（GNU Privacy Guard）的免费软件。 PGP的功能  对称密码 支持用对称密">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/20161219/PGP_encryption.png">
 
     
@@ -105,109 +105,39 @@
 	<div class="article-content">
 		
 		<p>PGP（Pretty Good Privacy）——密码技术的完美组合</p>
-<h3 id="pgp简介"><a class="markdownIt-Anchor" href="#pgp简介"></a> PGP简介</h3>
-<h4 id="什么是pgp"><a class="markdownIt-Anchor" href="#什么是pgp"></a> 什么是PGP</h4>
-<p>PGP是于1990年左右由Philip Zimmermann编写的密码软件。<br>
-PGP支持多个平台，版本包括商用版和免费版，此外还有一个GNU遵照OpenGPG（RFC4880）规范编写的叫做GnuPG（GNU Privacy Guard）的免费软件。</p>
-<h4 id="pgp的功能"><a class="markdownIt-Anchor" href="#pgp的功能"></a> PGP的功能</h4>
+<h3 id="pgp简介">PGP简介</h3>
+<h4 id="什么是pgp">什么是PGP</h4>
+<p>PGP是于1990年左右由Philip Zimmermann编写的密码软件。 PGP支持多个平台，版本包括商用版和免费版，此外还有一个GNU遵照OpenGPG（RFC4880）规范编写的叫做GnuPG（GNU Privacy Guard）的免费软件。</p>
+<h4 id="pgp的功能">PGP的功能</h4>
 <ul>
-<li><strong>对称密码</strong><br>
-支持用对称密码进行加密和解密。对称密码可以单独使用，也可以和公钥密码组合成混合密码系统使用。<br>
-可以使用的对称密码算法包括AES、IDEA、CAST、3DES、Blowfish、Twofish等。分组密码的模式使用CFB模式（Cipher FeedBack mode ，密文反馈模式）。</li>
-<li><strong>公钥密码</strong><br>
-PGP支持生成公钥密码密钥对，以及用公钥密码进行加密和解密。可以使用的算法包括RSA和ElGamal等。</li>
-<li><strong>数字签名</strong><br>
-PGP支持数字签名的生成和验证，也可以将数字签名附加到文件中，或者从文件中分离出数字签名。可以使用的数字签名算法包括RSA和DSA等。</li>
-<li><strong>单向散列函数</strong><br>
-PGP可以使用单向散列函数计算和显示消息的散列值。可以使用的单向散列函数算法包括MD5、SHA-1额RIPEMD-160等。</li>
-<li><strong>证书</strong><br>
-PGP可以生成OpenGPG中规定格式的证书，以及与X.509规范兼容的证书。还可以颁发公钥的作废证明。</li>
-<li><strong>压缩</strong><br>
-PGP支持数据的压缩和解压缩，压缩采用ZIP格式。</li>
-<li><strong>文本数据</strong><br>
-PGP可以将二进制数据和文本数据相互转换。</li>
-<li><strong>钥匙串管理</strong><br>
-PGP可以管理所生成的密钥对和从外部获取的公钥。用于管理密钥的文件称为钥匙串（key ring）。</li>
+<li><strong>对称密码</strong> 支持用对称密码进行加密和解密。对称密码可以单独使用，也可以和公钥密码组合成混合密码系统使用。 可以使用的对称密码算法包括AES、IDEA、CAST、3DES、Blowfish、Twofish等。分组密码的模式使用CFB模式（Cipher FeedBack mode ，密文反馈模式）。</li>
+<li><strong>公钥密码</strong> PGP支持生成公钥密码密钥对，以及用公钥密码进行加密和解密。可以使用的算法包括RSA和ElGamal等。</li>
+<li><strong>数字签名</strong> PGP支持数字签名的生成和验证，也可以将数字签名附加到文件中，或者从文件中分离出数字签名。可以使用的数字签名算法包括RSA和DSA等。</li>
+<li><strong>单向散列函数</strong> PGP可以使用单向散列函数计算和显示消息的散列值。可以使用的单向散列函数算法包括MD5、SHA-1额RIPEMD-160等。</li>
+<li><strong>证书</strong> PGP可以生成OpenGPG中规定格式的证书，以及与X.509规范兼容的证书。还可以颁发公钥的作废证明。</li>
+<li><strong>压缩</strong> PGP支持数据的压缩和解压缩，压缩采用ZIP格式。</li>
+<li><strong>文本数据</strong> PGP可以将二进制数据和文本数据相互转换。</li>
+<li><strong>钥匙串管理</strong> PGP可以管理所生成的密钥对和从外部获取的公钥。用于管理密钥的文件称为钥匙串（key ring）。</li>
 </ul>
-<h3 id="pgp加密"><a class="markdownIt-Anchor" href="#pgp加密"></a> PGP加密</h3>
-<p>步骤如图：<br>
-<img src="/sourcepictures/20161219/PGP_encryption.png" alt="PGP_encryption"></p>
-<p>步骤可分为两部分：</p>
-<ul>
-<li><strong>生成和加密会话密钥</strong><br>
-1.用伪随机数生成器生成会话密钥；<br>
-2.用公钥密码加密会话密钥，这里使用的密钥是接受者的公钥；</li>
-<li><strong>压缩和加密消息</strong><br>
-3.压缩消息；<br>
-4.使用对称密码对压缩的消息进行加密，这里使用的密钥是步骤1中生成的会话密钥；<br>
-5.将加密的会话密钥与加密的消息拼合起来；<br>
-6.将步骤5的结果转换为文本数据，转换后的结果就是报文数据。</li>
-</ul>
+<h3 id="pgp加密">PGP加密</h3>
+<p>步骤如图： <img src="/sourcepictures/20161219/PGP_encryption.png" alt="PGP_encryption"></p>
+<p>步骤可分为两部分： + <strong>生成和加密会话密钥</strong> 1.用伪随机数生成器生成会话密钥； 2.用公钥密码加密会话密钥，这里使用的密钥是接受者的公钥； + <strong>压缩和加密消息</strong> 3.压缩消息； 4.使用对称密码对压缩的消息进行加密，这里使用的密钥是步骤1中生成的会话密钥； 5.将加密的会话密钥与加密的消息拼合起来； 6.将步骤5的结果转换为文本数据，转换后的结果就是报文数据。</p>
 <p>用公钥密码加密会话密钥，用对称密码加密消息就是混合密码系统的特点。</p>
-<h3 id="pgp解密"><a class="markdownIt-Anchor" href="#pgp解密"></a> PGP解密</h3>
-<p>步骤如图：<br>
-<img src="/sourcepictures/20161219/PGP_decryption.png" alt="PGP_decryption"></p>
-<p>步骤可分为三个部分：</p>
-<ul>
-<li><strong>解密私钥</strong><br>
-PGP的死要是保存在用户的钥匙串中的。为了防止钥匙串被盗，私钥都是以加密状态保存的，并在保存时使用基于口令的密码（PBE）。<br>
-解密私钥的步骤如下：<br>
-1.接收者输入解密的口令；<br>
-2.求口令的散列值，生成用于解密私钥的密钥；<br>
-3.将钥匙串中经过加密的私钥进行解密；</li>
-<li><strong>解密会话密钥</strong><br>
-4.将报文数据（文本数据）转换成二进制数据；<br>
-5.将二进制数据分解成两个部分：加密的会话密钥、经压缩和加密的消息；<br>
-6.用公钥密码解密会话密钥，这里使用步骤3中生成的接收者的私钥；</li>
-<li><strong>解密和解压缩消息</strong><br>
-7.对步骤5中得到的经过压缩和加密的消息用对称密码进行解密，这里使用会话密钥；<br>
-8.对步骤7中的消息进行解压缩；<br>
-9.得到原始消息。</li>
-</ul>
+<h3 id="pgp解密">PGP解密</h3>
+<p>步骤如图： <img src="/sourcepictures/20161219/PGP_decryption.png" alt="PGP_decryption"></p>
+<p>步骤可分为三个部分： + <strong>解密私钥</strong> PGP的死要是保存在用户的钥匙串中的。为了防止钥匙串被盗，私钥都是以加密状态保存的，并在保存时使用基于口令的密码（PBE）。 解密私钥的步骤如下： 1.接收者输入解密的口令； 2.求口令的散列值，生成用于解密私钥的密钥； 3.将钥匙串中经过加密的私钥进行解密； + <strong>解密会话密钥</strong> 4.将报文数据（文本数据）转换成二进制数据； 5.将二进制数据分解成两个部分：加密的会话密钥、经压缩和加密的消息； 6.用公钥密码解密会话密钥，这里使用步骤3中生成的接收者的私钥； + <strong>解密和解压缩消息</strong> 7.对步骤5中得到的经过压缩和加密的消息用对称密码进行解密，这里使用会话密钥； 8.对步骤7中的消息进行解压缩； 9.得到原始消息。</p>
 <hr>
-<h3 id="生成和验证数字签名"><a class="markdownIt-Anchor" href="#生成和验证数字签名"></a> 生成和验证数字签名</h3>
-<h4 id="生成数字签名"><a class="markdownIt-Anchor" href="#生成数字签名"></a> 生成数字签名</h4>
-<p>流程如下：<br>
-<img src="/sourcepictures/20161219/PGP_generate_digital_signature.png" alt="digital signature generate"><br>
-步骤如下：</p>
-<ul>
-<li><strong>解密私钥</strong><br>
-在钥匙串中，私钥是通过口令进行加密保存的，因此不知道口令的人就无法使用相应的私钥。<br>
-1.发送者输入签名用的口令；<br>
-2.求出口令的散列值，生成用于解密私钥的密钥；<br>
-3.将钥匙串中经过加密的私钥进行解密；</li>
-<li><strong>生成数字签名</strong><br>
-4.用单向散列函数计算消息的散列值；<br>
-5.对步骤4中得到的散列值进行签名。这一步相当于使用步骤3中得到的私钥进行加密；<br>
-6.将步骤5中生成的数字签名与消息进行拼合；<br>
-7.将步骤6的结果进行压缩；<br>
-8.将步骤7的结果转换为文本数据；<br>
-9.步骤8的结果就是报文数据；</li>
-</ul>
-<h4 id="验证数字签名"><a class="markdownIt-Anchor" href="#验证数字签名"></a> 验证数字签名</h4>
-<p><img src="/sourcepictures/20161219/PGP_verify_digital_signature.png" alt="PGP_verify_digital_signature"><br>
-步骤如下：</p>
-<ul>
-<li><strong>恢复发送者发送的散列值</strong><br>
-1.将报文数据（文本数据）转换为二进制数据；<br>
-2.对经过压缩的数据进行解压缩；<br>
-3.将解压缩后的数据分解成经过签名的散列值和消息两部分；<br>
-4.将经过签名的散列值用发送者的公钥进行解密，恢复出发送者发送的散列值；</li>
-<li><strong>对比散列值</strong><br>
-5.将步骤3中分解出的消息输入单向散列函数计算散列值；<br>
-6.将步骤4中得到的散列值与步骤5中得到的散列值进行对比；<br>
-7.如果步骤6中的结果相等则数字签名成功，不相等则验证失败。<br>
-8.步骤3中分解出的消息就是发送者发送的消息。</li>
-</ul>
-<h3 id="生成数字签名并加密以及解密并验证数字签名"><a class="markdownIt-Anchor" href="#生成数字签名并加密以及解密并验证数字签名"></a> 生成数字签名并加密以及解密并验证数字签名</h3>
-<p>用PGP生成数字签名并加密<br>
-<img src="/sourcepictures/20161219/PGP_signature_encrypt.png" alt="PGP signature encrypt"></p>
-<p>用PGP解密并验证数字签名<br>
-<img src="/sourcepictures/20161219/PGP_signature_decrypt.png" alt="PGP signature decrypt"></p>
+<h3 id="生成和验证数字签名">生成和验证数字签名</h3>
+<h4 id="生成数字签名">生成数字签名</h4>
+<p>流程如下： <img src="/sourcepictures/20161219/PGP_generate_digital_signature.png" alt="digital signature generate"> 步骤如下： + <strong>解密私钥</strong> 在钥匙串中，私钥是通过口令进行加密保存的，因此不知道口令的人就无法使用相应的私钥。 1.发送者输入签名用的口令； 2.求出口令的散列值，生成用于解密私钥的密钥； 3.将钥匙串中经过加密的私钥进行解密； + <strong>生成数字签名</strong> 4.用单向散列函数计算消息的散列值； 5.对步骤4中得到的散列值进行签名。这一步相当于使用步骤3中得到的私钥进行加密； 6.将步骤5中生成的数字签名与消息进行拼合； 7.将步骤6的结果进行压缩； 8.将步骤7的结果转换为文本数据； 9.步骤8的结果就是报文数据；</p>
+<h4 id="验证数字签名">验证数字签名</h4>
+<p><img src="/sourcepictures/20161219/PGP_verify_digital_signature.png" alt="PGP_verify_digital_signature"> 步骤如下： + <strong>恢复发送者发送的散列值</strong> 1.将报文数据（文本数据）转换为二进制数据； 2.对经过压缩的数据进行解压缩； 3.将解压缩后的数据分解成经过签名的散列值和消息两部分； 4.将经过签名的散列值用发送者的公钥进行解密，恢复出发送者发送的散列值； + <strong>对比散列值</strong> 5.将步骤3中分解出的消息输入单向散列函数计算散列值； 6.将步骤4中得到的散列值与步骤5中得到的散列值进行对比； 7.如果步骤6中的结果相等则数字签名成功，不相等则验证失败。 8.步骤3中分解出的消息就是发送者发送的消息。</p>
+<h3 id="生成数字签名并加密以及解密并验证数字签名">生成数字签名并加密以及解密并验证数字签名</h3>
+<p>用PGP生成数字签名并加密 <img src="/sourcepictures/20161219/PGP_signature_encrypt.png" alt="PGP signature encrypt"></p>
+<p>用PGP解密并验证数字签名 <img src="/sourcepictures/20161219/PGP_signature_decrypt.png" alt="PGP signature decrypt"></p>
 <hr>
-<h3 id="信任网"><a class="markdownIt-Anchor" href="#信任网"></a> 信任网</h3>
-<p>在使用PGP时，确认自己所得到的公钥是否真的属于正确的人（<strong>公钥合法性</strong>）是非常重要的，因为公钥可能会通过中间人攻击被替换。<br>
-证书是确认公钥合法性的方法之一。PGP中没有使用认证机构，而是采用一种叫做<strong>信任网</strong>（web of trust）的方法。在这种方法中，PGP用户会互相对对方的公钥进行数字签名。</p>
+<h3 id="信任网">信任网</h3>
+<p>在使用PGP时，确认自己所得到的公钥是否真的属于正确的人（<strong>公钥合法性</strong>）是非常重要的，因为公钥可能会通过中间人攻击被替换。 证书是确认公钥合法性的方法之一。PGP中没有使用认证机构，而是采用一种叫做<strong>信任网</strong>（web of trust）的方法。在这种方法中，PGP用户会互相对对方的公钥进行数字签名。</p>
 <p>信任网的要点是“不依赖认证机构，而是建立每个人之间的信任关系”。</p>
   
 	</div>
@@ -271,7 +201,7 @@ PGP的死要是保存在用户的钥匙串中的。为了防止钥匙串被盗�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#pgp简介"><span class="toc-number">1.</span> <span class="toc-text"> PGP简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是pgp"><span class="toc-number">1.1.</span> <span class="toc-text"> 什么是PGP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pgp的功能"><span class="toc-number">1.2.</span> <span class="toc-text"> PGP的功能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pgp加密"><span class="toc-number">2.</span> <span class="toc-text"> PGP加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pgp解密"><span class="toc-number">3.</span> <span class="toc-text"> PGP解密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成和验证数字签名"><span class="toc-number">4.</span> <span class="toc-text"> 生成和验证数字签名</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#生成数字签名"><span class="toc-number">4.1.</span> <span class="toc-text"> 生成数字签名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证数字签名"><span class="toc-number">4.2.</span> <span class="toc-text"> 验证数字签名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成数字签名并加密以及解密并验证数字签名"><span class="toc-number">5.</span> <span class="toc-text"> 生成数字签名并加密以及解密并验证数字签名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信任网"><span class="toc-number">6.</span> <span class="toc-text"> 信任网</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#pgp简介"><span class="toc-number">1.</span> <span class="toc-text">PGP简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是pgp"><span class="toc-number">1.1.</span> <span class="toc-text">什么是PGP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pgp的功能"><span class="toc-number">1.2.</span> <span class="toc-text">PGP的功能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pgp加密"><span class="toc-number">2.</span> <span class="toc-text">PGP加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pgp解密"><span class="toc-number">3.</span> <span class="toc-text">PGP解密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成和验证数字签名"><span class="toc-number">4.</span> <span class="toc-text">生成和验证数字签名</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#生成数字签名"><span class="toc-number">4.1.</span> <span class="toc-text">生成数字签名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证数字签名"><span class="toc-number">4.2.</span> <span class="toc-text">验证数字签名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成数字签名并加密以及解密并验证数字签名"><span class="toc-number">5.</span> <span class="toc-text">生成数字签名并加密以及解密并验证数字签名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信任网"><span class="toc-number">6.</span> <span class="toc-text">信任网</span></a></li></ol>
  
   </div>
 
@@ -361,19 +291,19 @@ PGP的死要是保存在用户的钥匙串中的。为了防止钥匙串被盗�
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -389,10 +319,6 @@ PGP的死要是保存在用户的钥匙串中的。为了防止钥匙串被盗�
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -401,11 +327,15 @@ PGP的死要是保存在用户的钥匙串中的。为了防止钥匙串被盗�
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -413,15 +343,15 @@ PGP的死要是保存在用户的钥匙串中的。为了防止钥匙串被盗�
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

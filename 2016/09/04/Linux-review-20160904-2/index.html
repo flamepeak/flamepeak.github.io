@@ -13,19 +13,19 @@
     
 
     
-    <meta name="description" content="通常，crontab 储存的指令被守护进程激活，crond 为其守护进程，crond 常常在后台运行，每一分钟会检查一次是否有预定的作业需要执行。 crontab命令参数： crontab [-u user] [-i] { -e| -l| -r}  -e 编辑 -l 显示 -r 删除 -i 删除前确认   crontab -e 是针对使用者的 cron 來设计的，也就是每个用户在添加任务，就会在">
+    <meta name="description" content="通常，crontab 储存的指令被守护进程激活，crond 为其守护进程，crond 常常在后台运行，每一分钟会检查一次是否有预定的作业需要执行。 crontab命令参数： crontab [-u user] [-i] { -e| -l| -r} &amp;gt; -e 编辑 &amp;gt; -l 显示 &amp;gt; -r 删除 &amp;gt; -i 删除前确认  crontab_usage  crontab">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 温习(四)：Linux计划任务crontab">
 <meta property="og:url" content="http://flamepeak.com/2016/09/04/Linux-review-20160904-2/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="通常，crontab 储存的指令被守护进程激活，crond 为其守护进程，crond 常常在后台运行，每一分钟会检查一次是否有预定的作业需要执行。 crontab命令参数： crontab [-u user] [-i] { -e| -l| -r}  -e 编辑 -l 显示 -r 删除 -i 删除前确认   crontab -e 是针对使用者的 cron 來设计的，也就是每个用户在添加任务，就会在">
+<meta property="og:description" content="通常，crontab 储存的指令被守护进程激活，crond 为其守护进程，crond 常常在后台运行，每一分钟会检查一次是否有预定的作业需要执行。 crontab命令参数： crontab [-u user] [-i] { -e| -l| -r} &amp;gt; -e 编辑 &amp;gt; -l 显示 &amp;gt; -r 删除 &amp;gt; -i 删除前确认  crontab_usage  crontab">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20160904/crontab_usage.png">
 <meta property="og:updated_time" content="2017-01-31T00:46:39.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 温习(四)：Linux计划任务crontab">
-<meta name="twitter:description" content="通常，crontab 储存的指令被守护进程激活，crond 为其守护进程，crond 常常在后台运行，每一分钟会检查一次是否有预定的作业需要执行。 crontab命令参数： crontab [-u user] [-i] { -e| -l| -r}  -e 编辑 -l 显示 -r 删除 -i 删除前确认   crontab -e 是针对使用者的 cron 來设计的，也就是每个用户在添加任务，就会在">
+<meta name="twitter:description" content="通常，crontab 储存的指令被守护进程激活，crond 为其守护进程，crond 常常在后台运行，每一分钟会检查一次是否有预定的作业需要执行。 crontab命令参数： crontab [-u user] [-i] { -e| -l| -r} &amp;gt; -e 编辑 &amp;gt; -l 显示 &amp;gt; -r 删除 &amp;gt; -i 删除前确认  crontab_usage  crontab">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/20160904/crontab_usage.png">
 
     
@@ -100,17 +100,11 @@
 	<div class="article-content">
 		
 		<p>通常，crontab 储存的指令被守护进程激活，crond 为其守护进程，crond 常常在后台运行，每一分钟会检查一次是否有预定的作业需要执行。</p>
-<p>crontab命令参数：<br>
-<code>crontab [-u user] [-i] { -e| -l| -r}</code></p>
-<blockquote>
-<p>-e 编辑<br>
--l 显示<br>
--r 删除<br>
--i 删除前确认</p>
-</blockquote>
-<p><img src="/sourcepictures/20160904/crontab_usage.png" alt="crontab_usage"></p>
-<p><code>crontab -e</code> 是针对使用者的 cron 來设计的，也就是每个用户在添加任务，就会在 /var/spool/cron/crontabs 中添加一个该用户自己的任务文档，这样可以做到隔离，独立，不会混乱。<br>
-如果是系统的例行性任务，只要编辑 <code>/etc/crontab</code> 就可以啦</p>
+<p>crontab命令参数： <code>crontab [-u user] [-i] { -e| -l| -r}</code> &gt; -e 编辑 &gt; -l 显示 &gt; -r 删除 &gt; -i 删除前确认</p>
+<figure>
+<img src="/sourcepictures/20160904/crontab_usage.png" alt><figcaption>crontab_usage</figcaption>
+</figure>
+<p><code>crontab -e</code> 是针对使用者的 cron 來设计的，也就是每个用户在添加任务，就会在 /var/spool/cron/crontabs 中添加一个该用户自己的任务文档，这样可以做到隔离，独立，不会混乱。 如果是系统的例行性任务，只要编辑 <code>/etc/crontab</code> 就可以啦</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -263,19 +257,19 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -291,10 +285,6 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -303,11 +293,15 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -315,15 +309,15 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

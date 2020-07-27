@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="powershell基础知识   Windows PowerShell基本语法及常用命令 powershell命令大全与命令简写   Test-Path, 可以用来测试一个目录或者文件是否存在； 也可以用来测试一个路径到底是目录还是文件，通过添加参数 -pathType 来进行，参数可取 container 和 leaf 两个值  Test-Path C:\Scripts\Archive -pa">
+    <meta name="description" content="powershell基础知识  Windows PowerShell基本语法及常用命令 powershell命令大全与命令简写 Test-Path, 可以用来测试一个目录或者文件是否存在； 也可以用来测试一个路径到底是目录还是文件，通过添加参数 -pathType 来进行，参数可取 container 和 leaf 两个值 Test-Path C:\Scripts\Archive -path">
 <meta name="keywords" content="Network Security,powershell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Powershell 使用方法收集">
 <meta property="og:url" content="http://flamepeak.com/2018/02/06/powershell-collections-20180206/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="powershell基础知识   Windows PowerShell基本语法及常用命令 powershell命令大全与命令简写   Test-Path, 可以用来测试一个目录或者文件是否存在； 也可以用来测试一个路径到底是目录还是文件，通过添加参数 -pathType 来进行，参数可取 container 和 leaf 两个值  Test-Path C:\Scripts\Archive -pa">
+<meta property="og:description" content="powershell基础知识  Windows PowerShell基本语法及常用命令 powershell命令大全与命令简写 Test-Path, 可以用来测试一个目录或者文件是否存在； 也可以用来测试一个路径到底是目录还是文件，通过添加参数 -pathType 来进行，参数可取 container 和 leaf 两个值 Test-Path C:\Scripts\Archive -path">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-03-18T14:45:52.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Powershell 使用方法收集">
-<meta name="twitter:description" content="powershell基础知识   Windows PowerShell基本语法及常用命令 powershell命令大全与命令简写   Test-Path, 可以用来测试一个目录或者文件是否存在； 也可以用来测试一个路径到底是目录还是文件，通过添加参数 -pathType 来进行，参数可取 container 和 leaf 两个值  Test-Path C:\Scripts\Archive -pa">
+<meta name="twitter:description" content="powershell基础知识  Windows PowerShell基本语法及常用命令 powershell命令大全与命令简写 Test-Path, 可以用来测试一个目录或者文件是否存在； 也可以用来测试一个路径到底是目录还是文件，通过添加参数 -pathType 来进行，参数可取 container 和 leaf 两个值 Test-Path C:\Scripts\Archive -path">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,50 +97,32 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="powershell基础知识"><a class="markdownIt-Anchor" href="#powershell基础知识"></a> powershell基础知识</h3>
-<ol>
-<li>
-<p><a href="https://www.cnblogs.com/feng-zhizi/p/9935874.html" target="_blank" rel="noopener">Windows PowerShell基本语法及常用命令</a><br>
-<a href="https://www.cnblogs.com/nightnine/p/5119653.html" target="_blank" rel="noopener">powershell命令大全与命令简写</a></p>
-</li>
-<li>
-<p>Test-Path, 可以用来测试一个目录或者文件是否存在；<br>
-也可以用来测试一个路径到底是目录还是文件，通过添加参数 <code>-pathType</code> 来进行，参数可取 <code>container</code> 和 <code>leaf</code> 两个值</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Test-Path C:\Scripts\Archive -pathType container</span><br></pre></td></tr></table></figure>
-<p>还可以，通过 <code>-include</code> 或 <code>-exclude</code> 参数来判断给定目录中是否包含指定的文件类型，或是只包含指定的文件类型:</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Test-Path C:\Scripts\Archive\* -include Test*.ps1, Test*.vbs</span><br><span class="line">Test-Path C:\Scripts\Archive\* -exclude *.gif, *.jpg</span><br></pre></td></tr></table></figure>
-</li>
+		<h3 id="powershell基础知识">powershell基础知识</h3>
+<ol type="1">
+<li><p><a href="https://www.cnblogs.com/feng-zhizi/p/9935874.html" target="_blank" rel="noopener">Windows PowerShell基本语法及常用命令</a> <a href="https://www.cnblogs.com/nightnine/p/5119653.html" target="_blank" rel="noopener">powershell命令大全与命令简写</a></p></li>
+<li><p>Test-Path, 可以用来测试一个目录或者文件是否存在； 也可以用来测试一个路径到底是目录还是文件，通过添加参数 <code>-pathType</code> 来进行，参数可取 <code>container</code> 和 <code>leaf</code> 两个值 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Test-Path C:\Scripts\Archive -pathType container</span><br></pre></td></tr></table></figure></p>
+<p>还可以，通过 <code>-include</code> 或 <code>-exclude</code> 参数来判断给定目录中是否包含指定的文件类型，或是只包含指定的文件类型: <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Test-Path C:\Scripts\Archive\* -include Test*.ps1, Test*.vbs</span><br><span class="line">Test-Path C:\Scripts\Archive\* -exclude *.gif, *.jpg</span><br></pre></td></tr></table></figure></p></li>
 </ol>
 <hr>
-<h3 id="遇到的问题及解决办法"><a class="markdownIt-Anchor" href="#遇到的问题及解决办法"></a> 遇到的问题及解决办法</h3>
-<h4 id="powershell-无法加载文件ps1因为在此系统中禁止执行脚本"><a class="markdownIt-Anchor" href="#powershell-无法加载文件ps1因为在此系统中禁止执行脚本"></a> PowerShell 无法加载文件ps1，因为在此系统中禁止执行脚本</h4>
-<p>无法加载文件 XXX.ps1，因为在此系统中禁止执行脚本。有关详细信息，请参阅 “get-help about_signing”。</p>
+<h3 id="遇到的问题及解决办法">遇到的问题及解决办法</h3>
+<h4 id="powershell-无法加载文件ps1因为在此系统中禁止执行脚本">PowerShell 无法加载文件ps1，因为在此系统中禁止执行脚本</h4>
+<p>无法加载文件 XXX.ps1，因为在此系统中禁止执行脚本。有关详细信息，请参阅 "get-help about_signing"。</p>
 <p>根据提示，运行get-help about-signing,找到解决办法</p>
 <blockquote>
-<p>允许运行签名脚本<br>
-首次在计算机上启动 Windows PowerShell 时，现用执行策略很可能是 Restricted（默认设置）。<br>
-Restricted 策略不允许任何脚本运行。<br>
-若要了解计算机上的现用执行策略，请键入：<br>
-get-executionpolicy<br>
-若要在本地计算机上运行您编写的未签名脚本和来自其他用户的签名脚本，请使用以下命令将计算机上的<br>
-执行策略更改为 RemoteSigned：<br>
-set-executionpolicy remotesigned</p>
+<p>允许运行签名脚本 首次在计算机上启动 Windows PowerShell 时，现用执行策略很可能是 Restricted（默认设置）。 Restricted 策略不允许任何脚本运行。 若要了解计算机上的现用执行策略，请键入： get-executionpolicy 若要在本地计算机上运行您编写的未签名脚本和来自其他用户的签名脚本，请使用以下命令将计算机上的 执行策略更改为 RemoteSigned： set-executionpolicy remotesigned</p>
 </blockquote>
 <p>powershell脚本的执行策略有：<code>&lt;Unrestricted&gt; | &lt;RemoteSigned&gt; | &lt;AllSigned&gt; | &lt;Restricted&gt; | &lt;Default&gt; | &lt;Bypass&gt; | &lt;Undefined&gt;</code></p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> unrestricted</span><br></pre></td></tr></table></figure>
 <p>关于没有系统管理员权限的情况下如何绕过：<br>
 <a href="https://blog.csdn.net/qq_27446553/article/details/50577296" target="_blank" rel="noopener">哪些方法可以绕过PowerShell Execution Policy？</a></p>
-<h4 id><a class="markdownIt-Anchor" href="#"></a> </h4>
+<h4 id="section"></h4>
 <hr>
-<h3 id="获得当前系统已安装的程序列表"><a class="markdownIt-Anchor" href="#获得当前系统已安装的程序列表"></a> 获得当前系统已安装的程序列表</h3>
+<h3 id="获得当前系统已安装的程序列表">获得当前系统已安装的程序列表</h3>
 <p><a href="http://www.4hou.com/technology/10206.html" target="_blank" rel="noopener">获得当前系统已安装的程序列表</a></p>
-<ol>
-<li>
-<p>使用powershell调用wmi<br>
-<code>Get-WmiObject -class Win32_Product</code><br>
+<ol type="1">
+<li><p>使用powershell调用wmi <code>Get-WmiObject -class Win32_Product</code><br>
 结果过滤：<br>
-<code>Get-WmiObject -class Win32_Product | Select-Object -Property name</code></p>
-</li>
+<code>Get-WmiObject -class Win32_Product | Select-Object -Property name</code></p></li>
 <li></li>
 </ol>
   
@@ -205,7 +187,7 @@ set-executionpolicy remotesigned</p>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#powershell基础知识"><span class="toc-number">1.</span> <span class="toc-text"> powershell基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遇到的问题及解决办法"><span class="toc-number">2.</span> <span class="toc-text"> 遇到的问题及解决办法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#powershell-无法加载文件ps1因为在此系统中禁止执行脚本"><span class="toc-number">2.1.</span> <span class="toc-text"> PowerShell 无法加载文件ps1，因为在此系统中禁止执行脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">2.2.</span> <span class="toc-text"> </span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获得当前系统已安装的程序列表"><span class="toc-number">3.</span> <span class="toc-text"> 获得当前系统已安装的程序列表</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#powershell基础知识"><span class="toc-number">1.</span> <span class="toc-text">powershell基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遇到的问题及解决办法"><span class="toc-number">2.</span> <span class="toc-text">遇到的问题及解决办法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#powershell-无法加载文件ps1因为在此系统中禁止执行脚本"><span class="toc-number">2.1.</span> <span class="toc-text">PowerShell 无法加载文件ps1，因为在此系统中禁止执行脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section"><span class="toc-number">2.2.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获得当前系统已安装的程序列表"><span class="toc-number">3.</span> <span class="toc-text">获得当前系统已安装的程序列表</span></a></li></ol>
  
   </div>
 
@@ -295,19 +277,19 @@ set-executionpolicy remotesigned</p>
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -323,10 +305,6 @@ set-executionpolicy remotesigned</p>
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -335,11 +313,15 @@ set-executionpolicy remotesigned</p>
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -347,15 +329,15 @@ set-executionpolicy remotesigned</p>
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

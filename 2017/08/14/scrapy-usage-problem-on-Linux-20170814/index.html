@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="How to disable cache in scrapy? Cache can be disable in 2 ways:  Changing values in cache related settings in setting.py file. By Keeping HTTPCACHE_ENABLED=False Or it can be done in runtime &amp;quot; s">
+    <meta name="description" content="How to disable cache in scrapy? Cache can be disable in 2 ways:  Changing values in cache related settings in setting.py file. By Keeping HTTPCACHE_ENABLED=False Or it can be done in runtime &quot; scr">
 <meta name="keywords" content="Python,Scrapy,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scrapy 在Linux上使用问题与解决办法">
 <meta property="og:url" content="http://flamepeak.com/2017/08/14/scrapy-usage-problem-on-Linux-20170814/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="How to disable cache in scrapy? Cache can be disable in 2 ways:  Changing values in cache related settings in setting.py file. By Keeping HTTPCACHE_ENABLED=False Or it can be done in runtime &amp;quot; s">
+<meta property="og:description" content="How to disable cache in scrapy? Cache can be disable in 2 ways:  Changing values in cache related settings in setting.py file. By Keeping HTTPCACHE_ENABLED=False Or it can be done in runtime &quot; scr">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-09-09T02:15:02.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scrapy 在Linux上使用问题与解决办法">
-<meta name="twitter:description" content="How to disable cache in scrapy? Cache can be disable in 2 ways:  Changing values in cache related settings in setting.py file. By Keeping HTTPCACHE_ENABLED=False Or it can be done in runtime &amp;quot; s">
+<meta name="twitter:description" content="How to disable cache in scrapy? Cache can be disable in 2 ways:  Changing values in cache related settings in setting.py file. By Keeping HTTPCACHE_ENABLED=False Or it can be done in runtime &quot; scr">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,56 +97,48 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="how-to-disable-cache-in-scrapy"><a class="markdownIt-Anchor" href="#how-to-disable-cache-in-scrapy"></a> How to disable cache in scrapy?</h3>
+		<h3 id="how-to-disable-cache-in-scrapy">How to disable cache in scrapy?</h3>
 <p>Cache can be disable in 2 ways:</p>
 <ul>
-<li>Changing values in cache related settings in <a href="http://setting.py" target="_blank" rel="noopener">setting.py</a> file. By Keeping <code>HTTPCACHE_ENABLED=False</code></li>
-<li>Or it can be done in runtime &quot; scrapy crawl crawl-name --set HTTPCACHE_ENABLED=False</li>
+<li>Changing values in cache related settings in setting.py file. By Keeping <code>HTTPCACHE_ENABLED=False</code></li>
+<li>Or it can be done in runtime " scrapy crawl crawl-name --set HTTPCACHE_ENABLED=False</li>
 </ul>
 <hr>
-<h3 id="mysql"><a class="markdownIt-Anchor" href="#mysql"></a> mysql</h3>
-<h4 id="首先安装mysql"><a class="markdownIt-Anchor" href="#首先安装mysql"></a> 首先，安装mysql</h4>
+<h3 id="mysql">mysql</h3>
+<h4 id="首先安装mysql">首先，安装mysql</h4>
 <p>官网下载：<br>
-<a href="https://dev.mysql.com/downloads/installer/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/installer/</a><br>
-然后安装mysql</p>
-<h4 id="安装python-mysql相关库"><a class="markdownIt-Anchor" href="#安装python-mysql相关库"></a> 安装python mysql相关库</h4>
-<p><code>pip install mysql-python</code></p>
+https://dev.mysql.com/downloads/installer/ 然后安装mysql<br>
+#### 安装python mysql相关库<br>
+<code>pip install mysql-python</code></p>
 <p>Error 1:<br>
-<code>error: Microsoft Visual C++ 9.0 is required (Unable to find vcvarsall.bat).</code><br>
-解决办法：<br>
-安装Microsoft Visual C++ Compiler for Python 2.7<br>
-<a href="https://www.microsoft.com/en-us/download/details.aspx?id=44266" target="_blank" rel="noopener">https://www.microsoft.com/en-us/download/details.aspx?id=44266</a></p>
+<code>error: Microsoft Visual C++ 9.0 is required (Unable to find vcvarsall.bat).</code> 解决办法： 安装Microsoft Visual C++ Compiler for Python 2.7 https://www.microsoft.com/en-us/download/details.aspx?id=44266</p>
 <p>Error 2:<br>
 <code>_mysql.c(34) : Fatal error C1083: Cannot open include file: 'config-win.h': No such file or directory</code></p>
 <p>解决办法：<br>
-这个原因不知道是什么，网上有很多解决办法，也试了两个，最后解决了，说一下大致思路：<br>
-确认自己安装了 setuptools,<br>
-然后下载安装mysql connector： <a href="http://dev.mysql.com/downloads/connector/c/6.0.html#downloads" target="_blank" rel="noopener">http://dev.mysql.com/downloads/connector/c/6.0.html#downloads</a> （有的人说要老版本的，我也不知道真假，都试试吧）</p>
+这个原因不知道是什么，网上有很多解决办法，也试了两个，最后解决了，说一下大致思路： 确认自己安装了 setuptools,<br>
+然后下载安装mysql connector： http://dev.mysql.com/downloads/connector/c/6.0.html#downloads （有的人说要老版本的，我也不知道真假，都试试吧）</p>
 <p>现在，使用<code>pip install mysql-python</code>看看还报不报错，如果还报错，那就把<code>MySQL Connector C 6.0.2</code>从<code>C:\Program Files\MySQL</code> 复制到 <code>C:\Program Files (x86)\MySQL</code></p>
 <p>再试试<code>pip install MySQL-python</code>看看还报不报错</p>
 <p>这样我的问题就解决了。</p>
 <p>检测安装是否成功<code>import MySQLdb</code></p>
-<p>For CentOS:<br>
-<code>yum install python-devel mysql-devel</code></p>
+<p>For CentOS: <code>yum install python-devel mysql-devel</code></p>
 <p><code>pip install mysql-python</code></p>
 <p>On centos 7: <code>sudo yum install MySQL-python</code></p>
-<p>参考：<a href="http://www.cnblogs.com/rwxwsblog/p/4572367.html" target="_blank" rel="noopener">http://www.cnblogs.com/rwxwsblog/p/4572367.html</a></p>
+<p>参考：http://www.cnblogs.com/rwxwsblog/p/4572367.html</p>
 <hr>
-<h3 id="mysql-使用"><a class="markdownIt-Anchor" href="#mysql-使用"></a> MySQL 使用</h3>
-<p><code>cd D:\Tools\MySQL5.5.25\bin</code>进入到mysql的bin目录下才可以输入 <code>mysql -h localhost -u root -p</code></p>
+<p>### MySQL 使用 <code>cd D:\Tools\MySQL5.5.25\bin</code>进入到mysql的bin目录下才可以输入 <code>mysql -h localhost -u root -p</code></p>
 <p>输入<code>show databases；</code>显示你有的数据库</p>
 <hr>
-<h3 id="安装python2712"><a class="markdownIt-Anchor" href="#安装python2712"></a> 安装python2.7.12</h3>
+<h3 id="安装python2.7.12">安装python2.7.12</h3>
 <p>事先安装<code>yum install gcc</code></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate wget https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tgz</span><br><span class="line">tar zxvf Python-2.7.12.tgz </span><br><span class="line">cd Python-2.7.12</span><br><span class="line">./configure --prefix=/usr/local</span><br><span class="line">make &amp;&amp; make altinstall</span><br></pre></td></tr></table></figure>
-<p>可以修改<code>export PATH=&quot;/usr/local/bin:$PATH&quot;</code></p>
+<p>可以修改<code>export PATH="/usr/local/bin:$PATH"</code></p>
 <p>安装Scrapy时，报错<code>Could not find a version that satisfies the requirement Twisted&gt;=13.1.0 (from scrapy) (from versions: ) No matching distribution found for Twisted&gt;=13.1.0 (from scrapy)</code></p>
 <p>这个错误可以通过：<code>yum install bzip2-devel</code>或<code>apt-get install libbz2-dev</code>来解决（For those who are using CentOS, Fedora or RHEL, the equivalent library that you need before compiling python is: <code>bzip2-devel</code>. The <code>libbz2-dev</code> only exists in Debian/Ubuntu.）</p>
 <hr>
-<h3 id="安装出现gcc错误"><a class="markdownIt-Anchor" href="#安装出现gcc错误"></a> 安装出现gcc错误</h3>
-<p>[error: command ‘gcc’ failed with exit status 1 on CentOS</p>
-<p>](<a href="https://stackoverflow.com/questions/19955775/error-command-gcc-failed-with-exit-status-1-on-centos" target="_blank" rel="noopener">https://stackoverflow.com/questions/19955775/error-command-gcc-failed-with-exit-status-1-on-centos</a>)</p>
-<p>&quot; error: command ‘gcc’ failed with exit status 1 &quot;. the installation failed because of missing python-devel and some dependencies.</p>
+<h3 id="安装出现gcc错误">安装出现gcc错误</h3>
+<p><a href="https://stackoverflow.com/questions/19955775/error-command-gcc-failed-with-exit-status-1-on-centos" target="_blank" rel="noopener">error: command 'gcc' failed with exit status 1 on CentOS</a></p>
+<p>" error: command 'gcc' failed with exit status 1 ". the installation failed because of missing python-devel and some dependencies.</p>
 <p>the best way to correct gcc problem:</p>
 <p>You need to reinstall gcc , gcc-c++ and dependencies.</p>
 <p>For python 2.7</p>
@@ -154,60 +146,50 @@
 <p>For python 3.4</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install python3-dev</span><br><span class="line">$ pip install <span class="string">"your python packet"</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="scrapy爬虫-捕获403状态码抛出closespider异常"><a class="markdownIt-Anchor" href="#scrapy爬虫-捕获403状态码抛出closespider异常"></a> Scrapy爬虫 捕获403状态码抛出CloseSpider异常</h3>
+<h3 id="scrapy爬虫-捕获403状态码抛出closespider异常">Scrapy爬虫 捕获403状态码抛出CloseSpider异常</h3>
 <p><a href="http://blog.csdn.net/haipengdai/article/details/48526507" target="_blank" rel="noopener">Scrapy爬虫 捕获403状态码抛出CloseSpider异常</a></p>
-<p>1、爬数据的时候，有时会遇到被该网站封IP等情况，response的状态码为403，那么这时候我们希望能够抛出<br>
-CloseSpider的异常。</p>
+<p>1、爬数据的时候，有时会遇到被该网站封IP等情况，response的状态码为403，那么这时候我们希望能够抛出 CloseSpider的异常。</p>
 <p>2、但是如scrapy官网提到的，Scrapy默认的设置是过滤掉有问题的HTTP response(即response状态码不在200-300之间)。因此403的情况会被ignore掉，意思就是我们不是处理这个url 请求的response，直接就忽略，也就是及时我们用response.status == 400判断没有作用，因为只有status处于200-300的请求才会被处理。</p>
-<ol start="3">
+<ol start="3" type="1">
 <li>如果我们想捕获或者处理403，或者其它如404或者500，这种请求时，我们在spider的类中把403放在handle_httpstatus_list中。如下就行。</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySpider</span><span class="params">(CrawlSpider)</span>:</span></span><br><span class="line">   handle_httpstatus_list = [<span class="number">403</span>]</span><br></pre></td></tr></table></figure>
-<p>或者将403放在HTTPERROR_ALLOWED_CODES设置中<br>
-即在settings中增加HTTPERROR_ALLOWED_CODES = [403]， HTTPERROR_ALLOWED_CODES默认是[]</p>
-<p><a href="http://doc.scrapy.org/en/1.0/topics/spider-middleware.html#httperror-allowed-codes" target="_blank" rel="noopener">http://doc.scrapy.org/en/1.0/topics/spider-middleware.html#httperror-allowed-codes</a></p>
-<ol start="4">
+<p>或者将403放在HTTPERROR_ALLOWED_CODES设置中 即在settings中增加HTTPERROR_ALLOWED_CODES = [403]， HTTPERROR_ALLOWED_CODES默认是[]</p>
+<p>http://doc.scrapy.org/en/1.0/topics/spider-middleware.html#httperror-allowed-codes</p>
+<ol start="4" type="1">
 <li>设置完handle_httpstatus_list或者HTTPERROR_ALLOWED_CODES之后，就可以通过判断response.status == 403抛出CloseSpider异常，结束抓取。</li>
 </ol>
 <hr>
-<h3 id="scrapy-代理设置-proxy"><a class="markdownIt-Anchor" href="#scrapy-代理设置-proxy"></a> Scrapy 代理设置 proxy</h3>
+<h3 id="scrapy-代理设置-proxy">Scrapy 代理设置 proxy</h3>
 <p><a href="https://stackoverflow.com/questions/4710483/scrapy-and-proxies" target="_blank" rel="noopener">stackoverflow.com: Scrapy and proxies</a></p>
 <p><a href="http://blog.csdn.net/haipengdai/article/details/50972983" target="_blank" rel="noopener">scrapy设置代理proxy</a></p>
 <hr>
-<h3 id="python模块imghdr读图片后缀名"><a class="markdownIt-Anchor" href="#python模块imghdr读图片后缀名"></a> python模块imghdr读图片后缀名</h3>
+<h3 id="python模块imghdr读图片后缀名">python模块imghdr读图片后缀名</h3>
 <p>爬数据的时候常常遇到img标签的src中不包含图片的后缀名，如http://photos.prnewswire.com/prn/20100819/LA52539LOGO所示，</p>
 <p>这时通过imghdr模块就能够把图片的后缀名读出来</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2  </span><br><span class="line"><span class="keyword">import</span> imghdr  </span><br><span class="line">  </span><br><span class="line">url = <span class="string">'http://photos.prnewswire.com/prn/20100819/LA52539LOGO'</span>  </span><br><span class="line">response = urllib2.urlopen(url)  </span><br><span class="line">webpage = response.read()  </span><br><span class="line"><span class="keyword">print</span> imghdr.what(<span class="string">''</span>, webpage)</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="scrapy-exceptions"><a class="markdownIt-Anchor" href="#scrapy-exceptions"></a> Scrapy Exceptions</h3>
-<ol>
-<li>
-<p>DropItem，只能在item pipeline中使用</p>
-</li>
-<li>
-<p>CloseSpider</p>
-</li>
+<h3 id="scrapy-exceptions">Scrapy Exceptions</h3>
+<ol type="1">
+<li><p>DropItem，只能在item pipeline中使用</p></li>
+<li><p>CloseSpider</p></li>
 </ol>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_page</span><span class="params">(self, response)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">'Bandwidth exceeded'</span> <span class="keyword">in</span> response.body:</span><br><span class="line">        <span class="keyword">raise</span> CloseSpider(<span class="string">'bandwidth_exceeded'</span>)</span><br></pre></td></tr></table></figure>
-<ol start="3">
+<ol start="3" type="1">
 <li>IgnoreRequest</li>
 </ol>
 <p>由Scheduler或者任何下载中间件发起</p>
-<ol start="4">
-<li>
-<p>NotConfigured</p>
-</li>
-<li>
-<p>NotSupported</p>
-</li>
+<ol start="4" type="1">
+<li><p>NotConfigured</p></li>
+<li><p>NotSupported</p></li>
 </ol>
-<h3 id="scrapy-http-status-code-403"><a class="markdownIt-Anchor" href="#scrapy-http-status-code-403"></a> Scrapy HTTP Status Code 403</h3>
+<h3 id="scrapy-http-status-code-403">Scrapy HTTP Status Code 403</h3>
 <p>HTTP Status Code 403 definitely means Forbidden / Access Denied.<br>
 HTTP Status Code 302 is for redirection of requests. No need to worry about them.<br>
 Nothing seems to be wrong in your code.</p>
-<p>Yes, it’s <strong>definitely an anti-scraping measure implemented</strong> by the site.</p>
+<p>Yes, it's <strong>definitely an anti-scraping measure implemented</strong> by the site.</p>
 <p>在使用Tor之后，有些网站有图片验证，会弹出google验证码，就会出现这个错误</p>
-<h3 id="scrapy-image-download-error-301"><a class="markdownIt-Anchor" href="#scrapy-image-download-error-301"></a> Scrapy image download error 301</h3>
+<h3 id="scrapy-image-download-error-301">Scrapy image download error 301</h3>
 <p>写代码的过程中遇到一个网站，网站正文可以下载下来，但是网站的图片无法下载， 错误如下：</p>
 <blockquote>
 <p>File (code: %(status)s): Error downloading file from http:/xxxxxx.xxx.xxx/xxx referred in</p>
@@ -219,8 +201,7 @@ Nothing seems to be wrong in your code.</p>
 By default media pipelines ignore redirects, i.e. an HTTP redirection to a media file URL request will mean the media download is considered failed.<br>
 To handle media redirections, set this setting to True:</p>
 </blockquote>
-<p>就是这样，在settings.py中加入：<br>
-<code>MEDIA_ALLOW_REDIRECTS = True</code></p>
+<p>就是这样，在settings.py中加入： <code>MEDIA_ALLOW_REDIRECTS = True</code></p>
 <p>以后有问题还是得先找官方文档，最权威啊</p>
   
 	</div>
@@ -284,7 +265,7 @@ To handle media redirections, set this setting to True:</p>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#how-to-disable-cache-in-scrapy"><span class="toc-number">1.</span> <span class="toc-text"> How to disable cache in scrapy?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql"><span class="toc-number">2.</span> <span class="toc-text"> mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首先安装mysql"><span class="toc-number">2.1.</span> <span class="toc-text"> 首先，安装mysql</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装python-mysql相关库"><span class="toc-number">2.2.</span> <span class="toc-text"> 安装python mysql相关库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql-使用"><span class="toc-number">3.</span> <span class="toc-text"> MySQL 使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装python2712"><span class="toc-number">4.</span> <span class="toc-text"> 安装python2.7.12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装出现gcc错误"><span class="toc-number">5.</span> <span class="toc-text"> 安装出现gcc错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scrapy爬虫-捕获403状态码抛出closespider异常"><span class="toc-number">6.</span> <span class="toc-text"> Scrapy爬虫 捕获403状态码抛出CloseSpider异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scrapy-代理设置-proxy"><span class="toc-number">7.</span> <span class="toc-text"> Scrapy 代理设置 proxy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python模块imghdr读图片后缀名"><span class="toc-number">8.</span> <span class="toc-text"> python模块imghdr读图片后缀名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scrapy-exceptions"><span class="toc-number">9.</span> <span class="toc-text"> Scrapy Exceptions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scrapy-http-status-code-403"><span class="toc-number">10.</span> <span class="toc-text"> Scrapy HTTP Status Code 403</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scrapy-image-download-error-301"><span class="toc-number">11.</span> <span class="toc-text"> Scrapy image download error 301</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#how-to-disable-cache-in-scrapy"><span class="toc-number">1.</span> <span class="toc-text">How to disable cache in scrapy?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql"><span class="toc-number">2.</span> <span class="toc-text">mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首先安装mysql"><span class="toc-number">2.1.</span> <span class="toc-text">首先，安装mysql</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装python2.7.12"><span class="toc-number">3.</span> <span class="toc-text">安装python2.7.12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装出现gcc错误"><span class="toc-number">4.</span> <span class="toc-text">安装出现gcc错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scrapy爬虫-捕获403状态码抛出closespider异常"><span class="toc-number">5.</span> <span class="toc-text">Scrapy爬虫 捕获403状态码抛出CloseSpider异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scrapy-代理设置-proxy"><span class="toc-number">6.</span> <span class="toc-text">Scrapy 代理设置 proxy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python模块imghdr读图片后缀名"><span class="toc-number">7.</span> <span class="toc-text">python模块imghdr读图片后缀名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scrapy-exceptions"><span class="toc-number">8.</span> <span class="toc-text">Scrapy Exceptions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scrapy-http-status-code-403"><span class="toc-number">9.</span> <span class="toc-text">Scrapy HTTP Status Code 403</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scrapy-image-download-error-301"><span class="toc-number">10.</span> <span class="toc-text">Scrapy image download error 301</span></a></li></ol>
  
   </div>
 
@@ -374,19 +355,19 @@ To handle media redirections, set this setting to True:</p>
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -402,10 +383,6 @@ To handle media redirections, set this setting to True:</p>
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -414,11 +391,15 @@ To handle media redirections, set this setting to True:</p>
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -426,15 +407,15 @@ To handle media redirections, set this setting to True:</p>
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

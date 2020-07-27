@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Introduce 本文基于关于博客同步的解决办法,和利用git解决hexo博客多PC间同步问题,结合自己的实际操作，解决Hexo多PC同步问题。在此，对两位作者表示感谢！  Scene 单位和家里两PC，同时都想更新blog。而由于hexo没有后台，而且全部文件都在本地生成，所以如果公司电脑上发表了A文章后回家又写了篇B文章，在家里上传后你会发现只有B文章而A文章没了（因为家里的PC上没有A文">
+    <meta name="description" content="Introduce 本文基于关于博客同步的解决办法,和利用git解决hexo博客多PC间同步问题,结合自己的实际操作，解决Hexo多PC同步问题。在此，对两位作者表示感谢！ Scene 单位和家里两PC，同时都想更新blog。而由于hexo没有后台，而且全部文件都在本地生成，所以如果公司电脑上发表了A文章后回家又写了篇B文章，在家里上传后你会发现只有B文章而A文章没了（因为家里的PC上没有A">
 <meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo 多主机同步解决方法和配置">
 <meta property="og:url" content="http://flamepeak.com/2016/08/29/hexo-multi-PC-sync-config/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Introduce 本文基于关于博客同步的解决办法,和利用git解决hexo博客多PC间同步问题,结合自己的实际操作，解决Hexo多PC同步问题。在此，对两位作者表示感谢！  Scene 单位和家里两PC，同时都想更新blog。而由于hexo没有后台，而且全部文件都在本地生成，所以如果公司电脑上发表了A文章后回家又写了篇B文章，在家里上传后你会发现只有B文章而A文章没了（因为家里的PC上没有A文">
+<meta property="og:description" content="Introduce 本文基于关于博客同步的解决办法,和利用git解决hexo博客多PC间同步问题,结合自己的实际操作，解决Hexo多PC同步问题。在此，对两位作者表示感谢！ Scene 单位和家里两PC，同时都想更新blog。而由于hexo没有后台，而且全部文件都在本地生成，所以如果公司电脑上发表了A文章后回家又写了篇B文章，在家里上传后你会发现只有B文章而A文章没了（因为家里的PC上没有A">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-12-09T00:30:26.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 多主机同步解决方法和配置">
-<meta name="twitter:description" content="Introduce 本文基于关于博客同步的解决办法,和利用git解决hexo博客多PC间同步问题,结合自己的实际操作，解决Hexo多PC同步问题。在此，对两位作者表示感谢！  Scene 单位和家里两PC，同时都想更新blog。而由于hexo没有后台，而且全部文件都在本地生成，所以如果公司电脑上发表了A文章后回家又写了篇B文章，在家里上传后你会发现只有B文章而A文章没了（因为家里的PC上没有A文">
+<meta name="twitter:description" content="Introduce 本文基于关于博客同步的解决办法,和利用git解决hexo博客多PC间同步问题,结合自己的实际操作，解决Hexo多PC同步问题。在此，对两位作者表示感谢！ Scene 单位和家里两PC，同时都想更新blog。而由于hexo没有后台，而且全部文件都在本地生成，所以如果公司电脑上发表了A文章后回家又写了篇B文章，在家里上传后你会发现只有B文章而A文章没了（因为家里的PC上没有A">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,91 +97,58 @@
 </header>
 	<div class="article-content">
 		
-		<h2 id="introduce"><a class="markdownIt-Anchor" href="#introduce"></a> Introduce</h2>
+		<h2 id="introduce">Introduce</h2>
 <p>本文基于<a href="http://devtian.me/2015/03/17/blog-sync-solution/" target="_blank" rel="noopener">关于博客同步的解决办法</a>,和<a href="http://chitanda.me/2015/06/18/hexo-sync-in-multiple-pc/" target="_blank" rel="noopener">利用git解决hexo博客多PC间同步问题</a>,结合自己的实际操作，解决Hexo多PC同步问题。在此，对两位作者表示感谢！</p>
-<h2 id="scene"><a class="markdownIt-Anchor" href="#scene"></a> Scene</h2>
-<p>单位和家里两PC，同时都想更新blog。而由于hexo没有后台，而且全部文件都在本地生成，所以如果公司电脑上发表了A文章后回家又写了篇B文章，在家里上传后你会发现只有B文章而A文章没了（因为家里的PC上没有A文章的md文件），所以多台电脑同时用来写文章的时候，需要解决备份问题。<br>
-另外，笔者就遇到误删的情况，本地Hexo文件夹被彻底删除，原始md文件丢失，新md文件和以前html文件无法同时呈现，此问题至今未解决。</p>
-<h2 id="theory"><a class="markdownIt-Anchor" href="#theory"></a> Theory</h2>
+<h2 id="scene">Scene</h2>
+<p>单位和家里两PC，同时都想更新blog。而由于hexo没有后台，而且全部文件都在本地生成，所以如果公司电脑上发表了A文章后回家又写了篇B文章，在家里上传后你会发现只有B文章而A文章没了（因为家里的PC上没有A文章的md文件），所以多台电脑同时用来写文章的时候，需要解决备份问题。 另外，笔者就遇到误删的情况，本地Hexo文件夹被彻底删除，原始md文件丢失，新md文件和以前html文件无法同时呈现，此问题至今未解决。</p>
+<h2 id="theory">Theory</h2>
 <p>hexo作为一个非常优秀的静态博客框架，hexo与传统的博客托管网站不同的一点是博客的源文件是保存在本地的，并通过hexo框架提供的hexo generate 和 hexo deploy命令将markdown文件生成相应的html文件，并发布到github-pages上去。</p>
 <p>我们通过 hexo deploy发布到github-pages的时候，会将public目录（html文件）自动push到远程仓库的master分支。但这个对多终端博客同步没有任何意义，因为我们每次hexo generate都会根据source目录下的markdown源文件重新生成html文件，所以解决问题的关键是怎么同步source目录下的源文件，不仅如此，还有配置文件_config.yml，scanffolds目录，themes目录。</p>
-<h2 id="steps"><a class="markdownIt-Anchor" href="#steps"></a> Steps</h2>
+<h2 id="steps">Steps</h2>
 <p>首先我们进入到博客系统的根目录，比如blog目录，这里边有个.gitignore文件（如果该文件不存在，自己创建一个），里边默认已经把该忽略的目录文件都写好了，里边内容如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.<span class="built_in">log</span></span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/%</span><br></pre></td></tr></table></figure>
-<p>然后在blog目录初始化仓库，切换到source分支，关联远程仓库，并push到远程仓库的source分支</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ git init                 <span class="comment">#在当前目录新建一个Git代码库</span></span><br><span class="line">$ git checkout -b <span class="built_in">source</span>   <span class="comment">#新建一个source分支，并切换到该分支</span></span><br><span class="line">$ git add .      <span class="comment">##添加blog目录下所有文件(.gitignore声明的文件不包含在内)</span></span><br><span class="line">$ git commit -m <span class="string">"first commit"</span>    <span class="comment">##添加更新说明</span></span><br><span class="line">$ git remote add origin git@github.com:username/username.github.io.git</span><br><span class="line">$ git push origin <span class="built_in">source</span>   <span class="comment">#推送更新到云端服务器</span></span><br></pre></td></tr></table></figure>
-<h3 id="添加本地文件到仓库并同步到git上可以用"><a class="markdownIt-Anchor" href="#添加本地文件到仓库并同步到git上可以用"></a> 添加本地文件到仓库并同步到git上，可以用：</h3>
+<p>然后在blog目录初始化仓库，切换到source分支，关联远程仓库，并push到远程仓库的source分支 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ git init                 <span class="comment">#在当前目录新建一个Git代码库</span></span><br><span class="line">$ git checkout -b <span class="built_in">source</span>   <span class="comment">#新建一个source分支，并切换到该分支</span></span><br><span class="line">$ git add .      <span class="comment">##添加blog目录下所有文件(.gitignore声明的文件不包含在内)</span></span><br><span class="line">$ git commit -m <span class="string">"first commit"</span>    <span class="comment">##添加更新说明</span></span><br><span class="line">$ git remote add origin git@github.com:username/username.github.io.git</span><br><span class="line">$ git push origin <span class="built_in">source</span>   <span class="comment">#推送更新到云端服务器</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="添加本地文件到仓库并同步到git上可以用">添加本地文件到仓库并同步到git上，可以用：</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"first commit"</span></span><br><span class="line">git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
-<h3 id="将git的内容同步到b主机"><a class="markdownIt-Anchor" href="#将git的内容同步到b主机"></a> 将git的内容同步到B主机</h3>
-<p>在另外一台电脑上，先把node环境配好，安装hexo。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<p>注意不要再执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
-<p>取而代之的是</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b <span class="built_in">source</span> git@github.com:username/username.github.io.git</span><br><span class="line"><span class="built_in">cd</span> username.github.io</span><br><span class="line">npm install //根据package.json来下载依赖包</span><br></pre></td></tr></table></figure>
-<p>（如果主题是自己的话，作为子模块存在）至此，我们已经把md文件下载完毕，但是themes目录是空的，现在需要：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git submodule init // 这句很重要</span><br><span class="line">git submodule update</span><br></pre></td></tr></table></figure>
-<p>这样把远程仓库的source分支克隆下来，然后安装依赖包。接下来我们就可以继续写博客了</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"about hexo sync"</span></span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"add blog"</span></span><br><span class="line">$ git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
+<h3 id="将git的内容同步到b主机">将git的内容同步到B主机</h3>
+<p>在另外一台电脑上，先把node环境配好，安装hexo。 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure></p>
+<p>注意不要再执行： <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure></p>
+<p>取而代之的是 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b <span class="built_in">source</span> git@github.com:username/username.github.io.git</span><br><span class="line"><span class="built_in">cd</span> username.github.io</span><br><span class="line">npm install //根据package.json来下载依赖包</span><br></pre></td></tr></table></figure></p>
+<p>（如果主题是自己的话，作为子模块存在）至此，我们已经把md文件下载完毕，但是themes目录是空的，现在需要： <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git submodule init // 这句很重要</span><br><span class="line">git submodule update</span><br></pre></td></tr></table></figure></p>
+<p>这样把远程仓库的source分支克隆下来，然后安装依赖包。接下来我们就可以继续写博客了 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"about hexo sync"</span></span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"add blog"</span></span><br><span class="line">$ git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure></p>
 <p>这样就完成了多终端的博客同步。</p>
-<p>再到A主机的时候，只需要<br>
-<code>git pull</code><br>
-即可同步更新</p>
-<h2 id="下面说一下第三方主题的同步问题"><a class="markdownIt-Anchor" href="#下面说一下第三方主题的同步问题"></a> 下面说一下第三方主题的同步问题</h2>
+<p>再到A主机的时候，只需要 <code>git pull</code> 即可同步更新</p>
+<h2 id="下面说一下第三方主题的同步问题">下面说一下第三方主题的同步问题</h2>
 <p>我们一般会选择第三方主题的仓库直接git clone下来。这是一个非常不好的习惯，正确做法是：Fork该第三方主题仓库，这样就会在自己账号下生成一个同名的仓库，并对应一个url，我们应该git clone自己账号下的url。</p>
 <p>这样做的原因是：我们很有可能在原来主题基础上做一些自定义的小改动，为了保持多终端的同步，我们需要将这些改动提交到远程仓库。而第三方仓库我们是无法直接push的。</p>
-<p>这样就会出现git仓库的嵌套问题，我们通过git submodule来解决这个问题。<br>
-<code>git submodule add git@github.com:username/hexo-theme-next.git themes/next</code><br>
-后面的theme 应该是自己fork到自己账户的theme</p>
-<p>我们修改主题后:（可能不成功，不成功用下面的方法同步：关于git submodule push 不成功的问题）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit -am <span class="string">"refine UI"</span></span><br><span class="line">git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
-<p>在另外一个终端上执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git submodule init // 这句很重要</span><br><span class="line">git submodule update</span><br></pre></td></tr></table></figure>
+<p>这样就会出现git仓库的嵌套问题，我们通过git submodule来解决这个问题。 <code>git submodule add git@github.com:username/hexo-theme-next.git themes/next</code> 后面的theme 应该是自己fork到自己账户的theme</p>
+<p>我们修改主题后:（可能不成功，不成功用下面的方法同步：关于git submodule push 不成功的问题） <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit -am <span class="string">"refine UI"</span></span><br><span class="line">git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure></p>
+<p>在另外一个终端上执行： <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git submodule init // 这句很重要</span><br><span class="line">git submodule update</span><br></pre></td></tr></table></figure></p>
 <p>即可同步作为子模块的主题</p>
-<h2 id="关于configxml的配置"><a class="markdownIt-Anchor" href="#关于configxml的配置"></a> 关于config.xml的配置</h2>
+<h2 id="关于config.xml的配置">关于config.xml的配置</h2>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: git@github.com:username/username.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<h2 id="关于git-submodule-push-不成功的问题"><a class="markdownIt-Anchor" href="#关于git-submodule-push-不成功的问题"></a> 关于git submodule push 不成功的问题</h2>
-<p>采用devtian 的submodule方法，可以成功建立，但是更新不成功。<br>
-在stackoverflow找到解决办法<a href="http://stackoverflow.com/questions/5814319/git-submodule-push" target="_blank" rel="noopener">Git submodule push</a><br>
-A submodule is nothing but a clone of a git repo within another repo with some extra meta data (gitlink tree entry, .gitmodules file )</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> your_submodule     <span class="comment">#themes/ghost-casper  </span></span><br><span class="line">$ git checkout master</span><br><span class="line">$ git commit -a -m <span class="string">"commit in submodule"</span></span><br><span class="line">$ git push</span><br><span class="line">$ <span class="built_in">cd</span> ..</span><br><span class="line">$ git add your_submodule</span><br><span class="line">$ git commit -m <span class="string">"Updated submodule"</span></span><br></pre></td></tr></table></figure>
-<p>原理我没有搞明白，至少可以实现，另外submodule更新较慢，需要多等一会,才能在github上看到<br>
-因为要备份md sourcefile，所以要记得多更新</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"add blog"</span></span><br><span class="line">$ git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
-<h2 id="添加rss"><a class="markdownIt-Anchor" href="#添加rss"></a> 添加RSS</h2>
-<p><code>npm install hexo-generator-feed --save</code><br>
-然后在博客配置文件_config.yml中添加启动<br>
-<code>plugins: hexo-generator-feed</code></p>
-<h2 id="hexo-代码高亮"><a class="markdownIt-Anchor" href="#hexo-代码高亮"></a> hexo 代码高亮</h2>
-<p>格式是：<br>
-```+语言名（比如java）<br>
-//代码内容<br>
-```<br>
-example:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Hello"</span></span><br></pre></td></tr></table></figure>
+<h2 id="关于git-submodule-push-不成功的问题">关于git submodule push 不成功的问题</h2>
+<p>采用devtian 的submodule方法，可以成功建立，但是更新不成功。 在stackoverflow找到解决办法<a href="http://stackoverflow.com/questions/5814319/git-submodule-push" target="_blank" rel="noopener">Git submodule push</a> A submodule is nothing but a clone of a git repo within another repo with some extra meta data (gitlink tree entry, .gitmodules file ) <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> your_submodule     <span class="comment">#themes/ghost-casper  </span></span><br><span class="line">$ git checkout master</span><br><span class="line">$ git commit -a -m <span class="string">"commit in submodule"</span></span><br><span class="line">$ git push</span><br><span class="line">$ <span class="built_in">cd</span> ..</span><br><span class="line">$ git add your_submodule</span><br><span class="line">$ git commit -m <span class="string">"Updated submodule"</span></span><br></pre></td></tr></table></figure></p>
+<p>原理我没有搞明白，至少可以实现，另外submodule更新较慢，需要多等一会,才能在github上看到 因为要备份md sourcefile，所以要记得多更新 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"add blog"</span></span><br><span class="line">$ git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="添加rss">添加RSS</h2>
+<p><code>npm install hexo-generator-feed --save</code> 然后在博客配置文件_config.yml中添加启动 <code>plugins: hexo-generator-feed</code></p>
+<h2 id="hexo-代码高亮">hexo 代码高亮</h2>
+<p>格式是： ```+语言名（比如java） //代码内容 ``` example: <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Hello"</span></span><br></pre></td></tr></table></figure></p>
 <hr>
-<h2 id="关于ssh-key"><a class="markdownIt-Anchor" href="#关于ssh-key"></a> 关于SSH key</h2>
-<p>新的主机或者是重装系统后的主机，在使用<code>git pull</code>时，会显示<code>Permission denied (publickey)</code>错误。这是因为系统里没有连接到github的SSH key。<br>
-下面介绍如何生成、使用SSH key，过程翻译自<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="noopener">Github Help</a>:</p>
+<h2 id="关于ssh-key">关于SSH key</h2>
+<p>新的主机或者是重装系统后的主机，在使用<code>git pull</code>时，会显示<code>Permission denied (publickey)</code>错误。这是因为系统里没有连接到github的SSH key。 下面介绍如何生成、使用SSH key，过程翻译自<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="noopener">Github Help</a>:</p>
 <p><strong>生成新的SSH key</strong></p>
-<ol>
+<ol type="1">
 <li>打开Git Bush</li>
-<li>粘贴下列代码到Git Bush，注意邮件地址要替换为你在Github的邮件地址。<br>
-<code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code></li>
-<li>当提示&quot;Enter a file in which to save the key&quot;时，按回车键。使用默认地址安装：<br>
-<code>Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]</code></li>
-<li>然后根据提示输入一个密码。获取更多信息,请参考<a href="https://help.github.com/articles/working-with-ssh-key-passphrases" target="_blank" rel="noopener">Working with SSH key passphrases</a>:<br>
-<code>Enter passphrase (empty for no passphrase): [Type a passphrase]</code><br>
-<code>Enter same passphrase again: [Type passphrase again]</code></li>
+<li>粘贴下列代码到Git Bush，注意邮件地址要替换为你在Github的邮件地址。 <code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code></li>
+<li>当提示"Enter a file in which to save the key"时，按回车键。使用默认地址安装： <code>Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]</code></li>
+<li>然后根据提示输入一个密码。获取更多信息,请参考<a href="https://help.github.com/articles/working-with-ssh-key-passphrases" target="_blank" rel="noopener">Working with SSH key passphrases</a>: <code>Enter passphrase (empty for no passphrase): [Type a passphrase]</code> <code>Enter same passphrase again: [Type passphrase again]</code></li>
 </ol>
 <p><strong>添加你的SSH key到ssh-agent</strong></p>
-<ol>
-<li>确保ssh-agent启用：<br>
-<code>eval &quot;$(ssh-agent -s)&quot;</code></li>
-<li>添加SSH key到ssh-agent：<br>
-<code>ssh-add ~/.ssh/id_rsa</code></li>
-<li>将SSH key添加到GitHub账户。<br>
-请参考<a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/" target="_blank" rel="noopener">Adding a new SSH key to your GitHub account</a></li>
+<ol type="1">
+<li>确保ssh-agent启用： <code>eval "$(ssh-agent -s)"</code></li>
+<li>添加SSH key到ssh-agent： <code>ssh-add ~/.ssh/id_rsa</code></li>
+<li>将SSH key添加到GitHub账户。 请参考<a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/" target="_blank" rel="noopener">Adding a new SSH key to your GitHub account</a></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ clip &lt; ~/.ssh/id_rsa.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
   
@@ -246,7 +213,7 @@ example:</p>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#introduce"><span class="toc-number">1.</span> <span class="toc-text"> Introduce</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scene"><span class="toc-number">2.</span> <span class="toc-text"> Scene</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#theory"><span class="toc-number">3.</span> <span class="toc-text"> Theory</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#steps"><span class="toc-number">4.</span> <span class="toc-text"> Steps</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加本地文件到仓库并同步到git上可以用"><span class="toc-number">4.1.</span> <span class="toc-text"> 添加本地文件到仓库并同步到git上，可以用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将git的内容同步到b主机"><span class="toc-number">4.2.</span> <span class="toc-text"> 将git的内容同步到B主机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下面说一下第三方主题的同步问题"><span class="toc-number">5.</span> <span class="toc-text"> 下面说一下第三方主题的同步问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于configxml的配置"><span class="toc-number">6.</span> <span class="toc-text"> 关于config.xml的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于git-submodule-push-不成功的问题"><span class="toc-number">7.</span> <span class="toc-text"> 关于git submodule push 不成功的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加rss"><span class="toc-number">8.</span> <span class="toc-text"> 添加RSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-代码高亮"><span class="toc-number">9.</span> <span class="toc-text"> hexo 代码高亮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于ssh-key"><span class="toc-number">10.</span> <span class="toc-text"> 关于SSH key</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#introduce"><span class="toc-number">1.</span> <span class="toc-text">Introduce</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scene"><span class="toc-number">2.</span> <span class="toc-text">Scene</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#theory"><span class="toc-number">3.</span> <span class="toc-text">Theory</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#steps"><span class="toc-number">4.</span> <span class="toc-text">Steps</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加本地文件到仓库并同步到git上可以用"><span class="toc-number">4.1.</span> <span class="toc-text">添加本地文件到仓库并同步到git上，可以用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将git的内容同步到b主机"><span class="toc-number">4.2.</span> <span class="toc-text">将git的内容同步到B主机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下面说一下第三方主题的同步问题"><span class="toc-number">5.</span> <span class="toc-text">下面说一下第三方主题的同步问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于config.xml的配置"><span class="toc-number">6.</span> <span class="toc-text">关于config.xml的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于git-submodule-push-不成功的问题"><span class="toc-number">7.</span> <span class="toc-text">关于git submodule push 不成功的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加rss"><span class="toc-number">8.</span> <span class="toc-text">添加RSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-代码高亮"><span class="toc-number">9.</span> <span class="toc-text">hexo 代码高亮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于ssh-key"><span class="toc-number">10.</span> <span class="toc-text">关于SSH key</span></a></li></ol>
  
   </div>
 
@@ -336,19 +303,19 @@ example:</p>
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -364,10 +331,6 @@ example:</p>
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -376,11 +339,15 @@ example:</p>
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -388,15 +355,15 @@ example:</p>
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="参考：kali linux 2019.1 替换burpsuite pro 1.7.37 文章中的办法总体可行，但是，具体实现有问题   先切换JDK版本为1.8.执行 update-alternatives  --config  java 然后会显示多个jdk版本，1.8选2   输入java –version会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到/usr/bin。">
+    <meta name="description" content="参考：kali linux 2019.1 替换burpsuite pro 1.7.37 文章中的办法总体可行，但是，具体实现有问题  先切换JDK版本为1.8.执行 update-alternatives  --config  java 然后会显示多个jdk版本，1.8选2 输入java –version会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到/usr/b">
 <meta name="keywords" content="kali">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kali linux 2019.4 替换burpsuite pro">
 <meta property="og:url" content="http://flamepeak.com/2019/12/03/kali-replace-burpsuite-pro-20191203/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="参考：kali linux 2019.1 替换burpsuite pro 1.7.37 文章中的办法总体可行，但是，具体实现有问题   先切换JDK版本为1.8.执行 update-alternatives  --config  java 然后会显示多个jdk版本，1.8选2   输入java –version会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到/usr/bin。">
+<meta property="og:description" content="参考：kali linux 2019.1 替换burpsuite pro 1.7.37 文章中的办法总体可行，但是，具体实现有问题  先切换JDK版本为1.8.执行 update-alternatives  --config  java 然后会显示多个jdk版本，1.8选2 输入java –version会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到/usr/b">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-07-24T06:56:20.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kali linux 2019.4 替换burpsuite pro">
-<meta name="twitter:description" content="参考：kali linux 2019.1 替换burpsuite pro 1.7.37 文章中的办法总体可行，但是，具体实现有问题   先切换JDK版本为1.8.执行 update-alternatives  --config  java 然后会显示多个jdk版本，1.8选2   输入java –version会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到/usr/bin。">
+<meta name="twitter:description" content="参考：kali linux 2019.1 替换burpsuite pro 1.7.37 文章中的办法总体可行，但是，具体实现有问题  先切换JDK版本为1.8.执行 update-alternatives  --config  java 然后会显示多个jdk版本，1.8选2 输入java –version会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到/usr/b">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -99,42 +99,26 @@
 		
 		<p>参考：<a href="https://www.cnblogs.com/dbxiaobai/p/10646298.html" target="_blank" rel="noopener">kali linux 2019.1 替换burpsuite pro 1.7.37</a></p>
 <p>文章中的办法总体可行，但是，具体实现有问题</p>
-<ol>
-<li>
-<p>先切换JDK版本为1.8.执行</p>
+<ol type="1">
+<li><p>先切换JDK版本为1.8.执行</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">update-alternatives  --config  java</span><br></pre></td></tr></table></figure>
-<p>然后会显示多个jdk版本，1.8选2</p>
-</li>
-<li>
-<p>输入<code>java –version</code>会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到<code>/usr/bin</code>。</p>
-</li>
-<li>
-<p>执行破解burpsuite的流程，教程特别多。</p>
-</li>
-<li>
-<p>bash进入<code>/usr/bin</code>目录，先删除以前的免费版burpsuite，</p>
+<p>然后会显示多个jdk版本，1.8选2</p></li>
+<li><p>输入<code>java –version</code>会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到<code>/usr/bin</code>。</p></li>
+<li><p>执行破解burpsuite的流程，教程特别多。</p></li>
+<li><p>bash进入<code>/usr/bin</code>目录，先删除以前的免费版burpsuite，</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rm –rf burpsuite</span><br></pre></td></tr></table></figure>
 <p>vi新建一个文件burpsuite，</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim burpsuite</span><br></pre></td></tr></table></figure>
 <p>内容为</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment">#java -jar burp-loader-keygen-2_1_07.jar</span></span><br><span class="line">java -noverify -Xbootclasspath/p:/usr/bin/burp-loader-keygen-2_1_07.jar -jar /usr/bin/burpsuite_pro_v2.1.07.jar</span><br></pre></td></tr></table></figure>
-<p>此处，调试很长时间都不行，个人认为和burp的破解版本有关系，也就是<code>burp_loader.jar</code>或者<code>burp_helper.jar</code>，在一些版本中上面方法可行，但是有些版本又不行。  多尝试几个版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 将burp-loader-keygen-2_1_07.jar和burpsuite_pro_v2.1.07.jar放入/usr/bin目录</span><br><span class="line">2. bash界面，进入/usr/bin目录<span class="built_in">cd</span> /usr/bin；运行：java -jar /usr/bin/burp-loader-keygen-2_1_05.jar</span><br><span class="line">3. 正常情况下会进入破解的流程，如果无法启动主程序，那么需要更换其它help.jar 和loader.jar尝试；</span><br><span class="line">4. 破解成功之后，如果需要运行burp,直接在bash中输入burpsuite即可</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>保存退出，增加执行权限<code>chmod +x burpsuite</code></p>
-</li>
-<li>
-<p>进入<code>/usr/share/applications</code>，并编辑burpsuite的快捷方式</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/share/applications</span><br><span class="line">vi kali-burpsuite.desktop</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><code>Exec=sh -c &quot;java -jar /usr/bin/burpsuite&quot;</code>改为<code>Exec=sh -c &quot;/usr/bin/burpsuite&quot;</code></p>
-<p>此处，本人修改为<code>Exec=sh -c &quot;cd /usr/bin; /usr/bin/burpsuite&quot;</code></p>
-</li>
-<li>
-<p>然后就可以点桌面的快捷方式运行，开始快乐的使用吧！</p>
-</li>
+<p>此处，调试很长时间都不行，个人认为和burp的破解版本有关系，也就是<code>burp_loader.jar</code>或者<code>burp_helper.jar</code>，在一些版本中上面方法可行，但是有些版本又不行。 多尝试几个版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 将burp-loader-keygen-2_1_07.jar和burpsuite_pro_v2.1.07.jar放入/usr/bin目录</span><br><span class="line">2. bash界面，进入/usr/bin目录<span class="built_in">cd</span> /usr/bin；运行：java -jar /usr/bin/burp-loader-keygen-2_1_05.jar</span><br><span class="line">3. 正常情况下会进入破解的流程，如果无法启动主程序，那么需要更换其它help.jar 和loader.jar尝试；</span><br><span class="line">4. 破解成功之后，如果需要运行burp,直接在bash中输入burpsuite即可</span><br></pre></td></tr></table></figure></li>
+<li><p>保存退出，增加执行权限<code>chmod +x burpsuite</code></p></li>
+<li><p>进入<code>/usr/share/applications</code>，并编辑burpsuite的快捷方式</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/share/applications</span><br><span class="line">vi kali-burpsuite.desktop</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Exec=sh -c "java -jar /usr/bin/burpsuite"</code>改为<code>Exec=sh -c "/usr/bin/burpsuite"</code></p>
+<p>此处，本人修改为<code>Exec=sh -c "cd /usr/bin; /usr/bin/burpsuite"</code></p></li>
+<li><p>然后就可以点桌面的快捷方式运行，开始快乐的使用吧！</p></li>
 </ol>
   
 	</div>
@@ -288,19 +272,19 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -316,10 +300,6 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -328,11 +308,15 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -340,15 +324,15 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

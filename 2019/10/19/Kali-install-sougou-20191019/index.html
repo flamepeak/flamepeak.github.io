@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="kali 2019.3 Kali install Chinese Chinese input method (one success without error)   View your own kernel information, the kernel version is too low, the source you need   Use the command vim /etc/apt">
+    <meta name="description" content="kali 2019.3 Kali install Chinese Chinese input method (one success without error)  View your own kernel information, the kernel version is too low, the source you need Use the command vim /etc/apt">
 <meta name="keywords" content="Linux,Kali">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux install google-pinyin 中文输入法">
 <meta property="og:url" content="http://flamepeak.com/2019/10/19/Kali-install-sougou-20191019/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="kali 2019.3 Kali install Chinese Chinese input method (one success without error)   View your own kernel information, the kernel version is too low, the source you need   Use the command vim /etc/apt">
+<meta property="og:description" content="kali 2019.3 Kali install Chinese Chinese input method (one success without error)  View your own kernel information, the kernel version is too low, the source you need Use the command vim /etc/apt">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-03-17T00:18:34.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux install google-pinyin 中文输入法">
-<meta name="twitter:description" content="kali 2019.3 Kali install Chinese Chinese input method (one success without error)   View your own kernel information, the kernel version is too low, the source you need   Use the command vim /etc/apt">
+<meta name="twitter:description" content="kali 2019.3 Kali install Chinese Chinese input method (one success without error)  View your own kernel information, the kernel version is too low, the source you need Use the command vim /etc/apt">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,61 +97,36 @@
 </header>
 	<div class="article-content">
 		
-		<h2 id="kali-20193"><a class="markdownIt-Anchor" href="#kali-20193"></a> kali 2019.3</h2>
+		<h2 id="kali-2019.3">kali 2019.3</h2>
 <p><a href="http://www.programmersought.com/article/1738186330/" target="_blank" rel="noopener">Kali install Chinese Chinese input method (one success without error)</a></p>
-<ol>
-<li>
-<p>View your own kernel information, the kernel version is too low, the source you need</p>
-</li>
-<li>
-<p>Use the command <code>vim /etc/apt/sources.list</code> , configure Alibaba Cloud image source (only need one Ali cloud source)</p>
-</li>
+<ol type="1">
+<li><p>View your own kernel information, the kernel version is too low, the source you need</p></li>
+<li><p>Use the command <code>vim /etc/apt/sources.list</code> , configure Alibaba Cloud image source (only need one Ali cloud source)</p></li>
 </ol>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#中科大 </span><br><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib </span><br><span class="line">#阿里云</span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib </span><br><span class="line">#东软大学</span><br><span class="line">deb http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib </span><br><span class="line">deb-src http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib </span><br><span class="line">#官方源 </span><br><span class="line">deb http://http.kali.org/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://http.kali.org/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>
-<p>Update with commands <code>apt-get update &amp;&amp; apt-get upgrade</code> Synchronize the index of the source, upgrade the package</p>
-</li>
-<li>
-<p>Use the command <code>apt-get install fcitx</code> Install input method framework</p>
-</li>
-<li>
-<p>Use the command <code>apt-get install fcitx-googlepinyin</code> Install Google Input Method</p>
-</li>
-<li>
-<p>Use the command <code>reboot</code> , restart the system</p>
-</li>
-<li>
-<p>Click on the menu</p>
-</li>
-<li>
-<p>Click ALL—Click on the little penguin <code>fcitx configuration</code> input method(ie input method framework)</p>
-</li>
-<li>
-<p>The default input method is EnglishUS (according to the system).Click <code>+</code></p>
-</li>
-<li>
-<p>Cancel check mark—Search Google</p>
-</li>
-<li>
-<p>Google Input MethodPlaced on the first input</p>
-</li>
-<li>
-<p>VerificationCtrl+Space Switch input method, Firefox browser test in kali is successful</p>
-</li>
+<ol start="3" type="1">
+<li><p>Update with commands <code>apt-get update &amp;&amp; apt-get upgrade</code> Synchronize the index of the source, upgrade the package</p></li>
+<li><p>Use the command <code>apt-get install fcitx</code> Install input method framework</p></li>
+<li><p>Use the command <code>apt-get install fcitx-googlepinyin</code> Install Google Input Method</p></li>
+<li><p>Use the command <code>reboot</code> , restart the system</p></li>
+<li><p>Click on the menu</p></li>
+<li><p>Click ALL---Click on the little penguin <code>fcitx configuration</code> input method(ie input method framework)</p></li>
+<li><p>The default input method is EnglishUS (according to the system).Click <code>+</code></p></li>
+<li><p>Cancel check mark---Search Google</p></li>
+<li><p>Google Input MethodPlaced on the first input</p></li>
+<li><p>VerificationCtrl+Space Switch input method, Firefox browser test in kali is successful</p></li>
 </ol>
-<h2 id="kali-20194"><a class="markdownIt-Anchor" href="#kali-20194"></a> kali 2019.4</h2>
-<h3 id="安装中文支持"><a class="markdownIt-Anchor" href="#安装中文支持"></a> 安装中文支持</h3>
+<h2 id="kali-2019.4">kali 2019.4</h2>
+<h3 id="安装中文支持">安装中文支持</h3>
 <p><a href="https://defcon.cn/110.html" target="_blank" rel="noopener">解决Kali Linux 2019.4中文乱码问题</a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#中科大 </span><br><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib </span><br><span class="line">#阿里云</span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib </span><br><span class="line">#东软大学</span><br><span class="line">deb http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib </span><br><span class="line">deb-src http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib </span><br><span class="line">#官方源 </span><br><span class="line">deb http://http.kali.org/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://http.kali.org/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get update &amp;&amp; apt-get upgrade &amp;&amp; apt-get clean</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg-reconfigure locales</span><br><span class="line">选中en_US.UTF-8 UTF-8和zh_CN.UTF-8 UTF-8（空格是选择，tab是切换，*是选中）</span><br></pre></td></tr></table></figure>
-<p>安装中文字体</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install xfonts-intl-chinese </span><br><span class="line">apt-get install ttf-wqy-microhei</span><br></pre></td></tr></table></figure>
+<p>安装中文字体 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install xfonts-intl-chinese </span><br><span class="line">apt-get install ttf-wqy-microhei</span><br></pre></td></tr></table></figure></p>
 <p>在终端中使用<code>kali-undercover</code>可以在两个主题之间切换，一个win10既视感。</p>
-<h2 id="centos-7"><a class="markdownIt-Anchor" href="#centos-7"></a> CentOS 7</h2>
+<h2 id="centos-7">CentOS 7</h2>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Applications -- System Tools -- Setting -- Regin &amp; Language</span><br><span class="line"></span><br><span class="line">点击左下角的 “+”号, 找到Chinese(China) 或者其它Chinese(..)</span><br><span class="line"></span><br><span class="line">看到一个Chinese(Intelligent Pinyin)</span><br><span class="line"></span><br><span class="line">选中，设置</span><br><span class="line"></span><br><span class="line">看看屏幕右上角，是否多了一个中文选项</span><br><span class="line"></span><br><span class="line">切换：shift</span><br></pre></td></tr></table></figure>
   
 	</div>
@@ -215,7 +190,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kali-20193"><span class="toc-number">1.</span> <span class="toc-text"> kali 2019.3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kali-20194"><span class="toc-number">2.</span> <span class="toc-text"> kali 2019.4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装中文支持"><span class="toc-number">2.1.</span> <span class="toc-text"> 安装中文支持</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#centos-7"><span class="toc-number">3.</span> <span class="toc-text"> CentOS 7</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kali-2019.3"><span class="toc-number">1.</span> <span class="toc-text">kali 2019.3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kali-2019.4"><span class="toc-number">2.</span> <span class="toc-text">kali 2019.4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装中文支持"><span class="toc-number">2.1.</span> <span class="toc-text">安装中文支持</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#centos-7"><span class="toc-number">3.</span> <span class="toc-text">CentOS 7</span></a></li></ol>
  
   </div>
 
@@ -305,19 +280,19 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -333,10 +308,6 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -345,11 +316,15 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -357,15 +332,15 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

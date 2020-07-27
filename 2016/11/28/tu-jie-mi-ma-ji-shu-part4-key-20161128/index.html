@@ -13,13 +13,13 @@
     
 
     
-    <meta name="description" content="本文分为两个部分：  密钥 随机数    一、密钥 密码的本质就是将较长的秘密——消息——变成较短的秘密——密钥。 密钥本身并不重要，重要的是密钥空间的大小，也就是可能出现的密钥的总数量，因为密钥空间越大，进行暴力破解就越困难。密钥空间的大小是由密钥长度决定的。 对窃听者来说，得到密钥和得到明文是等价的。 一般来说，加密的对象是用户直接使用的信息（内容），这种情况下所使用的密钥称为CEK(Cont">
+    <meta name="description" content="本文分为两个部分： + 密钥 + 随机数  一、密钥 密码的本质就是将较长的秘密——消息——变成较短的秘密——密钥。 密钥本身并不重要，重要的是密钥空间的大小，也就是可能出现的密钥的总数量，因为密钥空间越大，进行暴力破解就越困难。密钥空间的大小是由密钥长度决定的。 对窃听者来说，得到密钥和得到明文是等价的。 一般来说，加密的对象是用户直接使用的信息（内容），这种情况下所使用的密钥称为C">
 <meta name="keywords" content="笔记,cryptography">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图解密码技术 读书笔记:密钥与随机数">
 <meta property="og:url" content="http://flamepeak.com/2016/11/28/tu-jie-mi-ma-ji-shu-part4-key-20161128/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="本文分为两个部分：  密钥 随机数    一、密钥 密码的本质就是将较长的秘密——消息——变成较短的秘密——密钥。 密钥本身并不重要，重要的是密钥空间的大小，也就是可能出现的密钥的总数量，因为密钥空间越大，进行暴力破解就越困难。密钥空间的大小是由密钥长度决定的。 对窃听者来说，得到密钥和得到明文是等价的。 一般来说，加密的对象是用户直接使用的信息（内容），这种情况下所使用的密钥称为CEK(Cont">
+<meta property="og:description" content="本文分为两个部分： + 密钥 + 随机数  一、密钥 密码的本质就是将较长的秘密——消息——变成较短的秘密——密钥。 密钥本身并不重要，重要的是密钥空间的大小，也就是可能出现的密钥的总数量，因为密钥空间越大，进行暴力破解就越困难。密钥空间的大小是由密钥长度决定的。 对窃听者来说，得到密钥和得到明文是等价的。 一般来说，加密的对象是用户直接使用的信息（内容），这种情况下所使用的密钥称为C">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20161128/DH_key_exchange.png">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20161128/DH_key_calc1.png">
@@ -37,7 +37,7 @@
 <meta property="og:updated_time" content="2017-01-31T00:42:16.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图解密码技术 读书笔记:密钥与随机数">
-<meta name="twitter:description" content="本文分为两个部分：  密钥 随机数    一、密钥 密码的本质就是将较长的秘密——消息——变成较短的秘密——密钥。 密钥本身并不重要，重要的是密钥空间的大小，也就是可能出现的密钥的总数量，因为密钥空间越大，进行暴力破解就越困难。密钥空间的大小是由密钥长度决定的。 对窃听者来说，得到密钥和得到明文是等价的。 一般来说，加密的对象是用户直接使用的信息（内容），这种情况下所使用的密钥称为CEK(Cont">
+<meta name="twitter:description" content="本文分为两个部分： + 密钥 + 随机数  一、密钥 密码的本质就是将较长的秘密——消息——变成较短的秘密——密钥。 密钥本身并不重要，重要的是密钥空间的大小，也就是可能出现的密钥的总数量，因为密钥空间越大，进行暴力破解就越困难。密钥空间的大小是由密钥长度决定的。 对窃听者来说，得到密钥和得到明文是等价的。 一般来说，加密的对象是用户直接使用的信息（内容），这种情况下所使用的密钥称为C">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/20161128/DH_key_exchange.png">
 
     
@@ -111,228 +111,109 @@
 </header>
 	<div class="article-content">
 		
-		<p>本文分为两个部分：</p>
-<ul>
-<li>密钥</li>
-<li>随机数</li>
-</ul>
+		<p>本文分为两个部分： + 密钥 + 随机数</p>
 <hr>
-<h2 id="一-密钥"><a class="markdownIt-Anchor" href="#一-密钥"></a> 一、密钥</h2>
+<h2 id="一密钥">一、密钥</h2>
 <p>密码的本质就是将较长的秘密——消息——变成较短的秘密——密钥。</p>
 <p>密钥本身并不重要，重要的是密钥空间的大小，也就是可能出现的密钥的总数量，因为密钥空间越大，进行暴力破解就越困难。密钥空间的大小是由<strong>密钥长度</strong>决定的。</p>
 <p>对窃听者来说，得到密钥和得到明文是等价的。</p>
 <p>一般来说，加密的对象是用户直接使用的信息（内容），这种情况下所使用的密钥称为CEK(Contents Encrypting Key，内容加密密钥);相对的，用于加密密钥的密钥称为KEK（Key Encrypting Key，密钥加密密钥）。</p>
 <p>会话密钥(session key)都是作为CEK使用的，而主密钥（master key）则是作为KEK使用的。</p>
-<h3 id="密钥的管理"><a class="markdownIt-Anchor" href="#密钥的管理"></a> 密钥的管理</h3>
-<h4 id="生成密钥"><a class="markdownIt-Anchor" href="#生成密钥"></a> 生成密钥</h4>
-<p><strong>用随机数生成密钥</strong><br>
-生成密钥的最好方法就是使用随机数。虽然生成伪随机数的算法有很多种，但是<strong>密码学用途的伪随机数生成器必须是专门针对密码学用途设计的</strong>。</p>
-<p><strong>用口令生成密钥</strong><br>
-有时我们会使用容易记住的口令(password或passphrase)来生成密钥。passphrase指的是一种由多个单词组成的较长的password。严格来说，我们很少使用口令来作为密钥，一般都是将口令输入单向散列函数，然后得到散列值作为密钥使用。</p>
-<h4 id="密钥配送"><a class="markdownIt-Anchor" href="#密钥配送"></a> 密钥配送</h4>
+<h3 id="密钥的管理">密钥的管理</h3>
+<h4 id="生成密钥">生成密钥</h4>
+<p><strong>用随机数生成密钥</strong> 生成密钥的最好方法就是使用随机数。虽然生成伪随机数的算法有很多种，但是<strong>密码学用途的伪随机数生成器必须是专门针对密码学用途设计的</strong>。</p>
+<p><strong>用口令生成密钥</strong> 有时我们会使用容易记住的口令(password或passphrase)来生成密钥。passphrase指的是一种由多个单词组成的较长的password。严格来说，我们很少使用口令来作为密钥，一般都是将口令输入单向散列函数，然后得到散列值作为密钥使用。</p>
+<h4 id="密钥配送">密钥配送</h4>
 <p>要解决密钥配送问题，可以采用<strong>事先共享密钥</strong>、<strong>使用密钥分配中心</strong>、<strong>使用公钥密码</strong>等方法，或者使用<strong>Diffe-Hellman密钥交换</strong>。</p>
-<h4 id="密钥更新key-updating"><a class="markdownIt-Anchor" href="#密钥更新key-updating"></a> 密钥更新（key updating）</h4>
-<p>有一种提高通信机密性的技术称为<strong>密钥更新</strong>，这种方法就是在使用共享密钥进行密码通信过程中，定期（比如每发送1000个字）改变密钥。<br>
-比如，发送者和接收者使用单向散列函数计算当前密钥的散列值，并将这个散列值用作新的密钥。这样的好处是，窃听者可以用这个密钥将之后的通信全部解密，但是无法解密之前的内容。这种防止破译过去通信内容的机制称为<strong>反向安全</strong>（backward security）.</p>
-<h4 id="保存密钥"><a class="markdownIt-Anchor" href="#保存密钥"></a> 保存密钥</h4>
-<p>将密钥和密文保存在同一台主机上是非常愚蠢的。</p>
+<h4 id="密钥更新key-updating">密钥更新（key updating）</h4>
+<p>有一种提高通信机密性的技术称为<strong>密钥更新</strong>，这种方法就是在使用共享密钥进行密码通信过程中，定期（比如每发送1000个字）改变密钥。 比如，发送者和接收者使用单向散列函数计算当前密钥的散列值，并将这个散列值用作新的密钥。这样的好处是，窃听者可以用这个密钥将之后的通信全部解密，但是无法解密之前的内容。这种防止破译过去通信内容的机制称为<strong>反向安全</strong>（backward security）. #### 保存密钥 将密钥和密文保存在同一台主机上是非常愚蠢的。</p>
 <p>用密钥加密密钥，来减少需要保存的密钥数量。</p>
-<h4 id="密钥作废"><a class="markdownIt-Anchor" href="#密钥作废"></a> 密钥作废</h4>
-<h3 id="diffie-hellman-密钥交换"><a class="markdownIt-Anchor" href="#diffie-hellman-密钥交换"></a> Diffie-Hellman 密钥交换</h3>
-<p><strong>Diffie-Hellman密钥交换（Diffie-Hellman key exchange）<strong>是1976年由Whitfield Diffie和Martin Hellman共同发明的一种算法。使用这种算法，通信双方仅通过交换一些可以公开的信息就能生成出共享的秘密数字，而这一秘密数字就可以被用作对称密码的密钥。IPsec中就使用了经过改良的Diffie-Hellman密钥交换。<br>
-虽然这种方法的名字叫“密钥交换”，但是实际上双方并没有真正交换密钥，而是通过计算生成了一个相同的共享密钥。因此，这种方法也称为</strong>Diffie-Hellman 密钥协商</strong>(Diffie-Hellman key agreement)。</p>
-<h4 id="diffie-hellman密钥交换步骤"><a class="markdownIt-Anchor" href="#diffie-hellman密钥交换步骤"></a> Diffie-Hellman密钥交换步骤</h4>
-<p>假设Alice和Bob需要共享一个对称密码的密钥，然而双方之间的通信线路已经被窃听者Eve窃听了。这时，Alice和Bob可以通过以下方法进行Diffie-Hellman密钥交换，从而生成共享密钥。<br>
-<img src="/sourcepictures/20161128/DH_key_exchange.png" alt="Diffie-Hellman key exchange"></p>
-<ol>
-<li>Alice想Bob发送两个质数P和G<br>
-P必须是一个非常大的质数，而G则是一个和P相关的数，称为生成元（generator）。G可以是一个较小的数字。<br>
-P和G不需要保密，被窃听者Eve获取也没关系。<br>
-此外，P和G可以由Alice和Bob中的任意一方生成。</li>
-<li>Alice生成一个随机数A<br>
-A是一个1～P-2之间的整数。这个数是只有Alice知道的秘密数字，没有必要告诉Bob，也不能让Eve知道。</li>
-<li>Bob生成一个随机数B<br>
-B是一个1～P-2之间的整数。这个数是只有Bob知道的秘密数字，没有必要告诉Alice，也不能让Eve知道。</li>
-<li>Alice将<code>G^A mod P</code>这个数发送给Bob<br>
-这个数让Eve知道也没关系。</li>
-<li>Bob将<code>G^B mod P</code>这个数发送给Alice<br>
-这个数让Eve知道也没关系。</li>
-<li>Alice用Bob发过来的数计算A次方并求mod P<br>
-这个数就是共享密钥。<br>
-<img src="/sourcepictures/20161128/DH_key_calc1.png" alt="DH-key-calc1"></li>
-<li>Bob用Alice发过来的数计算B次方并求mod P<br>
-<img src="/sourcepictures/20161128/DH_key_calc2.png" alt="DH-key-calc2"></li>
+<h4 id="密钥作废">密钥作废</h4>
+<h3 id="diffie-hellman-密钥交换">Diffie-Hellman 密钥交换</h3>
+<p><strong>Diffie-Hellman密钥交换（Diffie-Hellman key exchange）</strong>是1976年由Whitfield Diffie和Martin Hellman共同发明的一种算法。使用这种算法，通信双方仅通过交换一些可以公开的信息就能生成出共享的秘密数字，而这一秘密数字就可以被用作对称密码的密钥。IPsec中就使用了经过改良的Diffie-Hellman密钥交换。 虽然这种方法的名字叫“密钥交换”，但是实际上双方并没有真正交换密钥，而是通过计算生成了一个相同的共享密钥。因此，这种方法也称为<strong>Diffie-Hellman 密钥协商</strong>(Diffie-Hellman key agreement)。</p>
+<h4 id="diffie-hellman密钥交换步骤">Diffie-Hellman密钥交换步骤</h4>
+<p>假设Alice和Bob需要共享一个对称密码的密钥，然而双方之间的通信线路已经被窃听者Eve窃听了。这时，Alice和Bob可以通过以下方法进行Diffie-Hellman密钥交换，从而生成共享密钥。 <img src="/sourcepictures/20161128/DH_key_exchange.png" alt="Diffie-Hellman key exchange"></p>
+<ol type="1">
+<li>Alice想Bob发送两个质数P和G P必须是一个非常大的质数，而G则是一个和P相关的数，称为生成元（generator）。G可以是一个较小的数字。 P和G不需要保密，被窃听者Eve获取也没关系。 此外，P和G可以由Alice和Bob中的任意一方生成。</li>
+<li>Alice生成一个随机数A A是一个1～P-2之间的整数。这个数是只有Alice知道的秘密数字，没有必要告诉Bob，也不能让Eve知道。</li>
+<li>Bob生成一个随机数B B是一个1～P-2之间的整数。这个数是只有Bob知道的秘密数字，没有必要告诉Alice，也不能让Eve知道。</li>
+<li>Alice将<code>G^A mod P</code>这个数发送给Bob 这个数让Eve知道也没关系。</li>
+<li>Bob将<code>G^B mod P</code>这个数发送给Alice 这个数让Eve知道也没关系。</li>
+<li>Alice用Bob发过来的数计算A次方并求mod P 这个数就是共享密钥。 <img src="/sourcepictures/20161128/DH_key_calc1.png" alt="DH-key-calc1"></li>
+<li>Bob用Alice发过来的数计算B次方并求mod P <img src="/sourcepictures/20161128/DH_key_calc2.png" alt="DH-key-calc2"></li>
 </ol>
 <p>这样Alice计算的密钥=Bob计算的密钥</p>
-<h4 id="eve能计算出密钥吗"><a class="markdownIt-Anchor" href="#eve能计算出密钥吗"></a> Eve能计算出密钥吗</h4>
-<p>在DH密钥交换过程中，能被Eve窃听到的一共有四个数：P、G、<code>G^A mod P</code>、<code>G^B mod P</code>。根据这四个数字计算出Alice和Bob的共享密钥<code>G^(A*B) mod P</code>是非常困难的。<br>
-如果Eve能够知道A和B中任意一个数，那么要计算<code>G^(A*B)</code>是非常容易的，然而只有上面的四个数是很难求出A和B的。<br>
-那么，能根据<code>G^A mod P</code>求出A吗？<br>
-根据<code>G^A mod P</code>求出A的有效算法现在还没有出现，这个问题称为有限域上的离散对数问题。因此，有限域上的离散对数问题的复杂度正是支撑Diffie-Hellman密钥交换算法的基础。</p>
+<h4 id="eve能计算出密钥吗">Eve能计算出密钥吗</h4>
+<p>在DH密钥交换过程中，能被Eve窃听到的一共有四个数：P、G、<code>G^A mod P</code>、<code>G^B mod P</code>。根据这四个数字计算出Alice和Bob的共享密钥<code>G^(A*B) mod P</code>是非常困难的。 如果Eve能够知道A和B中任意一个数，那么要计算<code>G^(A*B)</code>是非常容易的，然而只有上面的四个数是很难求出A和B的。 那么，能根据<code>G^A mod P</code>求出A吗？ 根据<code>G^A mod P</code>求出A的有效算法现在还没有出现，这个问题称为有限域上的离散对数问题。因此，有限域上的离散对数问题的复杂度正是支撑Diffie-Hellman密钥交换算法的基础。</p>
 <p>针对Diffie-Hellman密钥交换可以进行中间人攻击。针对这样的攻击，我们可以像公钥密码通信一样使用数字签名、证书等方法来应对。在IPsec中使用的Diffie-Hellman密钥交换，就针对中间人攻击进行了改良和扩展。</p>
-<h4 id="生成元的意义"><a class="markdownIt-Anchor" href="#生成元的意义"></a> 生成元的意义</h4>
-<p><img src="/sourcepictures/20161128/generator.png" alt="generator"><br>
-P的生成元的乘方结果与1～P-1中的数字是一一对应的。正是因为具有这样的一一对应关系，Alice才能够从1~P-2的范围中随机选择一个数字。</p>
-<h3 id="基于口令的密码pbe"><a class="markdownIt-Anchor" href="#基于口令的密码pbe"></a> 基于口令的密码(PBE)</h3>
-<h4 id="什么是基于口令的密码"><a class="markdownIt-Anchor" href="#什么是基于口令的密码"></a> 什么是基于口令的密码</h4>
-<p>基于口令的密码(Password Based Encryption，PBE)就是一种根据口令生成密钥并用该密钥进行加密的方法。其中，加密和解密使用同一个密钥。<br>
-PBE有很多种实现方法。例如RSA公司的PKCS #5规范描述的PBE就通过Java的javax.crpyto包进行实现。在通过PGP保存密钥时也会使用PBE。</p>
-<h4 id="pbe加密"><a class="markdownIt-Anchor" href="#pbe加密"></a> PBE加密</h4>
-<p>加密过程如下：<br>
-<img src="/sourcepictures/20161128/PBE_encryption.png" alt="PBE Encryption"></p>
-<p>分为三个步骤：</p>
-<ol>
-<li>生成KEK;<br>
-伪随机数生成器会生成一个称为<strong>盐</strong>（salt）的随机数。将盐和Alice输入的口令一起输入单向散列函数，得到的散列值就是用来加密密钥的密钥（KEK）。</li>
-<li>生成会话密钥并加密；<br>
-伪随机数生成器生成会话密钥。会话密钥是用来加密消息的密钥（CEK）。<br>
-会话密钥需要用步骤1中生成的KEK进行加密，并和盐一起保存在安全的地方。会话密钥加密之后，KEK就会被丢弃，因为KEK没有必要保存下来，只要通过盐和口令就可以重建KEK。</li>
-<li>加密消息。<br>
-使用步骤2中生成的会话密钥对消息进行加密。</li>
-</ol>
-<p>PBE加密后所产生的输出包括下列3种：</p>
-<ul>
-<li>盐</li>
-<li>用KEK加密的会话密钥</li>
-<li>用会话密钥加密的消息</li>
-</ul>
-<h4 id="pbe解密"><a class="markdownIt-Anchor" href="#pbe解密"></a> PBE解密</h4>
-<p>解密过程如下：<br>
-<img src="/sourcepictures/20161128/PBE_decryption.png" alt="PBE Decryption"></p>
-<p>PBE解密包括下列步骤：</p>
-<ol>
-<li>重建KEK<br>
-首先我们将之前保存下来的盐，和Alice输入的口令一起输入单向散列函数。这个过程和生产KEK时计算过程是一样的，因此得到的散列值就是KEK。</li>
-<li>解密会话密钥<br>
-获取之前保存下来的“用KEK加密的回话密钥”，用步骤1中重建的KEK进行解密。得到会话密钥。</li>
-<li>解密消息<br>
-用步骤2中重建的会话密钥对加密的消息进行解密。</li>
-</ol>
-<h4 id="盐的作用"><a class="markdownIt-Anchor" href="#盐的作用"></a> 盐的作用</h4>
-<p>盐是用来防御字典攻击的。<br>
-如果在生成KEK时加盐，则盐的长度越大，候选KEK的数量也会随之增大，事先生成候选KEK就会变得非常困难。只要Mallory还没有得到盐，就无法生成候选KEK。这是因为加盐之后，候选KEK的数量会变得非常巨大。</p>
-<h4 id="口令的作用"><a class="markdownIt-Anchor" href="#口令的作用"></a> 口令的作用</h4>
-<p>具有充足长度的密钥是无法用人脑记忆的。<br>
-在使用基于口令的密码（PBE）时，需要将盐和加密后的CEK通过物理方式进行保护。例如，可以将盐和加密后的CEK保存到存储卡中随身携带。</p>
-<h4 id="pbe的改良"><a class="markdownIt-Anchor" href="#pbe的改良"></a> PBE的改良</h4>
+<h4 id="生成元的意义">生成元的意义</h4>
+<p><img src="/sourcepictures/20161128/generator.png" alt="generator"> P的生成元的乘方结果与1～P-1中的数字是一一对应的。正是因为具有这样的一一对应关系，Alice才能够从1~P-2的范围中随机选择一个数字。</p>
+<h3 id="基于口令的密码pbe">基于口令的密码(PBE)</h3>
+<h4 id="什么是基于口令的密码">什么是基于口令的密码</h4>
+<p>基于口令的密码(Password Based Encryption，PBE)就是一种根据口令生成密钥并用该密钥进行加密的方法。其中，加密和解密使用同一个密钥。 PBE有很多种实现方法。例如RSA公司的PKCS #5规范描述的PBE就通过Java的javax.crpyto包进行实现。在通过PGP保存密钥时也会使用PBE。</p>
+<h4 id="pbe加密">PBE加密</h4>
+<p>加密过程如下： <img src="/sourcepictures/20161128/PBE_encryption.png" alt="PBE Encryption"></p>
+<p>分为三个步骤： 1. 生成KEK; 伪随机数生成器会生成一个称为<strong>盐</strong>（salt）的随机数。将盐和Alice输入的口令一起输入单向散列函数，得到的散列值就是用来加密密钥的密钥（KEK）。 2. 生成会话密钥并加密； 伪随机数生成器生成会话密钥。会话密钥是用来加密消息的密钥（CEK）。 会话密钥需要用步骤1中生成的KEK进行加密，并和盐一起保存在安全的地方。会话密钥加密之后，KEK就会被丢弃，因为KEK没有必要保存下来，只要通过盐和口令就可以重建KEK。 3. 加密消息。 使用步骤2中生成的会话密钥对消息进行加密。</p>
+<p>PBE加密后所产生的输出包括下列3种： + 盐 + 用KEK加密的会话密钥 + 用会话密钥加密的消息</p>
+<h4 id="pbe解密">PBE解密</h4>
+<p>解密过程如下： <img src="/sourcepictures/20161128/PBE_decryption.png" alt="PBE Decryption"></p>
+<p>PBE解密包括下列步骤： 1. 重建KEK 首先我们将之前保存下来的盐，和Alice输入的口令一起输入单向散列函数。这个过程和生产KEK时计算过程是一样的，因此得到的散列值就是KEK。 2. 解密会话密钥 获取之前保存下来的“用KEK加密的回话密钥”，用步骤1中重建的KEK进行解密。得到会话密钥。 3. 解密消息 用步骤2中重建的会话密钥对加密的消息进行解密。</p>
+<h4 id="盐的作用">盐的作用</h4>
+<p>盐是用来防御字典攻击的。 如果在生成KEK时加盐，则盐的长度越大，候选KEK的数量也会随之增大，事先生成候选KEK就会变得非常困难。只要Mallory还没有得到盐，就无法生成候选KEK。这是因为加盐之后，候选KEK的数量会变得非常巨大。</p>
+<h4 id="口令的作用">口令的作用</h4>
+<p>具有充足长度的密钥是无法用人脑记忆的。 在使用基于口令的密码（PBE）时，需要将盐和加密后的CEK通过物理方式进行保护。例如，可以将盐和加密后的CEK保存到存储卡中随身携带。</p>
+<h4 id="pbe的改良">PBE的改良</h4>
 <p>在生成KEK时，通过多次使用单向散列函数就可以提高安全性。</p>
-<h4 id="如何生成安全的口令"><a class="markdownIt-Anchor" href="#如何生成安全的口令"></a> 如何生成安全的口令</h4>
+<h4 id="如何生成安全的口令">如何生成安全的口令</h4>
 <ul>
-<li>使用只有自己才能知道的信息<br>
-不要使用对自己重要的事物的名字<br>
-不要使用关于自己的信息<br>
-不要使用别人见过的信息</li>
-<li>将多个不同的口令分开使用<br>
-不要将口令重复用于各种不同的用途，而是应该根据信息的价值区分不同的口令。</li>
+<li>使用只有自己才能知道的信息 不要使用对自己重要的事物的名字 不要使用关于自己的信息 不要使用别人见过的信息</li>
+<li>将多个不同的口令分开使用 不要将口令重复用于各种不同的用途，而是应该根据信息的价值区分不同的口令。</li>
 <li>有效利用笔记</li>
 </ul>
 <hr>
-<h2 id="二-随机数"><a class="markdownIt-Anchor" href="#二-随机数"></a> 二、随机数</h2>
-<h3 id="使用随机数的密码技术"><a class="markdownIt-Anchor" href="#使用随机数的密码技术"></a> 使用随机数的密码技术</h3>
-<p>下面的场景需要用到随机数：</p>
-<ul>
-<li>生成密钥<br>
-用于对称密码和消息认证码。</li>
-<li>生成密钥对<br>
-用于公钥密码和数字签名。</li>
-<li>生成初始化向量（IV）<br>
-用于分组密码的CBC、CFB和OFB模式。</li>
-<li>生成nonce<br>
-用于防御重放攻击以及分组密码的CTR模式。</li>
-<li>生成盐<br>
-基于口令的密码（PBE）。</li>
-</ul>
+<h2 id="二随机数">二、随机数</h2>
+<h3 id="使用随机数的密码技术">使用随机数的密码技术</h3>
+<p>下面的场景需要用到随机数： + 生成密钥 用于对称密码和消息认证码。 + 生成密钥对 用于公钥密码和数字签名。 + 生成初始化向量（IV） 用于分组密码的CBC、CFB和OFB模式。 + 生成nonce 用于防御重放攻击以及分组密码的CTR模式。 + 生成盐 基于口令的密码（PBE）。</p>
 <hr>
-<h3 id="随机数的性质"><a class="markdownIt-Anchor" href="#随机数的性质"></a> 随机数的性质</h3>
-<p>随机数的性质可分为以下三类：</p>
-<ul>
-<li>随机性——不存在统计学偏差，是完全杂乱的数列;（弱伪随机数）</li>
-<li>不可预测性——不能从过去的数列推测出下一个出现的数;（强伪随机数）</li>
-<li>不可重现性——除非将数列保存下来，否则不能重现相同的数列。（真随机数）</li>
-</ul>
-<h4 id="随机性randomness"><a class="markdownIt-Anchor" href="#随机性randomness"></a> 随机性（randomness）</h4>
-<p>所谓随机性，简单来说就是看上去杂乱无章的性质。如果伪随机数列中不存在统计学偏差，则我们可以认为这个伪随机数列是随机的。<br>
-一般在电脑游戏中使用随机数只要具备随机性就可以了。此外在计算机模拟中使用的随机数虽然需要根据目的来进行随机数测试，但是也是只要具备随机性就可以了。然而，密码技术中所使用的随机数，仅仅具备随机性是不够的。</p>
-<h4 id="不可预测性"><a class="markdownIt-Anchor" href="#不可预测性"></a> 不可预测性</h4>
-<p>密码中所使用的随机数仅仅具备随机性是不够的，还需要具备避免被攻击者看穿的不可预测性。不可预测性在英语中称为unpredictability。<br>
-所谓不可预测性，是指攻击者在知道过去生成的伪随机数列的前提下，依然无法预测出下一个生成出来的伪随机数的性质。</p>
-<h4 id="不可重现性"><a class="markdownIt-Anchor" href="#不可重现性"></a> 不可重现性</h4>
+<h3 id="随机数的性质">随机数的性质</h3>
+<p>随机数的性质可分为以下三类： + 随机性——不存在统计学偏差，是完全杂乱的数列;（弱伪随机数） + 不可预测性——不能从过去的数列推测出下一个出现的数;（强伪随机数） + 不可重现性——除非将数列保存下来，否则不能重现相同的数列。（真随机数）</p>
+<h4 id="随机性randomness">随机性（randomness）</h4>
+<p>所谓随机性，简单来说就是看上去杂乱无章的性质。如果伪随机数列中不存在统计学偏差，则我们可以认为这个伪随机数列是随机的。 一般在电脑游戏中使用随机数只要具备随机性就可以了。此外在计算机模拟中使用的随机数虽然需要根据目的来进行随机数测试，但是也是只要具备随机性就可以了。然而，密码技术中所使用的随机数，仅仅具备随机性是不够的。</p>
+<h4 id="不可预测性">不可预测性</h4>
+<p>密码中所使用的随机数仅仅具备随机性是不够的，还需要具备避免被攻击者看穿的不可预测性。不可预测性在英语中称为unpredictability。 所谓不可预测性，是指攻击者在知道过去生成的伪随机数列的前提下，依然无法预测出下一个生成出来的伪随机数的性质。</p>
+<h4 id="不可重现性">不可重现性</h4>
 <p>所谓不可重现性，是指无法重现和某一随机数列完全相同的数列的性质。如果除了将随机数列保存下来以外，没有其他方法能够重现该数列，则我们就说该随机数列具备不可重现性。</p>
 <p>仅靠软件是无法生成具备不可重现性的随机数列的。软件只能生成伪随机数列，这是因为运行软件的计算机本身仅具备有限的内部状态，而在内部状态相同的条件下，软件必然只能生成相同的数，因此软件所生成的数列在某个时刻一定会出现重复。首次出现重复之前的数列的长度称为周期，对于软件所生成的数列，其周期必定是有限的。凡是具有周期的数列，都不具备不可重现性。</p>
 <p>要生成具备不可重现性的随机数列，需要从不可重现的物理现象中获取信息，比如周围的温度和声音的变化、用户移动鼠标的位置信息、键盘输入的时间间隔、放射线测量仪的输出值等，根据从这些硬件中所获取的信息而生成的数列，一般可以认为是具备不可重现性的随机数列。</p>
-<h3 id="伪随机数生成器"><a class="markdownIt-Anchor" href="#伪随机数生成器"></a> 伪随机数生成器</h3>
+<h3 id="伪随机数生成器">伪随机数生成器</h3>
 <p>通过硬件生成的随机数列，是根据传感器手机的热量、声音的变化等事实上无法预测和重现的自然现象信息来生成的。像这样的硬件设备就称为<strong>随机数生成器</strong>（Random Number Generator，RNG）。</p>
 <p>而可以生成随机数的软件则称为<strong>伪随机数生成器</strong>（Pseudo Random Number Generator,PRNG）。</p>
-<p>伪随机数生成器具有“内部状态”，并根据外部输入的“种子”(seed)来生成伪随机数列。<br>
-<img src="/sourcepictures/20161128/PRNG.png" alt="PRNG"></p>
-<p>伪随机数生成器的内部状态，是指伪随机数生成器所管理的内存中的数值。当有人对伪随机数生成器发出“给我一个伪随机数”的请求时，伪随机数生成器会根据内存中的数值（内部状态）进行计算，并将计算结果作为伪随机数输出。随后，为响应下一个伪随机数请求，伪随机数生成器会改变自己的内部状态。因此，将根据内部状态计算伪随机数的方法和改变内部状态的方法组合起来，就是伪随机数生成的算法。<br>
-由于内部状态决定了下一个生成的伪随机数，因此内部状态不能被攻击者知道。</p>
-<p>伪随机数的种子是用来对伪随机数生成器的内部状态进行初始化的。<br>
-伪随机数生成器是公开的，但是种子是需要自己保密的，就好像密码算法是公开的，但是密钥只能自己保密。</p>
+<p>伪随机数生成器具有“内部状态”，并根据外部输入的“种子”(seed)来生成伪随机数列。 <img src="/sourcepictures/20161128/PRNG.png" alt="PRNG"></p>
+<p>伪随机数生成器的内部状态，是指伪随机数生成器所管理的内存中的数值。当有人对伪随机数生成器发出“给我一个伪随机数”的请求时，伪随机数生成器会根据内存中的数值（内部状态）进行计算，并将计算结果作为伪随机数输出。随后，为响应下一个伪随机数请求，伪随机数生成器会改变自己的内部状态。因此，将根据内部状态计算伪随机数的方法和改变内部状态的方法组合起来，就是伪随机数生成的算法。 由于内部状态决定了下一个生成的伪随机数，因此内部状态不能被攻击者知道。</p>
+<p>伪随机数的种子是用来对伪随机数生成器的内部状态进行初始化的。 伪随机数生成器是公开的，但是种子是需要自己保密的，就好像密码算法是公开的，但是密钥只能自己保密。</p>
 <hr>
-<h3 id="具体的伪随机数生成器"><a class="markdownIt-Anchor" href="#具体的伪随机数生成器"></a> 具体的伪随机数生成器</h3>
-<h4 id="杂乱的方法"><a class="markdownIt-Anchor" href="#杂乱的方法"></a> 杂乱的方法</h4>
-<p>有人说，既然要生成杂乱无章的数列，那么用杂乱无章的算法不就可以了吗？<br>
-使用复杂算法所生成的数列大多数都会具有很短的周期，这样的算法是无法用于密码技术的。</p>
-<h4 id="线性同余法"><a class="markdownIt-Anchor" href="#线性同余法"></a> 线性同余法</h4>
+<h3 id="具体的伪随机数生成器">具体的伪随机数生成器</h3>
+<h4 id="杂乱的方法">杂乱的方法</h4>
+<p>有人说，既然要生成杂乱无章的数列，那么用杂乱无章的算法不就可以了吗？ 使用复杂算法所生成的数列大多数都会具有很短的周期，这样的算法是无法用于密码技术的。</p>
+<h4 id="线性同余法">线性同余法</h4>
 <p>线性同余法（linear congruential method）是一种使用很广泛的伪随机数生成器算法。然而，它并不能用于密码技术。</p>
-<p><img src="/sourcepictures/20161128/linear_congruential_method1.png" alt="linear congruential method 1"><br>
-<img src="/sourcepictures/20161128/linear_congruential_method2.png" alt="linear congruential method 2"></p>
+<p><img src="/sourcepictures/20161128/linear_congruential_method1.png" alt="linear congruential method 1"> <img src="/sourcepictures/20161128/linear_congruential_method2.png" alt="linear congruential method 2"></p>
 <p>在线性同余法中，只要谨慎选择A、C和M的值，就能很容易地生成具备随机性的伪随机数列。然而，线性同余法不具备不可预测性，因此不可以将线性同余法用于密码技术。</p>
 <p>很多伪随机数生成器的库函数都是采用线性同余法编写的。例如C语言的rand，以及Java的java.util.Random类等，都采用了线性同余法。这些函数是不能用于密码技术的。</p>
-<h4 id="单向散列函数法"><a class="markdownIt-Anchor" href="#单向散列函数法"></a> 单向散列函数法</h4>
-<p>使用单向散列函数可以编写出能够生成具备不可预测性的伪随机数列的伪随机数生成器。<br>
-流程如下：<br>
-<img src="/sourcepictures/20161128/dan_xiang_san_lie_RNG.png" alt="单向散列函数实现伪随机数生成器"><br>
-工作方式步骤：</p>
-<ol>
-<li>用伪随机数的种子初始化内部状态（计数器）；</li>
-<li>用单向散列函数计算计数器的散列值；</li>
-<li>将散列值作为伪随机数的输出；</li>
-<li>计数器的值加1；</li>
-<li>根据需要的伪随机数的数量重复2～4的步骤。</li>
-</ol>
+<h4 id="单向散列函数法">单向散列函数法</h4>
+<p>使用单向散列函数可以编写出能够生成具备不可预测性的伪随机数列的伪随机数生成器。 流程如下： <img src="/sourcepictures/20161128/dan_xiang_san_lie_RNG.png" alt="单向散列函数实现伪随机数生成器"> 工作方式步骤： 1. 用伪随机数的种子初始化内部状态（计数器）； 2. 用单向散列函数计算计数器的散列值； 3. 将散列值作为伪随机数的输出； 4. 计数器的值加1； 5. 根据需要的伪随机数的数量重复2～4的步骤。</p>
 <p>单向散列函数的单向性是支撑伪随机数生成器不可预测性的基础。</p>
-<h4 id="密码法"><a class="markdownIt-Anchor" href="#密码法"></a> 密码法</h4>
-<p>可以使用密码来编写能够生成强伪随机数的伪随机数生成器，既可以使用AES等对称密码，也可以使用RSA等公钥密码。<br>
-工作方式如图：<br>
-<img src="/sourcepictures/20161128/mi_ma_RNG.png" alt="密码实现伪随机数生成器"><br>
-步骤如下：</p>
-<ol>
-<li>初始化内部状态(计数器)；</li>
-<li>用密钥加密计数器的值；</li>
-<li>将密文作为伪随机数的输出；</li>
-<li>计数器的值加1；</li>
-<li>根据需要的伪随机数数量重复2～4的步骤。</li>
-</ol>
+<h4 id="密码法">密码法</h4>
+<p>可以使用密码来编写能够生成强伪随机数的伪随机数生成器，既可以使用AES等对称密码，也可以使用RSA等公钥密码。 工作方式如图： <img src="/sourcepictures/20161128/mi_ma_RNG.png" alt="密码实现伪随机数生成器"> 步骤如下： 1. 初始化内部状态(计数器)； 2. 用密钥加密计数器的值； 3. 将密文作为伪随机数的输出； 4. 计数器的值加1； 5. 根据需要的伪随机数数量重复2～4的步骤。</p>
 <p>密码的机密性是支撑伪随机数生成器不可预测性的基础。</p>
-<h4 id="ansi-x917"><a class="markdownIt-Anchor" href="#ansi-x917"></a> ANSI X9.17</h4>
-<p>关于用密码实现伪随机数生成器的具体方法，在ANSI X9.17和ANSI X9.31的附录中进行了描述。下面来介绍这种方法。这里所介绍的伪随机数生成器就被用于<strong>密码软件PGP中</strong>。<br>
-ANSI X9.17伪随机数生成器的结构如下图：<br>
-<img src="/sourcepictures/20161128/ANSI_X9_17_RNG.png" alt="ANSI X9.17"><br>
-步骤如下：</p>
-<ol>
-<li>初始化内部状态；</li>
-<li>将当前时间加密生成掩码；</li>
-<li>对内部状态与掩码求XOR;</li>
-<li>将步骤3的结果进行加密；</li>
-<li>将步骤4的结果作为伪随机数输出；</li>
-<li>对步骤4的结果与掩码求XOR;</li>
-<li>将步骤6的结果加密；</li>
-<li>将步骤7的结果作为新的内部状态；</li>
-<li>重复步骤2～8直到得到所需要数量的伪随机数。</li>
-</ol>
-<p>代码如下：<br>
-<img src="/sourcepictures/20161128/ANSI_X9_17_RNG_code.png" alt="ANSI X9.17 code"></p>
+<h4 id="ansi-x9.17">ANSI X9.17</h4>
+<p>关于用密码实现伪随机数生成器的具体方法，在ANSI X9.17和ANSI X9.31的附录中进行了描述。下面来介绍这种方法。这里所介绍的伪随机数生成器就被用于<strong>密码软件PGP中</strong>。 ANSI X9.17伪随机数生成器的结构如下图： <img src="/sourcepictures/20161128/ANSI_X9_17_RNG.png" alt="ANSI X9.17"> 步骤如下： 1. 初始化内部状态； 2. 将当前时间加密生成掩码； 3. 对内部状态与掩码求XOR; 4. 将步骤3的结果进行加密； 5. 将步骤4的结果作为伪随机数输出； 6. 对步骤4的结果与掩码求XOR; 7. 将步骤6的结果加密； 8. 将步骤7的结果作为新的内部状态； 9. 重复步骤2～8直到得到所需要数量的伪随机数。</p>
+<p>代码如下： <img src="/sourcepictures/20161128/ANSI_X9_17_RNG_code.png" alt="ANSI X9.17 code"></p>
 <hr>
-<h3 id="对伪随机数生成器的攻击"><a class="markdownIt-Anchor" href="#对伪随机数生成器的攻击"></a> 对伪随机数生成器的攻击</h3>
-<p>和密码相比，伪随机数生成器很少被人注意到。但是，由于伪随机数生成器承担了生成密钥的重任，因此它经常成为被攻击的对象。</p>
-<h4 id="对种子进行攻击"><a class="markdownIt-Anchor" href="#对种子进行攻击"></a> 对种子进行攻击</h4>
-<p>伪随机数的种子和密码的密钥同等重要。如果攻击者知道了伪随机数的种子，那么他就能够知道这个伪随机数生成器生成的全部伪随机数列。<br>
-要避免种子被攻击者知道，我们需要使用具备不可重现性的真随机数作为种子。</p>
-<h4 id="对随机数池进行攻击"><a class="markdownIt-Anchor" href="#对随机数池进行攻击"></a> 对随机数池进行攻击</h4>
-<p>我们一般不会到了需要的时候才当场生成真随机数，而是会事先在一个名为<strong>随机数池</strong>（random pool）的文件中积累随机比特序列。当密码软件需要伪随机数的种子时，可以从这个随机数池中取出所需长度的随机比特序列来使用。例如，Linux系统中的<code>/dev/random</code>文件就是一个根据硬件设备驱动收集的背景噪声存储真随机数的随机数池。<br>
-随机数池的内容不可以让攻击者知道，否则伪随机数的种子就有可能被预测出来。</p>
+<h3 id="对伪随机数生成器的攻击">对伪随机数生成器的攻击</h3>
+<p>和密码相比，伪随机数生成器很少被人注意到。但是，由于伪随机数生成器承担了生成密钥的重任，因此它经常成为被攻击的对象。 #### 对种子进行攻击 伪随机数的种子和密码的密钥同等重要。如果攻击者知道了伪随机数的种子，那么他就能够知道这个伪随机数生成器生成的全部伪随机数列。 要避免种子被攻击者知道，我们需要使用具备不可重现性的真随机数作为种子。</p>
+<h4 id="对随机数池进行攻击">对随机数池进行攻击</h4>
+<p>我们一般不会到了需要的时候才当场生成真随机数，而是会事先在一个名为<strong>随机数池</strong>（random pool）的文件中积累随机比特序列。当密码软件需要伪随机数的种子时，可以从这个随机数池中取出所需长度的随机比特序列来使用。例如，Linux系统中的<code>/dev/random</code>文件就是一个根据硬件设备驱动收集的背景噪声存储真随机数的随机数池。 随机数池的内容不可以让攻击者知道，否则伪随机数的种子就有可能被预测出来。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -395,7 +276,7 @@ ANSI X9.17伪随机数生成器的结构如下图：<br>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-密钥"><span class="toc-number">1.</span> <span class="toc-text"> 一、密钥</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#密钥的管理"><span class="toc-number">1.1.</span> <span class="toc-text"> 密钥的管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#生成密钥"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 生成密钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#密钥配送"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 密钥配送</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#密钥更新key-updating"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 密钥更新（key updating）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#保存密钥"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 保存密钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#密钥作废"><span class="toc-number">1.1.5.</span> <span class="toc-text"> 密钥作废</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#diffie-hellman-密钥交换"><span class="toc-number">1.2.</span> <span class="toc-text"> Diffie-Hellman 密钥交换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#diffie-hellman密钥交换步骤"><span class="toc-number">1.2.1.</span> <span class="toc-text"> Diffie-Hellman密钥交换步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#eve能计算出密钥吗"><span class="toc-number">1.2.2.</span> <span class="toc-text"> Eve能计算出密钥吗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生成元的意义"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 生成元的意义</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于口令的密码pbe"><span class="toc-number">1.3.</span> <span class="toc-text"> 基于口令的密码(PBE)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是基于口令的密码"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 什么是基于口令的密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pbe加密"><span class="toc-number">1.3.2.</span> <span class="toc-text"> PBE加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pbe解密"><span class="toc-number">1.3.3.</span> <span class="toc-text"> PBE解密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#盐的作用"><span class="toc-number">1.3.4.</span> <span class="toc-text"> 盐的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#口令的作用"><span class="toc-number">1.3.5.</span> <span class="toc-text"> 口令的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pbe的改良"><span class="toc-number">1.3.6.</span> <span class="toc-text"> PBE的改良</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何生成安全的口令"><span class="toc-number">1.3.7.</span> <span class="toc-text"> 如何生成安全的口令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-随机数"><span class="toc-number">2.</span> <span class="toc-text"> 二、随机数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用随机数的密码技术"><span class="toc-number">2.1.</span> <span class="toc-text"> 使用随机数的密码技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机数的性质"><span class="toc-number">2.2.</span> <span class="toc-text"> 随机数的性质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#随机性randomness"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 随机性（randomness）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不可预测性"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 不可预测性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不可重现性"><span class="toc-number">2.2.3.</span> <span class="toc-text"> 不可重现性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#伪随机数生成器"><span class="toc-number">2.3.</span> <span class="toc-text"> 伪随机数生成器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体的伪随机数生成器"><span class="toc-number">2.4.</span> <span class="toc-text"> 具体的伪随机数生成器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#杂乱的方法"><span class="toc-number">2.4.1.</span> <span class="toc-text"> 杂乱的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线性同余法"><span class="toc-number">2.4.2.</span> <span class="toc-text"> 线性同余法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#单向散列函数法"><span class="toc-number">2.4.3.</span> <span class="toc-text"> 单向散列函数法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#密码法"><span class="toc-number">2.4.4.</span> <span class="toc-text"> 密码法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ansi-x917"><span class="toc-number">2.4.5.</span> <span class="toc-text"> ANSI X9.17</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对伪随机数生成器的攻击"><span class="toc-number">2.5.</span> <span class="toc-text"> 对伪随机数生成器的攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对种子进行攻击"><span class="toc-number">2.5.1.</span> <span class="toc-text"> 对种子进行攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对随机数池进行攻击"><span class="toc-number">2.5.2.</span> <span class="toc-text"> 对随机数池进行攻击</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一密钥"><span class="toc-number">1.</span> <span class="toc-text">一、密钥</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#密钥的管理"><span class="toc-number">1.1.</span> <span class="toc-text">密钥的管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#生成密钥"><span class="toc-number">1.1.1.</span> <span class="toc-text">生成密钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#密钥配送"><span class="toc-number">1.1.2.</span> <span class="toc-text">密钥配送</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#密钥更新key-updating"><span class="toc-number">1.1.3.</span> <span class="toc-text">密钥更新（key updating）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#密钥作废"><span class="toc-number">1.1.4.</span> <span class="toc-text">密钥作废</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#diffie-hellman-密钥交换"><span class="toc-number">1.2.</span> <span class="toc-text">Diffie-Hellman 密钥交换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#diffie-hellman密钥交换步骤"><span class="toc-number">1.2.1.</span> <span class="toc-text">Diffie-Hellman密钥交换步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#eve能计算出密钥吗"><span class="toc-number">1.2.2.</span> <span class="toc-text">Eve能计算出密钥吗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生成元的意义"><span class="toc-number">1.2.3.</span> <span class="toc-text">生成元的意义</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于口令的密码pbe"><span class="toc-number">1.3.</span> <span class="toc-text">基于口令的密码(PBE)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是基于口令的密码"><span class="toc-number">1.3.1.</span> <span class="toc-text">什么是基于口令的密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pbe加密"><span class="toc-number">1.3.2.</span> <span class="toc-text">PBE加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pbe解密"><span class="toc-number">1.3.3.</span> <span class="toc-text">PBE解密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#盐的作用"><span class="toc-number">1.3.4.</span> <span class="toc-text">盐的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#口令的作用"><span class="toc-number">1.3.5.</span> <span class="toc-text">口令的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pbe的改良"><span class="toc-number">1.3.6.</span> <span class="toc-text">PBE的改良</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何生成安全的口令"><span class="toc-number">1.3.7.</span> <span class="toc-text">如何生成安全的口令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二随机数"><span class="toc-number">2.</span> <span class="toc-text">二、随机数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用随机数的密码技术"><span class="toc-number">2.1.</span> <span class="toc-text">使用随机数的密码技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机数的性质"><span class="toc-number">2.2.</span> <span class="toc-text">随机数的性质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#随机性randomness"><span class="toc-number">2.2.1.</span> <span class="toc-text">随机性（randomness）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不可预测性"><span class="toc-number">2.2.2.</span> <span class="toc-text">不可预测性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不可重现性"><span class="toc-number">2.2.3.</span> <span class="toc-text">不可重现性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#伪随机数生成器"><span class="toc-number">2.3.</span> <span class="toc-text">伪随机数生成器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体的伪随机数生成器"><span class="toc-number">2.4.</span> <span class="toc-text">具体的伪随机数生成器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#杂乱的方法"><span class="toc-number">2.4.1.</span> <span class="toc-text">杂乱的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线性同余法"><span class="toc-number">2.4.2.</span> <span class="toc-text">线性同余法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#单向散列函数法"><span class="toc-number">2.4.3.</span> <span class="toc-text">单向散列函数法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#密码法"><span class="toc-number">2.4.4.</span> <span class="toc-text">密码法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ansi-x9.17"><span class="toc-number">2.4.5.</span> <span class="toc-text">ANSI X9.17</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对伪随机数生成器的攻击"><span class="toc-number">2.5.</span> <span class="toc-text">对伪随机数生成器的攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对随机数池进行攻击"><span class="toc-number">2.5.1.</span> <span class="toc-text">对随机数池进行攻击</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -485,19 +366,19 @@ ANSI X9.17伪随机数生成器的结构如下图：<br>
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -513,10 +394,6 @@ ANSI X9.17伪随机数生成器的结构如下图：<br>
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -525,11 +402,15 @@ ANSI X9.17伪随机数生成器的结构如下图：<br>
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -537,15 +418,15 @@ ANSI X9.17伪随机数生成器的结构如下图：<br>
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="XXD   objdump objdump命令是Linux下的反汇编目标文件或者可执行文件的命令，它以一种可阅读的格式让你更多地了解二进制文件可能带有的附加信息。 objdump命令解析 参数选项: --archive-headers -a 显示档案库的成员信息,类似ls -l将lib*.a的信息列出。 -b bfdname --target=bfdname 指定目标码格式。这不是必须的，obj">
+    <meta name="description" content="XXD  objdump objdump命令是Linux下的反汇编目标文件或者可执行文件的命令，它以一种可阅读的格式让你更多地了解二进制文件可能带有的附加信息。 objdump命令解析 参数选项: --archive-headers -a 显示档案库的成员信息,类似ls -l将lib*.a的信息列出。 -b bfdname --target=bfdname 指定目标码格式。这不是必须的">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 二进制分析常用工具和命令">
 <meta property="og:url" content="http://flamepeak.com/2019/10/22/Linux-binary-analysis-tools-collections-20191022/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="XXD   objdump objdump命令是Linux下的反汇编目标文件或者可执行文件的命令，它以一种可阅读的格式让你更多地了解二进制文件可能带有的附加信息。 objdump命令解析 参数选项: --archive-headers -a 显示档案库的成员信息,类似ls -l将lib*.a的信息列出。 -b bfdname --target=bfdname 指定目标码格式。这不是必须的，obj">
+<meta property="og:description" content="XXD  objdump objdump命令是Linux下的反汇编目标文件或者可执行文件的命令，它以一种可阅读的格式让你更多地了解二进制文件可能带有的附加信息。 objdump命令解析 参数选项: --archive-headers -a 显示档案库的成员信息,类似ls -l将lib*.a的信息列出。 -b bfdname --target=bfdname 指定目标码格式。这不是必须的">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-12-02T06:43:07.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 二进制分析常用工具和命令">
-<meta name="twitter:description" content="XXD   objdump objdump命令是Linux下的反汇编目标文件或者可执行文件的命令，它以一种可阅读的格式让你更多地了解二进制文件可能带有的附加信息。 objdump命令解析 参数选项: --archive-headers -a 显示档案库的成员信息,类似ls -l将lib*.a的信息列出。 -b bfdname --target=bfdname 指定目标码格式。这不是必须的，obj">
+<meta name="twitter:description" content="XXD  objdump objdump命令是Linux下的反汇编目标文件或者可执行文件的命令，它以一种可阅读的格式让你更多地了解二进制文件可能带有的附加信息。 objdump命令解析 参数选项: --archive-headers -a 显示档案库的成员信息,类似ls -l将lib*.a的信息列出。 -b bfdname --target=bfdname 指定目标码格式。这不是必须的">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,9 +97,9 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="xxd"><a class="markdownIt-Anchor" href="#xxd"></a> XXD</h3>
+		<h3 id="xxd">XXD</h3>
 <hr>
-<h3 id="objdump"><a class="markdownIt-Anchor" href="#objdump"></a> objdump</h3>
+<h3 id="objdump">objdump</h3>
 <p>objdump命令是Linux下的反汇编目标文件或者可执行文件的命令，它以一种可阅读的格式让你更多地了解二进制文件可能带有的附加信息。</p>
 <p><a href="https://blog.csdn.net/q2519008/article/details/82349869" target="_blank" rel="noopener">objdump命令解析</a></p>
 <p>参数选项:</p>
@@ -108,22 +108,21 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.text：已编译程序的机器代码。</span><br><span class="line">.rodata：只读数据，比如printf语句中的格式串和开关（switch）语句的跳转表。</span><br><span class="line">.data：已初始化的全局C变量。局部C变量在运行时被保存在栈中，既不出现在.data中，也不出现在.bss节中。</span><br><span class="line">.bss：未初始化的全局C变量。在目标文件中这个节不占据实际的空间，它仅仅是一个占位符。目标文件格式区分初始化</span><br><span class="line">	  和未初始化变量是为了空间效率在：在目标文件中，未初始化变量不需要占据任何实际的磁盘空间。</span><br><span class="line">.symtab：一个符号表（symbol table），它存放在程序中被定义和引用的函数和全局变量的信息。一些程序员</span><br><span class="line">      错误地认为必须通过-g选项来编译一个程序，得到符号表信息。实际上，每个可重定位目标文件在.symtab中</span><br><span class="line">      都有一张符号表。然而，和编译器中的符号表不同，.symtab符号表不包含局部变量的表目。</span><br><span class="line">.rel.text：当链接噐把这个目标文件和其他文件结合时，.text节中的许多位置都需要修改。一般而言，任何调用</span><br><span class="line">      外部函数或者引用全局变量的指令都需要修改。另一方面调用本地函数的指令则不需要修改。注意，可执行</span><br><span class="line">      目标文件中并不需要重定位信息，因此通常省略，除非使用者显式地指示链接器包含这些信息。</span><br><span class="line">.rel.data：被模块定义或引用的任何全局变量的信息。一般而言，任何已初始化全局变量的初始值是全局变量或者</span><br><span class="line">      外部定义函数的地址都需要被修改。</span><br><span class="line">.debug：一个调试符号表，其有些表目是程序中定义的局部变量和类型定义，有些表目是程序中定义和引用的全局变量，</span><br><span class="line">      有些是原始的C源文件。只有以-g选项调用编译驱动程序时，才会得到这张表。</span><br><span class="line">.line：原始C源程序中的行号和.text节中机器指令之间的映射。只有以-g选项调用编译驱动程序时，才会得到这张表。</span><br><span class="line">.strtab：一个字符串表，其内容包括.symtab和.debug节中的符号表，以及节头部中的节名字。字符串表就是</span><br><span class="line">      以null结尾的字符串序列。</span><br></pre></td></tr></table></figure>
 <p>使用举例：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#反汇编应用程序</span></span><br><span class="line">objdump -d  main.o  </span><br><span class="line"></span><br><span class="line"><span class="comment">#显示文件头信息 </span></span><br><span class="line">objdump -f main.o</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示制定section段信息(comment段)</span></span><br><span class="line">objdump -s -j .comment main.o</span><br><span class="line"></span><br><span class="line">objdump -b binary -m i386 -D sh.bin</span><br></pre></td></tr></table></figure>
-<h3 id="查看进程所用空间可写或可执行权限"><a class="markdownIt-Anchor" href="#查看进程所用空间可写或可执行权限"></a> 查看进程所用空间可写或可执行权限</h3>
+<h3 id="查看进程所用空间可写或可执行权限">查看进程所用空间可写或可执行权限</h3>
 <p>显示进程映射了的内存区域和访问权限</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">cat /proc/`pidof yourProcessName`/maps</span><br><span class="line"><span class="comment">#注意不是引号</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="nc"><a class="markdownIt-Anchor" href="#nc"></a> nc</h3>
+<h3 id="nc">nc</h3>
 <p><a href="https://www.cnblogs.com/zzPrince/p/6842951.html" target="_blank" rel="noopener">linux ncat命令</a></p>
 <p>server:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>client:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="kali-安装-pip"><a class="markdownIt-Anchor" href="#kali-安装-pip"></a> kali 安装 pip</h3>
+<h3 id="kali-安装-pip">kali 安装 pip</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install python2-pip</span><br><span class="line">apt-get install python3-pip</span><br></pre></td></tr></table></figure>
-<p>安装ipython</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install ipython</span><br></pre></td></tr></table></figure>
-<h3 id="pwntools"><a class="markdownIt-Anchor" href="#pwntools"></a> pwntools</h3>
+<p>安装ipython <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install ipython</span><br></pre></td></tr></table></figure></p>
+<h3 id="pwntools">pwntools</h3>
 <p>安装：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install pwntools</span><br><span class="line">apt-get install --upgrade capstone</span><br></pre></td></tr></table></figure>
   
@@ -188,7 +187,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#xxd"><span class="toc-number">1.</span> <span class="toc-text"> XXD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#objdump"><span class="toc-number">2.</span> <span class="toc-text"> objdump</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看进程所用空间可写或可执行权限"><span class="toc-number">3.</span> <span class="toc-text"> 查看进程所用空间可写或可执行权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nc"><span class="toc-number">4.</span> <span class="toc-text"> nc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kali-安装-pip"><span class="toc-number">5.</span> <span class="toc-text"> kali 安装 pip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pwntools"><span class="toc-number">6.</span> <span class="toc-text"> pwntools</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#xxd"><span class="toc-number">1.</span> <span class="toc-text">XXD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#objdump"><span class="toc-number">2.</span> <span class="toc-text">objdump</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看进程所用空间可写或可执行权限"><span class="toc-number">3.</span> <span class="toc-text">查看进程所用空间可写或可执行权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nc"><span class="toc-number">4.</span> <span class="toc-text">nc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kali-安装-pip"><span class="toc-number">5.</span> <span class="toc-text">kali 安装 pip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pwntools"><span class="toc-number">6.</span> <span class="toc-text">pwntools</span></a></li></ol>
  
   </div>
 
@@ -278,19 +277,19 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -306,10 +305,6 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -318,11 +313,15 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -330,15 +329,15 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Start TensorFlow InteractiveSession TensorFlow relies on a highly efficient C++ backend to do its computation. The connection to this backend is called a session. The common usage for TensorFlow prog">
+    <meta name="description" content="Start TensorFlow InteractiveSession TensorFlow relies on a highly efficient C++ backend to do its computation. The connection to this backend is called a session. The common usage for TensorFlow prog">
 <meta name="keywords" content="TensorFlow,ML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow 学习（二）">
 <meta property="og:url" content="http://flamepeak.com/2017/01/09/TensorFlow-learning-part2-20170109/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Start TensorFlow InteractiveSession TensorFlow relies on a highly efficient C++ backend to do its computation. The connection to this backend is called a session. The common usage for TensorFlow prog">
+<meta property="og:description" content="Start TensorFlow InteractiveSession TensorFlow relies on a highly efficient C++ backend to do its computation. The connection to this backend is called a session. The common usage for TensorFlow prog">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-02-06T13:09:32.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow 学习（二）">
-<meta name="twitter:description" content="Start TensorFlow InteractiveSession TensorFlow relies on a highly efficient C++ backend to do its computation. The connection to this backend is called a session. The common usage for TensorFlow prog">
+<meta name="twitter:description" content="Start TensorFlow InteractiveSession TensorFlow relies on a highly efficient C++ backend to do its computation. The connection to this backend is called a session. The common usage for TensorFlow prog">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,44 +97,37 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="start-tensorflow-interactivesession"><a class="markdownIt-Anchor" href="#start-tensorflow-interactivesession"></a> Start TensorFlow InteractiveSession</h3>
+		<h3 id="start-tensorflow-interactivesession">Start TensorFlow InteractiveSession</h3>
 <p>TensorFlow relies on a highly efficient C++ backend to do its computation. The connection to this backend is called a session. The common usage for TensorFlow programs is to first create a graph and then launch it in a session.</p>
 <p>Here we instead use the convenient <strong>InteractiveSession</strong> class, which makes TensorFlow more flexible about how you structure your code. It allows you to interleave operations which build a <strong>computation graph</strong> with ones that run the graph. This is particularly convenient when working in interactive contexts like IPython. If you are not using an InteractiveSession, then you should build the entire computation graph before starting a session and launching the graph.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">sess = tf.InteractiveSession()</span><br></pre></td></tr></table></figure>
 <p>Instead of running a single expensive operation independently from Python, TensorFlow lets us describe a graph of interacting operations that run entirely outside Python. This approach is similar to that used in Theano or Torch.</p>
 <p>The role of the Python code is therefore to build this external computation graph, and to dictate which parts of the computation graph should be run.</p>
-<h3 id="build-a-softmax-regression-model"><a class="markdownIt-Anchor" href="#build-a-softmax-regression-model"></a> Build a Softmax Regression Model</h3>
-<h4 id="placeholders"><a class="markdownIt-Anchor" href="#placeholders"></a> Placeholders</h4>
-<p>We start building the computation graph by creating nodes for the input images and target output classes.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x = tf.placeholder(tf.float32, shape=[None, 784])</span><br><span class="line">y_ = tf.placeholder(tf.float32, shape=[None, 10])</span><br></pre></td></tr></table></figure>
-<p>Here x and y_ aren’t specific values. Rather, they are each a placeholder – a value that we’ll input when we ask TensorFlow to run a computation.</p>
+<h3 id="build-a-softmax-regression-model">Build a Softmax Regression Model</h3>
+<h4 id="placeholders">Placeholders</h4>
+<p>We start building the computation graph by creating nodes for the input images and target output classes. <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x = tf.placeholder(tf.float32, shape=[None, 784])</span><br><span class="line">y_ = tf.placeholder(tf.float32, shape=[None, 10])</span><br></pre></td></tr></table></figure></p>
+<p>Here x and y_ aren't specific values. Rather, they are each a placeholder -- a value that we'll input when we ask TensorFlow to run a computation.</p>
 <p>The <strong>shape</strong> argument to <strong>placeholder</strong> is optional, but it allows TensorFlow to automatically catch bugs stemming from inconsistent tensor shapes.</p>
-<h4 id="variables"><a class="markdownIt-Anchor" href="#variables"></a> Variables</h4>
-<p>We now define the weights <strong>W</strong> and biases <strong>b</strong> for our model. We could imagine treating these like additional inputs, but TensorFlow has an even better way to handle them: <strong>Variable</strong>. A <strong>Variable</strong> is a value that lives in TensorFlow’s computation graph. It can be used and even modified by the computation. In machine learning applications, one generally has the model parameters(模型参数) be <strong>Variables</strong>.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">W = tf.Variable(tf.zeros([784,10]))</span><br><span class="line">b = tf.Variable(tf.zeros([10]))</span><br></pre></td></tr></table></figure>
-<p>Before <strong>Variables</strong> can be used within a session, they must be initialized using that session. This step takes the initial values (in this case tensors full of zeros) that have already been specified, and assigns them to each <strong>Variable</strong>. This can be done for all <strong>Variables</strong> at once:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sess.run(tf.global_variables_initializer())</span><br></pre></td></tr></table></figure>
-<h3 id="predicted-class-and-loss-function"><a class="markdownIt-Anchor" href="#predicted-class-and-loss-function"></a> Predicted Class and Loss Function</h3>
-<p>We can now implement our regression model. It only takes one line! We multiply the vectorized input images <strong>x</strong> by the weight matrix <strong>W</strong>, add the bias <strong>b</strong>.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">y = tf.matmul(x,W) + b</span><br></pre></td></tr></table></figure>
-<p>We can specify a loss function just as easily. Loss indicates how bad the model’s prediction was on a single example; we try to minimize that while training across all the examples. Here, our loss function is the cross-entropy between the target and the softmax activation function applied to the model’s prediction.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(y, y_))</span><br></pre></td></tr></table></figure>
-<h3 id="train-the-model"><a class="markdownIt-Anchor" href="#train-the-model"></a> Train the Model</h3>
-<p>Now that we have defined our model and training loss function, it is straightforward to train using TensorFlow. Because TensorFlow knows the entire computation graph, it can use automatic differentiation(自动微分法) to find the gradients of the loss with respect to each of the variables. TensorFlow has a variety of built-in optimization algorithms. For this example, we will use steepest gradient descent, with a step length of 0.5, to descend the cross entropy.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)</span><br></pre></td></tr></table></figure>
+<h4 id="variables">Variables</h4>
+<p>We now define the weights <strong>W</strong> and biases <strong>b</strong> for our model. We could imagine treating these like additional inputs, but TensorFlow has an even better way to handle them: <strong>Variable</strong>. A <strong>Variable</strong> is a value that lives in TensorFlow's computation graph. It can be used and even modified by the computation. In machine learning applications, one generally has the model parameters(模型参数) be <strong>Variables</strong>. <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">W = tf.Variable(tf.zeros([784,10]))</span><br><span class="line">b = tf.Variable(tf.zeros([10]))</span><br></pre></td></tr></table></figure></p>
+<p>Before <strong>Variables</strong> can be used within a session, they must be initialized using that session. This step takes the initial values (in this case tensors full of zeros) that have already been specified, and assigns them to each <strong>Variable</strong>. This can be done for all <strong>Variables</strong> at once: <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sess.run(tf.global_variables_initializer())</span><br></pre></td></tr></table></figure></p>
+<h3 id="predicted-class-and-loss-function">Predicted Class and Loss Function</h3>
+<p>We can now implement our regression model. It only takes one line! We multiply the vectorized input images <strong>x</strong> by the weight matrix <strong>W</strong>, add the bias <strong>b</strong>. <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">y = tf.matmul(x,W) + b</span><br></pre></td></tr></table></figure></p>
+<p>We can specify a loss function just as easily. Loss indicates how bad the model's prediction was on a single example; we try to minimize that while training across all the examples. Here, our loss function is the cross-entropy between the target and the softmax activation function applied to the model's prediction. <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(y, y_))</span><br></pre></td></tr></table></figure></p>
+<h3 id="train-the-model">Train the Model</h3>
+<p>Now that we have defined our model and training loss function, it is straightforward to train using TensorFlow. Because TensorFlow knows the entire computation graph, it can use automatic differentiation(自动微分法) to find the gradients of the loss with respect to each of the variables. TensorFlow has a variety of built-in optimization algorithms. For this example, we will use steepest gradient descent, with a step length of 0.5, to descend the cross entropy. <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)</span><br></pre></td></tr></table></figure></p>
 <p>What TensorFlow actually did in that single line was to add new operations to the computation graph. These operations included ones to compute gradients, compute parameter update steps, and apply update steps to the parameters.</p>
-<p>The returned operation <strong>train_step</strong>, when run, will apply the gradient descent(梯度下降) updates to the parameters. Training the model can therefore be accomplished by repeatedly running <strong>train_step</strong>.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for i in range(1000):</span><br><span class="line">  batch = mnist.train.next_batch(100)</span><br><span class="line">  train_step.run(feed_dict=&#123;x: batch[0], y_: batch[1]&#125;)</span><br></pre></td></tr></table></figure>
-<p>Note that you can replace any tensor in your computation graph using <strong>feed_dict</strong> – it’s not restricted to just <strong>placeholders</strong>.</p>
-<h3 id="evaluate-the-model"><a class="markdownIt-Anchor" href="#evaluate-the-model"></a> Evaluate the Model</h3>
-<p>First we’ll figure out where we predicted the correct label. <strong>tf.argmax</strong> is an extremely useful function which gives you the index of the highest entry in a tensor along some axis. For example, <strong>tf.argmax(y,1)</strong> is the label our model thinks is most likely for each input, while <strong>tf.argmax(y_,1)</strong> is the true label. We can use <strong>tf.equal</strong> to check if our prediction matches the truth.</p>
+<p>The returned operation <strong>train_step</strong>, when run, will apply the gradient descent(梯度下降) updates to the parameters. Training the model can therefore be accomplished by repeatedly running <strong>train_step</strong>. <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for i in range(1000):</span><br><span class="line">  batch = mnist.train.next_batch(100)</span><br><span class="line">  train_step.run(feed_dict=&#123;x: batch[0], y_: batch[1]&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>Note that you can replace any tensor in your computation graph using <strong>feed_dict</strong> -- it's not restricted to just <strong>placeholders</strong>.</p>
+<h3 id="evaluate-the-model">Evaluate the Model</h3>
+<p>First we'll figure out where we predicted the correct label. <strong>tf.argmax</strong> is an extremely useful function which gives you the index of the highest entry in a tensor along some axis. For example, <strong>tf.argmax(y,1)</strong> is the label our model thinks is most likely for each input, while <strong>tf.argmax(y_,1)</strong> is the true label. We can use <strong>tf.equal</strong> to check if our prediction matches the truth.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))</span><br></pre></td></tr></table></figure>
 <p>That gives us a list of booleans. To determine what fraction are correct, we cast to floating point numbers and then take the mean. For example, <strong>[True, False, True, True]</strong> would become <strong>[1,0,1,1]</strong> which would become <strong>0.75</strong>.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="build-a-multilayer-convolutional-network多层卷积网络"><a class="markdownIt-Anchor" href="#build-a-multilayer-convolutional-network多层卷积网络"></a> Build a Multilayer Convolutional Network（多层卷积网络）</h2>
-<p>Getting 92% accuracy on MNIST is bad. It’s almost embarrassingly bad. In this section, we’ll fix that, jumping from a very simple model to something moderately sophisticated: a small convolutional neural network（卷积神经网络）.</p>
-<h3 id="weight-initialization"><a class="markdownIt-Anchor" href="#weight-initialization"></a> Weight Initialization</h3>
+<h2 id="build-a-multilayer-convolutional-network多层卷积网络">Build a Multilayer Convolutional Network（多层卷积网络）</h2>
+<p>Getting 92% accuracy on MNIST is bad. It's almost embarrassingly bad. In this section, we'll fix that, jumping from a very simple model to something moderately sophisticated: a small convolutional neural network（卷积神经网络）.</p>
+<h3 id="weight-initialization">Weight Initialization</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def weight_variable(shape):</span><br><span class="line">  initial = tf.truncated_normal(shape, stddev=0.1)</span><br><span class="line">  return tf.Variable(initial)</span><br><span class="line"></span><br><span class="line">def bias_variable(shape):</span><br><span class="line">  initial = tf.constant(0.1, shape=shape)</span><br><span class="line">  return tf.Variable(initial)</span><br></pre></td></tr></table></figure>
   
 	</div>
@@ -198,7 +191,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#start-tensorflow-interactivesession"><span class="toc-number">1.</span> <span class="toc-text"> Start TensorFlow InteractiveSession</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build-a-softmax-regression-model"><span class="toc-number">2.</span> <span class="toc-text"> Build a Softmax Regression Model</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#placeholders"><span class="toc-number">2.1.</span> <span class="toc-text"> Placeholders</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#variables"><span class="toc-number">2.2.</span> <span class="toc-text"> Variables</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#predicted-class-and-loss-function"><span class="toc-number">3.</span> <span class="toc-text"> Predicted Class and Loss Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#train-the-model"><span class="toc-number">4.</span> <span class="toc-text"> Train the Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#evaluate-the-model"><span class="toc-number">5.</span> <span class="toc-text"> Evaluate the Model</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#build-a-multilayer-convolutional-network多层卷积网络"><span class="toc-number"></span> <span class="toc-text"> Build a Multilayer Convolutional Network（多层卷积网络）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#weight-initialization"><span class="toc-number">1.</span> <span class="toc-text"> Weight Initialization</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#start-tensorflow-interactivesession"><span class="toc-number">1.</span> <span class="toc-text">Start TensorFlow InteractiveSession</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build-a-softmax-regression-model"><span class="toc-number">2.</span> <span class="toc-text">Build a Softmax Regression Model</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#placeholders"><span class="toc-number">2.1.</span> <span class="toc-text">Placeholders</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#variables"><span class="toc-number">2.2.</span> <span class="toc-text">Variables</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#predicted-class-and-loss-function"><span class="toc-number">3.</span> <span class="toc-text">Predicted Class and Loss Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#train-the-model"><span class="toc-number">4.</span> <span class="toc-text">Train the Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#evaluate-the-model"><span class="toc-number">5.</span> <span class="toc-text">Evaluate the Model</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#build-a-multilayer-convolutional-network多层卷积网络"><span class="toc-number"></span> <span class="toc-text">Build a Multilayer Convolutional Network（多层卷积网络）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#weight-initialization"><span class="toc-number">1.</span> <span class="toc-text">Weight Initialization</span></a></li></ol>
  
   </div>
 
@@ -288,19 +281,19 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -316,10 +309,6 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -328,11 +317,15 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -340,15 +333,15 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

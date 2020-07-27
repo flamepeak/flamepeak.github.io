@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="来自WikiLeaks CIA ExitBootServices Hooking  So, You Want to Hook ExitBootServices? If you’re here, it’s because you want to know more about ExitBootServices, and probably want to hook it so you can do t">
+    <meta name="description" content="来自WikiLeaks CIA ExitBootServices Hooking So, You Want to Hook ExitBootServices? If you&apos;re here, it&apos;s because you want to know more about ExitBootServices, and probably want to hook it so you can do">
 <meta name="keywords" content="EFI,WikiLeaks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ExitBootServices Hooking">
 <meta property="og:url" content="http://flamepeak.com/2017/03/08/WikiLeaks-ExitBootServices-Hooking-20170308/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="来自WikiLeaks CIA ExitBootServices Hooking  So, You Want to Hook ExitBootServices? If you’re here, it’s because you want to know more about ExitBootServices, and probably want to hook it so you can do t">
+<meta property="og:description" content="来自WikiLeaks CIA ExitBootServices Hooking So, You Want to Hook ExitBootServices? If you&apos;re here, it&apos;s because you want to know more about ExitBootServices, and probably want to hook it so you can do">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-03-08T08:28:52.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ExitBootServices Hooking">
-<meta name="twitter:description" content="来自WikiLeaks CIA ExitBootServices Hooking  So, You Want to Hook ExitBootServices? If you’re here, it’s because you want to know more about ExitBootServices, and probably want to hook it so you can do t">
+<meta name="twitter:description" content="来自WikiLeaks CIA ExitBootServices Hooking So, You Want to Hook ExitBootServices? If you&apos;re here, it&apos;s because you want to know more about ExitBootServices, and probably want to hook it so you can do">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -99,22 +99,22 @@
 		
 		<p>来自WikiLeaks CIA</p>
 <p><strong>ExitBootServices Hooking</strong></p>
-<h3 id="so-you-want-to-hook-exitbootservices"><a class="markdownIt-Anchor" href="#so-you-want-to-hook-exitbootservices"></a> So, You Want to Hook ExitBootServices?</h3>
-<p>If you’re here, it’s because you want to know more about ExitBootServices, and probably want to hook it so you can do things to the OS. Here’s some basic information for you in case you need your memory refreshed about EFI things.</p>
-<p>On boot, the code located on the firmware has control of the system. It is what determines what happens during a boot. Typically, the UEFI application run from the firmware is an OS Loader. The loader’s main purpose is to initialize everything that the OS needs to run, load the kernel into memory, and pass control to the kernel itself. However, the loader is just another UEFI Application: it can only use the memory it has been allocated by the firmware and can only access the UEFI services and protocols that the firmware provides. All the way through to the end of the DXE(Driver Execution Environment) phase of a UEFI boot, the firmware is in charge. However, eventually, all of the UEFI boot services need to end, and the OS needs to take control. This is accomplished using the UEFI boot service <strong>ExitBootServices</strong>.</p>
+<h3 id="so-you-want-to-hook-exitbootservices">So, You Want to Hook ExitBootServices?</h3>
+<p>If you're here, it's because you want to know more about ExitBootServices, and probably want to hook it so you can do things to the OS. Here's some basic information for you in case you need your memory refreshed about EFI things.</p>
+<p>On boot, the code located on the firmware has control of the system. It is what determines what happens during a boot. Typically, the UEFI application run from the firmware is an OS Loader. The loader's main purpose is to initialize everything that the OS needs to run, load the kernel into memory, and pass control to the kernel itself. However, the loader is just another UEFI Application: it can only use the memory it has been allocated by the firmware and can only access the UEFI services and protocols that the firmware provides. All the way through to the end of the DXE(Driver Execution Environment) phase of a UEFI boot, the firmware is in charge. However, eventually, all of the UEFI boot services need to end, and the OS needs to take control. This is accomplished using the UEFI boot service <strong>ExitBootServices</strong>.</p>
 <p>When ExitBootServices is called by the OS loader, the firmware gives control of the system to the loader. All of the boot service memory is reclaimed, the boot services are all terminated, and the OS loader can hand over control of the system to the OS. At this point, only the runtime services provided by the firmware are still accessible.</p>
 <hr>
-<h3 id="actually-hooking-exitbootservices"><a class="markdownIt-Anchor" href="#actually-hooking-exitbootservices"></a> Actually Hooking ExitBootServices</h3>
+<h3 id="actually-hooking-exitbootservices">Actually Hooking ExitBootServices</h3>
 <p>When ExitBootServices is called, the DXE(Driver Execution Environment) phase is about to end. The firmware has done all that it needs to do from UEFI to set up the system for the OS, and the OS itself has already been loaded into memory. You can be creative with what you could do to the kernel that is just sitting there in memory, not protected by anything.</p>
-<p>Because the ExitBootServices service can be found by getting its pointer from the global <code>EFI_BOOT_SERVICES</code> table, hooking the ExitBootServices call is trivial. From within a UEFI driver, you store the original pointer and then replace the table’s pointer with one to your hook function. From there, you let your driver run and wait for ExitBootServices to be called by the OS loader, and your hook code will run just before the OS loader gets control. When you’re running in UEFI, that <code>EFI_BOOT_SERVICES</code> table isn’t protected by anything, so you can just write directly to it.</p>
+<p>Because the ExitBootServices service can be found by getting its pointer from the global <code>EFI_BOOT_SERVICES</code> table, hooking the ExitBootServices call is trivial. From within a UEFI driver, you store the original pointer and then replace the table's pointer with one to your hook function. From there, you let your driver run and wait for ExitBootServices to be called by the OS loader, and your hook code will run just before the OS loader gets control. When you're running in UEFI, that <code>EFI_BOOT_SERVICES</code> table isn't protected by anything, so you can just write directly to it.</p>
 <p>At this point, you can do whatever you want. UEFI boot services are still running (because they will be terminated when the real ExitBootServices is called), and the OS is sitting there. However, if you mess with memory (especially if you allocate new buffers), you will need to do some cleanup before you can return successfully to the original ExitBootServices.</p>
 <p>The second parameter to ExitBootServices is a UINTN MapKey. This value identifies the current memory map of the system, and is changed every time something in the memory map changes. In order for ExitBootServices to do its job properly, it MUST have the current memory map. If it does not, it will do weird things, like cause the OS to not be able to identify the startup disk or not be able to load altogether.</p>
 <p>In order to make sure your ExitBootServices call goes correctly, you will need to call GetMemoryMap first. Ironically, calling GetMemoryMap will require you to allocate memory for the map itself, which, in turn, will change the memory map.</p>
-<p>You can deal with this issue by looping your calls – allocating space for the map, then calling GetMemoryMap again. Eventually, you will have allocated enough space for the (again updated) map before you make the GetMemoryMap call, and you’ll get the up-to-date map.</p>
+<p>You can deal with this issue by looping your calls – allocating space for the map, then calling GetMemoryMap again. Eventually, you will have allocated enough space for the (again updated) map before you make the GetMemoryMap call, and you'll get the up-to-date map.</p>
 <p>Once you have the map, you can simply call the original ExitBootServices function and be on your merry way.</p>
 <hr>
-<h3 id="example-code"><a class="markdownIt-Anchor" href="#example-code"></a> Example Code</h3>
-<p>Below is the code you’ll need to do basic ExitBootServices hooking. Actually compiling this into an EFI executable isn’t covered in this tutorial, but you will need to run this from a UEFI driver. In this example, your driver’s entry point is HookDriverMain.</p>
+<h3 id="example-code">Example Code</h3>
+<p>Below is the code you'll need to do basic ExitBootServices hooking. Actually compiling this into an EFI executable isn't covered in this tutorial, but you will need to run this from a UEFI driver. In this example, your driver's entry point is HookDriverMain.</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">extern</span> EFI_BOOT_SERVICES *gBS;</span><br><span class="line">EFI_EXIT_BOOT_SERVICES     gOrigExitBootServices;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">EFI_STATUS</span><br><span class="line">EFIAPI</span><br><span class="line">ExitBootServicesHook(IN EFI_HANDLE ImageHandle, IN UINTN MapKey)&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* &lt;hook related fun&gt; */</span></span><br><span class="line">	<span class="comment">/* Do fun hook-related stuff here */</span></span><br><span class="line">	<span class="comment">/* &lt;/hook-related fun&gt; */</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Fix the pointer in the boot services table */</span></span><br><span class="line">	<span class="comment">/* If you don't do this, sometimes your hook method will be called repeatedly, which you don't want */</span></span><br><span class="line">    gBS-&gt;ExitBootServices = gOrigExitBootServices;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Get the memory map */</span></span><br><span class="line">    UINTN MemoryMapSize;</span><br><span class="line">    EFI_MEMORY_DESCRIPTOR *MemoryMap;</span><br><span class="line">    UINTN LocalMapKey;</span><br><span class="line">    UINTN DescriptorSize;</span><br><span class="line">    UINT32 DescriptorVersion;</span><br><span class="line">    MemoryMap = <span class="literal">NULL</span>;</span><br><span class="line">    MemoryMapSize = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">do</span> &#123;  </span><br><span class="line">        Status = gBS-&gt;GetMemoryMap(&amp;MemoryMapSize, MemoryMap, &amp;LocalMapKey, &amp;DescriptorSize,&amp;DescriptorVersion);</span><br><span class="line">        <span class="keyword">if</span> (Status == EFI_BUFFER_TOO_SMALL)&#123;</span><br><span class="line">            MemoryMap = AllocatePool(MemoryMapSize + <span class="number">1</span>);</span><br><span class="line">            Status = gBS-&gt;GetMemoryMap(&amp;MemoryMapSize, MemoryMap, &amp;LocalMapKey, &amp;DescriptorSize,&amp;DescriptorVersion);      </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">/* Status is likely success - let the while() statement check success */</span></span><br><span class="line">        &#125;</span><br><span class="line">        DbgPrint(<span class="string">L"This time through the memory map loop, status = %r\n"</span>,Status);</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">while</span> (Status != EFI_SUCCESS);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> gOrigExitBootServices(ImageHandle,LocalMapKey);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">EFI_STATUS</span><br><span class="line">EFIAPI</span><br><span class="line">HookDriverMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE *SystemTable)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Store off the original pointer and replace it with your own */</span></span><br><span class="line">    gOrigExitBootServices = gBS-&gt;ExitBootServices;</span><br><span class="line">    gBS-&gt;ExitBootServices = ExitBootServicesHook;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* It's hooked! Return EFI_SUCCESS so your driver stays in memory */</span></span><br><span class="line">    <span class="keyword">return</span> EFI_SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   
 	</div>
@@ -178,7 +178,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#so-you-want-to-hook-exitbootservices"><span class="toc-number">1.</span> <span class="toc-text"> So, You Want to Hook ExitBootServices?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#actually-hooking-exitbootservices"><span class="toc-number">2.</span> <span class="toc-text"> Actually Hooking ExitBootServices</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#example-code"><span class="toc-number">3.</span> <span class="toc-text"> Example Code</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#so-you-want-to-hook-exitbootservices"><span class="toc-number">1.</span> <span class="toc-text">So, You Want to Hook ExitBootServices?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#actually-hooking-exitbootservices"><span class="toc-number">2.</span> <span class="toc-text">Actually Hooking ExitBootServices</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#example-code"><span class="toc-number">3.</span> <span class="toc-text">Example Code</span></a></li></ol>
  
   </div>
 
@@ -268,19 +268,19 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -296,10 +296,6 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -308,11 +304,15 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -320,15 +320,15 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

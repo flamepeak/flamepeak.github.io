@@ -13,17 +13,17 @@
     
 
     
-    <meta name="description" content="因为要在Linux下安装nodejs指定版本，遇到一些问题，下面说一下解决办法：  apt-get安装 apt-get install nodejs  这种方法可以安装，但是安装的最近稳定版本， apt-get install nodejs=8.16.0 提示源找不到。  本地安装  参考：在Linux系统安装Nodejs 最简单步骤 但是上面这篇文章，不知道在哪一个Linux版本下安装的，在我的">
+    <meta name="description" content="因为要在Linux下安装nodejs指定版本，遇到一些问题，下面说一下解决办法：  apt-get安装 apt-get install nodejs  这种方法可以安装，但是安装的最近稳定版本， apt-get install nodejs=8.16.0 提示源找不到。  本地安装  参考：在Linux系统安装Nodejs 最简单步骤 但是上面这篇文章，不知道在哪一个Linu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux nodejs install and usage">
 <meta property="og:url" content="http://flamepeak.com/2019/04/24/Linux-nodejs-install-and-usage-20190424/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="因为要在Linux下安装nodejs指定版本，遇到一些问题，下面说一下解决办法：  apt-get安装 apt-get install nodejs  这种方法可以安装，但是安装的最近稳定版本， apt-get install nodejs=8.16.0 提示源找不到。  本地安装  参考：在Linux系统安装Nodejs 最简单步骤 但是上面这篇文章，不知道在哪一个Linux版本下安装的，在我的">
+<meta property="og:description" content="因为要在Linux下安装nodejs指定版本，遇到一些问题，下面说一下解决办法：  apt-get安装 apt-get install nodejs  这种方法可以安装，但是安装的最近稳定版本， apt-get install nodejs=8.16.0 提示源找不到。  本地安装  参考：在Linux系统安装Nodejs 最简单步骤 但是上面这篇文章，不知道在哪一个Linu">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-04-29T00:16:20.394Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux nodejs install and usage">
-<meta name="twitter:description" content="因为要在Linux下安装nodejs指定版本，遇到一些问题，下面说一下解决办法：  apt-get安装 apt-get install nodejs  这种方法可以安装，但是安装的最近稳定版本， apt-get install nodejs=8.16.0 提示源找不到。  本地安装  参考：在Linux系统安装Nodejs 最简单步骤 但是上面这篇文章，不知道在哪一个Linux版本下安装的，在我的">
+<meta name="twitter:description" content="因为要在Linux下安装nodejs指定版本，遇到一些问题，下面说一下解决办法：  apt-get安装 apt-get install nodejs  这种方法可以安装，但是安装的最近稳定版本， apt-get install nodejs=8.16.0 提示源找不到。  本地安装  参考：在Linux系统安装Nodejs 最简单步骤 但是上面这篇文章，不知道在哪一个Linu">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,20 +97,18 @@
 	<div class="article-content">
 		
 		<p>因为要在Linux下安装nodejs指定版本，遇到一些问题，下面说一下解决办法：</p>
-<ol>
-<li>apt-get安装<br>
-apt-get install nodejs</li>
+<ol type="1">
+<li>apt-get安装 apt-get install nodejs</li>
 </ol>
 <p>这种方法可以安装，但是安装的最近稳定版本，</p>
 <p>apt-get install nodejs=8.16.0</p>
 <p>提示源找不到。</p>
-<ol start="2">
+<ol start="2" type="1">
 <li>本地安装</li>
 </ol>
 <p><a href="https://www.cnblogs.com/liuqi/p/6483317.html" target="_blank" rel="noopener">参考：在Linux系统安装Nodejs 最简单步骤</a></p>
 <p>但是上面这篇文章，不知道在哪一个Linux版本下安装的，在我的kali（Debian）中建立软链接有问题，在此修改</p>
-<p>官网下载指定版本，然后运行下面命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar zxvf node-v8.16.0-linux-x64.tar.gz</span><br><span class="line">mv node-v8.16.0-linux-x64 nodejs</span><br><span class="line">mv nodejs /usr</span><br><span class="line">ln -s /usr/nodejs/bin/npm /usr/bin</span><br><span class="line">ln -s /usr/nodejs/bin/node /usr/bin</span><br></pre></td></tr></table></figure>
+<p>官网下载指定版本，然后运行下面命令 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar zxvf node-v8.16.0-linux-x64.tar.gz</span><br><span class="line">mv node-v8.16.0-linux-x64 nodejs</span><br><span class="line">mv nodejs /usr</span><br><span class="line">ln -s /usr/nodejs/bin/npm /usr/bin</span><br><span class="line">ln -s /usr/nodejs/bin/node /usr/bin</span><br></pre></td></tr></table></figure></p>
 <p>可以使用node -v 和npm-v 进行检查，是否显示版本</p>
   
 	</div>
@@ -259,19 +257,19 @@ apt-get install nodejs</li>
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -287,10 +285,6 @@ apt-get install nodejs</li>
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -299,11 +293,15 @@ apt-get install nodejs</li>
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -311,15 +309,15 @@ apt-get install nodejs</li>
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

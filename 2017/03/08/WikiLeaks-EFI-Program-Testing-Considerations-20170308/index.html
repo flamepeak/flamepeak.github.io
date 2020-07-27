@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="本文来自：WikiLeaks CIA:EFI Program Testing Considerations EFI Program Testing Considerations This page is not designed to teach how to exhaustively test EFI executables, but will serve as a point of refer">
+    <meta name="description" content="本文来自：WikiLeaks CIA:EFI Program Testing Considerations EFI Program Testing Considerations This page is not designed to teach how to exhaustively test EFI executables, but will serve as a point of ref">
 <meta name="keywords" content="EFI,WikiLeaks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EFI 程序测试注意事项">
 <meta property="og:url" content="http://flamepeak.com/2017/03/08/WikiLeaks-EFI-Program-Testing-Considerations-20170308/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="本文来自：WikiLeaks CIA:EFI Program Testing Considerations EFI Program Testing Considerations This page is not designed to teach how to exhaustively test EFI executables, but will serve as a point of refer">
+<meta property="og:description" content="本文来自：WikiLeaks CIA:EFI Program Testing Considerations EFI Program Testing Considerations This page is not designed to teach how to exhaustively test EFI executables, but will serve as a point of ref">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-03-08T08:27:45.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EFI 程序测试注意事项">
-<meta name="twitter:description" content="本文来自：WikiLeaks CIA:EFI Program Testing Considerations EFI Program Testing Considerations This page is not designed to teach how to exhaustively test EFI executables, but will serve as a point of refer">
+<meta name="twitter:description" content="本文来自：WikiLeaks CIA:EFI Program Testing Considerations EFI Program Testing Considerations This page is not designed to teach how to exhaustively test EFI executables, but will serve as a point of ref">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -99,58 +99,34 @@
 		
 		<p>本文来自：<a href="https://wikileaks.org/ciav7p1/cms/page_29851664.html" target="_blank" rel="noopener">WikiLeaks CIA:EFI Program Testing Considerations</a></p>
 <p><strong>EFI Program Testing Considerations</strong></p>
-<p>This page is not designed to teach how to exhaustively test EFI executables, but will serve as a point of reference for different issues raised in EFI that are not typically common elsewhere.<br>
-本文并不是教给你如何彻底的测试EFI可执行文件，但是它是一个由EFI引起的在其它地方并不常见的各种问题的参考。</p>
-<h3 id="launching-the-efi-shell-启动efi-shell"><a class="markdownIt-Anchor" href="#launching-the-efi-shell-启动efi-shell"></a> Launching the EFI Shell 启动EFI Shell</h3>
-<p>On a Mac, the easiest way to run an EFI executable is to boot into the EFI shell and run it from there.<br>
-在一台Mac上，运行EFI可执行文件最简单的方法是：启动进入EFI shell并从shell中运行。</p>
-<p>Because Macs still use EFI 1.10 (versus UEFI 2.5), you will need to run the EFI shell version 1. You can grab that binary here: UEFIShell1.efi<br>
-因为Macs仍然使用EFI 1.10（对应UEFI 2.5），你需要运行EFI shell的版本1. 你可以获取这个二进制文件：<a href="https://wikileaks.org/ciav7p1/cms/files/UEFIShell1.efi" target="_blank" rel="noopener">UEFIShell1.efi</a></p>
-<p>In order to run the EFI shell, you need to either put in onto your EFI partition or onto a bootable USB drive.<br>
-为了运行EFI shell， 你需要把它放在EFI分区，或者放在一个可启动的USB驱动器上。</p>
-<p>Whichever you choose, the file must be placed in /EFI/BOOT on the drive, and must be named BOOTX64.efi<br>
-无论你采用哪种方式，这个文件必须放在<code>/EFI/BOOT</code>内，并且必须命名为<code>BOOTX64.efi</code>.</p>
-<p>Once it is there (either on your USB or the EFI system partition), you can reboot your machine, hold down the option key on boot, and select the “EFI Boot” drive.<br>
-把它放好之后，你可以重新启动你的机器，在启动时按住选项键，并选择<code>EFI Boot</code>.</p>
-<h3 id="testing-considerations-测试注意事项"><a class="markdownIt-Anchor" href="#testing-considerations-测试注意事项"></a> Testing Considerations 测试注意事项</h3>
-<h4 id="running-your-program-运行你的程序"><a class="markdownIt-Anchor" href="#running-your-program-运行你的程序"></a> Running Your Program 运行你的程序</h4>
-<p>It is fairly simple to run an EFI program from the EFI shell.<br>
-从EFI shell运行EFI程序是非常简单的。</p>
-<p>First, you need to find the file system that your executable is on. In order to do this, you need to find which “fs#” it is on. For example, the EFI system partition is typically fs0, and the OS X Recovery partition is typically fs1.<br>
-首先，你需要找到你的可执行文件在哪个文件系统上。为了做到这一点，你需要找到它在那个<code>fs#</code>上。例如，EFI系统分区通常是<code>fs0</code>，OS X恢复分区通常是<code>fs1</code>。</p>
-<p>You can type the command “fs0:” and the shell will move you to fs0. From there, this shell is similar to a DOS shell: you can use dir to list the files in your directory, cd to move around, etc.<br>
-你可以输入命令<code>fs0:</code>，然后shell将会使你的工作路径到<code>fs0</code>。这个shell有点类似DOS shell，你可以使用<code>dir</code>查看目录中的文件，<code>cd</code>可以更改工作目录等等。</p>
-<p>If you need more help in the EFI shell, type “help -b”. The -b flag makes the help output show one screen at a time, similar to more in a bash shell.<br>
-如果你想在EFI shell中获取帮助信息，输入命令<code>help -v</code>。<code>-b</code>标志使帮助的输出一次显示一屏，有点类似bash shell中的<code>more</code>。</p>
-<p>From there, find your executable. If you created HelloWorld.efi as an application, you can run it from the EFI shell simply by typing HelloWorld.efi from its directory.<br>
-找到你的可执行文件，如果你创建了一个<code>HelloWorld.efi</code>程序，你只需在shell中输入<code>HelooWorld.efi</code>就可以运行它（注意目录）。</p>
-<p>If your executable is a driver, you can run it using the load command. For the HelloWorld example, you would type “load HelloWorld.efi” from its directory.<br>
-如果你的可行性文件是一个驱动(driver)，你可以使用<code>load</code>命令运行它。对于HelloWord的例子，你需要在它的目录中输入<code>load HelloWorld.efi</code>。</p>
-<p>You can also use absolute or relative paths when loading or running your executables.<br>
-在load或者运行可执行文件时，你可以使用绝对路径或者相对路径。</p>
-<h3 id="pointers-指针"><a class="markdownIt-Anchor" href="#pointers-指针"></a> Pointers 指针</h3>
-<p>Pointers are irritating enough: you think you’re pointing to the right part of your structure, and instead you get a seg fault, or you dereference a NULL pointer, or something else nasty.<br>
-指针非常令人不爽：你认为它指向了代码结构中的正确部分，但是你得到了一个段错误(seg fault)，或者间接引用了一个NULL指针，或者其它令人讨厌的错误。</p>
-<p>Normally, this will cause a crash, and you may get some sort of error message (or a core dump.) However, in EFI, if you commit this type of memory-related error, the program will simply hang.<br>
-正常情况下，这将会造成程序崩溃，同时你可能会得到一些错误信息。然而，在EFI中，如果你遇到这种内存相关的错误，程序将会挂起。</p>
-<p>As of right now, I have not found a way to kill a program that has hung from within EFI. This means that if your executable hangs, you will need to power cycle your machine. (Please let me know if you find a work-around to this; that would be great.)<br>
-到目前为止，我还没有找到一种在EFI中杀死挂起程序的方法。这意味着，如果你的可执行文件挂起了，你将不得不重启机器。（如果你找到一种方法，请告诉我，那就太棒了）</p>
-<h3 id="stripped-binaries"><a class="markdownIt-Anchor" href="#stripped-binaries"></a> Stripped Binaries</h3>
-<p>By default, the EDK includes a lot of debug information when it compiles its executables, as noted in the EDK2 Compiler Information and CI Concerns page.<br>
-默认情况下，当编译可行性文件时EDK（Embedded Development Kit）包含很多调试信息，正如在<a href="https://wikileaks.org/ciav7p1/cms/page_27721733.html" target="_blank" rel="noopener">EDK2 Compiler Information and CI Concerns</a>中提到的那样。</p>
-<p>If you are trying to minimize the amount of debug strings in your executables like I did, you may be tempted to add the --strip-all flag to the set of flags to pass to objcopy. Don’t do that.<br>
-如果你像我一样试图最小化可执行文件中调试字符串的数量，你可能想给传递给objcopy的标记集合增加<code>--strip-all</code>标记。不要这样做！</p>
-<p>Although I have not had the time to pinpoint what exactly is being stripped, if you use --strip-all, the loader (for the application or for the driver) will not be able to find your program’s entry point and your program will hang. No errors in compilation, nothing in the EFI shell – it will simply hang.<br>
-尽管我没有时间精确的指出到底是什么东西被删掉，如果你使用<code>--stip-all</code>，loader将不能找到程序的入口点，你的程序会挂起。编译时不会有错误提示，EFI shell也没有，它只是挂起！</p>
-<h2 id="补充"><a class="markdownIt-Anchor" href="#补充"></a> 补充</h2>
-<p>其它的CIA的EFI资料：<br>
-<a href="https://wikileaks.org/ciav7p1/cms/page_27262984.html" target="_blank" rel="noopener">搭建EFI的Linux开发环境</a>:Setting Up a Linux Build Environment for EFI：This page will walk you through building a build environment for a Linux machine. Specifically, this tutorial is focused on Ubuntu/Linux Mint.</p>
+<p>This page is not designed to teach how to exhaustively test EFI executables, but will serve as a point of reference for different issues raised in EFI that are not typically common elsewhere. 本文并不是教给你如何彻底的测试EFI可执行文件，但是它是一个由EFI引起的在其它地方并不常见的各种问题的参考。</p>
+<h3 id="launching-the-efi-shell-启动efi-shell">Launching the EFI Shell 启动EFI Shell</h3>
+<p>On a Mac, the easiest way to run an EFI executable is to boot into the EFI shell and run it from there. 在一台Mac上，运行EFI可执行文件最简单的方法是：启动进入EFI shell并从shell中运行。</p>
+<p>Because Macs still use EFI 1.10 (versus UEFI 2.5), you will need to run the EFI shell version 1. You can grab that binary here: UEFIShell1.efi 因为Macs仍然使用EFI 1.10（对应UEFI 2.5），你需要运行EFI shell的版本1. 你可以获取这个二进制文件：<a href="https://wikileaks.org/ciav7p1/cms/files/UEFIShell1.efi" target="_blank" rel="noopener">UEFIShell1.efi</a></p>
+<p>In order to run the EFI shell, you need to either put in onto your EFI partition or onto a bootable USB drive. 为了运行EFI shell， 你需要把它放在EFI分区，或者放在一个可启动的USB驱动器上。</p>
+<p>Whichever you choose, the file must be placed in /EFI/BOOT on the drive, and must be named BOOTX64.efi 无论你采用哪种方式，这个文件必须放在<code>/EFI/BOOT</code>内，并且必须命名为<code>BOOTX64.efi</code>.</p>
+<p>Once it is there (either on your USB or the EFI system partition), you can reboot your machine, hold down the option key on boot, and select the "EFI Boot" drive. 把它放好之后，你可以重新启动你的机器，在启动时按住选项键，并选择<code>EFI Boot</code>.</p>
+<h3 id="testing-considerations-测试注意事项">Testing Considerations 测试注意事项</h3>
+<h4 id="running-your-program-运行你的程序">Running Your Program 运行你的程序</h4>
+<p>It is fairly simple to run an EFI program from the EFI shell. 从EFI shell运行EFI程序是非常简单的。</p>
+<p>First, you need to find the file system that your executable is on. In order to do this, you need to find which "fs#" it is on. For example, the EFI system partition is typically fs0, and the OS X Recovery partition is typically fs1. 首先，你需要找到你的可执行文件在哪个文件系统上。为了做到这一点，你需要找到它在那个<code>fs#</code>上。例如，EFI系统分区通常是<code>fs0</code>，OS X恢复分区通常是<code>fs1</code>。</p>
+<p>You can type the command "fs0:" and the shell will move you to fs0. From there, this shell is similar to a DOS shell: you can use dir to list the files in your directory, cd to move around, etc. 你可以输入命令<code>fs0:</code>，然后shell将会使你的工作路径到<code>fs0</code>。这个shell有点类似DOS shell，你可以使用<code>dir</code>查看目录中的文件，<code>cd</code>可以更改工作目录等等。</p>
+<p>If you need more help in the EFI shell, type "help -b". The -b flag makes the help output show one screen at a time, similar to more in a bash shell. 如果你想在EFI shell中获取帮助信息，输入命令<code>help -v</code>。<code>-b</code>标志使帮助的输出一次显示一屏，有点类似bash shell中的<code>more</code>。</p>
+<p>From there, find your executable. If you created HelloWorld.efi as an application, you can run it from the EFI shell simply by typing HelloWorld.efi from its directory. 找到你的可执行文件，如果你创建了一个<code>HelloWorld.efi</code>程序，你只需在shell中输入<code>HelooWorld.efi</code>就可以运行它（注意目录）。</p>
+<p>If your executable is a driver, you can run it using the load command. For the HelloWorld example, you would type "load HelloWorld.efi" from its directory. 如果你的可行性文件是一个驱动(driver)，你可以使用<code>load</code>命令运行它。对于HelloWord的例子，你需要在它的目录中输入<code>load HelloWorld.efi</code>。</p>
+<p>You can also use absolute or relative paths when loading or running your executables. 在load或者运行可执行文件时，你可以使用绝对路径或者相对路径。</p>
+<h3 id="pointers-指针">Pointers 指针</h3>
+<p>Pointers are irritating enough: you think you're pointing to the right part of your structure, and instead you get a seg fault, or you dereference a NULL pointer, or something else nasty. 指针非常令人不爽：你认为它指向了代码结构中的正确部分，但是你得到了一个段错误(seg fault)，或者间接引用了一个NULL指针，或者其它令人讨厌的错误。</p>
+<p>Normally, this will cause a crash, and you may get some sort of error message (or a core dump.) However, in EFI, if you commit this type of memory-related error, the program will simply hang. 正常情况下，这将会造成程序崩溃，同时你可能会得到一些错误信息。然而，在EFI中，如果你遇到这种内存相关的错误，程序将会挂起。</p>
+<p>As of right now, I have not found a way to kill a program that has hung from within EFI. This means that if your executable hangs, you will need to power cycle your machine. (Please let me know if you find a work-around to this; that would be great.) 到目前为止，我还没有找到一种在EFI中杀死挂起程序的方法。这意味着，如果你的可执行文件挂起了，你将不得不重启机器。（如果你找到一种方法，请告诉我，那就太棒了）</p>
+<h3 id="stripped-binaries">Stripped Binaries</h3>
+<p>By default, the EDK includes a lot of debug information when it compiles its executables, as noted in the EDK2 Compiler Information and CI Concerns page. 默认情况下，当编译可行性文件时EDK（Embedded Development Kit）包含很多调试信息，正如在<a href="https://wikileaks.org/ciav7p1/cms/page_27721733.html" target="_blank" rel="noopener">EDK2 Compiler Information and CI Concerns</a>中提到的那样。</p>
+<p>If you are trying to minimize the amount of debug strings in your executables like I did, you may be tempted to add the --strip-all flag to the set of flags to pass to objcopy. Don't do that. 如果你像我一样试图最小化可执行文件中调试字符串的数量，你可能想给传递给objcopy的标记集合增加<code>--strip-all</code>标记。不要这样做！</p>
+<p>Although I have not had the time to pinpoint what exactly is being stripped, if you use --strip-all, the loader (for the application or for the driver) will not be able to find your program's entry point and your program will hang. No errors in compilation, nothing in the EFI shell – it will simply hang. 尽管我没有时间精确的指出到底是什么东西被删掉，如果你使用<code>--stip-all</code>，loader将不能找到程序的入口点，你的程序会挂起。编译时不会有错误提示，EFI shell也没有，它只是挂起！</p>
+<h2 id="补充">补充</h2>
+<p>其它的CIA的EFI资料： <a href="https://wikileaks.org/ciav7p1/cms/page_27262984.html" target="_blank" rel="noopener">搭建EFI的Linux开发环境</a>:Setting Up a Linux Build Environment for EFI：This page will walk you through building a build environment for a Linux machine. Specifically, this tutorial is focused on Ubuntu/Linux Mint.</p>
 <p><a href="https://wikileaks.org/ciav7p1/cms/page_36896783.html" target="_blank" rel="noopener">ExitBootServices Hooking</a></p>
-<p><a href="https://wikileaks.org/ciav7p1/cms/page_26968082.html" target="_blank" rel="noopener">Active EFI/UEFI Projects</a>:Below are links to project pages for projects that are using/going against UEFI/EFI.</p>
-<ul>
-<li><a href="https://wikileaks.org/ciav7p1/cms/page_3375125.html" target="_blank" rel="noopener">DerStarke</a> :Apple EFI implant via flash unlock</li>
-<li><a href="https://wikileaks.org/ciav7p1/cms/page_21561431.html" target="_blank" rel="noopener">QuarkMatter</a> :Apple EFI implant via EFI system partition</li>
-</ul>
+<p><a href="https://wikileaks.org/ciav7p1/cms/page_26968082.html" target="_blank" rel="noopener">Active EFI/UEFI Projects</a>:Below are links to project pages for projects that are using/going against UEFI/EFI. + <a href="https://wikileaks.org/ciav7p1/cms/page_3375125.html" target="_blank" rel="noopener">DerStarke</a> :Apple EFI implant via flash unlock + <a href="https://wikileaks.org/ciav7p1/cms/page_21561431.html" target="_blank" rel="noopener">QuarkMatter</a> :Apple EFI implant via EFI system partition</p>
 <p><a href="https://wikileaks.org/ciav7p1/cms/page_26968084.html" target="_blank" rel="noopener">EFI Basics: NVRAM Variables</a>:NVRAM 非易失性随机访问存储器 (Non-Volatile Random Access Memory)，是指断电后仍能保持数据的一种RAM。</p>
 <p><a href="https://wikileaks.org/ciav7p1/cms/page_27721733.html" target="_blank" rel="noopener">EDK2 Compiler Information and CI Concerns</a>: This page will discuss locations of compiler flags within the TianoCore EDK2 (UDK 2014) build environment and CI concerns that need to be taken into account when building EFI binaries.This page documents everything noteworthy that we have found so far.</p>
   
@@ -215,7 +191,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#launching-the-efi-shell-启动efi-shell"><span class="toc-number">1.</span> <span class="toc-text"> Launching the EFI Shell 启动EFI Shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#testing-considerations-测试注意事项"><span class="toc-number">2.</span> <span class="toc-text"> Testing Considerations 测试注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#running-your-program-运行你的程序"><span class="toc-number">2.1.</span> <span class="toc-text"> Running Your Program 运行你的程序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pointers-指针"><span class="toc-number">3.</span> <span class="toc-text"> Pointers 指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stripped-binaries"><span class="toc-number">4.</span> <span class="toc-text"> Stripped Binaries</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充"><span class="toc-number"></span> <span class="toc-text"> 补充</span></a>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#launching-the-efi-shell-启动efi-shell"><span class="toc-number">1.</span> <span class="toc-text">Launching the EFI Shell 启动EFI Shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#testing-considerations-测试注意事项"><span class="toc-number">2.</span> <span class="toc-text">Testing Considerations 测试注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#running-your-program-运行你的程序"><span class="toc-number">2.1.</span> <span class="toc-text">Running Your Program 运行你的程序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pointers-指针"><span class="toc-number">3.</span> <span class="toc-text">Pointers 指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stripped-binaries"><span class="toc-number">4.</span> <span class="toc-text">Stripped Binaries</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充"><span class="toc-number"></span> <span class="toc-text">补充</span></a>
  
   </div>
 
@@ -305,19 +281,19 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -333,10 +309,6 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -345,11 +317,15 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -357,15 +333,15 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

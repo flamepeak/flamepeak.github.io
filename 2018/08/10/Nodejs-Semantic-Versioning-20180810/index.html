@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Semantic-Versioning 语义化版本控制 一个标准的版本号必须是X.Y.Z的形式，X是主版本，Y是副版本，Z是补丁版本。  X: 代表发生了不兼容的API改变 Y: 代表向后兼容的功能性变化 Z: 代表向后兼容bug fixes  语义化版本号规则 X.Y.Z - A.B.C 连字符范围1.2.3 - 2.3.4 等价于 &amp;gt;=1.2.3 &amp;lt;=2.3.41.2.3 - 2">
+    <meta name="description" content="Semantic-Versioning 语义化版本控制 一个标准的版本号必须是X.Y.Z的形式，X是主版本，Y是副版本，Z是补丁版本。 + X: 代表发生了不兼容的API改变 + Y: 代表向后兼容的功能性变化 + Z: 代表向后兼容bug fixes 语义化版本号规则 X.Y.Z - A.B.C 连字符范围1.2.3 - 2.3.4 等价于 &amp;gt;=1.2.3 &amp;lt;=2.3.41.2">
 <meta name="keywords" content="Node.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Semantic Versioning 语义化版本">
 <meta property="og:url" content="http://flamepeak.com/2018/08/10/Nodejs-Semantic-Versioning-20180810/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Semantic-Versioning 语义化版本控制 一个标准的版本号必须是X.Y.Z的形式，X是主版本，Y是副版本，Z是补丁版本。  X: 代表发生了不兼容的API改变 Y: 代表向后兼容的功能性变化 Z: 代表向后兼容bug fixes  语义化版本号规则 X.Y.Z - A.B.C 连字符范围1.2.3 - 2.3.4 等价于 &amp;gt;=1.2.3 &amp;lt;=2.3.41.2.3 - 2">
+<meta property="og:description" content="Semantic-Versioning 语义化版本控制 一个标准的版本号必须是X.Y.Z的形式，X是主版本，Y是副版本，Z是补丁版本。 + X: 代表发生了不兼容的API改变 + Y: 代表向后兼容的功能性变化 + Z: 代表向后兼容bug fixes 语义化版本号规则 X.Y.Z - A.B.C 连字符范围1.2.3 - 2.3.4 等价于 &amp;gt;=1.2.3 &amp;lt;=2.3.41.2">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-08-10T00:59:57.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Semantic Versioning 语义化版本">
-<meta name="twitter:description" content="Semantic-Versioning 语义化版本控制 一个标准的版本号必须是X.Y.Z的形式，X是主版本，Y是副版本，Z是补丁版本。  X: 代表发生了不兼容的API改变 Y: 代表向后兼容的功能性变化 Z: 代表向后兼容bug fixes  语义化版本号规则 X.Y.Z - A.B.C 连字符范围1.2.3 - 2.3.4 等价于 &amp;gt;=1.2.3 &amp;lt;=2.3.41.2.3 - 2">
+<meta name="twitter:description" content="Semantic-Versioning 语义化版本控制 一个标准的版本号必须是X.Y.Z的形式，X是主版本，Y是副版本，Z是补丁版本。 + X: 代表发生了不兼容的API改变 + Y: 代表向后兼容的功能性变化 + Z: 代表向后兼容bug fixes 语义化版本号规则 X.Y.Z - A.B.C 连字符范围1.2.3 - 2.3.4 等价于 &amp;gt;=1.2.3 &amp;lt;=2.3.41.2">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,15 +97,11 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="semantic-versioning-语义化版本控制"><a class="markdownIt-Anchor" href="#semantic-versioning-语义化版本控制"></a> Semantic-Versioning 语义化版本控制</h3>
-<p>一个标准的版本号必须是X.Y.Z的形式，X是主版本，Y是副版本，Z是补丁版本。</p>
-<ul>
-<li>X: 代表发生了不兼容的API改变</li>
-<li>Y: 代表向后兼容的功能性变化</li>
-<li>Z: 代表向后兼容bug fixes</li>
-</ul>
-<p>语义化版本号规则</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">X.Y.Z - A.B.C 连字符范围</span><br><span class="line">1.2.3 - 2.3.4 等价于 &gt;=1.2.3 &lt;=2.3.4</span><br><span class="line">1.2.3 - 2 等价于 &gt;=1.2.3 &lt;3.0.0</span><br><span class="line"></span><br><span class="line">~1.2.3 波浪线范围</span><br><span class="line">~1.2.3 等价于 &gt;=1.2.3 &lt;1.(2+1).0 等价于=&quot;&quot;&gt;=1.2.3 &lt;1.3.0</span><br><span class="line">~1.2 等价于 &gt;=1.2.0 &lt;1.(2+1).0 等价于=&quot;&quot;&gt;=1.2.0 &lt;1.3.0 (Same as 1.2.x)</span><br><span class="line">~1 等价于 &gt;=1.0.0 &lt;(1+1).0.0 等价于 &gt;=1.0.0 &lt;2.0.0 (Same as 1.x)</span><br><span class="line"></span><br><span class="line">~0.2.3 等价于 &gt;=0.2.3 &lt;0.(2+1).0 等价于=&quot;&quot;&gt;=0.2.3 &lt;0.3.0</span><br><span class="line">~0.2 等价于 &gt;=0.2.0 &lt;0.(2+1).0 等价于=&quot;&quot;&gt;=0.2.0 &lt;0.3.0 (Same as 0.2.x)</span><br><span class="line">~0 等价于 &gt;=0.0.0 &lt;(0+1).0.0 等价于 &gt;=0.0.0 &lt;1.0.0 (Same as 0.x)</span><br><span class="line"></span><br><span class="line">^1.2.3 脱字符范围</span><br><span class="line">脱字符范围之后指定从左面起第一个非零位置的范围。</span><br><span class="line"></span><br><span class="line">^1.2.3 等价于 &gt;=1.2.3 &lt;2.0.0</span><br><span class="line">^0.2.3 等价于 &gt;=0.2.3 &lt;0.3.0</span><br><span class="line">^0.0.3 等价于 &gt;=0.0.3 &lt;0.0.4，即等价于0.0.3</span><br><span class="line"></span><br><span class="line">当然如果最后一位省略了或为通配符x,X,*,则指定前一位字符的范围，如</span><br><span class="line"></span><br><span class="line">^1.2.x 等价于 &gt;=1.2.0 &lt;2.0.0</span><br><span class="line">^0.0.x 等价于 &gt;=0.0.0 &lt;0.1.0</span><br><span class="line">^0.0 等价于 &gt;=0.0.0 &lt;0.1.0</span><br></pre></td></tr></table></figure>  
+		<h3 id="semantic-versioning-语义化版本控制">Semantic-Versioning 语义化版本控制</h3>
+<p>一个标准的版本号必须是X.Y.Z的形式，X是主版本，Y是副版本，Z是补丁版本。<br>
++ X: 代表发生了不兼容的API改变 + Y: 代表向后兼容的功能性变化 + Z: 代表向后兼容bug fixes</p>
+<p>语义化版本号规则 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">X.Y.Z - A.B.C 连字符范围</span><br><span class="line">1.2.3 - 2.3.4 等价于 &gt;=1.2.3 &lt;=2.3.4</span><br><span class="line">1.2.3 - 2 等价于 &gt;=1.2.3 &lt;3.0.0</span><br><span class="line"></span><br><span class="line">~1.2.3 波浪线范围</span><br><span class="line">~1.2.3 等价于 &gt;=1.2.3 &lt;1.(2+1).0 等价于=&quot;&quot;&gt;=1.2.3 &lt;1.3.0</span><br><span class="line">~1.2 等价于 &gt;=1.2.0 &lt;1.(2+1).0 等价于=&quot;&quot;&gt;=1.2.0 &lt;1.3.0 (Same as 1.2.x)</span><br><span class="line">~1 等价于 &gt;=1.0.0 &lt;(1+1).0.0 等价于 &gt;=1.0.0 &lt;2.0.0 (Same as 1.x)</span><br><span class="line"></span><br><span class="line">~0.2.3 等价于 &gt;=0.2.3 &lt;0.(2+1).0 等价于=&quot;&quot;&gt;=0.2.3 &lt;0.3.0</span><br><span class="line">~0.2 等价于 &gt;=0.2.0 &lt;0.(2+1).0 等价于=&quot;&quot;&gt;=0.2.0 &lt;0.3.0 (Same as 0.2.x)</span><br><span class="line">~0 等价于 &gt;=0.0.0 &lt;(0+1).0.0 等价于 &gt;=0.0.0 &lt;1.0.0 (Same as 0.x)</span><br><span class="line"></span><br><span class="line">^1.2.3 脱字符范围</span><br><span class="line">脱字符范围之后指定从左面起第一个非零位置的范围。</span><br><span class="line"></span><br><span class="line">^1.2.3 等价于 &gt;=1.2.3 &lt;2.0.0</span><br><span class="line">^0.2.3 等价于 &gt;=0.2.3 &lt;0.3.0</span><br><span class="line">^0.0.3 等价于 &gt;=0.0.3 &lt;0.0.4，即等价于0.0.3</span><br><span class="line"></span><br><span class="line">当然如果最后一位省略了或为通配符x,X,*,则指定前一位字符的范围，如</span><br><span class="line"></span><br><span class="line">^1.2.x 等价于 &gt;=1.2.0 &lt;2.0.0</span><br><span class="line">^0.0.x 等价于 &gt;=0.0.0 &lt;0.1.0</span><br><span class="line">^0.0 等价于 &gt;=0.0.0 &lt;0.1.0</span><br></pre></td></tr></table></figure></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -167,7 +163,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#semantic-versioning-语义化版本控制"><span class="toc-number">1.</span> <span class="toc-text"> Semantic-Versioning 语义化版本控制</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#semantic-versioning-语义化版本控制"><span class="toc-number">1.</span> <span class="toc-text">Semantic-Versioning 语义化版本控制</span></a></li></ol>
  
   </div>
 
@@ -257,19 +253,19 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -285,10 +281,6 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -297,11 +289,15 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -309,15 +305,15 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

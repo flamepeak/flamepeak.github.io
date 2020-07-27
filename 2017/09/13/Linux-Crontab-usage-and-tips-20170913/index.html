@@ -13,19 +13,19 @@
     
 
     
-    <meta name="description" content="本文参考：Linux定时任务Crontab命令详解 linux 系统则是由 cron (crond) 这个系统服务来控制的。Linux 系统上面原本就有非常多的计划性工作，因此这个系统服务是默认启动的。另 外, 由于使用者自己也可以设置计划任务，所以， Linux 系统也提供了使用者控制计划任务的命令 :crontab 命令。  crond简介 crond 是linux下用来周期性的执行某种任务或">
+    <meta name="description" content="本文参考：Linux定时任务Crontab命令详解 linux 系统则是由 cron (crond) 这个系统服务来控制的。Linux 系统上面原本就有非常多的计划性工作，因此这个系统服务是默认启动的。另 外, 由于使用者自己也可以设置计划任务，所以， Linux 系统也提供了使用者控制计划任务的命令 :crontab 命令。 crond简介 crond 是linux下用来周期性的执行某种任">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux Crontab 计划任务使用与说明">
 <meta property="og:url" content="http://flamepeak.com/2017/09/13/Linux-Crontab-usage-and-tips-20170913/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="本文参考：Linux定时任务Crontab命令详解 linux 系统则是由 cron (crond) 这个系统服务来控制的。Linux 系统上面原本就有非常多的计划性工作，因此这个系统服务是默认启动的。另 外, 由于使用者自己也可以设置计划任务，所以， Linux 系统也提供了使用者控制计划任务的命令 :crontab 命令。  crond简介 crond 是linux下用来周期性的执行某种任务或">
+<meta property="og:description" content="本文参考：Linux定时任务Crontab命令详解 linux 系统则是由 cron (crond) 这个系统服务来控制的。Linux 系统上面原本就有非常多的计划性工作，因此这个系统服务是默认启动的。另 外, 由于使用者自己也可以设置计划任务，所以， Linux 系统也提供了使用者控制计划任务的命令 :crontab 命令。 crond简介 crond 是linux下用来周期性的执行某种任">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/2017/09/13/crontab.png">
 <meta property="og:updated_time" content="2019-09-17T07:10:03.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Crontab 计划任务使用与说明">
-<meta name="twitter:description" content="本文参考：Linux定时任务Crontab命令详解 linux 系统则是由 cron (crond) 这个系统服务来控制的。Linux 系统上面原本就有非常多的计划性工作，因此这个系统服务是默认启动的。另 外, 由于使用者自己也可以设置计划任务，所以， Linux 系统也提供了使用者控制计划任务的命令 :crontab 命令。  crond简介 crond 是linux下用来周期性的执行某种任务或">
+<meta name="twitter:description" content="本文参考：Linux定时任务Crontab命令详解 linux 系统则是由 cron (crond) 这个系统服务来控制的。Linux 系统上面原本就有非常多的计划性工作，因此这个系统服务是默认启动的。另 外, 由于使用者自己也可以设置计划任务，所以， Linux 系统也提供了使用者控制计划任务的命令 :crontab 命令。 crond简介 crond 是linux下用来周期性的执行某种任">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/2017/09/13/crontab.png">
 
     
@@ -101,12 +101,12 @@
 		
 		<p>本文参考：<a href="http://www.cnblogs.com/intval/p/5763929.html" target="_blank" rel="noopener">Linux定时任务Crontab命令详解</a></p>
 <p>linux 系统则是由 cron (crond) 这个系统服务来控制的。Linux 系统上面原本就有非常多的计划性工作，因此这个系统服务是默认启动的。另 外, 由于使用者自己也可以设置计划任务，所以， Linux 系统也提供了使用者控制计划任务的命令 :crontab 命令。</p>
-<h3 id="crond简介"><a class="markdownIt-Anchor" href="#crond简介"></a> crond简介</h3>
+<h3 id="crond简介">crond简介</h3>
 <p>crond 是linux下用来周期性的执行某种任务或等待处理某些事件的一个守护进程，与windows下的计划任务类似，当安装完成操作系统后，默认会安装此服务 工具，并且会自动启动crond进程，crond进程每分钟会定期检查是否有要执行的任务，如果有要执行的任务，则自动执行该任务。</p>
 <p>Linux下的任务调度分为两类，<strong>系统任务调度</strong>和<strong>用户任务调度</strong>。</p>
 <p><strong>系统任务调度</strong>：系统周期性所要执行的工作，比如写缓存数据到硬盘、日志清理等。在<code>/etc</code>目录下有一个crontab文件，这个就是系统任务调度的配置文件。</p>
-<p>/etc/crontab文件包括下面几行：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SHELL=/bin/bash</span><br><span class="line">PATH=/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line">MAILTO=root</span><br><span class="line">HOME=/</span><br></pre></td></tr></table></figure>
+<p>/etc/crontab文件包括下面几行：<br>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SHELL=/bin/bash</span><br><span class="line">PATH=/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line">MAILTO=root</span><br><span class="line">HOME=/</span><br></pre></td></tr></table></figure></p>
 <p>前四行是用来配置crond任务运行的环境变量:<br>
 第一行SHELL变量指定了系统要使用哪个shell，这里是bash，<br>
 第二行PATH变量指定了系统执行命令的路径，<br>
@@ -114,7 +114,7 @@
 第四行的HOME变量指定了在执行命令或者脚本时使用的主目录。</p>
 <p><strong>用户任务调度</strong>：用户定期要执行的工作，比如用户数据备份、定时邮件提醒等。用户可以使用 <code>crontab</code> 工具来定制自己的计划任务。所有用户定义的crontab 文件都被保存在 <code>/var/spool/cron</code>目录中。其文件名与用户名一致。</p>
 <p>用户新建、修改计划任务直接运行命令<code>crontab -e</code></p>
-<h3 id="crontab文件的含义"><a class="markdownIt-Anchor" href="#crontab文件的含义"></a> crontab文件的含义：</h3>
+<h3 id="crontab文件的含义">crontab文件的含义：</h3>
 <p>所有用户crontab文件存放的目录,以用户名命名</p>
 <p>用户所建立的crontab文件中，每一行都代表一项任务，每行的每个字段代表一项设置，它的格式共分为六个字段，前五段是时间设定段，第六段是要执行的命令段，格式如下：<br>
 <code>minute hour day month week command</code></p>
@@ -125,33 +125,34 @@
 <code>month</code>：表示月份，可以是从1到12之间的任何整数。<br>
 <code>week</code>：表示星期几，可以是从0到7之间的任何整数，这里的0或7代表星期日。<br>
 <code>command</code>：要执行的命令，可以是系统命令，也可以是自己编写的脚本文件。</p>
-<p><img src="/sourcepictures/2017/09/13/crontab.png" alt="Crontab格式"></p>
+<figure>
+<img src="/sourcepictures/2017/09/13/crontab.png" alt><figcaption>Crontab格式</figcaption>
+</figure>
 <p>在以上各个字段中，还可以使用以下特殊字符：<br>
 <code>星号（*）</code>：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。<br>
 <code>逗号（,）</code>：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”<br>
 <code>中杠（-）</code>：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”<br>
 <code>正斜线（/）</code>：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/10，如果用在minute字段，表示每十分钟执行一次。</p>
-<h3 id="crond服务"><a class="markdownIt-Anchor" href="#crond服务"></a> crond服务</h3>
+<h3 id="crond服务">crond服务</h3>
 <p>安装crontab：</p>
 <p><code>yum install crontabs</code></p>
-<p>服务操作说明：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/sbin/service crond start //启动服务  </span><br><span class="line">/sbin/service crond stop //关闭服务</span><br><span class="line">/sbin/service crond restart //重启服务</span><br><span class="line">/sbin/service crond reload //重新载入配置</span><br><span class="line">/sbin/service crond status //检测crontab是否启动成功</span><br></pre></td></tr></table></figure>
+<p>服务操作说明：<br>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/sbin/service crond start //启动服务  </span><br><span class="line">/sbin/service crond stop //关闭服务</span><br><span class="line">/sbin/service crond restart //重启服务</span><br><span class="line">/sbin/service crond reload //重新载入配置</span><br><span class="line">/sbin/service crond status //检测crontab是否启动成功</span><br></pre></td></tr></table></figure></p>
 <p>查看crontab服务是否已设置为开机启动，执行命令：<br>
-<code>chkconfig --list</code></p>
-<p>加入开机自动启动：<br>
-<code>chkconfig –level 35 crond on</code></p>
-<h3 id="ubuntu中"><a class="markdownIt-Anchor" href="#ubuntu中"></a> Ubuntu中</h3>
+<code>chkconfig  --list</code></p>
+<p>加入开机自动启动： <code>chkconfig –level 35 crond on</code></p>
+<h3 id="ubuntu中">Ubuntu中</h3>
 <p>在Ubuntu中服务名为cron，设置命令为crontab</p>
-<h3 id="crontab-日志"><a class="markdownIt-Anchor" href="#crontab-日志"></a> crontab 日志</h3>
+<h3 id="crontab-日志">crontab 日志</h3>
 <p>CentOS: <code>tail -f /var/log/cron</code></p>
 <p>Ubuntu: <code>tail -f /var/log/cron.log</code></p>
 <p>注：Ubuntu 默认没有开启cron log.</p>
 <p>在<code>/etc/rsyslog.d/50-default.conf</code>文件中取消<code>#cron.* /var/log/cron.log</code>注释符号<code>#</code>， 并重启rsyslog：<code>sudo service rsyslog restart</code></p>
-<h3 id="输出"><a class="markdownIt-Anchor" href="#输出"></a> 输出</h3>
+<h3 id="输出">输出</h3>
 <p>执行任务过程中会往屏幕输出内容, 当你执行的是个脚本文件时,你可以把文件的输出重定向到某个文件中.</p>
 <p><code>cd /home/wang &amp;&amp; ./temp.sh &gt;temp.log</code></p>
 <p><code>cd /home/wang &amp;&amp; ./temp.sh &gt;&gt;temp.log</code></p>
-<h3 id="crontab命令详解"><a class="markdownIt-Anchor" href="#crontab命令详解"></a> crontab命令详解</h3>
+<h3 id="crontab命令详解">crontab命令详解</h3>
 <p>通过crontab 命令，我们可以在固定的间隔时间执行指定的系统指令或 shell script脚本。时间间隔的单位可以是分钟、小时、日、月、周及以上的任意组合。这个命令非常设合周期性的日志分析或数据备份等工作。</p>
 <p><strong>命令格式</strong>：<br>
 <code>crontab [-u user] file</code><br>
@@ -163,7 +164,7 @@
 <code>-l</code>：显示某个用户的crontab文件内容，如果不指定用户，则表示显示当前用户的crontab文件内容。<br>
 <code>-r</code>：从/var/spool/cron目录中删除某个用户的crontab文件，如果不指定用户，则默认删除当前用户的crontab文件。<br>
 <code>-i</code>：在删除用户的crontab文件时给确认提示。</p>
-<h3 id="使用举例"><a class="markdownIt-Anchor" href="#使用举例"></a> 使用举例</h3>
+<h3 id="使用举例">使用举例</h3>
 <p>使用实例</p>
 <p>实例1：每1分钟执行一次command<br>
 命令：<br>
@@ -176,7 +177,7 @@
 3,15 8-11 * * * command</p>
 <p>实例4：每隔两天的上午8点到11点的第3和第15分钟执行<br>
 命令：<br>
-3,15 8-11 */2 * * command</p>
+3,15 8-11 <em>/2 </em> * command</p>
 <p>实例5：每个星期一的上午8点到11点的第3和第15分钟执行<br>
 命令：<br>
 3,15 8-11 * * 1 command</p>
@@ -269,7 +270,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#crond简介"><span class="toc-number">1.</span> <span class="toc-text"> crond简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#crontab文件的含义"><span class="toc-number">2.</span> <span class="toc-text"> crontab文件的含义：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#crond服务"><span class="toc-number">3.</span> <span class="toc-text"> crond服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu中"><span class="toc-number">4.</span> <span class="toc-text"> Ubuntu中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#crontab-日志"><span class="toc-number">5.</span> <span class="toc-text"> crontab 日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出"><span class="toc-number">6.</span> <span class="toc-text"> 输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#crontab命令详解"><span class="toc-number">7.</span> <span class="toc-text"> crontab命令详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用举例"><span class="toc-number">8.</span> <span class="toc-text"> 使用举例</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#crond简介"><span class="toc-number">1.</span> <span class="toc-text">crond简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#crontab文件的含义"><span class="toc-number">2.</span> <span class="toc-text">crontab文件的含义：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#crond服务"><span class="toc-number">3.</span> <span class="toc-text">crond服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu中"><span class="toc-number">4.</span> <span class="toc-text">Ubuntu中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#crontab-日志"><span class="toc-number">5.</span> <span class="toc-text">crontab 日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出"><span class="toc-number">6.</span> <span class="toc-text">输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#crontab命令详解"><span class="toc-number">7.</span> <span class="toc-text">crontab命令详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用举例"><span class="toc-number">8.</span> <span class="toc-text">使用举例</span></a></li></ol>
  
   </div>
 
@@ -359,19 +360,19 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -387,10 +388,6 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -399,11 +396,15 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -411,15 +412,15 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

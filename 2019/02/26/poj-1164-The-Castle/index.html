@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="1164:The Castle  这是深度优先搜索的标准模板 这里要注意关于门方向的判断，利用与运算，特别要注意·与或非·运算一定要加括号，因为优先级较低  #include &amp;lt;iostream&amp;gt;using namespace std;int R,C;int cntRoom=0, maxRoom;int A[202][202];int visited[202][202];int X[4">
+    <meta name="description" content="1164:The Castle  这是深度优先搜索的标准模板 这里要注意关于门方向的判断，利用与运算，特别要注意·与或非·运算一定要加括号，因为优先级较低  #include &amp;lt;iostream&amp;gt;using namespace std;int R,C;int cntRoom=0, maxRoom;int A[202][202];int visited[202][202];in">
 <meta name="keywords" content="C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="poj 1164 The Castle">
 <meta property="og:url" content="http://flamepeak.com/2019/02/26/poj-1164-The-Castle/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="1164:The Castle  这是深度优先搜索的标准模板 这里要注意关于门方向的判断，利用与运算，特别要注意·与或非·运算一定要加括号，因为优先级较低  #include &amp;lt;iostream&amp;gt;using namespace std;int R,C;int cntRoom=0, maxRoom;int A[202][202];int visited[202][202];int X[4">
+<meta property="og:description" content="1164:The Castle  这是深度优先搜索的标准模板 这里要注意关于门方向的判断，利用与运算，特别要注意·与或非·运算一定要加括号，因为优先级较低  #include &amp;lt;iostream&amp;gt;using namespace std;int R,C;int cntRoom=0, maxRoom;int A[202][202];int visited[202][202];in">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-02-27T00:13:05.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="poj 1164 The Castle">
-<meta name="twitter:description" content="1164:The Castle  这是深度优先搜索的标准模板 这里要注意关于门方向的判断，利用与运算，特别要注意·与或非·运算一定要加括号，因为优先级较低  #include &amp;lt;iostream&amp;gt;using namespace std;int R,C;int cntRoom=0, maxRoom;int A[202][202];int visited[202][202];int X[4">
+<meta name="twitter:description" content="1164:The Castle  这是深度优先搜索的标准模板 这里要注意关于门方向的判断，利用与运算，特别要注意·与或非·运算一定要加括号，因为优先级较低  #include &amp;lt;iostream&amp;gt;using namespace std;int R,C;int cntRoom=0, maxRoom;int A[202][202];int visited[202][202];in">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -98,11 +98,12 @@
 	<div class="article-content">
 		
 		<p><a href="http://bailian.openjudge.cn/practice/1164/" target="_blank" rel="noopener">1164:The Castle</a></p>
-<ol>
+<ol type="1">
 <li>这是深度优先搜索的标准模板</li>
 <li>这里要注意关于门方向的判断，利用与运算，特别要注意·与或非·运算一定要加括号，因为优先级较低</li>
 </ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> R,C;</span><br><span class="line"><span class="keyword">int</span> cntRoom=<span class="number">0</span>, maxRoom;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> A[<span class="number">202</span>][<span class="number">202</span>];</span><br><span class="line"><span class="keyword">int</span> visited[<span class="number">202</span>][<span class="number">202</span>];</span><br><span class="line"><span class="keyword">int</span> X[<span class="number">4</span>]=&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> Y[<span class="number">4</span>]=&#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> x1, <span class="keyword">int</span> y1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    maxRoom++;</span><br><span class="line">    visited[x1][y1]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>((A[x1][y1]&amp;<span class="number">1</span>)==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x = x1 + X[<span class="number">1</span>];</span><br><span class="line">        y = y1 + Y[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span>(x1&gt;=<span class="number">1</span>&amp;&amp;x1&lt;=R&amp;&amp;y1&gt;=<span class="number">1</span>&amp;&amp;y&lt;=C&amp;&amp;visited[x][y]==<span class="number">0</span>)</span><br><span class="line">            DFS(x, y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>((A[x1][y1]&amp;<span class="number">2</span>)==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x = x1 + X[<span class="number">3</span>];</span><br><span class="line">        y = y1 + Y[<span class="number">3</span>];</span><br><span class="line">        <span class="keyword">if</span>(x&gt;=<span class="number">1</span>&amp;&amp;x&lt;=R&amp;&amp;y&gt;=<span class="number">1</span>&amp;&amp;y&lt;=C&amp;&amp;visited[x][y]==<span class="number">0</span>)</span><br><span class="line">            DFS(x, y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>((A[x1][y1]&amp;<span class="number">4</span>)==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x = x1 + X[<span class="number">0</span>];</span><br><span class="line">        y = y1 + Y[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span>(x&gt;=<span class="number">1</span>&amp;&amp;x&lt;=R&amp;&amp;y&gt;=<span class="number">1</span>&amp;&amp;y&lt;=C&amp;&amp;visited[x][y]==<span class="number">0</span>)</span><br><span class="line">            DFS(x, y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>((A[x1][y1]&amp;<span class="number">8</span>)==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x = x1 + X[<span class="number">2</span>];</span><br><span class="line">        y = y1 + Y[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">if</span>(x&gt;=<span class="number">1</span>&amp;&amp;x&lt;=R&amp;&amp;y&gt;=<span class="number">1</span>&amp;&amp;y&lt;=C&amp;&amp;visited[x][y]==<span class="number">0</span>)</span><br><span class="line">            DFS(x, y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;R&gt;&gt;C;</span><br><span class="line">    <span class="keyword">int</span> Max=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=R;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=C;j++)</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;A[i][j];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=R;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=C;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            maxRoom = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(visited[i][j]==<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                DFS(i, j);</span><br><span class="line">                cntRoom++;</span><br><span class="line">            &#125;</span><br><span class="line">            Max = max(maxRoom, Max);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;cntRoom&lt;&lt;<span class="built_in">endl</span>&lt;&lt;Max;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> R,C;</span><br><span class="line"><span class="keyword">int</span> cntRoom=<span class="number">0</span>, maxRoom;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> A[<span class="number">202</span>][<span class="number">202</span>];</span><br><span class="line"><span class="keyword">int</span> visited[<span class="number">202</span>][<span class="number">202</span>];</span><br><span class="line"><span class="keyword">int</span> X[<span class="number">4</span>]=&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> Y[<span class="number">4</span>]=&#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> x1, <span class="keyword">int</span> y1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    maxRoom++;</span><br><span class="line">    visited[x1][y1]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>((A[x1][y1]&amp;<span class="number">1</span>)==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x = x1 + X[<span class="number">1</span>];</span><br><span class="line">        y = y1 + Y[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span>(x1&gt;=<span class="number">1</span>&amp;&amp;x1&lt;=R&amp;&amp;y1&gt;=<span class="number">1</span>&amp;&amp;y&lt;=C&amp;&amp;visited[x][y]==<span class="number">0</span>)</span><br><span class="line">            DFS(x, y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>((A[x1][y1]&amp;<span class="number">2</span>)==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x = x1 + X[<span class="number">3</span>];</span><br><span class="line">        y = y1 + Y[<span class="number">3</span>];</span><br><span class="line">        <span class="keyword">if</span>(x&gt;=<span class="number">1</span>&amp;&amp;x&lt;=R&amp;&amp;y&gt;=<span class="number">1</span>&amp;&amp;y&lt;=C&amp;&amp;visited[x][y]==<span class="number">0</span>)</span><br><span class="line">            DFS(x, y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>((A[x1][y1]&amp;<span class="number">4</span>)==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x = x1 + X[<span class="number">0</span>];</span><br><span class="line">        y = y1 + Y[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span>(x&gt;=<span class="number">1</span>&amp;&amp;x&lt;=R&amp;&amp;y&gt;=<span class="number">1</span>&amp;&amp;y&lt;=C&amp;&amp;visited[x][y]==<span class="number">0</span>)</span><br><span class="line">            DFS(x, y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>((A[x1][y1]&amp;<span class="number">8</span>)==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x = x1 + X[<span class="number">2</span>];</span><br><span class="line">        y = y1 + Y[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">if</span>(x&gt;=<span class="number">1</span>&amp;&amp;x&lt;=R&amp;&amp;y&gt;=<span class="number">1</span>&amp;&amp;y&lt;=C&amp;&amp;visited[x][y]==<span class="number">0</span>)</span><br><span class="line">            DFS(x, y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;R&gt;&gt;C;</span><br><span class="line">    <span class="keyword">int</span> Max=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=R;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=C;j++)</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;A[i][j];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=R;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=C;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            maxRoom = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(visited[i][j]==<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                DFS(i, j);</span><br><span class="line">                cntRoom++;</span><br><span class="line">            &#125;</span><br><span class="line">            Max = max(maxRoom, Max);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;cntRoom&lt;&lt;<span class="built_in">endl</span>&lt;&lt;Max;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -249,19 +250,19 @@
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -277,10 +278,6 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -289,11 +286,15 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -301,15 +302,15 @@
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>

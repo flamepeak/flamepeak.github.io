@@ -97,16 +97,11 @@
 </header>
 	<div class="article-content">
 		
-		<p><em>Selenium</em> is a poweful web scraping tool developed originally for website testing.Selenium works by automating browsers to load the website, retrieve the required data, and even take screenshots or assert that certain actions happen on the website.<br>
-Selenium does not contain its own web browser, it requires integration with thirdparty browsers in order to run.</p>
-<p><em>PhantomJS</em> is what is known as a “handless” browser. It loads websites into memory and executes javaScript on the page, but does without any graphic rendering of the website to the user.<br>
-So, By combining Selenium with PhantomJS, you can run an extremely powerful web scraper that handles cookies, JavaScript, headers, and everything else you need.</p>
-<p>The Selenium library is an API called WebDriver. The WebDriver is a bit like a browser in that it can load websites, but it can also be used like a BeautifulSoup object to find page elements, interact with elements on the page(semd text , click, etc.), and do other actions to drive the web scrapers.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.PhantomJS()</span><br><span class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/javascript/ajaxDemo.html"</span>)</span><br><span class="line">time.sleep(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">print</span> driver.find_element_by_id(<span class="string">"content"</span>).text</span><br><span class="line">driver.close()</span><br></pre></td></tr></table></figure>
-<p>Other Selector:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">driver.find\_element\_by\_css\_selector(<span class="string">"#content"</span>)</span><br><span class="line">driver.find\_element\_by\_tag\_name(<span class="string">"div"</span>)</span><br><span class="line"><span class="comment">#and, find All emelents:</span></span><br><span class="line">driver.find\_elements\_by\_css\_selector(<span class="string">"#content"</span>)</span><br><span class="line">driver.find\_elements\_by\_tag\_name(<span class="string">"div"</span>)</span><br><span class="line"><span class="comment">#and, you can use BeautifulSoup too:</span></span><br><span class="line">pageSource = driver.page_source</span><br><span class="line">bsObj = BeautifulSoup(pageSource)</span><br><span class="line">print(bsObj.find(id=<span class="string">"content"</span>).get_text())</span><br></pre></td></tr></table></figure>
-<p>More powerfull ones:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"></span><br><span class="line">driver = webdriver.PhantomJS()</span><br><span class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/javascript/ajaxDemo.html"</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    element = WebDriverWait(driver, <span class="number">10</span>).until(EC.presence_of_element_located((By.ID, <span class="string">"loadedButton"</span>)))</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="keyword">print</span> driver.find_element_by_id(<span class="string">'content'</span>).text</span><br><span class="line">    driver.close()</span><br></pre></td></tr></table></figure>
+		<p><em>Selenium</em> is a poweful web scraping tool developed originally for website testing.Selenium works by automating browsers to load the website, retrieve the required data, and even take screenshots or assert that certain actions happen on the website. Selenium does not contain its own web browser, it requires integration with thirdparty browsers in order to run.</p>
+<p><em>PhantomJS</em> is what is known as a “handless” browser. It loads websites into memory and executes javaScript on the page, but does without any graphic rendering of the website to the user. So, By combining Selenium with PhantomJS, you can run an extremely powerful web scraper that handles cookies, JavaScript, headers, and everything else you need.</p>
+<p>The Selenium library is an API called WebDriver. The WebDriver is a bit like a browser in that it can load websites, but it can also be used like a BeautifulSoup object to find page elements, interact with elements on the page(semd text , click, etc.), and do other actions to drive the web scrapers. <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.PhantomJS()</span><br><span class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/javascript/ajaxDemo.html"</span>)</span><br><span class="line">time.sleep(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">print</span> driver.find_element_by_id(<span class="string">"content"</span>).text</span><br><span class="line">driver.close()</span><br></pre></td></tr></table></figure></p>
+<p>Other Selector: <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">driver.find\_element\_by\_css\_selector(<span class="string">"#content"</span>)</span><br><span class="line">driver.find\_element\_by\_tag\_name(<span class="string">"div"</span>)</span><br><span class="line"><span class="comment">#and, find All emelents:</span></span><br><span class="line">driver.find\_elements\_by\_css\_selector(<span class="string">"#content"</span>)</span><br><span class="line">driver.find\_elements\_by\_tag\_name(<span class="string">"div"</span>)</span><br><span class="line"><span class="comment">#and, you can use BeautifulSoup too:</span></span><br><span class="line">pageSource = driver.page_source</span><br><span class="line">bsObj = BeautifulSoup(pageSource)</span><br><span class="line">print(bsObj.find(id=<span class="string">"content"</span>).get_text())</span><br></pre></td></tr></table></figure></p>
+<p>More powerfull ones: <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"></span><br><span class="line">driver = webdriver.PhantomJS()</span><br><span class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/javascript/ajaxDemo.html"</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    element = WebDriverWait(driver, <span class="number">10</span>).until(EC.presence_of_element_located((By.ID, <span class="string">"loadedButton"</span>)))</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="keyword">print</span> driver.find_element_by_id(<span class="string">'content'</span>).text</span><br><span class="line">    driver.close()</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -259,19 +254,19 @@ So, By combining Selenium with PhantomJS, you can run an extremely powerful web 
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -287,10 +282,6 @@ So, By combining Selenium with PhantomJS, you can run an extremely powerful web 
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
@@ -299,11 +290,15 @@ So, By combining Selenium with PhantomJS, you can run an extremely powerful web 
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -311,15 +306,15 @@ So, By combining Selenium with PhantomJS, you can run an extremely powerful web 
 			
 		
 			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>3</sup></a></li>
+				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>3</sup></a></li>
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>
