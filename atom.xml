@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://flamepeak.com/"/>
-  <updated>2020-06-19T07:56:55.060Z</updated>
+  <updated>2021-01-13T02:37:40.634Z</updated>
   <id>http://flamepeak.com/</id>
   
   <author>
@@ -14,6 +14,488 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A certificate chain could not be built to a trusted root authority</title>
+    <link href="http://flamepeak.com/2021/01/09/Windows%20A%20certificate%20chain%20could%20not%20be%20built%20to%20a%20trusted%20root%20authority%2020210120/"/>
+    <id>http://flamepeak.com/2021/01/09/Windows A certificate chain could not be built to a trusted root authority 20210120/</id>
+    <published>2021-01-09T02:27:55.000Z</published>
+    <updated>2021-01-13T02:37:40.634Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+<p>windows 7 出现这个情况，一般很多软件安装不上，中间异常退出。例如：net framework， vmware等等</p>
+<p>解决方法如下：</p>
+<ol type="1">
+<li>从微软官方下载证书: <a href="http://go.microsoft.com/fwlink/?linkid=747875&amp;clcid=0x409" target="_blank" rel="noopener">MicrosoftRootCertificateAuthority2011.cer</a></li>
+</ol>
+<p>或者从下面地址下载</p>
+<p><a href="https://github.com/yanglr/WindowsDevTools/raw/master/dotNET/MicrosoftRootCertificateAuthority2011.cer" target="_blank" rel="noopener">MicrosoftRootCertificateAuthority2011.cer - github</a>.</p>
+<ol start="2" type="1">
+<li>双击证书，开始安装</li>
+<li>点击下方<strong>安装证书</strong>按钮</li>
+<li>下一步</li>
+<li>选择证书存放位置，手动选择第二项，点击<strong>浏览</strong>或Browse，选中<strong>可信任的根证书机构</strong>或<strong>Trusted Root Certification Authorities</strong></li>
+<li>继续下一步，直至完成</li>
+<li>如果后面弹框的话，就接受。</li>
+</ol>
+<p>参考：https://stackoverflow.com/questions/47176239/a-certificate-chain-could-not-be-built-to-a-trusted-root-authority/60812129#60812129</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;p&gt;windows 7 出现这个情况，一般很多软件安装不上，中间异常退出。例如：net framework， vmware等等&lt;/p&gt;
+&lt;p&gt;解决方法如下：&lt;/p&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;从微软官方下载证书: &lt;a href=&quot;http://go
+    
+    </summary>
+    
+      <category term="Tools" scheme="http://flamepeak.com/categories/Tools/"/>
+    
+    
+      <category term="windows" scheme="http://flamepeak.com/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>华为Matepad Pro 安装Google Play Store (2020.12.28)</title>
+    <link href="http://flamepeak.com/2020/12/28/Android-Huawei%20Matepad%20pro%20install%20Google%20play/"/>
+    <id>http://flamepeak.com/2020/12/28/Android-Huawei Matepad pro install Google play/</id>
+    <published>2020-12-28T02:39:50.000Z</published>
+    <updated>2020-12-29T06:37:21.878Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="条件">条件</h3>
+<p>需要有Google账号，VPN</p>
+<h3 id="参考网址与视频">参考网址与视频</h3>
+<p>需要使用 Googlefier这个工具，前往 <a href="http://bit.ly/3l1cB4o" target="_blank" rel="noopener">bit.ly/3l1cB4o</a>下载,</p>
+<p>也就是下面的网址<a href="https://forum.xda-developers.com/t/googlefier-install-gms-on-huawei-honor.4180485/" target="_blank" rel="noopener">Googlefier - Install GMS on Huawei/Honor</a></p>
+<p>如果可以上YouTube，可以看这个视频<a href="https://www.youtube.com/watch?v=V3WBEF5ljsM" target="_blank" rel="noopener">MOST SIMPLE WAY to install Google Services on Huawei [100% working - december 2020]</a>，讲解非常详细</p>
+<h3 id="大致流程">大致流程</h3>
+<ol type="1">
+<li>安装Googlefier</li>
+<li>打开Googlefier，然后接受条款，继续</li>
+<li>看到界面的1，2，3，4等步骤，接下来就按顺序安装即可，当然此时需要手机连接VPN，需要注意的是，每一步都会有弹框提示，注意阅读注意事项。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;条件&quot;&gt;条件&lt;/h3&gt;
+&lt;p&gt;需要有Google账号，VPN&lt;/p&gt;
+&lt;h3 id=&quot;参考网址与视频&quot;&gt;参考网址与视频&lt;/h3&gt;
+&lt;p&gt;需要使用 Googlefier这个工具，前往 &lt;a href=&quot;http://bit.ly/3l1cB4o&quot; target
+    
+    </summary>
+    
+      <category term="Android" scheme="http://flamepeak.com/categories/Android/"/>
+    
+    
+      <category term="Google Play" scheme="http://flamepeak.com/tags/Google-Play/"/>
+    
+      <category term="Huawei" scheme="http://flamepeak.com/tags/Huawei/"/>
+    
+      <category term="Android" scheme="http://flamepeak.com/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2FA 双因子验证</title>
+    <link href="http://flamepeak.com/2020/09/03/Cryptography-2FA/"/>
+    <id>http://flamepeak.com/2020/09/03/Cryptography-2FA/</id>
+    <published>2020-09-03T01:00:39.000Z</published>
+    <updated>2020-09-03T02:20:12.252Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="基础知识">基础知识</h3>
+<p>OTP（One Time Passowrd）可以分为两种，HOTP和TOTP，即<strong>HMAC-based One Time Password</strong> and <strong>Time-based OTP</strong>。 TOPT并不是一种完全不同的模式，而是HOTP的增强版。</p>
+<p>HOTP算法在 <a href="https://tools.ietf.org/html/rfc4226" target="_blank" rel="noopener">RFC4226</a>中进行了描述，大约有35页，包含了格式描述、例子等。</p>
+<p>HMAC stands for <strong>Hash-based Message Authentication Code</strong>.</p>
+<p><strong>MAC</strong> is a way of proving that a message came from the expected sender and not someone else. <strong>MAC algorithm</strong> produces a <strong>MAC tag</strong> using a secret key that is only known to the sender and the receiver. 消息认证码的输入包括任意长度的消息和一个发送者与接收者之间之间共享的密钥，它可以输出固定长度的数据，这个数据称为MAC值。</p>
+<p><strong>MAC</strong> itself is not a specific algorithm, but rather a term that refers to one.</p>
+<p><strong>HMAC</strong>, in turn, IS a specific implementation. Or, to be more precise — HMAC-<em>X</em>, where <em>X</em> is one of the crypthographic hash functions. Now, HMAC takes two parameters — a secret key and your message, mixes them together in a special way, applies a hash function of your choice twice and produces a MAC tag.</p>
+<p><a href="https://flamepeak.com/2016/11/23/tu-jie-mi-ma-ji-shu-authentication20161123/">参考：认证</a></p>
+<p>根据HOTP规范，HOTP的计算基于两个值：K（客户端和服务器端的密钥secret key）和C（Counter）。共享密钥K必须大于128位，160位更好，它在你初始化2FA时生成。Counter是一个8字节的值，它在服务器和客户端之间同步，当你生成密码时它会持续更新。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">In HOTP, client counter is incremented each time a new password is generated and server counter — each time a password is validated. Since we can generate passwords without actually using them, server allows counter values to be a bit ahead of what the current one is but only within a certain window. If you played with your OTP token too much and it was an HOTP algorithm — you&apos;ll have to resync your token with server.</span><br></pre></td></tr></table></figure>
+<p>RFC4226定义的HOTP如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HOTP(K,C) = Truncate(HMAC-SHA-1(K,C))</span><br></pre></td></tr></table></figure>
+<p>So, K is predictably used as our secret key and <strong>C</strong>ounter is used as the message.</p>
+<h3 id="流程与计算">流程与计算</h3>
+<ul>
+<li>Generate HMAC-SHA1 value from our <strong>K</strong> and <strong>C</strong> parameters. This will be a 20-byte string</li>
+<li>Extract 4 bytes from that string in a specific way</li>
+<li>Convert those bytes into a number, divide that number by 10^n, where n = number of digits in the OTP and take the remainder. Usually n=6.</li>
+</ul>
+<p><strong>首先，计算HMAC-sha1</strong></p>
+<p>在Hash计算时，可以使用 <a href="https://www.w3.org/TR/WebCryptoAPI/" target="_blank" rel="noopener"><strong>Web Crypto API</strong></a>，这也要求你的脚本必须运行在使用HTTPS的网站上。幸运的是，在Firefox中你可以使用任何环境，而不用重复造轮子或者引入第三方库。</p>
+<p>Crypto API位于<code>window.crypto.subtle</code>。</p>
+<p>首先，我们需要使用<code>importKey</code>方法，因为我们要引入自己的key，而不是在浏览器中生成。它使用5个参数：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">importKey(</span><br><span class="line">    format</span><br><span class="line">    keyData,</span><br><span class="line">    algorithm,</span><br><span class="line">    extractable,</span><br><span class="line">    usages</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>在我们例子中:</p>
+<ul>
+<li><code>format</code> will be <code>'raw'</code>, meaning that we will supply the key as raw bytes in an <code>ArrayBuffer</code>.</li>
+<li><code>keyData</code> is the ArrayBuffer mentioned above. We'll talk about generating it in a bit</li>
+<li><code>algorithm</code> will be <code>HMAC-SHA1</code> as per OTP spec. This has to be an <a href="https://developer.mozilla.org/en-US/docs/Web/API/HmacImportParams" target="_blank" rel="noopener">HmacImportParams</a> object</li>
+<li><code>extractable</code> can be false, since we don't plan to export the key</li>
+<li>And finally, of all possible <code>usages</code> we will only need <code>'sign'</code></li>
+</ul>
+<p>Our secret key will be a long random string. In reality it could be a sequence of bytes that are not necessarily printable。</p>
+<p>为了把密钥转换成<code>ArrayBuffer</code>，我们将使用<code>TextEncoder</code>。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> encoder = <span class="keyword">new</span> TextEncoder(<span class="string">'utf-8'</span>);</span><br><span class="line"><span class="keyword">const</span> secretBytes = encoder.encode(secret);</span><br></pre></td></tr></table></figure>
+<p>汇总一下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Crypto = window.crypto.subtle;</span><br><span class="line"> <span class="keyword">const</span> encoder = <span class="keyword">new</span> TextEncoder(<span class="string">'utf-8'</span>);</span><br><span class="line"> <span class="keyword">const</span> secretBytes = encoder.encode(secret);</span><br><span class="line"></span><br><span class="line"> <span class="keyword">const</span> key = await Crypto.importKey(</span><br><span class="line">   <span class="string">'raw'</span>,</span><br><span class="line">   secretBytes,</span><br><span class="line">   &#123; name: <span class="string">'HMAC'</span>, hash: &#123; name: <span class="string">'SHA-1'</span> &#125; &#125;,</span><br><span class="line">   <span class="keyword">false</span>,</span><br><span class="line">   [<span class="string">'sign'</span>]</span><br><span class="line"> );</span><br></pre></td></tr></table></figure>
+<p>接下来，我们处理Counter：</p>
+<p>根据规范，Counter应该为8字节，同样<code>ArrayBuffer</code>格式。To convert it into this form we will first use a trick that is usually used to pad numbers with leading zeroes in JS and then put each individual byte into the <code>ArrayBuffer</code> using a <code>DataView</code>. Please note that according to spec all binary data is treated as <strong>big endian</strong> (most significant bit first).</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">function <span class="title">padCounter</span><span class="params">(counter)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> buffer = <span class="keyword">new</span> ArrayBuffer(<span class="number">8</span>);</span><br><span class="line">  <span class="keyword">const</span> bView = <span class="keyword">new</span> DataView(buffer);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> byteString = <span class="string">'0'</span>.repeat(<span class="number">64</span>); <span class="comment">// 8 bytes</span></span><br><span class="line">  <span class="keyword">const</span> bCounter = (byteString + counter.toString(<span class="number">2</span>)).slice(-<span class="number">64</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (let <span class="keyword">byte</span> = <span class="number">0</span>; <span class="keyword">byte</span> &lt; <span class="number">64</span>; <span class="keyword">byte</span> += <span class="number">8</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> byteValue = parseInt(bCounter.slice(<span class="keyword">byte</span>, <span class="keyword">byte</span> + <span class="number">8</span>), <span class="number">2</span>);</span><br><span class="line">    bView.setUint8(<span class="keyword">byte</span> / <span class="number">8</span>, byteValue);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> buffer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>With that in place — we are ready to sign! To do that we will just need to use <code>sign</code> function of <code>SubtleCrypto</code>.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> counterArray = padCounter(counter);</span><br><span class="line"><span class="keyword">const</span> HS = await Crypto.sign(<span class="string">'HMAC'</span>, key, counterArray);</span><br></pre></td></tr></table></figure>
+<p><strong>第二步，生成4字节字符串</strong></p>
+<p>Generate a 4-byte string (Dynamic Truncation)<br>
+Let Sbits = DT(HS) // DT, defined below,<br>
+// returns a 31-bit string</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">function <span class="title">DT</span><span class="params">(HS)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// First we take the last byte of our generated HS and extract last 4 bits out of it.</span></span><br><span class="line">  <span class="comment">// This will be our _offset_, a number between 0 and 15.</span></span><br><span class="line">  <span class="keyword">const</span> offset = HS[<span class="number">19</span>] &amp; <span class="number">0b1111</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Next we take 4 bytes out of the HS, starting at the offset</span></span><br><span class="line">  <span class="keyword">const</span> P = ((HS[offset] &amp; <span class="number">0x7f</span>) &lt;&lt; <span class="number">24</span>) | (HS[offset + <span class="number">1</span>] &lt;&lt; <span class="number">16</span>) | (HS[offset + <span class="number">2</span>] &lt;&lt; <span class="number">8</span>) | HS[offset + <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Finally, convert it into a binary string representation</span></span><br><span class="line">  <span class="keyword">const</span> pString = P.toString(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> pString;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now we only need to convert what we got from DT to an integer and off we go to stage 3.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">function <span class="title">truncate</span><span class="params">(uKey)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> Sbits = DT(uKey);</span><br><span class="line">  <span class="keyword">const</span> Snum = parseInt(Sbits, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> Snum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>第三步，获得结果</strong></p>
+<p>Stage 3 is really small. All we need to do now is to divide our resulting number by <code>10 ** (number of digits in OTP)</code> and take the remainder of that division. This way we basically cut last N digits from the resulting number. The spec mentions that you must extract at least 6 digits and possibly 7 or 8. Theoretically since it's a 31-bit integer you can extract up to 9 digits, but in reality I've never seen anything over 6. Have you?</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">async function <span class="title">generateHOTP</span><span class="params">(secret, counter)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> key = <span class="function">await <span class="title">generateKey</span><span class="params">(secret, counter)</span></span>;</span><br><span class="line">  <span class="keyword">const</span> uKey = <span class="keyword">new</span> Uint8Array(key);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> Snum = truncate(uKey);</span><br><span class="line">  <span class="comment">// Make sure we keep leading zeroes</span></span><br><span class="line">  <span class="keyword">const</span> padded = (<span class="string">'000000'</span> + (Snum % (<span class="number">10</span> ** <span class="number">6</span>))).slice(-<span class="number">6</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> padded;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>TOTP</strong></p>
+<p>当你打开流行的2FA app，可以看到倒计时，那就是TOTP。</p>
+<p><strong>Time-based</strong> means that instead of a static counter, current time is used as a moving factor. Or, to be precise, current <em>time step</em>. To calculate this <em>time step</em> we take current unix epoch time (number of milliseconds since 00:00:00 UTC on 1 January 1970) and divide it by a <em>time window</em> (usually 30 seconds). Server usually allows for a bit of time drift to account for imperfections in time sync — about 1 step forwards and backwards depending on the configuration.</p>
+<p>关于TOTP，可以查阅<a href="https://tools.ietf.org/html/rfc6238" target="_blank" rel="noopener">RFC6238</a>。</p>
+<p>Due to time-based scheme being an extension over original algorithm, no changes to the original implementation are required. We will use <code>requestAnimationFrame</code> and check on every tick if we are still inside the time window. If we are not — we will calculate a new time step (counter) and regenerate HOTP with it. Omitting all the administrative code it will look roughly like this:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">let stepWindow = <span class="number">30</span> * <span class="number">1000</span>; <span class="comment">// 30 seconds in ms</span></span><br><span class="line">let lastTimeStep = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> updateTOTPCounter = () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> timeSinceStep = Date.now() - lastTimeStep * stepWindow;</span><br><span class="line">  <span class="keyword">const</span> timeLeft = Math.ceil(stepWindow - timeSinceStep);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (timeLeft &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> requestAnimationFrame(updateTOTPCounter);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  timeStep = getTOTPCounter();</span><br><span class="line">  lastTimeStep = timeStep;</span><br><span class="line">    &lt;...update counter and regenerate...&gt;</span><br><span class="line">  requestAnimationFrame(updateTOTPCounter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二维码">二维码</h3>
+<p>通常，我们设置2FA时需要扫描二维码，其中包含我们需要的信息：密钥、使用的OTP算法、帐户名、发行者、位数。</p>
+<p>浏览器中二维码扫描可以<a href="https://dev.to/al_khovansky/intro-to-screen-capture-api-scanning-qr-codes-bgi" target="_blank" rel="noopener">参考</a></p>
+<p>二维码中的2FA地址格式通常如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">otpauth://TYPE/LABEL?PARAMETERS</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">otpauth://totp/label?secret=oyu55d4q5kllrwhy4euqh3ouw7hebnhm5qsflfcqggczoafxu75lsagt&amp;algorithm=SHA1&amp;digits=6&amp;period=30</span><br></pre></td></tr></table></figure>
+<p>解析地址代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> setupFromQR = data =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> url = <span class="keyword">new</span> URL(data);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// drop the "//" and get TYPE and LABEL</span></span><br><span class="line">  <span class="keyword">const</span> [scheme, label] = url.pathname.slice(<span class="number">2</span>).split(<span class="string">'/'</span>);</span><br><span class="line">  <span class="keyword">const</span> params = <span class="keyword">new</span> URLSearchParams(url.search);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> secret = params.get(<span class="string">'secret'</span>);</span><br><span class="line">  let counter;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (scheme === <span class="string">'hotp'</span>) &#123;</span><br><span class="line">    counter = params.get(<span class="string">'counter'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    stepWindow = parseInt(params.get(<span class="string">'period'</span>), <span class="number">10</span>) * <span class="number">1000</span>;</span><br><span class="line">    counter = getTOTPCounter();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考：</p>
+<ol type="1">
+<li>https://dev.to/al_khovansky/generating-2fa-one-time-passwords-in-js-using-web-crypto-api-1hfo</li>
+<li></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;基础知识&quot;&gt;基础知识&lt;/h3&gt;
+&lt;p&gt;OTP（One Time Passowrd）可以分为两种，HOTP和TOTP，即&lt;strong&gt;HMAC-based One Time Password&lt;/strong&gt; and &lt;strong&gt;Time-based OTP
+    
+    </summary>
+    
+      <category term="Cryptography" scheme="http://flamepeak.com/categories/Cryptography/"/>
+    
+    
+      <category term="cryptography" scheme="http://flamepeak.com/tags/cryptography/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ELK 安装与简单实用</title>
+    <link href="http://flamepeak.com/2020/08/30/ELK%20Elasticsearch%20Kibana%20Logstash%20usage%2020200111/"/>
+    <id>http://flamepeak.com/2020/08/30/ELK Elasticsearch Kibana Logstash usage 20200111/</id>
+    <published>2020-08-30T15:54:55.000Z</published>
+    <updated>2021-01-13T02:16:17.097Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装elk">安装ELK</h2>
+<h3 id="安装-elasticsearch">安装 Elasticsearch</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gz</span><br><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gz.sha512</span><br><span class="line">shasum -a 512 -c elasticsearch-7.7.1-linux-x86_64.tar.gz.sha512 </span><br><span class="line">tar -xzf elasticsearch-7.7.1-linux-x86_64.tar.gz</span><br><span class="line"><span class="built_in">cd</span> elasticsearch-7.7.1/</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">can not run elasticsearch as root</span><br><span class="line"></span><br><span class="line">su dbuser</span><br><span class="line">./elasticsearch -v</span><br></pre></td></tr></table></figure>
+<p>错误1：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00007f53abbe9000, 33554432, 0) failed; error=&apos;Not enough space&apos; (errno=12)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">free -m </span><br><span class="line">查看可用的swap空间</span><br><span class="line">可以增大swap空间</span><br><span class="line">或者，将/etc/elasticsearch/jvm.options 中的 -Xms512m -Xmx512m，进行修改，低于可用的swap空间</span><br></pre></td></tr></table></figure>
+<h3 id="安装可视化工具elasticsearch-head">安装可视化工具elasticsearch-head</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/mobz/elasticsearch-head.git</span><br><span class="line"><span class="built_in">cd</span> elasticsearch-head</span><br><span class="line">npm install</span><br><span class="line">npm run start</span><br><span class="line">open http://localhost:9100/</span><br><span class="line"></span><br><span class="line">Enable CORS <span class="keyword">in</span> elasticsearch：</span><br><span class="line">In elasticsearch configuration，</span><br><span class="line">1. add http.cors.enabled: <span class="literal">true</span></span><br><span class="line">2. you must also <span class="built_in">set</span> http.cors.allow-origin because no origin allowed by default. </span><br><span class="line">http.cors.allow-origin: <span class="string">"*"</span> is valid value, however it’s considered as a security risk </span><br><span class="line">as your cluster is open to cross origin from anywhere.</span><br></pre></td></tr></table></figure>
+<p>错误1:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">property [elasticsearch.version] is missing for plugin [head]</span><br></pre></td></tr></table></figure>
+<p>不要把elasticsearch-head放到plugins目录下，放到外面</p>
+<p>或者使用chrome插件： <a href="https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm/" target="_blank" rel="noopener">ElasticSearch Head</a></p>
+<p>错误2：</p>
+<p>远程无法访问</p>
+<p>修改yml:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">network.host: 0.0.0.0</span><br></pre></td></tr></table></figure>
+<p>修改完，es无法启动：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">配置cluster.initial_master_nodes为当前node，默认为注释，放开注释就行了</span><br><span class="line"></span><br><span class="line">cluster.initial_master_nodes: [&quot;node-1&quot;, &quot;node-2&quot;]</span><br></pre></td></tr></table></figure>
+<p>错误3：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.max file descriptors [4096] for elasticsearch process is too low, increase to at least [65536]</span><br><span class="line">修改/etc/security/limits.conf,增加配置，用户退出后重新登录生效</span><br><span class="line"></span><br><span class="line">*               soft    nofile            655350</span><br><span class="line">*               hard    nofile            655350</span><br><span class="line"></span><br><span class="line">2、max number of threads [3818] for user [es] is too low, increase to at least [4096]</span><br><span class="line">修改/etc/security/limits.conf,增加配置，用户退出后重新登录生效</span><br><span class="line">*               hard    nproc           4096</span><br><span class="line">*               soft    nproc           4096</span><br><span class="line"></span><br><span class="line">3、max file descriptors [65535] for elasticsearch process is too low, increase to at least [65536]</span><br><span class="line">修改/etc/sysctl.conf，增加如下配置</span><br><span class="line">fs.file-max=655350</span><br><span class="line">保存后执行sysctl -p 生效</span><br><span class="line"></span><br><span class="line">4、max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br><span class="line">修改/etc/sysctl.conf，增加如下配置</span><br><span class="line">vm.max_map_count=262144</span><br><span class="line">保存后执行sysctl -p 生效</span><br></pre></td></tr></table></figure>
+<p>错误4:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">org.elasticsearch.discovery.MasterNotDiscoveredException:null</span><br><span class="line"></span><br><span class="line">修改：cluster.initial_master_nodes: [&quot;node-1&quot;]</span><br><span class="line">如果有node-2，但是它不存在，可能导致错误</span><br></pre></td></tr></table></figure>
+<p>错误5：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">selinux 可能导致错误</span><br><span class="line"></span><br><span class="line">vi /etc/sysconfig/selinux</span><br></pre></td></tr></table></figure>
+<h3 id="安装kibana">安装Kibana</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">curl -O https://artifacts.elastic.co/downloads/kibana/kibana-7.7.1-linux-x86_64.tar.gz</span><br><span class="line">curl https://artifacts.elastic.co/downloads/kibana/kibana-7.7.1-linux-x86_64.tar.gz.sha512 | shasum -a 512 -c - </span><br><span class="line">tar -xzf kibana-7.7.1-linux-x86_64.tar.gz</span><br><span class="line"><span class="built_in">cd</span> kibana-7.7.1-linux-x86_64/</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">./bin/kibana</span><br></pre></td></tr></table></figure>
+<p>搜索语句：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET _cat/indices</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GET how2java/_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;name&quot;: &quot;连衣裙&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;sort&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;_id&quot;: &quot;desc&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>错误1:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">问题描述：[error][reporting] The Reporting plugin encountered issues launching Chromium in a self-test. You may have trouble generating reports.</span><br><span class="line"></span><br><span class="line">error  [10:21:36.799] [error][reporting] Error: Failed to launch chrome! ... ... kibana-7.5.1linux-x86_64/data/headless_shell-linux/headless_shell: cannot execute binary file</span><br><span class="line"></span><br><span class="line">解决方案：Kibana 后端模块 xpack.reporting 的截图功能使用到了 chrome，CentOS 暂时不支持 chrome，因此需要在 kibana.yml 配置文件中增加以下参数禁用 X-Pack reporting。</span><br><span class="line"></span><br><span class="line">xpack.reporting.enabled:  false</span><br></pre></td></tr></table></figure>
+<h3 id="安装logstash">安装LogStash</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install java-1.8.0-openjdk.x86_64</span><br><span class="line"></span><br><span class="line">java -version</span><br><span class="line"></span><br><span class="line">必须先安装java环境</span><br></pre></td></tr></table></figure>
+<h3 id="安装ik">安装ik</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">download pre-build package from here: https://github.com/medcl/elasticsearch-analysis-ik/releases</span><br><span class="line"></span><br><span class="line">create plugin folder:</span><br><span class="line">cd your-es-root/plugins/ </span><br><span class="line">mkdir ik</span><br><span class="line"></span><br><span class="line">unzip zipfile to folder:</span><br><span class="line">your-es-root/plugins/ik</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET _analyze</span><br><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot;: &quot;ik_max_word&quot;,</span><br><span class="line">  &quot;text&quot;: &quot;你好中国，我叫马小玲&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="mongodb-数据导入es">mongodb 数据导入ES</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Linux bash:</span><br><span class="line">mongoexport --collection=people --db=human60 --out=human60_people.json</span><br><span class="line"></span><br><span class="line">Logstash: import</span><br><span class="line">vi mongodb_to_ES.conf</span><br><span class="line"></span><br><span class="line">input &#123;</span><br><span class="line">  file &#123;</span><br><span class="line">  path =&gt; &quot;/home/dbuser/ELK/human60_people.json&quot;</span><br><span class="line">  start_position =&gt; &quot;beginning&quot;</span><br><span class="line">  sincedb_path =&gt; &quot;/dev/null&quot;</span><br><span class="line">  codec =&gt; json</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">filter &#123;</span><br><span class="line">  mutate &#123;</span><br><span class="line">    remove_field =&gt; [&quot;_id&quot;,&quot;path&quot;,&quot;host&quot;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">output &#123;</span><br><span class="line">  elasticsearch &#123;</span><br><span class="line">  hosts =&gt; [ &quot;localhost:9200&quot; ]</span><br><span class="line">  index =&gt; &quot;human60&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于ES中mapping无法修改，所以在数据导入之前一定号</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;安装elk&quot;&gt;安装ELK&lt;/h2&gt;
+&lt;h3 id=&quot;安装-elasticsearch&quot;&gt;安装 Elasticsearch&lt;/h3&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;s
+    
+    </summary>
+    
+      <category term="Web后端" scheme="http://flamepeak.com/categories/Web%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Learning" scheme="http://flamepeak.com/tags/Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python 修改ip地址</title>
+    <link href="http://flamepeak.com/2020/08/28/Python-change-ip-address/"/>
+    <id>http://flamepeak.com/2020/08/28/Python-change-ip-address/</id>
+    <published>2020-08-28T03:07:36.000Z</published>
+    <updated>2020-08-28T01:51:01.457Z</updated>
+    
+    <content type="html"><![CDATA[<p>在windows中使用python修改ip地址，需要<a href="https://pypi.org/project/WMI/#downloads" target="_blank" rel="noopener">WMI (Windows Management Instrumentation )模块</a>:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install WMI</span><br></pre></td></tr></table></figure>
+<p>设置指定的ip地址：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> wmi</span><br><span class="line"></span><br><span class="line"><span class="comment"># Obtain network adaptors configurations</span></span><br><span class="line">nic_configs = wmi.WMI().Win32_NetworkAdapterConfiguration(IPEnabled=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># First network adaptor</span></span><br><span class="line">nic = nic_configs[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># IP address, subnetmask and gateway values should be unicode objects</span></span><br><span class="line">ip = <span class="string">u'192.168.0.11'</span></span><br><span class="line">subnetmask = <span class="string">u'255.255.255.0'</span></span><br><span class="line">gateway = <span class="string">u'192.168.0.1'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set IP address, subnetmask and default gateway</span></span><br><span class="line"><span class="comment"># Note: EnableStatic() and SetGateways() methods require *lists* of values to be passed</span></span><br><span class="line">nic.EnableStatic(IPAddress=[ip],SubnetMask=[subnetmask])</span><br><span class="line">nic.SetGateways(DefaultIPGateway=[gateway])</span><br></pre></td></tr></table></figure>
+<p>修改为通过DHCP自动获取ip：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> wmi</span><br><span class="line"></span><br><span class="line"><span class="comment"># Obtain network adaptors configurations</span></span><br><span class="line">nic_configs = wmi.WMI().Win32_NetworkAdapterConfiguration(IPEnabled=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># First network adaptor</span></span><br><span class="line">nic = nic_configs[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable DHCP</span></span><br><span class="line">nic.EnableDHCP()</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，在实际使用过程中，需要检查 <a href="http://msdn.microsoft.com/en-us/library/aa390383(v=VS.85).aspx" target="_blank" rel="noopener">EnableStatic()</a>, <a href="http://msdn.microsoft.com/en-us/library/aa393301(v=VS.85).aspx" target="_blank" rel="noopener">SetGateways()</a> and <a href="http://msdn.microsoft.com/en-us/library/aa390378(v=VS.85).aspx" target="_blank" rel="noopener">EnableDHCP()</a> 的返回值，'0' 代表成功, '1' 代表需要重启，其它值需要查看上面链接的说明。返回值的格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(0,)</span><br></pre></td></tr></table></figure>
+<p>即，为python中tuple格式。</p>
+<p>之上的方法在win7 python3.8中测试通过。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在windows中使用python修改ip地址，需要&lt;a href=&quot;https://pypi.org/project/WMI/#downloads&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WMI (Windows Management Instru
+    
+    </summary>
+    
+      <category term="Python" scheme="http://flamepeak.com/categories/Python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Django 一些记录</title>
+    <link href="http://flamepeak.com/2020/08/28/Python-Django-20200904/"/>
+    <id>http://flamepeak.com/2020/08/28/Python-Django-20200904/</id>
+    <published>2020-08-28T03:07:36.000Z</published>
+    <updated>2020-09-07T09:33:14.688Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="添加本地js">添加本地js</h3>
+<p>在Django应用下新建目录static（与templates同级目录），然后修改<code>settings.py</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">STATIC_URL = <span class="string">'/static/'</span></span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">'static'</span>),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>然后把自己的js、css目录放置到static目录下。</p>
+<p>在html页面中设置本地js、css如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Bootstrap CSS --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./static/css/bootstrap.min.css"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/js/jquery-3.0.0.min.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/js/bootstrap.bundle.min.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>关于bootstrap的问题，简要提一下：</p>
+<p>因为bootstrap需要jQuery，所以需要先引入jQuery，至于<code>propper.js</code>，<code>popper.min.js</code> 用于设置弹窗、提示、下拉菜单，是第三方插件，目前 <code>bootstrap.bundle.min.js</code> 已经包含了 <code>popper.min.js</code>，所以可以直接按照上面的写法。</p>
+<h3 id="自定义时间格式">自定义时间格式</h3>
+<p><strong>DateTimeField、DateField和TimeField</strong>，其值分别对应着Python里的datetime.datetime、datetime.date和datetime.time三个实例，这三个Field里都有两个参数：<strong>auto_now和auto_now_add，默认值均为False</strong>。</p>
+<p><strong>auto_now参数说明：</strong></p>
+<blockquote>
+<p>每次保存对象时自动将字段值设置为当前时间，能够在保存该字段时,将其值设置为当前时间,并且每次修改model,都会自动更新。因此这个参数在需要存储“最后修改时间”的场景下,十分方便，常用类似“last-modified”或者"update_time"字段。</p>
+</blockquote>
+<p><a href="https://blog.51cto.com/xujpxm/2090382" target="_blank" rel="noopener">参考</a></p>
+<p>如果默认时间格式是英文显示，那么可以修改<code>settings.py</code>进行自定义：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">USE_L10N = <span class="keyword">False</span></span><br><span class="line">DATE_FORMAT = <span class="string">'Y-m-d'</span></span><br><span class="line">DATETIME_FORMAT = <span class="string">'Y-m-d H:i:s'</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意事项：如果USE_L10N设置为了True，那么语言环境规定的格式具有更高的优先级并将被应用，即DATE_FORMAT不生效。</strong></p>
+<h3 id="list-group-设置固定宽度">list-group 设置固定宽度</h3>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% for itm in item2FA_list %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list-group list-group-horizontal"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item"</span> <span class="attr">style</span>=<span class="string">"width: 18rem"</span>&gt;</span> &#123;&#123; itm.website_text &#125;&#125; <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item"</span> <span class="attr">style</span>=<span class="string">"width: 28rem"</span>&gt;</span> &#123;&#123; itm.account_text &#125;&#125; <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item"</span> <span class="attr">style</span>=<span class="string">"width: 28rem"</span>&gt;</span> &#123;&#123; itm.pub_date &#125;&#125; <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="django-开启sslhttps">Django 开启SSL（HTTPS）</h3>
+<p>Django development server (run by <code>python manage.py runserver</code>) <strong><em>cannot handle https</em></strong>.</p>
+<p>One of simplest solutions from the answer is to use <a href="https://github.com/teddziuba/django-sslserver" target="_blank" rel="noopener">django-sslserver</a> package.</p>
+<p>Other solutions include running some kind of https proxy locally.</p>
+<p>Or, run it not in development mode (no live reload) using wsgi server and configuring proper https on it.</p>
+<p><a href="https://stackoverflow.com/questions/57849833/how-to-make-django-site-https-in-windows10" target="_blank" rel="noopener">https://stackoverflow.com/questions/57849833/how-to-make-django-site-https-in-windows10</a></p>
+<h3 id="html中value含有空格被截断">html中value含有空格被截断</h3>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"&#123;% url 'update2FA' %&#125;"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    &#123;% csrf_token %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">"update_btn"</span> <span class="attr">value</span>=<span class="string">&#123;&#123;</span> <span class="attr">source_key_text</span> &#125;&#125; &gt;</span>更新<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>现在<code>source_key_text</code>的值为<code>aaaa bbbb cccc dddd</code>，在POST传入时，只传入了aaaa，后面的被截断。正确的写法为：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"&#123;% url 'update2FA' %&#125;"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    &#123;% csrf_token %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">"update_btn"</span> <span class="attr">value</span>=<span class="string">'&#123;&#123; source_key_text &#125;&#125;'</span> &gt;</span>更新<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>html的标签属性是按照空格来区分的，如果不加引号会识别出错。</p>
+<p>具体可以参考: <a href="https://axiu.me/coding/value-has-spaces-breaks-in-html/" target="_blank" rel="noopener">参考</a></p>
+<h3 id="前端往后端提交数据-3种方法">前端往后端提交数据( 3种方法)</h3>
+<h4 id="html原生表单">1. <strong>HTML原生表单</strong></h4>
+html原生就带表单
+<form>
+标签，
+<form>
+<p>标签提供设置method，可以使用get/post方法提交数据到后端，而如果加上action，则可以将数据指定提交到特定的url（即对应的后端函数）。对应submit按钮，需要将type="submit"，而不能是普通的type="button"。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;form method=&quot;post&quot; action=&quot;/mopasswd/&quot;&gt;</span><br><span class="line">......</span><br><span class="line">&lt;button type=&quot;submit&quot;&gt;submit&lt;/button&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="jquery的.post">2 . jquery的<code>.post</code></h4>
+<p>jquery的<code>.post</code>请求格式如下：<code>.post</code>是高层的操作，jQuery会自动封装调用底层的<code>$.ajax</code>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$.post(url,&#123;json格式的数据&#125;,function (条件) &#123;</span><br><span class="line">           具体业务函数</span><br><span class="line">    &#125;,&apos;返回的数据格式&apos;)</span><br></pre></td></tr></table></figure>
+<p>一般示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$.post(&apos;/changepassword/&apos;,&#123;</span><br><span class="line">    &apos;username&apos;:$(&apos;#username&apos;).val(),</span><br><span class="line">    &apos;password&apos;:$(&apos;#password&apos;).val(),</span><br><span class="line">    &#125;,function (res) &#123;</span><br><span class="line">            alert(&quot;添加成功！&quot;);</span><br><span class="line">            window.location.reload();</span><br><span class="line">    &#125;,&apos;json&apos;)</span><br></pre></td></tr></table></figure>
+<h4 id="jquery的.ajax">3. jquery的<code>.ajax</code></h4>
+<p>ajax是jquery另外一种向后台推送数据的方法，格式如下：<code>$.ajax</code>是一种通用的底层封装，<code>$.ajax()</code>请求数据之后，则需要使用回调函数，有beforeSend、error、dataFilter、success、complete等。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$.ajax(</span><br><span class="line">&#123;</span><br><span class="line">    url:url,</span><br><span class="line">    type:&quot;post&quot;,</span><br><span class="line">    data:&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeSend:function()&#123;&#125;,</span><br><span class="line">    async:true,</span><br><span class="line">    success:function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    error:function()&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一般示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$.ajax(</span><br><span class="line">&#123;</span><br><span class="line">    url:&apos;/changepassword/&apos;,</span><br><span class="line">    type:&quot;post&quot;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        &apos;username&apos;:$(&apos;#username&apos;).val(),</span><br><span class="line">        &apos;password&apos;:$(&apos;#password&apos;).val(),</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeSend:function()&#123;&#125;,</span><br><span class="line">    async:true,</span><br><span class="line">    success:function(res)&#123;</span><br><span class="line">        alert(&quot;添加成功！&quot;);</span><br><span class="line">        window.location.reload();</span><br><span class="line">    &#125;,</span><br><span class="line">    error:function()&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="后端往前端返回数据"><strong>后端往前端返回数据</strong></h3>
+<p>后端往前端返回数据有各种render，render_to_response，JsonResponse等，看似不同，其实都是差不多的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#render只能返回静态页面</span><br><span class="line">render(request,&apos;index.html&apos;)</span><br><span class="line"></span><br><span class="line">#render_to_response可以返回页面与同时向前端返回数据</span><br><span class="line">#locals()表示会把函数内所有的变量数据都会以json格式返回到前端</span><br><span class="line">render_to_response（&apos;index.html&apos;,locals()）</span><br><span class="line">#或者可以按照json格式，指定返回给前端的变量与数值</span><br><span class="line">render_to_response(&apos;index.html&apos;, &#123;&apos;userinfo&apos;:userinfo&#125;)</span><br><span class="line"></span><br><span class="line">#JsonResponse不返回页面，仅以json格式向前端返回数据</span><br><span class="line">JsonResponse(&#123;&apos;result&apos;: result&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="前端接收后端数据并展示">前端接收后端数据并展示</h3>
+<p>####　1．使用python的mako语法</p>
+<p>第一种方式就是使用python的mako语法，就是前面用表格遍历数据库查询结果，并且展示的语法。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% for i in data %&#125;</span><br><span class="line">    &#123;&#123; i.xxx &#125;&#125;</span><br><span class="line">    ......</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<p>这种用法好处是简单，易学易用易懂。缺点是只能在页面第一次加载的时候加载数据，页面不刷新/重新加载，无法修改数据。</p>
+<h4 id="使用javascriptjquery">2. 使用javascript/jquery</h4>
+<p>第二种方式是使用<code>javascript/jquery</code>，控制/修改变量的<code>value</code>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#在form里面以&lt;h1&gt;标题格式，显示“这是一段文字”</span><br><span class="line">var str = &quot;&lt;h1&gt;这是一段文字&lt;/h1&gt;&quot;</span><br><span class="line">$(&apos;.form&apos;).html(str)</span><br><span class="line"></span><br><span class="line">#将id为&quot;button1&quot;的按钮的文字显示设置为“修改”</span><br><span class="line">$(&apos;#button1&apos;).text(&apos;修改&apos;)</span><br></pre></td></tr></table></figure>
+<h3 id="section"></h3>
+<h3 id="ajax-post请求forbidden-csrf-token-missing-or-incorrect.错误">ajax Post请求Forbidden (CSRF token missing or incorrect.)错误</h3>
+<p>需要在请求中加入<code>csrfmiddlewaretoken:''</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="string">'#update_btn'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:<span class="string">'/update2FA'</span>,</span><br><span class="line">        type:<span class="string">'post'</span>,</span><br><span class="line">        data:&#123;<span class="string">'source_key_text'</span>: $(<span class="string">'#update_btn'</span>).val(),</span><br><span class="line">              csrfmiddlewaretoken:<span class="string">'&#123;&#123; csrf_token  &#125;&#125;'</span>&#125;,</span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">            $(<span class="string">'#secret_val'</span>).val(data)&#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="django中model的主键的设置与自增">django中model的主键的设置与自增</h3>
+<p>在django所定义的model里是可以自己设置主键的，具体方法为</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">AgentInfo_id = models.IntegerField(primary_key=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<p>但是要注意的是，为了添加元素的过程中主键的自增，主键的设置中不能加入default属性，否则save()的过程将不再是新建元素而是替换元素。</p>
+<p>google 的一个group中说不要用IntegerField 用AutoField.</p>
+<p>使用AutoField在管理界面输入数据时，不会显示此项。而IntegerField会显示此项。</p>
+<h3 id="ajax-uncaught-referenceerror-is-not-defined">ajax Uncaught ReferenceError: $ is not defined</h3>
+<p>代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script rel=<span class="string">"javascript"</span> type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:<span class="string">'/update2FA'</span>,</span><br><span class="line">        type:<span class="string">'post'</span>,</span><br><span class="line">        data:&#123;<span class="string">'source_key_text'</span>: $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).val(),</span><br><span class="line">              csrfmiddlewaretoken:<span class="string">'&#123;&#123; csrf_token  &#125;&#125;'</span>&#125;,</span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">            $(<span class="string">'#totp_val&#123;&#123;itm.account_id&#125;&#125;'</span>).val(data)&#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>代码上没什么错误，从同一个文件其它地方复制过来的。</p>
+<p>错误的原因是，jQuery没有在此之前引入，需要把</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Bootstrap CSS --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./static/css/bootstrap.min.css"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Optional JavaScript --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/js/jquery-3.0.0.min.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/js/bootstrap.bundle.min.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>写在ajax代码的前面，否则识别会出错。</p>
+<h3 id="button按钮文字修改valtext区别">button按钮文字修改val、text区别</h3>
+<p>例如：button按钮代码</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span>  <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">id</span>=<span class="string">"totp_val&#123;&#123;itm.account_id&#125;&#125;"</span> <span class="attr">value</span>=<span class="string">"123456"</span>&gt;</span> 000000 <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如下ajax代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:<span class="string">'/update2FA'</span>,</span><br><span class="line">        type:<span class="string">'post'</span>,</span><br><span class="line">        data:&#123;<span class="string">'account_id'</span>: $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).val(),</span><br><span class="line">              csrfmiddlewaretoken:<span class="string">'&#123;&#123; csrf_token  &#125;&#125;'</span>&#125;,</span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">            $(<span class="string">'#totp_val&#123;&#123;itm.account_id&#125;&#125;'</span>).val(data)&#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>倒数第四行如果是val，那么修改的是button中value属性的值，即123456的值；</p>
+<p>倒数第四行如果是text，那么修改的是button中显示文本的值，即000000的值。</p>
+<h3 id="ajax返回json数据例子">Ajax返回Json数据例子</h3>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url: <span class="string">'ajaxfile.php'</span>,</span><br><span class="line">        type: <span class="string">'get'</span>,</span><br><span class="line">        dataType: <span class="string">'JSON'</span>,</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> len = response.length;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">                <span class="keyword">var</span> id = response[i].id;</span><br><span class="line">                <span class="keyword">var</span> username = response[i].username;</span><br><span class="line">                <span class="keyword">var</span> name = response[i].name;</span><br><span class="line">                <span class="keyword">var</span> email = response[i].email;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">var</span> tr_str = <span class="string">"&lt;tr&gt;"</span> +</span><br><span class="line">                    <span class="string">"&lt;td align='center'&gt;"</span> + (i+<span class="number">1</span>) + <span class="string">"&lt;/td&gt;"</span> +</span><br><span class="line">                    <span class="string">"&lt;td align='center'&gt;"</span> + username + <span class="string">"&lt;/td&gt;"</span> +</span><br><span class="line">                    <span class="string">"&lt;td align='center'&gt;"</span> + name + <span class="string">"&lt;/td&gt;"</span> +</span><br><span class="line">                    <span class="string">"&lt;td align='center'&gt;"</span> + email + <span class="string">"&lt;/td&gt;"</span> +</span><br><span class="line">                    <span class="string">"&lt;/tr&gt;"</span>;</span><br><span class="line"></span><br><span class="line">                $(<span class="string">"#userTable tbody"</span>).append(tr_str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>下面是我自己的例子，注意，如果格式解析不正确那么就需要下面的方法，格式化json数据：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:<span class="string">'/update2FA'</span>,</span><br><span class="line">        type:<span class="string">'post'</span>,</span><br><span class="line">        data:&#123;<span class="string">'account_id'</span>: $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).val(),</span><br><span class="line">              csrfmiddlewaretoken:<span class="string">'&#123;&#123; csrf_token  &#125;&#125;'</span></span><br><span class="line">             &#125;,</span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">resp</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> objData = jQuery.parseJSON(resp);</span><br><span class="line">            $(<span class="string">'#totp_val&#123;&#123;itm.account_id&#125;&#125;'</span>).text(objData.totp_val);</span><br><span class="line">            $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).text(objData.time_remain);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="bootstrap-圆形样式设置">bootstrap 圆形样式设置</h3>
+<p><a href="https://www.geeksforgeeks.org/how-to-get-circular-buttons-in-bootstrap-4/" target="_blank" rel="noopener">参考: How to get circular buttons in bootstrap 4</a></p>
+<p><a href="https://www.cnblogs.com/an2333/p/11520832.html" target="_blank" rel="noopener">CSS样式-border-radius圆形边框基本用法</a></p>
+<p>关键设置是<code>border-radius</code>，如果将值设为50%，则实现正圆形。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;style type="text/css"&gt;</span><br><span class="line"><span class="selector-class">.btn-circle</span><span class="selector-class">.btn-sm</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">6px</span> <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn-circle</span><span class="selector-class">.btn-md</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">7px</span> <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn-circle</span><span class="selector-class">.btn-xl</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">35px</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>html:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span>  <span class="attr">class</span>=<span class="string">"btn btn-danger btn-circle btn-sm"</span>&gt;</span> 30 <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ajax-实现倒计时">Ajax 实现倒计时</h3>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">30</span>;</span><br><span class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    count--;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// update timer here</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (count === <span class="number">0</span>) &#123;</span><br><span class="line">        count = <span class="number">30</span>;</span><br><span class="line">        <span class="comment">// ajax code here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p><a href="https://stackoverflow.com/questions/21022634/run-ajax-every-30-seconds-and-show-a-countdown-timer" target="_blank" rel="noopener">参考：Run ajax every 30 seconds and show a countdown timer</a></p>
+<p>修改后代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> count = objData.time_remain;</span><br><span class="line"><span class="keyword">var</span> refreshId  = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    count--;</span><br><span class="line">    $(<span class="string">'#time_remain&#123;&#123;itm.account_id&#125;&#125;'</span>).text(count);</span><br><span class="line">    <span class="comment">// update timer here</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (count === <span class="number">0</span>) &#123;</span><br><span class="line">        $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).text(<span class="string">'更新'</span>);</span><br><span class="line">        clearInterval(refreshId);<span class="comment">//退出计时器</span></span><br><span class="line">        <span class="comment">// ajax code here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p>参考:</p>
+<p><a href="https://zhuanlan.zhihu.com/p/104425834" target="_blank" rel="noopener">Python+Django网站开发系列12-前后端数据交互总结</a></p>
+</form></form>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;添加本地js&quot;&gt;添加本地js&lt;/h3&gt;
+&lt;p&gt;在Django应用下新建目录static（与templates同级目录），然后修改&lt;code&gt;settings.py&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;tab
+    
+    </summary>
+    
+      <category term="Python" scheme="http://flamepeak.com/categories/Python/"/>
+    
+    
+      <category term="Django" scheme="http://flamepeak.com/tags/Django/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows 7 原版镜像添加nvme m2驱动</title>
+    <link href="http://flamepeak.com/2020/08/16/Windows-7-iso-add-nvme-m2-driver/"/>
+    <id>http://flamepeak.com/2020/08/16/Windows-7-iso-add-nvme-m2-driver/</id>
+    <published>2020-08-16T13:09:23.000Z</published>
+    <updated>2020-08-21T02:31:51.346Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先，如果不是可以自己制作ISO的话，可以尝试it天空的，万能驱动7，已经集成了NVME、USB3驱动和一些更新。</p>
+<h3 id="需要的软件">需要的软件</h3>
+<p>Dism++</p>
+<h3 id="注意事项">注意事项</h3>
+<p>你的硬盘应该能在BIOS中看到，如果看不到，我的方法可能不行</p>
+<p>如果PE没有发现USB3或NVME设备（即PE不支持），那么万能驱动7也发现不了。</p>
+<p>万能驱动7的流程：<br>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">进入PE-&gt;恢复待部署的系统到系统盘-&gt;运行万能驱动7-&gt;导入驱动到系统驱动库-&gt;重启-&gt;开始系统部署-&gt;部署过程中系统会自动安装导入的驱动-&gt;自动重启进入系统，</span><br></pre></td></tr></table></figure></p>
+<h3 id="以下操作可行">以下操作可行</h3>
+<p>个人的nvme盘是m2，西部数据SN730</p>
+<p>建议在优启通PE中进行修改wim操作，使用<code>dism++</code>挂载映像，在驱动管理中添加如下驱动：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dfsd</span><br></pre></td></tr></table></figure>
+<p>在更新管理中，安装如下补丁：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Windows6.1-KB2990941-v3-x64.msu</span><br><span class="line">Windows6.1-KB3087873-v2-x64.msu</span><br><span class="line">Windows6.1-KB2534111-x64.msu</span><br><span class="line">Windows6.1-KB2999226-x64.msu</span><br></pre></td></tr></table></figure>
+<p>网上有很多说只需两个，但是这里有四个，也建议如此</p>
+<p>wim修改完毕后，保存wim。</p>
+<p>接下来，使用WinNTSetup安装器，进行系统安装。 首先，选择wim文件位置，选择引导驱动器的位置，也就是要安装的系统盘位置（SSD盘），选择完毕后三个指示符应该均为绿色，选择安装驱动器的位置，和上一步一样即可，同一个盘符。</p>
+<p>注意：SSD系统盘要使用MBR格式，如果是GPT格式，那需要DiskGinus来修改。大致操作，如果SSD没有重要文件，可以先把SSD所有分区删除，然后保存。在SSD上点击右键，将分区表类型转换为MBR格式；然后点击新建分区（不是快速分区），直接下一步、完成即可；点击保存更改，会提示格式化，确定；即可。</p>
+<p>继续WinNTSetup安装器，左下角选项，选择要安装的版本</p>
+<p>下面谈一下wim封装ISO：</p>
+<p>网上有很多方法，都是介绍ultraISO直接替换install.wim，但是，经过多次尝试，总是失败。</p>
+<p>最后我使用的是dism++里面的ISO生成工具，首先把原版ISO镜像解压，然后替换sources中的install.wim，再使用ISO生成工具直接生成就可以。</p>
+<p>另外，对于Win10的安装ISO来说，其PE环境是同时支持esd和wim安装的，但win7的安装PE环境不支持esd，因为win7时代esd这个格式还没诞生嘛，所以你把转完之后的ESD直接放到Win7的ISO里肯定是用不了的，那咋办呢？其实很简单，你找一个win10的安装ISO（官方的就行），把里面的install.wim文件删掉，把win7的install.esd文件放进去就行了，这样虽然安装界面是win10的，但装出来的系统还是win7，同时还避免了PE环境不支持USB3.0的问题。说简单点，就是自己杂交一个安装ISO，安装环境是Win10的，但install.esd是Win7的就好了，我自己测试过，没有问题。</p>
+<p>推荐阅读：https://www.jianshu.com/p/a93253560d78</p>
+<h3 id="另外一种方法">另外一种方法</h3>
+<p><a href="https://support.lenovo.com/hk/en/solutions/ht103541/" target="_blank" rel="noopener">How to prepare the Windows 7 installation ISO image with USB3.0 driver and NVM Express (NVMe) driver</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">NOTE: It is not recommended to install the NVMe hotfix as a step in the task sequence, please follow the steps below for adding it to the install wim for best results.</span><br><span class="line">1. Install the latest Windows ADK for Windows 8.1 update.</span><br><span class="line">2. Create five local folders at C:\temp and name them as src, mount, winremount, hotfix, and drivers.</span><br><span class="line">3. Copy the setup files from the DVD drive or the mounted Windows 7 installation ISO image to C:\temp\src.</span><br><span class="line">4. Download and install the following NVMe driver for Windows 7 from Microsoft Web site, and then copy the hotfix.msu or hotfix.cab file to C:\temp\hotfix..</span><br><span class="line">Update to add native driver support in NVM Express in Windows 7 and Windows Server 2008 R2 li&gt;</span><br><span class="line">5. If you want to install the Windows 7 operating system using a USB flash drive, copy the USB 3.0 driver files to C:\temp\drivers.</span><br><span class="line">6. Click Start, and type deployment. Right-click Deployment and Imaging Tools Environment and then select Run as administrator.</span><br><span class="line">7. Copy the hotfixes and drivers to the boot.wim file, and then update the sources folder by running the following Deployment Image Servicing and Management (DISM) commands: dism /Mount-Image /ImageFile:c:\temp\src\sources\boot.wim /Index:1 /MountDir:c:\temp\mount</span><br><span class="line"></span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Unmount-Image /MountDir:C:\temp\mount /Commit</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\src\sources\boot.wim /Index:2 /MountDir:c:\temp\mount</span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line"></span><br><span class="line">Sort the files at C:\temp\mount\sources by date, and then copy the updated files to C:\temp\src\sources (ensure that C:\temp\mount\sources is closed before running the following DISM command). </span><br><span class="line"></span><br><span class="line">dism /Unmount-Image /MountDir:C:\temp\mount /commit</span><br><span class="line"></span><br><span class="line">8. Obtain the index from the Install.wim file by running the following command, and then check every index to see how many indexes have to be updated.</span><br><span class="line"></span><br><span class="line">dism /Get-WimInfo /WimFile:c:\temp\src\sources\install.wim</span><br><span class="line"></span><br><span class="line">9. Copy the hotfixes and drivers to the install.wim file and the winre.wim file by running the following commands:</span><br><span class="line"></span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\src\sources\install.wim /Index:1 /MountDir:c:\temp\mount</span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\mount\windows\system32\recovery\winre.wim /Index:1 /MountDir:c:\temp\winremount</span><br><span class="line">dism /Image:C:\temp\winremount/Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\winremount /Commit</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\mount /Commit </span><br><span class="line"></span><br><span class="line">Note: In step 8, if you find multiple indexes have to be updated, update them one by one (only the index number of the first line needs to be updated). For example, if there are four indexes, run the following commands: dism /Mount-Image /ImageFile:c:\temp\src\sources\install.wim /Index:1 /MountDir:c:\temp\mount</span><br><span class="line"></span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\mount\windows\system32\recovery\winre.wim /Index:1 /MountDir:c:\temp\winremount</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\winremount /Commit</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\mount /Commit</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\src\sources\install.wim /Index:2 /MountDir:c:\temp\mount</span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\mount\windows\system32\recovery\winre.wim /Index:1 /MountDir:c:\temp\winremount</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\winremount /Commit</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\mount /Commit</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\src\sources\install.wim /Index:3 /MountDir:c:\temp\mount</span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\mount\windows\system32\recovery\winre.wim /Index:1 /MountDir:c:\temp\winremount</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\winremount /Commit</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\mount /Commit</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\src\sources\install.wim /Index:4 /MountDir:c:\temp\mount</span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\mount\windows\system32\recovery\winre.wim /Index:1 /MountDir:c:\temp\winremount</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\winremount /Commit</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\mount /Commit</span><br><span class="line"></span><br><span class="line">10. Create an ISO file, and then rename the label by running the following oscdimg commands:</span><br><span class="line">For Legacy BIOS Boot mode:</span><br><span class="line">oscdimg -LTEST -m -u2 -bC:\temp\src\boot\etfsboot.com C:\temp\src C:\temp\Win7.NVME.ISO</span><br><span class="line"></span><br><span class="line">For Legacy and UEFI BIOS multiple Boot mode:</span><br><span class="line">oscdimg -LTEST -m -u2 -bootdata:2#p0,e,bC:\temp\src\boot\etfsboot.com#pEF,e,bC:\temp\src\efi\microsoft\boot\efisys.bin C:\temp\src C:\temp\Win7.NVME.ISO</span><br><span class="line"></span><br><span class="line">11. Use the ISO file to create a bootable USB flash drive with FAT32 or a bootable DVD.</span><br><span class="line">Note: If the ISO file is larger than 4.7 GB, use a dual-layer DVD to burn the ISO file.</span><br><span class="line"></span><br><span class="line">12. For UEFI boot (only applicable for the 64-bit version of Windows 7 operating system or higher), check if the BOOTX64.EFI file is available at EFI\BOOT\ on the USB flash drive. If not, do the following:</span><br><span class="line">a. Copy the bootmgfw.efi file from C:\Windows\Boot\EFI to \EFI\BOOT\ on the USB flash drive.</span><br><span class="line">b. Rename the file to BOOTX64.EFI.</span><br></pre></td></tr></table></figure>
+<h3 id="谈一谈win10的封装">谈一谈Win10的封装</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">关于优化我这里先说一下几个坑</span><br><span class="line">1.对于1903及以上的系统，不要禁用windows错误报告服务，即Windows Error Reporting Service。这个服务一旦禁用，打开Widows设置会出现数组越界的BUG或者闪退，甚至可能严重影响系统性能。</span><br><span class="line">2.建议不要禁用系统更新服务，即Windows Update服务。如果禁用了，会出现很多问题，比如无法安装.net3.5，无法使用数字激活工具激活系统，无法使用应用商店下载APP等等。</span><br><span class="line">3.不要禁用Windows防火墙服务，即Windows Firewall服务。如果禁用了，就无法共享打印机。</span><br><span class="line">4.优化《解除程序文件风险警告》后会造成IE自带下载器下载的程序，无法在下载器里直接运行。</span><br><span class="line">5.对于1903及以上的系统，优化《禁止商店自动下载更新》后，无法使用新建账户的方式登录系统，会卡在OOBE界面，但不影响内置管理员方式登录系统。所以，如果不是内置管理员封装的系统就不要优化此项。</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先，如果不是可以自己制作ISO的话，可以尝试it天空的，万能驱动7，已经集成了NVME、USB3驱动和一些更新。&lt;/p&gt;
+&lt;h3 id=&quot;需要的软件&quot;&gt;需要的软件&lt;/h3&gt;
+&lt;p&gt;Dism++&lt;/p&gt;
+&lt;h3 id=&quot;注意事项&quot;&gt;注意事项&lt;/h3&gt;
+&lt;p&gt;你的硬盘
+    
+    </summary>
+    
+    
+      <category term="Windows" scheme="http://flamepeak.com/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7 最小化安装遇到的问题</title>
+    <link href="http://flamepeak.com/2020/06/16/Linux-CentOS-minimal-install-20200616/"/>
+    <id>http://flamepeak.com/2020/06/16/Linux-CentOS-minimal-install-20200616/</id>
+    <published>2020-06-16T01:35:12.000Z</published>
+    <updated>2020-06-16T00:09:38.480Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="ifconfig-not-found">ifconfig not found</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ifconfig 在centos 最小化安装时，是不自带的</span><br><span class="line">可以使用ip addr 查看ip</span><br></pre></td></tr></table></figure>
+<h3 id="没有ip地址">没有ip地址</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ip addr发现ens33 没有inet 这个属性，那么就没法通过IP地址连接虚拟机。</span><br><span class="line">查看ens33网卡的配置：vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line">从配置清单中可以发现 CentOS 7 默认是不启动网卡的（ONBOOT=no）。</span><br><span class="line">把这一项改为YES（ONBOOT=yes）</span><br><span class="line">重启网络服务： sudo service network restart</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;ifconfig-not-found&quot;&gt;ifconfig not found&lt;/h3&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ifc
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="CentOS" scheme="http://flamepeak.com/tags/CentOS/"/>
+    
+  </entry>
   
   <entry>
     <title>blob视频网址分析</title>
@@ -48,33 +530,6 @@
     
     
       <category term="Tools" scheme="http://flamepeak.com/tags/Tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 7 最小化安装遇到的问题</title>
-    <link href="http://flamepeak.com/2020/06/16/Linux-CentOS-minimal-install-20200616/"/>
-    <id>http://flamepeak.com/2020/06/16/Linux-CentOS-minimal-install-20200616/</id>
-    <published>2020-06-16T01:35:12.000Z</published>
-    <updated>2020-06-16T00:09:38.480Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="ifconfig-not-found">ifconfig not found</h3>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ifconfig 在centos 最小化安装时，是不自带的</span><br><span class="line">可以使用ip addr 查看ip</span><br></pre></td></tr></table></figure>
-<h3 id="没有ip地址">没有ip地址</h3>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ip addr发现ens33 没有inet 这个属性，那么就没法通过IP地址连接虚拟机。</span><br><span class="line">查看ens33网卡的配置：vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line">从配置清单中可以发现 CentOS 7 默认是不启动网卡的（ONBOOT=no）。</span><br><span class="line">把这一项改为YES（ONBOOT=yes）</span><br><span class="line">重启网络服务： sudo service network restart</span><br></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;ifconfig-not-found&quot;&gt;ifconfig not found&lt;/h3&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ifc
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
-    
-    
-      <category term="CentOS" scheme="http://flamepeak.com/tags/CentOS/"/>
     
   </entry>
   
@@ -513,303 +968,6 @@
     
     
       <category term="XXE" scheme="http://flamepeak.com/tags/XXE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux su sudo 区别</title>
-    <link href="http://flamepeak.com/2019/12/12/Linux-su-sudo-diffenence-20191212/"/>
-    <id>http://flamepeak.com/2019/12/12/Linux-su-sudo-diffenence-20191212/</id>
-    <published>2019-12-12T00:24:03.000Z</published>
-    <updated>2020-01-22T04:34:21.536Z</updated>
-    
-    <content type="html"><![CDATA[<p><code>su</code> 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。</p>
-<p>通过<code>su</code>可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换不需要密码，而普通用户切换到其它任何用户都需要密码验证。</p>
-<p>还有一种方法可以切换到 root 用户：运行 <code>su -</code> 命令</p>
-<p><code>su</code> 命令与 <code>su -</code> 命令之间有什么区别呢？前者在切换到 root 用户之后仍然保持旧的（或者说原始用户的）环境，而后者则是创建一个新的环境（由 root 用户 <code>~/.bashrc</code> 文件所设置的环境），相当于使用 root 用户正常登录（从登录屏幕登录）。</p>
-<h2 id="sudo与su">sudo与su</h2>
-<p>两个命令的最大区别是：<code>sudo</code> 命令需要输入当前用户的密码，<code>su</code> 命令需要输入 root 用户的密码。</p>
-<h3 id="sudo">sudo</h3>
-<p>sudo是一种权限管理机制，依赖于<code>/etc/sudoers</code>，其定义了授权给哪个用户可以以管理员的身份能够执行什么样的管理命令；</p>
-<p>格式：<code>sudo -u USERNAME COMMAND</code></p>
-<p>默认情况下，系统只有root用户可以执行sudo命令。需要root用户通过使用<code>visudo</code>命令编辑sudo的配置文件<code>/etc/sudoers</code>，才可以授权其他普通用户执行sudo命令。</p>
-<p>Sudo configuration might allow a user to execute some command with another user privileges without knowing the password. <code>sudo -l</code> The <code>-l</code> (list) option will list out the allowed (and forbidden) commands for the user on the current host. 通常来检查非root用户可以以高权限运行命令的程序。</p>
-<h3 id="su">su</h3>
-<p>su为<code>switch user</code>，即切换用户的简写。</p>
-<p>su是最简单的身份切换名，用su我们能够进行不论什么用户的切换，一般都是<code>su - username</code>，然后输入password就ok了，可是root用su切换到其它身份的时候是不须要输入password的。</p>
-<p>格式为两种：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su -l USERNAME（-l为login，即登陆的简写）</span><br><span class="line">su USERNAME</span><br></pre></td></tr></table></figure>
-<p>如果不指定USERNAME（用户名），默认即为root，所以切换到root的身份的命令即为：<code>su -root</code>或<code>su -</code>，<code>su root</code> 或<code>su</code>。</p>
-<p><code>su USERNAME</code>，与<code>su - USERNAME</code>的不同之处如下：</p>
-<ul>
-<li><code>su - USERNAME</code>切换用户后，同时切换到新用户的工作环境中。</li>
-<li><code>su USERNAME</code>切换用户后，不改变原用户的工作目录，及其他环境变量目录。</li>
-</ul>
-<p><strong>如何设置初始su密码？</strong></p>
-<p>当我们输入su时会发现要输入密码，我们尝试输入自己当前用户的密码，发现failure。</p>
-<p>但我们又不知道su密码是什么？其实su初始密码可以通过下面方式进行设置：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">`sudo` `passwd`</span><br></pre></td></tr></table></figure>
-<p>设置完后再输入su命令并键入刚才设置的密码即可进入~</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;code&gt;su&lt;/code&gt; 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。&lt;/p&gt;
-&lt;p&gt;通过&lt;code&gt;su&lt;/code&gt;可以在用户之间切换，而超级权限用户root向普通或虚拟用户切
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://flamepeak.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BurpSuite 使用</title>
-    <link href="http://flamepeak.com/2019/12/10/Burpsuite%20tips%2020191210/"/>
-    <id>http://flamepeak.com/2019/12/10/Burpsuite tips 20191210/</id>
-    <published>2019-12-10T07:14:28.000Z</published>
-    <updated>2019-12-10T07:49:08.809Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="过滤不想拦截的网站">过滤不想拦截的网站</h3>
-<p><a href="https://security.stackexchange.com/questions/187069/burpsuite-just-passthrough-firefox-detect-portal" target="_blank" rel="noopener">Burpsuite: just passthrough firefox detect portal</a></p>
-<p>如果我们在Burpsuite遇到一个不想再拦截的请求，点击<code>Action</code>按钮，然后<code>Do not intercept...</code>，选择<code>requests to this host</code>即可。</p>
-<p>对于Firefox portal 请求，可以在浏览器地址栏输入<code>about:config</code>，然后搜索<code>network.captive-portal-service.enabled</code>，将<code>true</code>改为<code>false</code></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;过滤不想拦截的网站&quot;&gt;过滤不想拦截的网站&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://security.stackexchange.com/questions/187069/burpsuite-just-passthrough-firefox-detect
-    
-    </summary>
-    
-      <category term="Tools" scheme="http://flamepeak.com/categories/Tools/"/>
-    
-    
-      <category term="Burpsuite" scheme="http://flamepeak.com/tags/Burpsuite/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows docker 端口映射问题解决</title>
-    <link href="http://flamepeak.com/2019/12/09/docker-windows-port-mapping-problem-resolve-20191209/"/>
-    <id>http://flamepeak.com/2019/12/09/docker-windows-port-mapping-problem-resolve-20191209/</id>
-    <published>2019-12-09T08:26:13.000Z</published>
-    <updated>2019-12-09T08:47:53.603Z</updated>
-    
-    <content type="html"><![CDATA[<p>参考：<a href="https://www.iteye.com/blog/baobeituping-2432389" target="_blank" rel="noopener">解决无法对docker容器进行端口映射的问题</a></p>
-<p>在安装了一个Windows下安装了docker，并尝试在其中运行Nginx、owncloud等服务，但映射完毕之后，在主机的浏览器中，打开localhost:port无法访问对应的服务。</p>
-<p>用百度尝试了下，始终找不到答案，难道这个问题大家都没遇到过么？于是使用Google，并用英文检索，一会就找到了对应的答案。</p>
-<blockquote>
-<p>The reason you’re having this, is because on <em>Linux</em>, the docker daemon (and your containers) run on the Linux machine itself, so “localhost” is also the host that the container is running on, and the ports are mapped to.</p>
-<p>On Windows (and OS X), the docker daemon, and your containers cannot run natively, so only the docker <em>client</em> is running on your Windows machine, but the <em>daemon</em> (and your containers) run in a VirtualBox Virtual Machine, that runs Linux.</p>
-</blockquote>
-<p>原来，docker是运行在Linux上的，在Windows中运行docker，实际上还是在Windows下先安装了一个Linux环境，然后在这个系统中运行的docker。也就是说，服务中使用的localhost指的是这个Linux环境的地址，而不是我们的宿主环境Windows。我们可以通过cmd命令</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">docker-machine ip default</span><br></pre></td></tr></table></figure>
-<p>找到这个Linux的ip地址，<strong>一般情况下这个地址是192.168.99.100</strong>，然后在Windows的浏览器中，输入这个地址，加上服务的端口即可启用了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;参考：&lt;a href=&quot;https://www.iteye.com/blog/baobeituping-2432389&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;解决无法对docker容器进行端口映射的问题&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;在安装了一个Wind
-    
-    </summary>
-    
-      <category term="Tools" scheme="http://flamepeak.com/categories/Tools/"/>
-    
-    
-      <category term="Docker" scheme="http://flamepeak.com/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker deploy hexo</title>
-    <link href="http://flamepeak.com/2019/12/09/docker-deploy-hexo-20191209/"/>
-    <id>http://flamepeak.com/2019/12/09/docker-deploy-hexo-20191209/</id>
-    <published>2019-12-09T03:07:13.000Z</published>
-    <updated>2019-12-09T09:02:50.278Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="install-docker">install docker</h2>
-<p>http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/</p>
-<h2 id="install-git-nodejs">install git 、nodejs</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull ubuntu</span><br><span class="line">docker run -itd --name hexo_byMe ubuntu /bin/bash</span><br><span class="line">docker <span class="built_in">exec</span> -it hexo_byMe /bin/bash</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get udpate</span><br><span class="line"><span class="comment"># 安装git</span></span><br><span class="line">apt-get install git-core</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装nodejs</span></span><br><span class="line"><span class="comment">#https://github.com/nodesource/distributions</span></span><br><span class="line"><span class="comment"># Using Ubuntu</span></span><br><span class="line">curl -sL https://deb.nodesource.com/setup_12.x | bash -</span><br><span class="line">sudo apt-get install -y nodejs</span><br><span class="line"></span><br><span class="line"><span class="comment">#检查安装是否成功</span></span><br><span class="line">node -v</span><br><span class="line">npm</span><br></pre></td></tr></table></figure>
-<h2 id="安装hexo">安装Hexo</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br><span class="line">npm install hexo-renderer-marked --save</span><br><span class="line"></span><br><span class="line"><span class="comment">#如有必要安装pandoc</span></span><br><span class="line">curl -O -sL https://github.com/jgm/pandoc/releases/download/2.8.1/pandoc-2.8.1-1-amd64.deb </span><br><span class="line">dpkg -i pandoc-2.8.1-1-amd64.deb</span><br><span class="line"><span class="comment">#如果上面命令不行，可以尝试</span></span><br><span class="line">curl -sL -O http://th.archive.ubuntu.com/ubuntu/pool/universe/p/pandoc/pandoc_1.19.2.4~dfsg-1build4_amd64.deb</span><br><span class="line">dpkg -i pandoc_1.19.2.4~dfsg-1build4_amd64.deb</span><br><span class="line">apt --fix-broken install</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure>
-<h2 id="测试hexo">测试Hexo</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g </span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>如果在Windows系统，无法访问<code>localhost:4000</code>，请参考 <a href></a></p>
-<h2 id="备份images">备份Images</h2>
-<p>我们可以把container生成images来保存</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit -m=<span class="string">"has update"</span> -a=<span class="string">"author"</span> e218edb10161 blog_ver2</span><br><span class="line"></span><br><span class="line">各个参数说明：</span><br><span class="line">-m: 提交的描述信息</span><br><span class="line">-a: 指定镜像作者</span><br><span class="line">e218edb10161：容器 ID</span><br><span class="line">blog_ver2: 指定要创建的目标镜像名</span><br></pre></td></tr></table></figure>
-<h2 id="一些使用技巧">一些使用技巧</h2>
-<p>本地复制文件，可以通过这个命令来实现<code>docker cp</code></p>
-<h3 id="如何在容器与本地之间-copy-文件">如何在容器与本地之间 copy 文件？</h3>
-<p>从容器到本地：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker cp &lt;containerId&gt;:/file/path/within/container /host/path/target</span><br></pre></td></tr></table></figure>
-<p>从本地到容器：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker cp filename &lt;containerId&gt;:/file/path/within/container</span><br></pre></td></tr></table></figure>
-<p>以上的操作如果是文件夹，就拷贝的是整个文件夹内容。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;install-docker&quot;&gt;install docker&lt;/h2&gt;
-&lt;p&gt;http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/&lt;/p&gt;
-&lt;h2 id=&quot;install-git-no
-    
-    </summary>
-    
-      <category term="Web前端" scheme="http://flamepeak.com/categories/Web%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="Hexo" scheme="http://flamepeak.com/tags/Hexo/"/>
-    
-      <category term="Docker" scheme="http://flamepeak.com/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Wireshark 使用技巧</title>
-    <link href="http://flamepeak.com/2019/12/05/Wireshark-tips-20191205/"/>
-    <id>http://flamepeak.com/2019/12/05/Wireshark-tips-20191205/</id>
-    <published>2019-12-05T01:32:25.000Z</published>
-    <updated>2019-12-05T01:53:09.480Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="字符串搜索">字符串搜索</h3>
-<ol type="1">
-<li><p>搜索字符串用<code>ctrl + F</code>，配置选项，选择<code>Packet Bytes</code>和<code>String</code>，然后输入想要查询的内容即可；</p></li>
-<li><p>可以在过滤框中直接输入<code>tcp and frame contains "xxxxxxx"</code>，来搜索内容</p></li>
-<li><p>可以使用<code>frame matches "xxxxxx"</code>，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">frame matches &quot;(?i)bhi&quot;   #其中(?i)表示忽略大小写</span><br><span class="line">frame matches &quot;(?i)bh[is]&quot;    #匹配 BHS  BHI bHi bhi等</span><br><span class="line">frame matches &quot;(?i)(username|password)&quot;   #匹配username 或 password，忽略大小写</span><br><span class="line">frame matches &quot;\.(?i)(exe|zip|doc|xls|ppt|jar)&quot;  #\.表示转义，扩展名匹配</span><br><span class="line">frame matches &quot;\.com$&quot;   #匹配.com结尾   ^表示开头，$表示结尾</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>The 'frame matches' is a little different. This is a fairly flexible display filter and we will not cover all the options here. The keyword 'matches' is a "Regex next" to Wireshark - a Perl-compatible regular expression.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;字符串搜索&quot;&gt;字符串搜索&lt;/h3&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;&lt;p&gt;搜索字符串用&lt;code&gt;ctrl + F&lt;/code&gt;，配置选项，选择&lt;code&gt;Packet Bytes&lt;/code&gt;和&lt;code&gt;String&lt;/code&gt;，然后输入想要查询的内
-    
-    </summary>
-    
-      <category term="Network Security" scheme="http://flamepeak.com/categories/Network-Security/"/>
-    
-    
-      <category term="Wireshark" scheme="http://flamepeak.com/tags/Wireshark/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>kali linux 2019.4 替换burpsuite pro</title>
-    <link href="http://flamepeak.com/2019/12/03/kali-replace-burpsuite-pro-20191203/"/>
-    <id>http://flamepeak.com/2019/12/03/kali-replace-burpsuite-pro-20191203/</id>
-    <published>2019-12-03T04:06:51.000Z</published>
-    <updated>2020-07-24T06:56:20.816Z</updated>
-    
-    <content type="html"><![CDATA[<p>参考：<a href="https://www.cnblogs.com/dbxiaobai/p/10646298.html" target="_blank" rel="noopener">kali linux 2019.1 替换burpsuite pro 1.7.37</a></p>
-<p>文章中的办法总体可行，但是，具体实现有问题</p>
-<ol type="1">
-<li><p>先切换JDK版本为1.8.执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">update-alternatives  --config  java</span><br></pre></td></tr></table></figure>
-<p>然后会显示多个jdk版本，1.8选2</p></li>
-<li><p>输入<code>java –version</code>会显示jdk为1.8，把下载来的破解jar和原版burpsuite放到<code>/usr/bin</code>。</p></li>
-<li><p>执行破解burpsuite的流程，教程特别多。</p></li>
-<li><p>bash进入<code>/usr/bin</code>目录，先删除以前的免费版burpsuite，</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rm –rf burpsuite</span><br></pre></td></tr></table></figure>
-<p>vi新建一个文件burpsuite，</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim burpsuite</span><br></pre></td></tr></table></figure>
-<p>内容为</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment">#java -jar burp-loader-keygen-2_1_07.jar</span></span><br><span class="line">java -noverify -Xbootclasspath/p:/usr/bin/burp-loader-keygen-2_1_07.jar -jar /usr/bin/burpsuite_pro_v2.1.07.jar</span><br></pre></td></tr></table></figure>
-<p>此处，调试很长时间都不行，个人认为和burp的破解版本有关系，也就是<code>burp_loader.jar</code>或者<code>burp_helper.jar</code>，在一些版本中上面方法可行，但是有些版本又不行。 多尝试几个版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 将burp-loader-keygen-2_1_07.jar和burpsuite_pro_v2.1.07.jar放入/usr/bin目录</span><br><span class="line">2. bash界面，进入/usr/bin目录<span class="built_in">cd</span> /usr/bin；运行：java -jar /usr/bin/burp-loader-keygen-2_1_05.jar</span><br><span class="line">3. 正常情况下会进入破解的流程，如果无法启动主程序，那么需要更换其它help.jar 和loader.jar尝试；</span><br><span class="line">4. 破解成功之后，如果需要运行burp,直接在bash中输入burpsuite即可</span><br></pre></td></tr></table></figure></li>
-<li><p>保存退出，增加执行权限<code>chmod +x burpsuite</code></p></li>
-<li><p>进入<code>/usr/share/applications</code>，并编辑burpsuite的快捷方式</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/share/applications</span><br><span class="line">vi kali-burpsuite.desktop</span><br></pre></td></tr></table></figure></li>
-<li><p><code>Exec=sh -c "java -jar /usr/bin/burpsuite"</code>改为<code>Exec=sh -c "/usr/bin/burpsuite"</code></p>
-<p>此处，本人修改为<code>Exec=sh -c "cd /usr/bin; /usr/bin/burpsuite"</code></p></li>
-<li><p>然后就可以点桌面的快捷方式运行，开始快乐的使用吧！</p></li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;参考：&lt;a href=&quot;https://www.cnblogs.com/dbxiaobai/p/10646298.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;kali linux 2019.1 替换burpsuite pro 1.7.37&lt;/a
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
-    
-    
-      <category term="kali" scheme="http://flamepeak.com/tags/kali/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux VulnHub VMware network configuration</title>
-    <link href="http://flamepeak.com/2019/11/26/Linux-VulnHub-network-configuration-20191126/"/>
-    <id>http://flamepeak.com/2019/11/26/Linux-VulnHub-network-configuration-20191126/</id>
-    <published>2019-11-26T00:38:54.000Z</published>
-    <updated>2019-12-06T06:56:05.689Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文参考了<a href="https://blog.csdn.net/nzjdsds/article/details/82811791" target="_blank" rel="noopener">https://blog.csdn.net/nzjdsds/article/details/82811791</a>，但是此文没有解决写权限的问题</p>
-<p>在此详述以下个人问题解决过程</p>
-<p>owa文件一般直接用Vmware打开，按流程导入即可</p>
-<p>但是有时候会出现设置NAT网络，但是依然连不通的情况，这时候我们需要进入Linux恢复模式修改网卡设置</p>
-<p>我们点击开启虚拟机，到开机的页面我们回车选择第二个Ubuntu的高级选项（如果启动有网络正常的话可以直接正常开机，如果网络不正常可以按下面步骤操作） (如果出不来这个选择界面，开机时按下shirt键)</p>
-<figure>
-<img src="/sourcepictures/2019/11/26/1.png" alt><figcaption>shift advanced options for ubuntu</figcaption>
-</figure>
-<p>进到高级选项，我们选择第二个Linux恢复模式(recovery mode)</p>
-<figure>
-<img src="/sourcepictures/2019/11/26/2.png" alt><figcaption>recovery mode</figcaption>
-</figure>
-<p>回车后会弹出选择界面，我们选择root一行回车，然后再次回车进入命令行模式</p>
-<figure>
-<img src="/sourcepictures/2019/11/26/3.png" alt><figcaption>root</figcaption>
-</figure>
-<p>一般来说，这种模式下都是只读模式，无法修改文件，可以执行以下命令，开启写权限</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fsck -f -y /</span><br><span class="line">mount --options remount,rw /</span><br></pre></td></tr></table></figure>
-<p>查看所有网卡：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ifconfig -a</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="/sourcepictures/2019/11/26/4.png" alt><figcaption>root</figcaption>
-</figure>
-<p>我的是ens33，然后继续输入命令 <code>vi /etc/network/interfaces</code> 修改网络配置文件</p>
-<p>对于一些Linux版本，网络配置文件位于<code>/etc/netplan</code> 文件夹下，可以使用<code>ls /etc/netplan</code>查看文件夹内yaml文件名，然后使用<code>vi</code>修改此配置文件</p>
-<figure>
-<img src="/sourcepictures/2019/11/26/5.png" alt><figcaption>root</figcaption>
-</figure>
-<p>修改两个地方，改成你的网卡名称，然后ctrl+x保存，重启即可</p>
-<p>对于采用HostOnly模式的虚拟机，可以参考此文 <a href="https://blog.csdn.net/qq_28817739/article/details/77542860" target="_blank" rel="noopener">VMware-Host only（主机模式）网络连接方式</a>，在虚拟网卡vmware network adapter VMnet1中修改子网ip地址</p>
-<p>ubuntu12.04克隆后没有cannot find device eth0的问题</p>
-<p>于是查看一下所有的网络信息</p>
-<p><code>ifconfig -a</code> 发现现实了eth2和eth3，并没有熟悉的eth0和eth1； 于是修改网络配置文件</p>
-<p><code>vi /etc/network/interfaces</code></p>
-<p>将<code>iface inet eth0 dhcp</code> 修改为<code>iface inet eth2 dhcp</code></p>
-<p>重启网卡</p>
-<p><code>/etc/init.d/networking restart</code></p>
-<p>而问题的原因在于：新克隆过来的机器网卡的mac地址是不同的，而以前的网卡信息依然保持在配置文件的那个中，如果找到这个文件将他删掉，让系统自动生成那么问题就能解决。</p>
-<p><code>vi /etc/udev/rules.d/70-persistent-net.rules</code></p>
-<p>可以看到咱们想要的东西 于是 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm /etc/udev/rules.d/70-persistent-net.rules</span><br><span class="line">/etc/init.d/networking restart</span><br></pre></td></tr></table></figure></p>
-<p>同样可以解决该问题。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文参考了&lt;a href=&quot;https://blog.csdn.net/nzjdsds/article/details/82811791&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/nzjdsds/articl
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://flamepeak.com/tags/Linux/"/>
     
   </entry>
   

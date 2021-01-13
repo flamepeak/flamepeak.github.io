@@ -21,7 +21,7 @@
 <meta property="og:site_name" content="FlamePeak">
 <meta property="og:description" content="SS 命令 ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-28T13:13:01.627Z">
+<meta property="og:updated_time" content="2021-01-12T07:34:40.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 常用命令的收集与整理">
 <meta name="twitter:description" content="SS 命令 ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但">
@@ -156,6 +156,21 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 <p>最常用操作：</p>
 <p>数据的搜寻并替换 除了整行的处理模式之外， sed 还可以用行为单位进行部分数据的搜寻并取代。基本上 sed 的搜寻与替代的与 vi 相当的类似！他有点像这样：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed <span class="string">'s/要被取代的字串/新的字串/g'</span></span><br></pre></td></tr></table></figure>
+<h3 id="关闭打开端口">关闭、打开端口</h3>
+<p><strong>To open a different port:</strong></p>
+<ul>
+<li><p>Debian:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw allow PORT</span><br></pre></td></tr></table></figure></li>
+<li><p>CentOS:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --zone=public --permanent --add-port=PORT/tcp</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>Close Server Ports And Deny Remote Access</strong></p>
+<ul>
+<li><p>Debian:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw deny PORT</span><br></pre></td></tr></table></figure></li>
+<li><p>CentOS:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --zone=public --permanent --remove-port=PORT/tcp</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure></li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -218,7 +233,7 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ss-命令"><span class="toc-number">1.</span> <span class="toc-text">SS 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir"><span class="toc-number">2.</span> <span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bc"><span class="toc-number">3.</span> <span class="toc-text">bc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apt-get-只升级单个包"><span class="toc-number">4.</span> <span class="toc-text">apt-get 只升级单个包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep-过滤空行和注释行"><span class="toc-number">5.</span> <span class="toc-text">grep 过滤空行和注释行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wc命令"><span class="toc-number">6.</span> <span class="toc-text">WC命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dig命令"><span class="toc-number">7.</span> <span class="toc-text">dig命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dhclient"><span class="toc-number">8.</span> <span class="toc-text">dhclient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stty"><span class="toc-number">9.</span> <span class="toc-text">stty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sed"><span class="toc-number">10.</span> <span class="toc-text">sed</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ss-命令"><span class="toc-number">1.</span> <span class="toc-text">SS 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir"><span class="toc-number">2.</span> <span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bc"><span class="toc-number">3.</span> <span class="toc-text">bc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apt-get-只升级单个包"><span class="toc-number">4.</span> <span class="toc-text">apt-get 只升级单个包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep-过滤空行和注释行"><span class="toc-number">5.</span> <span class="toc-text">grep 过滤空行和注释行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wc命令"><span class="toc-number">6.</span> <span class="toc-text">WC命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dig命令"><span class="toc-number">7.</span> <span class="toc-text">dig命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dhclient"><span class="toc-number">8.</span> <span class="toc-text">dhclient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stty"><span class="toc-number">9.</span> <span class="toc-text">stty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sed"><span class="toc-number">10.</span> <span class="toc-text">sed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭打开端口"><span class="toc-number">11.</span> <span class="toc-text">关闭、打开端口</span></a></li></ol>
  
   </div>
 
@@ -235,11 +250,11 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 		<ul>
 		
 		  
-			<li><a href="/categories/Android/" title="Android">Android<sup>3</sup></a></li>
+			<li><a href="/categories/Android/" title="Android">Android<sup>4</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/Cryptography/" title="Cryptography">Cryptography<sup>15</sup></a></li>
+			<li><a href="/categories/Cryptography/" title="Cryptography">Cryptography<sup>16</sup></a></li>
 		  
 		
 		  
@@ -259,11 +274,11 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>39</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>42</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>18</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
 		  
 		
 		  
@@ -271,7 +286,7 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 		  
 		
 		  
-			<li><a href="/categories/Web后端/" title="Web后端">Web后端<sup>13</sup></a></li>
+			<li><a href="/categories/Web后端/" title="Web后端">Web后端<sup>14</sup></a></li>
 		  
 		
 		  
@@ -292,7 +307,7 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>42</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>43</sup></a></li>
 			
 		
 			
@@ -308,19 +323,19 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 			
 		
 			
+				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>11</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>10</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cryptography/" title="cryptography">cryptography<sup>10</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -340,11 +355,15 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 			
 		
 			
-				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
 			
 		
 			
@@ -352,7 +371,7 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
 			
 		
 			
@@ -360,15 +379,11 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 			
 		
 			
-				<li><a href="/tags/EFI/" title="EFI">EFI<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 		</ul>
@@ -440,7 +455,7 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2021 
 		
 		<a href="/about" target="_blank" title="FlamePeak">FlamePeak</a>
 		
