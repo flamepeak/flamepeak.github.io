@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="github: volatility 安装 Linux 在kali中，安装过程很简单 apt-get install volatility 如果需要可以安装各种依赖，当然可以不安装 #Distorm3:牛逼的反编译库pip install distorm3#Yara:恶意软件分类工具pip install yara#PyCrypto:加密工具集pip install pycrypto#">
+    <meta name="description" content="github: volatility  安装  Linux 在kali中，安装过程很简单 apt-get install volatility 如果需要可以安装各种依赖，当然可以不安装 #Distorm3:牛逼的反编译库pip install distorm3#Yara:恶意软件分类工具pip install yara#PyCrypto:加密工具集pip install pycrypto#PIL:">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux Volatility 安装与使用">
 <meta property="og:url" content="http://flamepeak.com/2020/03/11/Linux-Forensics-Volatility-install-usage-20200322/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="github: volatility 安装 Linux 在kali中，安装过程很简单 apt-get install volatility 如果需要可以安装各种依赖，当然可以不安装 #Distorm3:牛逼的反编译库pip install distorm3#Yara:恶意软件分类工具pip install yara#PyCrypto:加密工具集pip install pycrypto#">
+<meta property="og:description" content="github: volatility  安装  Linux 在kali中，安装过程很简单 apt-get install volatility 如果需要可以安装各种依赖，当然可以不安装 #Distorm3:牛逼的反编译库pip install distorm3#Yara:恶意软件分类工具pip install yara#PyCrypto:加密工具集pip install pycrypto#PIL:">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-03-11T18:55:54.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Volatility 安装与使用">
-<meta name="twitter:description" content="github: volatility 安装 Linux 在kali中，安装过程很简单 apt-get install volatility 如果需要可以安装各种依赖，当然可以不安装 #Distorm3:牛逼的反编译库pip install distorm3#Yara:恶意软件分类工具pip install yara#PyCrypto:加密工具集pip install pycrypto#">
+<meta name="twitter:description" content="github: volatility  安装  Linux 在kali中，安装过程很简单 apt-get install volatility 如果需要可以安装各种依赖，当然可以不安装 #Distorm3:牛逼的反编译库pip install distorm3#Yara:恶意软件分类工具pip install yara#PyCrypto:加密工具集pip install pycrypto#PIL:">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -98,15 +98,15 @@
 	<div class="article-content">
 		
 		<p><a href="https://github.com/volatilityfoundation/volatility" target="_blank" rel="noopener">github: volatility</a></p>
-<h3 id="安装">安装</h3>
-<h3 id="linux">Linux</h3>
+<h3 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h3>
+<h3 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h3>
 <p>在kali中，安装过程很简单</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install volatility</span><br></pre></td></tr></table></figure>
 <p>如果需要可以安装各种依赖，当然可以不安装</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Distorm3:牛逼的反编译库</span></span><br><span class="line">pip install distorm3</span><br><span class="line"></span><br><span class="line"><span class="comment">#Yara:恶意软件分类工具</span></span><br><span class="line">pip install yara</span><br><span class="line"></span><br><span class="line"><span class="comment">#PyCrypto:加密工具集</span></span><br><span class="line">pip install pycrypto</span><br><span class="line"></span><br><span class="line"><span class="comment">#PIL:图片处理库</span></span><br><span class="line">pip install pil</span><br><span class="line"></span><br><span class="line"><span class="comment">#OpenPyxl:读写excel文件</span></span><br><span class="line">pip install openpyxl</span><br><span class="line"></span><br><span class="line"><span class="comment">#ujson:JSON解析</span></span><br><span class="line">pip install ujson</span><br></pre></td></tr></table></figure>
-<h3 id="windows">Windows</h3>
+<h3 id="windows"><a class="markdownIt-Anchor" href="#windows"></a> Windows</h3>
 <p>直接至官网下载exe文件， <a href="https://www.volatilityfoundation.org/releases" target="_blank" rel="noopener">Volatility 2.6 (Windows 10 / Server 2016)</a></p>
-<h2 id="用法">用法</h2>
+<h2 id="用法"><a class="markdownIt-Anchor" href="#用法"></a> 用法</h2>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">volatility -f mem.raw imageinfo   <span class="comment">#获取镜像系统信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pslist/pstree/psscan 进程信息</span></span><br><span class="line"><span class="comment"># pslist无法显示隐藏/终止进程。解决这个问题的插件是psscan，这个插件输出的内容会比pslist多得多。</span></span><br><span class="line"><span class="comment"># pstree同样也是扫描进程的，但是是以进程树的形式出现的。</span></span><br><span class="line"></span><br><span class="line">volatility -f mem.raw  --profile=Win7SP1x64 pslist <span class="comment"># 列出所有进程</span></span><br><span class="line">volatility -f mem.raw  --profile=WinSP1x64 cmdscan <span class="comment">#查看命令行进程中历史命令</span></span><br><span class="line">volatility -f mem.raw --profile=WinXPSP3x86 filescan | grep <span class="string">"flag"</span>  <span class="comment">#文件搜索，并过滤</span></span><br><span class="line">volatility -f mem.raw --profile=WinXPSP3x86 dumpfiles -Q 0x0000000001155f90 --dump-dir=./ <span class="comment">#导出指定偏移的文件</span></span><br><span class="line">volatility -f mem.raw  --profile=WinSP1x64 hivelist <span class="comment">#列举缓存在内存中的注册表</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看系统用户名</span></span><br><span class="line">volatility -f mem.raw --profile=Win7SP1x64 printkey -K <span class="string">"SAM\Domains\Account\Users\Names"</span></span><br><span class="line"><span class="comment">#查看网络连接</span></span><br><span class="line">volatility -f mem.raw --profile=Win7SP1x64 netscan</span><br></pre></td></tr></table></figure>
   
 	</div>
@@ -170,7 +170,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux"><span class="toc-number">2.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows"><span class="toc-number">3.</span> <span class="toc-text">Windows</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用法"><span class="toc-number"></span> <span class="toc-text">用法</span></a>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text"> 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux"><span class="toc-number">2.</span> <span class="toc-text"> Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows"><span class="toc-number">3.</span> <span class="toc-text"> Windows</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用法"><span class="toc-number"></span> <span class="toc-text"> 用法</span></a>
  
   </div>
 
@@ -203,7 +203,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -215,7 +215,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -248,7 +248,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -292,7 +292,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -304,19 +316,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="原题：花生采摘 感谢：https://blog.csdn.net/suntengnb/article/details/74500984 “模拟”类型的题目，读懂过程，建立数据结构，然后模拟过程即可。 以下代码注释，很好的解释了过程 int a[25][25];//数组a记录地图struct node&amp;#123;    int num;//花生个数    int x;//横坐标    int">
+    <meta name="description" content="原题：花生采摘 感谢：https://blog.csdn.net/suntengnb/article/details/74500984 “模拟”类型的题目，读懂过程，建立数据结构，然后模拟过程即可。 以下代码注释，很好的解释了过程 int a[25][25];//数组a记录地图struct node&amp;#123;    int num;//花生个数    int x;//横坐标    int y;/">
 <meta name="keywords" content="C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编程-模拟-经典例子-花生采摘">
 <meta property="og:url" content="http://flamepeak.com/2019/02/16/poj-NOI-1-13-38/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="原题：花生采摘 感谢：https://blog.csdn.net/suntengnb/article/details/74500984 “模拟”类型的题目，读懂过程，建立数据结构，然后模拟过程即可。 以下代码注释，很好的解释了过程 int a[25][25];//数组a记录地图struct node&amp;#123;    int num;//花生个数    int x;//横坐标    int">
+<meta property="og:description" content="原题：花生采摘 感谢：https://blog.csdn.net/suntengnb/article/details/74500984 “模拟”类型的题目，读懂过程，建立数据结构，然后模拟过程即可。 以下代码注释，很好的解释了过程 int a[25][25];//数组a记录地图struct node&amp;#123;    int num;//花生个数    int x;//横坐标    int y;/">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-02-26T19:35:49.857Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编程-模拟-经典例子-花生采摘">
-<meta name="twitter:description" content="原题：花生采摘 感谢：https://blog.csdn.net/suntengnb/article/details/74500984 “模拟”类型的题目，读懂过程，建立数据结构，然后模拟过程即可。 以下代码注释，很好的解释了过程 int a[25][25];//数组a记录地图struct node&amp;#123;    int num;//花生个数    int x;//横坐标    int">
+<meta name="twitter:description" content="原题：花生采摘 感谢：https://blog.csdn.net/suntengnb/article/details/74500984 “模拟”类型的题目，读懂过程，建立数据结构，然后模拟过程即可。 以下代码注释，很好的解释了过程 int a[25][25];//数组a记录地图struct node&amp;#123;    int num;//花生个数    int x;//横坐标    int y;/">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -98,12 +98,11 @@
 	<div class="article-content">
 		
 		<p>原题：<a href="http://noi.openjudge.cn/ch0113/38" target="_blank" rel="noopener">花生采摘</a></p>
-<p>感谢：https://blog.csdn.net/suntengnb/article/details/74500984</p>
+<p>感谢：<a href="https://blog.csdn.net/suntengnb/article/details/74500984" target="_blank" rel="noopener">https://blog.csdn.net/suntengnb/article/details/74500984</a></p>
 <p>“模拟”类型的题目，读懂过程，建立数据结构，然后模拟过程即可。</p>
 <p>以下代码注释，很好的解释了过程</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">25</span>][<span class="number">25</span>];<span class="comment">//数组a记录地图</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> num;<span class="comment">//花生个数</span></span><br><span class="line">    <span class="keyword">int</span> x;<span class="comment">//横坐标</span></span><br><span class="line">    <span class="keyword">int</span> y;<span class="comment">//纵坐标</span></span><br><span class="line">&#125;;</span><br><span class="line">node b[<span class="number">500</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">comp</span><span class="params">(node a,node b)</span><span class="comment">//降序</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.num&gt;b.num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m,n,i,j,k,c=<span class="number">1</span>,sum=<span class="number">0</span>,mark;<span class="comment">//sum记录采摘到的花生的个数，mark记录上一次累加的花生的个数</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;m,&amp;n,&amp;k);<span class="comment">//输入</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i][j]);</span><br><span class="line">            <span class="keyword">if</span>(a[i][j]!=<span class="number">0</span>)<span class="comment">//如果花生个数不为0</span></span><br><span class="line">            &#123;</span><br><span class="line">                b[c].num=a[i][j];<span class="comment">//记入结构体数组中</span></span><br><span class="line">                b[c].x=i;</span><br><span class="line">                b[c].y=j;</span><br><span class="line">                c++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    sort(b+<span class="number">1</span>,b+c,comp);<span class="comment">//排序（降序）</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=c<span class="number">-1</span>;i++)<span class="comment">//从大到小，模拟花生采摘过程</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">1</span>)<span class="comment">//首先，要到达第一个花生所在处</span></span><br><span class="line">            k-=b[<span class="number">1</span>].x;<span class="comment">//减去所花费的时间</span></span><br><span class="line">        k--;<span class="comment">//采摘-1s</span></span><br><span class="line">        sum+=b[i].num;<span class="comment">//累加采摘到的花生的个数</span></span><br><span class="line">        mark=b[i].num;<span class="comment">//记录</span></span><br><span class="line">        <span class="keyword">if</span>(k&lt;(<span class="built_in">abs</span>(b[i+<span class="number">1</span>].x-b[i].x)+<span class="built_in">abs</span>(b[i+<span class="number">1</span>].y-b[i].y)+<span class="number">1</span>+b[i+<span class="number">1</span>].x))<span class="comment">//如果剩下的时间不够移动到下一个花生所在处+采摘+返回到路边......①</span></span><br><span class="line">            <span class="keyword">break</span>;<span class="comment">//跳出循环</span></span><br><span class="line">        <span class="keyword">else</span><span class="comment">//否则</span></span><br><span class="line">            k-=<span class="built_in">abs</span>(b[i+<span class="number">1</span>].x-b[i].x)+<span class="built_in">abs</span>(b[i+<span class="number">1</span>].y-b[i].y);<span class="comment">//减去移动到下一个花生所在处所花费的时间</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(k&lt;b[i].x)<span class="comment">//如果时间不仅不够做①，还不够返回路边</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum-mark);<span class="comment">//那就不摘这个花生</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> F[<span class="number">55</span>][<span class="number">55</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T, M, N, K;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;T;</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;M&gt;&gt;N&gt;&gt;K;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=N;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">cin</span>&gt;&gt;F[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> totalTime = <span class="number">0</span>, totalHS=<span class="number">0</span>, maxHS=<span class="number">0</span>, xCur=<span class="number">0</span>,yCur, xMax, yMax;</span><br><span class="line">        <span class="keyword">while</span>(totalTime &lt; K)</span><br><span class="line">        &#123;</span><br><span class="line">            maxHS=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)<span class="comment">//寻找下一个最大花生的位置</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=N;j++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(F[i][j]&gt;maxHS)</span><br><span class="line">                    &#123;</span><br><span class="line">                        maxHS = F[i][j];</span><br><span class="line">                        xMax = i;</span><br><span class="line">                        yMax = j;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(maxHS==<span class="number">0</span>)<span class="comment">//没有花生，退出</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(xCur==<span class="number">0</span>)<span class="comment">//如果在路上，那就跳到横坐标yMax出</span></span><br><span class="line">                yCur=yMax;</span><br><span class="line">            <span class="comment">//查看剩余时间是否够跳到下一株，采摘，并返回路上</span></span><br><span class="line">            <span class="keyword">if</span>(totalTime + <span class="built_in">abs</span>(xMax-xCur)+<span class="built_in">abs</span>(yMax-yCur)+ <span class="number">1</span> + xMax&lt;=K)</span><br><span class="line">            &#123;</span><br><span class="line">                totalTime += <span class="built_in">abs</span>(xMax-xCur)+<span class="built_in">abs</span>(yMax-yCur)+ <span class="number">1</span>;</span><br><span class="line">                totalHS += maxHS;</span><br><span class="line">                xCur = xMax;</span><br><span class="line">                yCur = yMax;</span><br><span class="line">                F[xMax][yMax]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;totalHS&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-  
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> F[<span class="number">55</span>][<span class="number">55</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T, M, N, K;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;T;</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;M&gt;&gt;N&gt;&gt;K;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=N;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">cin</span>&gt;&gt;F[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> totalTime = <span class="number">0</span>, totalHS=<span class="number">0</span>, maxHS=<span class="number">0</span>, xCur=<span class="number">0</span>,yCur, xMax, yMax;</span><br><span class="line">        <span class="keyword">while</span>(totalTime &lt; K)</span><br><span class="line">        &#123;</span><br><span class="line">            maxHS=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)<span class="comment">//寻找下一个最大花生的位置</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=N;j++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(F[i][j]&gt;maxHS)</span><br><span class="line">                    &#123;</span><br><span class="line">                        maxHS = F[i][j];</span><br><span class="line">                        xMax = i;</span><br><span class="line">                        yMax = j;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(maxHS==<span class="number">0</span>)<span class="comment">//没有花生，退出</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(xCur==<span class="number">0</span>)<span class="comment">//如果在路上，那就跳到横坐标yMax出</span></span><br><span class="line">                yCur=yMax;</span><br><span class="line">            <span class="comment">//查看剩余时间是否够跳到下一株，采摘，并返回路上</span></span><br><span class="line">            <span class="keyword">if</span>(totalTime + <span class="built_in">abs</span>(xMax-xCur)+<span class="built_in">abs</span>(yMax-yCur)+ <span class="number">1</span> + xMax&lt;=K)</span><br><span class="line">            &#123;</span><br><span class="line">                totalTime += <span class="built_in">abs</span>(xMax-xCur)+<span class="built_in">abs</span>(yMax-yCur)+ <span class="number">1</span>;</span><br><span class="line">                totalHS += maxHS;</span><br><span class="line">                xCur = xMax;</span><br><span class="line">                yCur = yMax;</span><br><span class="line">                F[xMax][yMax]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;totalHS&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -193,7 +192,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -205,7 +204,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -238,7 +237,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -282,7 +281,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -294,19 +305,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="2673:Kicc Wants to Move a Mountain! 2673:Kicc Wants to Move a Mountain!查看 提交 统计 提示 提问总时间限制: 1000ms 内存限制: 65536kB描述There is a huge mountain outside Kicc&amp;apos;s house, and Kicc has to climb the mountai">
+    <meta name="description" content="2673:Kicc Wants to Move a Mountain! 2673:Kicc Wants to Move a Mountain!查看 提交 统计 提示 提问总时间限制: 1000ms 内存限制: 65536kB描述There is a huge mountain outside Kicc&amp;apos;s house, and Kicc has to climb the mountain">
 <meta name="keywords" content="C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="poj 2673 Kicc Wants to Move a Mountain">
 <meta property="og:url" content="http://flamepeak.com/2019/02/27/poj-2673-Kicc-Wants-to-Move-a-Mountain/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="2673:Kicc Wants to Move a Mountain! 2673:Kicc Wants to Move a Mountain!查看 提交 统计 提示 提问总时间限制: 1000ms 内存限制: 65536kB描述There is a huge mountain outside Kicc&amp;apos;s house, and Kicc has to climb the mountai">
+<meta property="og:description" content="2673:Kicc Wants to Move a Mountain! 2673:Kicc Wants to Move a Mountain!查看 提交 统计 提示 提问总时间限制: 1000ms 内存限制: 65536kB描述There is a huge mountain outside Kicc&amp;apos;s house, and Kicc has to climb the mountain">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-02-27T19:55:06.065Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="poj 2673 Kicc Wants to Move a Mountain">
-<meta name="twitter:description" content="2673:Kicc Wants to Move a Mountain! 2673:Kicc Wants to Move a Mountain!查看 提交 统计 提示 提问总时间限制: 1000ms 内存限制: 65536kB描述There is a huge mountain outside Kicc&amp;apos;s house, and Kicc has to climb the mountai">
+<meta name="twitter:description" content="2673:Kicc Wants to Move a Mountain! 2673:Kicc Wants to Move a Mountain!查看 提交 统计 提示 提问总时间限制: 1000ms 内存限制: 65536kB描述There is a huge mountain outside Kicc&amp;apos;s house, and Kicc has to climb the mountain">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -100,11 +100,12 @@
 		<p><a href="http://bailian.openjudge.cn/practice/2673/" target="_blank" rel="noopener">2673:Kicc Wants to Move a Mountain!</a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2673:Kicc Wants to Move a Mountain!</span><br><span class="line">查看 提交 统计 提示 提问</span><br><span class="line">总时间限制: 1000ms 内存限制: 65536kB</span><br><span class="line">描述</span><br><span class="line">There is a huge mountain outside Kicc&apos;s house, and Kicc has to climb the mountain every time he wants to go out. It costs him a lot of time and he wants to change the situation. Yes, he figures out a good idea - to move the mountain away! But there is a problem. There are some wild animals not too far away from the mountain. Kicc will make noises when digging or moving the stones. If the animals hear the sound made by Kicc, they will come closer. If an animal reaches the mountain and sees Kicc, the animal will eat Kicc immediately. But the animals are stupid - when they do not hear the sound, they will go back along the exact route they come to the mountain until they are in the place where they start. When they hear the sound again, they will come to the mountain again no matter where they are. In this situation, Kicc has to stop sometimes before the first animal arrives to avoid being eaten. You should notice that as soon as the animal arrive in the mountain, Kicc will be eaten, no matter he stops his work or not.</span><br><span class="line"></span><br><span class="line">Kicc has t units of time per day and he can handle x units of stones in one unit of time (This action will make noises). There are m animals near the mountain. The i-th animal stays away the mountain with di units of distance and can run si units of distance in one of unit time. Kicc wants to know the most amount of stones he can handle every day (You can assume the amount of the stones in the mountain is infinite). To make it easier, you may assume that Kicc can work or rest for only integer units of time, for example, 1 unit of time, or 2 units of time, or 3 units of time, and so on.</span><br><span class="line">输入</span><br><span class="line">The first line contains an integer t (0 &lt;= t &lt; 1000000), and an integer x (0 &lt; x &lt; 10). The second line contains a single integer m (0 &lt;= m &lt; 1000). There are m lines following the second line, each has 2 integers di (0 &lt; di &lt; 1000000) and si (0 &lt; si &lt; 1000000).</span><br><span class="line">输出</span><br><span class="line">The output should contain a single integer which means the most amount of stones Kicc can move away in one day.</span><br><span class="line">样例输入</span><br><span class="line">100 5</span><br><span class="line">2</span><br><span class="line">1000 5</span><br><span class="line">100 1</span><br><span class="line">样例输出</span><br><span class="line">495</span><br></pre></td></tr></table></figure>
 <p>思路：这是一道模拟题，分析过程。</p>
-<p>动物的跑动距离应该为di-1，否则如果di,就会被吃掉。 求出所有动物到达时间最短的minTime。</p>
-<p>过程：Kicc开始干活，然后动物开始跑，minTime之后，Kicc开始休息，动物开始返回。此时，剩余时间T-minTime。 再之后呢，当动物回到起点时，Kicc开始干活，动物出发；动物到达，Kicc停止干活，休息。</p>
+<p>动物的跑动距离应该为di-1，否则如果di,就会被吃掉。<br>
+求出所有动物到达时间最短的minTime。</p>
+<p>过程：Kicc开始干活，然后动物开始跑，minTime之后，Kicc开始休息，动物开始返回。此时，剩余时间T-minTime。<br>
+再之后呢，当动物回到起点时，Kicc开始干活，动物出发；动物到达，Kicc停止干活，休息。</p>
 <p>总过程可以简单理解：动物花minTime达到Kicc处，大家开始站在同一起跑线，即Kicc休息时动物在返回，Kicc干活时动物在赶来,由于动物赶来和返回的时间一样，所以Kicc一半时间在工作。Kicc工作的时间为minTime+（T-minTime）/2;</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> d[<span class="number">1000005</span>],s[<span class="number">1000005</span>],t[<span class="number">1000005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T, X, sum=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;T&gt;&gt;X;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;m;</span><br><span class="line">    <span class="keyword">if</span>(m==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;T*X;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;d[i]&gt;&gt;s[i];</span><br><span class="line">        t[i] = (d[i]<span class="number">-1</span>)/s[i];</span><br><span class="line">    &#125;</span><br><span class="line">    sort(t,t+m);</span><br><span class="line">    <span class="keyword">int</span> minTime = t[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span>(minTime&lt;<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(T&lt;=minTime)</span><br><span class="line">        sum = T*X;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        T -= minTime;</span><br><span class="line">        sum += minTime*X;</span><br><span class="line">        T /= <span class="number">2</span>;</span><br><span class="line">        sum += T*X;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;sum;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-  
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> d[<span class="number">1000005</span>],s[<span class="number">1000005</span>],t[<span class="number">1000005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T, X, sum=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;T&gt;&gt;X;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;m;</span><br><span class="line">    <span class="keyword">if</span>(m==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;T*X;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;d[i]&gt;&gt;s[i];</span><br><span class="line">        t[i] = (d[i]<span class="number">-1</span>)/s[i];</span><br><span class="line">    &#125;</span><br><span class="line">    sort(t,t+m);</span><br><span class="line">    <span class="keyword">int</span> minTime = t[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span>(minTime&lt;<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(T&lt;=minTime)</span><br><span class="line">        sum = T*X;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        T -= minTime;</span><br><span class="line">        sum += minTime*X;</span><br><span class="line">        T /= <span class="number">2</span>;</span><br><span class="line">        sum += T*X;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;sum;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -194,7 +195,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -206,7 +207,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -239,7 +240,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -283,7 +284,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -295,19 +308,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

@@ -13,13 +13,13 @@
     
 
     
-    <meta name="description" content="本文参考了https://blog.csdn.net/nzjdsds/article/details/82811791，但是此文没有解决写权限的问题 在此详述以下个人问题解决过程 owa文件一般直接用Vmware打开，按流程导入即可 但是有时候会出现设置NAT网络，但是依然连不通的情况，这时候我们需要进入Linux恢复模式修改网卡设置 我们点击开启虚拟机，到开机的页面我们回车选择第二个Ub">
+    <meta name="description" content="本文参考了https://blog.csdn.net/nzjdsds/article/details/82811791，但是此文没有解决写权限的问题 在此详述以下个人问题解决过程 owa文件一般直接用Vmware打开，按流程导入即可 但是有时候会出现设置NAT网络，但是依然连不通的情况，这时候我们需要进入Linux恢复模式修改网卡设置 我们点击开启虚拟机，到开机的页面我们回车选择第二个Ubuntu">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux VulnHub VMware network configuration">
 <meta property="og:url" content="http://flamepeak.com/2019/11/26/Linux-VulnHub-network-configuration-20191126/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="本文参考了https://blog.csdn.net/nzjdsds/article/details/82811791，但是此文没有解决写权限的问题 在此详述以下个人问题解决过程 owa文件一般直接用Vmware打开，按流程导入即可 但是有时候会出现设置NAT网络，但是依然连不通的情况，这时候我们需要进入Linux恢复模式修改网卡设置 我们点击开启虚拟机，到开机的页面我们回车选择第二个Ub">
+<meta property="og:description" content="本文参考了https://blog.csdn.net/nzjdsds/article/details/82811791，但是此文没有解决写权限的问题 在此详述以下个人问题解决过程 owa文件一般直接用Vmware打开，按流程导入即可 但是有时候会出现设置NAT网络，但是依然连不通的情况，这时候我们需要进入Linux恢复模式修改网卡设置 我们点击开启虚拟机，到开机的页面我们回车选择第二个Ubuntu">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/2019/11/26/1.png">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/2019/11/26/2.png">
@@ -29,7 +29,7 @@
 <meta property="og:updated_time" content="2019-12-06T06:56:05.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux VulnHub VMware network configuration">
-<meta name="twitter:description" content="本文参考了https://blog.csdn.net/nzjdsds/article/details/82811791，但是此文没有解决写权限的问题 在此详述以下个人问题解决过程 owa文件一般直接用Vmware打开，按流程导入即可 但是有时候会出现设置NAT网络，但是依然连不通的情况，这时候我们需要进入Linux恢复模式修改网卡设置 我们点击开启虚拟机，到开机的页面我们回车选择第二个Ub">
+<meta name="twitter:description" content="本文参考了https://blog.csdn.net/nzjdsds/article/details/82811791，但是此文没有解决写权限的问题 在此详述以下个人问题解决过程 owa文件一般直接用Vmware打开，按流程导入即可 但是有时候会出现设置NAT网络，但是依然连不通的情况，这时候我们需要进入Linux恢复模式修改网卡设置 我们点击开启虚拟机，到开机的页面我们回车选择第二个Ubuntu">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/2019/11/26/1.png">
 
     
@@ -108,41 +108,34 @@
 <p>owa文件一般直接用Vmware打开，按流程导入即可</p>
 <p>但是有时候会出现设置NAT网络，但是依然连不通的情况，这时候我们需要进入Linux恢复模式修改网卡设置</p>
 <p>我们点击开启虚拟机，到开机的页面我们回车选择第二个Ubuntu的高级选项（如果启动有网络正常的话可以直接正常开机，如果网络不正常可以按下面步骤操作） (如果出不来这个选择界面，开机时按下shirt键)</p>
-<figure>
-<img src="/sourcepictures/2019/11/26/1.png" alt><figcaption>shift advanced options for ubuntu</figcaption>
-</figure>
+<p><img src="/sourcepictures/2019/11/26/1.png" alt="shift advanced options for ubuntu"></p>
 <p>进到高级选项，我们选择第二个Linux恢复模式(recovery mode)</p>
-<figure>
-<img src="/sourcepictures/2019/11/26/2.png" alt><figcaption>recovery mode</figcaption>
-</figure>
+<p><img src="/sourcepictures/2019/11/26/2.png" alt="recovery mode"></p>
 <p>回车后会弹出选择界面，我们选择root一行回车，然后再次回车进入命令行模式</p>
-<figure>
-<img src="/sourcepictures/2019/11/26/3.png" alt><figcaption>root</figcaption>
-</figure>
+<p><img src="/sourcepictures/2019/11/26/3.png" alt="root"></p>
 <p>一般来说，这种模式下都是只读模式，无法修改文件，可以执行以下命令，开启写权限</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fsck -f -y /</span><br><span class="line">mount --options remount,rw /</span><br></pre></td></tr></table></figure>
 <p>查看所有网卡：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ifconfig -a</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="/sourcepictures/2019/11/26/4.png" alt><figcaption>root</figcaption>
-</figure>
+<p><img src="/sourcepictures/2019/11/26/4.png" alt="root"></p>
 <p>我的是ens33，然后继续输入命令 <code>vi /etc/network/interfaces</code> 修改网络配置文件</p>
 <p>对于一些Linux版本，网络配置文件位于<code>/etc/netplan</code> 文件夹下，可以使用<code>ls /etc/netplan</code>查看文件夹内yaml文件名，然后使用<code>vi</code>修改此配置文件</p>
-<figure>
-<img src="/sourcepictures/2019/11/26/5.png" alt><figcaption>root</figcaption>
-</figure>
+<p><img src="/sourcepictures/2019/11/26/5.png" alt="root"></p>
 <p>修改两个地方，改成你的网卡名称，然后ctrl+x保存，重启即可</p>
 <p>对于采用HostOnly模式的虚拟机，可以参考此文 <a href="https://blog.csdn.net/qq_28817739/article/details/77542860" target="_blank" rel="noopener">VMware-Host only（主机模式）网络连接方式</a>，在虚拟网卡vmware network adapter VMnet1中修改子网ip地址</p>
 <p>ubuntu12.04克隆后没有cannot find device eth0的问题</p>
 <p>于是查看一下所有的网络信息</p>
-<p><code>ifconfig -a</code> 发现现实了eth2和eth3，并没有熟悉的eth0和eth1； 于是修改网络配置文件</p>
+<p><code>ifconfig -a</code><br>
+发现现实了eth2和eth3，并没有熟悉的eth0和eth1；<br>
+于是修改网络配置文件</p>
 <p><code>vi /etc/network/interfaces</code></p>
 <p>将<code>iface inet eth0 dhcp</code> 修改为<code>iface inet eth2 dhcp</code></p>
 <p>重启网卡</p>
 <p><code>/etc/init.d/networking restart</code></p>
 <p>而问题的原因在于：新克隆过来的机器网卡的mac地址是不同的，而以前的网卡信息依然保持在配置文件的那个中，如果找到这个文件将他删掉，让系统自动生成那么问题就能解决。</p>
 <p><code>vi /etc/udev/rules.d/70-persistent-net.rules</code></p>
-<p>可以看到咱们想要的东西 于是 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm /etc/udev/rules.d/70-persistent-net.rules</span><br><span class="line">/etc/init.d/networking restart</span><br></pre></td></tr></table></figure></p>
+<p>可以看到咱们想要的东西 于是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm /etc/udev/rules.d/70-persistent-net.rules</span><br><span class="line">/etc/init.d/networking restart</span><br></pre></td></tr></table></figure>
 <p>同样可以解决该问题。</p>
   
 	</div>
@@ -239,7 +232,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -251,7 +244,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -284,7 +277,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -328,7 +321,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -340,19 +345,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

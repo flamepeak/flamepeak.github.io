@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="字符串搜索  搜索字符串用ctrl + F，配置选项，选择Packet Bytes和String，然后输入想要查询的内容即可； 可以在过滤框中直接输入tcp and frame contains &quot;xxxxxxx&quot;，来搜索内容 可以使用frame matches &quot;xxxxxx&quot;，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如： frame matches &amp;qu">
+    <meta name="description" content="字符串搜索   搜索字符串用ctrl + F，配置选项，选择Packet Bytes和String，然后输入想要查询的内容即可；   可以在过滤框中直接输入tcp and frame contains &amp;quot;xxxxxxx&amp;quot;，来搜索内容   可以使用frame matches &amp;quot;xxxxxx&amp;quot;，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。">
 <meta name="keywords" content="Wireshark">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Wireshark 使用技巧">
 <meta property="og:url" content="http://flamepeak.com/2019/12/05/Wireshark-tips-20191205/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="字符串搜索  搜索字符串用ctrl + F，配置选项，选择Packet Bytes和String，然后输入想要查询的内容即可； 可以在过滤框中直接输入tcp and frame contains &quot;xxxxxxx&quot;，来搜索内容 可以使用frame matches &quot;xxxxxx&quot;，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如： frame matches &amp;qu">
+<meta property="og:description" content="字符串搜索   搜索字符串用ctrl + F，配置选项，选择Packet Bytes和String，然后输入想要查询的内容即可；   可以在过滤框中直接输入tcp and frame contains &amp;quot;xxxxxxx&amp;quot;，来搜索内容   可以使用frame matches &amp;quot;xxxxxx&amp;quot;，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-12-05T01:53:09.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wireshark 使用技巧">
-<meta name="twitter:description" content="字符串搜索  搜索字符串用ctrl + F，配置选项，选择Packet Bytes和String，然后输入想要查询的内容即可； 可以在过滤框中直接输入tcp and frame contains &quot;xxxxxxx&quot;，来搜索内容 可以使用frame matches &quot;xxxxxx&quot;，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如： frame matches &amp;qu">
+<meta name="twitter:description" content="字符串搜索   搜索字符串用ctrl + F，配置选项，选择Packet Bytes和String，然后输入想要查询的内容即可；   可以在过滤框中直接输入tcp and frame contains &amp;quot;xxxxxxx&amp;quot;，来搜索内容   可以使用frame matches &amp;quot;xxxxxx&amp;quot;，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,14 +97,20 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="字符串搜索">字符串搜索</h3>
-<ol type="1">
-<li><p>搜索字符串用<code>ctrl + F</code>，配置选项，选择<code>Packet Bytes</code>和<code>String</code>，然后输入想要查询的内容即可；</p></li>
-<li><p>可以在过滤框中直接输入<code>tcp and frame contains "xxxxxxx"</code>，来搜索内容</p></li>
-<li><p>可以使用<code>frame matches "xxxxxx"</code>，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">frame matches &quot;(?i)bhi&quot;   #其中(?i)表示忽略大小写</span><br><span class="line">frame matches &quot;(?i)bh[is]&quot;    #匹配 BHS  BHI bHi bhi等</span><br><span class="line">frame matches &quot;(?i)(username|password)&quot;   #匹配username 或 password，忽略大小写</span><br><span class="line">frame matches &quot;\.(?i)(exe|zip|doc|xls|ppt|jar)&quot;  #\.表示转义，扩展名匹配</span><br><span class="line">frame matches &quot;\.com$&quot;   #匹配.com结尾   ^表示开头，$表示结尾</span><br></pre></td></tr></table></figure></li>
+		<h3 id="字符串搜索"><a class="markdownIt-Anchor" href="#字符串搜索"></a> 字符串搜索</h3>
+<ol>
+<li>
+<p>搜索字符串用<code>ctrl + F</code>，配置选项，选择<code>Packet Bytes</code>和<code>String</code>，然后输入想要查询的内容即可；</p>
+</li>
+<li>
+<p>可以在过滤框中直接输入<code>tcp and frame contains &quot;xxxxxxx&quot;</code>，来搜索内容</p>
+</li>
+<li>
+<p>可以使用<code>frame matches &quot;xxxxxx&quot;</code>，关键词matches使用与Perl语言兼容的正则表达式来搜索匹配。例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">frame matches &quot;(?i)bhi&quot;   #其中(?i)表示忽略大小写</span><br><span class="line">frame matches &quot;(?i)bh[is]&quot;    #匹配 BHS  BHI bHi bhi等</span><br><span class="line">frame matches &quot;(?i)(username|password)&quot;   #匹配username 或 password，忽略大小写</span><br><span class="line">frame matches &quot;\.(?i)(exe|zip|doc|xls|ppt|jar)&quot;  #\.表示转义，扩展名匹配</span><br><span class="line">frame matches &quot;\.com$&quot;   #匹配.com结尾   ^表示开头，$表示结尾</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<p>The 'frame matches' is a little different. This is a fairly flexible display filter and we will not cover all the options here. The keyword 'matches' is a "Regex next" to Wireshark - a Perl-compatible regular expression.</p>
+<p>The ‘frame matches’ is a little different. This is a fairly flexible display filter and we will not cover all the options here. The keyword ‘matches’ is a “Regex next” to Wireshark - a Perl-compatible regular expression.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -167,7 +173,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串搜索"><span class="toc-number">1.</span> <span class="toc-text">字符串搜索</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串搜索"><span class="toc-number">1.</span> <span class="toc-text"> 字符串搜索</span></a></li></ol>
  
   </div>
 
@@ -200,7 +206,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -212,7 +218,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -245,7 +251,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -289,7 +295,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -301,19 +319,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

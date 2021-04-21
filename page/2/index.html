@@ -78,6 +78,132 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2020/08/28/Python-change-ip-address/" title="Python 修改ip地址" itemprop="url">
+  
+    <h1 itemprop="name">Python 修改ip地址</h1>
+    
+     
+           <p itemprop="description" >在windows中使用python修改ip地址，需要WMI (Windows Management Instrumentation )模块:
+pip install WMI
+设置指定的ip地址：
+import wmi# Obtain network adaptors config</p>
+        
+    
+    <time datetime="2020-08-28T03:07:36.000Z" itemprop="datePublished">2020-08-28</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2020/08/16/Windows-7-iso-add-nvme-m2-driver/" title="Windows 7 原版镜像添加nvme m2驱动" itemprop="url">
+  
+    <h1 itemprop="name">Windows 7 原版镜像添加nvme m2驱动</h1>
+    
+     
+           <p itemprop="description" >首先，如果不是可以自己制作ISO的话，可以尝试it天空的，万能驱动7，已经集成了NVME、USB3驱动和一些更新。
+ 需要的软件
+Dism++
+ 注意事项
+你的硬盘应该能在BIOS中看到，如果看不到，我的方法可能不行
+如果PE没有发现USB3或NVME设备（即PE不支持），那么万</p>
+        
+    
+    <time datetime="2020-08-16T13:09:23.000Z" itemprop="datePublished">2020-08-16</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2020/06/16/Blob-video-get-url-20200619/" title="blob视频网址分析" itemprop="url">
+  
+    <h1 itemprop="name">blob视频网址分析</h1>
+    
+     
+           <p itemprop="description" >Blob格式视频下载一直比较困难，在此记录一些思路：
+
+
+首先找到blob网址，如下：blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978
+
+
+在Chrome浏览器中，F12打开开发者工具
+
+
+刷</p>
+        
+    
+    <time datetime="2020-06-16T01:35:12.000Z" itemprop="datePublished">2020-06-16</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2020/06/16/Linux-CentOS-minimal-install-20200616/" title="CentOS 7 最小化安装遇到的问题" itemprop="url">
+  
+    <h1 itemprop="name">CentOS 7 最小化安装遇到的问题</h1>
+    
+     
+           <p itemprop="description" >ifconfig not  found
+ifconfig 在centos 最小化安装时，是不自带的可以使用ip addr 查看ip
+ 没有ip地址
+ip addr发现ens33 没有inet 这个属性，那么就没法通过IP地址连接虚拟机。查看ens33网卡的配置：vi /etc/s</p>
+        
+    
+    <time datetime="2020-06-16T01:35:12.000Z" itemprop="datePublished">2020-06-16</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2020/03/28/vim-usage-20200328/" title="Vim 使用汇总" itemprop="url">
+  
+    <h1 itemprop="name">Vim 使用汇总</h1>
+    
+     
+           <p itemprop="description" >搜索高亮
+vim搜索设置高亮
+linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显示。有两种方法：
+1、临时设置：vim打开文档
+命令行形式输入：set hlsearch。
+缺点：关闭文档后，下次打开，又需要重新设置一遍。
+2、永久设置（推荐）：在~/.vimrc中设</p>
+        
+    
+    <time datetime="2020-03-28T01:18:00.000Z" itemprop="datePublished">2020-03-28</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2020/03/17/Linux-CentOS-disable-autoupdate-20200317/" title="CentOS 7 禁用自动更新" itemprop="url">
   
     <h1 itemprop="name">CentOS 7 禁用自动更新</h1>
@@ -85,7 +211,7 @@
      
            <p itemprop="description" >PackageKit是基于RedHat的linux中的图形化软件升级工具，下面描述一下如何禁止和启用自动升级。
 默认状态下是开启的。
-# 查看状态systemctl status packagekit# 停用systemctl stop packagekit# 禁止自启动sy</p>
+# 查看状态systemctl status packagekit# 停用systemctl stop packagekit# 禁止自启动syst</p>
         
     
     <time datetime="2020-03-17T01:35:12.000Z" itemprop="datePublished">2020-03-17</time>
@@ -105,7 +231,8 @@
     <h1 itemprop="name">Python 在virtualenv中使用Idle</h1>
     
      
-           <p itemprop="description" >首先，进入虚拟环境，并激活 然后，运行命令python -m idlelib.idle，即可</p>
+           <p itemprop="description" >首先，进入虚拟环境，并激活
+然后，运行命令python -m idlelib.idle，即可</p>
         
     
     <time datetime="2020-03-16T00:50:12.000Z" itemprop="datePublished">2020-03-16</time>
@@ -126,8 +253,8 @@
     
      
            <p itemprop="description" >关于读写文件，在Python中提供了read()、write()来读写一行，也提供了readlines()、writelines()读写多行的方式。此外，模块pickle、json允许我们以更方便快捷的方式处理序列化的数据集。
-使用read 和write方法
-# define</p>
+ 使用read 和write方法
+# define </p>
         
     
     <time datetime="2020-03-16T00:20:12.000Z" itemprop="datePublished">2020-03-16</time>
@@ -148,7 +275,7 @@
     
      
            <p itemprop="description" >Python里数量词默认是贪婪的，总是尝试匹配尽可能多的字符；非贪婪则相反，总是尝试匹配尽可能少的字符。在*,?,+,{m,n}后面加上?，使贪婪变成非贪婪。
-&amp;gt;&amp;gt;&amp;gt; s=&quot;This is a number 234-235-22-423&quot;&amp;gt;&amp;gt;&amp;gt</p>
+&amp;gt;&amp;gt;&amp;gt; s=&quot;This is a number 234-235-22-423&quot;&amp;gt;&amp;gt;&amp;gt;</p>
         
     
     <time datetime="2020-03-16T00:08:12.000Z" itemprop="datePublished">2020-03-16</time>
@@ -169,128 +296,15 @@
     
      
            <p itemprop="description" >github: volatility
-安装
-Linux
+ 安装
+ Linux
 在kali中，安装过程很简单
 apt-get install volatility
 如果需要可以安装各种依赖，当然可以不安装
-#Distorm3:牛逼的反编译库pip install distorm3#Yara:</p>
+#Distorm3:牛逼的反编译库pip install distorm3#Yara:恶意软件</p>
         
     
     <time datetime="2020-03-11T08:08:12.000Z" itemprop="datePublished">2020-03-11</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2020/01/22/SSH-permissions-are-too-open-error/" title="SSH permissions are too open error" itemprop="url">
-  
-    <h1 itemprop="name">SSH permissions are too open error</h1>
-    
-     
-           <p itemprop="description" >Linux中遇到如下错误，
-root@kali:~/Downloads# ssh -i prikeyfile  joanna@10.10.10.171@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    </p>
-        
-    
-    <time datetime="2020-01-22T07:45:16.000Z" itemprop="datePublished">2020-01-22</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2020/01/22/-bin-bash-M-bad-interpreter-No-such-file-or-directory/" title="/bin/bash^M: bad interpreter: No such file or directory" itemprop="url">
-  
-    <h1 itemprop="name">/bin/bash^M: bad interpreter: No such file or directory</h1>
-    
-     
-           <p itemprop="description" >在运行.sh脚本时遇到这样的错误/bin/bash^M: bad interpreter: No such file or directory，Google之后才找到原因
-在Windows中编写的脚本，直接在Linux下运行就可能会出现这样的问题。
-解决办法是：
-sed -</p>
-        
-    
-    <time datetime="2020-01-22T04:33:06.000Z" itemprop="datePublished">2020-01-22</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2020/01/16/kali-install-knock-20200116/" title="kali 安装 knock" itemprop="url">
-  
-    <h1 itemprop="name">kali 安装 knock</h1>
-    
-     
-           <p itemprop="description" >sudo apt-get install knockd
-关于Knock的原理与使用请参考鸟哥的教程
-使用 knock 管理防火牆</p>
-        
-    
-    <time datetime="2020-01-16T03:06:56.000Z" itemprop="datePublished">2020-01-16</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2019/12/16/PHP-debugging-20191216/" title="PHP Debugging" itemprop="url">
-  
-    <h1 itemprop="name">PHP Debugging</h1>
-    
-     
-           <p itemprop="description" >Dumping variables to stdout
-
-var_dump ($var) dumps the variable type and value to stdout.
-print_r ($var) prints the variable value in hum</p>
-        
-    
-    <time datetime="2019-12-16T07:07:04.000Z" itemprop="datePublished">2019-12-16</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2019/12/16/XXE-explanation-and-usage-20191216/" title="XXE 成因分析与应用" itemprop="url">
-  
-    <h1 itemprop="name">XXE 成因分析与应用</h1>
-    
-     
-           <p itemprop="description" >xxe简介
-XML External Entity Injection，xml外部实体注入漏洞
-当允许引用外部实体时，通过构造恶意内容可导致读取任意文件、执行系统命令、探测内网端口、攻击内网网站等危害。
-可能的场景
-很多的网站都会对xml文件进行解析，解析的时候都有可能出</p>
-        
-    
-    <time datetime="2019-12-16T03:12:37.000Z" itemprop="datePublished">2019-12-16</time>
   </a>
 </section>
 
@@ -336,7 +350,7 @@ XML External Entity Injection，xml外部实体注入漏洞
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -348,7 +362,7 @@ XML External Entity Injection，xml外部实体注入漏洞
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -381,7 +395,7 @@ XML External Entity Injection，xml外部实体注入漏洞
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -425,7 +439,19 @@ XML External Entity Injection，xml外部实体注入漏洞
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -437,19 +463,7 @@ XML External Entity Injection，xml外部实体注入漏洞
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Conda 环境管理 Conda的环境管理功能允许我们同时安装若干不同版本的Python，并能够自由切换。 # 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本），会提示环境的路径：Package plan for installation in environment /root/anaconda2/envs">
+    <meta name="description" content="Conda 环境管理 Conda的环境管理功能允许我们同时安装若干不同版本的Python，并能够自由切换。 # 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本），会提示环境的路径：Package plan for installation in environment /root/anaconda2/envs">
 <meta name="keywords" content="Python,Anaconda">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Anaconda 使用与问题解决">
 <meta property="og:url" content="http://flamepeak.com/2017/02/15/Anaconda-usage-20170215/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Conda 环境管理 Conda的环境管理功能允许我们同时安装若干不同版本的Python，并能够自由切换。 # 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本），会提示环境的路径：Package plan for installation in environment /root/anaconda2/envs">
+<meta property="og:description" content="Conda 环境管理 Conda的环境管理功能允许我们同时安装若干不同版本的Python，并能够自由切换。 # 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本），会提示环境的路径：Package plan for installation in environment /root/anaconda2/envs">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-03-03T03:42:08.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Anaconda 使用与问题解决">
-<meta name="twitter:description" content="Conda 环境管理 Conda的环境管理功能允许我们同时安装若干不同版本的Python，并能够自由切换。 # 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本），会提示环境的路径：Package plan for installation in environment /root/anaconda2/envs">
+<meta name="twitter:description" content="Conda 环境管理 Conda的环境管理功能允许我们同时安装若干不同版本的Python，并能够自由切换。 # 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本），会提示环境的路径：Package plan for installation in environment /root/anaconda2/envs">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,22 +97,29 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="conda-环境管理">Conda 环境管理</h3>
-<p>Conda的环境管理功能允许我们同时安装若干不同版本的Python，并能够自由切换。 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本），会提示环境的路径：Package plan for installation in environment /root/anaconda2/envs/python34</span></span><br><span class="line">conda create --name python34 python=3.4</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装好后，使用activate激活某个环境</span></span><br><span class="line">activate python34 <span class="comment"># for Windows</span></span><br><span class="line"><span class="built_in">source</span> activate python34 <span class="comment"># for Linux &amp; Mac</span></span><br><span class="line"><span class="comment"># 激活后，会发现terminal输入的地方多了python34的字样，实际上，此时系统做的事情就是把默认2.7环境从PATH中去除，再把3.4对应的命令加入PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 此时，再次输入</span></span><br><span class="line">python --version</span><br><span class="line"><span class="comment"># 可以得到`Python 3.4.5 :: Anaconda 4.1.1 (64-bit)`，即系统已经切换到了3.4的环境</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果想返回默认的python 2.7环境，运行</span></span><br><span class="line">deactivate python34 <span class="comment"># for Windows</span></span><br><span class="line"><span class="built_in">source</span> deactivate python34 <span class="comment"># for Linux &amp; Mac</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除一个已有的环境</span></span><br><span class="line">conda remove --name python34 --all</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看已经安装的环境,前被激活的环境会显示有一个星号或者括号。</span></span><br><span class="line">conda info -envs</span><br></pre></td></tr></table></figure></p>
-<h3 id="conda-包管理">Conda 包管理</h3>
-<p>Conda的包管理与<code>pip</code>功能类似。 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装scipy</span></span><br><span class="line">conda install scipy</span><br><span class="line"><span class="comment"># conda会从从远程搜索scipy的相关信息和依赖项目</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前环境下已安装的包</span></span><br><span class="line">conda list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看某个指定环境的已安装包</span></span><br><span class="line">conda list -n python34</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找package信息</span></span><br><span class="line">conda search numpy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装package</span></span><br><span class="line">conda install -n python34 numpy</span><br><span class="line"><span class="comment"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span></span><br><span class="line"><span class="comment"># 也可以通过-c指定通过某个channel安装</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新package</span></span><br><span class="line">conda update -n python34 numpy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除package</span></span><br><span class="line">conda remove -n python34 numpy</span><br></pre></td></tr></table></figure></p>
-<h3 id="anaconda-在opensuse中使用问题">Anaconda 在openSUSE中使用问题</h3>
+		<h3 id="conda-环境管理"><a class="markdownIt-Anchor" href="#conda-环境管理"></a> Conda 环境管理</h3>
+<p>Conda的环境管理功能允许我们同时安装若干不同版本的Python，并能够自由切换。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本），会提示环境的路径：Package plan for installation in environment /root/anaconda2/envs/python34</span></span><br><span class="line">conda create --name python34 python=3.4</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装好后，使用activate激活某个环境</span></span><br><span class="line">activate python34 <span class="comment"># for Windows</span></span><br><span class="line"><span class="built_in">source</span> activate python34 <span class="comment"># for Linux &amp; Mac</span></span><br><span class="line"><span class="comment"># 激活后，会发现terminal输入的地方多了python34的字样，实际上，此时系统做的事情就是把默认2.7环境从PATH中去除，再把3.4对应的命令加入PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 此时，再次输入</span></span><br><span class="line">python --version</span><br><span class="line"><span class="comment"># 可以得到`Python 3.4.5 :: Anaconda 4.1.1 (64-bit)`，即系统已经切换到了3.4的环境</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果想返回默认的python 2.7环境，运行</span></span><br><span class="line">deactivate python34 <span class="comment"># for Windows</span></span><br><span class="line"><span class="built_in">source</span> deactivate python34 <span class="comment"># for Linux &amp; Mac</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除一个已有的环境</span></span><br><span class="line">conda remove --name python34 --all</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看已经安装的环境,前被激活的环境会显示有一个星号或者括号。</span></span><br><span class="line">conda info -envs</span><br></pre></td></tr></table></figure>
+<h3 id="conda-包管理"><a class="markdownIt-Anchor" href="#conda-包管理"></a> Conda 包管理</h3>
+<p>Conda的包管理与<code>pip</code>功能类似。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装scipy</span></span><br><span class="line">conda install scipy</span><br><span class="line"><span class="comment"># conda会从从远程搜索scipy的相关信息和依赖项目</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前环境下已安装的包</span></span><br><span class="line">conda list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看某个指定环境的已安装包</span></span><br><span class="line">conda list -n python34</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找package信息</span></span><br><span class="line">conda search numpy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装package</span></span><br><span class="line">conda install -n python34 numpy</span><br><span class="line"><span class="comment"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span></span><br><span class="line"><span class="comment"># 也可以通过-c指定通过某个channel安装</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新package</span></span><br><span class="line">conda update -n python34 numpy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除package</span></span><br><span class="line">conda remove -n python34 numpy</span><br></pre></td></tr></table></figure>
+<h3 id="anaconda-在opensuse中使用问题"><a class="markdownIt-Anchor" href="#anaconda-在opensuse中使用问题"></a> Anaconda 在openSUSE中使用问题</h3>
 <p>在openSUSE中，如果使用当前用户安装Anaconda，在机器重启之后会出现输入密码无法进入界面（kde）的情况，弹出对话框<code>Could not start d-bus. can you call qdbus-qt5</code>，点击确定就会卡死在那里。</p>
 <p>这个问题在openSUSE官方论坛找到解决办法，<a href="https://forums.opensuse.org/showthread.php/520970-Could-not-start-d-bus-can-you-call-qdbus-qt5" target="_blank" rel="noopener">Thread: Could not start d-bus. can you call qdbus-qt5 ?</a></p>
-<p>现将解决办法摘出： &gt; i did install Anaconda before closing the last time</p>
+<p>现将解决办法摘出：</p>
+<blockquote>
+<p>i did install Anaconda before closing the last time</p>
+</blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; qtpaths --binaries-dir</span><br><span class="line">/home/haib/anaconda3/bin</span><br><span class="line"></span><br><span class="line">&gt; <span class="built_in">which</span> qtpaths</span><br><span class="line">/home/haib/anaconda3/bin/qtpaths</span><br></pre></td></tr></table></figure>
-<p>This means that <code>startkde</code> tries to find <code>qdbus-qt5</code> in <code>/home/haib/anaconda3/bin</code>, where it doesn't exist. You basically have these options to fix it:</p>
+<p>This means that <code>startkde</code> tries to find <code>qdbus-qt5</code> in <code>/home/haib/anaconda3/bin</code>, where it doesn’t exist.<br>
+You basically have these options to fix it:</p>
 <ul>
 <li>remove the <code>PATH=</code> line that the Anaconda installer added from your <code>~/.bashrc</code> and set the path manually before running Anaconda</li>
 <li>copy or symlink <code>qdbus-qt5</code> in <code>/home/haib/anaconda3/bin</code></li>
 <li>modify <code>/usr/bin/startkde</code> and add the explicit path to the call to <code>qtpaths</code>, i.e. replace <code>qtpaths</code> with <code>/usr/bin/qtpaths</code></li>
 </ul>
-<p>Btw, I submitted the second change to openSUSE's Plasma5 packages recently so this should not happen any more in Tumbleweed and Leap 42.2, but not yet as update for 42.1. Though, I still think it's a bug in Anaconda's installer that might break other things as well.</p>
+<p>Btw, I submitted the second change to openSUSE’s Plasma5 packages recently so this should not happen any more in Tumbleweed and Leap 42.2, but not yet as update for 42.1.<br>
+Though, I still think it’s a bug in Anaconda’s installer that might break other things as well.</p>
 <p>采用上面任何一种方法都可以解决这个问题，我个人是通过今日<code>iceWM</code>界面对<code>~/.bashrc</code>进行修改，注释掉PATH</p>
   
 	</div>
@@ -176,7 +183,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#conda-环境管理"><span class="toc-number">1.</span> <span class="toc-text">Conda 环境管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conda-包管理"><span class="toc-number">2.</span> <span class="toc-text">Conda 包管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#anaconda-在opensuse中使用问题"><span class="toc-number">3.</span> <span class="toc-text">Anaconda 在openSUSE中使用问题</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#conda-环境管理"><span class="toc-number">1.</span> <span class="toc-text"> Conda 环境管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conda-包管理"><span class="toc-number">2.</span> <span class="toc-text"> Conda 包管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#anaconda-在opensuse中使用问题"><span class="toc-number">3.</span> <span class="toc-text"> Anaconda 在openSUSE中使用问题</span></a></li></ol>
  
   </div>
 
@@ -209,7 +216,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -221,7 +228,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -254,7 +261,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -298,7 +305,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -310,19 +329,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

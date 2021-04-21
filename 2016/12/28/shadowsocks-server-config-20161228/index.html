@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="梯子商店： Shadowsocks指导篇（总结归类） 逗比根据地 Shadowsocks Install Debian/Ubuntu apt-get install python-pippip install shadowsocks CentOS yum install python-setuptools $$easy_install pippip install shadowsoc">
+    <meta name="description" content="梯子商店： Shadowsocks指导篇（总结归类） 逗比根据地  Shadowsocks  Install  Debian/Ubuntu apt-get install python-pippip install shadowsocks  CentOS yum install python-setuptools $$easy_install pippip install shadowsocks">
 <meta name="keywords" content="VPN,Shadowsocks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shadowsocks server 配置">
 <meta property="og:url" content="http://flamepeak.com/2016/12/28/shadowsocks-server-config-20161228/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="梯子商店： Shadowsocks指导篇（总结归类） 逗比根据地 Shadowsocks Install Debian/Ubuntu apt-get install python-pippip install shadowsocks CentOS yum install python-setuptools $$easy_install pippip install shadowsoc">
+<meta property="og:description" content="梯子商店： Shadowsocks指导篇（总结归类） 逗比根据地  Shadowsocks  Install  Debian/Ubuntu apt-get install python-pippip install shadowsocks  CentOS yum install python-setuptools $$easy_install pippip install shadowsocks">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-09-20T09:11:02.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shadowsocks server 配置">
-<meta name="twitter:description" content="梯子商店： Shadowsocks指导篇（总结归类） 逗比根据地 Shadowsocks Install Debian/Ubuntu apt-get install python-pippip install shadowsocks CentOS yum install python-setuptools $$easy_install pippip install shadowsoc">
+<meta name="twitter:description" content="梯子商店： Shadowsocks指导篇（总结归类） 逗比根据地  Shadowsocks  Install  Debian/Ubuntu apt-get install python-pippip install shadowsocks  CentOS yum install python-setuptools $$easy_install pippip install shadowsocks">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -99,22 +99,28 @@
 		
 		<p>梯子商店： <a href="https://doub.io/ss-jc26/" target="_blank" rel="noopener">Shadowsocks指导篇（总结归类）</a></p>
 <p><a href="https://doub.io/" target="_blank" rel="noopener">逗比根据地</a></p>
-<h2 id="shadowsocks">Shadowsocks</h2>
-<h3 id="install">Install</h3>
-<h4 id="debianubuntu">Debian/Ubuntu</h4>
+<h2 id="shadowsocks"><a class="markdownIt-Anchor" href="#shadowsocks"></a> Shadowsocks</h2>
+<h3 id="install"><a class="markdownIt-Anchor" href="#install"></a> Install</h3>
+<h4 id="debianubuntu"><a class="markdownIt-Anchor" href="#debianubuntu"></a> Debian/Ubuntu</h4>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install python-pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
-<h4 id="centos">CentOS</h4>
+<h4 id="centos"><a class="markdownIt-Anchor" href="#centos"></a> CentOS</h4>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install python-setuptools $$easy_install pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="usage">Usage</h3>
+<h3 id="usage"><a class="markdownIt-Anchor" href="#usage"></a> Usage</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssserver -p 443 -k password -m rc4-md5</span><br></pre></td></tr></table></figure>
-<p>如果要后台运行： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo ssserver -p -k password -m rc4-md5 --user nobody -d start</span><br></pre></td></tr></table></figure></p>
-<p>如果要停止： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo ssserver -d stop</span><br></pre></td></tr></table></figure></p>
-<p>日志文件： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo less /var/log/shadowsocks.log</span><br></pre></td></tr></table></figure></p>
-<p>或者,使用配置文件： 配置文件：<code>/etc/shadowsocks.json</code> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;server&quot;:&quot;172.31.17.22&quot;, //对于没有独立ip使用NAT上网的模式的，要查看自己ip</span><br><span class="line">     &quot;server_port&quot;:878, //自定义</span><br><span class="line">     &quot;local_port&quot;:108,</span><br><span class="line">     &quot;password&quot;:&quot;×××××××&quot;,</span><br><span class="line">     &quot;timeout&quot;:600,</span><br><span class="line">     &quot;method&quot;:&quot;aes-256-cfb&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>命令： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br></pre></td></tr></table></figure></p>
-<h2 id="shadowsocksr">ShadowsocksR</h2>
-<p>Client: https://github.com/shadowsocksrr/shadowsocksr-csharp/releases</p>
+<p>如果要后台运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo ssserver -p -k password -m rc4-md5 --user nobody -d start</span><br></pre></td></tr></table></figure>
+<p>如果要停止：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo ssserver -d stop</span><br></pre></td></tr></table></figure>
+<p>日志文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo less /var/log/shadowsocks.log</span><br></pre></td></tr></table></figure>
+<p>或者,使用配置文件：<br>
+配置文件：<code>/etc/shadowsocks.json</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;server&quot;:&quot;172.31.17.22&quot;, //对于没有独立ip使用NAT上网的模式的，要查看自己ip</span><br><span class="line">     &quot;server_port&quot;:878, //自定义</span><br><span class="line">     &quot;local_port&quot;:108,</span><br><span class="line">     &quot;password&quot;:&quot;×××××××&quot;,</span><br><span class="line">     &quot;timeout&quot;:600,</span><br><span class="line">     &quot;method&quot;:&quot;aes-256-cfb&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br></pre></td></tr></table></figure>
+<h2 id="shadowsocksr"><a class="markdownIt-Anchor" href="#shadowsocksr"></a> ShadowsocksR</h2>
+<p>Client: <a href="https://github.com/shadowsocksrr/shadowsocksr-csharp/releases" target="_blank" rel="noopener">https://github.com/shadowsocksrr/shadowsocksr-csharp/releases</a></p>
 <p>参考网址： <a href="https://doub.io/ss-jc11/" target="_blank" rel="noopener">ShadowsocksR 单用户版服务端安装教程</a></p>
 <p>Server config:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;server&quot;: &quot;172.31.22.19&quot;,</span><br><span class="line">    &quot;server_ipv6&quot;: &quot;::&quot;,</span><br><span class="line">    &quot;server_port&quot;: 8777,</span><br><span class="line">    &quot;local_address&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">    &quot;local_port&quot;: 1080,</span><br><span class="line"></span><br><span class="line">    &quot;password&quot;: &quot;cddddddddddddbie&quot;,</span><br><span class="line">    &quot;method&quot;: &quot;aes-128-ctr&quot;,</span><br><span class="line">    &quot;protocol&quot;: &quot;auth_aes128_md5&quot;,</span><br><span class="line">    &quot;protocol_param&quot;: &quot;&quot;,</span><br><span class="line">    &quot;obfs&quot;: &quot;tls1.2_ticket_auth_compatible&quot;,</span><br><span class="line">    &quot;obfs_param&quot;: &quot;&quot;,</span><br><span class="line">    &quot;speed_limit_per_con&quot;: 0,</span><br><span class="line">    &quot;speed_limit_per_user&quot;: 0,</span><br><span class="line"></span><br><span class="line">    &quot;additional_ports&quot; : &#123;&#125;, // only works under multi-user mode</span><br><span class="line">    &quot;additional_ports_only&quot; : false, // only works under multi-user mode</span><br><span class="line">    &quot;timeout&quot;: 120,</span><br><span class="line">    &quot;udp_timeout&quot;: 60,</span><br><span class="line">    &quot;dns_ipv6&quot;: false,</span><br><span class="line">    &quot;connect_verbose_info&quot;: 0,</span><br><span class="line">    &quot;redirect&quot;: &quot;&quot;,</span><br><span class="line">    &quot;fast_open&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -181,7 +187,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#shadowsocks"><span class="toc-number">1.</span> <span class="toc-text">Shadowsocks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#install"><span class="toc-number">1.1.</span> <span class="toc-text">Install</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#debianubuntu"><span class="toc-number">1.1.1.</span> <span class="toc-text">Debian/Ubuntu</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#centos"><span class="toc-number">1.1.2.</span> <span class="toc-text">CentOS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usage"><span class="toc-number">1.2.</span> <span class="toc-text">Usage</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shadowsocksr"><span class="toc-number">2.</span> <span class="toc-text">ShadowsocksR</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#shadowsocks"><span class="toc-number">1.</span> <span class="toc-text"> Shadowsocks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#install"><span class="toc-number">1.1.</span> <span class="toc-text"> Install</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#debianubuntu"><span class="toc-number">1.1.1.</span> <span class="toc-text"> Debian/Ubuntu</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#centos"><span class="toc-number">1.1.2.</span> <span class="toc-text"> CentOS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usage"><span class="toc-number">1.2.</span> <span class="toc-text"> Usage</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shadowsocksr"><span class="toc-number">2.</span> <span class="toc-text"> ShadowsocksR</span></a></li></ol>
  
   </div>
 
@@ -214,7 +220,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -226,7 +232,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -259,7 +265,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -303,7 +309,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -315,19 +333,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

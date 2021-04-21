@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Simple One:适用cookie 不会变化的情形 import requestsparams = &amp;#123;&apos;username&apos;: &apos;Ryan&apos;,\           &apos;password&apos;: &apos;password&apos;&amp;#125;r = requests.post(&quot;http://pythonscraping.com/pages/cookies/welcome.php&quot;, data=par">
+    <meta name="description" content="Simple One:适用cookie 不会变化的情形 import requestsparams = &amp;#123;&apos;username&apos;: &apos;Ryan&apos;,\           &apos;password&apos;: &apos;password&apos;&amp;#125;r = requests.post(&quot;http://pythonscraping.com/pages/cookies/welcome.php&quot;, data=para">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python requests 301&#x2F;302&#x2F;303重定向cookie和Location问题">
 <meta property="og:url" content="http://flamepeak.com/2016/01/14/python-requests-cookies-usage/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Simple One:适用cookie 不会变化的情形 import requestsparams = &amp;#123;&apos;username&apos;: &apos;Ryan&apos;,\           &apos;password&apos;: &apos;password&apos;&amp;#125;r = requests.post(&quot;http://pythonscraping.com/pages/cookies/welcome.php&quot;, data=par">
+<meta property="og:description" content="Simple One:适用cookie 不会变化的情形 import requestsparams = &amp;#123;&apos;username&apos;: &apos;Ryan&apos;,\           &apos;password&apos;: &apos;password&apos;&amp;#125;r = requests.post(&quot;http://pythonscraping.com/pages/cookies/welcome.php&quot;, data=para">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-04-09T23:51:22.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python requests 301&#x2F;302&#x2F;303重定向cookie和Location问题">
-<meta name="twitter:description" content="Simple One:适用cookie 不会变化的情形 import requestsparams = &amp;#123;&apos;username&apos;: &apos;Ryan&apos;,\           &apos;password&apos;: &apos;password&apos;&amp;#125;r = requests.post(&quot;http://pythonscraping.com/pages/cookies/welcome.php&quot;, data=par">
+<meta name="twitter:description" content="Simple One:适用cookie 不会变化的情形 import requestsparams = &amp;#123;&apos;username&apos;: &apos;Ryan&apos;,\           &apos;password&apos;: &apos;password&apos;&amp;#125;r = requests.post(&quot;http://pythonscraping.com/pages/cookies/welcome.php&quot;, data=para">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -98,8 +98,10 @@
 	<div class="article-content">
 		
 		<hr>
-<p>Simple One:适用cookie 不会变化的情形 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">params = &#123;<span class="string">'username'</span>: <span class="string">'Ryan'</span>,\</span><br><span class="line">           <span class="string">'password'</span>: <span class="string">'password'</span>&#125;</span><br><span class="line">r = requests.post(<span class="string">"http://pythonscraping.com/pages/cookies/welcome.php"</span>, data=params)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Cookie is set to:"</span></span><br><span class="line"><span class="keyword">print</span> r.cookies.get_dict()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"-----------------"</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Going to profile page..."</span></span><br><span class="line">r = requests.get(<span class="string">"http://pythonscraping.com/pages/cookies/profile.php"</span>, cookies = r.cookies)</span><br><span class="line"><span class="keyword">print</span> r.text</span><br></pre></td></tr></table></figure></p>
-<p>Complex One:适用于cookie可能会被修改的情况下, 使用request.Session <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">sess = requests.Session()</span><br><span class="line">params = &#123;<span class="string">'username'</span>: <span class="string">'Ryan'</span>,\</span><br><span class="line">           <span class="string">'password'</span>: <span class="string">'password'</span>&#125;</span><br><span class="line">s = sess.post(<span class="string">"http://pythonscraping.com/pages/cookies/welcome.php"</span>, data=params)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Cookie is set to:"</span></span><br><span class="line"><span class="keyword">print</span> s.cookies.get_dict()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"----------------"</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Going to profile page..."</span></span><br><span class="line">s = sess.get(<span class="string">"http://pythonscraping.com/pages/cookies/profile.php"</span>)</span><br><span class="line"><span class="keyword">print</span> s.text</span><br></pre></td></tr></table></figure></p>
+<p>Simple One:适用cookie 不会变化的情形</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">params = &#123;<span class="string">'username'</span>: <span class="string">'Ryan'</span>,\</span><br><span class="line">           <span class="string">'password'</span>: <span class="string">'password'</span>&#125;</span><br><span class="line">r = requests.post(<span class="string">"http://pythonscraping.com/pages/cookies/welcome.php"</span>, data=params)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Cookie is set to:"</span></span><br><span class="line"><span class="keyword">print</span> r.cookies.get_dict()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"-----------------"</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Going to profile page..."</span></span><br><span class="line">r = requests.get(<span class="string">"http://pythonscraping.com/pages/cookies/profile.php"</span>, cookies = r.cookies)</span><br><span class="line"><span class="keyword">print</span> r.text</span><br></pre></td></tr></table></figure>
+<p>Complex One:适用于cookie可能会被修改的情况下, 使用request.Session</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">sess = requests.Session()</span><br><span class="line">params = &#123;<span class="string">'username'</span>: <span class="string">'Ryan'</span>,\</span><br><span class="line">           <span class="string">'password'</span>: <span class="string">'password'</span>&#125;</span><br><span class="line">s = sess.post(<span class="string">"http://pythonscraping.com/pages/cookies/welcome.php"</span>, data=params)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Cookie is set to:"</span></span><br><span class="line"><span class="keyword">print</span> s.cookies.get_dict()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"----------------"</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Going to profile page..."</span></span><br><span class="line">s = sess.get(<span class="string">"http://pythonscraping.com/pages/cookies/profile.php"</span>)</span><br><span class="line"><span class="keyword">print</span> s.text</span><br></pre></td></tr></table></figure>
 <hr>
 <p><a href="http://docs.python-requests.org/zh_CN/latest/user/advanced.html" target="_blank" rel="noopener">python requests session的用法</a></p>
 <p>跨请求保持一些 cookie</p>
@@ -108,21 +110,21 @@
 <p>可以参考: <a href="https://www.cnblogs.com/zengguowang/archive/2018/02/02/8404087.html" target="_blank" rel="noopener">Python requests 301/302/303重定向（跨域/本域）cookie、Location问题</a></p>
 <p>原文如下：</p>
 <p>今天使用request的get方法获取一个网站的登录页信息，结果使用charles抓包的时候发现该网站登录页303(重定向的问题)，网上查了很多资料，原因如下：</p>
-<h3 id="一-cookie">一、 Cookie</h3>
+<h3 id="一-cookie"><a class="markdownIt-Anchor" href="#一-cookie"></a> 一、 Cookie</h3>
 <p>原因：利用requests模拟登录时，直接使用request.get(url),容易造成 301/302/303 重定向，因为cookie不持久，造成重定向之后的cookie等信息获取不到</p>
-<h4 id="同一个host下边重定向">（1） 同一个Host下边重定向</h4>
+<h4 id="1-同一个host下边重定向"><a class="markdownIt-Anchor" href="#1-同一个host下边重定向"></a> （1） 同一个Host下边重定向</h4>
 <p>解决方法：使用requests.Session()方法，会使该连接持久化，并且保存请求的状态（session、cookie等），这样在重定向之后，我们使用requests.cookies就能获取到cookie了</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">result = requests.Session()</span><br><span class="line">header = &#123;</span><br><span class="line">    <span class="string">'Host'</span> : <span class="string">'xxxxx'</span>,</span><br><span class="line">    <span class="string">'Accept'</span> : <span class="string">'xxxx'</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'xxxx'</span> <span class="comment"># 这个最重要，建议手动设置（有时候没有设置，造成获取数据失败，本人被坑过......）</span></span><br><span class="line">&#125;</span><br><span class="line">response = result.get(url, headers=header)</span><br></pre></td></tr></table></figure>
 <p><code>注意：上面讲的重定向是在同一个host下重定向，跨域的重定向用上边的方法就获取不到cookie</code></p>
-<h4 id="跨域重定向">(2) 跨域重定向</h4>
-<p>示例：A(http://a.kuyu.com/login)-&gt;B(http://b.baidu.com/xxxxx)-&gt;C(http://b.baidu.com/xxxx/xxxx)，类似这种形式，那么使用第一种解决办法就无法获取到cookie，这时候就需要变换一种方式来进行获取</p>
+<h4 id="2-跨域重定向"><a class="markdownIt-Anchor" href="#2-跨域重定向"></a> (2) 跨域重定向</h4>
+<p>示例：A(<a href="http://a.kuyu.com/login" target="_blank" rel="noopener">http://a.kuyu.com/login</a>)-&gt;B(<a href="http://b.baidu.com/xxxxx" target="_blank" rel="noopener">http://b.baidu.com/xxxxx</a>)-&gt;C(<a href="http://b.baidu.com/xxxx/xxxx" target="_blank" rel="noopener">http://b.baidu.com/xxxx/xxxx</a>)，类似这种形式，那么使用第一种解决办法就无法获取到cookie，这时候就需要变换一种方式来进行获取</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 获取请求url域名</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHost</span><span class="params">(url)</span>:</span></span><br><span class="line">    pattern = re.compile(<span class="string">r'(.*?)://(.*?)/'</span>, re.S)</span><br><span class="line">    response = re.search(pattern, url)</span><br><span class="line">    <span class="keyword">if</span> response:</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">'header'</span>:str(response.group(<span class="number">1</span>)).strip(), <span class="string">'host'</span>: str(response.group(<span class="number">2</span>)).strip()&#125;</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">cookieType = &#123;&#125; <span class="comment"># 保存域名对应的cookie</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getRedirectCookie</span><span class="params">(url)</span>:</span></span><br><span class="line">    locationList = set()</span><br><span class="line">    cookie = <span class="string">''</span></span><br><span class="line">    resUrl = url  <span class="comment"># 获取最后请求url</span></span><br><span class="line">    header = &#123;</span><br><span class="line">        <span class="string">'User-Agen'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            <span class="comment"># 请求</span></span><br><span class="line">            response = requests.get(url, headers=header, allow_redirects=<span class="keyword">False</span>)</span><br><span class="line">            <span class="comment"># 获取host</span></span><br><span class="line">            hostObj = getHost(resUrl)</span><br><span class="line">            <span class="keyword">if</span> hostObj <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">            <span class="comment"># 处理cookie</span></span><br><span class="line">            cookie = response.cookies.get_dict()</span><br><span class="line">            <span class="keyword">if</span> cookie == &#123;&#125;:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                cookieType[str(hostObj[<span class="string">'host'</span>]).strip()] = json.dumps(cookie)  <span class="comment"># 保存cookie</span></span><br><span class="line">            <span class="comment"># 获取跳转的url</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">'Location'</span> <span class="keyword">in</span> response.headers.keys():</span><br><span class="line">                url = response.headers.get(<span class="string">'Location'</span>)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> <span class="string">'http'</span> <span class="keyword">in</span> url:</span><br><span class="line">                    url = hostObj[<span class="string">'header'</span>] + <span class="string">'://'</span> + hostObj[<span class="string">'host'</span>] + url  <span class="comment"># 拼接host域名</span></span><br><span class="line"></span><br><span class="line">                resUrl = url</span><br><span class="line">                <span class="keyword">if</span> url <span class="keyword">in</span> locationList: <span class="keyword">break</span></span><br><span class="line">                locationList.add(url)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">'url'</span>: str(resUrl), <span class="string">'content'</span>: response.content, <span class="string">'header'</span>: response.headers&#125;</span><br><span class="line">    <span class="keyword">except</span> urllib2.URLError, e:</span><br><span class="line">        <span class="keyword">if</span> hasattr(e, <span class="string">'reason'</span>):</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'请求失败，原因：'</span> + e.reason</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong>： 有时候执行带有重定向的时候会出现："requests.exceptions.TooManyRedirects: Exceeded 30 redirects."的情况，那么这时候是说重定向次数上限了，也可以使用上边的这种方式来解决</p>
-<h3 id="location重定向url获取重定向url">Location（重定向url）:获取重定向url</h3>
+<p><strong>注意</strong>： 有时候执行带有重定向的时候会出现：&quot;requests.exceptions.TooManyRedirects: Exceeded 30 redirects.&quot;的情况，那么这时候是说重定向次数上限了，也可以使用上边的这种方式来解决</p>
+<h3 id="location重定向url获取重定向url"><a class="markdownIt-Anchor" href="#location重定向url获取重定向url"></a> Location（重定向url）:获取重定向url</h3>
 <p>有时候遇到重定向，我们只需要获取重定向的url即可，这个时候使用上述方法开启一个保持状态的长连接，并请求时获取不到的请求的headers的，那么我们该怎么办呢？</p>
 <p>解决：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">result = requests.Session()</span><br><span class="line">header = &#123;</span><br><span class="line">    <span class="string">'Host'</span> : <span class="string">'xxxxx'</span>,</span><br><span class="line">    <span class="string">'Accept'</span> : <span class="string">'xxxx'</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'xxxx'</span> <span class="comment"># 这个最重要，建议手动设置（有时候没有设置，造成获取数据失败，本人被坑过......）</span></span><br><span class="line">&#125;</span><br><span class="line">response = result.get(url, headers=header, allow_redirects=<span class="keyword">False</span>)</span><br><span class="line">location = response.headers[<span class="string">'Location'</span>] <span class="comment"># 注意有些header返回的Location中的url是不带host部分的，需要注意一下</span></span><br></pre></td></tr></table></figure>
-<p><code>allow_redirects=False</code> 的意义为拒绝默认的301/302/303重定向从而可以通过response.headers['Location']拿到重定向的URL。</p>
+<p><code>allow_redirects=False</code> 的意义为拒绝默认的301/302/303重定向从而可以通过response.headers[‘Location’]拿到重定向的URL。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -177,7 +179,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-cookie"><span class="toc-number">1.</span> <span class="toc-text">一、 Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#同一个host下边重定向"><span class="toc-number">1.1.</span> <span class="toc-text">（1） 同一个Host下边重定向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#跨域重定向"><span class="toc-number">1.2.</span> <span class="toc-text">(2) 跨域重定向</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#location重定向url获取重定向url"><span class="toc-number">2.</span> <span class="toc-text">Location（重定向url）:获取重定向url</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-cookie"><span class="toc-number">1.</span> <span class="toc-text"> 一、 Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-同一个host下边重定向"><span class="toc-number">1.1.</span> <span class="toc-text"> （1） 同一个Host下边重定向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-跨域重定向"><span class="toc-number">1.2.</span> <span class="toc-text"> (2) 跨域重定向</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#location重定向url获取重定向url"><span class="toc-number">2.</span> <span class="toc-text"> Location（重定向url）:获取重定向url</span></a></li></ol>
  
   </div>
 
@@ -210,7 +212,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -222,7 +224,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -255,7 +257,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -299,7 +301,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -311,19 +325,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

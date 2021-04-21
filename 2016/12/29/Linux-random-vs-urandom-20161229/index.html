@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="/dev/random In Unix-like operating systems, /dev/random is a special file that serves as a blocking pseudorandom number generator. It allows access to environmental noise collected from device driver">
+    <meta name="description" content="/dev/random In Unix-like operating systems, /dev/random is a special file that serves as a blocking pseudorandom number generator. It allows access to environmental noise collected from device driver">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux random vs urandom 区别">
 <meta property="og:url" content="http://flamepeak.com/2016/12/29/Linux-random-vs-urandom-20161229/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="/dev/random In Unix-like operating systems, /dev/random is a special file that serves as a blocking pseudorandom number generator. It allows access to environmental noise collected from device driver">
+<meta property="og:description" content="/dev/random In Unix-like operating systems, /dev/random is a special file that serves as a blocking pseudorandom number generator. It allows access to environmental noise collected from device driver">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:46:28.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux random vs urandom 区别">
-<meta name="twitter:description" content="/dev/random In Unix-like operating systems, /dev/random is a special file that serves as a blocking pseudorandom number generator. It allows access to environmental noise collected from device driver">
+<meta name="twitter:description" content="/dev/random In Unix-like operating systems, /dev/random is a special file that serves as a blocking pseudorandom number generator. It allows access to environmental noise collected from device driver">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,20 +97,20 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="devrandom">/dev/random</h3>
+		<h3 id="devrandom"><a class="markdownIt-Anchor" href="#devrandom"></a> /dev/random</h3>
 <p>In Unix-like operating systems, <code>/dev/random</code> is a special file that serves as a blocking pseudorandom number generator. It allows access to environmental noise collected from device drivers and other sources.</p>
 <p>The generator keeps an estimate of the number of bits of noise in the entropy pool. From this entropy pool random numbers are created. When read, the <code>/dev/random</code> device will only return random bytes within the estimated number of bits of noise in the entropy pool. <code>/dev/random</code> should be suitable for uses that need very high quality randomness such as one-time pad or key generation. When the entropy pool is empty, reads from <code>/dev/random</code> will block until additional environmental noise is gathered.</p>
 <p>The intent is to serve as a cryptographically secure pseudorandom number generator, delivering output with entropy as large as possible. This is suggested by the authors for use in generating cryptographic keys for high-value or long-term protection.</p>
-<h3 id="devurandom">/dev/urandom</h3>
+<h3 id="devurandom"><a class="markdownIt-Anchor" href="#devurandom"></a> /dev/urandom</h3>
 <p>A counterpart to <code>/dev/random</code> is <code>/dev/urandom</code> (unlimited/non-blocking random source) which reuses the internal pool to produce more pseudo-random bits. This means that the call will not block, but the output may contain less entropy than the corresponding read from <code>/dev/random</code>. While <code>/dev/urandom</code> is still intended as a pseudorandom number generator suitable for most cryptographic purposes, the authors of the corresponding man page note that, theoretically, <strong>there may exist an as-yet-unpublished attack on the algorithm</strong> used by <code>/dev/urandom</code>, and that users concerned about such an attack should use <code>/dev/random</code> instead.</p>
-<h3 id="conclusion">Conclusion</h3>
-<h4 id="devurandom-is-best-used-when"><code>/dev/urandom</code> is best used when:</h4>
+<h3 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h3>
+<h4 id="devurandom-is-best-used-when"><a class="markdownIt-Anchor" href="#devurandom-is-best-used-when"></a> <code>/dev/urandom</code> is best used when:</h4>
 <ul>
 <li>You just want a large file with random data for some kind of testing.</li>
 <li>You are using the dd command to wipe data off a disk by replacing it with random data.</li>
 <li>Almost everywhere else where you don’t have a really good reason to use <code>/dev/random</code> instead.</li>
 </ul>
-<h4 id="devrandom-is-likely-to-be-the-better-choice-when"><code>/dev/random</code> is likely to be the better choice when:</h4>
+<h4 id="devrandom-is-likely-to-be-the-better-choice-when"><a class="markdownIt-Anchor" href="#devrandom-is-likely-to-be-the-better-choice-when"></a> <code>/dev/random</code> is likely to be the better choice when:</h4>
 <ul>
 <li>Randomness is critical to the security of cryptography in your application – one-time pads, key generation.</li>
 </ul>
@@ -176,7 +176,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#devrandom"><span class="toc-number">1.</span> <span class="toc-text">/dev/random</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#devurandom"><span class="toc-number">2.</span> <span class="toc-text">/dev/urandom</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conclusion"><span class="toc-number">3.</span> <span class="toc-text">Conclusion</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#devurandom-is-best-used-when"><span class="toc-number">3.1.</span> <span class="toc-text">/dev/urandom is best used when:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#devrandom-is-likely-to-be-the-better-choice-when"><span class="toc-number">3.2.</span> <span class="toc-text">/dev/random is likely to be the better choice when:</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#devrandom"><span class="toc-number">1.</span> <span class="toc-text"> /dev/random</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#devurandom"><span class="toc-number">2.</span> <span class="toc-text"> /dev/urandom</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conclusion"><span class="toc-number">3.</span> <span class="toc-text"> Conclusion</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#devurandom-is-best-used-when"><span class="toc-number">3.1.</span> <span class="toc-text"> /dev/urandom is best used when:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#devrandom-is-likely-to-be-the-better-choice-when"><span class="toc-number">3.2.</span> <span class="toc-text"> /dev/random is likely to be the better choice when:</span></a></li></ol></li></ol>
  
   </div>
 
@@ -209,7 +209,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -221,7 +221,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -254,7 +254,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -298,7 +298,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -310,19 +322,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

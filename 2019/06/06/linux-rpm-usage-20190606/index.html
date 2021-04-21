@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="今天看到一个视频，视频在centos中使用yum安装了nginx，然后使用rpm -ql nginx查看已经安装的文件（包含路径）。 原来，rpm还可以这样用。 参考： Linux rpm 使用详解 常用参数： -i, --install                     install package(s)-v, --verbose                     provi">
+    <meta name="description" content="今天看到一个视频，视频在centos中使用yum安装了nginx，然后使用rpm -ql nginx查看已经安装的文件（包含路径）。 原来，rpm还可以这样用。 参考： Linux rpm 使用详解 常用参数： -i, --install                     install package(s)-v, --verbose                     provide">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux rpm 命令使用">
 <meta property="og:url" content="http://flamepeak.com/2019/06/06/linux-rpm-usage-20190606/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="今天看到一个视频，视频在centos中使用yum安装了nginx，然后使用rpm -ql nginx查看已经安装的文件（包含路径）。 原来，rpm还可以这样用。 参考： Linux rpm 使用详解 常用参数： -i, --install                     install package(s)-v, --verbose                     provi">
+<meta property="og:description" content="今天看到一个视频，视频在centos中使用yum安装了nginx，然后使用rpm -ql nginx查看已经安装的文件（包含路径）。 原来，rpm还可以这样用。 参考： Linux rpm 使用详解 常用参数： -i, --install                     install package(s)-v, --verbose                     provide">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-06-06T01:45:30.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux rpm 命令使用">
-<meta name="twitter:description" content="今天看到一个视频，视频在centos中使用yum安装了nginx，然后使用rpm -ql nginx查看已经安装的文件（包含路径）。 原来，rpm还可以这样用。 参考： Linux rpm 使用详解 常用参数： -i, --install                     install package(s)-v, --verbose                     provi">
+<meta name="twitter:description" content="今天看到一个视频，视频在centos中使用yum安装了nginx，然后使用rpm -ql nginx查看已经安装的文件（包含路径）。 原来，rpm还可以这样用。 参考： Linux rpm 使用详解 常用参数： -i, --install                     install package(s)-v, --verbose                     provide">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -99,9 +99,12 @@
 		
 		<p>今天看到一个视频，视频在centos中使用yum安装了nginx，然后使用<code>rpm -ql nginx</code>查看已经安装的文件（包含路径）。</p>
 <p>原来，rpm还可以这样用。</p>
-<p>参考： <a href="https://www.cnblogs.com/xiaochaohuashengmi/archive/2011/10/08/2203153.html" target="_blank" rel="noopener">Linux rpm 使用详解</a></p>
-<p>常用参数： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-i, --install                     install package(s)</span><br><span class="line">-v, --verbose                     provide more detailed output</span><br><span class="line">-h, --hash                        print hash marks as package installs (good with -v)</span><br><span class="line">-e, --erase                       erase (uninstall) package</span><br><span class="line">-U, --upgrade=&lt;packagefile&gt;+      upgrade package(s)</span><br><span class="line">－-replacepkge                    无论软件包是否已被安装，都强行安装软件包</span><br><span class="line">--test                            安装测试，并不实际安装</span><br><span class="line">--nodeps                          忽略软件包的依赖关系强行安装</span><br><span class="line">--force                           忽略软件包及文件的冲突</span><br><span class="line"></span><br><span class="line">Query options (with -q or --query):</span><br><span class="line">-a, --all                         query/verify all packages</span><br><span class="line">-p, --package                     query/verify a package file</span><br><span class="line">-l, --list                        list files in package</span><br><span class="line">-d, --docfiles                    list all documentation files</span><br><span class="line">-f, --file                        query/verify package(s) owning file</span><br></pre></td></tr></table></figure></p>
-<p>常用命令组合： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">－ivh：安装显示安装进度--install--verbose--hash</span><br><span class="line">－Uvh：升级软件包--Update；</span><br><span class="line">－qpl：列出RPM软件包内的文件信息[Query Package list]；</span><br><span class="line">-ql: 列出已经安装的文件和路径</span><br><span class="line">－qpi：列出RPM软件包的描述信息[Query Package install package(s)]；</span><br><span class="line">－qf：查找指定文件属于哪个RPM软件包[Query File]；</span><br><span class="line">－Va：校验所有的RPM软件包，查找丢失的文件[View Lost]；</span><br><span class="line">－e：删除包</span><br></pre></td></tr></table></figure></p>
+<p>参考：<br>
+<a href="https://www.cnblogs.com/xiaochaohuashengmi/archive/2011/10/08/2203153.html" target="_blank" rel="noopener">Linux rpm 使用详解</a></p>
+<p>常用参数：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-i, --install                     install package(s)</span><br><span class="line">-v, --verbose                     provide more detailed output</span><br><span class="line">-h, --hash                        print hash marks as package installs (good with -v)</span><br><span class="line">-e, --erase                       erase (uninstall) package</span><br><span class="line">-U, --upgrade=&lt;packagefile&gt;+      upgrade package(s)</span><br><span class="line">－-replacepkge                    无论软件包是否已被安装，都强行安装软件包</span><br><span class="line">--test                            安装测试，并不实际安装</span><br><span class="line">--nodeps                          忽略软件包的依赖关系强行安装</span><br><span class="line">--force                           忽略软件包及文件的冲突</span><br><span class="line"></span><br><span class="line">Query options (with -q or --query):</span><br><span class="line">-a, --all                         query/verify all packages</span><br><span class="line">-p, --package                     query/verify a package file</span><br><span class="line">-l, --list                        list files in package</span><br><span class="line">-d, --docfiles                    list all documentation files</span><br><span class="line">-f, --file                        query/verify package(s) owning file</span><br></pre></td></tr></table></figure>
+<p>常用命令组合：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">－ivh：安装显示安装进度--install--verbose--hash</span><br><span class="line">－Uvh：升级软件包--Update；</span><br><span class="line">－qpl：列出RPM软件包内的文件信息[Query Package list]；</span><br><span class="line">-ql: 列出已经安装的文件和路径</span><br><span class="line">－qpi：列出RPM软件包的描述信息[Query Package install package(s)]；</span><br><span class="line">－qf：查找指定文件属于哪个RPM软件包[Query File]；</span><br><span class="line">－Va：校验所有的RPM软件包，查找丢失的文件[View Lost]；</span><br><span class="line">－e：删除包</span><br></pre></td></tr></table></figure>
 <p>===</p>
 <p>查询功能：</p>
 <p>1、对系统中已安装软件的查询<br>
@@ -124,11 +127,16 @@
 <hr>
 <p>2、对于未安装的软件包的查看<br>
 查看的前提是您有一个.rpm 的文件，也就是说对既有软件file.rpm的查看等；</p>
-<p>1）查看一个软件包的用途、版本等信息 语法： rpm -qpi file.rpm</p>
-<p>2）查看一件软件包所包含的文件 语法： rpm -qpl file.rpm</p>
-<p>3）查看软件包的文档所在的位置 语法： rpm -qpd file.rpm</p>
-<p>4）查看一个软件包的依赖关系 语法： rpm -qpR file.rpm</p>
-<p>5）查看一个软件包的配置文件 语法： rpm -qpc file.rpm</p>
+<p>1）查看一个软件包的用途、版本等信息<br>
+语法： rpm -qpi file.rpm</p>
+<p>2）查看一件软件包所包含的文件<br>
+语法： rpm -qpl file.rpm</p>
+<p>3）查看软件包的文档所在的位置<br>
+语法： rpm -qpd file.rpm</p>
+<p>4）查看一个软件包的依赖关系<br>
+语法： rpm -qpR file.rpm</p>
+<p>5）查看一个软件包的配置文件<br>
+语法： rpm -qpc file.rpm</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -224,7 +232,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -236,7 +244,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -269,7 +277,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -313,7 +321,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -325,19 +345,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

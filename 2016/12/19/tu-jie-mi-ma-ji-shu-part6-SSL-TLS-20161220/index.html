@@ -13,13 +13,13 @@
     
 
     
-    <meta name="description" content="SSL/TLS——为了更安全的通信 SSL/TLS是世界上应用最广发的密码通信方法。使用SSL/TLS可以对通信对象进行认证，还可以确保通信内容的机密性。 严格来说，SSL（Secure Socket Layer）与TLS（Transport Layer Security）是不同的，TLS相当于是SSL的后续版本。 什么是SSL/TLS 我们可以用SSL或者TLS作为对通信进行加密的协议，">
+    <meta name="description" content="SSL/TLS——为了更安全的通信 SSL/TLS是世界上应用最广发的密码通信方法。使用SSL/TLS可以对通信对象进行认证，还可以确保通信内容的机密性。 严格来说，SSL（Secure Socket Layer）与TLS（Transport Layer Security）是不同的，TLS相当于是SSL的后续版本。  什么是SSL/TLS 我们可以用SSL或者TLS作为对通信进行加密的协议，然后在">
 <meta name="keywords" content="笔记,cryptography">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图解密码技术 读书笔记：SSL&#x2F;TLS">
 <meta property="og:url" content="http://flamepeak.com/2016/12/19/tu-jie-mi-ma-ji-shu-part6-SSL-TLS-20161220/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="SSL/TLS——为了更安全的通信 SSL/TLS是世界上应用最广发的密码通信方法。使用SSL/TLS可以对通信对象进行认证，还可以确保通信内容的机密性。 严格来说，SSL（Secure Socket Layer）与TLS（Transport Layer Security）是不同的，TLS相当于是SSL的后续版本。 什么是SSL/TLS 我们可以用SSL或者TLS作为对通信进行加密的协议，">
+<meta property="og:description" content="SSL/TLS——为了更安全的通信 SSL/TLS是世界上应用最广发的密码通信方法。使用SSL/TLS可以对通信对象进行认证，还可以确保通信内容的机密性。 严格来说，SSL（Secure Socket Layer）与TLS（Transport Layer Security）是不同的，TLS相当于是SSL的后续版本。  什么是SSL/TLS 我们可以用SSL或者TLS作为对通信进行加密的协议，然后在">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20161220/TLS_protocol.png">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20161220/TLS_record_protocol.png">
@@ -28,7 +28,7 @@
 <meta property="og:updated_time" content="2017-01-31T00:42:14.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图解密码技术 读书笔记：SSL&#x2F;TLS">
-<meta name="twitter:description" content="SSL/TLS——为了更安全的通信 SSL/TLS是世界上应用最广发的密码通信方法。使用SSL/TLS可以对通信对象进行认证，还可以确保通信内容的机密性。 严格来说，SSL（Secure Socket Layer）与TLS（Transport Layer Security）是不同的，TLS相当于是SSL的后续版本。 什么是SSL/TLS 我们可以用SSL或者TLS作为对通信进行加密的协议，">
+<meta name="twitter:description" content="SSL/TLS——为了更安全的通信 SSL/TLS是世界上应用最广发的密码通信方法。使用SSL/TLS可以对通信对象进行认证，还可以确保通信内容的机密性。 严格来说，SSL（Secure Socket Layer）与TLS（Transport Layer Security）是不同的，TLS相当于是SSL的后续版本。  什么是SSL/TLS 我们可以用SSL或者TLS作为对通信进行加密的协议，然后在">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/20161220/TLS_protocol.png">
 
     
@@ -105,46 +105,93 @@
 		<p>SSL/TLS——为了更安全的通信</p>
 <p>SSL/TLS是世界上应用最广发的密码通信方法。使用SSL/TLS可以对通信对象进行认证，还可以确保通信内容的机密性。</p>
 <p>严格来说，SSL（Secure Socket Layer）与TLS（Transport Layer Security）是不同的，TLS相当于是SSL的后续版本。</p>
-<h3 id="什么是ssltls">什么是SSL/TLS</h3>
+<h3 id="什么是ssltls"><a class="markdownIt-Anchor" href="#什么是ssltls"></a> 什么是SSL/TLS</h3>
 <p>我们可以用SSL或者TLS作为对通信进行加密的协议，然后在此之上承载HTTP。通过将这两种协议进行叠加，我们就可以对HTTP的通信进行加密，从而防止窃听。通过SSL/TLS进行通信时，URL不是以<code>http://</code>开头，而是以<code>https://</code>开头。</p>
-<p>要确保机密性，可以使用<strong>对称密码</strong>。由于对称密码的密钥不能被攻击者预测，因此我们使用<strong>伪随机数生成器</strong>来生成密钥。若要将对称密码的密钥发送给通信对象，可以使用<strong>公钥密码</strong>或者<strong>Diffie-Hellman</strong>密钥交换。 要识别篡改，对数据进行认证，可以使用<strong>消息认证码</strong>。消息认证码是使用<strong>单向散列函数</strong>来实现的。 要对通信对象进行认证，可以使用对公钥加上<strong>数字签名</strong>所生成的证书。</p>
+<p>要确保机密性，可以使用<strong>对称密码</strong>。由于对称密码的密钥不能被攻击者预测，因此我们使用<strong>伪随机数生成器</strong>来生成密钥。若要将对称密码的密钥发送给通信对象，可以使用<strong>公钥密码</strong>或者<strong>Diffie-Hellman</strong>密钥交换。<br>
+要识别篡改，对数据进行认证，可以使用<strong>消息认证码</strong>。消息认证码是使用<strong>单向散列函数</strong>来实现的。<br>
+要对通信对象进行认证，可以使用对公钥加上<strong>数字签名</strong>所生成的证书。</p>
 <p>SSL/TLS提供了一种密码通信的框架，这意味着SSL/TLS中使用对称密码、公钥密码、数字签名、单向散列函数等技术，都是可以像零件一样进行替换的。也就是说，如果发现现在所使用的某个密码技术存在弱点，那么只需要将这一部分进行替换就可以了。</p>
 <p>由于实际进行对话的客户端和服务器必须使用相同的密码技术才能通信，如果选择过于自由就难以保证整体的兼容性。为此，SSL/TLS就规定了一些<strong>密码套件</strong>（cipher suite）。</p>
-<h3 id="使用ssltls进行通信">使用SSL/TLS进行通信</h3>
+<h3 id="使用ssltls进行通信"><a class="markdownIt-Anchor" href="#使用ssltls进行通信"></a> 使用SSL/TLS进行通信</h3>
 <p>下面内容基于TLS 1.0。</p>
-<h4 id="层次化的协议">层次化的协议</h4>
-<p><strong>TLS协议</strong>是由“TLS记录协议”（TLS record protocol）和“TLS握手协议”（TLS handshake protocol）这两层协议叠加而成的。位于底层的TLS记录协议负责加密，而位于上层的TLS握手协议则负责除加密以外的其他各种操作。上层的TLS握手协议又可以分为4个子协议。 TLS协议的层次结构如下： <img src="/sourcepictures/20161220/TLS_protocol.png" alt="TLS protocol"></p>
-<p><strong>TLS记录协议</strong> TLS记录协议位于TLS握手协议的下层，是负责使用对称密码对消息进行加密通信的部分。 TLS记录协议中使用了对称密码和消息认证码，但是具体的算法和共享密钥则是通过后面将要介绍的握手协议在服务器和客户端之间协商决定的。</p>
-<p><strong>TLS握手协议</strong> TLS握手协议分为以下4个子协议：握手协议、密码规格变更协议、警告协议和应用数据协议。 + 握手协议 <strong>握手协议</strong>是TLS握手协议的一部分，负责在客户端和服务器之间协商决定密码算法和共享密钥。基于证书的认证操作也在这个协议中完成。它是4个子协议中最复杂的一个。 这个协议大致相当于下面这段对话： 客户端：“你好。我能够理解的密码套件有RSA/3DES，或者DSS/AES，请问我们使用哪种密码套件进行通信？” 服务器端：“你好。那么我们用DSS/3DES来进行通信吧，这是我的证书。” 在服务器和客户端之间通过握手协议协商一致之后，就会相互发出信号来切换密码。负责发出信号的就是下面要介绍的密码规格变更协议。 + 密码规格变更协议 <strong>密码规格变更协议</strong>负责向通信对象传达变更密码方式的信号。简单的说，就跟向对方喊“1、2、3！”差不多。 这个协议所发送的消息，大致相当于下面的对话。 客户端：“好，我们按照刚才的约定切换密码吧。1、2、3！” 当协议中途发生错误时，就会通过下面的警告协议传达给对方。 + 警告协议 <strong>警告协议</strong>负责在发送错误时将错误传达给对方。 这个协议所发送的消息，大致相当于下面的对话： 服务器：“刚才的消息无法正确解密哦！” 如果没有发生错误，则会使用下面的应用协议来进行通信。 + 应用数据协议 <strong>应用数据协议</strong>是将TLS上面承载的应用数据传达给通信对象的协议。</p>
-<h4 id="tls记录协议">TLS记录协议</h4>
-<p>TLS记录协议负责消息的压缩、加密以及数据的认证，处理过程如下： <img src="/sourcepictures/20161220/TLS_record_protocol.png" alt="TLS record protocol"> 1. 首先，消息被分割成多个较短的片段（fragment），然后分别对每个片段进行压缩。压缩算法需要与通信对象协商决定。 2. 接下来，经过压缩的片段会被加上消息认证码，这是为了保证完整性，并进行数据的认证。通过附加消息认证码的MAC值，可以识别出篡改。与此同时，为了防止重放攻击，在计算消息认证码时，还加上了片段的编号。单向散列函数的算法，以及消息认证码所使用的共享密钥都需要与通信对象协商决定。 3. 再接下来，经过压缩的片段再加上消息认证码会一起通过对称密码进行加密。加密使用CBC模式。CBC模式的初始化向量（IV）通过主密码（master secret）生成，而对称密码算法以及共享密钥需要与通信对象协商决定。在TLS 1.1中，为防止CBC攻击，初始化向量改为由外部输入的方式。 4. 最后，上述经过加密的数据再加上由数据类型、版本号、压缩后的长度组成的报头（header）就是最终的报文数据。其中，数据类型为TLS记录协议所承载的4个子协议的其中之一。</p>
-<h4 id="tls握手协议">TLS握手协议</h4>
+<h4 id="层次化的协议"><a class="markdownIt-Anchor" href="#层次化的协议"></a> 层次化的协议</h4>
+<p><strong>TLS协议</strong>是由“TLS记录协议”（TLS record protocol）和“TLS握手协议”（TLS handshake protocol）这两层协议叠加而成的。位于底层的TLS记录协议负责加密，而位于上层的TLS握手协议则负责除加密以外的其他各种操作。上层的TLS握手协议又可以分为4个子协议。<br>
+TLS协议的层次结构如下：<br>
+<img src="/sourcepictures/20161220/TLS_protocol.png" alt="TLS protocol"></p>
+<p><strong>TLS记录协议</strong><br>
+TLS记录协议位于TLS握手协议的下层，是负责使用对称密码对消息进行加密通信的部分。<br>
+TLS记录协议中使用了对称密码和消息认证码，但是具体的算法和共享密钥则是通过后面将要介绍的握手协议在服务器和客户端之间协商决定的。</p>
+<p><strong>TLS握手协议</strong><br>
+TLS握手协议分为以下4个子协议：握手协议、密码规格变更协议、警告协议和应用数据协议。</p>
 <ul>
-<li><strong>握手协议</strong> 握手协议是TLS握手协议的一部分，负责生成共享密钥以及交换证书。其中，生成共享密钥是为了进行密码通信，交换证书是为了通信双方相互进行认证。 由于握手协议中的信息交换是在没有加密的情况下进行的，所有数据都可能被窃听者窃听，因此在这一过程中必须使用公钥密码或者Diffie-Hellman密钥交换。 流程如下： <img src="/sourcepictures/20161220/TLS_handshake_protocol.png" alt="TLS handshake protocol"></li>
+<li>握手协议<br>
+<strong>握手协议</strong>是TLS握手协议的一部分，负责在客户端和服务器之间协商决定密码算法和共享密钥。基于证书的认证操作也在这个协议中完成。它是4个子协议中最复杂的一个。<br>
+这个协议大致相当于下面这段对话：<br>
+客户端：“你好。我能够理解的密码套件有RSA/3DES，或者DSS/AES，请问我们使用哪种密码套件进行通信？”<br>
+服务器端：“你好。那么我们用DSS/3DES来进行通信吧，这是我的证书。”<br>
+在服务器和客户端之间通过握手协议协商一致之后，就会相互发出信号来切换密码。负责发出信号的就是下面要介绍的密码规格变更协议。</li>
+<li>密码规格变更协议<br>
+<strong>密码规格变更协议</strong>负责向通信对象传达变更密码方式的信号。简单的说，就跟向对方喊“1、2、3！”差不多。<br>
+这个协议所发送的消息，大致相当于下面的对话。<br>
+客户端：“好，我们按照刚才的约定切换密码吧。1、2、3！”<br>
+当协议中途发生错误时，就会通过下面的警告协议传达给对方。</li>
+<li>警告协议<br>
+<strong>警告协议</strong>负责在发送错误时将错误传达给对方。<br>
+这个协议所发送的消息，大致相当于下面的对话：<br>
+服务器：“刚才的消息无法正确解密哦！”<br>
+如果没有发生错误，则会使用下面的应用协议来进行通信。</li>
+<li>应用数据协议<br>
+<strong>应用数据协议</strong>是将TLS上面承载的应用数据传达给通信对象的协议。</li>
 </ul>
-<h4 id="主密码">主密码</h4>
+<h4 id="tls记录协议"><a class="markdownIt-Anchor" href="#tls记录协议"></a> TLS记录协议</h4>
+<p>TLS记录协议负责消息的压缩、加密以及数据的认证，处理过程如下：<br>
+<img src="/sourcepictures/20161220/TLS_record_protocol.png" alt="TLS record protocol"></p>
+<ol>
+<li>首先，消息被分割成多个较短的片段（fragment），然后分别对每个片段进行压缩。压缩算法需要与通信对象协商决定。</li>
+<li>接下来，经过压缩的片段会被加上消息认证码，这是为了保证完整性，并进行数据的认证。通过附加消息认证码的MAC值，可以识别出篡改。与此同时，为了防止重放攻击，在计算消息认证码时，还加上了片段的编号。单向散列函数的算法，以及消息认证码所使用的共享密钥都需要与通信对象协商决定。</li>
+<li>再接下来，经过压缩的片段再加上消息认证码会一起通过对称密码进行加密。加密使用CBC模式。CBC模式的初始化向量（IV）通过主密码（master secret）生成，而对称密码算法以及共享密钥需要与通信对象协商决定。在TLS 1.1中，为防止CBC攻击，初始化向量改为由外部输入的方式。</li>
+<li>最后，上述经过加密的数据再加上由数据类型、版本号、压缩后的长度组成的报头（header）就是最终的报文数据。其中，数据类型为TLS记录协议所承载的4个子协议的其中之一。</li>
+</ol>
+<h4 id="tls握手协议"><a class="markdownIt-Anchor" href="#tls握手协议"></a> TLS握手协议</h4>
+<ul>
+<li><strong>握手协议</strong><br>
+握手协议是TLS握手协议的一部分，负责生成共享密钥以及交换证书。其中，生成共享密钥是为了进行密码通信，交换证书是为了通信双方相互进行认证。<br>
+由于握手协议中的信息交换是在没有加密的情况下进行的，所有数据都可能被窃听者窃听，因此在这一过程中必须使用公钥密码或者Diffie-Hellman密钥交换。<br>
+流程如下：<br>
+<img src="/sourcepictures/20161220/TLS_handshake_protocol.png" alt="TLS handshake protocol"></li>
+</ul>
+<h4 id="主密码"><a class="markdownIt-Anchor" href="#主密码"></a> 主密码</h4>
 <p>主密码是TLS客户端和服务器之间协商出来的一个秘密数值。这个数值非常重要，TLS密码通信的机密性和数据的认证全部依靠这个数值。</p>
 <ul>
-<li><strong>主密码的计算</strong> 主密码是客户端和服务器根据下列信息计算出来的：
+<li>
+<p><strong>主密码的计算</strong><br>
+主密码是客户端和服务器根据下列信息计算出来的：</p>
 <ul>
 <li>预备主密码</li>
 <li>客户端随机数</li>
 <li>服务器随机数</li>
 </ul>
-当使用RSA公钥密码时，客户端会在发送ClientKeyExchange消息时，将经过加密的预备主密码一起发送给服务器。 当使用Diffie-Hellman密钥交换时，客户端会在发送ClientKeyExchange消息时，将Diffie-Hellman的公开值一起发送给服务器。根据这个值，客户端和服务器各自生成预备主密码。 客户端随机数和服务器随机数的作用相当于防止攻击者事先计算出密钥的盐。 当根据预备主密码计算主密码时，会使用由两个单向单向散列函数（MD5和SHA-1）组合而成的伪随机数生成器。之所以同时使用两个单向散列函数，是为了提高安全性。</li>
-<li><strong>主密码的目的</strong> 主密码主要用于生成以下信息：
+<p>当使用RSA公钥密码时，客户端会在发送ClientKeyExchange消息时，将经过加密的预备主密码一起发送给服务器。<br>
+当使用Diffie-Hellman密钥交换时，客户端会在发送ClientKeyExchange消息时，将Diffie-Hellman的公开值一起发送给服务器。根据这个值，客户端和服务器各自生成预备主密码。<br>
+客户端随机数和服务器随机数的作用相当于防止攻击者事先计算出密钥的盐。<br>
+当根据预备主密码计算主密码时，会使用由两个单向单向散列函数（MD5和SHA-1）组合而成的伪随机数生成器。之所以同时使用两个单向散列函数，是为了提高安全性。</p>
+</li>
+<li>
+<p><strong>主密码的目的</strong><br>
+主密码主要用于生成以下信息：</p>
 <ul>
 <li>对称密码的密钥</li>
 <li>消息认证码的密钥</li>
 <li>对称密码的CBC模式所使用的初始化向量</li>
 </ul>
-<img src="/sourcepictures/20161220/TLS_used_cipher_tech.png" title="fig:" alt="TLS tech"></li>
+<p><img src="/sourcepictures/20161220/TLS_used_cipher_tech.png" alt="TLS tech"></p>
+</li>
 </ul>
-<h3 id="对ssltls的攻击">对SSL/TLS的攻击</h3>
-<h4 id="对各个密码技术的攻击">对各个密码技术的攻击</h4>
+<h3 id="对ssltls的攻击"><a class="markdownIt-Anchor" href="#对ssltls的攻击"></a> 对SSL/TLS的攻击</h3>
+<h4 id="对各个密码技术的攻击"><a class="markdownIt-Anchor" href="#对各个密码技术的攻击"></a> 对各个密码技术的攻击</h4>
 <p>针对SSL/TLS中使用的各个密码技术的攻击，会直接成为对SSL/TLS的攻击。</p>
-<h4 id="对伪随机数生成器的攻击">对伪随机数生成器的攻击</h4>
-<h4 id="利用证书的时间差进行攻击">利用证书的时间差进行攻击</h4>
+<h4 id="对伪随机数生成器的攻击"><a class="markdownIt-Anchor" href="#对伪随机数生成器的攻击"></a> 对伪随机数生成器的攻击</h4>
+<h4 id="利用证书的时间差进行攻击"><a class="markdownIt-Anchor" href="#利用证书的时间差进行攻击"></a> 利用证书的时间差进行攻击</h4>
 <p>SSL/TLS中，客户端会使用服务器证书对服务器进行认证。在这个过程中，客户端需要使用合法认证机构的公钥证书所附带的数字签名进行验证。要验证证书需要使用最新版的CRL（证书作废清单），而Web浏览器没有获取最新版的CRL，即使使用SSL/TLS也无法保证通信安全。</p>
   
 	</div>
@@ -208,7 +255,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是ssltls"><span class="toc-number">1.</span> <span class="toc-text">什么是SSL/TLS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用ssltls进行通信"><span class="toc-number">2.</span> <span class="toc-text">使用SSL/TLS进行通信</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#层次化的协议"><span class="toc-number">2.1.</span> <span class="toc-text">层次化的协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tls记录协议"><span class="toc-number">2.2.</span> <span class="toc-text">TLS记录协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tls握手协议"><span class="toc-number">2.3.</span> <span class="toc-text">TLS握手协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主密码"><span class="toc-number">2.4.</span> <span class="toc-text">主密码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对ssltls的攻击"><span class="toc-number">3.</span> <span class="toc-text">对SSL/TLS的攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对各个密码技术的攻击"><span class="toc-number">3.1.</span> <span class="toc-text">对各个密码技术的攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对伪随机数生成器的攻击"><span class="toc-number">3.2.</span> <span class="toc-text">对伪随机数生成器的攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用证书的时间差进行攻击"><span class="toc-number">3.3.</span> <span class="toc-text">利用证书的时间差进行攻击</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是ssltls"><span class="toc-number">1.</span> <span class="toc-text"> 什么是SSL/TLS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用ssltls进行通信"><span class="toc-number">2.</span> <span class="toc-text"> 使用SSL/TLS进行通信</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#层次化的协议"><span class="toc-number">2.1.</span> <span class="toc-text"> 层次化的协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tls记录协议"><span class="toc-number">2.2.</span> <span class="toc-text"> TLS记录协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tls握手协议"><span class="toc-number">2.3.</span> <span class="toc-text"> TLS握手协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主密码"><span class="toc-number">2.4.</span> <span class="toc-text"> 主密码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对ssltls的攻击"><span class="toc-number">3.</span> <span class="toc-text"> 对SSL/TLS的攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对各个密码技术的攻击"><span class="toc-number">3.1.</span> <span class="toc-text"> 对各个密码技术的攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对伪随机数生成器的攻击"><span class="toc-number">3.2.</span> <span class="toc-text"> 对伪随机数生成器的攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用证书的时间差进行攻击"><span class="toc-number">3.3.</span> <span class="toc-text"> 利用证书的时间差进行攻击</span></a></li></ol></li></ol>
  
   </div>
 
@@ -241,7 +288,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -253,7 +300,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -286,7 +333,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -330,7 +377,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -342,19 +401,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

@@ -13,13 +13,13 @@
     
 
     
-    <meta name="description" content="biterrant_logo.jpg  BitErrant attack The BitErrant attack is a fun little exploit that shows what can go wrong in the BitTorrent protocol when SHA1 collisions become reality. SHA1 collisions resu">
+    <meta name="description" content="BitErrant attack The BitErrant attack is a fun little exploit that shows what can go wrong in the BitTorrent protocol when SHA1 collisions become reality. SHA1 collisions resulting in chunks of the">
 <meta name="keywords" content="翻译">
 <meta property="og:type" content="article">
 <meta property="og:title" content="翻译：利用SHA1碰撞的BitErrant攻击">
 <meta property="og:url" content="http://flamepeak.com/2017/03/06/Translate-BitErrant-attack20170306/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="biterrant_logo.jpg  BitErrant attack The BitErrant attack is a fun little exploit that shows what can go wrong in the BitTorrent protocol when SHA1 collisions become reality. SHA1 collisions resu">
+<meta property="og:description" content="BitErrant attack The BitErrant attack is a fun little exploit that shows what can go wrong in the BitTorrent protocol when SHA1 collisions become reality. SHA1 collisions resulting in chunks of the">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/2017/03/biterrant_logo.jpg">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/2017/03/biterrant_info_1.jpg">
@@ -31,7 +31,7 @@
 <meta property="og:updated_time" content="2017-03-06T06:52:01.216Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="翻译：利用SHA1碰撞的BitErrant攻击">
-<meta name="twitter:description" content="biterrant_logo.jpg  BitErrant attack The BitErrant attack is a fun little exploit that shows what can go wrong in the BitTorrent protocol when SHA1 collisions become reality. SHA1 collisions resu">
+<meta name="twitter:description" content="BitErrant attack The BitErrant attack is a fun little exploit that shows what can go wrong in the BitTorrent protocol when SHA1 collisions become reality. SHA1 collisions resulting in chunks of the">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/2017/03/biterrant_logo.jpg">
 
     
@@ -105,60 +105,68 @@
 </header>
 	<div class="article-content">
 		
-		<figure>
-<img src="/sourcepictures/2017/03/biterrant_logo.jpg" alt><figcaption>biterrant_logo.jpg</figcaption>
-</figure>
-<h2 id="biterrant-attack">BitErrant attack</h2>
-<p>The BitErrant attack is a fun little exploit that shows what can go wrong in the BitTorrent protocol when SHA1 collisions become reality. SHA1 collisions resulting in chunks of the downloaded file become replaceable with a chunk that is completely different, corrupting the downloaded file OR triggering backdoor functionalities. An attacker can alter the execution path of the executable by serving altered chunks when the victim is downloading the executable using the BitTorrent protocol. Thank you good folks at Google and CWI for making SHA1 collision become a reality with the SHAttered attack!</p>
-<p>BitErrant 攻击 BitErrant攻击是一个有趣的漏洞，它证明了当SHA1碰撞攻击成为可能时BitTorrent协议可能会出错。SHA1碰撞攻击导致下载的文件数据块（chunk）可能被完全不同的数据块替换，损坏下载的文件或者触发后门功能。</p>
+		<p><img src="/sourcepictures/2017/03/biterrant_logo.jpg" alt="biterrant_logo.jpg"></p>
+<h2 id="biterrant-attack"><a class="markdownIt-Anchor" href="#biterrant-attack"></a> BitErrant attack</h2>
+<p>The BitErrant attack is a fun little exploit that shows what can go wrong in the BitTorrent protocol when SHA1 collisions become reality.<br>
+SHA1 collisions resulting in chunks of the downloaded file become replaceable with a chunk that is completely different, corrupting the downloaded file OR triggering backdoor functionalities.<br>
+An attacker can alter the execution path of the executable by serving altered chunks when the victim is downloading the executable using the BitTorrent protocol.<br>
+Thank you good folks at Google and CWI for making SHA1 collision become a reality with the SHAttered attack!</p>
+<p>BitErrant 攻击<br>
+BitErrant攻击是一个有趣的漏洞，它证明了当SHA1碰撞攻击成为可能时BitTorrent协议可能会出错。SHA1碰撞攻击导致下载的文件数据块（chunk）可能被完全不同的数据块替换，损坏下载的文件或者触发后门功能。</p>
 <p>当受害者使用BitTorrent协议下载可执行文件时，攻击者可以通过提供更改后的数据块，来改变可执行文件的执行路径。</p>
 <p>谢谢Google和CWI的好伙伴，使SHA1碰撞攻击成为现实！</p>
 <hr>
-<h3 id="proof-of-concept-概念验证">Proof-of-concept 概念验证</h3>
-<p>Here are two EXE files with different functionality (evil has a meterpreter that will listen on all interfaces), but yielding the same .torrent file. biterrant_poc.zip Password: biterrant.io SHA1: eed49a31e0a605464b41df46fbca189dcc620fc5 (ya know, because what can go wrong?) Also, here is a sophisticated (LOL) framework on how to generate such executables. Proof that most AV software are a piece of crap: Good file on virustotal Evil file on virustotal</p>
-<p>这里有两个具有不同功能的EXE文件（恶意文件有一个meterpreter将会监听所有网络接口），但是产生相同的.torrent文件。<a href="https://biterrant.io/files/biterrant_poc.zip" target="_blank" rel="noopener">biterrant_poc.zip</a> 密码：biterrant.io SHA1: eed49a31e0a605464b41df46fbca189dcc620fc5 (你知道，因为什么原因它会出错) 此外，<a href="https://github.com/skelsec/BitErrant" target="_blank" rel="noopener">这里</a>有一个复杂的（LOL）框架，关于如何生成这样的可执行文件。</p>
-<p><strong>事实证明大多数杀毒软件都是胡说八道：</strong> 正常文件在<a href="https://virustotal.com/en/file/aab71ef7bf13e4fe8613d4f1f9ae136cd7f03474c0e576f0de6f9fc4c15edd97/analysis/1488732404/" target="_blank" rel="noopener">virustotal</a> 恶意文件在<a href="https://virustotal.com/en/file/0624ed0bad3edf8308004b323d6f3cfd70751395dc93bd1108f7a6df87223102/analysis/1488732438/" target="_blank" rel="noopener">virustotal</a></p>
+<h3 id="proof-of-concept-概念验证"><a class="markdownIt-Anchor" href="#proof-of-concept-概念验证"></a> Proof-of-concept 概念验证</h3>
+<p>Here are two EXE files with different functionality (evil has a meterpreter that will listen on all interfaces), but yielding the same .torrent file. biterrant_poc.zip<br>
+Password: <a href="http://biterrant.io" target="_blank" rel="noopener">biterrant.io</a><br>
+SHA1: eed49a31e0a605464b41df46fbca189dcc620fc5 (ya know, because what can go wrong?)<br>
+Also, here is a sophisticated (LOL) framework on how to generate such executables.<br>
+Proof that most AV software are a piece of crap:<br>
+Good file on virustotal<br>
+Evil file on virustotal</p>
+<p>这里有两个具有不同功能的EXE文件（恶意文件有一个meterpreter将会监听所有网络接口），但是产生相同的.torrent文件。<a href="https://biterrant.io/files/biterrant_poc.zip" target="_blank" rel="noopener">biterrant_poc.zip</a><br>
+密码：<a href="http://biterrant.io" target="_blank" rel="noopener">biterrant.io</a><br>
+SHA1: eed49a31e0a605464b41df46fbca189dcc620fc5 (你知道，因为什么原因它会出错)<br>
+此外，<a href="https://github.com/skelsec/BitErrant" target="_blank" rel="noopener">这里</a>有一个复杂的（LOL）框架，关于如何生成这样的可执行文件。</p>
+<p><strong>事实证明大多数杀毒软件都是胡说八道：</strong><br>
+正常文件在<a href="https://virustotal.com/en/file/aab71ef7bf13e4fe8613d4f1f9ae136cd7f03474c0e576f0de6f9fc4c15edd97/analysis/1488732404/" target="_blank" rel="noopener">virustotal</a><br>
+恶意文件在<a href="https://virustotal.com/en/file/0624ed0bad3edf8308004b323d6f3cfd70751395dc93bd1108f7a6df87223102/analysis/1488732438/" target="_blank" rel="noopener">virustotal</a></p>
 <hr>
-<h3 id="how-bittorrent-works-oversimplified-explanation-bittorrent工作原理">How BitTorrent works (oversimplified explanation) BitTorrent工作原理</h3>
-<figure>
-<img src="/sourcepictures/2017/03/biterrant_info_1.jpg" alt><figcaption>biterrant_info_1.jpg</figcaption>
-</figure>
-<p>The first step to distribute a file over BitTorrent is to generate a ".torrent" file from the original file (DATA). This is done by slicing the file into fix sized chunks then calculating SHA1 hash on each of the chunks. The hash bytes are then concatenated together and stored under the torrent file's "pieces" dictionary key.</p>
-<p>When someone tries to download the DATA file using BitTorrent, first the "DATA.torrent" file needs to be downloaded and parsed. Based on the information stored in the DATA.torrent file, the client searches for peers and downloads chunks of the original file (DATA). In order to make sure rouge peers will not be sending malicious data, the client verifies each downloaded chunk against the hash data stored in the DATA.torrent file. If the hash data in the torrent file doesn't match the SHA1 hash of the downloaded chunk, then the bad chunk gets discarded.</p>
-<p>通过BitTorrent分发文件的第一步是：从原始文件（DATA）生成一个".torrent"文件。它是通过下面的步骤来实现的，首先将原始文件分割成固定大小的数据块，然后对每一块计算其SHA1哈希值。随后这些哈希值被连接在一起，并存储在torrent文件的"pieces"字典键值下。</p>
-<figure>
-<img src="/sourcepictures/2017/03/biterrant_info_2.jpg" alt><figcaption>biterrant_info_2.jpg</figcaption>
-</figure>
-<p>当有人试图使用BitTorrent下载这个DATA文件时，首先"DATA.torrent"文件需要被下载并解析。根据DATA.torrent文件存储的信息，BT客户端搜索peers并下载原始文件(DATA)的数据块。为了确保peers不会发送恶意数据，客户端会使用存储在DATA.torrent文件中的哈希数据验证每一个下载的数据块。如果torrent文件中的哈希值与下载的数据块SHA1哈希值不同，这个有问题的数据块就被丢弃。</p>
+<h3 id="how-bittorrent-works-oversimplified-explanation-bittorrent工作原理"><a class="markdownIt-Anchor" href="#how-bittorrent-works-oversimplified-explanation-bittorrent工作原理"></a> How BitTorrent works (oversimplified explanation) BitTorrent工作原理</h3>
+<p><img src="/sourcepictures/2017/03/biterrant_info_1.jpg" alt="biterrant_info_1.jpg"></p>
+<p>The first step to distribute a file over BitTorrent is to generate a “.torrent” file from the original file (DATA). This is done by slicing the file into fix sized chunks then calculating SHA1 hash on each of the chunks. The hash bytes are then concatenated together and stored under the torrent file’s “pieces” dictionary key.</p>
+<p>When someone tries to download the DATA file using BitTorrent, first the “DATA.torrent” file needs to be downloaded and parsed. Based on the information stored in the DATA.torrent file, the client searches for peers and downloads chunks of the original file (DATA). In order to make sure rouge peers will not be sending malicious data, the client verifies each downloaded chunk against the hash data stored in the DATA.torrent file. If the hash data in the torrent file doesn’t match the SHA1 hash of the downloaded chunk, then the bad chunk gets discarded.</p>
+<p>通过BitTorrent分发文件的第一步是：从原始文件（DATA）生成一个&quot;.torrent&quot;文件。它是通过下面的步骤来实现的，首先将原始文件分割成固定大小的数据块，然后对每一块计算其SHA1哈希值。随后这些哈希值被连接在一起，并存储在torrent文件的&quot;pieces&quot;字典键值下。</p>
+<p><img src="/sourcepictures/2017/03/biterrant_info_2.jpg" alt="biterrant_info_2.jpg"></p>
+<p>当有人试图使用BitTorrent下载这个DATA文件时，首先&quot;DATA.torrent&quot;文件需要被下载并解析。根据DATA.torrent文件存储的信息，BT客户端搜索peers并下载原始文件(DATA)的数据块。为了确保peers不会发送恶意数据，客户端会使用存储在DATA.torrent文件中的哈希数据验证每一个下载的数据块。如果torrent文件中的哈希值与下载的数据块SHA1哈希值不同，这个有问题的数据块就被丢弃。</p>
 <hr>
-<h3 id="the-malicious-intent-恶意文件的意图">The malicious intent 恶意文件的意图</h3>
-<figure>
-<img src="/sourcepictures/2017/03/biterrant_info_6.jpg" alt><figcaption>biterrant_info_6.jpg</figcaption>
-</figure>
+<h3 id="the-malicious-intent-恶意文件的意图"><a class="markdownIt-Anchor" href="#the-malicious-intent-恶意文件的意图"></a> The malicious intent 恶意文件的意图</h3>
+<p><img src="/sourcepictures/2017/03/biterrant_info_6.jpg" alt="biterrant_info_6.jpg"></p>
 <p>An attacker can create an executable file which when executed looks harmless, but will change its execution path based on what data is inside the SHATTER region. Of course when checked with AntiVirus software the file will look okay as the malicious code is hidden in an encrypted blob, and will never get executed. Right?</p>
 <p>Well, not quite. If the attacker has two chunk sized blob of data with matching SHA1 hash -looking at you SHAttered- and taking some constraints into account, generating two executables with different data but yielding the same .torrent file is possible!</p>
 <p>攻击者可以创建一个可执行文件，这个文件在执行时看起来是无害的，但是会根据SHATTER区域内的数据更改其执行路径。当然，当用反病毒软件进行检查时，这个文件看起来是没有问题的，因为恶意代码被隐藏在一个加密的二进制对象（blob）中，并且永远也不会被执行。是这样吗？</p>
-<figure>
-<img src="/sourcepictures/2017/03/biterrant_info_3.jpg" alt><figcaption>biterrant_info_3.jpg</figcaption>
-</figure>
+<p><img src="/sourcepictures/2017/03/biterrant_info_3.jpg" alt="biterrant_info_3.jpg"></p>
 <p>好吧，不完全是这样。如果攻击者有两个大小相同的二进制数据块，具有相同的SHA1哈希值并考虑一些限制条件，生成两个数据不同的可执行文件但是产生相同的.torrent文件是可能的！</p>
-<figure>
-<img src="/sourcepictures/2017/03/biterrant_info_4.jpg" alt><figcaption>biterrant_info_4.jpg</figcaption>
-</figure>
+<p><img src="/sourcepictures/2017/03/biterrant_info_4.jpg" alt="biterrant_info_4.jpg"></p>
 <p>If the previously mentioned constraints are fulfilled, the two executables now have one chunk of data which is interchangeable. The attacker can replace this chunk to trigger the malicious functionality in the code.</p>
 <p>One example on how the shellcode can be executed (or not) based on which chunk has been retrieved over the BitTorrent protocol.</p>
 <p>The principle is that the decryption yields garbage when the incorrect SHATTER data is used. For example, shatter-2.pdf collision data is used for encryption, shatter-1.pdf data is used for distribution. During the download the attacker starts seeding his file where the shatter-2.pdf data is used, effectively replacing that one chunk thus triggering the decrpyion and execution of the shellcode in clients who were uncluky enough to download that specific chunk from the attacker.</p>
 <p>如果之前提到的限制条件都已经满足，那么这两个可执行文件现在有一个可以互换的数据块。攻击者可以替换这个数据块来触发代码中的恶意功能。</p>
-<figure>
-<img src="/sourcepictures/2017/03/biterrant_info_5.jpg" alt><figcaption>biterrant_info_5.jpg</figcaption>
-</figure>
+<p><img src="/sourcepictures/2017/03/biterrant_info_5.jpg" alt="biterrant_info_5.jpg"></p>
 <p>上图，根据哪一个数据块被BitTorrent协议获取来决定shellcode是否被执行。</p>
 <p>原理是，当使用不正确的SHATTER数据，解密会产生垃圾数据。例如，shatter-2.pdf 碰撞数据被用来加密，shatter-1.pdf数据被用来分发。在下载过程中，攻击者开始把使用shatter-2.pdf数据的文件做种，从而有效的替换那个数据块，这样对于那些非常不幸从攻击者下载了特定数据块的用户，将会触发shellcode的解密与执行。</p>
 <hr>
-<h3 id="faq">FAQ</h3>
-<p>Is this something serious? NO. at least not right now. I might reevaluate this statement when this gets used in the wild. How can I protect myself? Always cross-check the MD4 MD5 SHA1 SHA256 hash of the downloaded file. Good luck finding torrent sites that publish such hashes :) There is an option when generating torrent files to include the MD5 hash of the full datafile in the generated torrent file. Most of the time it's not used, not even sure if all torrent clients respect it.</p>
-<p>这个事情严重吗？ 不严重，至少现在不严重。我可能会评估这个报告当这种方式被使用时。</p>
-<p>我如何保护自己？ 始终交叉检查下载文件的MD4 MD5 SHA1 SHA256哈希值。 祝你找到发布哈希值的torrent网站。 这里还有一个选择，当生成torrent文件时，在生成的torrent文件中包含完整数据文件的MD5值。大多数时候它没有被使用，甚至不确定是不是所有torrent客户端会检查它。</p>
+<h3 id="faq"><a class="markdownIt-Anchor" href="#faq"></a> FAQ</h3>
+<p>Is this something serious?<br>
+NO. at least not right now. I might reevaluate this statement when this gets used in the wild.<br>
+How can I protect myself?<br>
+Always cross-check the MD4 MD5 SHA1 SHA256 hash of the downloaded file. Good luck finding torrent sites that publish such hashes 😃<br>
+There is an option when generating torrent files to include the MD5 hash of the full datafile in the generated torrent file. Most of the time it’s not used, not even sure if all torrent clients respect it.</p>
+<p>这个事情严重吗？<br>
+不严重，至少现在不严重。我可能会评估这个报告当这种方式被使用时。</p>
+<p>我如何保护自己？<br>
+始终交叉检查下载文件的MD4 MD5 SHA1 SHA256哈希值。 祝你找到发布哈希值的torrent网站。<br>
+这里还有一个选择，当生成torrent文件时，在生成的torrent文件中包含完整数据文件的MD5值。大多数时候它没有被使用，甚至不确定是不是所有torrent客户端会检查它。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -221,7 +229,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#biterrant-attack"><span class="toc-number">1.</span> <span class="toc-text">BitErrant attack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#proof-of-concept-概念验证"><span class="toc-number">1.1.</span> <span class="toc-text">Proof-of-concept 概念验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-bittorrent-works-oversimplified-explanation-bittorrent工作原理"><span class="toc-number">1.2.</span> <span class="toc-text">How BitTorrent works (oversimplified explanation) BitTorrent工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#the-malicious-intent-恶意文件的意图"><span class="toc-number">1.3.</span> <span class="toc-text">The malicious intent 恶意文件的意图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#faq"><span class="toc-number">1.4.</span> <span class="toc-text">FAQ</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#biterrant-attack"><span class="toc-number">1.</span> <span class="toc-text"> BitErrant attack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#proof-of-concept-概念验证"><span class="toc-number">1.1.</span> <span class="toc-text"> Proof-of-concept 概念验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-bittorrent-works-oversimplified-explanation-bittorrent工作原理"><span class="toc-number">1.2.</span> <span class="toc-text"> How BitTorrent works (oversimplified explanation) BitTorrent工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#the-malicious-intent-恶意文件的意图"><span class="toc-number">1.3.</span> <span class="toc-text"> The malicious intent 恶意文件的意图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#faq"><span class="toc-number">1.4.</span> <span class="toc-text"> FAQ</span></a></li></ol></li></ol>
  
   </div>
 
@@ -254,7 +262,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -266,7 +274,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -299,7 +307,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -343,7 +351,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -355,19 +375,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

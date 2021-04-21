@@ -13,20 +13,20 @@
     
 
     
-    <meta name="description" content="什么是负载均衡 通过某种负载分担技术，将外部发送来的请求均匀分配到对称结构中的某一台服务器上，而接收到请求的服务器独立地回应客户的请求。 负载均衡的实现 硬件负载均衡、软件负载均衡，DNS 硬件负载均衡 代表厂商：NetScaler、F5、Radware、Array 优势： 专业团队维护（费用高） 性能好 基于智能网络设备实现，稳定可靠 劣势： 设备、服务费高 难以拓展功能和容量 灵活性">
+    <meta name="description" content="什么是负载均衡 通过某种负载分担技术，将外部发送来的请求均匀分配到对称结构中的某一台服务器上，而接收到请求的服务器独立地回应客户的请求。  负载均衡的实现 硬件负载均衡、软件负载均衡，DNS  硬件负载均衡 代表厂商：NetScaler、F5、Radware、Array 优势： 专业团队维护（费用高） 性能好 基于智能网络设备实现，稳定可靠 劣势： 设备、服务费高 难以拓展功能和容量 灵活性差">
 <meta name="keywords" content="云计算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="负载均衡(SLB) 学习">
 <meta property="og:url" content="http://flamepeak.com/2016/10/31/SLB-learning-20161101/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="什么是负载均衡 通过某种负载分担技术，将外部发送来的请求均匀分配到对称结构中的某一台服务器上，而接收到请求的服务器独立地回应客户的请求。 负载均衡的实现 硬件负载均衡、软件负载均衡，DNS 硬件负载均衡 代表厂商：NetScaler、F5、Radware、Array 优势： 专业团队维护（费用高） 性能好 基于智能网络设备实现，稳定可靠 劣势： 设备、服务费高 难以拓展功能和容量 灵活性">
+<meta property="og:description" content="什么是负载均衡 通过某种负载分担技术，将外部发送来的请求均匀分配到对称结构中的某一台服务器上，而接收到请求的服务器独立地回应客户的请求。  负载均衡的实现 硬件负载均衡、软件负载均衡，DNS  硬件负载均衡 代表厂商：NetScaler、F5、Radware、Array 优势： 专业团队维护（费用高） 性能好 基于智能网络设备实现，稳定可靠 劣势： 设备、服务费高 难以拓展功能和容量 灵活性差">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20161101/SLB01.jpg">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20161101/SBL02.jpg">
 <meta property="og:updated_time" content="2017-01-31T00:43:47.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="负载均衡(SLB) 学习">
-<meta name="twitter:description" content="什么是负载均衡 通过某种负载分担技术，将外部发送来的请求均匀分配到对称结构中的某一台服务器上，而接收到请求的服务器独立地回应客户的请求。 负载均衡的实现 硬件负载均衡、软件负载均衡，DNS 硬件负载均衡 代表厂商：NetScaler、F5、Radware、Array 优势： 专业团队维护（费用高） 性能好 基于智能网络设备实现，稳定可靠 劣势： 设备、服务费高 难以拓展功能和容量 灵活性">
+<meta name="twitter:description" content="什么是负载均衡 通过某种负载分担技术，将外部发送来的请求均匀分配到对称结构中的某一台服务器上，而接收到请求的服务器独立地回应客户的请求。  负载均衡的实现 硬件负载均衡、软件负载均衡，DNS  硬件负载均衡 代表厂商：NetScaler、F5、Radware、Array 优势： 专业团队维护（费用高） 性能好 基于智能网络设备实现，稳定可靠 劣势： 设备、服务费高 难以拓展功能和容量 灵活性差">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/20161101/SLB01.jpg">
 
     
@@ -100,21 +100,41 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="什么是负载均衡">什么是负载均衡</h3>
+		<h3 id="什么是负载均衡"><a class="markdownIt-Anchor" href="#什么是负载均衡"></a> 什么是负载均衡</h3>
 <p>通过某种负载分担技术，将外部发送来的请求均匀分配到对称结构中的某一台服务器上，而接收到请求的服务器独立地回应客户的请求。</p>
-<h3 id="负载均衡的实现">负载均衡的实现</h3>
+<h3 id="负载均衡的实现"><a class="markdownIt-Anchor" href="#负载均衡的实现"></a> 负载均衡的实现</h3>
 <p>硬件负载均衡、软件负载均衡，DNS</p>
-<h4 id="硬件负载均衡">硬件负载均衡</h4>
-<p>代表厂商：NetScaler、F5、Radware、Array <strong>优势</strong>： 专业团队维护（费用高） 性能好 基于智能网络设备实现，稳定可靠 <strong>劣势</strong>： 设备、服务费高 难以拓展功能和容量 灵活性差</p>
-<h4 id="软件负载均衡">软件负载均衡</h4>
-<p>LVS Linux Virtual Server</p>
-<p><strong>特点</strong> 开源，集成在Linux内核 工作于4层网络上 可伸缩性 可靠性 易于部署</p>
-<p>Nginx 轻量级Web服务器/反向代理服务器代理软件。 <strong>特点</strong> 开源 工作在网络的7层之上，可以针对http应用做一些分流的策略，比如针对域名、目录结构 对网络依赖小 能支撑超过数万次的并发量，性能不俗</p>
-<h3 id="阿里巴巴的负载均衡">阿里巴巴的负载均衡</h3>
-<p>SLB-Server Load Balance 阿里巴巴的负载均衡基于LVS、Nginx/Tengine开发,同时支持四层负载均衡和七层负载均衡。 <img src="/sourcepictures/20161101/SLB01.jpg" alt="SLB01"></p>
-<figure>
-<img src="/sourcepictures/20161101/SBL02.jpg" alt><figcaption>SLB02</figcaption>
-</figure>
+<h4 id="硬件负载均衡"><a class="markdownIt-Anchor" href="#硬件负载均衡"></a> 硬件负载均衡</h4>
+<p>代表厂商：NetScaler、F5、Radware、Array<br>
+<strong>优势</strong>：<br>
+专业团队维护（费用高）<br>
+性能好<br>
+基于智能网络设备实现，稳定可靠<br>
+<strong>劣势</strong>：<br>
+设备、服务费高<br>
+难以拓展功能和容量<br>
+灵活性差</p>
+<h4 id="软件负载均衡"><a class="markdownIt-Anchor" href="#软件负载均衡"></a> 软件负载均衡</h4>
+<p>LVS<br>
+Linux Virtual Server</p>
+<p><strong>特点</strong><br>
+开源，集成在Linux内核<br>
+工作于4层网络上<br>
+可伸缩性<br>
+可靠性<br>
+易于部署</p>
+<p>Nginx<br>
+轻量级Web服务器/反向代理服务器代理软件。<br>
+<strong>特点</strong><br>
+开源<br>
+工作在网络的7层之上，可以针对http应用做一些分流的策略，比如针对域名、目录结构<br>
+对网络依赖小<br>
+能支撑超过数万次的并发量，性能不俗</p>
+<h3 id="阿里巴巴的负载均衡"><a class="markdownIt-Anchor" href="#阿里巴巴的负载均衡"></a> 阿里巴巴的负载均衡</h3>
+<p>SLB-Server Load Balance<br>
+阿里巴巴的负载均衡基于LVS、Nginx/Tengine开发,同时支持四层负载均衡和七层负载均衡。<br>
+<img src="/sourcepictures/20161101/SLB01.jpg" alt="SLB01"></p>
+<p><img src="/sourcepictures/20161101/SBL02.jpg" alt="SLB02"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -177,7 +197,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是负载均衡"><span class="toc-number">1.</span> <span class="toc-text">什么是负载均衡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#负载均衡的实现"><span class="toc-number">2.</span> <span class="toc-text">负载均衡的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#硬件负载均衡"><span class="toc-number">2.1.</span> <span class="toc-text">硬件负载均衡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#软件负载均衡"><span class="toc-number">2.2.</span> <span class="toc-text">软件负载均衡</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#阿里巴巴的负载均衡"><span class="toc-number">3.</span> <span class="toc-text">阿里巴巴的负载均衡</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是负载均衡"><span class="toc-number">1.</span> <span class="toc-text"> 什么是负载均衡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#负载均衡的实现"><span class="toc-number">2.</span> <span class="toc-text"> 负载均衡的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#硬件负载均衡"><span class="toc-number">2.1.</span> <span class="toc-text"> 硬件负载均衡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#软件负载均衡"><span class="toc-number">2.2.</span> <span class="toc-text"> 软件负载均衡</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#阿里巴巴的负载均衡"><span class="toc-number">3.</span> <span class="toc-text"> 阿里巴巴的负载均衡</span></a></li></ol>
  
   </div>
 
@@ -210,7 +230,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -222,7 +242,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -255,7 +275,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -299,7 +319,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -311,19 +343,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

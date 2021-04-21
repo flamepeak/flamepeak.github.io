@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="su 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。 通过su可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换不需要密码，而普通用户切换到其它任何用户都需要密码验证。 还有一种方法可以切换到 root 用户：运行 su - 命令 su 命令与 su - 命令之间有什么区别呢？前者在切换到 roo">
+    <meta name="description" content="su 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。 通过su可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换不需要密码，而普通用户切换到其它任何用户都需要密码验证。 还有一种方法可以切换到 root 用户：运行 su - 命令 su 命令与 su - 命令之间有什么区别呢？前者在切换到 root 用">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux su sudo 区别">
 <meta property="og:url" content="http://flamepeak.com/2019/12/12/Linux-su-sudo-diffenence-20191212/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="su 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。 通过su可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换不需要密码，而普通用户切换到其它任何用户都需要密码验证。 还有一种方法可以切换到 root 用户：运行 su - 命令 su 命令与 su - 命令之间有什么区别呢？前者在切换到 roo">
+<meta property="og:description" content="su 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。 通过su可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换不需要密码，而普通用户切换到其它任何用户都需要密码验证。 还有一种方法可以切换到 root 用户：运行 su - 命令 su 命令与 su - 命令之间有什么区别呢？前者在切换到 root 用">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-01-22T04:34:21.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux su sudo 区别">
-<meta name="twitter:description" content="su 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。 通过su可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换不需要密码，而普通用户切换到其它任何用户都需要密码验证。 还有一种方法可以切换到 root 用户：运行 su - 命令 su 命令与 su - 命令之间有什么区别呢？前者在切换到 roo">
+<meta name="twitter:description" content="su 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。 通过su可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换不需要密码，而普通用户切换到其它任何用户都需要密码验证。 还有一种方法可以切换到 root 用户：运行 su - 命令 su 命令与 su - 命令之间有什么区别呢？前者在切换到 root 用">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -101,14 +101,16 @@
 <p>通过<code>su</code>可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换不需要密码，而普通用户切换到其它任何用户都需要密码验证。</p>
 <p>还有一种方法可以切换到 root 用户：运行 <code>su -</code> 命令</p>
 <p><code>su</code> 命令与 <code>su -</code> 命令之间有什么区别呢？前者在切换到 root 用户之后仍然保持旧的（或者说原始用户的）环境，而后者则是创建一个新的环境（由 root 用户 <code>~/.bashrc</code> 文件所设置的环境），相当于使用 root 用户正常登录（从登录屏幕登录）。</p>
-<h2 id="sudo与su">sudo与su</h2>
+<h2 id="sudo与su"><a class="markdownIt-Anchor" href="#sudo与su"></a> sudo与su</h2>
 <p>两个命令的最大区别是：<code>sudo</code> 命令需要输入当前用户的密码，<code>su</code> 命令需要输入 root 用户的密码。</p>
-<h3 id="sudo">sudo</h3>
+<h3 id="sudo"><a class="markdownIt-Anchor" href="#sudo"></a> sudo</h3>
 <p>sudo是一种权限管理机制，依赖于<code>/etc/sudoers</code>，其定义了授权给哪个用户可以以管理员的身份能够执行什么样的管理命令；</p>
 <p>格式：<code>sudo -u USERNAME COMMAND</code></p>
 <p>默认情况下，系统只有root用户可以执行sudo命令。需要root用户通过使用<code>visudo</code>命令编辑sudo的配置文件<code>/etc/sudoers</code>，才可以授权其他普通用户执行sudo命令。</p>
-<p>Sudo configuration might allow a user to execute some command with another user privileges without knowing the password. <code>sudo -l</code> The <code>-l</code> (list) option will list out the allowed (and forbidden) commands for the user on the current host. 通常来检查非root用户可以以高权限运行命令的程序。</p>
-<h3 id="su">su</h3>
+<p>Sudo configuration might allow a user to execute some command with another user privileges without knowing the password.<br>
+<code>sudo -l</code> The <code>-l</code> (list) option will list out the allowed (and forbidden) commands for the user on the current host.<br>
+通常来检查非root用户可以以高权限运行命令的程序。</p>
+<h3 id="su"><a class="markdownIt-Anchor" href="#su"></a> su</h3>
 <p>su为<code>switch user</code>，即切换用户的简写。</p>
 <p>su是最简单的身份切换名，用su我们能够进行不论什么用户的切换，一般都是<code>su - username</code>，然后输入password就ok了，可是root用su切换到其它身份的时候是不须要输入password的。</p>
 <p>格式为两种：</p>
@@ -186,7 +188,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo与su"><span class="toc-number">1.</span> <span class="toc-text">sudo与su</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sudo"><span class="toc-number">1.1.</span> <span class="toc-text">sudo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#su"><span class="toc-number">1.2.</span> <span class="toc-text">su</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo与su"><span class="toc-number">1.</span> <span class="toc-text"> sudo与su</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sudo"><span class="toc-number">1.1.</span> <span class="toc-text"> sudo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#su"><span class="toc-number">1.2.</span> <span class="toc-text"> su</span></a></li></ol></li></ol>
  
   </div>
 
@@ -219,7 +221,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -231,7 +233,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -264,7 +266,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -308,7 +310,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -320,19 +334,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

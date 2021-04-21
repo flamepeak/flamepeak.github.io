@@ -13,19 +13,19 @@
     
 
     
-    <meta name="description" content="python中json.dumps使用的坑以及字符编码 在使用json.dumps处理dict时遇到编码问题，最后通过下面的文章解决，在此致谢！ 重要参考： python中json.dumps使用的坑以及字符编码 我们知道，python中的字符串分普通字符串和unicode字符串，一般从数据库中读取的字符串会自动被转换为unicode字符串 下面回到重点，使用json.dumps时，一般的">
+    <meta name="description" content="python中json.dumps使用的坑以及字符编码 在使用json.dumps处理dict时遇到编码问题，最后通过下面的文章解决，在此致谢！ 重要参考： python中json.dumps使用的坑以及字符编码 我们知道，python中的字符串分普通字符串和unicode字符串，一般从数据库中读取的字符串会自动被转换为unicode字符串 下面回到重点，使用json.dumps时，一般的用法为">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python中json使用遇到一些编码问题">
 <meta property="og:url" content="http://flamepeak.com/2017/09/20/python-json-dumps-problems/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="python中json.dumps使用的坑以及字符编码 在使用json.dumps处理dict时遇到编码问题，最后通过下面的文章解决，在此致谢！ 重要参考： python中json.dumps使用的坑以及字符编码 我们知道，python中的字符串分普通字符串和unicode字符串，一般从数据库中读取的字符串会自动被转换为unicode字符串 下面回到重点，使用json.dumps时，一般的">
+<meta property="og:description" content="python中json.dumps使用的坑以及字符编码 在使用json.dumps处理dict时遇到编码问题，最后通过下面的文章解决，在此致谢！ 重要参考： python中json.dumps使用的坑以及字符编码 我们知道，python中的字符串分普通字符串和unicode字符串，一般从数据库中读取的字符串会自动被转换为unicode字符串 下面回到重点，使用json.dumps时，一般的用法为">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://0ff.me/article/298">
 <meta property="og:updated_time" content="2017-10-12T23:46:05.128Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中json使用遇到一些编码问题">
-<meta name="twitter:description" content="python中json.dumps使用的坑以及字符编码 在使用json.dumps处理dict时遇到编码问题，最后通过下面的文章解决，在此致谢！ 重要参考： python中json.dumps使用的坑以及字符编码 我们知道，python中的字符串分普通字符串和unicode字符串，一般从数据库中读取的字符串会自动被转换为unicode字符串 下面回到重点，使用json.dumps时，一般的">
+<meta name="twitter:description" content="python中json.dumps使用的坑以及字符编码 在使用json.dumps处理dict时遇到编码问题，最后通过下面的文章解决，在此致谢！ 重要参考： python中json.dumps使用的坑以及字符编码 我们知道，python中的字符串分普通字符串和unicode字符串，一般从数据库中读取的字符串会自动被转换为unicode字符串 下面回到重点，使用json.dumps时，一般的用法为">
 <meta name="twitter:image" content="http://0ff.me/article/298">
 
     
@@ -99,16 +99,17 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="python中json.dumps使用的坑以及字符编码">python中json.dumps使用的坑以及字符编码</h3>
+		<h3 id="python中jsondumps使用的坑以及字符编码"><a class="markdownIt-Anchor" href="#python中jsondumps使用的坑以及字符编码"></a> python中json.dumps使用的坑以及字符编码</h3>
 <p>在使用json.dumps处理dict时遇到编码问题，最后通过下面的文章解决，在此致谢！</p>
-<p>重要参考： <a href="http://www.cnblogs.com/stubborn412/p/3818423.html" target="_blank" rel="noopener">python中json.dumps使用的坑以及字符编码</a></p>
+<p>重要参考：<br>
+<a href="http://www.cnblogs.com/stubborn412/p/3818423.html" target="_blank" rel="noopener">python中json.dumps使用的坑以及字符编码</a></p>
 <p>我们知道，python中的字符串分普通字符串和unicode字符串，一般从数据库中读取的字符串会自动被转换为unicode字符串</p>
 <p><strong>下面回到重点，使用json.dumps时，一般的用法为：</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">obj=&#123;<span class="string">"name"</span>:<span class="string">"测试"</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>json.dumps(obj)</span><br><span class="line"><span class="string">'&#123;"name": "\\u6d4b\\u8bd5"&#125;'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> json.dumps(obj)</span><br><span class="line">&#123;<span class="string">"name"</span>: <span class="string">"\u6d4b\u8bd5"</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>json.dumps(obj).encode(<span class="string">"utf-8"</span>) </span><br><span class="line"><span class="string">'&#123;"name": "\\u6d4b\\u8bd5"&#125;'</span></span><br></pre></td></tr></table></figure>
-<p>可以看到这里输出的字符串为普通字符串，但是里面的内容却是unicode字符串的内容，即使对结果进行encode("utf-8") ，因为这个字符串本身就已经编码过了，所有进行encode不会有变化</p>
+<p>可以看到这里输出的字符串为普通字符串，但是里面的内容却是unicode字符串的内容，即使对结果进行encode(“utf-8”) ，因为这个字符串本身就已经编码过了，所有进行encode不会有变化</p>
 <p>要想得到字符串的真实表示，需要用到参数<code>ensure_ascii=False(默认为True)</code>：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>json.dumps(obj,ensure_ascii=<span class="keyword">False</span>)  </span><br><span class="line"><span class="string">'&#123;"name": "\xe6\xb5\x8b\xe8\xaf\x95"&#125;'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> json.dumps(obj,ensure_ascii=<span class="keyword">False</span>)</span><br><span class="line">&#123;<span class="string">"name"</span>: <span class="string">"测试"</span>&#125;</span><br></pre></td></tr></table></figure>
-<p>如果不加 <code>ensure_ascii=False</code> 输出的汉字都默认给转换成一堆编码 如果加上的话就能正常显示汉字</p>
+<p>如果不加 <code>ensure_ascii=False</code>  输出的汉字都默认给转换成一堆编码 如果加上的话就能正常显示汉字</p>
 <p>坑：试试下面的用法（比如key是从数据库中读取的，则会以unicode字符串形式存在）：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>key=<span class="string">u"name"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>obj=&#123;key:<span class="string">"测试"</span>&#125;   </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>json.dumps(obj,ensure_ascii=<span class="keyword">False</span>)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  File <span class="string">"/usr/lib64/python2.6/json/__init__.py"</span>, line <span class="number">237</span>, <span class="keyword">in</span> dumps</span><br><span class="line">    **kw).encode(obj)</span><br><span class="line">  File <span class="string">"/usr/lib64/python2.6/json/encoder.py"</span>, line <span class="number">368</span>, <span class="keyword">in</span> encode</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(chunks)</span><br><span class="line">UnicodeDecodeError: <span class="string">'ascii'</span> codec can<span class="string">'t decode byte 0xe6 in position 1: ordinal not in range(128)</span></span><br></pre></td></tr></table></figure>
 <p>这是因为key和value不能以混合普通字符串和unicode字符串的形式存在</p>
@@ -121,11 +122,10 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  File <span class="string">"/usr/lib64/python2.6/json/__init__.py"</span>, line <span class="number">237</span>, <span class="keyword">in</span> dumps</span><br><span class="line">    **kw).encode(obj)</span><br><span class="line">  File <span class="string">"/usr/lib64/python2.6/json/encoder.py"</span>, line <span class="number">367</span>, <span class="keyword">in</span> encode</span><br><span class="line">    chunks = list(self.iterencode(o))</span><br><span class="line">  File <span class="string">"/usr/lib64/python2.6/json/encoder.py"</span>, line <span class="number">309</span>, <span class="keyword">in</span> _iterencode</span><br><span class="line">    <span class="keyword">for</span> chunk <span class="keyword">in</span> self._iterencode_dict(o, markers):</span><br><span class="line">  File <span class="string">"/usr/lib64/python2.6/json/encoder.py"</span>, line <span class="number">275</span>, <span class="keyword">in</span> _iterencode_dict</span><br><span class="line">    <span class="keyword">for</span> chunk <span class="keyword">in</span> self._iterencode(value, markers):</span><br><span class="line">  File <span class="string">"/usr/lib64/python2.6/json/encoder.py"</span>, line <span class="number">317</span>, <span class="keyword">in</span> _iterencode</span><br><span class="line">    <span class="keyword">for</span> chunk <span class="keyword">in</span> self._iterencode_default(o, markers):</span><br><span class="line">  File <span class="string">"/usr/lib64/python2.6/json/encoder.py"</span>, line <span class="number">323</span>, <span class="keyword">in</span> _iterencode_default</span><br><span class="line">    newobj = self.default(o)</span><br><span class="line">  File <span class="string">"/usr/lib64/python2.6/json/encoder.py"</span>, line <span class="number">344</span>, <span class="keyword">in</span> default</span><br><span class="line">    <span class="keyword">raise</span> TypeError(repr(o) + <span class="string">" is not JSON serializable"</span>)</span><br><span class="line">TypeError: &lt;__main__.Data instance at <span class="number">0x11e87e8</span>&gt; <span class="keyword">is</span> <span class="keyword">not</span> JSON serializable</span><br></pre></td></tr></table></figure>
 <p>这是因为json.dumps不知道如何对Data对象进行序列化，需要定义一个函数，并赋给参数default：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">convert_to_builtin_type</span><span class="params">(obj)</span>:</span></span><br><span class="line"><span class="meta">... </span>    d = &#123;&#125;</span><br><span class="line"><span class="meta">... </span>    d.update(obj.__dict__)</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> d</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>json.dumps(obj,ensure_ascii=<span class="keyword">False</span>, default=convert_to_builtin_type)</span><br><span class="line"><span class="string">'&#123;"data": &#123;"name": "\xe5\x90\x8d\xe5\xad\x97", "detail": "\xe7\xbb\x86\xe8\x8a\x82"&#125;&#125;'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> json.dumps(obj,ensure_ascii=<span class="keyword">False</span>, default=convert_to_builtin_type)</span><br><span class="line">&#123;<span class="string">"data"</span>: &#123;<span class="string">"name"</span>: <span class="string">"名字"</span>, <span class="string">"detail"</span>: <span class="string">"细节"</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert_to_builtin_type</span><span class="params">(obj)</span>:</span></span><br><span class="line">    d = &#123;&#125;</span><br><span class="line">    d.update(obj.__dict__)</span><br><span class="line">    <span class="keyword">return</span> d</span><br></pre></td></tr></table></figure>
-<h3 id="python-自带json.loads-默认解析为unicode问题">python 自带json.loads() 默认解析为unicode问题</h3>
-<figure>
-<img src="http://0ff.me/article/298" alt><figcaption>python 自带json.loads() 默认解析为unicode问题</figcaption>
-</figure>
-<p>官方自带的json库的loads()方法会把json文件解析成unicode对象, (大概是字符串前面加个u like -&gt; u'zifuchuan' ) 当你把它当做str处理的时候一般会抛出异常</p>
+<h3 id="python-自带jsonloads-默认解析为unicode问题"><a class="markdownIt-Anchor" href="#python-自带jsonloads-默认解析为unicode问题"></a> python 自带json.loads() 默认解析为unicode问题</h3>
+<p><img src="http://0ff.me/article/298" alt="python 自带json.loads() 默认解析为unicode问题"></p>
+<p>官方自带的json库的loads()方法会把json文件解析成unicode对象, (大概是字符串前面加个u like -&gt; u’zifuchuan’ )<br>
+当你把它当做str处理的时候一般会抛出异常</p>
 <p>用loads()解析后,用下面方法转为str再处理</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#我也是搬运工</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">byteify</span><span class="params">(input)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> isinstance(input, dict):</span><br><span class="line">        <span class="keyword">return</span> &#123;byteify(key): byteify(value) <span class="keyword">for</span> key, value <span class="keyword">in</span> input.iteritems()&#125;</span><br><span class="line">    <span class="keyword">elif</span> isinstance(input, list):</span><br><span class="line">        <span class="keyword">return</span> [byteify(element) <span class="keyword">for</span> element <span class="keyword">in</span> input]</span><br><span class="line">    <span class="keyword">elif</span> isinstance(input, unicode):</span><br><span class="line">        <span class="keyword">return</span> input.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> input</span><br></pre></td></tr></table></figure>
   
@@ -163,18 +163,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/11/06/Pentest-study-20171106/" title="渗透测试学习与总结">
+ <a href="/2017/09/20/C-data-structure-20170920/" title="C data structure 20170920">
   <strong>上一篇：</strong><br/>
   <span>
-  渗透测试学习与总结</span>
+  C data structure 20170920</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/09/20/C-data-structure-20170920/"  title="C data structure 20170920">
+<a href="/2017/09/18/Scrapy-save-gif-file-20170918/"  title="Scrapy爬取并保存GIF图片">
  <strong>下一篇：</strong><br/> 
- <span>C data structure 20170920
+ <span>Scrapy爬取并保存GIF图片
 </span>
 </a>
 </div>
@@ -190,7 +190,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#python中json.dumps使用的坑以及字符编码"><span class="toc-number">1.</span> <span class="toc-text">python中json.dumps使用的坑以及字符编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python-自带json.loads-默认解析为unicode问题"><span class="toc-number">2.</span> <span class="toc-text">python 自带json.loads() 默认解析为unicode问题</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#python中jsondumps使用的坑以及字符编码"><span class="toc-number">1.</span> <span class="toc-text"> python中json.dumps使用的坑以及字符编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python-自带jsonloads-默认解析为unicode问题"><span class="toc-number">2.</span> <span class="toc-text"> python 自带json.loads() 默认解析为unicode问题</span></a></li></ol>
  
   </div>
 
@@ -223,7 +223,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -235,7 +235,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -268,7 +268,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -312,7 +312,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -324,19 +336,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

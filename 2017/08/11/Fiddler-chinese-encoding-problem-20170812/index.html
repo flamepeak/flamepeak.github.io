@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="在使用Fiddler过程中，遇到中文字符有时会无法解析，显示乱码，左侧列表中的链接有中文也是乱码，在Post参数里也是如此，解决方法如下： 解决方法： 1.win+R 2.打开注册表编辑器：输入regedit +回车+是 3.HKEY_CURRENT_USER 4.右键新建，选字符串值，加上HeaderEncoding，然后值输入 GBK 如果设置为GBK依然不行，请尝试使用UTF-8">
+    <meta name="description" content="在使用Fiddler过程中，遇到中文字符有时会无法解析，显示乱码，左侧列表中的链接有中文也是乱码，在Post参数里也是如此，解决方法如下： 解决方法： 1.win+R 2.打开注册表编辑器：输入regedit +回车+是 3.HKEY_CURRENT_USER\Software\Microsoft\Fiddler2 4.右键新建，选字符串值，加上HeaderEncoding，然后值输入 GBK 如">
 <meta name="keywords" content="Fiddler">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fiddler 中文乱码解析解决方案">
 <meta property="og:url" content="http://flamepeak.com/2017/08/11/Fiddler-chinese-encoding-problem-20170812/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="在使用Fiddler过程中，遇到中文字符有时会无法解析，显示乱码，左侧列表中的链接有中文也是乱码，在Post参数里也是如此，解决方法如下： 解决方法： 1.win+R 2.打开注册表编辑器：输入regedit +回车+是 3.HKEY_CURRENT_USER 4.右键新建，选字符串值，加上HeaderEncoding，然后值输入 GBK 如果设置为GBK依然不行，请尝试使用UTF-8">
+<meta property="og:description" content="在使用Fiddler过程中，遇到中文字符有时会无法解析，显示乱码，左侧列表中的链接有中文也是乱码，在Post参数里也是如此，解决方法如下： 解决方法： 1.win+R 2.打开注册表编辑器：输入regedit +回车+是 3.HKEY_CURRENT_USER\Software\Microsoft\Fiddler2 4.右键新建，选字符串值，加上HeaderEncoding，然后值输入 GBK 如">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-08-12T01:56:26.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fiddler 中文乱码解析解决方案">
-<meta name="twitter:description" content="在使用Fiddler过程中，遇到中文字符有时会无法解析，显示乱码，左侧列表中的链接有中文也是乱码，在Post参数里也是如此，解决方法如下： 解决方法： 1.win+R 2.打开注册表编辑器：输入regedit +回车+是 3.HKEY_CURRENT_USER 4.右键新建，选字符串值，加上HeaderEncoding，然后值输入 GBK 如果设置为GBK依然不行，请尝试使用UTF-8">
+<meta name="twitter:description" content="在使用Fiddler过程中，遇到中文字符有时会无法解析，显示乱码，左侧列表中的链接有中文也是乱码，在Post参数里也是如此，解决方法如下： 解决方法： 1.win+R 2.打开注册表编辑器：输入regedit +回车+是 3.HKEY_CURRENT_USER\Software\Microsoft\Fiddler2 4.右键新建，选字符串值，加上HeaderEncoding，然后值输入 GBK 如">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -101,7 +101,7 @@
 <p>解决方法：<br>
 1.win+R<br>
 2.打开注册表编辑器：输入regedit +回车+是<br>
-3.HKEY_CURRENT_USER<br>
+3.HKEY_CURRENT_USER\Software\Microsoft\Fiddler2<br>
 4.右键新建，选字符串值，加上HeaderEncoding，然后值输入 GBK</p>
 <p>如果设置为GBK依然不行，请尝试使用UTF-8</p>
   
@@ -199,7 +199,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -211,7 +211,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -244,7 +244,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -288,7 +288,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -300,19 +312,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

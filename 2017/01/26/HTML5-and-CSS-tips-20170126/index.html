@@ -13,19 +13,19 @@
     
 
     
-    <meta name="description" content="Elements  You can start a comment with &amp;lt;!-- and end a comment with --&amp;gt; CSS: Note that it&apos;s important to have both opening and closing curly braces ({ and }) around each element&apos;s style. You a">
+    <meta name="description" content="Elements  You can start a comment with &amp;lt;!-- and end a comment with --&amp;gt; CSS: Note that it’s important to have both opening and closing curly braces ({ and }) around each element’s style. You als">
 <meta name="keywords" content="HTML5,CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML5 and CSS Tips">
 <meta property="og:url" content="http://flamepeak.com/2017/01/26/HTML5-and-CSS-tips-20170126/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Elements  You can start a comment with &amp;lt;!-- and end a comment with --&amp;gt; CSS: Note that it&apos;s important to have both opening and closing curly braces ({ and }) around each element&apos;s style. You a">
+<meta property="og:description" content="Elements  You can start a comment with &amp;lt;!-- and end a comment with --&amp;gt; CSS: Note that it’s important to have both opening and closing curly braces ({ and }) around each element’s style. You als">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/2017/01/26/margin_padding.png">
 <meta property="og:updated_time" content="2017-01-31T03:20:10.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML5 and CSS Tips">
-<meta name="twitter:description" content="Elements  You can start a comment with &amp;lt;!-- and end a comment with --&amp;gt; CSS: Note that it&apos;s important to have both opening and closing curly braces ({ and }) around each element&apos;s style. You a">
+<meta name="twitter:description" content="Elements  You can start a comment with &amp;lt;!-- and end a comment with --&amp;gt; CSS: Note that it’s important to have both opening and closing curly braces ({ and }) around each element’s style. You als">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/2017/01/26/margin_padding.png">
 
     
@@ -99,78 +99,170 @@
 </header>
 	<div class="article-content">
 		
-		<h2 id="elements">Elements</h2>
+		<h2 id="elements"><a class="markdownIt-Anchor" href="#elements"></a> Elements</h2>
 <ul>
-<li><p>You can start a comment with <code>&lt;!--</code> and end a comment with <code>--&gt;</code></p></li>
-<li><p><code>CSS</code>: Note that it's important to have both opening and closing curly braces (<code>{</code> and <code>}</code>) around each element's style. You also need to make sure your element's style is between the opening and closing style tags. Finally, be sure to add the semicolon to the end of each of your element's styles. <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-tag">h2</span> &#123;<span class="attribute">color</span>: red;&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p><code>CSS clss</code>: Classes are reusable styles that can be added to HTML elements.Here is an example CSS class declaration: <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.blue-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: blue;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>You can apply a class to an HTML element like this: <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"blue-text"</span>&gt;</span>CatPhotoApp<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>Import a Google Font: <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://fonts.googleapis.com/css?family=Lobster"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>IMG: All <code>img</code> elements <strong>must</strong> have an alt attribute. The text inside an alt attribute is used for screen readers to improve accessibility and is displayed if the image fails to load. <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://www.your-image-source.com/your-image.jpg"</span> <span class="attr">alt</span>=<span class="string">"Author standing on a beach with two thumbs up. "</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>Clsss: Remember that you can apply multiple classes to an element by separating each class with a space within its class attribute. For example: <code>&lt;img class="class1 class2"&gt;</code></p></li>
-<li><p>Link to External Pages with Anchor Elements: <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Here's a <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://freecodecamp.com"</span>&gt;</span> link to Free Code Camp<span class="tag">&lt;/<span class="name">a</span>&gt;</span> for you to follow.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><code>Nesting</code> just means putting one element inside of another element.</p></li>
-<li><p>In addition to pixels, you can also specify a <code>border-radius</code> using a percentage. For example, 50% makes a circle.</p></li>
-<li><p>Dead Links: Sometimes you want to add <code>a</code> elements to your website before you know where they will link. Replace the value of your <code>a</code> element's <code>href</code> attribute with a <code>#</code>, also known as a hash symbol, to turn it into a dead link. <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Click here for <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>cat photos<span class="tag">&lt;/<span class="name">a</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>Turn an Image into a Link: You can make elements into links by nesting them <strong>within</strong> an <code>a</code> element. <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://bit.ly/fcc-running-cats"</span> <span class="attr">alt</span>=<span class="string">"Three kittens running towards the camera. "</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>Unordered lists start with a <code>&lt;ul&gt;</code> element. Then they contain some number of <code>&lt;li&gt;</code> elements. Ordered lists start with a <code>&lt;ol&gt;</code> element. Then they contain some number of <code>&lt;li&gt;</code> elements. <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>milk<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>cheese<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Garfield<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Sylvester<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>Text Field: Text inputs are a convenient way to get <code>input</code> from your user. Note that <code>input</code> elements are self-closing. <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
+<li>You can start a comment with <code>&lt;!--</code> and end a comment with <code>--&gt;</code></li>
+<li><code>CSS</code>: Note that it’s important to have both opening and closing curly braces (<code>{</code> and <code>}</code>) around each element’s style. You also need to make sure your element’s style is between the opening and closing style tags. Finally, be sure to add the semicolon to the end of each of your element’s styles.</li>
 </ul>
-<p>If you wanted to make a text input field required, you can just add the word <code>required</code> within your <code>input</code> element, you would use: <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">required</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-tag">h2</span> &#123;<span class="attribute">color</span>: red;&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>Add Placeholder Text to a Text Field: Your placeholder text is what appears in your text <code>input</code> before your user has input anything. <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"this is placeholder text"</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Form Element</strong>: Form 对象代表一个 HTML 表单。在 HTML 文档中 <code>&lt;form&gt;</code> 每出现一次，Form 对象就会被创建。 表单用户通常用于收集用户数据，包含了 <code>input</code> 元素如：文本字段，复选框，单选框，提交按钮等。表单用于向服务端发送数据。</p>
-<p>You can build web forms that actually submit data to a server using nothing more than pure HTML. You can do this by specifying an action on your <code>form</code> element. <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/url-where-you-want-to-submit-form-data"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/submit-cat-photo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"cat photo URL"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>Button: <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>this button submits the form<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Radio Buttons</strong>: Radio buttons are a type of <code>input</code>. Each of your radio buttons should be nested within <strong>its own</strong> <code>label</code> element. All related radio buttons should have the same <code>name</code> attribute. <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span>  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"indoor-outdoor"</span>&gt;</span>Indoor<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span>  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"indoor-outdoor"</span>&gt;</span>Outdoor<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>Checkbox: Checkboxes are a type of <code>input</code>, Each of your checkboxes should be nested within its own <code>label</code> element. All related checkbox inputs should have the same <code>name</code> attribute. <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"personality"</span>&gt;</span>One<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"personality"</span>&gt;</span>Two<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"personality"</span>&gt;</span>Three<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>Check Radio Buttons and Checkboxes by Default: You can set a checkbox or radio button to be checked by default using the <code>checked</code> attribute. <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"test-name"</span> <span class="attr">checked</span>&gt;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Div</strong>: The <code>div</code> element is probably the most commonly used HTML element of all. It's useful for passing the CSS of its own class declarations down to all the elements that it contains.</p></li>
-<li><p><strong>Element ID</strong>: In addition to classes, each HTML element can also have an <code>id</code> attribute. There are several benefits to using <code>id</code> attributes, and you'll learn more about them once you start using jQuery. <code>id</code> attributes <strong>should be unique</strong>. Browsers won't enforce this, but it is a widely agreed upon best practice. So please <strong>don't</strong> give more than one element the same <code>id</code> attribute.</p></li>
-<li><p>Use an ID Attribute to Style an Element: One cool thing about id attributes is that, like classes, you can style them using CSS. Exp: <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-id">#cat-photo-element</span> &#123;</span></span><br><span class="line"><span class="undefined">    background-color: green;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>Note that inside your <code>style</code> element, you always reference classes by putting a <code>.</code> in front of their names. You always reference ids by putting a <code>#</code> in front of their names.</p></li>
+<li><code>CSS clss</code>: Classes are reusable styles that can be added to HTML elements.Here is an example CSS class declaration:</li>
 </ul>
-<h2 id="style">Style</h2>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.blue-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: blue;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>You can apply a class to an HTML element like this:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"blue-text"</span>&gt;</span>CatPhotoApp<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>Three important properties control the space that surrounds each HTML element: <code>padding</code>, <code>margin</code>, and <code>border</code>.</p></li>
-<li><p>Padding: An element's <code>padding</code> controls the amount of space between the element and its <code>border</code>.</p>
-<p>CSS allows you to control the <code>padding</code> of an element on all four sides with <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, and <code>padding-left</code> properties.</p></li>
-<li><p>Margin: An element's <code>margin</code> controls the amount of space between an element's <code>border</code> and surrounding elements. <img src="/sourcepictures/2017/01/26/margin_padding.png" alt="margin_padding"> If you set an element's margin to a negative value, the element will grow larger.</p>
-<p>CSS allows you to control the <code>margin</code> of an element on all four sides with <code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code>, and <code>margin-left</code> properties.</p></li>
-<li><p>Use <strong>Clockwise Notation</strong>(顺时针) to Specify the Padding of an Element</p>
-<p>Instead of specifying an element's <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, and <code>padding-left</code> properties, you can specify them all in one line, like this:<code>padding: 10px 20px 10px 20px;</code></p>
-<p>These four values work like a clock: top, right, bottom, left, and will produce the exact same result as using the side-specific padding instructions.</p>
+<li>Import a Google Font:</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://fonts.googleapis.com/css?family=Lobster"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>IMG: All <code>img</code> elements <strong>must</strong> have an alt attribute. The text inside an alt attribute is used for screen readers to improve accessibility and is displayed if the image fails to load.</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://www.your-image-source.com/your-image.jpg"</span> <span class="attr">alt</span>=<span class="string">"Author standing on a beach with two thumbs up. "</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Clsss: Remember that you can apply multiple classes to an element by separating each class with a space within its class attribute. For example:<br>
+<code>&lt;img class=&quot;class1 class2&quot;&gt;</code></li>
+<li>Link to External Pages with Anchor Elements:</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Here's a <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://freecodecamp.com"</span>&gt;</span> link to Free Code Camp<span class="tag">&lt;/<span class="name">a</span>&gt;</span> for you to follow.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>Nesting</code> just means putting one element inside of another element.</p>
+<ul>
+<li>In addition to pixels, you can also specify a <code>border-radius</code> using a percentage. For example, 50% makes a circle.</li>
+<li>Dead Links: Sometimes you want to add <code>a</code> elements to your website before you know where they will link. Replace the value of your <code>a</code> element’s <code>href</code> attribute with a <code>#</code>, also known as a hash symbol, to turn it into a dead link.</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Click here for <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>cat photos<span class="tag">&lt;/<span class="name">a</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Turn an Image into a Link: You can make elements into links by nesting them <strong>within</strong> an <code>a</code> element.</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://bit.ly/fcc-running-cats"</span> <span class="attr">alt</span>=<span class="string">"Three kittens running towards the camera. "</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Unordered lists start with a <code>&lt;ul&gt;</code> element. Then they contain some number of <code>&lt;li&gt;</code> elements.<br>
+Ordered lists start with a <code>&lt;ol&gt;</code> element. Then they contain some number of <code>&lt;li&gt;</code> elements.</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>milk<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>cheese<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Garfield<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Sylvester<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Text Field: Text inputs are a convenient way to get <code>input</code> from your user. Note that <code>input</code> elements are self-closing.</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>If you wanted to make a text input field required, you can just add the word <code>required</code> within your <code>input</code> element, you would use:</p>
+  <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">required</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Add Placeholder Text to a Text Field: Your placeholder text is what appears in your text <code>input</code> before your user has input anything.</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"this is placeholder text"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p><strong>Form Element</strong>: Form 对象代表一个 HTML 表单。在 HTML 文档中 <code>&lt;form&gt;</code> 每出现一次，Form 对象就会被创建。<br>
+表单用户通常用于收集用户数据，包含了 <code>input</code> 元素如：文本字段，复选框，单选框，提交按钮等。表单用于向服务端发送数据。</p>
+<p>You can build web forms that actually submit data to a server using nothing more than pure HTML. You can do this by specifying an action on your <code>form</code> element.</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/url-where-you-want-to-submit-form-data"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/submit-cat-photo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"cat photo URL"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Button:</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>this button submits the form<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Radio Buttons</strong>: Radio buttons are a type of <code>input</code>. Each of your radio buttons should be nested within <strong>its own</strong> <code>label</code> element. All related radio buttons should have the same <code>name</code> attribute.</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span>  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"indoor-outdoor"</span>&gt;</span>Indoor<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span>  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"indoor-outdoor"</span>&gt;</span>Outdoor<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Checkbox: Checkboxes are a type of <code>input</code>, Each of your checkboxes should be nested within its own <code>label</code> element. All related checkbox inputs should have the same <code>name</code> attribute.</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"personality"</span>&gt;</span>One<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"personality"</span>&gt;</span>Two<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"personality"</span>&gt;</span>Three<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Check Radio Buttons and Checkboxes by Default: You can set a checkbox or radio button to be checked by default using the <code>checked</code> attribute.</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"test-name"</span> <span class="attr">checked</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p><strong>Div</strong>: The <code>div</code> element is probably the most commonly used HTML element of all. It’s useful for passing the CSS of its own class declarations down to all the elements that it contains.</p>
+</li>
+<li>
+<p><strong>Element ID</strong>: In addition to classes, each HTML element can also have an <code>id</code> attribute.<br>
+There are several benefits to using <code>id</code> attributes, and you’ll learn more about them once you start using jQuery.<br>
+<code>id</code> attributes <strong>should be unique</strong>. Browsers won’t enforce this, but it is a widely agreed upon best practice. So please <strong>don’t</strong> give more than one element the same <code>id</code> attribute.</p>
+</li>
+<li>
+<p>Use an ID Attribute to Style an Element:<br>
+One cool thing about id attributes is that, like classes, you can style them using CSS. Exp:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-id">#cat-photo-element</span> &#123;</span></span><br><span class="line"><span class="undefined">    background-color: green;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Note that inside your <code>style</code> element, you always reference classes by putting a <code>.</code> in front of their names. You always reference ids by putting a <code>#</code> in front of their names.</p>
+</li>
+</ul>
+<h2 id="style"><a class="markdownIt-Anchor" href="#style"></a> Style</h2>
+<ul>
+<li>
+<p>Three important properties control the space that surrounds each HTML element: <code>padding</code>, <code>margin</code>, and <code>border</code>.</p>
+</li>
+<li>
+<p>Padding: An element’s <code>padding</code> controls the amount of space between the element and its <code>border</code>.</p>
+<p>CSS allows you to control the <code>padding</code> of an element on all four sides with <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, and <code>padding-left</code> properties.</p>
+</li>
+<li>
+<p>Margin: An element’s <code>margin</code> controls the amount of space between an element’s <code>border</code> and surrounding elements.<br>
+<img src="/sourcepictures/2017/01/26/margin_padding.png" alt="margin_padding"><br>
+If you set an element’s margin to a negative value, the element will grow larger.</p>
+<p>CSS allows you to control the <code>margin</code> of an element on all four sides with <code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code>, and <code>margin-left</code> properties.</p>
+</li>
+<li>
+<p>Use <strong>Clockwise Notation</strong>(顺时针) to Specify the Padding of an Element</p>
+<p>Instead of specifying an element’s <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, and <code>padding-left</code> properties, you can specify them all in one line, like this:<code>padding: 10px 20px 10px 20px;</code></p>
+<p>These four values work like a clock: top, right, bottom, left, and will produce the exact same result as using the side-specific   padding instructions.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.red-box</span> &#123;</span></span><br><span class="line"><span class="undefined">    background-color: red;</span></span><br><span class="line"><span class="undefined">    margin-top: 20px;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">margin-right</span><span class="selector-pseudo">:40px</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">margin-bottom</span><span class="selector-pseudo">:20px</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">margin-left</span><span class="selector-pseudo">:40px</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>可写为：</p>
-<p><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.red-box</span> &#123;</span></span><br><span class="line"><span class="undefined">    background-color: red;</span></span><br><span class="line"><span class="undefined">    margin: 20px 40px 20px 40px;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="inheritance">Inheritance</h2>
+  <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.red-box</span> &#123;</span></span><br><span class="line"><span class="undefined">    background-color: red;</span></span><br><span class="line"><span class="undefined">    margin: 20px 40px 20px 40px;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="inheritance"><a class="markdownIt-Anchor" href="#inheritance"></a> Inheritance</h2>
 <ul>
-<li><p>Remember, you can style your <code>body</code> element just like any other HTML element, and all your other elements will inherit your <code>body</code> element's styles.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  body &#123;</span></span><br><span class="line"><span class="undefined">    background-color: black;</span></span><br><span class="line"><span class="undefined">    color: green;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">font-family</span><span class="selector-pseudo">:Monospace</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p><strong>Prioritize One Style Over Another</strong></p>
-<p>Sometimes your HTML elements will receive multiple styles that conflict with one another.</p></li>
-<li><p><strong>Override Styles in Subsequent CSS</strong> <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  body &#123;</span></span><br><span class="line"><span class="undefined">    background-color: black;</span></span><br><span class="line"><span class="undefined">    font-family: Monospace;</span></span><br><span class="line"><span class="undefined">    color: green;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.pink-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: pink;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.blue-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: blue;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"pink-text blue-text"</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>Note</strong>: It doesn't matter which order the classes are listed in the HTML element.</p>
-<p>However, the order of the <code>class</code> declarations in the <code>&lt;style&gt;</code> section are what is important. The second declaration will always take precedence over the first. Because <code>.blue-text</code> is declared second, it overrides the attributes of <code>.pink-text</code></p></li>
-<li><p><strong>Override Class Declarations by Styling ID Attributes</strong> <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  body &#123;</span></span><br><span class="line"><span class="undefined">    background-color: black;</span></span><br><span class="line"><span class="undefined">    font-family: Monospace;</span></span><br><span class="line"><span class="undefined">    color: green;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.pink-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: pink;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.blue-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: blue;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-id">#orange-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: orange;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"pink-text blue-text"</span> <span class="attr">id</span> =<span class="string">"orange-text"</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>Note</strong>: It doesn't matter whether you declare this css above or below pink-text class, since id attribute will <code>always</code> take precedence.</p>
-<p>So we've proven that id declarations override class declarations, regardless of where they are declared in your <code>style</code> element CSS.</p></li>
-<li><p><strong>Override Class Declarations with Inline Styles</strong></p>
-<p>Use an <code>in-line style</code> to try to make our <code>h1</code> element white. Remember, in line styles look like this:<code>&lt;h1 style="color: green"&gt;</code></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  body &#123;</span></span><br><span class="line"><span class="undefined">    background-color: black;</span></span><br><span class="line"><span class="undefined">    font-family: Monospace;</span></span><br><span class="line"><span class="undefined">    color: green;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-id">#orange-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: orange;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.pink-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: pink;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.blue-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: blue;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"orange-text"</span> <span class="attr">class</span>=<span class="string">"pink-text blue-text"</span> <span class="attr">style</span>=<span class="string">"color:white"</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p><strong>Override All Other Styles by using Important</strong></p>
+<li>
+<p>Remember, you can style your <code>body</code> element just like any other HTML element, and all your other elements will inherit your <code>body</code> element’s styles.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  body &#123;</span></span><br><span class="line"><span class="undefined">    background-color: black;</span></span><br><span class="line"><span class="undefined">    color: green;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">font-family</span><span class="selector-pseudo">:Monospace</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Prioritize One Style Over Another</strong></p>
+<p>Sometimes your HTML elements will receive multiple styles that conflict with one another.</p>
+</li>
+<li>
+<p><strong>Override Styles in Subsequent CSS</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  body &#123;</span></span><br><span class="line"><span class="undefined">    background-color: black;</span></span><br><span class="line"><span class="undefined">    font-family: Monospace;</span></span><br><span class="line"><span class="undefined">    color: green;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.pink-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: pink;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.blue-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: blue;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"pink-text blue-text"</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Note</strong>: It doesn’t matter which order the classes are listed in the HTML element.</p>
+<p>However, the order of the <code>class</code> declarations in the <code>&lt;style&gt;</code> section are what is important. The second declaration will always take precedence over the first. Because <code>.blue-text</code> is declared second, it overrides the attributes of <code>.pink-text</code></p>
+</li>
+<li>
+<p><strong>Override Class Declarations by Styling ID Attributes</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  body &#123;</span></span><br><span class="line"><span class="undefined">    background-color: black;</span></span><br><span class="line"><span class="undefined">    font-family: Monospace;</span></span><br><span class="line"><span class="undefined">    color: green;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.pink-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: pink;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.blue-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: blue;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-id">#orange-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: orange;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"pink-text blue-text"</span> <span class="attr">id</span> =<span class="string">"orange-text"</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Note</strong>: It doesn’t matter whether you declare this css above or below pink-text class, since id attribute will <code>always</code> take precedence.</p>
+<p>So we’ve proven that id declarations override class declarations, regardless of where they are declared in your <code>style</code> element CSS.</p>
+</li>
+<li>
+<p><strong>Override Class Declarations with Inline Styles</strong></p>
+<p>Use an <code>in-line style</code> to try to make our <code>h1</code> element white. Remember, in line styles look like this:<code>&lt;h1 style=&quot;color: green&quot;&gt;</code></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  body &#123;</span></span><br><span class="line"><span class="undefined">    background-color: black;</span></span><br><span class="line"><span class="undefined">    font-family: Monospace;</span></span><br><span class="line"><span class="undefined">    color: green;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-id">#orange-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: orange;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.pink-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: pink;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.blue-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: blue;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"orange-text"</span> <span class="attr">class</span>=<span class="string">"pink-text blue-text"</span> <span class="attr">style</span>=<span class="string">"color:white"</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Override All Other Styles by using Important</strong></p>
 <p>Yay! We just proved that <code>in-line styles</code> will override all the CSS declarations in your style element.</p>
-<p>But wait. There's one last way to override CSS. This is the most powerful method of all.In many situations, you will use CSS libraries. These may accidentally override your own CSS. So when you absolutely need to be sure that an element has specific CSS, you can use <code>!important</code>.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  body &#123;</span></span><br><span class="line"><span class="undefined">    background-color: black;</span></span><br><span class="line"><span class="undefined">    font-family: Monospace;</span></span><br><span class="line"><span class="undefined">    color: green;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-id">#orange-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: orange;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.pink-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: pink !important;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.blue-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: blue;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"orange-text"</span> <span class="attr">class</span>=<span class="string">"pink-text blue-text"</span> <span class="attr">style</span>=<span class="string">"color: white"</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<p>But wait. There’s one last way to override CSS. This is the most powerful method of <a href="http://all.In" target="_blank" rel="noopener">all.In</a> many situations, you will use CSS libraries. These may accidentally override your own CSS. So when you absolutely need to be sure that an element has specific CSS, you can use <code>!important</code>.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  body &#123;</span></span><br><span class="line"><span class="undefined">    background-color: black;</span></span><br><span class="line"><span class="undefined">    font-family: Monospace;</span></span><br><span class="line"><span class="undefined">    color: green;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-id">#orange-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: orange;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.pink-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: pink !important;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.blue-text</span> &#123;</span></span><br><span class="line"><span class="undefined">    color: blue;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"orange-text"</span> <span class="attr">class</span>=<span class="string">"pink-text blue-text"</span> <span class="attr">style</span>=<span class="string">"color: white"</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h2 id="colors">Colors</h2>
+<h2 id="colors"><a class="markdownIt-Anchor" href="#colors"></a> Colors</h2>
 <ul>
-<li><p><strong>Use Hex Code for specific Colors</strong></p>
-<p>Hex codes use 6 hexadecimal digits to represent colors, two each for red (R), green (G), and blue (B) components. For example, orange is pure red, mixed with some green, and no blue. In hex code, this translates to being <code>#FFA500</code>.</p>
-<p>Many people feel overwhelmed by the possibilities of more than 16 million colors. Fortunately, you can shorten it. For example, red's hex code <code>#FF0000</code> can be shortened to <code>#F00</code>. This reduces the total number of possible colors to around 4,000.</p></li>
-<li><p><strong>Use RGB values to Color Elements</strong></p>
-<p>Another way you can represent colors in CSS is by using RGB values. The RGB value for black looks like this: <code>rgb(0, 0, 0)</code>. The RGB value for white looks like this: <code>rgb(255, 255, 255)</code>.</p></li>
-</ul></li>
+<li>
+<p><strong>Use Hex Code for specific Colors</strong></p>
+<p>Hex codes use 6 hexadecimal digits to represent colors, two each for red ®, green (G), and blue (B) components.<br>
+For example, orange is pure red, mixed with some green, and no blue. In hex code, this translates to being <code>#FFA500</code>.</p>
+<p>Many people feel overwhelmed by the possibilities of more than 16 million colors. Fortunately, you can shorten it.<br>
+For example, red’s hex code <code>#FF0000</code> can be shortened to <code>#F00</code>. This reduces the total number of possible colors to around 4,000.</p>
+</li>
+<li>
+<p><strong>Use RGB values to Color Elements</strong></p>
+<p>Another way you can represent colors in CSS is by using RGB values.<br>
+The RGB value for black looks like this: <code>rgb(0, 0, 0)</code>.<br>
+The RGB value for white looks like this: <code>rgb(255, 255, 255)</code>.</p>
+</li>
+</ul>
+</li>
 </ul>
   
 	</div>
@@ -234,7 +326,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#elements"><span class="toc-number">1.</span> <span class="toc-text">Elements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#style"><span class="toc-number">2.</span> <span class="toc-text">Style</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inheritance"><span class="toc-number">3.</span> <span class="toc-text">Inheritance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#colors"><span class="toc-number">4.</span> <span class="toc-text">Colors</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#elements"><span class="toc-number">1.</span> <span class="toc-text"> Elements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#style"><span class="toc-number">2.</span> <span class="toc-text"> Style</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inheritance"><span class="toc-number">3.</span> <span class="toc-text"> Inheritance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#colors"><span class="toc-number">4.</span> <span class="toc-text"> Colors</span></a></li></ol>
  
   </div>
 
@@ -267,7 +359,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -279,7 +371,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -312,7 +404,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -356,7 +448,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -368,19 +472,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

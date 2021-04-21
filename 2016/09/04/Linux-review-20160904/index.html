@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="文件系统与磁盘管理 df命令 查看磁盘容量 物理主机上的/dev/sda2对应着主机硬盘的分区，后面的数字表示分区号，数字前面的a表示第几个硬盘，例如/dev/sdb, /dev/sdc这些磁盘设备都会在dev目录下以文件形式存在。 df -h 以human-readable的格式显示 du命令查看目录的容量，后面可以跟目录名 &amp;gt; -h以human-readable的格式显示 &amp;gt; -">
+    <meta name="description" content="文件系统与磁盘管理 df命令  查看磁盘容量 物理主机上的/dev/sda2对应着主机硬盘的分区，后面的数字表示分区号，数字前面的a表示第几个硬盘，例如/dev/sdb, /dev/sdc这些磁盘设备都会在dev目录下以文件形式存在。 df -h 以human-readable的格式显示 du命令查看目录的容量，后面可以跟目录名  -h以human-readable的格式显示 -d指定查看的深度（">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 温习(三)：文件系统与磁盘管理 内建命令与外部命令">
 <meta property="og:url" content="http://flamepeak.com/2016/09/04/Linux-review-20160904/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="文件系统与磁盘管理 df命令 查看磁盘容量 物理主机上的/dev/sda2对应着主机硬盘的分区，后面的数字表示分区号，数字前面的a表示第几个硬盘，例如/dev/sdb, /dev/sdc这些磁盘设备都会在dev目录下以文件形式存在。 df -h 以human-readable的格式显示 du命令查看目录的容量，后面可以跟目录名 &amp;gt; -h以human-readable的格式显示 &amp;gt; -">
+<meta property="og:description" content="文件系统与磁盘管理 df命令  查看磁盘容量 物理主机上的/dev/sda2对应着主机硬盘的分区，后面的数字表示分区号，数字前面的a表示第几个硬盘，例如/dev/sdb, /dev/sdc这些磁盘设备都会在dev目录下以文件形式存在。 df -h 以human-readable的格式显示 du命令查看目录的容量，后面可以跟目录名  -h以human-readable的格式显示 -d指定查看的深度（">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:46:47.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 温习(三)：文件系统与磁盘管理 内建命令与外部命令">
-<meta name="twitter:description" content="文件系统与磁盘管理 df命令 查看磁盘容量 物理主机上的/dev/sda2对应着主机硬盘的分区，后面的数字表示分区号，数字前面的a表示第几个硬盘，例如/dev/sdb, /dev/sdc这些磁盘设备都会在dev目录下以文件形式存在。 df -h 以human-readable的格式显示 du命令查看目录的容量，后面可以跟目录名 &amp;gt; -h以human-readable的格式显示 &amp;gt; -">
+<meta name="twitter:description" content="文件系统与磁盘管理 df命令  查看磁盘容量 物理主机上的/dev/sda2对应着主机硬盘的分区，后面的数字表示分区号，数字前面的a表示第几个硬盘，例如/dev/sdb, /dev/sdc这些磁盘设备都会在dev目录下以文件形式存在。 df -h 以human-readable的格式显示 du命令查看目录的容量，后面可以跟目录名  -h以human-readable的格式显示 -d指定查看的深度（">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,15 +97,28 @@
 </header>
 	<div class="article-content">
 		
-		<p><strong>文件系统与磁盘管理</strong> <code>df</code>命令 查看磁盘容量 物理主机上的<code>/dev/sda2</code>对应着主机硬盘的分区，后面的数字表示分区号，数字前面的a表示第几个硬盘，例如/dev/sdb, /dev/sdc这些磁盘设备都会在dev目录下以文件形式存在。 <code>df -h</code> 以human-readable的格式显示</p>
-<p><code>du</code>命令查看目录的容量，后面可以跟目录名 &gt; <code>-h</code>以human-readable的格式显示 &gt; <code>-d</code>指定查看的深度（后跟0、1、2...）</p>
-<p><strong>内建命令与外部命令</strong> &gt; 内建命令实际上是 shell 程序的一部分，其中包含的是一些比较简单的 Linux 系统命令，这些命令是写在bash源码的builtins里面的，并由 shell 程序识别并在 shell 程序内部完成运行，通常在 Linux 系统加载运行时 shell 就被加载并驻留在系统内存中。而且解析内部命令 shell 不需要创建子进程，因此其执行速度比外部命令快。比如：history、cd、exit 等等。</p>
+		<p><strong>文件系统与磁盘管理</strong><br>
+<code>df</code>命令  查看磁盘容量<br>
+物理主机上的<code>/dev/sda2</code>对应着主机硬盘的分区，后面的数字表示分区号，数字前面的a表示第几个硬盘，例如/dev/sdb, /dev/sdc这些磁盘设备都会在dev目录下以文件形式存在。<br>
+<code>df -h</code> 以human-readable的格式显示</p>
+<p><code>du</code>命令查看目录的容量，后面可以跟目录名</p>
+<blockquote>
+<p><code>-h</code>以human-readable的格式显示<br>
+<code>-d</code>指定查看的深度（后跟0、1、2…）</p>
+</blockquote>
+<p><strong>内建命令与外部命令</strong></p>
+<blockquote>
+<p>内建命令实际上是 shell 程序的一部分，其中包含的是一些比较简单的 Linux 系统命令，这些命令是写在bash源码的builtins里面的，并由 shell 程序识别并在 shell 程序内部完成运行，通常在 Linux 系统加载运行时 shell 就被加载并驻留在系统内存中。而且解析内部命令 shell 不需要创建子进程，因此其执行速度比外部命令快。比如：history、cd、exit 等等。</p>
+</blockquote>
 <blockquote>
 <p>外部命令是 Linux 系统中的实用程序的一部分，在系统加载时并不随系统一起被加载到内存中，而是在需要时才将其调用内存。虽然其不包含在 shell 中，但是其命令执行过程是由 shell 程序控制的。外部命令是在 Bash 之外额外安装的，通常放在/bin，/usr/bin，/sbin，/usr/sbin等等。比如：ls、vi等。</p>
 </blockquote>
 <p><code>type</code> 判断命令是内建命令还是外部命令</p>
-<p><strong>帮助命令</strong> help <em>command</em> 用于显示内建命令的帮助信息 <em>command</em> --help 用于显示外部命令的帮助信息</p>
-<p>man 显示系统手册页内容 info 能够显示比man更多的帮助信息</p>
+<p><strong>帮助命令</strong><br>
+help <em>command</em> 用于显示内建命令的帮助信息<br>
+<em>command</em> --help  用于显示外部命令的帮助信息</p>
+<p>man 显示系统手册页内容<br>
+info 能够显示比man更多的帮助信息</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -201,7 +214,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -213,7 +226,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -246,7 +259,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -290,7 +303,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -302,19 +327,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

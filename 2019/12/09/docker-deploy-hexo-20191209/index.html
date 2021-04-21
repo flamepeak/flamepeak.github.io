@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="install docker http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/ install git 、nodejs docker pull ubuntudocker run -itd --name hexo_byMe ubuntu /bin/bashdocker exec -it hexo_byMe /bin">
+    <meta name="description" content="install docker http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/  install git 、nodejs docker pull ubuntudocker run -itd --name hexo_byMe ubuntu /bin/bashdocker exec -it hexo_byMe /bin/">
 <meta name="keywords" content="Hexo,Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker deploy hexo">
 <meta property="og:url" content="http://flamepeak.com/2019/12/09/docker-deploy-hexo-20191209/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="install docker http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/ install git 、nodejs docker pull ubuntudocker run -itd --name hexo_byMe ubuntu /bin/bashdocker exec -it hexo_byMe /bin">
+<meta property="og:description" content="install docker http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/  install git 、nodejs docker pull ubuntudocker run -itd --name hexo_byMe ubuntu /bin/bashdocker exec -it hexo_byMe /bin/">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-12-09T09:02:50.278Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker deploy hexo">
-<meta name="twitter:description" content="install docker http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/ install git 、nodejs docker pull ubuntudocker run -itd --name hexo_byMe ubuntu /bin/bashdocker exec -it hexo_byMe /bin">
+<meta name="twitter:description" content="install docker http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/  install git 、nodejs docker pull ubuntudocker run -itd --name hexo_byMe ubuntu /bin/bashdocker exec -it hexo_byMe /bin/">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,22 +97,22 @@
 </header>
 	<div class="article-content">
 		
-		<h2 id="install-docker">install docker</h2>
-<p>http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/</p>
-<h2 id="install-git-nodejs">install git 、nodejs</h2>
+		<h2 id="install-docker"><a class="markdownIt-Anchor" href="#install-docker"></a> install docker</h2>
+<p><a href="http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/">http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/</a></p>
+<h2 id="install-git-nodejs"><a class="markdownIt-Anchor" href="#install-git-nodejs"></a> install git 、nodejs</h2>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull ubuntu</span><br><span class="line">docker run -itd --name hexo_byMe ubuntu /bin/bash</span><br><span class="line">docker <span class="built_in">exec</span> -it hexo_byMe /bin/bash</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get udpate</span><br><span class="line"><span class="comment"># 安装git</span></span><br><span class="line">apt-get install git-core</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装nodejs</span></span><br><span class="line"><span class="comment">#https://github.com/nodesource/distributions</span></span><br><span class="line"><span class="comment"># Using Ubuntu</span></span><br><span class="line">curl -sL https://deb.nodesource.com/setup_12.x | bash -</span><br><span class="line">sudo apt-get install -y nodejs</span><br><span class="line"></span><br><span class="line"><span class="comment">#检查安装是否成功</span></span><br><span class="line">node -v</span><br><span class="line">npm</span><br></pre></td></tr></table></figure>
-<h2 id="安装hexo">安装Hexo</h2>
+<h2 id="安装hexo"><a class="markdownIt-Anchor" href="#安装hexo"></a> 安装Hexo</h2>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br><span class="line">npm install hexo-renderer-marked --save</span><br><span class="line"></span><br><span class="line"><span class="comment">#如有必要安装pandoc</span></span><br><span class="line">curl -O -sL https://github.com/jgm/pandoc/releases/download/2.8.1/pandoc-2.8.1-1-amd64.deb </span><br><span class="line">dpkg -i pandoc-2.8.1-1-amd64.deb</span><br><span class="line"><span class="comment">#如果上面命令不行，可以尝试</span></span><br><span class="line">curl -sL -O http://th.archive.ubuntu.com/ubuntu/pool/universe/p/pandoc/pandoc_1.19.2.4~dfsg-1build4_amd64.deb</span><br><span class="line">dpkg -i pandoc_1.19.2.4~dfsg-1build4_amd64.deb</span><br><span class="line">apt --fix-broken install</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure>
-<h2 id="测试hexo">测试Hexo</h2>
+<h2 id="测试hexo"><a class="markdownIt-Anchor" href="#测试hexo"></a> 测试Hexo</h2>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g </span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <p>如果在Windows系统，无法访问<code>localhost:4000</code>，请参考 <a href></a></p>
-<h2 id="备份images">备份Images</h2>
+<h2 id="备份images"><a class="markdownIt-Anchor" href="#备份images"></a> 备份Images</h2>
 <p>我们可以把container生成images来保存</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit -m=<span class="string">"has update"</span> -a=<span class="string">"author"</span> e218edb10161 blog_ver2</span><br><span class="line"></span><br><span class="line">各个参数说明：</span><br><span class="line">-m: 提交的描述信息</span><br><span class="line">-a: 指定镜像作者</span><br><span class="line">e218edb10161：容器 ID</span><br><span class="line">blog_ver2: 指定要创建的目标镜像名</span><br></pre></td></tr></table></figure>
-<h2 id="一些使用技巧">一些使用技巧</h2>
+<h2 id="一些使用技巧"><a class="markdownIt-Anchor" href="#一些使用技巧"></a> 一些使用技巧</h2>
 <p>本地复制文件，可以通过这个命令来实现<code>docker cp</code></p>
-<h3 id="如何在容器与本地之间-copy-文件">如何在容器与本地之间 copy 文件？</h3>
+<h3 id="如何在容器与本地之间-copy-文件"><a class="markdownIt-Anchor" href="#如何在容器与本地之间-copy-文件"></a> 如何在容器与本地之间 copy 文件？</h3>
 <p>从容器到本地：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker cp &lt;containerId&gt;:/file/path/within/container /host/path/target</span><br></pre></td></tr></table></figure>
 <p>从本地到容器：</p>
@@ -180,7 +180,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#install-docker"><span class="toc-number">1.</span> <span class="toc-text">install docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#install-git-nodejs"><span class="toc-number">2.</span> <span class="toc-text">install git 、nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装hexo"><span class="toc-number">3.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试hexo"><span class="toc-number">4.</span> <span class="toc-text">测试Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#备份images"><span class="toc-number">5.</span> <span class="toc-text">备份Images</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些使用技巧"><span class="toc-number">6.</span> <span class="toc-text">一些使用技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何在容器与本地之间-copy-文件"><span class="toc-number">6.1.</span> <span class="toc-text">如何在容器与本地之间 copy 文件？</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#install-docker"><span class="toc-number">1.</span> <span class="toc-text"> install docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#install-git-nodejs"><span class="toc-number">2.</span> <span class="toc-text"> install git 、nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装hexo"><span class="toc-number">3.</span> <span class="toc-text"> 安装Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试hexo"><span class="toc-number">4.</span> <span class="toc-text"> 测试Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#备份images"><span class="toc-number">5.</span> <span class="toc-text"> 备份Images</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些使用技巧"><span class="toc-number">6.</span> <span class="toc-text"> 一些使用技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何在容器与本地之间-copy-文件"><span class="toc-number">6.1.</span> <span class="toc-text"> 如何在容器与本地之间 copy 文件？</span></a></li></ol></li></ol>
  
   </div>
 
@@ -213,7 +213,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -225,7 +225,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -258,7 +258,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -302,7 +302,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -314,19 +326,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

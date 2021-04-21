@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="安装ELK 安装 Elasticsearch wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gzwget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-">
+    <meta name="description" content="安装ELK  安装 Elasticsearch wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gzwget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-">
 <meta name="keywords" content="Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ELK 安装与简单实用">
 <meta property="og:url" content="http://flamepeak.com/2020/08/30/ELK Elasticsearch Kibana Logstash usage 20200111/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="安装ELK 安装 Elasticsearch wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gzwget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-">
+<meta property="og:description" content="安装ELK  安装 Elasticsearch wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gzwget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2021-01-13T02:16:17.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ELK 安装与简单实用">
-<meta name="twitter:description" content="安装ELK 安装 Elasticsearch wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gzwget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-">
+<meta name="twitter:description" content="安装ELK  安装 Elasticsearch wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gzwget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,15 +97,15 @@
 </header>
 	<div class="article-content">
 		
-		<h2 id="安装elk">安装ELK</h2>
-<h3 id="安装-elasticsearch">安装 Elasticsearch</h3>
+		<h2 id="安装elk"><a class="markdownIt-Anchor" href="#安装elk"></a> 安装ELK</h2>
+<h3 id="安装-elasticsearch"><a class="markdownIt-Anchor" href="#安装-elasticsearch"></a> 安装 Elasticsearch</h3>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gz</span><br><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gz.sha512</span><br><span class="line">shasum -a 512 -c elasticsearch-7.7.1-linux-x86_64.tar.gz.sha512 </span><br><span class="line">tar -xzf elasticsearch-7.7.1-linux-x86_64.tar.gz</span><br><span class="line"><span class="built_in">cd</span> elasticsearch-7.7.1/</span><br></pre></td></tr></table></figure>
 <p>运行：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">can not run elasticsearch as root</span><br><span class="line"></span><br><span class="line">su dbuser</span><br><span class="line">./elasticsearch -v</span><br></pre></td></tr></table></figure>
 <p>错误1：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00007f53abbe9000, 33554432, 0) failed; error=&apos;Not enough space&apos; (errno=12)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">free -m </span><br><span class="line">查看可用的swap空间</span><br><span class="line">可以增大swap空间</span><br><span class="line">或者，将/etc/elasticsearch/jvm.options 中的 -Xms512m -Xmx512m，进行修改，低于可用的swap空间</span><br></pre></td></tr></table></figure>
-<h3 id="安装可视化工具elasticsearch-head">安装可视化工具elasticsearch-head</h3>
+<h3 id="安装可视化工具elasticsearch-head"><a class="markdownIt-Anchor" href="#安装可视化工具elasticsearch-head"></a> 安装可视化工具elasticsearch-head</h3>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/mobz/elasticsearch-head.git</span><br><span class="line"><span class="built_in">cd</span> elasticsearch-head</span><br><span class="line">npm install</span><br><span class="line">npm run start</span><br><span class="line">open http://localhost:9100/</span><br><span class="line"></span><br><span class="line">Enable CORS <span class="keyword">in</span> elasticsearch：</span><br><span class="line">In elasticsearch configuration，</span><br><span class="line">1. add http.cors.enabled: <span class="literal">true</span></span><br><span class="line">2. you must also <span class="built_in">set</span> http.cors.allow-origin because no origin allowed by default. </span><br><span class="line">http.cors.allow-origin: <span class="string">"*"</span> is valid value, however it’s considered as a security risk </span><br><span class="line">as your cluster is open to cross origin from anywhere.</span><br></pre></td></tr></table></figure>
 <p>错误1:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">property [elasticsearch.version] is missing for plugin [head]</span><br></pre></td></tr></table></figure>
@@ -123,7 +123,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">org.elasticsearch.discovery.MasterNotDiscoveredException:null</span><br><span class="line"></span><br><span class="line">修改：cluster.initial_master_nodes: [&quot;node-1&quot;]</span><br><span class="line">如果有node-2，但是它不存在，可能导致错误</span><br></pre></td></tr></table></figure>
 <p>错误5：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">selinux 可能导致错误</span><br><span class="line"></span><br><span class="line">vi /etc/sysconfig/selinux</span><br></pre></td></tr></table></figure>
-<h3 id="安装kibana">安装Kibana</h3>
+<h3 id="安装kibana"><a class="markdownIt-Anchor" href="#安装kibana"></a> 安装Kibana</h3>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">curl -O https://artifacts.elastic.co/downloads/kibana/kibana-7.7.1-linux-x86_64.tar.gz</span><br><span class="line">curl https://artifacts.elastic.co/downloads/kibana/kibana-7.7.1-linux-x86_64.tar.gz.sha512 | shasum -a 512 -c - </span><br><span class="line">tar -xzf kibana-7.7.1-linux-x86_64.tar.gz</span><br><span class="line"><span class="built_in">cd</span> kibana-7.7.1-linux-x86_64/</span><br></pre></td></tr></table></figure>
 <p>运行：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">./bin/kibana</span><br></pre></td></tr></table></figure>
@@ -131,12 +131,12 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET _cat/indices</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GET how2java/_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;name&quot;: &quot;连衣裙&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;sort&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;_id&quot;: &quot;desc&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>错误1:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">问题描述：[error][reporting] The Reporting plugin encountered issues launching Chromium in a self-test. You may have trouble generating reports.</span><br><span class="line"></span><br><span class="line">error  [10:21:36.799] [error][reporting] Error: Failed to launch chrome! ... ... kibana-7.5.1linux-x86_64/data/headless_shell-linux/headless_shell: cannot execute binary file</span><br><span class="line"></span><br><span class="line">解决方案：Kibana 后端模块 xpack.reporting 的截图功能使用到了 chrome，CentOS 暂时不支持 chrome，因此需要在 kibana.yml 配置文件中增加以下参数禁用 X-Pack reporting。</span><br><span class="line"></span><br><span class="line">xpack.reporting.enabled:  false</span><br></pre></td></tr></table></figure>
-<h3 id="安装logstash">安装LogStash</h3>
+<h3 id="安装logstash"><a class="markdownIt-Anchor" href="#安装logstash"></a> 安装LogStash</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install java-1.8.0-openjdk.x86_64</span><br><span class="line"></span><br><span class="line">java -version</span><br><span class="line"></span><br><span class="line">必须先安装java环境</span><br></pre></td></tr></table></figure>
-<h3 id="安装ik">安装ik</h3>
+<h3 id="安装ik"><a class="markdownIt-Anchor" href="#安装ik"></a> 安装ik</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">download pre-build package from here: https://github.com/medcl/elasticsearch-analysis-ik/releases</span><br><span class="line"></span><br><span class="line">create plugin folder:</span><br><span class="line">cd your-es-root/plugins/ </span><br><span class="line">mkdir ik</span><br><span class="line"></span><br><span class="line">unzip zipfile to folder:</span><br><span class="line">your-es-root/plugins/ik</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET _analyze</span><br><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot;: &quot;ik_max_word&quot;,</span><br><span class="line">  &quot;text&quot;: &quot;你好中国，我叫马小玲&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="mongodb-数据导入es">mongodb 数据导入ES</h3>
+<h3 id="mongodb-数据导入es"><a class="markdownIt-Anchor" href="#mongodb-数据导入es"></a> mongodb 数据导入ES</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Linux bash:</span><br><span class="line">mongoexport --collection=people --db=human60 --out=human60_people.json</span><br><span class="line"></span><br><span class="line">Logstash: import</span><br><span class="line">vi mongodb_to_ES.conf</span><br><span class="line"></span><br><span class="line">input &#123;</span><br><span class="line">  file &#123;</span><br><span class="line">  path =&gt; &quot;/home/dbuser/ELK/human60_people.json&quot;</span><br><span class="line">  start_position =&gt; &quot;beginning&quot;</span><br><span class="line">  sincedb_path =&gt; &quot;/dev/null&quot;</span><br><span class="line">  codec =&gt; json</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">filter &#123;</span><br><span class="line">  mutate &#123;</span><br><span class="line">    remove_field =&gt; [&quot;_id&quot;,&quot;path&quot;,&quot;host&quot;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">output &#123;</span><br><span class="line">  elasticsearch &#123;</span><br><span class="line">  hosts =&gt; [ &quot;localhost:9200&quot; ]</span><br><span class="line">  index =&gt; &quot;human60&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>由于ES中mapping无法修改，所以在数据导入之前一定号</p>
   
@@ -183,9 +183,9 @@
 
 
 <div class="next">
-<a href="/2020/08/28/Python-change-ip-address/"  title="Python 修改ip地址">
+<a href="/2020/08/28/Python-Django-20200904/"  title="Django 一些记录">
  <strong>下一篇：</strong><br/> 
- <span>Python 修改ip地址
+ <span>Django 一些记录
 </span>
 </a>
 </div>
@@ -201,7 +201,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装elk"><span class="toc-number">1.</span> <span class="toc-text">安装ELK</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-elasticsearch"><span class="toc-number">1.1.</span> <span class="toc-text">安装 Elasticsearch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装可视化工具elasticsearch-head"><span class="toc-number">1.2.</span> <span class="toc-text">安装可视化工具elasticsearch-head</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装kibana"><span class="toc-number">1.3.</span> <span class="toc-text">安装Kibana</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装logstash"><span class="toc-number">1.4.</span> <span class="toc-text">安装LogStash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装ik"><span class="toc-number">1.5.</span> <span class="toc-text">安装ik</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb-数据导入es"><span class="toc-number">1.6.</span> <span class="toc-text">mongodb 数据导入ES</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装elk"><span class="toc-number">1.</span> <span class="toc-text"> 安装ELK</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-elasticsearch"><span class="toc-number">1.1.</span> <span class="toc-text"> 安装 Elasticsearch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装可视化工具elasticsearch-head"><span class="toc-number">1.2.</span> <span class="toc-text"> 安装可视化工具elasticsearch-head</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装kibana"><span class="toc-number">1.3.</span> <span class="toc-text"> 安装Kibana</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装logstash"><span class="toc-number">1.4.</span> <span class="toc-text"> 安装LogStash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装ik"><span class="toc-number">1.5.</span> <span class="toc-text"> 安装ik</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb-数据导入es"><span class="toc-number">1.6.</span> <span class="toc-text"> mongodb 数据导入ES</span></a></li></ol></li></ol>
  
   </div>
 
@@ -234,7 +234,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -246,7 +246,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -279,7 +279,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -323,7 +323,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -335,19 +347,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

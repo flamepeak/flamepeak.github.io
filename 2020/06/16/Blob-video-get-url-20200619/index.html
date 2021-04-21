@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Blob格式视频下载一直比较困难，在此记录一些思路：  首先找到blob网址，如下：blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978 在Chrome浏览器中，F12打开开发者工具 刷新含有视频的目标网页，然后在Network选项卡中查看请求列表 寻找m3u8扩展名，然后打开指定链接：如https://">
+    <meta name="description" content="Blob格式视频下载一直比较困难，在此记录一些思路：   首先找到blob网址，如下：blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978   在Chrome浏览器中，F12打开开发者工具   刷新含有视频的目标网页，然后在Network选项卡中查看请求列表   寻找m3u8扩展名，然后打开指定链接：如https:">
 <meta name="keywords" content="Tools">
 <meta property="og:type" content="article">
 <meta property="og:title" content="blob视频网址分析">
 <meta property="og:url" content="http://flamepeak.com/2020/06/16/Blob-video-get-url-20200619/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Blob格式视频下载一直比较困难，在此记录一些思路：  首先找到blob网址，如下：blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978 在Chrome浏览器中，F12打开开发者工具 刷新含有视频的目标网页，然后在Network选项卡中查看请求列表 寻找m3u8扩展名，然后打开指定链接：如https://">
+<meta property="og:description" content="Blob格式视频下载一直比较困难，在此记录一些思路：   首先找到blob网址，如下：blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978   在Chrome浏览器中，F12打开开发者工具   刷新含有视频的目标网页，然后在Network选项卡中查看请求列表   寻找m3u8扩展名，然后打开指定链接：如https:">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-06-19T07:56:55.060Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="blob视频网址分析">
-<meta name="twitter:description" content="Blob格式视频下载一直比较困难，在此记录一些思路：  首先找到blob网址，如下：blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978 在Chrome浏览器中，F12打开开发者工具 刷新含有视频的目标网页，然后在Network选项卡中查看请求列表 寻找m3u8扩展名，然后打开指定链接：如https://">
+<meta name="twitter:description" content="Blob格式视频下载一直比较困难，在此记录一些思路：   首先找到blob网址，如下：blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978   在Chrome浏览器中，F12打开开发者工具   刷新含有视频的目标网页，然后在Network选项卡中查看请求列表   寻找m3u8扩展名，然后打开指定链接：如https:">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -98,16 +98,26 @@
 	<div class="article-content">
 		
 		<p>Blob格式视频下载一直比较困难，在此记录一些思路：</p>
-<ol type="1">
-<li><p>首先找到blob网址，如下：<code>blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978</code></p></li>
-<li><p>在Chrome浏览器中，F12打开开发者工具</p></li>
-<li><p>刷新含有视频的目标网页，然后在Network选项卡中查看请求列表</p></li>
-<li><p>寻找m3u8扩展名，然后打开指定链接：如<code>https://1252524126.vod2.xxxx.com/522ff1e0vodcq1252524126/867b83575285890790665095068/playlist.f3.m3u8?time=1592553016262</code></p></li>
-<li><p>事实上，m3u8是一个文本文件，使用记事本之类工具打开，可以看到如下内容：</p>
+<ol>
+<li>
+<p>首先找到blob网址，如下：<code>blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978</code></p>
+</li>
+<li>
+<p>在Chrome浏览器中，F12打开开发者工具</p>
+</li>
+<li>
+<p>刷新含有视频的目标网页，然后在Network选项卡中查看请求列表</p>
+</li>
+<li>
+<p>寻找m3u8扩展名，然后打开指定链接：如<code>https://1252524126.vod2.xxxx.com/522ff1e0vodcq1252524126/867b83575285890790665095068/playlist.f3.m3u8?time=1592553016262</code></p>
+</li>
+<li>
+<p>事实上，m3u8是一个文本文件，使用记事本之类工具打开，可以看到如下内容：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-TARGETDURATION:18</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXTINF:16.666667,</span><br><span class="line">playlist.f3.ts?start=0&amp;end=5506707&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=5506708&amp;end=8260155&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=8260156&amp;end=11013603&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=11013604&amp;end=13767427&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=13767428&amp;end=16520875&amp;type=mpegts</span><br><span class="line">#EXTINF:16.666667,</span><br><span class="line">playlist.f3.ts?start=16520876&amp;end=22027771&amp;type=mpegts</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>这样就可以分析出视频地址了，就是</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">`https://1252524126.vod2.xxxx.com/522ff1e0vodcq1252524126/867b83575285890790665095068/playlist.f3.ts</span><br></pre></td></tr></table></figure>
-<p>直接下载视频即可</p></li>
+<p>直接下载视频即可</p>
+</li>
 </ol>
   
 	</div>
@@ -144,18 +154,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2020/06/16/Linux-CentOS-minimal-install-20200616/" title="CentOS 7 最小化安装遇到的问题">
+ <a href="/2020/08/16/Windows-7-iso-add-nvme-m2-driver/" title="Windows 7 原版镜像添加nvme m2驱动">
   <strong>上一篇：</strong><br/>
   <span>
-  CentOS 7 最小化安装遇到的问题</span>
+  Windows 7 原版镜像添加nvme m2驱动</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2020/03/28/vim-usage-20200328/"  title="Vim 使用汇总">
+<a href="/2020/06/16/Linux-CentOS-minimal-install-20200616/"  title="CentOS 7 最小化安装遇到的问题">
  <strong>下一篇：</strong><br/> 
- <span>Vim 使用汇总
+ <span>CentOS 7 最小化安装遇到的问题
 </span>
 </a>
 </div>
@@ -204,7 +214,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -216,7 +226,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -249,7 +259,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -293,7 +303,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -305,19 +327,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

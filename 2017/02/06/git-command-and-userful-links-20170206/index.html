@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Pro Git 中文 第二版： 官网地址，权威 branch early, and branch often About HEAD HEAD is the symbolic name for the currently checked out commit -- it&apos;s essentially what commit you&apos;re working on top of. HEAD alwa">
+    <meta name="description" content="Pro Git 中文 第二版： 官网地址，权威 branch early, and branch often  About HEAD HEAD is the symbolic name for the currently checked out commit – it’s essentially what commit you’re working on top of. HEAD always p">
 <meta name="keywords" content="git,learn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git 常用命令与学习链接">
 <meta property="og:url" content="http://flamepeak.com/2017/02/06/git-command-and-userful-links-20170206/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Pro Git 中文 第二版： 官网地址，权威 branch early, and branch often About HEAD HEAD is the symbolic name for the currently checked out commit -- it&apos;s essentially what commit you&apos;re working on top of. HEAD alwa">
+<meta property="og:description" content="Pro Git 中文 第二版： 官网地址，权威 branch early, and branch often  About HEAD HEAD is the symbolic name for the currently checked out commit – it’s essentially what commit you’re working on top of. HEAD always p">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-09-01T15:07:08.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git 常用命令与学习链接">
-<meta name="twitter:description" content="Pro Git 中文 第二版： 官网地址，权威 branch early, and branch often About HEAD HEAD is the symbolic name for the currently checked out commit -- it&apos;s essentially what commit you&apos;re working on top of. HEAD alwa">
+<meta name="twitter:description" content="Pro Git 中文 第二版： 官网地址，权威 branch early, and branch often  About HEAD HEAD is the symbolic name for the currently checked out commit – it’s essentially what commit you’re working on top of. HEAD always p">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -99,56 +99,81 @@
 		
 		<p><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">Pro Git 中文 第二版</a>： 官网地址，权威</p>
 <p>branch early, and branch often</p>
-<h3 id="about-head">About HEAD</h3>
-<p><code>HEAD</code> is the symbolic name for the currently checked out commit -- it's essentially what commit you're working on top of.</p>
+<h3 id="about-head"><a class="markdownIt-Anchor" href="#about-head"></a> About HEAD</h3>
+<p><code>HEAD</code> is the symbolic name for the currently checked out commit – it’s essentially what commit you’re working on top of.</p>
 <p><code>HEAD</code> always points to the most recent commit which is reflected in the working tree. Most git commands which make changes to the working tree will start by changing <code>HEAD</code>.</p>
 <p>Detaching <code>HEAD</code> just means attaching it to a commit instead of a branch.</p>
-<h3 id="the-operator">The <code>~</code> operator</h3>
+<h3 id="the-~-operator"><a class="markdownIt-Anchor" href="#the-~-operator"></a> The <code>~</code> operator</h3>
 <p>Say you want to move a lot of levels up in the commit tree. It might be tedious to type <code>^</code> several times, so Git also has the tilde (<code>~</code>) operator.</p>
 <p>The tilde operator (optionally) takes in a trailing number that specifies the number of parents you would like to ascend.</p>
 <p><code>git checkout HEAD~4</code></p>
-<h3 id="branch-forcing">Branch forcing</h3>
-<p>You can directly reassign a branch to a commit with the <code>-f</code> option. So something like: <code>git branch -f master HEAD~3</code> moves (by force) the <code>master</code> branch to three parents behind HEAD.</p>
-<h3 id="reversing-changes-in-git">Reversing Changes in Git</h3>
+<h3 id="branch-forcing"><a class="markdownIt-Anchor" href="#branch-forcing"></a> Branch forcing</h3>
+<p>You can directly reassign a branch to a commit with the <code>-f</code> option. So something like:<br>
+<code>git branch -f master HEAD~3</code><br>
+moves (by force) the <code>master</code> branch to three parents behind HEAD.</p>
+<h3 id="reversing-changes-in-git"><a class="markdownIt-Anchor" href="#reversing-changes-in-git"></a> Reversing Changes in Git</h3>
 <p>There are two primary ways to undo changes in <code>Git</code> : one is using <code>git reset</code> and the other is using <code>git revert</code>.</p>
-<p><code>git reset</code> reverts changes by moving a branch reference backwards in time to an older commit. <code>git reset HEAD~1</code></p>
-<p>While <code>git reset</code> works great for local branches on your own machine, its method of "rewriting history" doesn't work for remote branches that others are using. In order to reverse changes and <em>share</em> those reversed changes with others, we need to use <code>git revert</code>. <code>git revert HEAD</code></p>
-<h3 id="git-cherry-pick">Git Cherry-pick</h3>
-<p><code>git cherry-pick</code> takes on the following form: <code>git cherry-pick &lt;Commit1&gt; &lt;Commit2&gt; &lt;...&gt;</code></p>
-<p>It's a very straightforward way of saying that you would like to copy a series of commits below your current location (<code>HEAD</code>).</p>
+<p><code>git reset</code> reverts changes by moving a branch reference backwards in time to an older commit.<br>
+<code>git reset HEAD~1</code></p>
+<p>While <code>git reset</code> works great for local branches on your own machine, its method of “rewriting history” doesn’t work for remote branches that others are using.<br>
+In order to reverse changes and <em>share</em> those reversed changes with others, we need to use <code>git revert</code>.<br>
+<code>git revert HEAD</code></p>
+<h3 id="git-cherry-pick"><a class="markdownIt-Anchor" href="#git-cherry-pick"></a> Git Cherry-pick</h3>
+<p><code>git cherry-pick</code> takes on the following form:<br>
+<code>git cherry-pick &lt;Commit1&gt; &lt;Commit2&gt; &lt;...&gt;</code></p>
+<p>It’s a very straightforward way of saying that you would like to copy a series of commits below your current location (<code>HEAD</code>).</p>
 <p>Git cherry-pick is great when you know which commits you want (and you know their corresponding hashes).</p>
-<h3 id="git-interactive-rebase">git interactive rebase</h3>
+<h3 id="git-interactive-rebase"><a class="markdownIt-Anchor" href="#git-interactive-rebase"></a> git interactive rebase</h3>
 <p>All interactive rebase means is using the <code>rebase</code> command with the <code>-i</code> option.</p>
-<p>If you include this option, git will open up a UI to show you which commits are about to be copied below the target of the rebase. It also shows their commit hashes and messages, which is great for getting a bearing on what's what. <code>git rebase -i HEAD~4</code></p>
+<p>If you include this option, git will open up a UI to show you which commits are about to be copied below the target of the rebase. It also shows their commit hashes and messages, which is great for getting a bearing on what’s what.<br>
+<code>git rebase -i HEAD~4</code></p>
 <hr>
-<h2 id="git-remotes">Git Remotes</h2>
-<p>Remote repositories have a bunch of great properties: + First and foremost, remotes serve as a great backup! Local git repositories have the ability to restore files to a previous state (as you know), but all that information is stored locally. By having copies of your git repository on other computers, you can lose all your local data and still pick up where you left off.</p>
+<h2 id="git-remotes"><a class="markdownIt-Anchor" href="#git-remotes"></a> Git Remotes</h2>
+<p>Remote repositories have a bunch of great properties:</p>
 <ul>
-<li>More importantly, remotes make coding social! Now that a copy of your project is hosted elsewhere, your friends can contribute to your project (or pull in your latest changes) very easily.</li>
+<li>
+<p>First and foremost, remotes serve as a great backup! Local git repositories have the ability to restore files to a previous state (as you know), but all that information is stored locally. By having copies of your git repository on other computers, you can lose all your local data and still pick up where you left off.</p>
+</li>
+<li>
+<p>More importantly, remotes make coding social! Now that a copy of your project is hosted elsewhere, your friends can contribute to your project (or pull in your latest changes) very easily.</p>
+</li>
 </ul>
-<h3 id="what-fetch-doesnt-do">What fetch doesn't do</h3>
+<h3 id="what-fetch-doesnt-do"><a class="markdownIt-Anchor" href="#what-fetch-doesnt-do"></a> What fetch doesn’t do</h3>
 <p><code>git fetch</code>, however, does not change anything about your local state. It will not update your <code>master</code> branch or change anything about how your file system looks right now.</p>
 <p>This is important to understand because a lot of developers think that running <code>git fetch</code> will make their local work reflect the state of the remote. It may download all the necessary data to do that, but it does not actually change any of your local files.</p>
 <p>In fact, the workflow of <em>fetching</em> remote changes and then <em>merging</em> them is so common that git actually provides a command that does both at once! That command is <code>git pull</code>.</p>
-<p>During a clone, git creates a remote branch for every branch on the remote. It then creates a local branch that tracks the currently active branch on the remote, which is <code>master</code> in most cases. This also explains why you may see the following command output when cloning: <code>local branch "master" set to track remote branch "origin/master"</code></p>
-<p>创建远程origin的dev分支到本地，用这个命令创建本地dev分支： <code>git checkout -b dev origin/dev</code></p>
-<h3 id="git-push-arguments">git push arguments</h3>
-<p><code>git push &lt;remote&gt; &lt;place&gt;</code> What is a <code>&lt;place&gt;</code> parameter you say? We'll dive into the specifics soon, but first an example. Issuing the command: <code>git push origin master</code> translates to this in English:</p>
-<p><em>Go to the branch named "master" in my repository, grab all the commits, and then go to the branch "master" on the remote named "origin." Place whatever commits are missing on that branch and then tell me when you're done.</em></p>
-<p>By specifying <code>master</code> as the "place" argument, we told git where the commits will come from and where the commits will go. It's essentially the "place" or "location" to synchronize between the two repositories.</p>
-<p>In order to specify both the source and the destination of <code>&lt;place&gt;</code>, simply join the two together with a colon: <code>git push origin &lt;source&gt;:&lt;destination&gt;</code></p>
-<h3 id="git-fetch-arguments">git fetch arguments</h3>
-<p><code>git fetch &lt;remote&gt; &lt;place&gt;</code> If you specify a place with <code>git fetch</code> like in the following command:</p>
+<p>During a clone, git creates a remote branch for every branch on the remote. It then creates a local branch that tracks the currently active branch on the remote, which is <code>master</code> in most cases.<br>
+This also explains why you may see the following command output when cloning:<br>
+<code>local branch &quot;master&quot; set to track remote branch &quot;origin/master&quot;</code></p>
+<p>创建远程origin的dev分支到本地，用这个命令创建本地dev分支：<br>
+<code>git checkout -b dev origin/dev</code></p>
+<h3 id="git-push-arguments"><a class="markdownIt-Anchor" href="#git-push-arguments"></a> git push arguments</h3>
+<p><code>git push &lt;remote&gt; &lt;place&gt;</code><br>
+What is a <code>&lt;place&gt;</code> parameter you say? We’ll dive into the specifics soon, but first an example. Issuing the command:<br>
+<code>git push origin master</code><br>
+translates to this in English:</p>
+<p><em>Go to the branch named “master” in my repository, grab all the commits, and then go to the branch “master” on the remote named “origin.” Place whatever commits are missing on that branch and then tell me when you’re done.</em></p>
+<p>By specifying <code>master</code> as the “place” argument, we told git where the commits will come from and where the commits will go. It’s essentially the “place” or “location” to synchronize between the two repositories.</p>
+<p>In order to specify both the source and the destination of <code>&lt;place&gt;</code>, simply join the two together with a colon:<br>
+<code>git push origin &lt;source&gt;:&lt;destination&gt;</code></p>
+<h3 id="git-fetch-arguments"><a class="markdownIt-Anchor" href="#git-fetch-arguments"></a> git fetch arguments</h3>
+<p><code>git fetch &lt;remote&gt; &lt;place&gt;</code><br>
+If you specify a place with <code>git fetch</code> like in the following command:</p>
 <p><code>git fetch origin foo</code></p>
-<p>Git will go to the <code>foo</code> branch on the remote, grab all the commits that aren't present locally, and then plop them down onto the <code>origin/foo</code> branch locally.</p>
+<p>Git will go to the <code>foo</code> branch on the remote, grab all the commits that aren’t present locally, and then plop them down onto the <code>origin/foo</code> branch locally.</p>
 <p><code>git fetch origin &lt;remote_source&gt;:&lt;local_dest&gt;</code></p>
-<h3 id="实用命令">实用命令</h3>
-<p><strong>查看远程仓库详细信息</strong> <code>git remote -v</code></p>
-<p><strong>更改远程仓库地址</strong> <code>git remote set-url origin git@git.coding.net:jjjjjj.git</code></p>
-<p><strong>增加远程仓库地址，设置多个远程仓库</strong> <code>git remote set-url --add origin git@bitbucket.org:flaer.git</code></p>
-<p><strong>删除远程仓库地址</strong> <code>git remote remove origin</code></p>
-<p><strong>复制ssh key 到剪切板</strong> <code>cat ~/.ssh/id_rsa.pub | clip</code></p>
-<h3 id="子模块的增加与删除">子模块的增加与删除</h3>
+<h3 id="实用命令"><a class="markdownIt-Anchor" href="#实用命令"></a> 实用命令</h3>
+<p><strong>查看远程仓库详细信息</strong><br>
+<code>git remote -v</code></p>
+<p><strong>更改远程仓库地址</strong><br>
+<code>git remote set-url origin git@git.coding.net:jjjjjj.git</code></p>
+<p><strong>增加远程仓库地址，设置多个远程仓库</strong><br>
+<code>git remote set-url --add origin git@bitbucket.org:flaer.git</code></p>
+<p><strong>删除远程仓库地址</strong><br>
+<code>git remote remove origin</code></p>
+<p><strong>复制ssh key 到剪切板</strong><br>
+<code>cat ~/.ssh/id_rsa.pub | clip</code></p>
+<h3 id="子模块的增加与删除"><a class="markdownIt-Anchor" href="#子模块的增加与删除"></a> 子模块的增加与删除</h3>
 <p><strong>增加</strong><br>
 <code>git submodule add git@bitbucket.org:flamepeak/name.git themes/name</code></p>
 <p><strong>删除</strong></p>
@@ -217,7 +242,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#about-head"><span class="toc-number">1.</span> <span class="toc-text">About HEAD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#the-operator"><span class="toc-number">2.</span> <span class="toc-text">The ~ operator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#branch-forcing"><span class="toc-number">3.</span> <span class="toc-text">Branch forcing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reversing-changes-in-git"><span class="toc-number">4.</span> <span class="toc-text">Reversing Changes in Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-cherry-pick"><span class="toc-number">5.</span> <span class="toc-text">Git Cherry-pick</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-interactive-rebase"><span class="toc-number">6.</span> <span class="toc-text">git interactive rebase</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-remotes"><span class="toc-number"></span> <span class="toc-text">Git Remotes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#what-fetch-doesnt-do"><span class="toc-number">1.</span> <span class="toc-text">What fetch doesn&#39;t do</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-push-arguments"><span class="toc-number">2.</span> <span class="toc-text">git push arguments</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-fetch-arguments"><span class="toc-number">3.</span> <span class="toc-text">git fetch arguments</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实用命令"><span class="toc-number">4.</span> <span class="toc-text">实用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子模块的增加与删除"><span class="toc-number">5.</span> <span class="toc-text">子模块的增加与删除</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#about-head"><span class="toc-number">1.</span> <span class="toc-text"> About HEAD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#the-~-operator"><span class="toc-number">2.</span> <span class="toc-text"> The ~ operator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#branch-forcing"><span class="toc-number">3.</span> <span class="toc-text"> Branch forcing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reversing-changes-in-git"><span class="toc-number">4.</span> <span class="toc-text"> Reversing Changes in Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-cherry-pick"><span class="toc-number">5.</span> <span class="toc-text"> Git Cherry-pick</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-interactive-rebase"><span class="toc-number">6.</span> <span class="toc-text"> git interactive rebase</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-remotes"><span class="toc-number"></span> <span class="toc-text"> Git Remotes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#what-fetch-doesnt-do"><span class="toc-number">1.</span> <span class="toc-text"> What fetch doesn’t do</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-push-arguments"><span class="toc-number">2.</span> <span class="toc-text"> git push arguments</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-fetch-arguments"><span class="toc-number">3.</span> <span class="toc-text"> git fetch arguments</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实用命令"><span class="toc-number">4.</span> <span class="toc-text"> 实用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子模块的增加与删除"><span class="toc-number">5.</span> <span class="toc-text"> 子模块的增加与删除</span></a></li></ol>
  
   </div>
 
@@ -250,7 +275,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -262,7 +287,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -295,7 +320,7 @@
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -339,7 +364,19 @@
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -351,19 +388,7 @@
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			

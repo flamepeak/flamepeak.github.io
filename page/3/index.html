@@ -78,6 +78,119 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2020/01/22/SSH-permissions-are-too-open-error/" title="SSH permissions are too open error" itemprop="url">
+  
+    <h1 itemprop="name">SSH permissions are too open error</h1>
+    
+     
+           <p itemprop="description" >Linux中遇到如下错误，
+root@kali:~/Downloads# ssh -i prikeyfile  joanna@10.10.10.171@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@     </p>
+        
+    
+    <time datetime="2020-01-22T07:45:16.000Z" itemprop="datePublished">2020-01-22</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2020/01/22/-bin-bash-M-bad-interpreter-No-such-file-or-directory/" title="/bin/bash^M: bad interpreter: No such file or directory" itemprop="url">
+  
+    <h1 itemprop="name">/bin/bash^M: bad interpreter: No such file or directory</h1>
+    
+     
+           <p itemprop="description" >在运行.sh脚本时遇到这样的错误/bin/bash^M: bad interpreter: No such file or directory，Google之后才找到原因
+在Windows中编写的脚本，直接在Linux下运行就可能会出现这样的问题。
+解决办法是：
+sed -i -</p>
+        
+    
+    <time datetime="2020-01-22T04:33:06.000Z" itemprop="datePublished">2020-01-22</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2020/01/16/kali-install-knock-20200116/" title="kali 安装 knock" itemprop="url">
+  
+    <h1 itemprop="name">kali 安装 knock</h1>
+    
+     
+           <p itemprop="description" >sudo apt-get install knockd
+关于Knock的原理与使用请参考鸟哥的教程
+使用 knock 管理防火牆</p>
+        
+    
+    <time datetime="2020-01-16T03:06:56.000Z" itemprop="datePublished">2020-01-16</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2019/12/16/PHP-debugging-20191216/" title="PHP Debugging" itemprop="url">
+  
+    <h1 itemprop="name">PHP Debugging</h1>
+    
+     
+           <p itemprop="description" >Dumping variables to stdout
+
+var_dump ($var) dumps the variable type and value to stdout.
+print_r ($var) prints the variable value in human-</p>
+        
+    
+    <time datetime="2019-12-16T07:07:04.000Z" itemprop="datePublished">2019-12-16</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2019/12/16/XXE-explanation-and-usage-20191216/" title="XXE 成因分析与应用" itemprop="url">
+  
+    <h1 itemprop="name">XXE 成因分析与应用</h1>
+    
+     
+           <p itemprop="description" >xxe简介
+XML External Entity Injection，xml外部实体注入漏洞
+当允许引用外部实体时，通过构造恶意内容可导致读取任意文件、执行系统命令、探测内网端口、攻击内网网站等危害。
+ 可能的场景
+很多的网站都会对xml文件进行解析，解析的时候都有可能出现可用</p>
+        
+    
+    <time datetime="2019-12-16T03:12:37.000Z" itemprop="datePublished">2019-12-16</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2019/12/12/Linux-su-sudo-diffenence-20191212/" title="Linux su sudo 区别" itemprop="url">
   
     <h1 itemprop="name">Linux su sudo 区别</h1>
@@ -85,7 +198,7 @@
      
            <p itemprop="description" >su 命令的主要作用是让你可以在已登录的会话中切换到另外一个用户。换句话说，这个工具可以让你在不登出当前用户的情况下登录为另外一个用户。
 通过su可以在用户之间切换，而超级权限用户root向普通或虚拟用户切换不需要密码，而普通用户切换到其它任何用户都需要密码验证。
-还有一种方</p>
+还有一种方法可</p>
         
     
     <time datetime="2019-12-12T00:24:03.000Z" itemprop="datePublished">2019-12-12</time>
@@ -107,7 +220,7 @@
      
            <p itemprop="description" >过滤不想拦截的网站
 Burpsuite: just passthrough firefox detect portal
-如果我们在Burpsuite遇到一个不想再拦截的请求，点击Action按钮，然后Do not intercept...，选择requests to this</p>
+如果我们在Burpsuite遇到一个不想再拦截的请求，点击Action按钮，然后Do not intercept...，选择requests to this h</p>
         
     
     <time datetime="2019-12-10T07:14:28.000Z" itemprop="datePublished">2019-12-10</time>
@@ -127,9 +240,9 @@ Burpsuite: just passthrough firefox detect portal
     <h1 itemprop="name">Windows docker 端口映射问题解决</h1>
     
      
-           <p itemprop="description" >参考：解决无法对docker容器进行端口映射的问题
+           <p itemprop="description" >参考：解决无法对docker容器进行端口映射的问题 
 在安装了一个Windows下安装了docker，并尝试在其中运行Nginx、owncloud等服务，但映射完毕之后，在主机的浏览器中，打开localhost:port无法访问对应的服务。
-用百度尝试了下，始终找不到答案，难道</p>
+用百度尝试了下，始终找不到答案，难道这</p>
         
     
     <time datetime="2019-12-09T08:26:13.000Z" itemprop="datePublished">2019-12-09</time>
@@ -151,8 +264,8 @@ Burpsuite: just passthrough firefox detect portal
      
            <p itemprop="description" >install docker
 http://flamepeak.com/2019/11/22/Docker-install-on-kali-20191122/
-install git 、nodejs
-docker pull ubuntudocker run -itd --n</p>
+ install git 、nodejs
+docker pull ubuntudocker run -itd --nam</p>
         
     
     <time datetime="2019-12-09T03:07:13.000Z" itemprop="datePublished">2019-12-09</time>
@@ -174,128 +287,17 @@ docker pull ubuntudocker run -itd --n</p>
      
            <p itemprop="description" >字符串搜索
 
+
 搜索字符串用ctrl + F，配置选项，选择Packet Bytes和String，然后输入想要查询的内容即可；
-可以在过滤框中直接输入tcp and frame contains &quot;xxxxxxx&quot;，来搜索内容
-可以使用frame matches &quot;xxx</p>
+
+
+可以在过滤框中直接输入tcp and frame contains &amp;quot;xxxxxxx&amp;quot;，来搜索内容
+
+
+可以使用frame m</p>
         
     
     <time datetime="2019-12-05T01:32:25.000Z" itemprop="datePublished">2019-12-05</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2019/12/03/kali-replace-burpsuite-pro-20191203/" title="kali linux 2019.4 替换burpsuite pro" itemprop="url">
-  
-    <h1 itemprop="name">kali linux 2019.4 替换burpsuite pro</h1>
-    
-     
-           <p itemprop="description" >参考：kali linux 2019.1 替换burpsuite pro 1.7.37
-文章中的办法总体可行，但是，具体实现有问题
-
-先切换JDK版本为1.8.执行
-update-alternatives  --config  java
-然后会显示多个jdk版本，1.8</p>
-        
-    
-    <time datetime="2019-12-03T04:06:51.000Z" itemprop="datePublished">2019-12-03</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2019/11/26/Linux-VulnHub-network-configuration-20191126/" title="Linux VulnHub VMware network configuration" itemprop="url">
-  
-    <h1 itemprop="name">Linux VulnHub VMware network configuration</h1>
-    
-     
-           <p itemprop="description" >本文参考了https://blog.csdn.net/nzjdsds/article/details/82811791，但是此文没有解决写权限的问题
-在此详述以下个人问题解决过程
-owa文件一般直接用Vmware打开，按流程导入即可
-但是有时候会出现设置NAT网络，但是依然</p>
-        
-    
-    <time datetime="2019-11-26T00:38:54.000Z" itemprop="datePublished">2019-11-26</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2019/11/22/Kali-enable-autologin-20191122/" title="Kali 启用自动登录" itemprop="url">
-  
-    <h1 itemprop="name">Kali 启用自动登录</h1>
-    
-     
-           <p itemprop="description" >kali2019.3
-Kali Linux use GDM3 as a default Display Manager. First confirm that your Kali Linux is set to use GDM3 as a default display man</p>
-        
-    
-    <time datetime="2019-11-22T01:37:24.000Z" itemprop="datePublished">2019-11-22</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2019/11/22/Docker-install-on-kali-and-win-20191122/" title="Kali Win 安装Docker和Docker-Compose" itemprop="url">
-  
-    <h1 itemprop="name">Kali Win 安装Docker和Docker-Compose</h1>
-    
-     
-           <p itemprop="description" >On Kali
-Preparation
-Add Docker PGP key:
-curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-Configure Docker APT rep</p>
-        
-    
-    <time datetime="2019-11-22T01:16:49.000Z" itemprop="datePublished">2019-11-22</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2019/10/30/gdb-and-gdb-peda-usage-and-debug/" title="gdb和gdb-peda安装、使用与调试" itemprop="url">
-  
-    <h1 itemprop="name">gdb和gdb-peda安装、使用与调试</h1>
-    
-     
-           <p itemprop="description" >gdb-peda安装
-gdb安装 apt-get install gdb
-git clone https://github.com/longld/peda.git ~/pedaecho &quot;source ~/peda/peda.py&quot; &amp;gt;&amp;gt; ~/.gdbinit
-</p>
-        
-    
-    <time datetime="2019-10-30T11:42:11.000Z" itemprop="datePublished">2019-10-30</time>
   </a>
 </section>
 
@@ -341,7 +343,7 @@ git clone https://github.com/longld/peda.git ~/pedaecho &quot;source ~/peda/peda
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>43</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
 		  
 		
 		  
@@ -353,7 +355,7 @@ git clone https://github.com/longld/peda.git ~/pedaecho &quot;source ~/peda/peda
 		  
 		
 		  
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>19</sup></a></li>
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>22</sup></a></li>
 		  
 		
 		  
@@ -386,7 +388,7 @@ git clone https://github.com/longld/peda.git ~/pedaecho &quot;source ~/peda/peda
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>35</sup></a></li>
 			
 		
 			
@@ -430,7 +432,19 @@ git clone https://github.com/longld/peda.git ~/pedaecho &quot;source ~/peda/peda
 			
 		
 			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
 			
 		
 			
@@ -442,19 +456,7 @@ git clone https://github.com/longld/peda.git ~/pedaecho &quot;source ~/peda/peda
 			
 		
 			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
