@@ -97,13 +97,10 @@
 </header>
 	<div class="article-content">
 		
-		<p>Check if the content is gzipped and decompresses it:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> StringIO <span class="keyword">import</span> StringIO</span><br><span class="line"><span class="keyword">import</span> gzip</span><br><span class="line"></span><br><span class="line">request = urllib2.Request(<span class="string">'http://example.com/'</span>)</span><br><span class="line">request.add_header(<span class="string">'Accept-encoding'</span>, <span class="string">'gzip'</span>)</span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"><span class="keyword">if</span> response.info().get(<span class="string">'Content-Encoding'</span>) == <span class="string">'gzip'</span>:</span><br><span class="line">    buf = StringIO(response.read())</span><br><span class="line">    f = gzip.GzipFile(fileobj=buf)</span><br><span class="line">    data = f.read()</span><br></pre></td></tr></table></figure>
-<h3 id="stringio-bytesio"><a class="markdownIt-Anchor" href="#stringio-bytesio"></a> StringIO BytesIO</h3>
-<p>In Python3,the <code>StringIO</code> and <code>cStringIO</code> modules are gone. Instead, import the <code>io</code> module and use <code>io.StringIO</code> or <code>io.BytesIO</code> for text and data respectively.<br>
-<a href="https://docs.python.org/3/library/io.html" target="_blank" rel="noopener">More from docs</a></p>
-<p>Compatible with both Python2 and Python3:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">from</span> StringIO <span class="keyword">import</span> StringIO</span><br><span class="line"><span class="keyword">except</span> ImportError:</span><br><span class="line">    <span class="keyword">from</span> io <span class="keyword">import</span> StringIO</span><br></pre></td></tr></table></figure>
+		<p>Check if the content is gzipped and decompresses it: <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> StringIO <span class="keyword">import</span> StringIO</span><br><span class="line"><span class="keyword">import</span> gzip</span><br><span class="line"></span><br><span class="line">request = urllib2.Request(<span class="string">'http://example.com/'</span>)</span><br><span class="line">request.add_header(<span class="string">'Accept-encoding'</span>, <span class="string">'gzip'</span>)</span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"><span class="keyword">if</span> response.info().get(<span class="string">'Content-Encoding'</span>) == <span class="string">'gzip'</span>:</span><br><span class="line">    buf = StringIO(response.read())</span><br><span class="line">    f = gzip.GzipFile(fileobj=buf)</span><br><span class="line">    data = f.read()</span><br></pre></td></tr></table></figure></p>
+<h3 id="stringio-bytesio">StringIO BytesIO</h3>
+<p>In Python3,the <code>StringIO</code> and <code>cStringIO</code> modules are gone. Instead, import the <code>io</code> module and use <code>io.StringIO</code> or <code>io.BytesIO</code> for text and data respectively. <a href="https://docs.python.org/3/library/io.html" target="_blank" rel="noopener">More from docs</a></p>
+<p>Compatible with both Python2 and Python3: <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">from</span> StringIO <span class="keyword">import</span> StringIO</span><br><span class="line"><span class="keyword">except</span> ImportError:</span><br><span class="line">    <span class="keyword">from</span> io <span class="keyword">import</span> StringIO</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -166,7 +163,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#stringio-bytesio"><span class="toc-number">1.</span> <span class="toc-text"> StringIO BytesIO</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#stringio-bytesio"><span class="toc-number">1.</span> <span class="toc-text">StringIO BytesIO</span></a></li></ol>
  
   </div>
 
@@ -264,11 +261,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -276,15 +273,11 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -296,14 +289,6 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -312,11 +297,23 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

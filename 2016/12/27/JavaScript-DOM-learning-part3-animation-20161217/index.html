@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="动画基础知识  位置 网页元素在浏览器窗口里的位置是一种表示性的信息。因此，位置信息通常是由CSS负责设置的。 下面的CSS代码对某个元素在网页上的位置进行了规定： element &amp;#123;  position: absolute;  top: 50px;  left:100px;&amp;#125; 下面是实现同样效果的DOM代码： element.style.position = &quot;absolu">
+    <meta name="description" content="动画基础知识 位置 网页元素在浏览器窗口里的位置是一种表示性的信息。因此，位置信息通常是由CSS负责设置的。 下面的CSS代码对某个元素在网页上的位置进行了规定： element &amp;#123;  position: absolute;  top: 50px;  left:100px;&amp;#125; 下面是实现同样效果的DOM代码： element.style.position = &quot;absol">
 <meta name="keywords" content="JavaScript,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript DOM 编程艺术：动画">
 <meta property="og:url" content="http://flamepeak.com/2016/12/27/JavaScript-DOM-learning-part3-animation-20161217/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="动画基础知识  位置 网页元素在浏览器窗口里的位置是一种表示性的信息。因此，位置信息通常是由CSS负责设置的。 下面的CSS代码对某个元素在网页上的位置进行了规定： element &amp;#123;  position: absolute;  top: 50px;  left:100px;&amp;#125; 下面是实现同样效果的DOM代码： element.style.position = &quot;absolu">
+<meta property="og:description" content="动画基础知识 位置 网页元素在浏览器窗口里的位置是一种表示性的信息。因此，位置信息通常是由CSS负责设置的。 下面的CSS代码对某个元素在网页上的位置进行了规定： element &amp;#123;  position: absolute;  top: 50px;  left:100px;&amp;#125; 下面是实现同样效果的DOM代码： element.style.position = &quot;absol">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:30:40.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript DOM 编程艺术：动画">
-<meta name="twitter:description" content="动画基础知识  位置 网页元素在浏览器窗口里的位置是一种表示性的信息。因此，位置信息通常是由CSS负责设置的。 下面的CSS代码对某个元素在网页上的位置进行了规定： element &amp;#123;  position: absolute;  top: 50px;  left:100px;&amp;#125; 下面是实现同样效果的DOM代码： element.style.position = &quot;absolu">
+<meta name="twitter:description" content="动画基础知识 位置 网页元素在浏览器窗口里的位置是一种表示性的信息。因此，位置信息通常是由CSS负责设置的。 下面的CSS代码对某个元素在网页上的位置进行了规定： element &amp;#123;  position: absolute;  top: 50px;  left:100px;&amp;#125; 下面是实现同样效果的DOM代码： element.style.position = &quot;absol">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,26 +97,15 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="动画基础知识"><a class="markdownIt-Anchor" href="#动画基础知识"></a> 动画基础知识</h3>
-<h4 id="位置"><a class="markdownIt-Anchor" href="#位置"></a> 位置</h4>
-<p>网页元素在浏览器窗口里的位置是一种表示性的信息。因此，位置信息通常是由CSS负责设置的。<br>
-下面的CSS代码对某个元素在网页上的位置进行了规定：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">element</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">left</span>:<span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>下面是实现同样效果的DOM代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">element.style.position = <span class="string">"absolute"</span>;</span><br><span class="line">element.style.left = <span class="string">"100px"</span>;</span><br><span class="line">element.style.top = <span class="string">"50px"</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="时间"><a class="markdownIt-Anchor" href="#时间"></a> 时间</h4>
-<p>JavaScript函数<code>setTimeout</code>能够让某个函数在经过一段预定时间之后开始执行。有两个参数，第一个参数是字符串，其内容是要执行的那个函数的名字，第二个参数是一个数值，它以毫秒为单位设定了需要多长时间后才开始执行第一个参数所给出的函数。<br>
-<code>setTimeout(&quot;function&quot;, interval)</code><br>
-在绝大多数时候，把这个函数调用赋值给一个变量是个好主意：<br>
-<code>variable = setTimeout(&quot;function&quot;, interval)</code></p>
-<p>如果想取消某个正在排队等待执行的函数，就必须事先像上面这样把setTimeout函数赋值给一个变量。然后，用一个名为<code>clearTimeout</code>函数来取消“等待执行”队列里的某个函数。eg：<br>
-<code>clearTimeout(variable)</code></p>
-<p>JavaScript函数<code>parseInt</code>可以把字符串里的数值信息提取出来。如果把一个以数字开头的字符串传递给这个函数，它将返回一个数值。<br>
-<code>parseInt(string)</code><br>
-parseInt函数返回值通常是整数。如果需要提取的是带小数点的数值（float），就应该使用相应的<code>parseFloat</code>函数：<br>
-<code>parseFloat(string)</code></p>
-<p>例如：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload=positionMessage</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">positionMessage</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementById) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementById(<span class="string">"example"</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">var</span> elem = <span class="built_in">document</span>.getElementById(<span class="string">"example"</span>);</span><br><span class="line">    elem.style.position = <span class="string">"absolute"</span>;</span><br><span class="line">    elem.style.left = <span class="string">"50px"</span>;</span><br><span class="line">    elem.style.top= <span class="string">"50px"</span>;</span><br><span class="line"></span><br><span class="line">    movement = setTimeout(<span class="string">"moveMessage()"</span>, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">moveMessage</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementById) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementById(<span class="string">"example"</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">var</span> elem = <span class="built_in">document</span>.getElementById(<span class="string">"example"</span>);</span><br><span class="line">    <span class="keyword">var</span> xpos = <span class="built_in">parseInt</span>(elem.style.left);</span><br><span class="line">    <span class="keyword">var</span> ypos = <span class="built_in">parseInt</span>(elem.style.top);</span><br><span class="line">    <span class="keyword">if</span> (xpos==<span class="number">200</span> &amp;&amp; ypos ==<span class="number">200</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (xpos &lt; <span class="number">200</span>)&#123;</span><br><span class="line">      xpos++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (xpos&gt;<span class="number">200</span>)&#123;</span><br><span class="line">        xpos--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(ypos&lt;<span class="number">200</span>)&#123;</span><br><span class="line">        ypos++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(ypos&gt;<span class="number">200</span>)&#123;</span><br><span class="line">        ypos--;</span><br><span class="line">    &#125;</span><br><span class="line">    elem.style.left = xpos+<span class="string">"px"</span>;</span><br><span class="line">    elem.style.top = ypos+<span class="string">"px"</span>;</span><br><span class="line">    movement = setTimeout(<span class="string">"moveMessage()"</span>, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+		<h3 id="动画基础知识">动画基础知识</h3>
+<h4 id="位置">位置</h4>
+<p>网页元素在浏览器窗口里的位置是一种表示性的信息。因此，位置信息通常是由CSS负责设置的。 下面的CSS代码对某个元素在网页上的位置进行了规定： <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">element</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">left</span>:<span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面是实现同样效果的DOM代码： <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">element.style.position = <span class="string">"absolute"</span>;</span><br><span class="line">element.style.left = <span class="string">"100px"</span>;</span><br><span class="line">element.style.top = <span class="string">"50px"</span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="时间">时间</h4>
+<p>JavaScript函数<code>setTimeout</code>能够让某个函数在经过一段预定时间之后开始执行。有两个参数，第一个参数是字符串，其内容是要执行的那个函数的名字，第二个参数是一个数值，它以毫秒为单位设定了需要多长时间后才开始执行第一个参数所给出的函数。 <code>setTimeout("function", interval)</code> 在绝大多数时候，把这个函数调用赋值给一个变量是个好主意： <code>variable = setTimeout("function", interval)</code></p>
+<p>如果想取消某个正在排队等待执行的函数，就必须事先像上面这样把setTimeout函数赋值给一个变量。然后，用一个名为<code>clearTimeout</code>函数来取消“等待执行”队列里的某个函数。eg： <code>clearTimeout(variable)</code></p>
+<p>JavaScript函数<code>parseInt</code>可以把字符串里的数值信息提取出来。如果把一个以数字开头的字符串传递给这个函数，它将返回一个数值。 <code>parseInt(string)</code> parseInt函数返回值通常是整数。如果需要提取的是带小数点的数值（float），就应该使用相应的<code>parseFloat</code>函数： <code>parseFloat(string)</code></p>
+<p>例如： <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload=positionMessage</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">positionMessage</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementById) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementById(<span class="string">"example"</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">var</span> elem = <span class="built_in">document</span>.getElementById(<span class="string">"example"</span>);</span><br><span class="line">    elem.style.position = <span class="string">"absolute"</span>;</span><br><span class="line">    elem.style.left = <span class="string">"50px"</span>;</span><br><span class="line">    elem.style.top= <span class="string">"50px"</span>;</span><br><span class="line"></span><br><span class="line">    movement = setTimeout(<span class="string">"moveMessage()"</span>, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">moveMessage</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementById) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementById(<span class="string">"example"</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">var</span> elem = <span class="built_in">document</span>.getElementById(<span class="string">"example"</span>);</span><br><span class="line">    <span class="keyword">var</span> xpos = <span class="built_in">parseInt</span>(elem.style.left);</span><br><span class="line">    <span class="keyword">var</span> ypos = <span class="built_in">parseInt</span>(elem.style.top);</span><br><span class="line">    <span class="keyword">if</span> (xpos==<span class="number">200</span> &amp;&amp; ypos ==<span class="number">200</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (xpos &lt; <span class="number">200</span>)&#123;</span><br><span class="line">      xpos++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (xpos&gt;<span class="number">200</span>)&#123;</span><br><span class="line">        xpos--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(ypos&lt;<span class="number">200</span>)&#123;</span><br><span class="line">        ypos++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(ypos&gt;<span class="number">200</span>)&#123;</span><br><span class="line">        ypos--;</span><br><span class="line">    &#125;</span><br><span class="line">    elem.style.left = xpos+<span class="string">"px"</span>;</span><br><span class="line">    elem.style.top = ypos+<span class="string">"px"</span>;</span><br><span class="line">    movement = setTimeout(<span class="string">"moveMessage()"</span>, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -179,7 +168,7 @@ parseInt函数返回值通常是整数。如果需要提取的是带小数点的
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#动画基础知识"><span class="toc-number">1.</span> <span class="toc-text"> 动画基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#位置"><span class="toc-number">1.1.</span> <span class="toc-text"> 位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#时间"><span class="toc-number">1.2.</span> <span class="toc-text"> 时间</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#动画基础知识"><span class="toc-number">1.</span> <span class="toc-text">动画基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#位置"><span class="toc-number">1.1.</span> <span class="toc-text">位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#时间"><span class="toc-number">1.2.</span> <span class="toc-text">时间</span></a></li></ol></li></ol>
  
   </div>
 
@@ -277,11 +266,11 @@ parseInt函数返回值通常是整数。如果需要提取的是带小数点的
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -289,15 +278,11 @@ parseInt函数返回值通常是整数。如果需要提取的是带小数点的
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -309,14 +294,6 @@ parseInt函数返回值通常是整数。如果需要提取的是带小数点的
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -325,11 +302,23 @@ parseInt函数返回值通常是整数。如果需要提取的是带小数点的
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

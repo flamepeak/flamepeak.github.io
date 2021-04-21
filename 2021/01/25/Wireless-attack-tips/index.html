@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="iwconfiglsusbdemesg | grep 8187lsmod | grep -i rtl8187airmon-ngiwlist wlan0 frequencyairmon-ng start wlan0  常见错误  ignore-negative-one 方法一： 在一些kali版本中，会出现这个bug 可以使用下面的命令替代： aireplay-ng mon0 -0 3 -a xx:">
+    <meta name="description" content="iwconfiglsusbdemesg | grep 8187lsmod | grep -i rtl8187airmon-ngiwlist wlan0 frequencyairmon-ng start wlan0 常见错误 ignore-negative-one 方法一： 在一些kali版本中，会出现这个bug 可以使用下面的命令替代： aireplay-ng mon0 -0 3 -a">
 <meta name="keywords" content="Wireless">
 <meta property="og:type" content="article">
 <meta property="og:title" content="无线攻击的常用命令">
 <meta property="og:url" content="http://flamepeak.com/2021/01/25/Wireless-attack-tips/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="iwconfiglsusbdemesg | grep 8187lsmod | grep -i rtl8187airmon-ngiwlist wlan0 frequencyairmon-ng start wlan0  常见错误  ignore-negative-one 方法一： 在一些kali版本中，会出现这个bug 可以使用下面的命令替代： aireplay-ng mon0 -0 3 -a xx:">
+<meta property="og:description" content="iwconfiglsusbdemesg | grep 8187lsmod | grep -i rtl8187airmon-ngiwlist wlan0 frequencyairmon-ng start wlan0 常见错误 ignore-negative-one 方法一： 在一些kali版本中，会出现这个bug 可以使用下面的命令替代： aireplay-ng mon0 -0 3 -a">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2021-01-26T07:51:43.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="无线攻击的常用命令">
-<meta name="twitter:description" content="iwconfiglsusbdemesg | grep 8187lsmod | grep -i rtl8187airmon-ngiwlist wlan0 frequencyairmon-ng start wlan0  常见错误  ignore-negative-one 方法一： 在一些kali版本中，会出现这个bug 可以使用下面的命令替代： aireplay-ng mon0 -0 3 -a xx:">
+<meta name="twitter:description" content="iwconfiglsusbdemesg | grep 8187lsmod | grep -i rtl8187airmon-ngiwlist wlan0 frequencyairmon-ng start wlan0 常见错误 ignore-negative-one 方法一： 在一些kali版本中，会出现这个bug 可以使用下面的命令替代： aireplay-ng mon0 -0 3 -a">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -98,8 +98,8 @@
 	<div class="article-content">
 		
 		<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iwconfig</span><br><span class="line"></span><br><span class="line">lsusb</span><br><span class="line"></span><br><span class="line">demesg | grep 8187</span><br><span class="line"></span><br><span class="line">lsmod | grep -i rtl8187</span><br><span class="line"></span><br><span class="line">airmon-ng</span><br><span class="line"></span><br><span class="line">iwlist wlan0 frequency</span><br><span class="line"></span><br><span class="line">airmon-ng start wlan0</span><br></pre></td></tr></table></figure>
-<h3 id="常见错误"><a class="markdownIt-Anchor" href="#常见错误"></a> 常见错误</h3>
-<h4 id="ignore-negative-one"><a class="markdownIt-Anchor" href="#ignore-negative-one"></a> ignore-negative-one</h4>
+<h3 id="常见错误">常见错误</h3>
+<h4 id="ignore-negative-one">ignore-negative-one</h4>
 <p><strong>方法一：</strong></p>
 <p>在一些kali版本中，会出现这个bug</p>
 <p>可以使用下面的命令替代：</p>
@@ -125,11 +125,11 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo make</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<p>参考：<a href="http://black-hat-sec.org/index.php?topic=175.0" target="_blank" rel="noopener">http://black-hat-sec.org/index.php?topic=175.0</a></p>
+<p>参考：http://black-hat-sec.org/index.php?topic=175.0</p>
 <hr>
-<h3 id="字典生成"><a class="markdownIt-Anchor" href="#字典生成"></a> 字典生成</h3>
+<h3 id="字典生成">字典生成</h3>
 <p><a href="https://miloserdov.org/?p=5721" target="_blank" rel="noopener">How to speed up the generation of dictionaries with passwords</a></p>
-<h4 id="mpfs与maskprocessor"><a class="markdownIt-Anchor" href="#mpfs与maskprocessor"></a> mpfs与maskprocessor</h4>
+<h4 id="mpfs与maskprocessor">mpfs与maskprocessor</h4>
 <p><strong>mpfs</strong> is an in-memory virtual file system.</p>
 <p>The tmpfs file system has the following features:</p>
 <ul>
@@ -139,17 +139,17 @@
 </ul>
 <p>If the tmpfs filesystem is unmounted, its contents are lost (deleted). This is very important – copy all the data from it before turning off the computer, otherwise everything will be lost.</p>
 <p>While this is obvious, just in case: since all data resides in RAM, your computer must have enough RAM to store the data you want to put in tmpfs.</p>
-<p>Let’s create a mount point:</p>
+<p>Let's create a mount point:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir  /tmp/mytmpfs</span><br></pre></td></tr></table></figure>
-<p>Let’s create a virtual file system of 20 Gigabytes in RAM:</p>
+<p>Let's create a virtual file system of 20 Gigabytes in RAM:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount -t tmpfs -o size=20g tmpfs  /tmp/mytmpfs</span><br></pre></td></tr></table></figure>
 <p>We pass into it:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd /tmp/mytmpfs</span><br></pre></td></tr></table></figure>
 <p>To create a dictionary, we will use the <strong>maskprocessor</strong> program. With the following command, we create a dictionary of 5 characters (uppercase and lowercase letters, numbers):</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">time maskprocessor -1 ?l?u?d ?1?1?1?1?1 &gt; dic.txt</span><br></pre></td></tr></table></figure>
-<p>Now, for example, let’s create the same dictionary on the hard disk:</p>
+<p>Now, for example, let's create the same dictionary on the hard disk:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">time maskprocessor -1 ?l?u?d ?1?1?1?1?1 &gt; dic.txt</span><br></pre></td></tr></table></figure>
-<p>As an experiment, let’s take the command for converting the dictionary according to the Rule from <a href="https://miloserdov.org/?p=5715" target="_blank" rel="noopener">this article</a>:</p>
+<p>As an experiment, let's take the command for converting the dictionary according to the Rule from <a href="https://miloserdov.org/?p=5715" target="_blank" rel="noopener">this article</a>:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">john --rules=lud5 --wordlist=dic.txt --stdout &gt; lud5.txt</span><br></pre></td></tr></table></figure>
 <p>On the hard drive, it completed in 43 seconds, and in RAM in 41 seconds. The reason for these results is that in this case the bottleneck is the performance of one processor core (the process of creating and converting dictionaries is performed in one thread).</p>
   
@@ -214,7 +214,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常见错误"><span class="toc-number">1.</span> <span class="toc-text"> 常见错误</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ignore-negative-one"><span class="toc-number">1.1.</span> <span class="toc-text"> ignore-negative-one</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字典生成"><span class="toc-number">2.</span> <span class="toc-text"> 字典生成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mpfs与maskprocessor"><span class="toc-number">2.1.</span> <span class="toc-text"> mpfs与maskprocessor</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常见错误"><span class="toc-number">1.</span> <span class="toc-text">常见错误</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ignore-negative-one"><span class="toc-number">1.1.</span> <span class="toc-text">ignore-negative-one</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字典生成"><span class="toc-number">2.</span> <span class="toc-text">字典生成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mpfs与maskprocessor"><span class="toc-number">2.1.</span> <span class="toc-text">mpfs与maskprocessor</span></a></li></ol></li></ol>
  
   </div>
 
@@ -312,11 +312,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -324,15 +324,11 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -344,14 +340,6 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -360,11 +348,23 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

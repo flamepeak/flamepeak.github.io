@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="介绍 MongoDB是一个基于分布式文件存储的数据库。由C++编写，旨在为Web应用提供可扩展的高性能存储方案。MongoDB将数据存储为一个文档，数据结构由键值(key:value)组成，文档类似JSON对象。 MongoDB 是一个面向文档(document-oriented)的数据库，而不是关系型数据库。与关系型数据库相比，面向文档的数据库不再有“行”(row)的概念，取而代之的是更为灵活">
+    <meta name="description" content="介绍 MongoDB是一个基于分布式文件存储的数据库。由C++编写，旨在为Web应用提供可扩展的高性能存储方案。MongoDB将数据存储为一个文档，数据结构由键值(key:value)组成，文档类似JSON对象。 MongoDB 是一个面向文档(document-oriented)的数据库，而不是关系型数据库。与关系型数据库相比，面向文档的数据库不再有“行”(row)的概念，取而代之的是更为灵">
 <meta name="keywords" content="MongoDB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB 学习笔记(一)：基础">
 <meta property="og:url" content="http://flamepeak.com/2016/10/23/MongoDB-learning-20161022/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="介绍 MongoDB是一个基于分布式文件存储的数据库。由C++编写，旨在为Web应用提供可扩展的高性能存储方案。MongoDB将数据存储为一个文档，数据结构由键值(key:value)组成，文档类似JSON对象。 MongoDB 是一个面向文档(document-oriented)的数据库，而不是关系型数据库。与关系型数据库相比，面向文档的数据库不再有“行”(row)的概念，取而代之的是更为灵活">
+<meta property="og:description" content="介绍 MongoDB是一个基于分布式文件存储的数据库。由C++编写，旨在为Web应用提供可扩展的高性能存储方案。MongoDB将数据存储为一个文档，数据结构由键值(key:value)组成，文档类似JSON对象。 MongoDB 是一个面向文档(document-oriented)的数据库，而不是关系型数据库。与关系型数据库相比，面向文档的数据库不再有“行”(row)的概念，取而代之的是更为灵">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:31:16.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB 学习笔记(一)：基础">
-<meta name="twitter:description" content="介绍 MongoDB是一个基于分布式文件存储的数据库。由C++编写，旨在为Web应用提供可扩展的高性能存储方案。MongoDB将数据存储为一个文档，数据结构由键值(key:value)组成，文档类似JSON对象。 MongoDB 是一个面向文档(document-oriented)的数据库，而不是关系型数据库。与关系型数据库相比，面向文档的数据库不再有“行”(row)的概念，取而代之的是更为灵活">
+<meta name="twitter:description" content="介绍 MongoDB是一个基于分布式文件存储的数据库。由C++编写，旨在为Web应用提供可扩展的高性能存储方案。MongoDB将数据存储为一个文档，数据结构由键值(key:value)组成，文档类似JSON对象。 MongoDB 是一个面向文档(document-oriented)的数据库，而不是关系型数据库。与关系型数据库相比，面向文档的数据库不再有“行”(row)的概念，取而代之的是更为灵">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,92 +97,50 @@
 </header>
 	<div class="article-content">
 		
-		<h2 id="介绍"><a class="markdownIt-Anchor" href="#介绍"></a> 介绍</h2>
+		<h2 id="介绍">介绍</h2>
 <p>MongoDB是一个基于分布式文件存储的数据库。由C++编写，旨在为Web应用提供可扩展的高性能存储方案。MongoDB将数据存储为一个文档，数据结构由键值(key:value)组成，文档类似JSON对象。</p>
-<p>MongoDB 是一个<strong>面向文档</strong>(document-oriented)的数据库，而不是关系型数据库。与关系型数据库相比，面向文档的数据库不再有“行”(row)的概念，取而代之的是更为灵活的“文档”(document)模型。</p>
-<blockquote>
-<p>NoSQL,非关系型数据库。有时也称为Not only SQL，不同于传统的关系型数据库。<br>
-NoSQL用于超大规模的数据存储，数据的存储不需要固定的模式，无需多余操作就可以横向扩展。</p>
-</blockquote>
+<p>MongoDB 是一个<strong>面向文档</strong>(document-oriented)的数据库，而不是关系型数据库。与关系型数据库相比，面向文档的数据库不再有“行”(row)的概念，取而代之的是更为灵活的“文档”(document)模型。 &gt; NoSQL,非关系型数据库。有时也称为Not only SQL，不同于传统的关系型数据库。 &gt; NoSQL用于超大规模的数据存储，数据的存储不需要固定的模式，无需多余操作就可以横向扩展。</p>
 <p>MongoDB的设计采用横向扩展(scale out).面向文档的数据模型使它能很容易地在多台服务器之间进行数据分割。MongoDB能自动处理跨集群的数据和负载，自动重新分配文档，以及将用户请求路由到正确的机器上。这样，开发者能够集中精力编写应用程序，而不需要考虑如何扩展的问题。如果一个集群需要更大的容量，只需要向集群添加新服务器，MongoDB就会自动将现有数据向新服务器传达。</p>
 <p>MongoDB作为一款通用型数据库，除了能够创建、读取、更新和删除数据之外，还提供了一系列不断扩展的独特功能。例如：索引(indexing)、聚合管道(aggregation pipeline)、文件存储(file storage).</p>
 <p>MongoDB在各方面的设计都旨在保持它的高性能。MongoDB能够对文档进行动态填充(dynamic padding)，也能预分配数据文件以利用额外的空间来换取稳定的性能。MongoDB把尽可能多的内存用作缓存(cache)，试图为每次查询自动选择正确的索引。</p>
 <hr>
-<h3 id="官方重要帮助文件链接地址"><a class="markdownIt-Anchor" href="#官方重要帮助文件链接地址"></a> 官方重要帮助文件链接地址：</h3>
+<h3 id="官方重要帮助文件链接地址">官方重要帮助文件链接地址：</h3>
 <p><a href="https://docs.mongodb.com/manual/reference/method/js-collection/" target="_blank" rel="noopener"><strong>Collection Methods</strong></a></p>
 <hr>
-<h2 id="基础知识"><a class="markdownIt-Anchor" href="#基础知识"></a> 基础知识</h2>
+<h2 id="基础知识">基础知识</h2>
 <ul>
 <li><strong>文档</strong>是MongoDB中数据的基本单元。</li>
 <li><strong>集合</strong>(collection)可以看作是一个拥有动态模式(dynamic schema)的表。</li>
 <li>MongoDB的一个实例可以拥有多个相互独立的数据库(database)，每一个数据库都拥有自己的集合。</li>
-<li>每一个文档都有一个特殊的键&quot;_id&quot;,这个键在文档所属的集合中是唯一的。</li>
+<li>每一个文档都有一个特殊的键"_id",这个键在文档所属的集合中是唯一的。</li>
 <li>MogonDB自带一个简单但是功能强大的JavaScript shell，可用于管理MongoDB的实例或数据操作。</li>
 </ul>
-<h3 id="文档"><a class="markdownIt-Anchor" href="#文档"></a> 文档</h3>
-<p><strong>文档</strong>是MongoDB的核心概念。文档就是键值对的一个有序集。<br>
-文档的键是字符串。除少数例外情况，键可以使用任意UTF-8字符。</p>
-<ul>
-<li>键不能含有<code>\0</code> (空字符)。这个字符用于表示键的结尾。</li>
-<li><code>.</code>和<code>$</code>具有特殊意义，是被保留的字符，只能在特定环境下使用。</li>
-</ul>
-<p>MongoDB不但<strong>区分类型</strong>，而且<strong>区分大小写</strong>。<br>
-MongoDB不能有重复的键；而且文档的键值对是<strong>有序的</strong>。<br>
-例如：<code>{&quot;X&quot;:1, &quot;Y&quot;:2}</code>与<code>{&quot;Y&quot;:2,&quot;X&quot;:1}</code>是不同的</p>
-<h3 id="集合"><a class="markdownIt-Anchor" href="#集合"></a> 集合</h3>
-<p>集合就是一组文档。</p>
-<ul>
-<li>集合名不能是空字符串</li>
-<li>集合名不能包含<code>\0</code>字符(空字符)，这表示集合名的结束。</li>
-<li>集合名不能以<code>system.</code>开头，这是系统集合保留的前缀。</li>
-<li>用户创建的集合不能在集合名中包含保留字符<code>$</code>。</li>
-</ul>
-<p>组织集合的一种惯例是使用<code>.</code>分割不同命名空间的子集合。<br>
-在MongoDB中，使用子集合来组织数据非常高效，值得推荐。</p>
-<h3 id="数据库"><a class="markdownIt-Anchor" href="#数据库"></a> 数据库</h3>
-<p>在MongoDB中，多个文档组成集合，而多个集合可以组成<strong>数据库</strong>。一个MongoDB实例可以承载多个数据库，每个数据库拥有0个或多个集合。每个数据库都有独立的权限，即便是在磁盘上，不同的数据库也放置在不同的文件中。<br>
-按照经验，我们将有关一个应用程序的所有数据都存储在同一个数据库中。要想在同一个MongoDB服务器上存放所个应用程序或者用户的数据，就需要使用不同的数据库。</p>
-<p>数据库是通过名称来标识，这点与集合类似。数据库名字可以是满足以下条件的任意UTF-8字符串。</p>
-<ul>
-<li>不能是空字符串。</li>
-<li>不得含有<code>/</code>、<code>\</code>、<code>.</code>、<code>&quot;</code>、<code>*</code>、<code>&lt;</code>、<code>&gt;</code>、<code>:</code>、<code>|</code>、<code>?</code>、<code>$</code>、<code>\0</code>。基本上，只能使用ASCII中的字符和数字。</li>
-<li>数据库名字区分大小写。为简单起见，数据库名字应全部小写。</li>
-<li>数据库名字最多为64字节。</li>
-</ul>
-<p>要记住一点：数据库最终会变成文件系统里的文件，而数据库名就是相应的文件名。<br>
-有些数据库名字是保留的，可以直接访问这些有特殊语义的数据库。如下：</p>
-<ul>
-<li>admin<br>
-从身份验证角度来讲，这是“root”数据库。如果将用户添加到admin数据库，这个用户将自动获得所有数据的权限。再者，一些特定的服务器命令只能从admin数据库运行，例如列出所有数据库或关闭服务器。</li>
-<li>local<br>
-这个数据库永远都不可以复制，且一台服务器上的所有本地集合都可以存储在这个数据库中。</li>
-<li>config<br>
-MongoDB用于分片设置时，分片信息会存储在config数据库中。</li>
-</ul>
+<h3 id="文档">文档</h3>
+<p><strong>文档</strong>是MongoDB的核心概念。文档就是键值对的一个有序集。 文档的键是字符串。除少数例外情况，键可以使用任意UTF-8字符。 + 键不能含有<code>\0</code> (空字符)。这个字符用于表示键的结尾。 + <code>.</code>和<code>$</code>具有特殊意义，是被保留的字符，只能在特定环境下使用。</p>
+<p>MongoDB不但<strong>区分类型</strong>，而且<strong>区分大小写</strong>。 MongoDB不能有重复的键；而且文档的键值对是<strong>有序的</strong>。 例如：<code>{"X":1, "Y":2}</code>与<code>{"Y":2,"X":1}</code>是不同的</p>
+<h3 id="集合">集合</h3>
+<p>集合就是一组文档。 + 集合名不能是空字符串 + 集合名不能包含<code>\0</code>字符(空字符)，这表示集合名的结束。 + 集合名不能以<code>system.</code>开头，这是系统集合保留的前缀。 + 用户创建的集合不能在集合名中包含保留字符<code>$</code>。</p>
+<p>组织集合的一种惯例是使用<code>.</code>分割不同命名空间的子集合。 在MongoDB中，使用子集合来组织数据非常高效，值得推荐。</p>
+<h3 id="数据库">数据库</h3>
+<p>在MongoDB中，多个文档组成集合，而多个集合可以组成<strong>数据库</strong>。一个MongoDB实例可以承载多个数据库，每个数据库拥有0个或多个集合。每个数据库都有独立的权限，即便是在磁盘上，不同的数据库也放置在不同的文件中。 按照经验，我们将有关一个应用程序的所有数据都存储在同一个数据库中。要想在同一个MongoDB服务器上存放所个应用程序或者用户的数据，就需要使用不同的数据库。</p>
+<p>数据库是通过名称来标识，这点与集合类似。数据库名字可以是满足以下条件的任意UTF-8字符串。 + 不能是空字符串。 + 不得含有<code>/</code>、<code>\</code>、<code>.</code>、<code>"</code>、<code>*</code>、<code>&lt;</code>、<code>&gt;</code>、<code>:</code>、<code>|</code>、<code>?</code>、<code>$</code>、<code>\0</code>。基本上，只能使用ASCII中的字符和数字。 + 数据库名字区分大小写。为简单起见，数据库名字应全部小写。 + 数据库名字最多为64字节。</p>
+<p>要记住一点：数据库最终会变成文件系统里的文件，而数据库名就是相应的文件名。 有些数据库名字是保留的，可以直接访问这些有特殊语义的数据库。如下： + admin 从身份验证角度来讲，这是“root”数据库。如果将用户添加到admin数据库，这个用户将自动获得所有数据的权限。再者，一些特定的服务器命令只能从admin数据库运行，例如列出所有数据库或关闭服务器。 + local 这个数据库永远都不可以复制，且一台服务器上的所有本地集合都可以存储在这个数据库中。 + config MongoDB用于分片设置时，分片信息会存储在config数据库中。</p>
 <p>将数据库名添加到集合名前，得到集合的完全限定名，即<strong>命名空间</strong>(namespace).命名空间的长度不得超过121字节，实际使用中应小于100字节。</p>
-<h3 id="启动mongodb"><a class="markdownIt-Anchor" href="#启动mongodb"></a> 启动MongoDB</h3>
-<p>通常，MongoDB作为网络服务器来运行，客户端可连接到该服务器并执行操作。<br>
-Linux：运行mongod 命令，启动数据库服务器<br>
-Windows：执行mongod.exe.(win7:默认安装位置在<code>C:\Program Files\MongoDB\Server\3.2\bin</code>)</p>
+<h3 id="启动mongodb">启动MongoDB</h3>
+<p>通常，MongoDB作为网络服务器来运行，客户端可连接到该服务器并执行操作。 Linux：运行mongod 命令，启动数据库服务器 Windows：执行mongod.exe.(win7:默认安装位置在<code>C:\Program Files\MongoDB\Server\3.2\bin</code>)</p>
 <p>注意：MongoDB 2.2以后的版本已经不支持XP系统了。</p>
 <p>mongod在没有参数情况下会使用默认数据库目录<code>/data/db</code>(Windows系统中为<code>C:\data\db</code>).如果数据目录不存在或者不可写，服务器启动会失败。因此，启动MongoDB前，先创建数据目录，这点非常重要。</p>
 <p>启动时，服务器会打印版本和系统信息，然后等待连接。默认情况下，MongoDB监听<code>27017</code>端口.如果端口没占用，启动会失败。通常是因为，已经有一个MongoDB实例在运行了。</p>
-<p>mongod还会启动一个非常基本的HTTP服务器，监听比主端口号高1000的端口，也就是28017端口。这意味着，通过浏览器访问<code>http://localhost:28017</code>，能获取数据库的管理信息。</p>
-<blockquote>
-<p>在3.2版本中，直接运行mongod.exe并不启动http服务器，需要加上参数<code>--httpinterface</code></p>
-</blockquote>
+<p>mongod还会启动一个非常基本的HTTP服务器，监听比主端口号高1000的端口，也就是28017端口。这意味着，通过浏览器访问<code>http://localhost:28017</code>，能获取数据库的管理信息。 &gt; 在3.2版本中，直接运行mongod.exe并不启动http服务器，需要加上参数<code>--httpinterface</code></p>
 <p>中止mongod的运行，只须<code>Ctrl+C</code></p>
-<h3 id="mongodb-shell-介绍"><a class="markdownIt-Anchor" href="#mongodb-shell-介绍"></a> MongoDB shell 介绍</h3>
-<p>MongoDB自带JavaScript shell，可在shell中使用命令行与MongoDB实例交互。<br>
-对于MongoDB来说，<code>mongo shell</code>是至关重要的工具。</p>
-<h4 id="运行shell"><a class="markdownIt-Anchor" href="#运行shell"></a> 运行shell</h4>
-<p>运行<code>mongo</code>(Windows中:mongo.exe)启动shell。<br>
-启动时，shell将自动连接MongoDB服务器，须确保mongod已启动。</p>
+<h3 id="mongodb-shell-介绍">MongoDB shell 介绍</h3>
+<p>MongoDB自带JavaScript shell，可在shell中使用命令行与MongoDB实例交互。 对于MongoDB来说，<code>mongo shell</code>是至关重要的工具。</p>
+<h4 id="运行shell">运行shell</h4>
+<p>运行<code>mongo</code>(Windows中:mongo.exe)启动shell。 启动时，shell将自动连接MongoDB服务器，须确保mongod已启动。</p>
 <pre><code>C:\Program Files\MongoDB\Server\3.2\bin&gt;mongo.exe
 MongoDB shell version: 3.2.10
 connecting to: test
-&gt;
-</code></pre>
+&gt;</code></pre>
 <p>mongo shell是一个功能完备的JavaScript解释器，可运行<strong>任意</strong>JavaScript程序。</p>
 <pre><code>&gt; x=200
 200
@@ -191,121 +149,54 @@ connecting to: test
 &gt; x
 200
 &gt; &quot;Hello, World&quot;.replace(&quot;World&quot;,&quot;MongoDB&quot;)
-Hello, MongoDB
-</code></pre>
+Hello, MongoDB</code></pre>
 <p>需要注意的是，可使用多行命令。shell会检测输入的JavaScript语句是否完整，如没写完可在下一行接着写。在某行连续三次按下回车键可取消未输入完成的命令，并退回到<code>&gt;</code>提示符。</p>
 <pre><code>&gt; x=
 ...
 ...
-&gt;
-</code></pre>
-<h4 id="mongodb-客户端"><a class="markdownIt-Anchor" href="#mongodb-客户端"></a> MongoDB 客户端</h4>
+&gt;</code></pre>
+<h4 id="mongodb-客户端">MongoDB 客户端</h4>
 <p>能运行任意JavaScript程序听上去很酷，不过shell的真正强大之处在于，它是一个独立的MongoDB客户端。启动时，shell会连接到MongoDB服务器的<code>test</code>数据库，并将数据库连接赋值给全局变量<code>db</code>。这个变量是通过shell访问MongoDB的主要入口点。</p>
 <p>如果想查看db当前指向哪个数据库，可以使用<code>db</code>命令：</p>
 <pre><code>&gt; db
 test
-&gt;
-</code></pre>
+&gt;</code></pre>
 <p>为了方便习惯使用SQL shell的用户，shell还包含一些非JavaScript语法的扩展。这些扩展并不提供额外的功能，而是一些非常棒的语法糖。例如，最重要的操作之一是选择数据库：</p>
 <pre><code>&gt; use foobar
-switched to db foobar
-</code></pre>
-<h4 id="shell-中的基本操作"><a class="markdownIt-Anchor" href="#shell-中的基本操作"></a> shell 中的基本操作</h4>
-<p>即：创建、读取、更新、删除<br>
-<strong>创建</strong><br>
-<code>insert</code>函数可以将一个文档添加到集合中。<br>
-首先创建一个名为post的局部变量，这是一个JavaScript对象，用于表示我们的文档。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; post = &#123;<span class="string">"title"</span>:<span class="string">"My Blog Post"</span>,</span><br><span class="line">... <span class="string">"content"</span>:<span class="string">"Here is my blog post."</span>,</span><br><span class="line">... <span class="string">"date"</span>:<span class="keyword">new</span> <span class="built_in">Date</span>()&#125;</span><br><span class="line">&#123;</span><br><span class="line">        <span class="string">"title"</span> : <span class="string">"My Blog Post"</span>,</span><br><span class="line">        <span class="string">"content"</span> : <span class="string">"Here is my blog post."</span>,</span><br><span class="line">        <span class="string">"date"</span> : ISODate(<span class="string">"2016-10-24T00:59:47.760Z"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个对象是有效的MongoDB文档，所以可用<code>insert</code>方法将其保存到集合中：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.blog.insert(post)</span><br><span class="line">WriteResult(&#123; <span class="string">"nInserted"</span> : <span class="number">1</span> &#125;)</span><br></pre></td></tr></table></figure>
-<p>这样，文档就被存到数据库中。要查看它可以使用<code>find</code>方法。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.blog.find()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580d5dc08ecbdd01825abb90"</span>), <span class="string">"title"</span> : <span class="string">"My Blog Post"</span>, <span class="string">"conte</span></span><br><span class="line"><span class="string">nt"</span> : <span class="string">"Here is my blog post."</span>, <span class="string">"date"</span> : ISODate(<span class="string">"2016-10-24T00:59:47.760Z"</span>) &#125;</span><br></pre></td></tr></table></figure>
-<p>或使用<code>pretty()</code>格式化显示</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.blog.find().pretty()</span><br><span class="line">&#123;</span><br><span class="line">        &quot;_id&quot; : ObjectId(&quot;580d5dc08ecbdd01825abb90&quot;),</span><br><span class="line">        &quot;title&quot; : &quot;My Blog Post&quot;,</span><br><span class="line">        &quot;content&quot; : &quot;Here is my blog post.&quot;,</span><br><span class="line">        &quot;date&quot; : ISODate(&quot;2016-10-24T00:59:47.760Z&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>读取</strong><br>
-<code>find</code>和<code>findOne</code>方法可以用于查询集合里的文档。<br>
-使用find时，shell会自动显示最多20个匹配的文档，也可以获取更多的文档。</p>
-<p><strong>更新</strong><br>
-使用<code>update</code>更新文档。<code>update</code>接受(至少)两个参数：第一个是限定条件（用于匹配待更新的文档），第二个是新的文档。</p>
-<p>首先，修改变量post，增加“comments”键：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; post.comments = []</span><br><span class="line">[ ]</span><br></pre></td></tr></table></figure>
-<p>然后执行update操作，用新版本的文档替换标题为&quot;My Blog Post&quot;的文档：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.blog.update(&#123;&quot;title&quot;:&quot;My Blog Post&quot;&#125;, post)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br></pre></td></tr></table></figure>
-<p>再用find查看一下，可以看到新的键：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.blog.find().pretty()</span><br><span class="line">&#123;</span><br><span class="line">        &quot;_id&quot; : ObjectId(&quot;580d5dc08ecbdd01825abb90&quot;),</span><br><span class="line">        &quot;title&quot; : &quot;My Blog Post&quot;,</span><br><span class="line">        &quot;content&quot; : &quot;Here is my blog post.&quot;,</span><br><span class="line">        &quot;date&quot; : ISODate(&quot;2016-10-24T00:59:47.760Z&quot;),</span><br><span class="line">        &quot;comments&quot; : [ ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>删除</strong><br>
-使用<code>remove</code>方法可以将文档从数据库中<strong>永久删除</strong>。如果没有使用任何参数，它会将集合内的所有文档全部删除。但是<strong>不会删除集合本身，也不会删除集合的元信息</strong>。<br>
-它可以接受一个作为限定条件的文档作为参数。例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.blog.remove(&#123;&quot;title&quot;:&quot;My Blog Post&quot;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nRemoved&quot; : 1 &#125;)</span><br><span class="line">&gt; db.blog.find().pretty()</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="数据类型"><a class="markdownIt-Anchor" href="#数据类型"></a> 数据类型</h3>
-<h4 id="基本数据类型"><a class="markdownIt-Anchor" href="#基本数据类型"></a> 基本数据类型</h4>
-<p>MongoDB的文档与JavaScript中的对象相近，因而可以认为它类似于JSON。<br>
-JSON中只包含了6中数据类型：null、布尔、数字、字符串、数组和对象，表达能力有一定的局限。<br>
-MongDB在保留JSON基本键值对的基础上，添加了其他数据类型。</p>
-<ul>
-<li>null<br>
-<code>null</code>表示空值或者不存在的字段</li>
-<li>布尔型<br>
-有两个值<code>true</code>和<code>false</code></li>
-<li>数值<br>
-shell默认使用<code>64位浮点值</code>。<br>
-对于整型值，可以使用<code>NumberInt</code>类(表示4字节带符号整数)或<code>NumberLong</code>类(表示8字节带符号整数)，例如：<br>
-{“x”:NumberInt(“3”)}<br>
-{“x”:NumberLong(“3”)}</li>
-<li>字符串<br>
-UTF-8字符串都可以表示为字符串类型的数据。</li>
-<li>日期<br>
-日期被存储为自新纪元以来经过的毫秒数，不存储时区。<br>
-创建日期对象时，应使用<code>new Date(···)</code>,而非<code>Date(···)</code>。如将构造函数(constructor)作为函数进行调用(即不包括new的方式)，返回的是日期的字符串表示，而非日期(Date)对象。如果不注意这一点，没有始终使用日期构造函数，将得到一对婚礼的日期对象和日期的字符串。由于日期和字符串之间无法匹配，在执行删除、更新、查询操作时会导致很多问题。：<br>
-{“x”:<code>new Date()</code>}</li>
-<li>正则表达式<br>
-查询时，使用正则表达式作为限定条件，语法也与JavaScript的正则表达式语法相同：<br>
-{“x”: /foobar/i}</li>
-<li>数组<br>
-数据列表或数据集可以表示为数组。<br>
-{“x”:[“a”,“b”,“c”]}</li>
-<li>内嵌文档<br>
-文档也可以嵌套其他文档，被嵌套的文档作为父文档的值。<br>
-{“x”: {“foo”:“bar”}}</li>
-<li>对象id<br>
-对象id是一个12字节的ID，是文档的唯一标识。<br>
-MongoDB中存储的文档<strong>必须</strong>有一个&quot;_id&quot;键。这个键的值可以是任何类型的，默认是个ObjectId对象。<br>
-{“x” : <code>ObjectId()</code>}</li>
-</ul>
-<p><strong>关于ObjectId</strong><br>
-ObjectId使用12字节的存储空间，是一个由24个十六进制数字组成的字符串。</p>
+switched to db foobar</code></pre>
+<h4 id="shell-中的基本操作">shell 中的基本操作</h4>
+<p>即：创建、读取、更新、删除 <strong>创建</strong> <code>insert</code>函数可以将一个文档添加到集合中。 首先创建一个名为post的局部变量，这是一个JavaScript对象，用于表示我们的文档。 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; post = &#123;<span class="string">"title"</span>:<span class="string">"My Blog Post"</span>,</span><br><span class="line">... <span class="string">"content"</span>:<span class="string">"Here is my blog post."</span>,</span><br><span class="line">... <span class="string">"date"</span>:<span class="keyword">new</span> <span class="built_in">Date</span>()&#125;</span><br><span class="line">&#123;</span><br><span class="line">        <span class="string">"title"</span> : <span class="string">"My Blog Post"</span>,</span><br><span class="line">        <span class="string">"content"</span> : <span class="string">"Here is my blog post."</span>,</span><br><span class="line">        <span class="string">"date"</span> : ISODate(<span class="string">"2016-10-24T00:59:47.760Z"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个对象是有效的MongoDB文档，所以可用<code>insert</code>方法将其保存到集合中： <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.blog.insert(post)</span><br><span class="line">WriteResult(&#123; <span class="string">"nInserted"</span> : <span class="number">1</span> &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>这样，文档就被存到数据库中。要查看它可以使用<code>find</code>方法。 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; db.blog.find()</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"580d5dc08ecbdd01825abb90"</span>), <span class="string">"title"</span> : <span class="string">"My Blog Post"</span>, <span class="string">"conte</span></span><br><span class="line"><span class="string">nt"</span> : <span class="string">"Here is my blog post."</span>, <span class="string">"date"</span> : ISODate(<span class="string">"2016-10-24T00:59:47.760Z"</span>) &#125;</span><br></pre></td></tr></table></figure></p>
+<p>或使用<code>pretty()</code>格式化显示 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.blog.find().pretty()</span><br><span class="line">&#123;</span><br><span class="line">        &quot;_id&quot; : ObjectId(&quot;580d5dc08ecbdd01825abb90&quot;),</span><br><span class="line">        &quot;title&quot; : &quot;My Blog Post&quot;,</span><br><span class="line">        &quot;content&quot; : &quot;Here is my blog post.&quot;,</span><br><span class="line">        &quot;date&quot; : ISODate(&quot;2016-10-24T00:59:47.760Z&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>读取</strong> <code>find</code>和<code>findOne</code>方法可以用于查询集合里的文档。 使用find时，shell会自动显示最多20个匹配的文档，也可以获取更多的文档。</p>
+<p><strong>更新</strong> 使用<code>update</code>更新文档。<code>update</code>接受(至少)两个参数：第一个是限定条件（用于匹配待更新的文档），第二个是新的文档。</p>
+<p>首先，修改变量post，增加“comments”键： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; post.comments = []</span><br><span class="line">[ ]</span><br></pre></td></tr></table></figure></p>
+<p>然后执行update操作，用新版本的文档替换标题为"My Blog Post"的文档： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.blog.update(&#123;&quot;title&quot;:&quot;My Blog Post&quot;&#125;, post)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>再用find查看一下，可以看到新的键： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.blog.find().pretty()</span><br><span class="line">&#123;</span><br><span class="line">        &quot;_id&quot; : ObjectId(&quot;580d5dc08ecbdd01825abb90&quot;),</span><br><span class="line">        &quot;title&quot; : &quot;My Blog Post&quot;,</span><br><span class="line">        &quot;content&quot; : &quot;Here is my blog post.&quot;,</span><br><span class="line">        &quot;date&quot; : ISODate(&quot;2016-10-24T00:59:47.760Z&quot;),</span><br><span class="line">        &quot;comments&quot; : [ ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>删除</strong> 使用<code>remove</code>方法可以将文档从数据库中<strong>永久删除</strong>。如果没有使用任何参数，它会将集合内的所有文档全部删除。但是<strong>不会删除集合本身，也不会删除集合的元信息</strong>。 它可以接受一个作为限定条件的文档作为参数。例如： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.blog.remove(&#123;&quot;title&quot;:&quot;My Blog Post&quot;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nRemoved&quot; : 1 &#125;)</span><br><span class="line">&gt; db.blog.find().pretty()</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="数据类型">数据类型</h3>
+<h4 id="基本数据类型">基本数据类型</h4>
+<p>MongoDB的文档与JavaScript中的对象相近，因而可以认为它类似于JSON。 JSON中只包含了6中数据类型：null、布尔、数字、字符串、数组和对象，表达能力有一定的局限。 MongDB在保留JSON基本键值对的基础上，添加了其他数据类型。 + null <code>null</code>表示空值或者不存在的字段 + 布尔型 有两个值<code>true</code>和<code>false</code> + 数值 shell默认使用<code>64位浮点值</code>。 对于整型值，可以使用<code>NumberInt</code>类(表示4字节带符号整数)或<code>NumberLong</code>类(表示8字节带符号整数)，例如： {"x":NumberInt("3")} {"x":NumberLong("3")} + 字符串 UTF-8字符串都可以表示为字符串类型的数据。 + 日期 日期被存储为自新纪元以来经过的毫秒数，不存储时区。 创建日期对象时，应使用<code>new Date(···)</code>,而非<code>Date(···)</code>。如将构造函数(constructor)作为函数进行调用(即不包括new的方式)，返回的是日期的字符串表示，而非日期(Date)对象。如果不注意这一点，没有始终使用日期构造函数，将得到一对婚礼的日期对象和日期的字符串。由于日期和字符串之间无法匹配，在执行删除、更新、查询操作时会导致很多问题。： {"x":<code>new Date()</code>} + 正则表达式 查询时，使用正则表达式作为限定条件，语法也与JavaScript的正则表达式语法相同： {"x": /foobar/i} + 数组 数据列表或数据集可以表示为数组。 {"x":["a","b","c"]} + 内嵌文档 文档也可以嵌套其他文档，被嵌套的文档作为父文档的值。 {"x": {"foo":"bar"}} + 对象id 对象id是一个12字节的ID，是文档的唯一标识。 MongoDB中存储的文档<strong>必须</strong>有一个"_id"键。这个键的值可以是任何类型的，默认是个ObjectId对象。 {"x" : <code>ObjectId()</code>}</p>
+<p><strong>关于ObjectId</strong> ObjectId使用12字节的存储空间，是一个由24个十六进制数字组成的字符串。</p>
 <pre><code>0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11
-     时间戳    |    机器   |  PID  |   计数器
-</code></pre>
+     时间戳    |    机器   |  PID  |   计数器</code></pre>
 <ul>
 <li>4字节时间戳，与后面的5字节组合起来，提供秒级别的唯一性。</li>
 <li>3字节机器唯一标识符，通常是主机名的hash。</li>
 <li>2字节进程PID，确保一台主机并发进程产生的ObjectId唯一。</li>
 <li>3字节计数器，自动增加，确保相同进程同一秒产生的ObjectId是不一样的。</li>
 </ul>
-<h3 id="使用mongodb-shell"><a class="markdownIt-Anchor" href="#使用mongodb-shell"></a> 使用MongoDB shell</h3>
-<p>可以将shell连接到任何MongoDB实例。<br>
-<code>mongo somehost:30000/myDB</code><br>
-现在db就指向了somehost:30000上的myDB数据库。</p>
-<p>启动时也可以不连接到任何mongod，可以使用<code>--nodb</code>参数启动shell；启动后，在需要时可以运行<code>new Mongo(&quot;somehost:30000&quot;)</code>连接到想要的mongod。</p>
-<h4 id="shell-技巧"><a class="markdownIt-Anchor" href="#shell-技巧"></a> shell 技巧</h4>
-<p><code>help</code> 查看帮助<br>
-<code>db.help()</code> 查看数据库级别的帮助<br>
-<code>db.foo.help()</code> 查看集合级别的帮助<br>
-如果想知道一个函数是做什么用的，可以直接在shell中输入函数名(函数名后不要加括号)，就可以看到相应的JavaScript实现代码。</p>
-<h4 id="使用shell执行脚本"><a class="markdownIt-Anchor" href="#使用shell执行脚本"></a> 使用shell执行脚本</h4>
-<p><code>mongo script1.js script2.js script3.js</code><br>
-mongo shell依次执行传入脚本，然后退出。如果希望使用指定主机和端口上的mongod运行脚本，需要先指定地址，然后再跟上脚本文件的名称：<br>
-<code>mongo --quiet server1:30000/foo script1.js script2.js script3.js</code><br>
-这样可以将db指向server1：30000上的foo数据库，然后执行这三个脚本。注意运行shell时命令行参数要在地址之前。<br>
-也可以使用load()函数，从交互式shell中运行脚本。<br>
-<code>load(&quot;script1.js&quot;)</code></p>
-<h4 id="创建mongorcjs文件"><a class="markdownIt-Anchor" href="#创建mongorcjs文件"></a> 创建<code>.mongorc.js</code>文件</h4>
-<p>如果某些脚本会被频繁加载，可以将它们添加到<code>mongorc.js</code>文件中。这个文件会在启动shell时自动运行。<code>mongorc.js</code>位于用户主目录下。<br>
-<code>.mongorc.js</code>最常见的用途之一是移除那些比较危险的shell辅助函数。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> no = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    print(<span class="string">"Not on my watch."</span>)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//禁止删除数据库</span></span><br><span class="line">db.dropDatabase = DB.prototype.dropDatabase = no;</span><br><span class="line"><span class="comment">//禁止删除集合</span></span><br><span class="line">DBCollection.prototype.drop = no;</span><br><span class="line"><span class="comment">//禁止删除索引</span></span><br><span class="line">DBCollection.prototype.dropIndex = no;</span><br></pre></td></tr></table></figure>
-<p>改变数据库函数时，要确保同时对db变量和DB原型进行改变(如上)。<br>
-如果在启动shell时指定<code>--norc</code>参数，就可以禁止加载<code>.mongorc.js</code>.</p>
+<h3 id="使用mongodb-shell">使用MongoDB shell</h3>
+<p>可以将shell连接到任何MongoDB实例。 <code>mongo somehost:30000/myDB</code> 现在db就指向了somehost:30000上的myDB数据库。</p>
+<p>启动时也可以不连接到任何mongod，可以使用<code>--nodb</code>参数启动shell；启动后，在需要时可以运行<code>new Mongo("somehost:30000")</code>连接到想要的mongod。</p>
+<h4 id="shell-技巧">shell 技巧</h4>
+<p><code>help</code> 查看帮助 <code>db.help()</code> 查看数据库级别的帮助 <code>db.foo.help()</code> 查看集合级别的帮助 如果想知道一个函数是做什么用的，可以直接在shell中输入函数名(函数名后不要加括号)，就可以看到相应的JavaScript实现代码。</p>
+<h4 id="使用shell执行脚本">使用shell执行脚本</h4>
+<p><code>mongo script1.js script2.js script3.js</code> mongo shell依次执行传入脚本，然后退出。如果希望使用指定主机和端口上的mongod运行脚本，需要先指定地址，然后再跟上脚本文件的名称： <code>mongo --quiet server1:30000/foo script1.js script2.js script3.js</code> 这样可以将db指向server1：30000上的foo数据库，然后执行这三个脚本。注意运行shell时命令行参数要在地址之前。 也可以使用load()函数，从交互式shell中运行脚本。 <code>load("script1.js")</code></p>
+<h4 id="创建.mongorc.js文件">创建<code>.mongorc.js</code>文件</h4>
+<p>如果某些脚本会被频繁加载，可以将它们添加到<code>mongorc.js</code>文件中。这个文件会在启动shell时自动运行。<code>mongorc.js</code>位于用户主目录下。 <code>.mongorc.js</code>最常见的用途之一是移除那些比较危险的shell辅助函数。 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> no = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    print(<span class="string">"Not on my watch."</span>)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//禁止删除数据库</span></span><br><span class="line">db.dropDatabase = DB.prototype.dropDatabase = no;</span><br><span class="line"><span class="comment">//禁止删除集合</span></span><br><span class="line">DBCollection.prototype.drop = no;</span><br><span class="line"><span class="comment">//禁止删除索引</span></span><br><span class="line">DBCollection.prototype.dropIndex = no;</span><br></pre></td></tr></table></figure></p>
+<p>改变数据库函数时，要确保同时对db变量和DB原型进行改变(如上)。 如果在启动shell时指定<code>--norc</code>参数，就可以禁止加载<code>.mongorc.js</code>.</p>
 <hr>
   
 	</div>
@@ -369,7 +260,7 @@ mongo shell依次执行传入脚本，然后退出。如果希望使用指定主
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text"> 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#官方重要帮助文件链接地址"><span class="toc-number">1.1.</span> <span class="toc-text"> 官方重要帮助文件链接地址：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础知识"><span class="toc-number">2.</span> <span class="toc-text"> 基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文档"><span class="toc-number">2.1.</span> <span class="toc-text"> 文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合"><span class="toc-number">2.2.</span> <span class="toc-text"> 集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库"><span class="toc-number">2.3.</span> <span class="toc-text"> 数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动mongodb"><span class="toc-number">2.4.</span> <span class="toc-text"> 启动MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb-shell-介绍"><span class="toc-number">2.5.</span> <span class="toc-text"> MongoDB shell 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#运行shell"><span class="toc-number">2.5.1.</span> <span class="toc-text"> 运行shell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mongodb-客户端"><span class="toc-number">2.5.2.</span> <span class="toc-text"> MongoDB 客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shell-中的基本操作"><span class="toc-number">2.5.3.</span> <span class="toc-text"> shell 中的基本操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型"><span class="toc-number">2.6.</span> <span class="toc-text"> 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本数据类型"><span class="toc-number">2.6.1.</span> <span class="toc-text"> 基本数据类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用mongodb-shell"><span class="toc-number">2.7.</span> <span class="toc-text"> 使用MongoDB shell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#shell-技巧"><span class="toc-number">2.7.1.</span> <span class="toc-text"> shell 技巧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用shell执行脚本"><span class="toc-number">2.7.2.</span> <span class="toc-text"> 使用shell执行脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建mongorcjs文件"><span class="toc-number">2.7.3.</span> <span class="toc-text"> 创建.mongorc.js文件</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#官方重要帮助文件链接地址"><span class="toc-number">1.1.</span> <span class="toc-text">官方重要帮助文件链接地址：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础知识"><span class="toc-number">2.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文档"><span class="toc-number">2.1.</span> <span class="toc-text">文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合"><span class="toc-number">2.2.</span> <span class="toc-text">集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库"><span class="toc-number">2.3.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动mongodb"><span class="toc-number">2.4.</span> <span class="toc-text">启动MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb-shell-介绍"><span class="toc-number">2.5.</span> <span class="toc-text">MongoDB shell 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#运行shell"><span class="toc-number">2.5.1.</span> <span class="toc-text">运行shell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mongodb-客户端"><span class="toc-number">2.5.2.</span> <span class="toc-text">MongoDB 客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shell-中的基本操作"><span class="toc-number">2.5.3.</span> <span class="toc-text">shell 中的基本操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型"><span class="toc-number">2.6.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本数据类型"><span class="toc-number">2.6.1.</span> <span class="toc-text">基本数据类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用mongodb-shell"><span class="toc-number">2.7.</span> <span class="toc-text">使用MongoDB shell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#shell-技巧"><span class="toc-number">2.7.1.</span> <span class="toc-text">shell 技巧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用shell执行脚本"><span class="toc-number">2.7.2.</span> <span class="toc-text">使用shell执行脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建.mongorc.js文件"><span class="toc-number">2.7.3.</span> <span class="toc-text">创建.mongorc.js文件</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -467,11 +358,11 @@ mongo shell依次执行传入脚本，然后退出。如果希望使用指定主
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -479,15 +370,11 @@ mongo shell依次执行传入脚本，然后退出。如果希望使用指定主
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -499,14 +386,6 @@ mongo shell依次执行传入脚本，然后退出。如果希望使用指定主
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -515,11 +394,23 @@ mongo shell依次执行传入脚本，然后退出。如果希望使用指定主
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

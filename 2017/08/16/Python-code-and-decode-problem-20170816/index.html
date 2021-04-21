@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="推荐阅读 说说 Python 字符编码的二三事  将GB2312编码的字符串，转换回汉字 服务器传过来的字符串是人名使用 gb2312 编码后的字符串，例如：%BB%C6%B3%C9%CE%C4，黄成文，现在我要用 Python 把这个字符串转回汉字。 解决办法： print type(urllib.unquote(&apos;%BB%C6%B3%C9%CE%C4&apos;)),urllib.unquote(&apos;%">
+    <meta name="description" content="推荐阅读 说说 Python 字符编码的二三事 将GB2312编码的字符串，转换回汉字 服务器传过来的字符串是人名使用 gb2312 编码后的字符串，例如：%BB%C6%B3%C9%CE%C4，黄成文，现在我要用 Python 把这个字符串转回汉字。 解决办法： print type(urllib.unquote(&apos;%BB%C6%B3%C9%CE%C4&apos;)),urllib.unquote">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 编码问题的一些经验与例子">
 <meta property="og:url" content="http://flamepeak.com/2017/08/16/Python-code-and-decode-problem-20170816/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="推荐阅读 说说 Python 字符编码的二三事  将GB2312编码的字符串，转换回汉字 服务器传过来的字符串是人名使用 gb2312 编码后的字符串，例如：%BB%C6%B3%C9%CE%C4，黄成文，现在我要用 Python 把这个字符串转回汉字。 解决办法： print type(urllib.unquote(&apos;%BB%C6%B3%C9%CE%C4&apos;)),urllib.unquote(&apos;%">
+<meta property="og:description" content="推荐阅读 说说 Python 字符编码的二三事 将GB2312编码的字符串，转换回汉字 服务器传过来的字符串是人名使用 gb2312 编码后的字符串，例如：%BB%C6%B3%C9%CE%C4，黄成文，现在我要用 Python 把这个字符串转回汉字。 解决办法： print type(urllib.unquote(&apos;%BB%C6%B3%C9%CE%C4&apos;)),urllib.unquote">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-08-16T15:53:51.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 编码问题的一些经验与例子">
-<meta name="twitter:description" content="推荐阅读 说说 Python 字符编码的二三事  将GB2312编码的字符串，转换回汉字 服务器传过来的字符串是人名使用 gb2312 编码后的字符串，例如：%BB%C6%B3%C9%CE%C4，黄成文，现在我要用 Python 把这个字符串转回汉字。 解决办法： print type(urllib.unquote(&apos;%BB%C6%B3%C9%CE%C4&apos;)),urllib.unquote(&apos;%">
+<meta name="twitter:description" content="推荐阅读 说说 Python 字符编码的二三事 将GB2312编码的字符串，转换回汉字 服务器传过来的字符串是人名使用 gb2312 编码后的字符串，例如：%BB%C6%B3%C9%CE%C4，黄成文，现在我要用 Python 把这个字符串转回汉字。 解决办法： print type(urllib.unquote(&apos;%BB%C6%B3%C9%CE%C4&apos;)),urllib.unquote">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,18 +97,17 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="推荐阅读"><a class="markdownIt-Anchor" href="#推荐阅读"></a> 推荐阅读</h3>
+		<h3 id="推荐阅读">推荐阅读</h3>
 <p><a href="https://www.v2ex.com/t/339142" target="_blank" rel="noopener">说说 Python 字符编码的二三事</a></p>
-<h3 id="将gb2312编码的字符串转换回汉字"><a class="markdownIt-Anchor" href="#将gb2312编码的字符串转换回汉字"></a> 将GB2312编码的字符串，转换回汉字</h3>
+<h3 id="将gb2312编码的字符串转换回汉字">将GB2312编码的字符串，转换回汉字</h3>
 <p>服务器传过来的字符串是人名使用 gb2312 编码后的字符串，例如：%BB%C6%B3%C9%CE%C4，黄成文，现在我要用 Python 把这个字符串转回汉字。</p>
 <p>解决办法：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">print</span> type(urllib.unquote(<span class="string">'%BB%C6%B3%C9%CE%C4'</span>)),urllib.unquote(<span class="string">'%BB%C6%B3%C9%CE%C4'</span>),repr(urllib.unquote(<span class="string">'%BB%C6%B3%C9%CE%C4'</span>))</span><br><span class="line">result =  (urllib.unquote(<span class="string">'%BB%C6%B3%C9%CE%C4'</span>)).decode(<span class="string">'gb2312'</span>) <span class="comment">#gbk也可以</span></span><br><span class="line"><span class="keyword">print</span> type(result),result</span><br></pre></td></tr></table></figure>
-<p>以上输出为：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;type &apos;str&apos;&gt; »Æ³ÉÎÄ &apos;\xbb\xc6\xb3\xc9\xce\xc4&apos;</span><br><span class="line">&lt;type &apos;unicode&apos;&gt; 黄成文</span><br></pre></td></tr></table></figure>
-<h4 id="延伸一下"><a class="markdownIt-Anchor" href="#延伸一下"></a> 延伸一下</h4>
+<p>以上输出为： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;type &apos;str&apos;&gt; »Æ³ÉÎÄ &apos;\xbb\xc6\xb3\xc9\xce\xc4&apos;</span><br><span class="line">&lt;type &apos;unicode&apos;&gt; 黄成文</span><br></pre></td></tr></table></figure></p>
+<h4 id="延伸一下">延伸一下</h4>
 <p>请看下面代码，注意观察编码变化：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">print</span> type(urllib.unquote(<span class="string">'%BB%C6%B3%C9%CE%C4'</span>)),urllib.unquote(<span class="string">'%BB%C6%B3%C9%CE%C4'</span>),repr(urllib.unquote(<span class="string">'%BB%C6%B3%C9%CE%C4'</span>))</span><br><span class="line">rest =  (urllib.unquote(<span class="string">'%BB%C6%B3%C9%CE%C4'</span>)).decode(<span class="string">'gb2312'</span>)</span><br><span class="line"><span class="keyword">print</span> type(rest),repr(rest)</span><br><span class="line"><span class="keyword">print</span> rest.encode(<span class="string">'utf-8'</span>),repr(rest.encode(<span class="string">'utf-8'</span>))</span><br><span class="line"></span><br><span class="line">car_owner_name = <span class="string">'黄成文'</span></span><br><span class="line"><span class="keyword">print</span> type(car_owner_name),repr(car_owner_name)</span><br><span class="line"></span><br><span class="line">输出结果如下：</span><br><span class="line">&lt;type <span class="string">'str'</span>&gt; ﾻƳÉÎÄ <span class="string">'\xbb\xc6\xb3\xc9\xce\xc4'</span></span><br><span class="line"></span><br><span class="line">&lt;type <span class="string">'unicode'</span>&gt; <span class="string">u'\u9ec4\u6210\u6587'</span> </span><br><span class="line"></span><br><span class="line">黄成文 <span class="string">'\xe9\xbb\x84\xe6\x88\x90\xe6\x96\x87'</span></span><br><span class="line"></span><br><span class="line">&lt;type <span class="string">'str'</span>&gt; <span class="string">'\xe9\xbb\x84\xe6\x88\x90\xe6\x96\x87'</span></span><br></pre></td></tr></table></figure>
-<h3 id><a class="markdownIt-Anchor" href="#"></a> </h3>
+<h3 id="section"></h3>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -171,7 +170,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#推荐阅读"><span class="toc-number">1.</span> <span class="toc-text"> 推荐阅读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将gb2312编码的字符串转换回汉字"><span class="toc-number">2.</span> <span class="toc-text"> 将GB2312编码的字符串，转换回汉字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#延伸一下"><span class="toc-number">2.1.</span> <span class="toc-text"> 延伸一下</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text"> </span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#推荐阅读"><span class="toc-number">1.</span> <span class="toc-text">推荐阅读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将gb2312编码的字符串转换回汉字"><span class="toc-number">2.</span> <span class="toc-text">将GB2312编码的字符串，转换回汉字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#延伸一下"><span class="toc-number">2.1.</span> <span class="toc-text">延伸一下</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#section"><span class="toc-number">3.</span> <span class="toc-text"></span></a></li></ol>
  
   </div>
 
@@ -269,11 +268,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -281,15 +280,11 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -301,14 +296,6 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -317,11 +304,23 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

@@ -13,19 +13,19 @@
     
 
     
-    <meta name="description" content="在同步的过程中遇到错误  Changes not staged for commit:  查了一下资料，然后找到了解决办法 因为我在一次commit的过程中，没有执行add，解决办法就是：  在执行commit之前，先使用git add yourhtml.html 或者git add . 然后再git commit -m “modify yourhtml.html”  或者，尝试  git com">
+    <meta name="description" content="在同步的过程中遇到错误 &amp;gt; Changes not staged for commit: 查了一下资料，然后找到了解决办法 因为我在一次commit的过程中，没有执行add，解决办法就是： &amp;gt; 在执行commit之前，先使用git add yourhtml.html 或者git add . 然后再git commit -m &quot;modify yourhtml.html&quot; 或者，尝试">
 <meta name="keywords" content="Hexo,git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git &quot;Changes not staged for commit&quot; 错误解决">
 <meta property="og:url" content="http://flamepeak.com/2016/09/04/git-Changes-not-staged-for-commit-resolved-20160904/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="在同步的过程中遇到错误  Changes not staged for commit:  查了一下资料，然后找到了解决办法 因为我在一次commit的过程中，没有执行add，解决办法就是：  在执行commit之前，先使用git add yourhtml.html 或者git add . 然后再git commit -m “modify yourhtml.html”  或者，尝试  git com">
+<meta property="og:description" content="在同步的过程中遇到错误 &amp;gt; Changes not staged for commit: 查了一下资料，然后找到了解决办法 因为我在一次commit的过程中，没有执行add，解决办法就是： &amp;gt; 在执行commit之前，先使用git add yourhtml.html 或者git add . 然后再git commit -m &quot;modify yourhtml.html&quot; 或者，尝试">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20160904/git_description.jpg">
 <meta property="og:updated_time" content="2017-01-31T00:52:07.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git &quot;Changes not staged for commit&quot; 错误解决">
-<meta name="twitter:description" content="在同步的过程中遇到错误  Changes not staged for commit:  查了一下资料，然后找到了解决办法 因为我在一次commit的过程中，没有执行add，解决办法就是：  在执行commit之前，先使用git add yourhtml.html 或者git add . 然后再git commit -m “modify yourhtml.html”  或者，尝试  git com">
+<meta name="twitter:description" content="在同步的过程中遇到错误 &amp;gt; Changes not staged for commit: 查了一下资料，然后找到了解决办法 因为我在一次commit的过程中，没有执行add，解决办法就是： &amp;gt; 在执行commit之前，先使用git add yourhtml.html 或者git add . 然后再git commit -m &quot;modify yourhtml.html&quot; 或者，尝试">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/20160904/git_description.jpg">
 
     
@@ -99,25 +99,10 @@
 </header>
 	<div class="article-content">
 		
-		<p>在同步的过程中遇到错误</p>
-<blockquote>
-<p>Changes not staged for commit:</p>
-</blockquote>
-<p>查了一下资料，然后找到了解决办法<br>
-因为我在一次commit的过程中，没有执行add，解决办法就是：</p>
-<blockquote>
-<p>在执行commit之前，先使用git add yourhtml.html 或者git add .<br>
-然后再git commit -m “modify yourhtml.html”</p>
-</blockquote>
-<p>或者，尝试</p>
-<blockquote>
-<p>git commit -a -m “modify yourhtml.html”</p>
-</blockquote>
-<p><strong>原理：</strong><br>
-git 分为工作区和版本库，工作区是你的代码，版本库就是git记录了。<br>
-在修改进入版本库前有一个暂存区也叫索引，就是做git add 操作后记录的区域。当commit的时候是将暂存区的记录添加到版本数据库。你的提示说staged没有内容，也就是说你没有执行过add操作。<br>
-详情看这里：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013745374151782eb658c5a5ca454eaa451661275886c6000" target="_blank" rel="noopener">工作区和暂存区</a><br>
-<img src="/sourcepictures/20160904/git_description.jpg" alt="git description"></p>
+		<p>在同步的过程中遇到错误 &gt; Changes not staged for commit:</p>
+<p>查了一下资料，然后找到了解决办法 因为我在一次commit的过程中，没有执行add，解决办法就是： &gt; 在执行commit之前，先使用git add yourhtml.html 或者git add . 然后再git commit -m "modify yourhtml.html"</p>
+<p>或者，尝试 &gt; git commit -a -m "modify yourhtml.html"</p>
+<p><strong>原理：</strong> git 分为工作区和版本库，工作区是你的代码，版本库就是git记录了。 在修改进入版本库前有一个暂存区也叫索引，就是做git add 操作后记录的区域。当commit的时候是将暂存区的记录添加到版本数据库。你的提示说staged没有内容，也就是说你没有执行过add操作。 详情看这里：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013745374151782eb658c5a5ca454eaa451661275886c6000" target="_blank" rel="noopener">工作区和暂存区</a> <img src="/sourcepictures/20160904/git_description.jpg" alt="git description"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -273,11 +258,11 @@ git 分为工作区和版本库，工作区是你的代码，版本库就是git�
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -285,15 +270,11 @@ git 分为工作区和版本库，工作区是你的代码，版本库就是git�
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -305,14 +286,6 @@ git 分为工作区和版本库，工作区是你的代码，版本库就是git�
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -321,11 +294,23 @@ git 分为工作区和版本库，工作区是你的代码，版本库就是git�
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

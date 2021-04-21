@@ -13,20 +13,20 @@
     
 
     
-    <meta name="description" content="利用Fiddler对Android模拟器网络请求进行抓包 利用Fiddler对Android模拟器网络请求进行抓包 1.打开模拟器设置（Settings），点击Wi-Fi。 2.长按WiredSSID，选择Modify network（修改网络） 3.勾上Show advanced options，输入代理服务器地址和端口（关键）。 注意：代理地址和端口的设置是关键，Genymotion模拟器中">
+    <meta name="description" content="利用Fiddler对Android模拟器网络请求进行抓包 利用Fiddler对Android模拟器网络请求进行抓包 1.打开模拟器设置（Settings），点击Wi-Fi。 2.长按WiredSSID，选择Modify network（修改网络） 3.勾上Show advanced options，输入代理服务器地址和端口（关键）。 注意：代理地址和端口的设置是关键，Genymotion">
 <meta name="keywords" content="Network Security,Fiddler,BurpSuite">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android app 网络数据抓取相关设置">
 <meta property="og:url" content="http://flamepeak.com/2017/05/23/Android-app-network-data-capture-20170518/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="利用Fiddler对Android模拟器网络请求进行抓包 利用Fiddler对Android模拟器网络请求进行抓包 1.打开模拟器设置（Settings），点击Wi-Fi。 2.长按WiredSSID，选择Modify network（修改网络） 3.勾上Show advanced options，输入代理服务器地址和端口（关键）。 注意：代理地址和端口的设置是关键，Genymotion模拟器中">
+<meta property="og:description" content="利用Fiddler对Android模拟器网络请求进行抓包 利用Fiddler对Android模拟器网络请求进行抓包 1.打开模拟器设置（Settings），点击Wi-Fi。 2.长按WiredSSID，选择Modify network（修改网络） 3.勾上Show advanced options，输入代理服务器地址和端口（关键）。 注意：代理地址和端口的设置是关键，Genymotion">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/2017/05/18/fiddler_https1.png">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/2017/05/18/fiddler_https2.png">
 <meta property="og:updated_time" content="2019-03-04T06:59:57.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android app 网络数据抓取相关设置">
-<meta name="twitter:description" content="利用Fiddler对Android模拟器网络请求进行抓包 利用Fiddler对Android模拟器网络请求进行抓包 1.打开模拟器设置（Settings），点击Wi-Fi。 2.长按WiredSSID，选择Modify network（修改网络） 3.勾上Show advanced options，输入代理服务器地址和端口（关键）。 注意：代理地址和端口的设置是关键，Genymotion模拟器中">
+<meta name="twitter:description" content="利用Fiddler对Android模拟器网络请求进行抓包 利用Fiddler对Android模拟器网络请求进行抓包 1.打开模拟器设置（Settings），点击Wi-Fi。 2.长按WiredSSID，选择Modify network（修改网络） 3.勾上Show advanced options，输入代理服务器地址和端口（关键）。 注意：代理地址和端口的设置是关键，Genymotion">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/2017/05/18/fiddler_https1.png">
 
     
@@ -100,15 +100,14 @@
 </header>
 	<div class="article-content">
 		
-		<h2 id="利用fiddler对android模拟器网络请求进行抓包"><a class="markdownIt-Anchor" href="#利用fiddler对android模拟器网络请求进行抓包"></a> 利用Fiddler对Android模拟器网络请求进行抓包</h2>
+		<h2 id="利用fiddler对android模拟器网络请求进行抓包">利用Fiddler对Android模拟器网络请求进行抓包</h2>
 <p><a href="http://www.jianshu.com/p/7135afa4a828" target="_blank" rel="noopener">利用Fiddler对Android模拟器网络请求进行抓包</a></p>
 <p>1.打开模拟器设置（Settings），点击Wi-Fi。</p>
 <p>2.长按WiredSSID，选择Modify network（修改网络）</p>
 <p>3.勾上Show advanced options，输入代理服务器地址和端口（关键）。</p>
 <p>注意：代理地址和端口的设置是关键，Genymotion模拟器中ip为10.0.3.2，Android模拟器中ip为10.0.2.2，端口为FIddler监听的端口，默认为8888，最后保存确认。</p>
-<h2 id="如何监控android模拟器的http访问情况"><a class="markdownIt-Anchor" href="#如何监控android模拟器的http访问情况"></a> 如何监控Android模拟器的HTTP访问情况</h2>
-<p>重要参考文章：<br>
-<a href="http://blog.csdn.net/asmcvc/article/details/10448793" target="_blank" rel="noopener">如何监控Android模拟器的HTTP访问情况</a></p>
+<h2 id="如何监控android模拟器的http访问情况">如何监控Android模拟器的HTTP访问情况</h2>
+<p>重要参考文章： <a href="http://blog.csdn.net/asmcvc/article/details/10448793" target="_blank" rel="noopener">如何监控Android模拟器的HTTP访问情况</a></p>
 <p>问题场景：在调试某个应用时，需要监控应用与服务器之间的HTTP通讯。</p>
 <p>解决思路：第一时间想到Fiddler2。Android官方文档提到用TCPDump获得通讯封包或实时监控，好是好，有点高射炮打蚊子的意思。 Fiddler2这个工具，界面友好，功能足够使用，可以说是Windows上最好的HTTP监控工具。Fiddler2用起来很方便，运行之后，即在本 机建立一个代理（缺省设置为127.0.0.1:8888），其他访问HTTP的应用程序，把代理设为同一地址和端口即可。</p>
 <p>实施过程：</p>
@@ -117,7 +116,7 @@
 <p>解决方案：</p>
 <p>再细读文档中有关模拟器的部分，看到Network Address Space一段，忽有所悟。这段文字是这么写的——</p>
 <blockquote>
-<p>Each instance of the emulator runs behind a virtual router/firewall service that isolates it from your development machine’s network interfaces and settings and from the internet. An emulated device can not see your development machine or other emulator instances on the network. Instead, it sees only that it is connected through Ethernet to a router/firewall.</p>
+<p>Each instance of the emulator runs behind a virtual router/firewall service that isolates it from your development machine's network interfaces and settings and from the internet. An emulated device can not see your development machine or other emulator instances on the network. Instead, it sees only that it is connected through Ethernet to a router/firewall.</p>
 </blockquote>
 <p>（译文）模拟器在虚拟路由器/防火墙服务后面运行，这套路由器/防火墙服务隔离于开发机的网络界面、设置，也与互联网相隔离。模拟设备不能访问开发机或网络上的其他模拟器。它看到的只是自己通过以太网连接到一个路由器/防火墙。</p>
 <p>这下清楚了，模拟器压根不知道127.0.0.1是个啥地址，也压根访问不到。在127.0.0.1上设置的代理，自然也抓不到任何通讯应答了。文 档接着写道，这个虚拟防火墙/路由器管理从10.0.2.2至10.0.2.24，模拟器的IP地址是10.0.2.15，而模拟器看到的开发机地址则是 10.0.2.2。也就是说，从模拟器的立场看，Fiddler2是在10.0.2.2上运行的。</p>
@@ -127,24 +126,25 @@
 <p>然后， 保存（必须要保存）， 然后回到上一步选择启用新建的这个APN。</p>
 <p>最后，需要在Fiddler所在的主机上，添加一个ip地址： 10.0.2.2.</p>
 <p>这样应该就可以了。</p>
-<h2 id="burpsuite的proxy设置"><a class="markdownIt-Anchor" href="#burpsuite的proxy设置"></a> BurpSuite的Proxy设置</h2>
+<h2 id="burpsuite的proxy设置">BurpSuite的Proxy设置</h2>
 <p>至于BurpSuite的Proxy设置：<br>
-在Proxy-&gt;Setting里Bind to port 设为8888, Bind to address设为Loopback only， 同时选择Support Invisible proxying。认证可以选择Use a self-signed certificate。<br>
-然后，在IE里设置代理，在LAN setting中，Proxy Server 设置Address为10.0.2.2，Port为8888(如果不行，设置127.0.0.1：8888试试).</p>
+在Proxy-&gt;Setting里Bind to port 设为8888, Bind to address设为Loopback only， 同时选择Support Invisible proxying。认证可以选择Use a self-signed certificate。 然后，在IE里设置代理，在LAN setting中，Proxy Server 设置Address为10.0.2.2，Port为8888(如果不行，设置127.0.0.1：8888试试).</p>
 <p>这样应该就可以了。</p>
 <p>注意，如果还是不行的话，要关闭杀毒软件，例如Avast。</p>
-<h2 id="浅谈https以及fiddler抓取https协议"><a class="markdownIt-Anchor" href="#浅谈https以及fiddler抓取https协议"></a> 浅谈HTTPS以及Fiddler抓取HTTPS协议</h2>
+<h2 id="浅谈https以及fiddler抓取https协议">浅谈HTTPS以及Fiddler抓取HTTPS协议</h2>
 <p>重要参考：<a href="http://www.jianshu.com/p/54dd21c50f21" target="_blank" rel="noopener">浅谈HTTPS以及Fiddler抓取HTTPS协议</a></p>
 <p>在抓取android模拟器http数据时，上面的方法没有问题，但是在处理HTTPS数据时，Fiddler有时候会抓取不到，至于有没有漏掉使用wireshark可以核实。</p>
-<p>至于HTTPS原理以及Fiddler抓取HTTPS原理，可以参考链接上面的文章<br>
-下面对Fiddler设置进行摘要：</p>
-<p>（一）首先对Fiddler进行设置：打开工具栏-&gt;Tools-&gt;Fiddler Options-&gt;HTTPS<br>
-选中Capture HTTPS CONNECTs，因为我们要用Fiddler获取手机客户端发出的HTTPS请求，所以中间的下拉菜单中选中from remote clients only。选中下方Ignore server certificate errors.（注意： 在我个人的设置中与参考文章的不一样，下来菜单选择from all processes依然可以，请各位自己尝试）</p>
-<p><img src="/sourcepictures/2017/05/18/fiddler_https1.png" alt="fiddler_https1.png"></p>
+<p>至于HTTPS原理以及Fiddler抓取HTTPS原理，可以参考链接上面的文章 下面对Fiddler设置进行摘要：</p>
+<p>（一）首先对Fiddler进行设置：打开工具栏-&gt;Tools-&gt;Fiddler Options-&gt;HTTPS 选中Capture HTTPS CONNECTs，因为我们要用Fiddler获取手机客户端发出的HTTPS请求，所以中间的下拉菜单中选中from remote clients only。选中下方Ignore server certificate errors.（注意： 在我个人的设置中与参考文章的不一样，下来菜单选择from all processes依然可以，请各位自己尝试）</p>
+<figure>
+<img src="/sourcepictures/2017/05/18/fiddler_https1.png" alt><figcaption>fiddler_https1.png</figcaption>
+</figure>
 <p>（二）然后，就是手机安装Fiddler证书。<br>
 这一步，也就是我们上面分析的抓取HTTPS请求的关键。<br>
 操作步骤很简单，打开手机浏览器，在浏览器地址输入代理服务器IP和端口，会看到一个Fiddler提供的页面。</p>
-<p><img src="/sourcepictures/2017/05/18/fiddler_https2.png" alt="fiddler_https2.png"></p>
+<figure>
+<img src="/sourcepictures/2017/05/18/fiddler_https2.png" alt><figcaption>fiddler_https2.png</figcaption>
+</figure>
 <p>接着点击最下方的FiddlerRoot certificate，这时候点击确定安装就可以下载Fiddler的证书了。</p>
 <p>下载安装完成好后，我们用手机客户端或者浏览器发出HTTPS请求，Fiddler就可以截获到了，就跟截获普通的HTTP请求一样。</p>
   
@@ -209,7 +209,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#利用fiddler对android模拟器网络请求进行抓包"><span class="toc-number">1.</span> <span class="toc-text"> 利用Fiddler对Android模拟器网络请求进行抓包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何监控android模拟器的http访问情况"><span class="toc-number">2.</span> <span class="toc-text"> 如何监控Android模拟器的HTTP访问情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#burpsuite的proxy设置"><span class="toc-number">3.</span> <span class="toc-text"> BurpSuite的Proxy设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浅谈https以及fiddler抓取https协议"><span class="toc-number">4.</span> <span class="toc-text"> 浅谈HTTPS以及Fiddler抓取HTTPS协议</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#利用fiddler对android模拟器网络请求进行抓包"><span class="toc-number">1.</span> <span class="toc-text">利用Fiddler对Android模拟器网络请求进行抓包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何监控android模拟器的http访问情况"><span class="toc-number">2.</span> <span class="toc-text">如何监控Android模拟器的HTTP访问情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#burpsuite的proxy设置"><span class="toc-number">3.</span> <span class="toc-text">BurpSuite的Proxy设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浅谈https以及fiddler抓取https协议"><span class="toc-number">4.</span> <span class="toc-text">浅谈HTTPS以及Fiddler抓取HTTPS协议</span></a></li></ol>
  
   </div>
 
@@ -307,11 +307,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -319,15 +319,11 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -339,14 +335,6 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -355,11 +343,23 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

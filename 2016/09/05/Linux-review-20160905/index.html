@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="tr命令 tr命令可以用来删除文本中的某些文字，或者替换文字。 tr [option]...SET1 [SET2]    选项 说明     -d 删除和set1匹配的字符   -s 删除set1指定的在输入文本中连续并重复的字符    echo &amp;quot;today news woo&amp;quot; | tr -d &apos;on&apos; 将删除所有的o和n cat /etc/passwd |tr &amp;quot">
+    <meta name="description" content="tr命令 tr命令可以用来删除文本中的某些文字，或者替换文字。 tr [option]...SET1 [SET2]    选项 说明     -d 删除和set1匹配的字符   -s 删除set1指定的在输入文本中连续并重复的字符    echo &quot;today news woo&quot; | tr -d &apos;on&apos; 将删除所有的o和n cat /etc/passwd">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 温习(六)：文本处理">
 <meta property="og:url" content="http://flamepeak.com/2016/09/05/Linux-review-20160905/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="tr命令 tr命令可以用来删除文本中的某些文字，或者替换文字。 tr [option]...SET1 [SET2]    选项 说明     -d 删除和set1匹配的字符   -s 删除set1指定的在输入文本中连续并重复的字符    echo &amp;quot;today news woo&amp;quot; | tr -d &apos;on&apos; 将删除所有的o和n cat /etc/passwd |tr &amp;quot">
+<meta property="og:description" content="tr命令 tr命令可以用来删除文本中的某些文字，或者替换文字。 tr [option]...SET1 [SET2]    选项 说明     -d 删除和set1匹配的字符   -s 删除set1指定的在输入文本中连续并重复的字符    echo &quot;today news woo&quot; | tr -d &apos;on&apos; 将删除所有的o和n cat /etc/passwd">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:46:51.008Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 温习(六)：文本处理">
-<meta name="twitter:description" content="tr命令 tr命令可以用来删除文本中的某些文字，或者替换文字。 tr [option]...SET1 [SET2]    选项 说明     -d 删除和set1匹配的字符   -s 删除set1指定的在输入文本中连续并重复的字符    echo &amp;quot;today news woo&amp;quot; | tr -d &apos;on&apos; 将删除所有的o和n cat /etc/passwd |tr &amp;quot">
+<meta name="twitter:description" content="tr命令 tr命令可以用来删除文本中的某些文字，或者替换文字。 tr [option]...SET1 [SET2]    选项 说明     -d 删除和set1匹配的字符   -s 删除set1指定的在输入文本中连续并重复的字符    echo &quot;today news woo&quot; | tr -d &apos;on&apos; 将删除所有的o和n cat /etc/passwd">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,75 +97,71 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="tr命令"><a class="markdownIt-Anchor" href="#tr命令"></a> tr命令</h3>
-<p><strong>tr</strong>命令可以用来删除文本中的某些文字，或者替换文字。<br>
-<code>tr [option]...SET1 [SET2]</code></p>
+		<h3 id="tr命令">tr命令</h3>
+<p><strong>tr</strong>命令可以用来删除文本中的某些文字，或者替换文字。 <code>tr [option]...SET1 [SET2]</code></p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>选项</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>-d</td>
 <td>删除和set1匹配的字符</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-s</td>
 <td>删除set1指定的在输入文本中连续并重复的字符</td>
 </tr>
 </tbody>
 </table>
-<p><code>echo &quot;today news woo&quot; | tr -d 'on'</code><br>
-将删除所有的o和n</p>
-<p><code>cat /etc/passwd |tr &quot;[a-z]&quot; &quot;[A-Z]&quot;</code><br>
-将<code>/etc/passwd</code>中的小写转成大写显示</p>
-<h3 id="col-命令"><a class="markdownIt-Anchor" href="#col-命令"></a> col 命令</h3>
+<p><code>echo "today news woo" | tr -d 'on'</code> 将删除所有的o和n</p>
+<p><code>cat /etc/passwd |tr "[a-z]"  "[A-Z]"</code> 将<code>/etc/passwd</code>中的小写转成大写显示</p>
+<h3 id="col-命令">col 命令</h3>
 <p>col 命令可以将<code>Tab</code>换成对等数量的空格建，或反转这个操作。</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>选项</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>-x</td>
 <td>将<code>Tab</code>转换为空格</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-h</td>
 <td>将空格转换为<code>Tab</code>（默认选项）</td>
 </tr>
 </tbody>
 </table>
-<h3 id="join命令"><a class="markdownIt-Anchor" href="#join命令"></a> join命令</h3>
-<p>将两个文件中包含相同内容的那一行合并在一起<br>
-<code>join [option]... file1 file2</code></p>
-<h3 id="重定向"><a class="markdownIt-Anchor" href="#重定向"></a> 重定向</h3>
+<h3 id="join命令">join命令</h3>
+<p>将两个文件中包含相同内容的那一行合并在一起 <code>join [option]... file1 file2</code></p>
+<h3 id="重定向">重定向</h3>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>文件描述符</th>
 <th>设备文件</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>0</td>
 <td>/dev/stdin</td>
 <td>标准输入</td>
 </tr>
-<tr>
+<tr class="even">
 <td>1</td>
 <td>/dev/stdout</td>
 <td>标准输出</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>2</td>
 <td>/dev/stderr</td>
 <td>标准错误</td>
@@ -173,15 +169,10 @@
 </tbody>
 </table>
 <p>tee命令同时重定向到多个文件</p>
-<p>exec命令的作用是使用指定的命令替换当前的 Shell，及使用一个进程替换当前进程，或者指定新的重定向。<br>
-系统调用exec是以新的进程去代替原来的进程，但进程的PID保持不变。因此，可以这样认为，exec系统调用并没有创建新的<br>
-进程，只是替换了原来进程上下文的内容。原进程的代码段，数据段，堆栈段被新的进程所代替。执行exec系统调用，一般都是这样，用fork()函数新建立一个进程，然后让进程去执行exec调用。</p>
-<h3 id="cat命令"><a class="markdownIt-Anchor" href="#cat命令"></a> cat命令</h3>
-<p>cat主要有三大功能：<br>
-1.一次显示整个文件。$ cat filename<br>
-2.从键盘创建一个文件。$ cat &gt; filename<br>
-只能创建新文件,不能编辑已有文件.<br>
-3.将几个文件合并为一个文件： $cat file1 file2 &gt; file</p>
+<p>exec命令的作用是使用指定的命令替换当前的 Shell，及使用一个进程替换当前进程，或者指定新的重定向。 系统调用exec是以新的进程去代替原来的进程，但进程的PID保持不变。因此，可以这样认为，exec系统调用并没有创建新的 进程，只是替换了原来进程上下文的内容。原进程的代码段，数据段，堆栈段被新的进程所代替。执行exec系统调用，一般都是这样，用fork()函数新建立一个进程，然后让进程去执行exec调用。</p>
+<h3 id="cat命令">cat命令</h3>
+<p>cat主要有三大功能： 1.一次显示整个文件。$ cat filename 2.从键盘创建一个文件。$ cat &gt; filename<br>
+只能创建新文件,不能编辑已有文件. 3.将几个文件合并为一个文件： $cat file1 file2 &gt; file</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -244,7 +235,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#tr命令"><span class="toc-number">1.</span> <span class="toc-text"> tr命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#col-命令"><span class="toc-number">2.</span> <span class="toc-text"> col 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#join命令"><span class="toc-number">3.</span> <span class="toc-text"> join命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重定向"><span class="toc-number">4.</span> <span class="toc-text"> 重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat命令"><span class="toc-number">5.</span> <span class="toc-text"> cat命令</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#tr命令"><span class="toc-number">1.</span> <span class="toc-text">tr命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#col-命令"><span class="toc-number">2.</span> <span class="toc-text">col 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#join命令"><span class="toc-number">3.</span> <span class="toc-text">join命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重定向"><span class="toc-number">4.</span> <span class="toc-text">重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat命令"><span class="toc-number">5.</span> <span class="toc-text">cat命令</span></a></li></ol>
  
   </div>
 
@@ -342,11 +333,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -354,15 +345,11 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -374,14 +361,6 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -390,11 +369,23 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

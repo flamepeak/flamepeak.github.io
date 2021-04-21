@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="重新安装时，没有备份。结果悲剧的事情发生了，原始数据又一次丢失，这次还好，只丢了3篇文章。教训啊！ 在重新部署的时候，遇到很多奇怪的问题，大多数是git的，看来git还要系统学一下，问题奇奇怪怪，一会出现一会不出现，搞得我头大。回来写篇短文记录一下错误解决办法。  安装前提 检查是否安装了下面的程序：  Node.js Git  没有安装的话，就需要安装，在openSUSE上： zypper in">
+    <meta name="description" content="重新安装时，没有备份。结果悲剧的事情发生了，原始数据又一次丢失，这次还好，只丢了3篇文章。教训啊！ 在重新部署的时候，遇到很多奇怪的问题，大多数是git的，看来git还要系统学一下，问题奇奇怪怪，一会出现一会不出现，搞得我头大。回来写篇短文记录一下错误解决办法。 安装前提 检查是否安装了下面的程序： + Node.js + Git 没有安装的话，就需要安装，在openSUSE上： zypp">
 <meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo 重新安装">
 <meta property="og:url" content="http://flamepeak.com/2017/01/24/hexo-github-reinstall-process-20170124/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="重新安装时，没有备份。结果悲剧的事情发生了，原始数据又一次丢失，这次还好，只丢了3篇文章。教训啊！ 在重新部署的时候，遇到很多奇怪的问题，大多数是git的，看来git还要系统学一下，问题奇奇怪怪，一会出现一会不出现，搞得我头大。回来写篇短文记录一下错误解决办法。  安装前提 检查是否安装了下面的程序：  Node.js Git  没有安装的话，就需要安装，在openSUSE上： zypper in">
+<meta property="og:description" content="重新安装时，没有备份。结果悲剧的事情发生了，原始数据又一次丢失，这次还好，只丢了3篇文章。教训啊！ 在重新部署的时候，遇到很多奇怪的问题，大多数是git的，看来git还要系统学一下，问题奇奇怪怪，一会出现一会不出现，搞得我头大。回来写篇短文记录一下错误解决办法。 安装前提 检查是否安装了下面的程序： + Node.js + Git 没有安装的话，就需要安装，在openSUSE上： zypp">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-07-27T00:29:54.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 重新安装">
-<meta name="twitter:description" content="重新安装时，没有备份。结果悲剧的事情发生了，原始数据又一次丢失，这次还好，只丢了3篇文章。教训啊！ 在重新部署的时候，遇到很多奇怪的问题，大多数是git的，看来git还要系统学一下，问题奇奇怪怪，一会出现一会不出现，搞得我头大。回来写篇短文记录一下错误解决办法。  安装前提 检查是否安装了下面的程序：  Node.js Git  没有安装的话，就需要安装，在openSUSE上： zypper in">
+<meta name="twitter:description" content="重新安装时，没有备份。结果悲剧的事情发生了，原始数据又一次丢失，这次还好，只丢了3篇文章。教训啊！ 在重新部署的时候，遇到很多奇怪的问题，大多数是git的，看来git还要系统学一下，问题奇奇怪怪，一会出现一会不出现，搞得我头大。回来写篇短文记录一下错误解决办法。 安装前提 检查是否安装了下面的程序： + Node.js + Git 没有安装的话，就需要安装，在openSUSE上： zypp">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -99,35 +99,24 @@
 		
 		<p>重新安装时，没有备份。结果悲剧的事情发生了，原始数据又一次丢失，这次还好，只丢了3篇文章。教训啊！</p>
 <p>在重新部署的时候，遇到很多奇怪的问题，大多数是git的，看来git还要系统学一下，问题奇奇怪怪，一会出现一会不出现，搞得我头大。回来写篇短文记录一下错误解决办法。</p>
-<h2 id="安装前提"><a class="markdownIt-Anchor" href="#安装前提"></a> 安装前提</h2>
-<p>检查是否安装了下面的程序：</p>
-<ul>
-<li><a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a></li>
-<li><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
-</ul>
-<p>没有安装的话，就需要安装，在openSUSE上：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zypper install nodejs</span><br><span class="line">zypper install git</span><br></pre></td></tr></table></figure>
-<p>安装完成后，需要安装hexo：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h2 id="安装前提">安装前提</h2>
+<p>检查是否安装了下面的程序： + <a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> + <a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a></p>
+<p>没有安装的话，就需要安装，在openSUSE上： <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zypper install nodejs</span><br><span class="line">zypper install git</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后，需要安装hexo： <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">如果出问题的话，可以尝试更换渲染工具为 hexo-renderer-pandoc：</span><br><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure>
 <p>注意：如果要使用pandoc, 主机上要安装pandoc，官网: <a href="http://www.pandoc.org/" target="_blank" rel="noopener">Pandoc</a></p>
-<h2 id="建站"><a class="markdownIt-Anchor" href="#建站"></a> 建站</h2>
+<h2 id="建站">建站</h2>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<p>安装依赖包：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h2 id="github建立usernamegithubio仓库"><a class="markdownIt-Anchor" href="#github建立usernamegithubio仓库"></a> Github建立username.github.io仓库</h2>
+<p>安装依赖包： <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<h2 id="github建立username.github.io仓库">Github建立username.github.io仓库</h2>
 <p>略</p>
-<h2 id="部署文件到github"><a class="markdownIt-Anchor" href="#部署文件到github"></a> 部署文件到github</h2>
+<h2 id="部署文件到github">部署文件到github</h2>
 <p>可能要配置SSH， 略</p>
-<p>安装一下hexo-deployer-git：<br>
-<code>npm install hexo-deployer-git --save</code></p>
-<p>然后：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<p>添加子模块：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git submodule add git@github.com:flamepeak/hexo-theme-ghost-casper.git themes/ghost-casper/</span><br><span class="line"></span><br><span class="line">git submodule add git@github.com:flamepeak/jacman.git themes/jacman</span><br></pre></td></tr></table></figure>
-<p>source分支备份原始md文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout -b <span class="built_in">source</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m  <span class="string">"FlamePeak"</span></span><br><span class="line">git remote add origin git@github.com:flamepeak/flamepeak.github.io.git</span><br><span class="line">git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
+<p>安装一下hexo-deployer-git： <code>npm install hexo-deployer-git --save</code></p>
+<p>然后： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
+<p>添加子模块： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git submodule add git@github.com:flamepeak/hexo-theme-ghost-casper.git themes/ghost-casper/</span><br><span class="line"></span><br><span class="line">git submodule add git@github.com:flamepeak/jacman.git themes/jacman</span><br></pre></td></tr></table></figure></p>
+<p>source分支备份原始md文件 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout -b <span class="built_in">source</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m  <span class="string">"FlamePeak"</span></span><br><span class="line">git remote add origin git@github.com:flamepeak/flamepeak.github.io.git</span><br><span class="line">git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -172,9 +161,9 @@
 
 
 <div class="next">
-<a href="/2017/01/16/Python-common-libs/"  title="Python 常见库问题与解决方式">
+<a href="/2017/01/16/Python-feedparser-usage-20170116/"  title="Python feedparser 网页无法打开问题解决">
  <strong>下一篇：</strong><br/> 
- <span>Python 常见库问题与解决方式
+ <span>Python feedparser 网页无法打开问题解决
 </span>
 </a>
 </div>
@@ -190,7 +179,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装前提"><span class="toc-number">1.</span> <span class="toc-text"> 安装前提</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建站"><span class="toc-number">2.</span> <span class="toc-text"> 建站</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github建立usernamegithubio仓库"><span class="toc-number">3.</span> <span class="toc-text"> Github建立username.github.io仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署文件到github"><span class="toc-number">4.</span> <span class="toc-text"> 部署文件到github</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装前提"><span class="toc-number">1.</span> <span class="toc-text">安装前提</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建站"><span class="toc-number">2.</span> <span class="toc-text">建站</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github建立username.github.io仓库"><span class="toc-number">3.</span> <span class="toc-text">Github建立username.github.io仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署文件到github"><span class="toc-number">4.</span> <span class="toc-text">部署文件到github</span></a></li></ol>
  
   </div>
 
@@ -288,11 +277,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -300,15 +289,11 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -320,14 +305,6 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -336,11 +313,23 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

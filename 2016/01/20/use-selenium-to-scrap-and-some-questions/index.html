@@ -97,35 +97,24 @@
 </header>
 	<div class="article-content">
 		
-		<p>遇到一个网站，登录验证过程复杂，使用Firefox、Chrome登录均不行，必须使用IE。在编写爬虫过程中，使用requests等工具均没有成功，水平太差。<br>
-最后，选择使用Selenium配合IE模拟登录，成功获取到页面。<br>
-总结如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> TimeoutException</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait <span class="comment"># available since 2.4.0</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a new instance of the browser driver</span></span><br><span class="line">driver = webdriver.Ie()  <span class="comment">##可以替换为Ie(), FireFox(),Chrome()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># go to the google home page</span></span><br><span class="line">url = <span class="string">'http://10.34.16.8'</span></span><br><span class="line">driver.get(url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># find the element that's name attribute is q (the google search box)</span></span><br><span class="line"><span class="comment">#inputElement = driver.find_element_by_name("password")</span></span><br><span class="line"><span class="comment">#print inputElement.text</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># type in the search</span></span><br><span class="line"><span class="comment">#inputElement.send_keys("Cheese!")</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># submit the form. (although google automatically searches now without submitting)</span></span><br><span class="line"><span class="comment">#inputElement.submit()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># the page is ajaxy so the title is originally this:</span></span><br><span class="line"><span class="keyword">print</span> driver.title</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">driver.find_element_by_id(<span class="string">"username1"</span>).clear()</span><br><span class="line">driver.find_element_by_id(<span class="string">"username1"</span>).send_keys(<span class="string">"020"</span>)</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_id(<span class="string">"password1"</span>).send_keys(<span class="string">"c123"</span>)</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_id(<span class="string">"button"</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#print cookie</span></span><br><span class="line"><span class="keyword">for</span> cookie <span class="keyword">in</span> driver.get_cookies():</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"%s:%s"</span> %(cookie[<span class="string">'name'</span>],cookie[<span class="string">'value'</span>])</span><br><span class="line"><span class="comment">#Get New page</span></span><br><span class="line">driver.get(<span class="string">"http://10.34.16.8:8000/prpall/business/prepareEdit.do?bizType=PROPOSAL&amp;editType=NEW"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#try:</span></span><br><span class="line"><span class="comment">#    # we have to wait for the page to refresh, the last thing that seems to be updated is the title</span></span><br><span class="line"><span class="comment">#    WebDriverWait(driver, 10).until(lambda driver : driver.title.lower().startswith("cheese!"))</span></span><br><span class="line"><span class="comment">#    #You should see "cheese! - Google Search"</span></span><br><span class="line"><span class="comment">#    print driver.title</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#finally:</span></span><br><span class="line"><span class="comment">#    driver.quit()</span></span><br></pre></td></tr></table></figure>
+		<p>遇到一个网站，登录验证过程复杂，使用Firefox、Chrome登录均不行，必须使用IE。在编写爬虫过程中，使用requests等工具均没有成功，水平太差。 最后，选择使用Selenium配合IE模拟登录，成功获取到页面。 总结如下： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> TimeoutException</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait <span class="comment"># available since 2.4.0</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a new instance of the browser driver</span></span><br><span class="line">driver = webdriver.Ie()  <span class="comment">##可以替换为Ie(), FireFox(),Chrome()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># go to the google home page</span></span><br><span class="line">url = <span class="string">'http://10.34.16.8'</span></span><br><span class="line">driver.get(url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># find the element that's name attribute is q (the google search box)</span></span><br><span class="line"><span class="comment">#inputElement = driver.find_element_by_name("password")</span></span><br><span class="line"><span class="comment">#print inputElement.text</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># type in the search</span></span><br><span class="line"><span class="comment">#inputElement.send_keys("Cheese!")</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># submit the form. (although google automatically searches now without submitting)</span></span><br><span class="line"><span class="comment">#inputElement.submit()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># the page is ajaxy so the title is originally this:</span></span><br><span class="line"><span class="keyword">print</span> driver.title</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">driver.find_element_by_id(<span class="string">"username1"</span>).clear()</span><br><span class="line">driver.find_element_by_id(<span class="string">"username1"</span>).send_keys(<span class="string">"020"</span>)</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_id(<span class="string">"password1"</span>).send_keys(<span class="string">"c123"</span>)</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">driver.find_element_by_id(<span class="string">"button"</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#print cookie</span></span><br><span class="line"><span class="keyword">for</span> cookie <span class="keyword">in</span> driver.get_cookies():</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"%s:%s"</span> %(cookie[<span class="string">'name'</span>],cookie[<span class="string">'value'</span>])</span><br><span class="line"><span class="comment">#Get New page</span></span><br><span class="line">driver.get(<span class="string">"http://10.34.16.8:8000/prpall/business/prepareEdit.do?bizType=PROPOSAL&amp;editType=NEW"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#try:</span></span><br><span class="line"><span class="comment">#    # we have to wait for the page to refresh, the last thing that seems to be updated is the title</span></span><br><span class="line"><span class="comment">#    WebDriverWait(driver, 10).until(lambda driver : driver.title.lower().startswith("cheese!"))</span></span><br><span class="line"><span class="comment">#    #You should see "cheese! - Google Search"</span></span><br><span class="line"><span class="comment">#    print driver.title</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#finally:</span></span><br><span class="line"><span class="comment">#    driver.quit()</span></span><br></pre></td></tr></table></figure></p>
 <p>以上代码参考自<a href="http://blog.csdn.net/five3/article/details/7030704" target="_blank" rel="noopener">Selenium + python的自动化框架搭建</a>,有所修改，感谢</p>
-<h2 id="错误1"><a class="markdownIt-Anchor" href="#错误1"></a> 错误1</h2>
-<p><code>driver = webdriver.Ie() ##可以替换为Ie(), FireFox(),Chrome()</code><br>
-此行代码最开始时写为IE()，出现错误，必须写成Ie()</p>
-<h2 id="错误2"><a class="markdownIt-Anchor" href="#错误2"></a> 错误2</h2>
-<p><code>driver.find\_element\_by\_id(&quot;username1&quot;).clear()</code><br>
-在浏览器中如果有表格自动填写的话，要使用clear()清楚文本框数据</p>
-<h2 id="错误3如何隐藏firefox-窗口firefox-webdriver"><a class="markdownIt-Anchor" href="#错误3如何隐藏firefox-窗口firefox-webdriver"></a> 错误3：如何隐藏Firefox 窗口(Firefox WebDriver)</h2>
-<p>事实上，我的IE隐藏的问题没有解决。但是看到Firefox解决方案。<br>
-The easiest way to hide the browser is to install PhantomJS. Then, change this line:</p>
-<p><code>driver = webdriver.Firefox()</code><br>
-to:<br>
-<code>driver = webdriver.PhantomJS()</code><br>
-The rest of your code won’t need to be changed and no browser will open. For debugging purposes, use <code>driver.save_screenshot(‘screen.png’)</code> at different steps of your code or just switch to the Firefox webdriver again.</p>
-<h2 id="错误4"><a class="markdownIt-Anchor" href="#错误4"></a> 错误4</h2>
-<p>Python: Error:you would need to set the protected mode settings to same for all zones in IE<br>
-解决方法：</p>
-<ol>
+<h2 id="错误1">错误1</h2>
+<p><code>driver = webdriver.Ie()  ##可以替换为Ie(), FireFox(),Chrome()</code> 此行代码最开始时写为IE()，出现错误，必须写成Ie()</p>
+<h2 id="错误2">错误2</h2>
+<p><code>driver.find\_element\_by\_id("username1").clear()</code> 在浏览器中如果有表格自动填写的话，要使用clear()清楚文本框数据</p>
+<h2 id="错误3如何隐藏firefox-窗口firefox-webdriver">错误3：如何隐藏Firefox 窗口(Firefox WebDriver)</h2>
+<p>事实上，我的IE隐藏的问题没有解决。但是看到Firefox解决方案。 The easiest way to hide the browser is to install PhantomJS. Then, change this line:</p>
+<p><code>driver = webdriver.Firefox()</code> to: <code>driver = webdriver.PhantomJS()</code> The rest of your code won’t need to be changed and no browser will open. For debugging purposes, use <code>driver.save_screenshot(‘screen.png’)</code> at different steps of your code or just switch to the Firefox webdriver again.</p>
+<h2 id="错误4">错误4</h2>
+<p>Python: Error:you would need to set the protected mode settings to same for all zones in IE 解决方法：</p>
+<ol type="1">
 <li>Open IE</li>
 <li>Go to Tools -&gt; Internet Options -&gt; Security</li>
 <li>Set all zones to the same protected mode, enabled or disabled should not matter.</li>
 </ol>
-<h2 id="错误5"><a class="markdownIt-Anchor" href="#错误5"></a> 错误5</h2>
-<p>IE浏览器”是否只查看安全传送的网页内容”解决方案<br>
-此错误出现在http网页跳转到https时，要想去掉可以按如下方式操作：Intemt选项 -&gt;安全-&gt;internet-&gt;自定义安全级别-&gt;在“其他”分类里边找到“显示混合内容”选“启用”或者“禁用”都可以</p>
+<h2 id="错误5">错误5</h2>
+<p>IE浏览器”是否只查看安全传送的网页内容”解决方案 此错误出现在http网页跳转到https时，要想去掉可以按如下方式操作：Intemt选项 -&gt;安全-&gt;internet-&gt;自定义安全级别-&gt;在“其他”分类里边找到“显示混合内容”选“启用”或者“禁用”都可以</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -188,7 +177,7 @@ The rest of your code won’t need to be changed and no browser will open. For d
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误1"><span class="toc-number">1.</span> <span class="toc-text"> 错误1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误2"><span class="toc-number">2.</span> <span class="toc-text"> 错误2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误3如何隐藏firefox-窗口firefox-webdriver"><span class="toc-number">3.</span> <span class="toc-text"> 错误3：如何隐藏Firefox 窗口(Firefox WebDriver)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误4"><span class="toc-number">4.</span> <span class="toc-text"> 错误4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误5"><span class="toc-number">5.</span> <span class="toc-text"> 错误5</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误1"><span class="toc-number">1.</span> <span class="toc-text">错误1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误2"><span class="toc-number">2.</span> <span class="toc-text">错误2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误3如何隐藏firefox-窗口firefox-webdriver"><span class="toc-number">3.</span> <span class="toc-text">错误3：如何隐藏Firefox 窗口(Firefox WebDriver)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误4"><span class="toc-number">4.</span> <span class="toc-text">错误4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误5"><span class="toc-number">5.</span> <span class="toc-text">错误5</span></a></li></ol>
  
   </div>
 
@@ -286,11 +275,11 @@ The rest of your code won’t need to be changed and no browser will open. For d
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -298,15 +287,11 @@ The rest of your code won’t need to be changed and no browser will open. For d
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -318,14 +303,6 @@ The rest of your code won’t need to be changed and no browser will open. For d
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -334,11 +311,23 @@ The rest of your code won’t need to be changed and no browser will open. For d
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

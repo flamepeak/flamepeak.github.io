@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Shadowsocks学习汇总资料，有引用，在此致谢前辈！ ShadowSocks（影梭）不完全指南 GFW BLOG（功夫网与翻墙）:http://www.chinagfw.org  “距上次被警方约谈两天之后，任职于北京智者天下科技有限公司（知乎网）的 clowwindy 今日被要求彻底删除 shadowsocks 项目于 Github 上发布的所有源码。目前所有子项目页面均显示“Remove">
+    <meta name="description" content="Shadowsocks学习汇总资料，有引用，在此致谢前辈！ ShadowSocks（影梭）不完全指南 GFW BLOG（功夫网与翻墙）:http://www.chinagfw.org  &quot;距上次被警方约谈两天之后，任职于北京智者天下科技有限公司（知乎网）的 clowwindy 今日被要求彻底删除 shadowsocks 项目于 Github 上发布的所有源码。目前所有子项目页面均显示“Remo">
 <meta name="keywords" content="Shadowsock,VPN,cryptography">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadowsock 分析与学习">
 <meta property="og:url" content="http://flamepeak.com/2016/12/23/Shadowsock-analysis-20161223/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Shadowsocks学习汇总资料，有引用，在此致谢前辈！ ShadowSocks（影梭）不完全指南 GFW BLOG（功夫网与翻墙）:http://www.chinagfw.org  “距上次被警方约谈两天之后，任职于北京智者天下科技有限公司（知乎网）的 clowwindy 今日被要求彻底删除 shadowsocks 项目于 Github 上发布的所有源码。目前所有子项目页面均显示“Remove">
+<meta property="og:description" content="Shadowsocks学习汇总资料，有引用，在此致谢前辈！ ShadowSocks（影梭）不完全指南 GFW BLOG（功夫网与翻墙）:http://www.chinagfw.org  &quot;距上次被警方约谈两天之后，任职于北京智者天下科技有限公司（知乎网）的 clowwindy 今日被要求彻底删除 shadowsocks 项目于 Github 上发布的所有源码。目前所有子项目页面均显示“Remo">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:44:25.637Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadowsock 分析与学习">
-<meta name="twitter:description" content="Shadowsocks学习汇总资料，有引用，在此致谢前辈！ ShadowSocks（影梭）不完全指南 GFW BLOG（功夫网与翻墙）:http://www.chinagfw.org  “距上次被警方约谈两天之后，任职于北京智者天下科技有限公司（知乎网）的 clowwindy 今日被要求彻底删除 shadowsocks 项目于 Github 上发布的所有源码。目前所有子项目页面均显示“Remove">
+<meta name="twitter:description" content="Shadowsocks学习汇总资料，有引用，在此致谢前辈！ ShadowSocks（影梭）不完全指南 GFW BLOG（功夫网与翻墙）:http://www.chinagfw.org  &quot;距上次被警方约谈两天之后，任职于北京智者天下科技有限公司（知乎网）的 clowwindy 今日被要求彻底删除 shadowsocks 项目于 Github 上发布的所有源码。目前所有子项目页面均显示“Remo">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,68 +97,44 @@
 </header>
 	<div class="article-content">
 		
-		<p>Shadowsocks学习汇总资料，有引用，在此致谢前辈！<br>
-<a href="http://www.auooo.com/2015/06/26/shadowsocks%EF%BC%88%E5%BD%B1%E6%A2%AD%EF%BC%89%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/" target="_blank" rel="noopener">ShadowSocks（影梭）不完全指南</a><br>
-GFW BLOG（功夫网与翻墙）:<a href="http://www.chinagfw.org" target="_blank" rel="noopener">http://www.chinagfw.org</a></p>
+		<p>Shadowsocks学习汇总资料，有引用，在此致谢前辈！ <a href="http://www.auooo.com/2015/06/26/shadowsocks%EF%BC%88%E5%BD%B1%E6%A2%AD%EF%BC%89%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/" target="_blank" rel="noopener">ShadowSocks（影梭）不完全指南</a> GFW BLOG（功夫网与翻墙）:http://www.chinagfw.org</p>
 <hr>
-<p>“距上次被警方约谈两天之后，任职于北京智者天下科技有限公司（知乎网）的 clowwindy 今日被要求彻底删除 <a href="https://github.com/shadowsocks/shadowsocks-iOS/issues/124#issuecomment-133630294" target="_blank" rel="noopener">shadowsocks 项目</a>于 Github 上发布的所有源码。目前所有子项目页面均显示“Removed according to regulations”。clowwindy 本人的推特账户也已被设为隐私模式，未经许可的关注者无法查看其过往言论。鉴于其所使用的 Apache License，已有部分用户自发创建了项目备份（例如<a href="https://github.com/Long-live-shadowsocks" target="_blank" rel="noopener">这里</a>和<a href="https://github.com/ShadowsocksBackup" target="_blank" rel="noopener">这里</a>）。令人毫无意外的是，V2EX上的相关讨论（<a href="http://archive.is/offset=190/www.v2ex.com" target="_blank" rel="noopener">镜像</a>）均被删除。”</p>
-<p><strong>clowwindy推荐的提高水平的资料：</strong></p>
-<ol>
-<li>HTTP: The Definitive Guide</li>
-<li>TCP/IP Illustrated</li>
-<li>Stanford 的 Cryptography <a href="http://online.stanford.edu/course/cryptography" target="_blank" rel="noopener">http://online.stanford.edu/course/cryptography</a></li>
-</ol>
-<p>网络监视器:<a href="https://nwmon.tifan.net/" target="_blank" rel="noopener">https://nwmon.tifan.net/</a></p>
+<p>"距上次被警方约谈两天之后，任职于北京智者天下科技有限公司（知乎网）的 clowwindy 今日被要求彻底删除 <a href="https://github.com/shadowsocks/shadowsocks-iOS/issues/124#issuecomment-133630294" target="_blank" rel="noopener">shadowsocks 项目</a>于 Github 上发布的所有源码。目前所有子项目页面均显示“Removed according to regulations”。clowwindy 本人的推特账户也已被设为隐私模式，未经许可的关注者无法查看其过往言论。鉴于其所使用的 Apache License，已有部分用户自发创建了项目备份（例如<a href="https://github.com/Long-live-shadowsocks" target="_blank" rel="noopener">这里</a>和<a href="https://github.com/ShadowsocksBackup" target="_blank" rel="noopener">这里</a>）。令人毫无意外的是，V2EX上的相关讨论（<a href="http://archive.is/offset=190/www.v2ex.com" target="_blank" rel="noopener">镜像</a>）均被删除。"</p>
+<p><strong>clowwindy推荐的提高水平的资料：</strong> 1. HTTP: The Definitive Guide 2. TCP/IP Illustrated 3. Stanford 的 Cryptography http://online.stanford.edu/course/cryptography</p>
+<p>网络监视器:https://nwmon.tifan.net/</p>
 <p>wmon 是我最新的一个网络监视项目。使用 rrdtool 构建，这个监视器是轻量级的，可运行于几乎所有的平台上。</p>
 <p>这个项目的目的是通过全球各主要数据中心对中国各重点网络交换中心的监视获取在极度拥塞前提下的连接中国以外与中国的网络的最佳链路以及时间—性能曲线并根据其对在海外或中国的对其相反的方向的连接性有使用需求的人群对网络路径的选择进行有针对性的优化。</p>
 <hr>
-<h3 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h3>
-<p>ShadowSocks是由@clowwindy开发的一个开源Socks5代理。<br>
-A secure socks5 proxy, designed to protect your Internet traffic<br>
-A fast tunnel proxy that helps you bypass firewalls</p>
+<h3 id="introduction">Introduction</h3>
+<p>ShadowSocks是由@clowwindy开发的一个开源Socks5代理。 A secure socks5 proxy, designed to protect your Internet traffic A fast tunnel proxy that helps you bypass firewalls</p>
 <hr>
-<h3 id="关于shadowsocks加密"><a class="markdownIt-Anchor" href="#关于shadowsocks加密"></a> 关于Shadowsocks加密</h3>
+<h3 id="关于shadowsocks加密">关于Shadowsocks加密</h3>
 <p>rc4-md5是不安全的，不推荐使用。推荐使用AES-GCM或者chacha20-poly1305，其中如果是intel平台，AES-NI加速明显，而如果是考虑到客户端性能（ARM平台），chacha20-poly1305非常快。</p>
-<p>RC4是流加密，AES是分组加密，RC4快于AES，RC4已经被攻破，极不安全。<br>
-如果是像Shadowsocks这样的应用场景，不需要高强度的加密，而只是作数据混淆，RC4是完全合适的。<br>
-rc4-md5已经被IETF废除并明令禁止使用了，新的浏览器已经移除支持了</p>
+<p>RC4是流加密，AES是分组加密，RC4快于AES，RC4已经被攻破，极不安全。 如果是像Shadowsocks这样的应用场景，不需要高强度的加密，而只是作数据混淆，RC4是完全合适的。 rc4-md5已经被IETF废除并明令禁止使用了，新的浏览器已经移除支持了</p>
 <p>table大概就是简单的密码表转置，性能好但已经可以归入古典密码学了。rc4是SS开发早期@clowwindy对密码学理解不充分的设计，没有正确使用IV，rc4-md5是正确的实现，两者性能应该接近。“rc4”会导致固定明文加密成固定密文，对抗选择明文攻击弱，统计特征明显。新加的OneTimeAuth主要是加个HMAC防御选择密文攻击。</p>
 <hr>
-<p>相关测试数据：<br>
-<code>encrypt and decrypt 20MB data aes-128-cfb 0.368462085724s aes-128-ofb 0.400309085846s aes-192-cfb 0.452577829361s aes-192-ofb 0.381041049957s aes-256-cfb 0.418514966965s aes-256-ofb 0.405379056931s cast5-cfb 0.859935045242s cast5-ofb 0.911785125732s chacha20 0.429271936417s rc4 0.154517173767s rc4-md5 0.169504165649s salsa20 0.44139790535s</code></p>
-<p>原作者clowwindy曾经说过：</p>
-<blockquote>
-<p>因为 chacha20 从 x86 上的性能来看，对速度的影响太小，提高还太有限，不如换个思路，因为通信包到了终端以后，走的都是电路，这里其实涉及到一个供电体系的问题，更换加密不如换一个电网，同一个 VPS，同一个路由器，但是，改用核电给路由器供电时，比火电丢包率会降低一个数量级，大大提高 TCP 吞吐率，经测试这是目前速度最快的供电方式，甚至优于水电，同理选 VPS 机房也要看供电，有些号称用了绿色能源，其实效果不好，这里面其实还涉及到选用 UPS 的型号，就不细说了<br>
-另外说到硬件加速，连接路由器的网线也很重要，建议用六类屏蔽线，不过一定不能买那种超薄扁平的网线，会对带宽起到整形作用，突发上不去，看 4K 会受影响，数据可能不准，不过大概也体现了差异<br>
-今天没有时间再次测试了，就发这么多吧。你们有一个好，出个新功能，写教程比别人都快，但试来试去的结论，太简单，有时太朴素了，我感觉你们还需要学习，提高自己的知识水平，将来如果写的教程有偏差，你们要负责</p>
-</blockquote>
-<p>作者：曾阳<br>
-链接：<a href="https://www.zhihu.com/question/28252105/answer/53573849" target="_blank" rel="noopener">https://www.zhihu.com/question/28252105/answer/53573849</a></p>
+<p>相关测试数据： <code>encrypt and decrypt 20MB data aes-128-cfb 0.368462085724s aes-128-ofb 0.400309085846s aes-192-cfb 0.452577829361s aes-192-ofb 0.381041049957s aes-256-cfb 0.418514966965s aes-256-ofb 0.405379056931s cast5-cfb 0.859935045242s cast5-ofb 0.911785125732s chacha20 0.429271936417s rc4 0.154517173767s rc4-md5 0.169504165649s salsa20 0.44139790535s</code></p>
+<p>原作者clowwindy曾经说过： &gt; 因为 chacha20 从 x86 上的性能来看，对速度的影响太小，提高还太有限，不如换个思路，因为通信包到了终端以后，走的都是电路，这里其实涉及到一个供电体系的问题，更换加密不如换一个电网，同一个 VPS，同一个路由器，但是，改用核电给路由器供电时，比火电丢包率会降低一个数量级，大大提高 TCP 吞吐率，经测试这是目前速度最快的供电方式，甚至优于水电，同理选 VPS 机房也要看供电，有些号称用了绿色能源，其实效果不好，这里面其实还涉及到选用 UPS 的型号，就不细说了 另外说到硬件加速，连接路由器的网线也很重要，建议用六类屏蔽线，不过一定不能买那种超薄扁平的网线，会对带宽起到整形作用，突发上不去，看 4K 会受影响，数据可能不准，不过大概也体现了差异 今天没有时间再次测试了，就发这么多吧。你们有一个好，出个新功能，写教程比别人都快，但试来试去的结论，太简单，有时太朴素了，我感觉你们还需要学习，提高自己的知识水平，将来如果写的教程有偏差，你们要负责</p>
+<p>作者：曾阳 链接：https://www.zhihu.com/question/28252105/answer/53573849</p>
 <hr>
 <p>你们都在想什么啊？SS的用途不是加密，而是混淆。但是仍然可以暴力破解，你设置数字密码一样是不行的。改进过的程序，IV不一样就分析不出差别来，可以抵御基于统计学的计算。</p>
 <p>在通常应用中，SS主要是提供了一个不会被干扰的通道，你SS里面走的东西，一般都还有自己的TLS吧？ 如果VPN不会被干扰，谁会用这个东西。</p>
-<p>作者：匿名用户<br>
-链接：<a href="https://www.zhihu.com/question/28252105/answer/53569320" target="_blank" rel="noopener">https://www.zhihu.com/question/28252105/answer/53569320</a></p>
+<p>作者：匿名用户 链接：https://www.zhihu.com/question/28252105/answer/53569320</p>
 <hr>
 <p>IV的主要要求在于 uniqueness ，而非 secretness 。它的主要目标是在于防范 ECB 导致的统计攻击——同样的明文永远导致同样的密码，累计足够多的数据之后即可分析 pattern 或做统计来解密。这对于 block size 很小甚至是 byte-by-byte 的流式加密来说破坏更严重，最坏情况就是凯撒密码。</p>
 <p>人们希望给明文—密文对应加入一些随机性，或者至少是不确定性。一个巧妙的办法就是把上一块的加密结果带到下一块里（可以是按位 xor 之类），这样同一块明文的密文就根据上下文不同而不同了。如此一来就需要有一个起始的密文，就是 Initialization Vector 。IV的加入为上述模式进一步增加了安全性（即使上下文一样，这个会话的IV不同密文也不同）。根据原理就可以知道，IV的唯一要求就是尽量不要重复，最好是难以预测的随机值。至于传输，完全可以是公开明文的。当然，一些协议可能把IV协商放在加密通道里进行，只是 defense by depth 罢了。</p>
 <p>AES-256-*（甚至即使是没有IV的EBC）几乎在所有时候都比 RC4-MD5 安全（尤其是使用各种 OpenSSL 系的库或者 wrapper 时）。 RC4 本身的问题太多了， MD5 的冲撞都只是一个小方面。事实上，在有选择的时候，永远不要使用 RC4 ——在现代计算机中， RC4 的速度也不算不上是什么“优势”了：如果个人使用流量小，正常的 CPU（即使是虚拟机）都能应付且没有明显区别；如果商用流量大， AES 的硬件加速早就广泛普及了。</p>
-<p>作者：马宏菩<br>
-链接：<a href="https://www.zhihu.com/question/28252105/answer/53562933" target="_blank" rel="noopener">https://www.zhihu.com/question/28252105/answer/53562933</a></p>
+<p>作者：马宏菩 链接：https://www.zhihu.com/question/28252105/answer/53562933</p>
 <hr>
 <p>讨论shadowsocks不同加密方式的安全性没有意义。</p>
-<p>shadowsocks是被设计来混淆数据，增加某Wall检查出流量特征所需的计算量，提高实时检测的成本，而不是加密。ss的作者多次强调过这一点([Correct username/password auth model · Issue #169 · shadowsocks/shadowsocks · GitHub]<a href="https://link.zhihu.com/?target=https%3A//github.com/shadowsocks/shadowsocks/issues/169" target="_blank" rel="noopener">https://link.zhihu.com/?target=https%3A//github.com/shadowsocks/shadowsocks/issues/169</a>)):</p>
-<blockquote>
-<p>“We don’t need security. We need indistinguishability from random bytes.”</p>
-</blockquote>
+<p>shadowsocks是被设计来混淆数据，增加某Wall检查出流量特征所需的计算量，提高实时检测的成本，而不是加密。ss的作者多次强调过这一点([Correct username/password auth model · Issue #169 · shadowsocks/shadowsocks · GitHub]https://link.zhihu.com/?target=https%3A//github.com/shadowsocks/shadowsocks/issues/169)): &gt; "We don't need security. We need indistinguishability from random bytes."</p>
 <p>说这些并不是指责ss的安全性，而是再三强调不要忘记ss作者的本意——这是一个帮你能用Google又或者是看别的什么奇怪网站的混淆工具，其意义是瞒过Wall的实时流量检测，而不是瞒过Wall后面的master minds。ss不是一个真正意义上的VPN，它无法保护你的数据安全。</p>
-<p>作者：rlei<br>
-链接：<a href="https://www.zhihu.com/question/28252105/answer/53481328" target="_blank" rel="noopener">https://www.zhihu.com/question/28252105/answer/53481328</a></p>
+<p>作者：rlei 链接：https://www.zhihu.com/question/28252105/answer/53481328</p>
 <hr>
-<p><a href="https://www.futures.moe/feed.xml" target="_blank" rel="noopener">https://www.futures.moe/feed.xml</a></p>
-<p><a href="https://busi.me/archives/33/" target="_blank" rel="noopener">https://busi.me/archives/33/</a></p>
-<p><a href="https://cn.v2ex.com/t/206358" target="_blank" rel="noopener">https://cn.v2ex.com/t/206358</a></p>
-<p><a href="http://defuse.ca/cbcmodeiv.htm" target="_blank" rel="noopener">defuse.ca/cbcmodeiv.htm</a></p>
+<p>https://www.futures.moe/feed.xml</p>
+<p>https://busi.me/archives/33/</p>
+<p>https://cn.v2ex.com/t/206358</p>
+<p>defuse.ca/cbcmodeiv.htm</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -221,7 +197,7 @@ rc4-md5已经被IETF废除并明令禁止使用了，新的浏览器已经移除
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#introduction"><span class="toc-number">1.</span> <span class="toc-text"> Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于shadowsocks加密"><span class="toc-number">2.</span> <span class="toc-text"> 关于Shadowsocks加密</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于shadowsocks加密"><span class="toc-number">2.</span> <span class="toc-text">关于Shadowsocks加密</span></a></li></ol>
  
   </div>
 
@@ -319,11 +295,11 @@ rc4-md5已经被IETF废除并明令禁止使用了，新的浏览器已经移除
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -331,15 +307,11 @@ rc4-md5已经被IETF废除并明令禁止使用了，新的浏览器已经移除
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -351,14 +323,6 @@ rc4-md5已经被IETF废除并明令禁止使用了，新的浏览器已经移除
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -367,11 +331,23 @@ rc4-md5已经被IETF废除并明令禁止使用了，新的浏览器已经移除
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

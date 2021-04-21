@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Sum All Numbers in a Range We’ll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them. The lowest number will not always come first. function sumAll(arr)">
+    <meta name="description" content="Sum All Numbers in a Range We&apos;ll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them. The lowest number will not always come first. function sumAll(arr">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript Intermediate Algorithm Scripting 20170213">
 <meta property="og:url" content="http://flamepeak.com/2017/02/13/JavaScript-Intermediate-Algorithm-Scripting-20170213/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Sum All Numbers in a Range We’ll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them. The lowest number will not always come first. function sumAll(arr)">
+<meta property="og:description" content="Sum All Numbers in a Range We&apos;ll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them. The lowest number will not always come first. function sumAll(arr">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-02-13T09:39:11.784Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Intermediate Algorithm Scripting 20170213">
-<meta name="twitter:description" content="Sum All Numbers in a Range We’ll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them. The lowest number will not always come first. function sumAll(arr)">
+<meta name="twitter:description" content="Sum All Numbers in a Range We&apos;ll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them. The lowest number will not always come first. function sumAll(arr">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,16 +97,14 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="sum-all-numbers-in-a-range"><a class="markdownIt-Anchor" href="#sum-all-numbers-in-a-range"></a> Sum All Numbers in a Range</h3>
-<p>We’ll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them.<br>
-The lowest number will not always come first.</p>
+		<h3 id="sum-all-numbers-in-a-range">Sum All Numbers in a Range</h3>
+<p>We'll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them. The lowest number will not always come first.</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sumAll</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  max = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, arr);</span><br><span class="line">  min = <span class="built_in">Math</span>.min.apply(<span class="literal">null</span>, arr);</span><br><span class="line">  <span class="keyword">var</span> sum=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i=min;i&lt;=max;i++)&#123;</span><br><span class="line">    sum += i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sumAll([<span class="number">1</span>, <span class="number">4</span>]);</span><br></pre></td></tr></table></figure>
-<p>The following function uses <code>Function.prototype.apply()</code> to find the maximum element in a numeric array.</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMaxOfArray</span>(<span class="params">numArray</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, numArray);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="diff-two-arrays"><a class="markdownIt-Anchor" href="#diff-two-arrays"></a> Diff Two Arrays</h3>
+<p>The following function uses <code>Function.prototype.apply()</code> to find the maximum element in a numeric array. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMaxOfArray</span>(<span class="params">numArray</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, numArray);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="diff-two-arrays">Diff Two Arrays</h3>
 <p>Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">diffArray</span>(<span class="params">arr1, arr2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> newArr = [];</span><br><span class="line">  <span class="comment">// Same, same; but different.</span></span><br><span class="line">  newArr = arr1.filter(<span class="function"><span class="keyword">function</span> (<span class="params">val</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr2.indexOf(val) ==<span class="number">-1</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  newArr= newArr.concat(arr2.filter(<span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr1.indexOf(val)==<span class="number">-1</span>;</span><br><span class="line">  &#125;));</span><br><span class="line">  <span class="keyword">return</span> newArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">diffArray([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</span><br></pre></td></tr></table></figure>
-<h3 id="roman-numeral-converter-great"><a class="markdownIt-Anchor" href="#roman-numeral-converter-great"></a> Roman Numeral Converter (Great)</h3>
+<h3 id="roman-numeral-converter-great">Roman Numeral Converter (Great)</h3>
 <p>Convert the given number into a roman numeral.All roman numerals answers should be provided in upper-case.</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">convertToRoman</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> n=[<span class="string">'I'</span>, <span class="string">'IV'</span>, <span class="string">'V'</span>, <span class="string">'IX'</span>, <span class="string">'X'</span>, <span class="string">'XL'</span>, <span class="string">'L'</span>, <span class="string">'XC'</span>, <span class="string">'C'</span>, <span class="string">'CD'</span>, <span class="string">'D'</span>, <span class="string">'CM'</span>, <span class="string">'M'</span>];</span><br><span class="line">  <span class="keyword">var</span> v=[<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">90</span>, <span class="number">100</span>, <span class="number">400</span>, <span class="number">500</span>, <span class="number">900</span>, <span class="number">1000</span>];</span><br><span class="line">  <span class="keyword">if</span>( x&lt;<span class="number">1</span> || x&gt;<span class="number">4999</span> )</span><br><span class="line">  &#123;</span><br><span class="line">      alert(x+<span class="string">' is not valid'</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  y = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">12</span>; i&gt;=<span class="number">0</span>; )</span><br><span class="line">      <span class="keyword">if</span>( v[i]&lt;=x )</span><br><span class="line">      &#123;</span><br><span class="line">          y += n[i];</span><br><span class="line">          x -= v[i];</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">      &#123;</span><br><span class="line">          i--;</span><br><span class="line">          k = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">convertToRoman(<span class="number">36</span>);</span><br></pre></td></tr></table></figure>
   
@@ -171,7 +169,7 @@ The lowest number will not always come first.</p>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#sum-all-numbers-in-a-range"><span class="toc-number">1.</span> <span class="toc-text"> Sum All Numbers in a Range</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#diff-two-arrays"><span class="toc-number">2.</span> <span class="toc-text"> Diff Two Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#roman-numeral-converter-great"><span class="toc-number">3.</span> <span class="toc-text"> Roman Numeral Converter (Great)</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#sum-all-numbers-in-a-range"><span class="toc-number">1.</span> <span class="toc-text">Sum All Numbers in a Range</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#diff-two-arrays"><span class="toc-number">2.</span> <span class="toc-text">Diff Two Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#roman-numeral-converter-great"><span class="toc-number">3.</span> <span class="toc-text">Roman Numeral Converter (Great)</span></a></li></ol>
  
   </div>
 
@@ -269,11 +267,11 @@ The lowest number will not always come first.</p>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -281,15 +279,11 @@ The lowest number will not always come first.</p>
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -301,14 +295,6 @@ The lowest number will not always come first.</p>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -317,11 +303,23 @@ The lowest number will not always come first.</p>
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

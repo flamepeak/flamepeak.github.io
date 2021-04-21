@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="参考: FPGA 时钟问题  1. FPGA的全局时钟是什么？ FPGA的全局时钟应该是从晶振分出来的，最原始的频率。其他需要的各种频率都是在这个基础上利用PLL或者其他分频手段得到的。  2. 全局时钟和BUFG: BUFG，输入为固定管脚，输出为H型全铜全局高速网络，这样抖动和到任意触发器的延时差最小，这个也就是FPGA做同步设计可以不需要做后仿真的原因。 全局时钟：今天我们从另一个角度来看一">
+    <meta name="description" content="参考: FPGA 时钟问题 1. FPGA的全局时钟是什么？ FPGA的全局时钟应该是从晶振分出来的，最原始的频率。其他需要的各种频率都是在这个基础上利用PLL或者其他分频手段得到的。 2. 全局时钟和BUFG: BUFG，输入为固定管脚，输出为H型全铜全局高速网络，这样抖动和到任意触发器的延时差最小，这个也就是FPGA做同步设计可以不需要做后仿真的原因。 全局时钟：今天我们从另一个角度">
 <meta name="keywords" content="FPGA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FPGA 时钟问题">
 <meta property="og:url" content="http://flamepeak.com/2017/08/29/FPGA-clock-problem-20170829/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="参考: FPGA 时钟问题  1. FPGA的全局时钟是什么？ FPGA的全局时钟应该是从晶振分出来的，最原始的频率。其他需要的各种频率都是在这个基础上利用PLL或者其他分频手段得到的。  2. 全局时钟和BUFG: BUFG，输入为固定管脚，输出为H型全铜全局高速网络，这样抖动和到任意触发器的延时差最小，这个也就是FPGA做同步设计可以不需要做后仿真的原因。 全局时钟：今天我们从另一个角度来看一">
+<meta property="og:description" content="参考: FPGA 时钟问题 1. FPGA的全局时钟是什么？ FPGA的全局时钟应该是从晶振分出来的，最原始的频率。其他需要的各种频率都是在这个基础上利用PLL或者其他分频手段得到的。 2. 全局时钟和BUFG: BUFG，输入为固定管脚，输出为H型全铜全局高速网络，这样抖动和到任意触发器的延时差最小，这个也就是FPGA做同步设计可以不需要做后仿真的原因。 全局时钟：今天我们从另一个角度">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-08-30T00:49:41.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FPGA 时钟问题">
-<meta name="twitter:description" content="参考: FPGA 时钟问题  1. FPGA的全局时钟是什么？ FPGA的全局时钟应该是从晶振分出来的，最原始的频率。其他需要的各种频率都是在这个基础上利用PLL或者其他分频手段得到的。  2. 全局时钟和BUFG: BUFG，输入为固定管脚，输出为H型全铜全局高速网络，这样抖动和到任意触发器的延时差最小，这个也就是FPGA做同步设计可以不需要做后仿真的原因。 全局时钟：今天我们从另一个角度来看一">
+<meta name="twitter:description" content="参考: FPGA 时钟问题 1. FPGA的全局时钟是什么？ FPGA的全局时钟应该是从晶振分出来的，最原始的频率。其他需要的各种频率都是在这个基础上利用PLL或者其他分频手段得到的。 2. 全局时钟和BUFG: BUFG，输入为固定管脚，输出为H型全铜全局高速网络，这样抖动和到任意触发器的延时差最小，这个也就是FPGA做同步设计可以不需要做后仿真的原因。 全局时钟：今天我们从另一个角度">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -98,32 +98,32 @@
 	<div class="article-content">
 		
 		<p>参考: <a href>FPGA 时钟问题</a></p>
-<h4 id="1-fpga的全局时钟是什么"><a class="markdownIt-Anchor" href="#1-fpga的全局时钟是什么"></a> 1. FPGA的全局时钟是什么？</h4>
+<h4 id="fpga的全局时钟是什么">1. FPGA的全局时钟是什么？</h4>
 <p>FPGA的全局时钟应该是从晶振分出来的，最原始的频率。其他需要的各种频率都是在这个基础上利用PLL或者其他分频手段得到的。</p>
-<h4 id="2-全局时钟和bufg"><a class="markdownIt-Anchor" href="#2-全局时钟和bufg"></a> 2. 全局时钟和BUFG:</h4>
+<h4 id="全局时钟和bufg">2. 全局时钟和BUFG:</h4>
 <p>BUFG，输入为固定管脚，输出为H型全铜全局高速网络，这样抖动和到任意触发器的延时差最小，这个也就是FPGA做同步设计可以不需要做后仿真的原因。</p>
 <p>全局时钟：今天我们从另一个角度来看一下时钟的概念：时钟是D触发器的重要组成部分，一个有效边沿使得D触发器进行一次工作。而更多的时候，D触发器保持住上次的值。对于D触发器来说，可以将输入信号和时钟作比较。也许你会问，这么比较有什么意义。首先看我们比较得出什么东西：<br>
 翻转率：R=Dr/Crx100%<br>
 就是D触发器改变一次值与时钟有效沿个数的比值。</p>
 <p>举例:你写了一个来一个时钟有效沿就取一次反的电路，那么他的翻转率就是100%，翻转率和你的FPGA的功率有很大关系，翻转率越高，FPGA功率越高。</p>
-<h4 id="3-全局时钟不够用是什么意思"><a class="markdownIt-Anchor" href="#3-全局时钟不够用是什么意思"></a> 3. 全局时钟不够用是什么意思？</h4>
+<h4 id="全局时钟不够用是什么意思">3. 全局时钟不够用是什么意思？</h4>
 <p>因为全局时钟需要驱动很多模块，所以全局时钟引脚需要有很大的驱动能力，FPGA一般都有一些专门的引脚用于作为全局时钟用，他们的驱动能力比较强。但是如果这些引脚用完了，就只能用一般的引脚了，而他们的驱动能力不强，有可能不能满足你的时序要求。(驱动能力小的，产生的延迟会大一些)</p>
 <p>理论上，FPGA的任意一个管脚都可以作为时钟输入端口，但是FPGA专门设计了全局时钟，全局时钟总线是一条专用总线，到达片内各部分触发器的时间最短，所以用全局时钟芯片工作最可靠，但是如果你设计的时候时钟太多，FPGA上的全局时钟管脚用完了就出现不够用的情况。</p>
-<h4 id="4-什么是第二全局时钟"><a class="markdownIt-Anchor" href="#4-什么是第二全局时钟"></a> 4. 什么是第二全局时钟？</h4>
+<h4 id="什么是第二全局时钟">4. 什么是第二全局时钟？</h4>
 <p>比如我有一个同步使能信号，连接到FPGA内部80%的资源(但不是时钟),这个时候，你的信号走线到达各个D触发器的延迟差很大，或者翻转率比较大的时候(&gt;40%)，这个时候你就需要使用第二全局时钟资源。</p>
 <p>第二全局时钟资源的驱动能力和时钟抖动延迟等指标仅次于全局时钟信号。第二全局时钟资源其实是通过片内的高速行列总线来实现的，而不像全局时钟总线是一条专用总线。第二全局时钟总线是通过软件布线得到的，所以硬指标肯定是拼不过全局时钟总线。特别是当你在已经有80%以上的布线率的情况下，可能会出现约束第二全局时钟资源失败的情况。</p>
-<h4 id="5-cclk"><a class="markdownIt-Anchor" href="#5-cclk"></a> 5. CCLK:</h4>
+<h4 id="cclk">5. CCLK:</h4>
 <p>CCLK：FPGA同步配置时钟。如果配置模式为主模式，则该时钟由FPGA器件生成，并输出；如果配置模式为从模式，则该时钟由外部提供；<br>
 当所配置的数据存放在PROM中，即通过PROM来配置器件时，必须选择CCLK时钟；<br>
 USER CLOCK：用户定义的配置时钟信号，该配置时钟目前很少采用;<br>
 JTAG CLOCK：JTAG模式的配置时钟，该时钟提供给内部的JTAG控制逻辑。<br>
 默认值为：CCLK</p>
-<h4 id="6-cclk是怎么产生的"><a class="markdownIt-Anchor" href="#6-cclk是怎么产生的"></a> 6. CCLK是怎么产生的：</h4>
-<p>CCLK的产生根据配置模式不同而不同，如果设置为Master模式，则由内部的震荡电路产生，作为外部ROM的工作时钟，默认为6MHZ，可通过配置选项设置；  如果设置为Slave模式，则由计算机(或其他下载设备)提供，作为芯片内部下载电路的工作时钟；在JTAG模式情况下，CCLK不输出，此时芯片内部下载电路时钟由内部震荡电路提供，TCK仅用作边界扫描相关电路时钟。</p>
+<h4 id="cclk是怎么产生的">6. CCLK是怎么产生的：</h4>
+<p>CCLK的产生根据配置模式不同而不同，如果设置为Master模式，则由内部的震荡电路产生，作为外部ROM的工作时钟，默认为6MHZ，可通过配置选项设置； 如果设置为Slave模式，则由计算机(或其他下载设备)提供，作为芯片内部下载电路的工作时钟；在JTAG模式情况下，CCLK不输出，此时芯片内部下载电路时钟由内部震荡电路提供，TCK仅用作边界扫描相关电路时钟。</p>
 <p>补充：FPGA的主配置模式中，CCLK信号是如何产生的？<br>
 CCLK是由FPGA内部一个晶振电路产生的，同时ISE的软件在生成BIT流文件时，有个CCLK CONFIG选项，这个选项只有在时钟为CCLK时才可以起作用，可以在4-60MHz选择，可以控制CCLK的频率。<br>
 在主从模式配置，配置数据的前60个字节导入FPGA之前，CCLK一直是2.5MHz，接下来由于前60个配置字节的作用，CCLK改为CONFIG设定的频率，直到结束，一般CONFIG默认的频率是4MHz.</p>
-<h4 id="7-fpga中全局时钟怎么用啊-是把时钟接到fpga的全局时钟输入引脚后就起到全局时钟的作用了还是在编译时需要制定某个时钟为全局时钟阿"><a class="markdownIt-Anchor" href="#7-fpga中全局时钟怎么用啊-是把时钟接到fpga的全局时钟输入引脚后就起到全局时钟的作用了还是在编译时需要制定某个时钟为全局时钟阿"></a> 7. FPGA中全局时钟怎么用啊？ 是把时钟接到FPGA的全局时钟输入引脚后，就起到全局时钟的作用了，还是在编译时需要制定某个时钟为全局时钟阿？</h4>
+<h4 id="fpga中全局时钟怎么用啊-是把时钟接到fpga的全局时钟输入引脚后就起到全局时钟的作用了还是在编译时需要制定某个时钟为全局时钟阿">7. FPGA中全局时钟怎么用啊？ 是把时钟接到FPGA的全局时钟输入引脚后，就起到全局时钟的作用了，还是在编译时需要制定某个时钟为全局时钟阿？</h4>
 <p>其实全局时钟的使用关键在你的代码… 如果你的代码中只用了一个时钟作为所有的或者大部分触发器的时钟，编译器自然会把它编译为全局时钟。当然硬件连接上还是用全局时钟引脚较好，尤其是带PLL的，不是所有的全局时钟脚都能用PLL。</p>
   
 	</div>
@@ -187,7 +187,7 @@ CCLK是由FPGA内部一个晶振电路产生的，同时ISE的软件在生成BIT
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-fpga的全局时钟是什么"><span class="toc-number">1.</span> <span class="toc-text"> 1. FPGA的全局时钟是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-全局时钟和bufg"><span class="toc-number">2.</span> <span class="toc-text"> 2. 全局时钟和BUFG:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-全局时钟不够用是什么意思"><span class="toc-number">3.</span> <span class="toc-text"> 3. 全局时钟不够用是什么意思？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-什么是第二全局时钟"><span class="toc-number">4.</span> <span class="toc-text"> 4. 什么是第二全局时钟？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-cclk"><span class="toc-number">5.</span> <span class="toc-text"> 5. CCLK:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-cclk是怎么产生的"><span class="toc-number">6.</span> <span class="toc-text"> 6. CCLK是怎么产生的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-fpga中全局时钟怎么用啊-是把时钟接到fpga的全局时钟输入引脚后就起到全局时钟的作用了还是在编译时需要制定某个时钟为全局时钟阿"><span class="toc-number">7.</span> <span class="toc-text"> 7. FPGA中全局时钟怎么用啊？ 是把时钟接到FPGA的全局时钟输入引脚后，就起到全局时钟的作用了，还是在编译时需要制定某个时钟为全局时钟阿？</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#fpga的全局时钟是什么"><span class="toc-number">1.</span> <span class="toc-text">1. FPGA的全局时钟是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#全局时钟和bufg"><span class="toc-number">2.</span> <span class="toc-text">2. 全局时钟和BUFG:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#全局时钟不够用是什么意思"><span class="toc-number">3.</span> <span class="toc-text">3. 全局时钟不够用是什么意思？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是第二全局时钟"><span class="toc-number">4.</span> <span class="toc-text">4. 什么是第二全局时钟？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cclk"><span class="toc-number">5.</span> <span class="toc-text">5. CCLK:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cclk是怎么产生的"><span class="toc-number">6.</span> <span class="toc-text">6. CCLK是怎么产生的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fpga中全局时钟怎么用啊-是把时钟接到fpga的全局时钟输入引脚后就起到全局时钟的作用了还是在编译时需要制定某个时钟为全局时钟阿"><span class="toc-number">7.</span> <span class="toc-text">7. FPGA中全局时钟怎么用啊？ 是把时钟接到FPGA的全局时钟输入引脚后，就起到全局时钟的作用了，还是在编译时需要制定某个时钟为全局时钟阿？</span></a></li></ol>
  
   </div>
 
@@ -285,11 +285,11 @@ CCLK是由FPGA内部一个晶振电路产生的，同时ISE的软件在生成BIT
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -297,15 +297,11 @@ CCLK是由FPGA内部一个晶振电路产生的，同时ISE的软件在生成BIT
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -317,14 +313,6 @@ CCLK是由FPGA内部一个晶振电路产生的，同时ISE的软件在生成BIT
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -333,11 +321,23 @@ CCLK是由FPGA内部一个晶振电路产生的，同时ISE的软件在生成BIT
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

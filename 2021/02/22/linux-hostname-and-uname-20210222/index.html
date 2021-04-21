@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="uname -a是一个很常用的查看Linux信息的命令，包括处理器架构、主机名和内核版本。 主要参数如下： -s, (--kernel-name) - Prints the kernel name.-n, (--nodename) - Prints the system’s node name (hostname). This is the name the system uses when co">
+    <meta name="description" content="uname -a是一个很常用的查看Linux信息的命令，包括处理器架构、主机名和内核版本。 主要参数如下： -s, (--kernel-name) - Prints the kernel name.-n, (--nodename) - Prints the system’s node name (hostname). This is the name the system uses when">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux hostname与uname的联系与修改">
 <meta property="og:url" content="http://flamepeak.com/2021/02/22/linux-hostname-and-uname-20210222/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="uname -a是一个很常用的查看Linux信息的命令，包括处理器架构、主机名和内核版本。 主要参数如下： -s, (--kernel-name) - Prints the kernel name.-n, (--nodename) - Prints the system’s node name (hostname). This is the name the system uses when co">
+<meta property="og:description" content="uname -a是一个很常用的查看Linux信息的命令，包括处理器架构、主机名和内核版本。 主要参数如下： -s, (--kernel-name) - Prints the kernel name.-n, (--nodename) - Prints the system’s node name (hostname). This is the name the system uses when">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2021-02-23T08:52:10.313Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux hostname与uname的联系与修改">
-<meta name="twitter:description" content="uname -a是一个很常用的查看Linux信息的命令，包括处理器架构、主机名和内核版本。 主要参数如下： -s, (--kernel-name) - Prints the kernel name.-n, (--nodename) - Prints the system’s node name (hostname). This is the name the system uses when co">
+<meta name="twitter:description" content="uname -a是一个很常用的查看Linux信息的命令，包括处理器架构、主机名和内核版本。 主要参数如下： -s, (--kernel-name) - Prints the kernel name.-n, (--nodename) - Prints the system’s node name (hostname). This is the name the system uses when">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -102,14 +102,14 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-s, (--kernel-name) - Prints the kernel name.</span><br><span class="line">-n, (--nodename) - Prints the system’s node name (hostname). This is the name the system uses when communicating over the network. When used with the -n option, uname produces the same output as the hostname command.</span><br><span class="line">-r, (--kernel-release) - Prints the kernel release.</span><br><span class="line">-v, (--kernel-version) - Prints the kernel version.</span><br><span class="line">-m, (--machine) - Prints the name of the machine’s hardware name.</span><br><span class="line">-p, (--processor) - Prints the architecture of the processor.</span><br><span class="line">-i, (--hardware-platform) - Prints the hardware platform.</span><br><span class="line">-o, (--operating-system) - Print the name of the operating system. On Linux systems that is “GNU/Linux”</span><br><span class="line">-a, (--all) - When the -a option is used, uname behaves the same as if the -snrvmo options have been given.</span><br></pre></td></tr></table></figure>
 <p>示例如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; uname -a</span><br><span class="line">Linux linuxize.com 5.3.18-lp152.19-default #1 SMP Tue Jun 9 20:59:24 UTC 2020 (960cb00) x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line">rui@localhost:~&gt; uname</span><br><span class="line">Linux</span><br><span class="line">rui@localhost:~&gt; uname -n</span><br><span class="line">linuxize.com</span><br><span class="line">lrui@localhost:~&gt; uname -s</span><br><span class="line">Linux</span><br><span class="line">rui@localhost:~&gt; uname -r</span><br><span class="line">5.3.18-lp152.19-default</span><br><span class="line">lrui@localhost:~&gt; uname -p</span><br><span class="line">x86_64</span><br><span class="line">rui@localhost:~&gt; uname -o</span><br><span class="line">GNU/Linux</span><br></pre></td></tr></table></figure>
-<p>有意思的是<code>uname -n</code>,它显示的结果和<code>hostname</code>一致，如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; uname -n</span><br><span class="line">linuxize.com</span><br><span class="line">rui@localhost:~&gt; hostname</span><br><span class="line">linuxize.com</span><br></pre></td></tr></table></figure>
+<p>有意思的是<code>uname -n</code>,它显示的结果和<code>hostname</code>一致，如下：<br>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; uname -n</span><br><span class="line">linuxize.com</span><br><span class="line">rui@localhost:~&gt; hostname</span><br><span class="line">linuxize.com</span><br></pre></td></tr></table></figure></p>
 <p>在uname帮助文件中，这么描述“Prints the system’s node name (hostname). This is the name the system uses when communicating over the network. When used with the -n option, uname produces the same output as the hostname command.”</p>
 <p>那么我们怎么修改hostname呢？</p>
-<p>使用<code>hostnamectl</code>，如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; hostnamectl --help</span><br><span class="line">hostnamectl [OPTIONS...] COMMAND ...</span><br><span class="line"></span><br><span class="line">Query or change system hostname.</span><br><span class="line"></span><br><span class="line">  -h --help              Show this help</span><br><span class="line">     --version           Show package version</span><br><span class="line">     --no-ask-password   Do not prompt for password</span><br><span class="line">  -H --host=[USER@]HOST  Operate on remote host</span><br><span class="line">  -M --machine=CONTAINER Operate on local container</span><br><span class="line">     --transient         Only set transient hostname</span><br><span class="line">     --static            Only set static hostname</span><br><span class="line">     --pretty            Only set pretty hostname</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  status                 Show current hostname settings</span><br><span class="line">  set-hostname NAME      Set system hostname</span><br><span class="line">  set-icon-name NAME     Set icon name for host</span><br><span class="line">  set-chassis NAME       Set chassis type for host</span><br><span class="line">  set-deployment NAME    Set deployment environment for host</span><br><span class="line">  set-location NAME      Set location for host</span><br></pre></td></tr></table></figure>
-<p>效果如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; hostnamectl set-hostname TECHTECH</span><br><span class="line"></span><br><span class="line">rui@localhost:~&gt; uname -a</span><br><span class="line">Linux TECHTECH 5.3.18-lp152.19-default #1 SMP Tue Jun 9 20:59:24 UTC 2020 (960cb00) x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line"></span><br><span class="line">rui@localhost:~&gt; hostnamectl set-hostname linuxize.com</span><br><span class="line"></span><br><span class="line">rui@localhost:~&gt; uname -a</span><br><span class="line">Linux linuxize.com 5.3.18-lp152.19-default #1 SMP Tue Jun 9 20:59:24 UTC 2020 (960cb00) x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
+<p>使用<code>hostnamectl</code>，如下：<br>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; hostnamectl --help</span><br><span class="line">hostnamectl [OPTIONS...] COMMAND ...</span><br><span class="line"></span><br><span class="line">Query or change system hostname.</span><br><span class="line"></span><br><span class="line">  -h --help              Show this help</span><br><span class="line">     --version           Show package version</span><br><span class="line">     --no-ask-password   Do not prompt for password</span><br><span class="line">  -H --host=[USER@]HOST  Operate on remote host</span><br><span class="line">  -M --machine=CONTAINER Operate on local container</span><br><span class="line">     --transient         Only set transient hostname</span><br><span class="line">     --static            Only set static hostname</span><br><span class="line">     --pretty            Only set pretty hostname</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  status                 Show current hostname settings</span><br><span class="line">  set-hostname NAME      Set system hostname</span><br><span class="line">  set-icon-name NAME     Set icon name for host</span><br><span class="line">  set-chassis NAME       Set chassis type for host</span><br><span class="line">  set-deployment NAME    Set deployment environment for host</span><br><span class="line">  set-location NAME      Set location for host</span><br></pre></td></tr></table></figure></p>
+<p>效果如下：<br>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; hostnamectl set-hostname TECHTECH</span><br><span class="line"></span><br><span class="line">rui@localhost:~&gt; uname -a</span><br><span class="line">Linux TECHTECH 5.3.18-lp152.19-default #1 SMP Tue Jun 9 20:59:24 UTC 2020 (960cb00) x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line"></span><br><span class="line">rui@localhost:~&gt; hostnamectl set-hostname linuxize.com</span><br><span class="line"></span><br><span class="line">rui@localhost:~&gt; uname -a</span><br><span class="line">Linux linuxize.com 5.3.18-lp152.19-default #1 SMP Tue Jun 9 20:59:24 UTC 2020 (960cb00) x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -270,11 +270,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -282,15 +282,11 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -302,14 +298,6 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -318,11 +306,23 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

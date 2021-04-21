@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Dumping variables to stdout  var_dump ($var) dumps the variable type and value to stdout. print_r ($var) prints the variable value in human-readable form to stdout. get_defined_vars() gets all the de">
+    <meta name="description" content="Dumping variables to stdout  var_dump ($var) dumps the variable type and value to stdout. print_r ($var) prints the variable value in human-readable form to stdout. get_defined_vars() gets all the">
 <meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP Debugging">
 <meta property="og:url" content="http://flamepeak.com/2019/12/16/PHP-debugging-20191216/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Dumping variables to stdout  var_dump ($var) dumps the variable type and value to stdout. print_r ($var) prints the variable value in human-readable form to stdout. get_defined_vars() gets all the de">
+<meta property="og:description" content="Dumping variables to stdout  var_dump ($var) dumps the variable type and value to stdout. print_r ($var) prints the variable value in human-readable form to stdout. get_defined_vars() gets all the">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-12-17T01:07:06.955Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP Debugging">
-<meta name="twitter:description" content="Dumping variables to stdout  var_dump ($var) dumps the variable type and value to stdout. print_r ($var) prints the variable value in human-readable form to stdout. get_defined_vars() gets all the de">
+<meta name="twitter:description" content="Dumping variables to stdout  var_dump ($var) dumps the variable type and value to stdout. print_r ($var) prints the variable value in human-readable form to stdout. get_defined_vars() gets all the">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,7 +97,7 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="dumping-variables-to-stdout"><a class="markdownIt-Anchor" href="#dumping-variables-to-stdout"></a> Dumping variables to stdout</h3>
+		<h3 id="dumping-variables-to-stdout">Dumping variables to stdout</h3>
 <ul>
 <li><strong>var_dump ($var)</strong> dumps the variable type and value to stdout.</li>
 <li><strong>print_r ($var)</strong> prints the variable value in human-readable form to stdout.</li>
@@ -109,7 +109,7 @@
 <p>eg:</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$myVar = <span class="string">"hello world!"</span>;</span><br><span class="line"></span><br><span class="line">var_dump($myVar);</span><br><span class="line">print_r($myVar);</span><br><span class="line"></span><br><span class="line">$allVars = get_defined_vars();</span><br><span class="line">print_r($allVars);</span><br><span class="line">debug_zval_dump($allVars);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span><span class="params">($hello)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> $hello;</span><br><span class="line">    debug_print_backtrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayHello($myVar);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p><a href="https://paiza.io/en/projects/new?language=php" target="_blank" rel="noopener">Test PHP online</a></p>
-<h3 id="switching-error-reporting-level"><a class="markdownIt-Anchor" href="#switching-error-reporting-level"></a> Switching error reporting level</h3>
+<h3 id="switching-error-reporting-level">Switching error reporting level</h3>
 <p>PHP has a few ways to configure error reporting. You can use the <code>php.ini</code> file, if you have access to it. Otherwise, you might use the <code>htaccess</code> configuration. If you can’t use configuration files, you have the option of changing the values via a script.</p>
 <ul>
 <li><strong>error_reporting</strong> sets the level of logging. <strong>E_NOTICE</strong> is useful during development since it will tell you about defects such as unassigned variables.</li>
@@ -117,34 +117,30 @@
 <li><strong>display_startup_errors</strong> should only be used when debugging.</li>
 <li><strong>log_errors</strong> and <strong>error_log</strong> work together to send errors to a log file. Do this in production rather than displaying them to end users.</li>
 </ul>
-<h3 id="php-debugging-tools"><a class="markdownIt-Anchor" href="#php-debugging-tools"></a> PHP debugging tools</h3>
+<h3 id="php-debugging-tools">PHP debugging tools</h3>
 <p>You can debug PHP using one of many debugging tools to attach a debugger client. <a href="https://www.jetbrains.com/help/phpstorm/php-debugging-session.html" target="_blank" rel="noopener">PhpStorm</a> works with debug utilities like <a href="https://xdebug.org/docs/" target="_blank" rel="noopener">Xdebug</a> and <a href="http://www.zend.com/en/products/studio/downloads" target="_blank" rel="noopener">ZendDebugger</a>.</p>
 <p>Being a polyglot, I need an IDE that supports multiple languages, so I’m opting for <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> these days.</p>
-<ol>
+<ol type="1">
 <li><a href="https://xdebug.org/docs/install" target="_blank" rel="noopener">Install XDebug</a></li>
 </ol>
 <p>I highly recommend you make a simple <code>test.php</code> file, put a <code>phpinfo();</code> statement in there, then copy the output and paste it into the <a href="https://xdebug.org/wizard.php" target="_blank" rel="noopener">XDebug installation wizard</a>. It will analyze it and give you tailored installation instructions for your environment.</p>
-<ol start="2">
+<ol start="2" type="1">
 <li><a href="https://xdebug.org/docs/install#configure-php" target="_blank" rel="noopener">Configure PHP to use XDebug</a></li>
 </ol>
-<p><a href="https://xdebug.org/docs/install#configure-php" target="_blank" rel="noopener">Configure PHP to use XDebug</a> by adding <code>zend_extension=path/to/xdebug</code> to your php.ini. The path of your php.ini is shown in your <code>phpinfo()</code> output under “Loaded Configuration File”.</p>
-<ol start="3">
+<p><a href="https://xdebug.org/docs/install#configure-php" target="_blank" rel="noopener">Configure PHP to use XDebug</a> by adding <code>zend_extension=path/to/xdebug</code> to your php.ini. The path of your php.ini is shown in your <code>phpinfo()</code> output under "Loaded Configuration File".</p>
+<ol start="3" type="1">
 <li>Enable remote debugging in your <code>php.ini</code>:</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">; allow remote debugging</span><br><span class="line">[XDebug]</span><br><span class="line">xdebug.remote_enable = 1</span><br><span class="line">xdebug.remote_autostart = 1</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>
-<p>If you are doing web development, don’t forget to restart your webserver to reload the settings.</p>
-</li>
-<li>
-<p>Verify your installation by checking your <code>phpinfo()</code> output for an XDebug section.</p>
-</li>
+<ol start="4" type="1">
+<li><p>If you are doing web development, don't forget to restart your webserver to reload the settings.</p></li>
+<li><p>Verify your installation by checking your <code>phpinfo()</code> output for an XDebug section.</p></li>
 </ol>
-<h3 id="vscode-error"><a class="markdownIt-Anchor" href="#vscode-error"></a> VScode Error</h3>
-<ol>
+<h3 id="vscode-error">VScode Error</h3>
+<ol type="1">
 <li><strong>setting php.validate.executablePath</strong></li>
 </ol>
-<p>Go to File&gt; Preferences &gt; Settings …</p>
+<p>Go to File&gt; Preferences &gt; Settings ...</p>
 <p>输入框中输入php，修改 <code>PHP › Validate: Executable Path</code> 下<code>Eidit in settings.json</code></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;php.validate.executablePath&quot;: &quot;C:\\xampp\\php\\php.exe&quot;,</span><br><span class="line">&quot;php.executablePath&quot;: &quot;C:\\php7.1\\php.exe&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>参考：</p>
@@ -211,7 +207,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#dumping-variables-to-stdout"><span class="toc-number">1.</span> <span class="toc-text"> Dumping variables to stdout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#switching-error-reporting-level"><span class="toc-number">2.</span> <span class="toc-text"> Switching error reporting level</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php-debugging-tools"><span class="toc-number">3.</span> <span class="toc-text"> PHP debugging tools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vscode-error"><span class="toc-number">4.</span> <span class="toc-text"> VScode Error</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#dumping-variables-to-stdout"><span class="toc-number">1.</span> <span class="toc-text">Dumping variables to stdout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#switching-error-reporting-level"><span class="toc-number">2.</span> <span class="toc-text">Switching error reporting level</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php-debugging-tools"><span class="toc-number">3.</span> <span class="toc-text">PHP debugging tools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vscode-error"><span class="toc-number">4.</span> <span class="toc-text">VScode Error</span></a></li></ol>
  
   </div>
 
@@ -309,11 +305,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -321,15 +317,11 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -341,14 +333,6 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -357,11 +341,23 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

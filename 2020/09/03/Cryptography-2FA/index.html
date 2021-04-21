@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="基础知识 OTP（One Time Passowrd）可以分为两种，HOTP和TOTP，即HMAC-based One Time Password and Time-based OTP。 TOPT并不是一种完全不同的模式，而是HOTP的增强版。 HOTP算法在 RFC4226中进行了描述，大约有35页，包含了格式描述、例子等。 HMAC stands for Hash-based Message">
+    <meta name="description" content="基础知识 OTP（One Time Passowrd）可以分为两种，HOTP和TOTP，即HMAC-based One Time Password and Time-based OTP。 TOPT并不是一种完全不同的模式，而是HOTP的增强版。 HOTP算法在 RFC4226中进行了描述，大约有35页，包含了格式描述、例子等。 HMAC stands for Hash-based Messa">
 <meta name="keywords" content="cryptography">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2FA 双因子验证">
 <meta property="og:url" content="http://flamepeak.com/2020/09/03/Cryptography-2FA/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="基础知识 OTP（One Time Passowrd）可以分为两种，HOTP和TOTP，即HMAC-based One Time Password and Time-based OTP。 TOPT并不是一种完全不同的模式，而是HOTP的增强版。 HOTP算法在 RFC4226中进行了描述，大约有35页，包含了格式描述、例子等。 HMAC stands for Hash-based Message">
+<meta property="og:description" content="基础知识 OTP（One Time Passowrd）可以分为两种，HOTP和TOTP，即HMAC-based One Time Password and Time-based OTP。 TOPT并不是一种完全不同的模式，而是HOTP的增强版。 HOTP算法在 RFC4226中进行了描述，大约有35页，包含了格式描述、例子等。 HMAC stands for Hash-based Messa">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-09-03T02:20:12.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2FA 双因子验证">
-<meta name="twitter:description" content="基础知识 OTP（One Time Passowrd）可以分为两种，HOTP和TOTP，即HMAC-based One Time Password and Time-based OTP。 TOPT并不是一种完全不同的模式，而是HOTP的增强版。 HOTP算法在 RFC4226中进行了描述，大约有35页，包含了格式描述、例子等。 HMAC stands for Hash-based Message">
+<meta name="twitter:description" content="基础知识 OTP（One Time Passowrd）可以分为两种，HOTP和TOTP，即HMAC-based One Time Password and Time-based OTP。 TOPT并不是一种完全不同的模式，而是HOTP的增强版。 HOTP算法在 RFC4226中进行了描述，大约有35页，包含了格式描述、例子等。 HMAC stands for Hash-based Messa">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,7 +97,7 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="基础知识"><a class="markdownIt-Anchor" href="#基础知识"></a> 基础知识</h3>
+		<h3 id="基础知识">基础知识</h3>
 <p>OTP（One Time Passowrd）可以分为两种，HOTP和TOTP，即<strong>HMAC-based One Time Password</strong> and <strong>Time-based OTP</strong>。 TOPT并不是一种完全不同的模式，而是HOTP的增强版。</p>
 <p>HOTP算法在 <a href="https://tools.ietf.org/html/rfc4226" target="_blank" rel="noopener">RFC4226</a>中进行了描述，大约有35页，包含了格式描述、例子等。</p>
 <p>HMAC stands for <strong>Hash-based Message Authentication Code</strong>.</p>
@@ -110,7 +110,7 @@
 <p>RFC4226定义的HOTP如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HOTP(K,C) = Truncate(HMAC-SHA-1(K,C))</span><br></pre></td></tr></table></figure>
 <p>So, K is predictably used as our secret key and <strong>C</strong>ounter is used as the message.</p>
-<h3 id="流程与计算"><a class="markdownIt-Anchor" href="#流程与计算"></a> 流程与计算</h3>
+<h3 id="流程与计算">流程与计算</h3>
 <ul>
 <li>Generate HMAC-SHA1 value from our <strong>K</strong> and <strong>C</strong> parameters. This will be a 20-byte string</li>
 <li>Extract 4 bytes from that string in a specific way</li>
@@ -124,9 +124,9 @@
 <p>在我们例子中:</p>
 <ul>
 <li><code>format</code> will be <code>'raw'</code>, meaning that we will supply the key as raw bytes in an <code>ArrayBuffer</code>.</li>
-<li><code>keyData</code> is the ArrayBuffer mentioned above. We’ll talk about generating it in a bit</li>
+<li><code>keyData</code> is the ArrayBuffer mentioned above. We'll talk about generating it in a bit</li>
 <li><code>algorithm</code> will be <code>HMAC-SHA1</code> as per OTP spec. This has to be an <a href="https://developer.mozilla.org/en-US/docs/Web/API/HmacImportParams" target="_blank" rel="noopener">HmacImportParams</a> object</li>
-<li><code>extractable</code> can be false, since we don’t plan to export the key</li>
+<li><code>extractable</code> can be false, since we don't plan to export the key</li>
 <li>And finally, of all possible <code>usages</code> we will only need <code>'sign'</code></li>
 </ul>
 <p>Our secret key will be a long random string. In reality it could be a sequence of bytes that are not necessarily printable。</p>
@@ -147,7 +147,7 @@ Let Sbits = DT(HS) // DT, defined below,<br>
 <p>Now we only need to convert what we got from DT to an integer and off we go to stage 3.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">function <span class="title">truncate</span><span class="params">(uKey)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> Sbits = DT(uKey);</span><br><span class="line">  <span class="keyword">const</span> Snum = parseInt(Sbits, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> Snum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>第三步，获得结果</strong></p>
-<p>Stage 3 is really small. All we need to do now is to divide our resulting number by <code>10 ** (number of digits in OTP)</code> and take the remainder of that division. This way we basically cut last N digits from the resulting number. The spec mentions that you must extract at least 6 digits and possibly 7 or 8. Theoretically since it’s a 31-bit integer you can extract up to 9 digits, but in reality I’ve never seen anything over 6. Have you?</p>
+<p>Stage 3 is really small. All we need to do now is to divide our resulting number by <code>10 ** (number of digits in OTP)</code> and take the remainder of that division. This way we basically cut last N digits from the resulting number. The spec mentions that you must extract at least 6 digits and possibly 7 or 8. Theoretically since it's a 31-bit integer you can extract up to 9 digits, but in reality I've never seen anything over 6. Have you?</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">async function <span class="title">generateHOTP</span><span class="params">(secret, counter)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> key = <span class="function">await <span class="title">generateKey</span><span class="params">(secret, counter)</span></span>;</span><br><span class="line">  <span class="keyword">const</span> uKey = <span class="keyword">new</span> Uint8Array(key);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> Snum = truncate(uKey);</span><br><span class="line">  <span class="comment">// Make sure we keep leading zeroes</span></span><br><span class="line">  <span class="keyword">const</span> padded = (<span class="string">'000000'</span> + (Snum % (<span class="number">10</span> ** <span class="number">6</span>))).slice(-<span class="number">6</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> padded;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>TOTP</strong></p>
 <p>当你打开流行的2FA app，可以看到倒计时，那就是TOTP。</p>
@@ -155,7 +155,7 @@ Let Sbits = DT(HS) // DT, defined below,<br>
 <p>关于TOTP，可以查阅<a href="https://tools.ietf.org/html/rfc6238" target="_blank" rel="noopener">RFC6238</a>。</p>
 <p>Due to time-based scheme being an extension over original algorithm, no changes to the original implementation are required. We will use <code>requestAnimationFrame</code> and check on every tick if we are still inside the time window. If we are not — we will calculate a new time step (counter) and regenerate HOTP with it. Omitting all the administrative code it will look roughly like this:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">let stepWindow = <span class="number">30</span> * <span class="number">1000</span>; <span class="comment">// 30 seconds in ms</span></span><br><span class="line">let lastTimeStep = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> updateTOTPCounter = () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> timeSinceStep = Date.now() - lastTimeStep * stepWindow;</span><br><span class="line">  <span class="keyword">const</span> timeLeft = Math.ceil(stepWindow - timeSinceStep);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (timeLeft &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> requestAnimationFrame(updateTOTPCounter);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  timeStep = getTOTPCounter();</span><br><span class="line">  lastTimeStep = timeStep;</span><br><span class="line">    &lt;...update counter and regenerate...&gt;</span><br><span class="line">  requestAnimationFrame(updateTOTPCounter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="二维码"><a class="markdownIt-Anchor" href="#二维码"></a> 二维码</h3>
+<h3 id="二维码">二维码</h3>
 <p>通常，我们设置2FA时需要扫描二维码，其中包含我们需要的信息：密钥、使用的OTP算法、帐户名、发行者、位数。</p>
 <p>浏览器中二维码扫描可以<a href="https://dev.to/al_khovansky/intro-to-screen-capture-api-scanning-qr-codes-bgi" target="_blank" rel="noopener">参考</a></p>
 <p>二维码中的2FA地址格式通常如下：</p>
@@ -165,8 +165,8 @@ Let Sbits = DT(HS) // DT, defined below,<br>
 <p>解析地址代码如下：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> setupFromQR = data =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> url = <span class="keyword">new</span> URL(data);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// drop the "//" and get TYPE and LABEL</span></span><br><span class="line">  <span class="keyword">const</span> [scheme, label] = url.pathname.slice(<span class="number">2</span>).split(<span class="string">'/'</span>);</span><br><span class="line">  <span class="keyword">const</span> params = <span class="keyword">new</span> URLSearchParams(url.search);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> secret = params.get(<span class="string">'secret'</span>);</span><br><span class="line">  let counter;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (scheme === <span class="string">'hotp'</span>) &#123;</span><br><span class="line">    counter = params.get(<span class="string">'counter'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    stepWindow = parseInt(params.get(<span class="string">'period'</span>), <span class="number">10</span>) * <span class="number">1000</span>;</span><br><span class="line">    counter = getTOTPCounter();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>参考：</p>
-<ol>
-<li><a href="https://dev.to/al_khovansky/generating-2fa-one-time-passwords-in-js-using-web-crypto-api-1hfo" target="_blank" rel="noopener">https://dev.to/al_khovansky/generating-2fa-one-time-passwords-in-js-using-web-crypto-api-1hfo</a></li>
+<ol type="1">
+<li>https://dev.to/al_khovansky/generating-2fa-one-time-passwords-in-js-using-web-crypto-api-1hfo</li>
 <li></li>
 </ol>
   
@@ -231,7 +231,7 @@ Let Sbits = DT(HS) // DT, defined below,<br>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础知识"><span class="toc-number">1.</span> <span class="toc-text"> 基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#流程与计算"><span class="toc-number">2.</span> <span class="toc-text"> 流程与计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二维码"><span class="toc-number">3.</span> <span class="toc-text"> 二维码</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础知识"><span class="toc-number">1.</span> <span class="toc-text">基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#流程与计算"><span class="toc-number">2.</span> <span class="toc-text">流程与计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二维码"><span class="toc-number">3.</span> <span class="toc-text">二维码</span></a></li></ol>
  
   </div>
 
@@ -329,11 +329,11 @@ Let Sbits = DT(HS) // DT, defined below,<br>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -341,15 +341,11 @@ Let Sbits = DT(HS) // DT, defined below,<br>
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -361,14 +357,6 @@ Let Sbits = DT(HS) // DT, defined below,<br>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -377,11 +365,23 @@ Let Sbits = DT(HS) // DT, defined below,<br>
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

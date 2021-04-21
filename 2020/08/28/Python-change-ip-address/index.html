@@ -13,17 +13,17 @@
     
 
     
-    <meta name="description" content="在windows中使用python修改ip地址，需要WMI (Windows Management Instrumentation )模块: pip install WMI 设置指定的ip地址： import wmi# Obtain network adaptors configurationsnic_configs = wmi.WMI().Win32_NetworkAdapterConfigur">
+    <meta name="description" content="在windows中使用python修改ip地址，需要WMI (Windows Management Instrumentation )模块: pip install WMI 设置指定的ip地址： import wmi# Obtain network adaptors configurationsnic_configs = wmi.WMI().Win32_NetworkAdapterConfi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 修改ip地址">
 <meta property="og:url" content="http://flamepeak.com/2020/08/28/Python-change-ip-address/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="在windows中使用python修改ip地址，需要WMI (Windows Management Instrumentation )模块: pip install WMI 设置指定的ip地址： import wmi# Obtain network adaptors configurationsnic_configs = wmi.WMI().Win32_NetworkAdapterConfigur">
+<meta property="og:description" content="在windows中使用python修改ip地址，需要WMI (Windows Management Instrumentation )模块: pip install WMI 设置指定的ip地址： import wmi# Obtain network adaptors configurationsnic_configs = wmi.WMI().Win32_NetworkAdapterConfi">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-08-28T01:51:01.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 修改ip地址">
-<meta name="twitter:description" content="在windows中使用python修改ip地址，需要WMI (Windows Management Instrumentation )模块: pip install WMI 设置指定的ip地址： import wmi# Obtain network adaptors configurationsnic_configs = wmi.WMI().Win32_NetworkAdapterConfigur">
+<meta name="twitter:description" content="在windows中使用python修改ip地址，需要WMI (Windows Management Instrumentation )模块: pip install WMI 设置指定的ip地址： import wmi# Obtain network adaptors configurationsnic_configs = wmi.WMI().Win32_NetworkAdapterConfi">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -102,10 +102,10 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> wmi</span><br><span class="line"></span><br><span class="line"><span class="comment"># Obtain network adaptors configurations</span></span><br><span class="line">nic_configs = wmi.WMI().Win32_NetworkAdapterConfiguration(IPEnabled=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># First network adaptor</span></span><br><span class="line">nic = nic_configs[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># IP address, subnetmask and gateway values should be unicode objects</span></span><br><span class="line">ip = <span class="string">u'192.168.0.11'</span></span><br><span class="line">subnetmask = <span class="string">u'255.255.255.0'</span></span><br><span class="line">gateway = <span class="string">u'192.168.0.1'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set IP address, subnetmask and default gateway</span></span><br><span class="line"><span class="comment"># Note: EnableStatic() and SetGateways() methods require *lists* of values to be passed</span></span><br><span class="line">nic.EnableStatic(IPAddress=[ip],SubnetMask=[subnetmask])</span><br><span class="line">nic.SetGateways(DefaultIPGateway=[gateway])</span><br></pre></td></tr></table></figure>
 <p>修改为通过DHCP自动获取ip：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> wmi</span><br><span class="line"></span><br><span class="line"><span class="comment"># Obtain network adaptors configurations</span></span><br><span class="line">nic_configs = wmi.WMI().Win32_NetworkAdapterConfiguration(IPEnabled=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># First network adaptor</span></span><br><span class="line">nic = nic_configs[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable DHCP</span></span><br><span class="line">nic.EnableDHCP()</span><br></pre></td></tr></table></figure>
-<p>需要注意的是，在实际使用过程中，需要检查 <a href="http://msdn.microsoft.com/en-us/library/aa390383(v=VS.85).aspx" target="_blank" rel="noopener">EnableStatic()</a>, <a href="http://msdn.microsoft.com/en-us/library/aa393301(v=VS.85).aspx" target="_blank" rel="noopener">SetGateways()</a> and <a href="http://msdn.microsoft.com/en-us/library/aa390378(v=VS.85).aspx" target="_blank" rel="noopener">EnableDHCP()</a> 的返回值，‘0’ 代表成功, ‘1’ 代表需要重启，其它值需要查看上面链接的说明。返回值的格式如下：</p>
+<p>需要注意的是，在实际使用过程中，需要检查 <a href="http://msdn.microsoft.com/en-us/library/aa390383(v=VS.85).aspx" target="_blank" rel="noopener">EnableStatic()</a>, <a href="http://msdn.microsoft.com/en-us/library/aa393301(v=VS.85).aspx" target="_blank" rel="noopener">SetGateways()</a> and <a href="http://msdn.microsoft.com/en-us/library/aa390378(v=VS.85).aspx" target="_blank" rel="noopener">EnableDHCP()</a> 的返回值，'0' 代表成功, '1' 代表需要重启，其它值需要查看上面链接的说明。返回值的格式如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(0,)</span><br></pre></td></tr></table></figure>
 <p>即，为python中tuple格式。</p>
-<p>之上的方法在win7  python3.8中测试通过。</p>
+<p>之上的方法在win7 python3.8中测试通过。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -261,11 +261,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -273,15 +273,11 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -293,14 +289,6 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -309,11 +297,23 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>

@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="在使用Vmware做测试的时候，meterpreter生成的reverse_tcp，在NAT模式下无法回连，但是在bridge模式下可以回连。 在网络上大致找了一下原因： 千万不要在VMWare的NAT模式下使用nmap 为什么在VMWare的NAT模式下无法使用traceroute 深入浅出VMware的组网模式 结论：  NAT是一个代理，NAT模式可能会造成目的主机TCP连接统计的不准确 V">
+    <meta name="description" content="在使用Vmware做测试的时候，meterpreter生成的reverse_tcp，在NAT模式下无法回连，但是在bridge模式下可以回连。 在网络上大致找了一下原因： 千万不要在VMWare的NAT模式下使用nmap 为什么在VMWare的NAT模式下无法使用traceroute 深入浅出VMware的组网模式 结论： 1. NAT是一个代理，NAT模式可能会造成目的主机TCP连接">
 <meta name="keywords" content="vmware">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vmware NAT 的一些问题">
 <meta property="og:url" content="http://flamepeak.com/2019/04/23/vmware-NAT-problems-20190423/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="在使用Vmware做测试的时候，meterpreter生成的reverse_tcp，在NAT模式下无法回连，但是在bridge模式下可以回连。 在网络上大致找了一下原因： 千万不要在VMWare的NAT模式下使用nmap 为什么在VMWare的NAT模式下无法使用traceroute 深入浅出VMware的组网模式 结论：  NAT是一个代理，NAT模式可能会造成目的主机TCP连接统计的不准确 V">
+<meta property="og:description" content="在使用Vmware做测试的时候，meterpreter生成的reverse_tcp，在NAT模式下无法回连，但是在bridge模式下可以回连。 在网络上大致找了一下原因： 千万不要在VMWare的NAT模式下使用nmap 为什么在VMWare的NAT模式下无法使用traceroute 深入浅出VMware的组网模式 结论： 1. NAT是一个代理，NAT模式可能会造成目的主机TCP连接">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-04-29T00:09:34.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vmware NAT 的一些问题">
-<meta name="twitter:description" content="在使用Vmware做测试的时候，meterpreter生成的reverse_tcp，在NAT模式下无法回连，但是在bridge模式下可以回连。 在网络上大致找了一下原因： 千万不要在VMWare的NAT模式下使用nmap 为什么在VMWare的NAT模式下无法使用traceroute 深入浅出VMware的组网模式 结论：  NAT是一个代理，NAT模式可能会造成目的主机TCP连接统计的不准确 V">
+<meta name="twitter:description" content="在使用Vmware做测试的时候，meterpreter生成的reverse_tcp，在NAT模式下无法回连，但是在bridge模式下可以回连。 在网络上大致找了一下原因： 千万不要在VMWare的NAT模式下使用nmap 为什么在VMWare的NAT模式下无法使用traceroute 深入浅出VMware的组网模式 结论： 1. NAT是一个代理，NAT模式可能会造成目的主机TCP连接">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -102,11 +102,8 @@
 <p><a href="https://blog.csdn.net/dog250/article/details/52244906" target="_blank" rel="noopener">千万不要在VMWare的NAT模式下使用nmap</a></p>
 <p><a href="https://blog.csdn.net/dog250/article/details/52194975" target="_blank" rel="noopener">为什么在VMWare的NAT模式下无法使用traceroute</a></p>
 <p><a href="https://blog.csdn.net/dog250/article/details/7363534" target="_blank" rel="noopener">深入浅出VMware的组网模式</a></p>
-<p>结论：</p>
-<ol>
-<li>NAT是一个代理，NAT模式可能会造成目的主机TCP连接统计的不准确</li>
-<li>VMWare的NAT只支持比较常见的协议</li>
-</ol>
+<p>结论：<br>
+1. NAT是一个代理，NAT模式可能会造成目的主机TCP连接统计的不准确 2. VMWare的NAT只支持比较常见的协议</p>
 <p><strong>总之，不要在NAT模式下玩网络，玩不转的。</strong><br>
 <strong>总之，使用Bridge</strong></p>
   
@@ -269,11 +266,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -281,15 +278,11 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
 			
 		
 			
@@ -301,14 +294,6 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
@@ -317,11 +302,23 @@
 			
 		
 			
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/人生/" title="人生">人生<sup>3</sup></a></li>
+				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
 			
 		
 		</ul>
