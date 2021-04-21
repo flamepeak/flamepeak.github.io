@@ -5,6 +5,16 @@ tags: [useful, Learning]
 categories: [Tools]
 ---
 
+
+
+## 效率
+
+2021年 github被墙最新hosts-每日更新  
+http://blog.yoqi.me/lyq/16489.html  
+获取hosts的代码：https://github.com/jianboy/github-host  
+ 
+
+
 ## 学习
 [实验楼](https://www.shiyanlou.com)
 
