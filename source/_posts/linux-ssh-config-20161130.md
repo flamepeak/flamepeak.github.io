@@ -1,9 +1,13 @@
 ---
-title: linux配置文件ssh_config和sshd_config详解
+title: linux SSH 配置
 date: 2016-11-30 11:00:28
 tags: Linux
 categories: [Linux]
 ---
+
+
+
+### ssh_config与sshd_config文件
 
 现在远程管理linux系统基本上都要使用到ssh，原因很简单：telnet、FTP等传输方式是以明文传送用户认证信息，本质上是不安全的，存在被网络窃听的危险。SSH（Secure Shell）目前较可靠，是专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题，透过SSH可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。
 
@@ -11,7 +15,7 @@ categories: [Linux]
 
 ---
 
-### 编辑 /etc/ssh/ssh_config 文件
+#### ssh_config 文件
 ** Site-wide defaults for various options**
 带“#”表示该句为注释不起作，该句不属于配置文件原文，意在说明下面选项均为系统初始默认的选项。说明一下，实际配置文件中也有很多选项前面加有“#”注释，虽然表示不起作用，其实是说明此为系统默认的初始化设置。
 
@@ -67,7 +71,7 @@ categories: [Linux]
 
 ---
 
-### 编辑 /etc/ssh/sshd_config 文件:
+#### sshd_config 文件:
 **Port 22**
 "Port"设置sshd监听的端口号。
 
@@ -127,3 +131,67 @@ categories: [Linux]
 
 **AllowUsers admin**
 "AllowUsers"的后面可以跟任意的数量的用户名的匹配串，这些字符串用空格隔开。主机名可以是域名或IP地址。
+
+
+
+### SSH改变端口
+
+1. 首先选择一个新端口
+
+   新端口大于1024，例如5522
+
+2. 修改防火墙设置
+
+   开放新端口
+
+   Ubuntu:
+
+   ```
+   sudo ufw allow 5253/tcp
+   ```
+
+   CentOS：如果使用FirewallD，
+
+   ```
+   sudo firewall-cmd --permanent --zone=public --add-port=5253/tcp
+   sudo firewall-cmd --reload
+   
+   可能需要修改SElinux规则：
+   sudo semanage port -a -t ssh_port_t -p tcp 5253
+   ```
+
+   如果使用iptables，
+
+   ```
+   sudo iptables -A INPUT -p tcp --dport 5253 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+   ```
+
+3. 配置SSH
+
+   ```
+   vim /etc/ssh/sshd_config
+   ```
+
+   找到端口行，修改端口
+
+4. 重启服务
+
+   ```
+   systemctl restart ssh
+   或者
+   systemctl restart sshd
+   ```
+
+5. 检测
+
+   ```
+   ss -an |grep 5253
+   ```
+
+6. 使用
+
+   ```
+   ssh username@1.1.1.1  -p 5253
+   ```
+
+   

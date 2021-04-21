@@ -82,6 +82,7 @@ alert('Hello World!');
 在含有公式的文章里开头设置`mathjax: true`
 
 首先，插入一个行内公式，需要使用`$...$`来实现：$x^2+y^2=z^2$
+
 插入单独一行的公式，需要使用`$$...$$`的方式来实现，如：
 $$
 \theta_i = \theta_i - \alpha\frac\partial{\partial\theta_i}J(\theta)

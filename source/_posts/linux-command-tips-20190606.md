@@ -266,3 +266,43 @@ sed 's/要被取代的字串/新的字串/g'
 
 
 
+### 关闭、打开端口
+
+**To open a different port:**
+
+- Debian:
+
+  ```bash
+  sudo ufw allow PORT
+  ```
+
+- CentOS:
+
+  ```bash
+  sudo firewall-cmd --zone=public --permanent --add-port=PORT/tcp
+  sudo firewall-cmd --reload
+  ```
+
+**Close Server Ports And Deny Remote Access**
+
+- Debian:
+
+  ```bash
+  sudo ufw deny PORT
+  ```
+
+- CentOS:
+
+  ```bash
+  sudo firewall-cmd --zone=public --permanent --remove-port=PORT/tcp
+  sudo firewall-cmd --reload
+  ```
+
+
+
+
+
+
+
+
+

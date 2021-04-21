@@ -5,6 +5,16 @@ tags: [Chrome]
 categories: [Tools]
 ---
 
+
+
+### Chrome离线下载
+
+[Chrome Install Offline](https://www.google.com/intl/en/chrome/browser/desktop/index.html?standalone=1):
+
+
+### 推荐的网站
+
+
 [Firefox/Chrome渗透测试插件推荐](http://www.freebuf.com/sectool/35250.html)
 [hanzichi 个人收藏](https://github.com/hanzichi/personal-collections/blob/master/chrome-extension.md)
 [在线工具](http://tool.lu/)
@@ -34,7 +44,14 @@ keepass:
 
 [EditThisCookie](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?utm_source=chrome-app-launcher-info-dialog): 是一款可以管理Chrome浏览器cookies的插件，用户可以利用它添加、删除、编辑、搜索、锁定和屏蔽Chrome cookies。EditThisCookie插件是一款为谷歌浏览器定制的非常强大的一款cookies管理插件。
 
+[2020更新]  
+EditThisCookie在导入导出cookie时候容易出错，建议使用 [J2TEAM Cookies](https://chrome.google.com/webstore/detail/j2team-cookies/okpidcojinmlaakglciglbpcpajaibco)导入或导出cookie。Simple tool to export/import cookies. Share online accounts without revealing your password.，或者使用[Cookie Editor](https://chrome.google.com/webstore/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm)，cookie editor也支持其它浏览器，官网[cookie-editor.cgagnier.ca/](https://cookie-editor.cgagnier.ca/)
+
+[No-Script Suite Lite](https://chrome.google.com/webstore/detail/no-script-suite-lite/ahnanjpbkghcdgmlchbcfoiefnifjeni): 控制、阻止Script运行
+
 [Cookie Monster](https://chrome.google.com/webstore/detail/cookie-monster/cdadghomkpbpgchnhhkaijgihmgmhddp?utm_source=chrome-app-launcher-info-dialog)： 是一款可以一键删除**当前域名**下所有cookies信息的谷歌浏览器插件，在Chrome中安装了Cookie Monster插件以后，用户就可以在离开网站的时候点击Cookie Monster插件清除当前网站中的所有cookies信息，防止自己的隐私信息在无意间泄露。
+
+[WebRTC Control](https://chrome.google.com/webstore/detail/webrtc-control/fjkmabmdepjfammlpliljpnbhleegehm):
 
 
 ### 广告杀手
@@ -52,6 +69,8 @@ keepass:
 
 
 ### 效率提升
+
+[OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall): Save up to 95% memory and reduce tab clutter
 
 [Decentraleyes](https://chrome.google.com/webstore/detail/decentraleyes/ldpochfccmkkmhdbclfhpagapcfdljkj):保护您免受集中式的内容交付网络（CDN）的跟踪。它可以拦截许多种链向 CDN 的请求，转而指向本地提供的文件，从而防止网站功能受损。
 简单的说就是在访问没有被墙的，但是网站需要Google API支持的网站，可以加快访问速度。很显然StackOverflow就是如此。
@@ -109,7 +128,7 @@ gooreplacer 的作用就是在浏览器发起请求时，去检查该请求是�
 
 [ModHeader](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj): 修改请求头，添加和修改发送到Web服务器的HTTP请求头。
 
-[User-Agent Switcher](https://chrome.google.com/webstore/detail/user-agent-switcher-for-c/djflhoibgkdhkhhcedjiklpkjnoahfmg): 有时候为了给出最好的浏览体验，不想安装各种不同的浏览器如微软的Internet Explorer、Google 的 Chrome 或者是 IOS、 Android等等做测试，就可以试试User-Agent Switcher for Chrome，这套 Chrome浏览器的扩充功能，能将Chrome伪装成各大家不同的浏览器，让你方便测试初始网页。user agent switcher for chrome扩展可以轻松，快捷地修改Chrome浏览器的UA。 支持自动切换模式，让Chrome始终用指定的UA去访问某些网站。
+[User-Agent Switcher and Manager](https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg): 有时候为了给出最好的浏览体验，不想安装各种不同的浏览器如微软的Internet Explorer、Google 的 Chrome 或者是 IOS、 Android等等做测试，就可以试试User-Agent Switcher for Chrome，这套 Chrome浏览器的扩充功能，能将Chrome伪装成各大家不同的浏览器，让你方便测试初始网页。user agent switcher for chrome扩展可以轻松，快捷地修改Chrome浏览器的UA。 支持自动切换模式，让Chrome始终用指定的UA去访问某些网站。
 
 使用了这个插件，那你肯定需要这个Macfee的东西：[MOST POPULAR USER-AGENTS](http://www.browser-info.net/useragents) 和这个个人博客统计数据:[Most Common User Agents](https://techblog.willshouse.com/2012/01/03/most-common-user-agents/)
 

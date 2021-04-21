@@ -53,5 +53,27 @@ categories: [Tools]
 ***
 
 ## Tech
-[ZombieBoy一个默默关注网络安全的屌丝…
-](http://www.njstu.net/)
+[ZombieBoy一个默默关注网络安全的屌丝](http://www.njstu.net/)
+
+
+
+
+
+
+
+## 图示化分析
+
+1. [StatCounter  GlobalStats](https://gs.statcounter.com/)
+
+   世界各国浏览器、社交软件、搜索引擎、操作系统占有率分析
+
+
+
+
+
+
+
+
+
+
+
