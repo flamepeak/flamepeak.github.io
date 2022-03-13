@@ -21,7 +21,7 @@
 <meta property="og:site_name" content="FlamePeak">
 <meta property="og:description" content="截图、截屏工具 在openSUSE 42.1版本中的截图工具为ksnapshot，但是在openSUSE 42.2中截图工具更改为spectacle。 ksnapshot &amp;lt; 16.08.2 is obsoleted by (installed) spectacle-16.08.2-1.1.x86_64 安装使用SublimeText 3 SublimeText提供了deb安装包和bz">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-03-02T01:43:15.195Z">
+<meta property="og:updated_time" content="2021-06-09T09:44:15.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="openSUSE 使用问题与解决技巧">
 <meta name="twitter:description" content="截图、截屏工具 在openSUSE 42.1版本中的截图工具为ksnapshot，但是在openSUSE 42.2中截图工具更改为spectacle。 ksnapshot &amp;lt; 16.08.2 is obsoleted by (installed) spectacle-16.08.2-1.1.x86_64 安装使用SublimeText 3 SublimeText提供了deb安装包和bz">
@@ -106,6 +106,14 @@
 <p>这样，我们就可以在命令行中直接输入<strong>sublime</strong>即可使用。 如果需要加入Unity luncher,那就: <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp /opt/sublime_text_3/sublime_text.desktop  /usr/share/applications</span><br></pre></td></tr></table></figure></p>
 <h3 id="sublimetext">SublimeText</h3>
 <p>Markdown highlight : Monokai Extended</p>
+<h3 id="google-拼音输入法安装">Google 拼音输入法安装</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zypper install fcitx</span><br><span class="line">zypper search google</span><br><span class="line">zypper install fcitx-googlepinyin</span><br></pre></td></tr></table></figure>
+<h3 id="kde-与xfce切换">Kde 与XFCE切换</h3>
+<p><code>yast2 -&gt; system config -&gt; window manager -&gt; desktop manage 里改成 kde xfce 就行了</code></p>
+<p>To list all display managers the alternatives system knows about, run</p>
+<p><code>update-alternatives --list default-displaymanager</code></p>
+<p>To change the display manager interactively</p>
+<p><code>update-alternatives --config default-displaymanager</code></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -168,7 +176,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#截图截屏工具"><span class="toc-number">1.</span> <span class="toc-text">截图、截屏工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装使用sublimetext-3"><span class="toc-number">2.</span> <span class="toc-text">安装使用SublimeText 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sublimetext"><span class="toc-number">3.</span> <span class="toc-text">SublimeText</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#截图截屏工具"><span class="toc-number">1.</span> <span class="toc-text">截图、截屏工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装使用sublimetext-3"><span class="toc-number">2.</span> <span class="toc-text">安装使用SublimeText 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sublimetext"><span class="toc-number">3.</span> <span class="toc-text">SublimeText</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#google-拼音输入法安装"><span class="toc-number">4.</span> <span class="toc-text">Google 拼音输入法安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kde-与xfce切换"><span class="toc-number">5.</span> <span class="toc-text">Kde 与XFCE切换</span></a></li></ol>
  
   </div>
 
@@ -185,7 +193,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/Android/" title="Android">Android<sup>4</sup></a></li>
+			<li><a href="/categories/Android/" title="Android">Android<sup>5</sup></a></li>
 		  
 		
 		  
@@ -266,11 +274,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -278,7 +286,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>6</sup></a></li>
 			
 		
 			
@@ -286,23 +294,7 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>5</sup></a></li>
 			
 		
 			
@@ -310,11 +302,27 @@
 			
 		
 			
+				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 			
@@ -390,7 +398,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2021 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2022 
 		
 		<a href="/about" target="_blank" title="FlamePeak">FlamePeak</a>
 		

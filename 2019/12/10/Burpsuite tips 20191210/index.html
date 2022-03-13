@@ -21,7 +21,7 @@
 <meta property="og:site_name" content="FlamePeak">
 <meta property="og:description" content="过滤不想拦截的网站 Burpsuite: just passthrough firefox detect portal 如果我们在Burpsuite遇到一个不想再拦截的请求，点击Action按钮，然后Do not intercept...，选择requests to this host即可。 对于Firefox portal 请求，可以在浏览器地址栏输入about:config，然后搜索ne">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-10T07:49:08.809Z">
+<meta property="og:updated_time" content="2022-01-28T23:31:29.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BurpSuite 使用">
 <meta name="twitter:description" content="过滤不想拦截的网站 Burpsuite: just passthrough firefox detect portal 如果我们在Burpsuite遇到一个不想再拦截的请求，点击Action按钮，然后Do not intercept...，选择requests to this host即可。 对于Firefox portal 请求，可以在浏览器地址栏输入about:config，然后搜索ne">
@@ -101,6 +101,18 @@
 <p><a href="https://security.stackexchange.com/questions/187069/burpsuite-just-passthrough-firefox-detect-portal" target="_blank" rel="noopener">Burpsuite: just passthrough firefox detect portal</a></p>
 <p>如果我们在Burpsuite遇到一个不想再拦截的请求，点击<code>Action</code>按钮，然后<code>Do not intercept...</code>，选择<code>requests to this host</code>即可。</p>
 <p>对于Firefox portal 请求，可以在浏览器地址栏输入<code>about:config</code>，然后搜索<code>network.captive-portal-service.enabled</code>，将<code>true</code>改为<code>false</code></p>
+<h3 id="网页有302跳转设置自动跳转">网页有302跳转，设置自动跳转</h3>
+<p>方法一：</p>
+<p>方法二：</p>
+<p>https://vk9-sec.com/bypass-30x-redirect-with-burpsuite/</p>
+<p>Capturing the response and filtering 30X responses to set 200 OK will let us bypass this redirection.</p>
+<ol type="1">
+<li><p><code>Proxy -&gt; Options -&gt; Intercept Server Responses -&gt; Check box (Intercept responses…)</code></p></li>
+<li><p>Now edit <code>“Match and Replace” section</code>, add a new rule</p></li>
+<li><p>fill in blank: <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Type: Response header</span><br><span class="line">Match: 30[12] Found #match either 301 or 302</span><br><span class="line">Replace: 200 OK</span><br><span class="line">Comment: VK9 redirection bypass</span><br><span class="line">Check “Regex match”</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Click OK, enable the setting by activating the checkbox</p></li>
+</ol>
+<p>方法二： <code>Intruder--&gt;Options--&gt;Redirections : Always</code> 设置后在Proxy中也有效</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -163,7 +175,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤不想拦截的网站"><span class="toc-number">1.</span> <span class="toc-text">过滤不想拦截的网站</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤不想拦截的网站"><span class="toc-number">1.</span> <span class="toc-text">过滤不想拦截的网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网页有302跳转设置自动跳转"><span class="toc-number">2.</span> <span class="toc-text">网页有302跳转，设置自动跳转</span></a></li></ol>
  
   </div>
 
@@ -180,7 +192,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/Android/" title="Android">Android<sup>4</sup></a></li>
+			<li><a href="/categories/Android/" title="Android">Android<sup>5</sup></a></li>
 		  
 		
 		  
@@ -261,11 +273,11 @@
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
@@ -273,7 +285,7 @@
 			
 		
 			
-				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>5</sup></a></li>
+				<li><a href="/tags/Network-Security/" title="Network Security">Network Security<sup>6</sup></a></li>
 			
 		
 			
@@ -281,23 +293,7 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tools/" title="Tools">Tools<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/Tools/" title="Tools">Tools<sup>5</sup></a></li>
 			
 		
 			
@@ -305,11 +301,27 @@
 			
 		
 			
+				<li><a href="/tags/Scrapy/" title="Scrapy">Scrapy<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Windows/" title="Windows">Windows<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
 			
 		
 			
@@ -385,7 +397,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2021 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">Hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2022 
 		
 		<a href="/about" target="_blank" title="FlamePeak">FlamePeak</a>
 		

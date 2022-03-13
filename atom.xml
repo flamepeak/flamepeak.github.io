@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://flamepeak.com/"/>
-  <updated>2021-03-17T02:33:13.709Z</updated>
+  <updated>2022-02-27T13:07:56.372Z</updated>
   <id>http://flamepeak.com/</id>
   
   <author>
@@ -14,6 +14,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android 应用收集</title>
+    <link href="http://flamepeak.com/2022/02/28/Android-app-collect-20220228/"/>
+    <id>http://flamepeak.com/2022/02/28/Android-app-collect-20220228/</id>
+    <published>2022-02-28T07:39:55.000Z</published>
+    <updated>2022-02-27T13:07:56.372Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="通信">通信</h2>
+<h3 id="fireside">FireSide</h3>
+<p>无须互联网的通信工具，可以建立在线社区，安全的分享文件和消息。</p>
+<p>Fireside Messenger 是基于 NewNode 技术的信使，它创建替代网络连接，允许您的设备在资源或应用程序被阻止或不可用的情况下进行通信。</p>
+<p>通过其P2P内容交付平台，Fireside Messenger 可确保您的通信弹性，即使您当地的手机信号塔在自然灾害中被摧毁或访问一个没有可靠互联网基础设施的国家时也是如此。使用它的人越多，连接就越牢固。</p>
+<p>Fireside 在 NewNode 协议上运行，该协议会自动检测数据的最佳路径。如果没有 wifi 连接，NewNode 将通过连接设备网络路由您的流量。</p>
+<h2 id="效率">效率</h2>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;通信&quot;&gt;通信&lt;/h2&gt;
+&lt;h3 id=&quot;fireside&quot;&gt;FireSide&lt;/h3&gt;
+&lt;p&gt;无须互联网的通信工具，可以建立在线社区，安全的分享文件和消息。&lt;/p&gt;
+&lt;p&gt;Fireside Messenger 是基于 NewNode 技术的信使，它创建替代网
+    
+    </summary>
+    
+      <category term="Android" scheme="http://flamepeak.com/categories/Android/"/>
+    
+    
+      <category term="Network Security" scheme="http://flamepeak.com/tags/Network-Security/"/>
+    
+      <category term="Android" scheme="http://flamepeak.com/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VPN unable to create the interprocess communication depot</title>
+    <link href="http://flamepeak.com/2021/12/22/VPN-unable-to-create-the-interprocess-communication-depot/"/>
+    <id>http://flamepeak.com/2021/12/22/VPN-unable-to-create-the-interprocess-communication-depot/</id>
+    <published>2021-12-22T00:14:28.000Z</published>
+    <updated>2021-12-28T06:53:30.300Z</updated>
+    
+    <content type="html"><![CDATA[<p>在安装CISCO AnyConnect VPN时，出现unable to create the interprocess communication depot错误，错误产生的原因是<code>Internet Connection Sharing (ICS)</code>服务被启用，需要禁用该服务。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. Click the Start button</span><br><span class="line">2. Type: services.msc and press ENTER</span><br><span class="line">3. Double-Click on Internet Connection Sharing (ICS)</span><br><span class="line">4. Change Startup Type to Disabled</span><br><span class="line">5. Reboot the computer</span><br><span class="line">6. You can now try reinstalling the AnyConnect VPN client again.</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在安装CISCO AnyConnect VPN时，出现unable to create the interprocess communication depot错误，错误产生的原因是&lt;code&gt;Internet Connection Sharing (ICS)&lt;/code&gt;
+    
+    </summary>
+    
+      <category term="Tools" scheme="http://flamepeak.com/categories/Tools/"/>
+    
+    
+      <category term="Tools" scheme="http://flamepeak.com/tags/Tools/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows SDelete 清理未使用空间</title>
@@ -996,67 +1054,6 @@ html原生就带表单
     
     
       <category term="Python" scheme="http://flamepeak.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python re 模块 贪婪模式和非贪婪模式</title>
-    <link href="http://flamepeak.com/2020/03/16/Python-re-module-tips-20200316/"/>
-    <id>http://flamepeak.com/2020/03/16/Python-re-module-tips-20200316/</id>
-    <published>2020-03-16T00:08:12.000Z</published>
-    <updated>2020-03-16T16:19:04.810Z</updated>
-    
-    <content type="html"><![CDATA[<p>Python里数量词默认是贪婪的，总是尝试匹配尽可能多的字符；非贪婪则相反，总是尝试匹配尽可能少的字符。在<code>*</code>,<code>?</code>,<code>+</code>,<code>{m,n}</code>后面加上<code>?</code>，使贪婪变成非贪婪。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s=<span class="string">"This is a number 234-235-22-423"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r=re.match(<span class="string">".+(\d+-\d+-\d+-\d+)"</span>,s)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.group(<span class="number">1</span>)</span><br><span class="line"><span class="string">'4-235-22-423'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r=re.match(<span class="string">".+?(\d+-\d+-\d+-\d+)"</span>,s)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.group(<span class="number">1</span>)</span><br><span class="line"><span class="string">'234-235-22-423'</span></span><br></pre></td></tr></table></figure>
-<p>正则表达式模式中使用到通配字，那它在从左到右的顺序求值时，会尽量“抓取”满足匹配最长字符串</p>
-<p>解决方式：非贪婪操作符<code>?</code>，这个操作符要求正则匹配的越少越好。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r"aa(\d+)"</span>,<span class="string">"aa2343ddd"</span>).group(<span class="number">1</span>)</span><br><span class="line"><span class="string">'2343'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r"aa(\d+?)"</span>,<span class="string">"aa2343ddd"</span>).group(<span class="number">1</span>)</span><br><span class="line"><span class="string">'2'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r"aa(\d+)ddd"</span>,<span class="string">"aa2343ddd"</span>).group(<span class="number">1</span>) </span><br><span class="line"><span class="string">'2343'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r"aa(\d+?)ddd"</span>,<span class="string">"aa2343ddd"</span>).group(<span class="number">1</span>)</span><br><span class="line"><span class="string">'2343'</span></span><br></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Python里数量词默认是贪婪的，总是尝试匹配尽可能多的字符；非贪婪则相反，总是尝试匹配尽可能少的字符。在&lt;code&gt;*&lt;/code&gt;,&lt;code&gt;?&lt;/code&gt;,&lt;code&gt;+&lt;/code&gt;,&lt;code&gt;{m,n}&lt;/code&gt;后面加上&lt;code&gt;?&lt;/code&gt;，使贪
-    
-    </summary>
-    
-      <category term="Python" scheme="http://flamepeak.com/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://flamepeak.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux Volatility 安装与使用</title>
-    <link href="http://flamepeak.com/2020/03/11/Linux-Forensics-Volatility-install-usage-20200322/"/>
-    <id>http://flamepeak.com/2020/03/11/Linux-Forensics-Volatility-install-usage-20200322/</id>
-    <published>2020-03-11T08:08:12.000Z</published>
-    <updated>2020-03-11T18:55:54.171Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://github.com/volatilityfoundation/volatility" target="_blank" rel="noopener">github: volatility</a></p>
-<h3 id="安装">安装</h3>
-<h3 id="linux">Linux</h3>
-<p>在kali中，安装过程很简单</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install volatility</span><br></pre></td></tr></table></figure>
-<p>如果需要可以安装各种依赖，当然可以不安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Distorm3:牛逼的反编译库</span></span><br><span class="line">pip install distorm3</span><br><span class="line"></span><br><span class="line"><span class="comment">#Yara:恶意软件分类工具</span></span><br><span class="line">pip install yara</span><br><span class="line"></span><br><span class="line"><span class="comment">#PyCrypto:加密工具集</span></span><br><span class="line">pip install pycrypto</span><br><span class="line"></span><br><span class="line"><span class="comment">#PIL:图片处理库</span></span><br><span class="line">pip install pil</span><br><span class="line"></span><br><span class="line"><span class="comment">#OpenPyxl:读写excel文件</span></span><br><span class="line">pip install openpyxl</span><br><span class="line"></span><br><span class="line"><span class="comment">#ujson:JSON解析</span></span><br><span class="line">pip install ujson</span><br></pre></td></tr></table></figure>
-<h3 id="windows">Windows</h3>
-<p>直接至官网下载exe文件， <a href="https://www.volatilityfoundation.org/releases" target="_blank" rel="noopener">Volatility 2.6 (Windows 10 / Server 2016)</a></p>
-<h2 id="用法">用法</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">volatility -f mem.raw imageinfo   <span class="comment">#获取镜像系统信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pslist/pstree/psscan 进程信息</span></span><br><span class="line"><span class="comment"># pslist无法显示隐藏/终止进程。解决这个问题的插件是psscan，这个插件输出的内容会比pslist多得多。</span></span><br><span class="line"><span class="comment"># pstree同样也是扫描进程的，但是是以进程树的形式出现的。</span></span><br><span class="line"></span><br><span class="line">volatility -f mem.raw  --profile=Win7SP1x64 pslist <span class="comment"># 列出所有进程</span></span><br><span class="line">volatility -f mem.raw  --profile=WinSP1x64 cmdscan <span class="comment">#查看命令行进程中历史命令</span></span><br><span class="line">volatility -f mem.raw --profile=WinXPSP3x86 filescan | grep <span class="string">"flag"</span>  <span class="comment">#文件搜索，并过滤</span></span><br><span class="line">volatility -f mem.raw --profile=WinXPSP3x86 dumpfiles -Q 0x0000000001155f90 --dump-dir=./ <span class="comment">#导出指定偏移的文件</span></span><br><span class="line">volatility -f mem.raw  --profile=WinSP1x64 hivelist <span class="comment">#列举缓存在内存中的注册表</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看系统用户名</span></span><br><span class="line">volatility -f mem.raw --profile=Win7SP1x64 printkey -K <span class="string">"SAM\Domains\Account\Users\Names"</span></span><br><span class="line"><span class="comment">#查看网络连接</span></span><br><span class="line">volatility -f mem.raw --profile=Win7SP1x64 netscan</span><br></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://github.com/volatilityfoundation/volatility&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;github: volatility&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;安装&quot;&gt;安装&lt;/h
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://flamepeak.com/tags/Linux/"/>
     
   </entry>
   
