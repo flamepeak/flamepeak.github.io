@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="360浏览器已经把Chrome插件开发文档翻译的差不多了： English 中文 基本概念 一个应用（扩展）其实是压缩在一起的一组文件，包括HTML，CSS，Javascript脚本，图片文件，还有其它任何需要的文件。 应用（扩展）本质上来说就是web页面，它们可以使用所有的浏览器提供的API，从XMLHttpRequest到JSON到HTML5全都有。 应用（扩展）可以与Web页面交互，">
+    <meta name="description" content="360浏览器已经把Chrome插件开发文档翻译的差不多了： English 中文  基本概念 一个应用（扩展）其实是压缩在一起的一组文件，包括HTML，CSS，Javascript脚本，图片文件，还有其它任何需要的文件。 应用（扩展）本质上来说就是web页面，它们可以使用所有的浏览器提供的API，从XMLHttpRequest到JSON到HTML5全都有。 应用（扩展）可以与Web页面交互，或者通">
 <meta name="keywords" content="Chrome">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chrome 插件 开发学习">
 <meta property="og:url" content="http://flamepeak.com/2017/09/07/Chrome-app-develop-20170907/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="360浏览器已经把Chrome插件开发文档翻译的差不多了： English 中文 基本概念 一个应用（扩展）其实是压缩在一起的一组文件，包括HTML，CSS，Javascript脚本，图片文件，还有其它任何需要的文件。 应用（扩展）本质上来说就是web页面，它们可以使用所有的浏览器提供的API，从XMLHttpRequest到JSON到HTML5全都有。 应用（扩展）可以与Web页面交互，">
+<meta property="og:description" content="360浏览器已经把Chrome插件开发文档翻译的差不多了： English 中文  基本概念 一个应用（扩展）其实是压缩在一起的一组文件，包括HTML，CSS，Javascript脚本，图片文件，还有其它任何需要的文件。 应用（扩展）本质上来说就是web页面，它们可以使用所有的浏览器提供的API，从XMLHttpRequest到JSON到HTML5全都有。 应用（扩展）可以与Web页面交互，或者通">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-09-07T21:29:30.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chrome 插件 开发学习">
-<meta name="twitter:description" content="360浏览器已经把Chrome插件开发文档翻译的差不多了： English 中文 基本概念 一个应用（扩展）其实是压缩在一起的一组文件，包括HTML，CSS，Javascript脚本，图片文件，还有其它任何需要的文件。 应用（扩展）本质上来说就是web页面，它们可以使用所有的浏览器提供的API，从XMLHttpRequest到JSON到HTML5全都有。 应用（扩展）可以与Web页面交互，">
+<meta name="twitter:description" content="360浏览器已经把Chrome插件开发文档翻译的差不多了： English 中文  基本概念 一个应用（扩展）其实是压缩在一起的一组文件，包括HTML，CSS，Javascript脚本，图片文件，还有其它任何需要的文件。 应用（扩展）本质上来说就是web页面，它们可以使用所有的浏览器提供的API，从XMLHttpRequest到JSON到HTML5全都有。 应用（扩展）可以与Web页面交互，或者通">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -98,8 +98,9 @@
 	<div class="article-content">
 		
 		<p>360浏览器已经把Chrome插件开发文档翻译的差不多了：<br>
-<a href="https://developer.chrome.com/extensions" target="_blank" rel="noopener">English</a> <a href="http://open.chrome.360.cn/extension_dev/overview.html" target="_blank" rel="noopener">中文</a></p>
-<h3 id="基本概念">基本概念</h3>
+<a href="https://developer.chrome.com/extensions" target="_blank" rel="noopener">English</a><br>
+<a href="http://open.chrome.360.cn/extension_dev/overview.html" target="_blank" rel="noopener">中文</a></p>
+<h3 id="基本概念"><a class="markdownIt-Anchor" href="#基本概念"></a> 基本概念</h3>
 <p>一个应用（扩展）其实是压缩在一起的一组文件，包括HTML，CSS，Javascript脚本，图片文件，还有其它任何需要的文件。 应用（扩展）本质上来说就是web页面，它们可以使用所有的浏览器提供的API，从XMLHttpRequest到JSON到HTML5全都有。</p>
 <p>应用（扩展）可以与Web页面交互，或者通过<code>content script</code>或<code>cross-origin XMLHttpRequests</code>与服务器交互。应用（扩展）还可以访问浏览器提供的内部功能，例如标签或书签等。</p>
 <p><strong>每个应用（扩展）都应该包含下面的文件：</strong></p>
@@ -125,8 +126,8 @@ Content script可以获得浏览器所访问的web页面的详细信息，并可
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  // Required</span><br><span class="line">  "manifest_version": 2,</span><br><span class="line">  "name": "My Extension",</span><br><span class="line">  "version": "versionString",</span><br><span class="line"></span><br><span class="line">  // Recommended</span><br><span class="line">  "default_locale": "en",  //Specifies the subdirectory of _locales that contains the default strings for this extension. This field is required in extensions that have a _locales directory; it must be absent in extensions that have no _locales directory. </span><br><span class="line">  "description": "A plain text description",</span><br><span class="line">  "icons": &#123;...&#125;,  //One or more icons that represent the extension, app, or theme.</span><br><span class="line"></span><br><span class="line">  // Pick one (or none)</span><br><span class="line">  "browser_action": &#123;...&#125;, //Use browser actions to put icons in the main Google Chrome toolbar, to the right of the address bar. In addition to its icon, a browser action can also have a tooltip, a badge, and a popup.</span><br><span class="line">  "page_action": &#123;...&#125;,  //Use the chrome.pageAction API to put icons in the main Google Chrome toolbar, to the right of the address bar. Page actions represent actions that can be taken on the current page, but that aren't applicable to all pages. Page actions appear grayed out when inactive. </span><br><span class="line"></span><br><span class="line">  // Optional</span><br><span class="line">  "author": ...,</span><br><span class="line">  "automation": ...,</span><br><span class="line">  "background": &#123;  //A common need for extensions is to have a single long-running script to manage some task or state. Background pages to the rescue. It exists for the lifetime of your extension, and only one instance of it at a time is active.</span><br><span class="line">    // Recommended</span><br><span class="line">    "persistent": false</span><br><span class="line">  &#125;,</span><br><span class="line">  "background_page": ...,</span><br><span class="line">  "chrome_settings_overrides": &#123;...&#125;,</span><br><span class="line">  "chrome_ui_overrides": &#123;</span><br><span class="line">    "bookmarks_ui": &#123;</span><br><span class="line">      "remove_bookmark_shortcut": true,</span><br><span class="line">      "remove_button": true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  "chrome_url_overrides": &#123;...&#125;,</span><br><span class="line">  "commands": &#123;...&#125;,</span><br><span class="line">  "content_capabilities": ...,</span><br><span class="line">  "content_scripts": [&#123;...&#125;],</span><br><span class="line">  "content_security_policy": "policyString",</span><br><span class="line">  "converted_from_user_script": ...,</span><br><span class="line">  "current_locale": ...,</span><br><span class="line">  "devtools_page": "devtools.html",</span><br><span class="line">  "event_rules": [&#123;...&#125;],</span><br><span class="line">  "externally_connectable": &#123;</span><br><span class="line">    "matches": ["*://*.example.com/*"]</span><br><span class="line">  &#125;,</span><br><span class="line">  "file_browser_handlers": [...],</span><br><span class="line">  "file_system_provider_capabilities": &#123;</span><br><span class="line">    "configurable": true,</span><br><span class="line">    "multiple_mounts": true,</span><br><span class="line">    "source": "network"</span><br><span class="line">  &#125;,</span><br><span class="line">  "homepage_url": "http://path/to/homepage",</span><br><span class="line">  "import": [&#123;"id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"&#125;],</span><br><span class="line">  "incognito": "spanning, split, or not_allowed",</span><br><span class="line">  "input_components": ...,</span><br><span class="line">  "key": "publicKey",</span><br><span class="line">  "minimum_chrome_version": "versionString",</span><br><span class="line">  "nacl_modules": [...],</span><br><span class="line">  "oauth2": ...,</span><br><span class="line">  "offline_enabled": true,</span><br><span class="line">  "omnibox": &#123;</span><br><span class="line">    "keyword": "aString"</span><br><span class="line">  &#125;,</span><br><span class="line">  "optional_permissions": ["tabs"],</span><br><span class="line">  "options_page": "options.html",</span><br><span class="line">  "options_ui": &#123;</span><br><span class="line">    "chrome_style": true,</span><br><span class="line">    "page": "options.html"</span><br><span class="line">  &#125;,</span><br><span class="line">  "permissions": ["tabs"],  //To use most chrome.* APIs, your extension or app must declare its intent in the "permissions" field of the manifest.</span><br><span class="line">  "platforms": ...,</span><br><span class="line">  "plugins": [...],</span><br><span class="line">  "requirements": &#123;...&#125;,</span><br><span class="line">  "sandbox": [...],</span><br><span class="line">  "short_name": "Short Name",</span><br><span class="line">  "signature": ...,</span><br><span class="line">  "spellcheck": ...,</span><br><span class="line">  "storage": &#123;</span><br><span class="line">    "managed_schema": "schema.json"</span><br><span class="line">  &#125;,</span><br><span class="line">  "system_indicator": ...,</span><br><span class="line">  "tts_engine": &#123;...&#125;,</span><br><span class="line">  "update_url": "http://path/to/updateInfo.xml",</span><br><span class="line">  "version_name": "aString",</span><br><span class="line">  "web_accessible_resources": [...]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>popup.html</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Getting Started Extension's Popup<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      body &#123;</span></span><br><span class="line"><span class="undefined">        min-width: 357px;</span></span><br><span class="line"><span class="undefined">        overflow-x: hidden;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">      img &#123;</span></span><br><span class="line"><span class="undefined">        margin: 5px;</span></span><br><span class="line"><span class="undefined">        border: 2px solid black;</span></span><br><span class="line"><span class="undefined">        vertical-align: middle;</span></span><br><span class="line"><span class="undefined">        width: 75px;</span></span><br><span class="line"><span class="undefined">        height: 75px;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">      - JavaScript and HTML must be in separate files: see our Content Security</span></span><br><span class="line"><span class="comment">      - Policy documentation[1] for details and explanation.</span></span><br><span class="line"><span class="comment">      -</span></span><br><span class="line"><span class="comment">      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html</span></span><br><span class="line"><span class="comment">     --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"popup.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="manifest-version">Manifest Version</h3>
-<p>Error:The 'manifest_version' key must be present and set to 2 (without quotes)</p>
+<h3 id="manifest-version"><a class="markdownIt-Anchor" href="#manifest-version"></a> Manifest Version</h3>
+<p>Error:The ‘manifest_version’ key must be present and set to 2 (without quotes)</p>
 <p>官方文档这样说： Developers should specify which version of the manifest specification their package targets by setting a <code>manifest_version</code> key in their manifests.</p>
 <p>Developers should currently specify <code>'manifest_version': 2:</code></p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  ...,</span><br><span class="line">  "manifest_version": 2,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -192,7 +193,7 @@ Content script可以获得浏览器所访问的web页面的详细信息，并可
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#manifest-version"><span class="toc-number">2.</span> <span class="toc-text">Manifest Version</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念"><span class="toc-number">1.</span> <span class="toc-text"> 基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#manifest-version"><span class="toc-number">2.</span> <span class="toc-text"> Manifest Version</span></a></li></ol>
  
   </div>
 
@@ -290,11 +291,11 @@ Content script可以获得浏览器所访问的web页面的详细信息，并可
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -314,7 +315,7 @@ Content script可以获得浏览器所访问的web页面的详细信息，并可
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -322,11 +323,15 @@ Content script可以获得浏览器所访问的web页面的详细信息，并可
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -334,15 +339,11 @@ Content script可以获得浏览器所访问的web页面的详细信息，并可
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

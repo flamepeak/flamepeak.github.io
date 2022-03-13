@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="jQuery: write less, do more. jQuery: API jQuery: Learning Center jQuery: Try jQuery API 3.1.0 速查表 jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，">
+    <meta name="description" content="jQuery: write less, do more. jQuery: API jQuery: Learning Center jQuery: Try jQuery API 3.1.0 速查表 jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do">
 <meta name="keywords" content="JavaScript,HTML,jQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery Tips">
 <meta property="og:url" content="http://flamepeak.com/2017/01/31/jQuery-most-popular-JavaScript-tool-20170131/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="jQuery: write less, do more. jQuery: API jQuery: Learning Center jQuery: Try jQuery API 3.1.0 速查表 jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，">
+<meta property="og:description" content="jQuery: write less, do more. jQuery: API jQuery: Learning Center jQuery: Try jQuery API 3.1.0 速查表 jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T09:51:59.278Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery Tips">
-<meta name="twitter:description" content="jQuery: write less, do more. jQuery: API jQuery: Learning Center jQuery: Try jQuery API 3.1.0 速查表 jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，">
+<meta name="twitter:description" content="jQuery: write less, do more. jQuery: API jQuery: Learning Center jQuery: Try jQuery API 3.1.0 速查表 jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,31 +97,86 @@
 </header>
 	<div class="article-content">
 		
-		<p><a href="http://jquery.com/" target="_blank" rel="noopener">jQuery: write less, do more.</a> <a href="https://api.jquery.com/" target="_blank" rel="noopener">jQuery: API</a> <a href="https://learn.jquery.com/" target="_blank" rel="noopener">jQuery: Learning Center</a> <a href="http://try.jquery.com/" target="_blank" rel="noopener">jQuery: Try</a></p>
+		<p><a href="http://jquery.com/" target="_blank" rel="noopener">jQuery: write less, do more.</a><br>
+<a href="https://api.jquery.com/" target="_blank" rel="noopener">jQuery: API</a><br>
+<a href="https://learn.jquery.com/" target="_blank" rel="noopener">jQuery: Learning Center</a><br>
+<a href="http://try.jquery.com/" target="_blank" rel="noopener">jQuery: Try</a></p>
 <p><a href="http://jquery.cuishifeng.cn/" target="_blank" rel="noopener">jQuery API 3.1.0 速查表</a></p>
 <p>jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。</p>
 <p>jQuery的核心特性可以总结为：具有独特的链式语法和短小清晰的多功能接口；具有高效灵活的css选择器，并且可对CSS选择器进行扩展；拥有便捷的插件扩展机制和丰富的插件。</p>
-<h2 id="basic">Basic</h2>
+<h2 id="basic"><a class="markdownIt-Anchor" href="#basic"></a> Basic</h2>
 <ul>
-<li><p>Script tags and document ready <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>The important thing to know is that code you put inside this <code>function</code> will run as soon as your browser has loaded your page. This is important because without your <code>document ready function</code>, your code may run before your HTML is rendered, which would cause bugs.</p></li>
-<li><p>All jQuery functions start with a <code>$</code>, usually referred to as a <code>dollar sign operator</code>, or as <code>bling</code>. jQuery often selects an HTML element with a <code>selector</code>, then does something to that element.</p></li>
-<li><p><code>.addClass()</code> function, which allows you to add classes to elements. 为每个匹配的元素添加指定的类名。</p></li>
-<li><p><code>addClass()</code>: 从所有匹配的元素中删除全部或者指定的类。</p></li>
-<li><p>jQuery has a function called <code>.css()</code> that allows you to change the CSS of an element. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">"#target1"</span>).css(<span class="string">"color"</span>, <span class="string">"blue"</span>);</span><br></pre></td></tr></table></figure></p>
+<li>
+<p>Script tags and document ready</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>The important thing to know is that code you put inside this <code>function</code> will run as soon as your browser has loaded your page.<br>
+This is important because without your <code>document ready function</code>, your code may run before your HTML is rendered, which would cause bugs.</p>
+</li>
+<li>
+<p>All jQuery functions start with a <code>$</code>, usually referred to as a <code>dollar sign operator</code>, or as <code>bling</code>.<br>
+jQuery often selects an HTML element with a <code>selector</code>, then does something to that element.</p>
+</li>
+<li>
+<p><code>.addClass()</code> function, which allows you to add classes to elements.<br>
+为每个匹配的元素添加指定的类名。</p>
+</li>
+<li>
+<p><code>addClass()</code>: 从所有匹配的元素中删除全部或者指定的类。</p>
+</li>
+<li>
+<p>jQuery has a function called <code>.css()</code> that allows you to change the CSS of an element.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">"#target1"</span>).css(<span class="string">"color"</span>, <span class="string">"blue"</span>);</span><br></pre></td></tr></table></figure>
 <p>This is slightly different from a normal CSS declaration, because the CSS property and its value are in quotes, and separated with a comma instead of a colon.</p>
-<p><code>css(name|pro|[,val|fn])</code>: 访问匹配元素的样式属性。</p></li>
-<li><p>You can also change the non-CSS properties of HTML elements with jQuery. For example, you can disable buttons. When you disable a button, it will become grayed-out and can no longer be clicked. jQuery has a function called <code>.prop()</code> that allows you to adjust the properties of elements.</p>
-<p><code>prop(name|properties|key,value|fn)</code>: 获取在匹配的元素集中的第一个元素的属性值。</p></li>
-<li><p>jQuery has a function called <code>.html()</code> that lets you edit HTML tags and text within an element. <code>html([val|fn])</code>: 取得第一个匹配元素的html内容。这个函数不能用于XML文档。但可以用于XHTML文档。 在一个 HTML 文档中, 我们可以使用 .html() 方法来获取任意一个元素的内容。 如果选择器匹配多于一个的元素，那么只有第一个匹配元素的 HTML 内容会被获取。</p>
-<p>jQuery also has a similar function called <code>.text()</code> that only alters text without adding tags. In other words, this function will not evaluate any HTML tags passed to it, but will instead treat it as the text you want to replace the existing content with. <code>text([val|fn])</code>: 取得所有匹配元素的内容。结果是由所有匹配元素包含的文本内容组合起来的文本。这个方法对HTML和XML文档都有效。</p></li>
-<li><p>jQuery has a function called <code>.remove()</code> that will remove an HTML element entirely. <code>remove([expr])</code>: 从DOM中删除所有匹配的元素。</p></li>
-<li><p><strong>Use appendTo to Move Elements</strong> jQuery has a function called <code>appendTo()</code> that allows you to select HTML elements and append them to another element. <code>appendTo(content)</code>: 把所有匹配的元素追加到另一个指定的元素元素集合中。实际上，使用这个方法是颠倒了常规的<code>$(A).append(B)</code>的操作，即不是把B追加到A中，而是把A追加到B中。 用于内部插入的函数还有：<code>append()、prepend()、prependTo()</code></p></li>
-<li><p><strong>Clone an Element Using jQuery</strong> jQuery has a function called <code>clone()</code> that makes a copy of an element. <code>clone([Even[,deepEven]])</code>: 克隆匹配的DOM元素并且选中这些克隆的副本。在想把DOM文档中元素的副本添加到其他位置时这个函数非常有用。 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">"#target2"</span>).clone().appendTo(<span class="string">"#right-well"</span>);</span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Target the Parent of an Element</strong> Every HTML element has a <code>parent</code> element from which it <code>inherits</code> properties. jQuery has a function called <code>parent()</code> that allows you to access the parent of whichever element you've selected.</p></li>
-<li><p><strong>Target the Children of an Element</strong> Many HTML elements have <code>children</code> which <code>inherit</code> their properties from their parent HTML elements. jQuery has a function called <code>children()</code> that allows you to access the children of whichever element you've selected.</p></li>
-<li><p><strong>Target a Specific Child of an Element</strong> jQuery uses CSS Selectors to target elements. <code>target:nth-child(n)</code> css selector allows you to select all the nth elements with the target class or element type. <code>:nth-child</code>: 匹配其父元素下的第N个子或奇偶元素,<code>:nth-child</code>从1开始的</p></li>
-<li><p><strong>Target Even Numbered Elements</strong> <code>:odd</code>: 匹配所有索引值为奇数的元素，从 0 开始计数 <code>:even</code>: 匹配所有索引值为偶数的元素，从 0 开始计数</p></li>
+<p><code>css(name|pro|[,val|fn])</code>: 访问匹配元素的样式属性。</p>
+</li>
+<li>
+<p>You can also change the non-CSS properties of HTML elements with jQuery. For example, you can disable buttons.  When you disable a button, it will become grayed-out and can no longer be clicked.<br>
+jQuery has a function called <code>.prop()</code> that allows you to adjust the properties of elements.</p>
+<p><code>prop(name|properties|key,value|fn)</code>: 获取在匹配的元素集中的第一个元素的属性值。</p>
+</li>
+<li>
+<p>jQuery has a function called <code>.html()</code> that lets you edit HTML tags and text within an element.<br>
+<code>html([val|fn])</code>: 取得第一个匹配元素的html内容。这个函数不能用于XML文档。但可以用于XHTML文档。<br>
+在一个 HTML 文档中, 我们可以使用 .html() 方法来获取任意一个元素的内容。 如果选择器匹配多于一个的元素，那么只有第一个匹配元素的 HTML 内容会被获取。</p>
+<p>jQuery also has a similar function called <code>.text()</code> that only alters text without adding tags. In other words, this function will not evaluate any HTML tags passed to it, but will instead treat it as the text you want to replace the existing content with.<br>
+<code>text([val|fn])</code>: 取得所有匹配元素的内容。结果是由所有匹配元素包含的文本内容组合起来的文本。这个方法对HTML和XML文档都有效。</p>
+</li>
+<li>
+<p>jQuery has a function called <code>.remove()</code> that will remove an HTML element entirely.<br>
+<code>remove([expr])</code>: 从DOM中删除所有匹配的元素。</p>
+</li>
+<li>
+<p><strong>Use appendTo to Move Elements</strong><br>
+jQuery has a function called <code>appendTo()</code> that allows you to select HTML elements and append them to another element.<br>
+<code>appendTo(content)</code>: 把所有匹配的元素追加到另一个指定的元素元素集合中。实际上，使用这个方法是颠倒了常规的<code>$(A).append(B)</code>的操作，即不是把B追加到A中，而是把A追加到B中。<br>
+用于内部插入的函数还有：<code>append()、prepend()、prependTo()</code></p>
+</li>
+<li>
+<p><strong>Clone an Element Using jQuery</strong><br>
+jQuery has a function called <code>clone()</code> that makes a copy of an element.<br>
+<code>clone([Even[,deepEven]])</code>: 克隆匹配的DOM元素并且选中这些克隆的副本。在想把DOM文档中元素的副本添加到其他位置时这个函数非常有用。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">"#target2"</span>).clone().appendTo(<span class="string">"#right-well"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Target the Parent of an Element</strong><br>
+Every HTML element has a <code>parent</code> element from which it <code>inherits</code> properties.<br>
+jQuery has a function called <code>parent()</code> that allows you to access the parent of whichever element you’ve selected.</p>
+</li>
+<li>
+<p><strong>Target the Children of an Element</strong><br>
+Many HTML elements have <code>children</code> which <code>inherit</code> their properties from their parent HTML elements.<br>
+jQuery has a function called <code>children()</code> that allows you to access the children of whichever element you’ve selected.</p>
+</li>
+<li>
+<p><strong>Target a Specific Child of an Element</strong><br>
+jQuery uses CSS Selectors to target elements. <code>target:nth-child(n)</code> css selector allows you to select all the nth elements with the target class or element type.<br>
+<code>:nth-child</code>: 匹配其父元素下的第N个子或奇偶元素,<code>:nth-child</code>从1开始的</p>
+</li>
+<li>
+<p><strong>Target Even Numbered Elements</strong><br>
+<code>:odd</code>: 匹配所有索引值为奇数的元素，从 0 开始计数<br>
+<code>:even</code>: 匹配所有索引值为偶数的元素，从 0 开始计数</p>
+</li>
 </ul>
   
 	</div>
@@ -185,7 +240,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#basic"><span class="toc-number">1.</span> <span class="toc-text">Basic</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#basic"><span class="toc-number">1.</span> <span class="toc-text"> Basic</span></a></li></ol>
  
   </div>
 
@@ -283,11 +338,11 @@
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -307,7 +362,7 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -315,11 +370,15 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -327,15 +386,11 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

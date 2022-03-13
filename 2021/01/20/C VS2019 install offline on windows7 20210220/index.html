@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="必要设置 WIN7安装VS2019需要更新两个补丁才能顺利安装，否则会闪退。 KB4474419 KB4490628 补丁包下载地址： https://www.catalog.update.microsoft.com/Search.aspx?q=KB4490628 https://www.catalog.update.microsoft.com/Search.aspx?q=KB44">
+    <meta name="description" content="必要设置 WIN7安装VS2019需要更新两个补丁才能顺利安装，否则会闪退。 KB4474419 KB4490628 补丁包下载地址： https://www.catalog.update.microsoft.com/Search.aspx?q=KB4490628 https://www.catalog.update.microsoft.com/Search.aspx?q=KB4474419">
 <meta name="keywords" content="windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VS2019 在Windows 7 系统离线安装">
 <meta property="og:url" content="http://flamepeak.com/2021/01/20/C VS2019 install offline on windows7 20210220/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="必要设置 WIN7安装VS2019需要更新两个补丁才能顺利安装，否则会闪退。 KB4474419 KB4490628 补丁包下载地址： https://www.catalog.update.microsoft.com/Search.aspx?q=KB4490628 https://www.catalog.update.microsoft.com/Search.aspx?q=KB44">
+<meta property="og:description" content="必要设置 WIN7安装VS2019需要更新两个补丁才能顺利安装，否则会闪退。 KB4474419 KB4490628 补丁包下载地址： https://www.catalog.update.microsoft.com/Search.aspx?q=KB4490628 https://www.catalog.update.microsoft.com/Search.aspx?q=KB4474419">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2021-01-20T00:18:34.200Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VS2019 在Windows 7 系统离线安装">
-<meta name="twitter:description" content="必要设置 WIN7安装VS2019需要更新两个补丁才能顺利安装，否则会闪退。 KB4474419 KB4490628 补丁包下载地址： https://www.catalog.update.microsoft.com/Search.aspx?q=KB4490628 https://www.catalog.update.microsoft.com/Search.aspx?q=KB44">
+<meta name="twitter:description" content="必要设置 WIN7安装VS2019需要更新两个补丁才能顺利安装，否则会闪退。 KB4474419 KB4490628 补丁包下载地址： https://www.catalog.update.microsoft.com/Search.aspx?q=KB4490628 https://www.catalog.update.microsoft.com/Search.aspx?q=KB4474419">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -98,28 +98,28 @@
 	<div class="article-content">
 		
 		<hr>
-<h3 id="必要设置">必要设置</h3>
+<h3 id="必要设置"><a class="markdownIt-Anchor" href="#必要设置"></a> 必要设置</h3>
 <p>WIN7安装VS2019需要更新两个补丁才能顺利安装，否则会闪退。</p>
 <p>KB4474419</p>
 <p>KB4490628</p>
 <p>补丁包下载地址：</p>
-<p>https://www.catalog.update.microsoft.com/Search.aspx?q=KB4490628</p>
-<p>https://www.catalog.update.microsoft.com/Search.aspx?q=KB4474419</p>
+<p><a href="https://www.catalog.update.microsoft.com/Search.aspx?q=KB4490628" target="_blank" rel="noopener">https://www.catalog.update.microsoft.com/Search.aspx?q=KB4490628</a></p>
+<p><a href="https://www.catalog.update.microsoft.com/Search.aspx?q=KB4474419" target="_blank" rel="noopener">https://www.catalog.update.microsoft.com/Search.aspx?q=KB4474419</a></p>
 <p>根据自己系统版本选择对应文件下载即可</p>
-<h3 id="下载资源">下载资源</h3>
+<h3 id="下载资源"><a class="markdownIt-Anchor" href="#下载资源"></a> 下载资源</h3>
 <p>首先，在可以上网的电脑上，下载Visual Studio web installer，</p>
-<p>下载地址：https://visualstudio.microsoft.com/downloads</p>
+<p>下载地址：<a href="https://visualstudio.microsoft.com/downloads" target="_blank" rel="noopener">https://visualstudio.microsoft.com/downloads</a></p>
 <p>如果是<code>C++</code>开发环境：</p>
 <p><code>vs_community.exe --layout c:\vslayout --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --lang en-US</code></p>
-<p>如果是<code>.NET web  .NET desktop</code>开发环境：</p>
+<p>如果是<code>.NET web .NET desktop</code>开发环境：</p>
 <p><code>vs_community.exe --layout c:\vslayout --add Microsoft.VisualStudio.Workload.ManagedDesktop --add Microsoft.VisualStudio.Workload.NetWeb --add Component.GitHub.VisualStudio --includeOptional --lang en-US</code></p>
 <p>这样，安装文件就下载到<code>C:\vslayout</code></p>
 <p>将<code>vslayout</code>文件夹拷贝到离线主机的C盘根目录</p>
-<h3 id="离线安装">离线安装</h3>
+<h3 id="离线安装"><a class="markdownIt-Anchor" href="#离线安装"></a> 离线安装</h3>
 <p>然后运行下面的cmd命令：</p>
 <p>如果是<code>C++</code>开发环境：</p>
 <p><code>c:\vslayout\vs_community.exe --noweb --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended</code></p>
-<p>如果是<code>.NET web  .NET desktop</code>开发环境：</p>
+<p>如果是<code>.NET web .NET desktop</code>开发环境：</p>
 <p><code>c:\vslayout\vs_community.exe --noweb --add Microsoft.VisualStudio.Workload.ManagedDesktop --add Microsoft.VisualStudio.Workload.NetWeb --add Component.GitHub.VisualStudio --includeOptional</code></p>
 <p>更多命令参考：</p>
 <p><a href="https://docs.microsoft.com/en-us/visualstudio/install/create-an-offline-installation-of-visual-studio?view=vs-2019#use-the-command-line-to-create-a-local-cache" target="_blank" rel="noopener">Create an offline installation of Visual Studio</a></p>
@@ -185,7 +185,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#必要设置"><span class="toc-number">1.</span> <span class="toc-text">必要设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载资源"><span class="toc-number">2.</span> <span class="toc-text">下载资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离线安装"><span class="toc-number">3.</span> <span class="toc-text">离线安装</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#必要设置"><span class="toc-number">1.</span> <span class="toc-text"> 必要设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载资源"><span class="toc-number">2.</span> <span class="toc-text"> 下载资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离线安装"><span class="toc-number">3.</span> <span class="toc-text"> 离线安装</span></a></li></ol>
  
   </div>
 
@@ -283,11 +283,11 @@
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -307,7 +307,7 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -315,11 +315,15 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -327,15 +331,11 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

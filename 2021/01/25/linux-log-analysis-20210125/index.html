@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Linux is very good at keeping logs of everything that goes on your system. Quite naturally, it also stores logs about login and login attempts. The login information is stored in three places:  /var">
+    <meta name="description" content="Linux is very good at keeping logs of everything that goes on your system. Quite naturally, it also stores logs about login and login attempts. The login information is stored in three places:  /var/l">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux登录日志分析">
 <meta property="og:url" content="http://flamepeak.com/2021/01/25/linux-log-analysis-20210125/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Linux is very good at keeping logs of everything that goes on your system. Quite naturally, it also stores logs about login and login attempts. The login information is stored in three places:  /var">
+<meta property="og:description" content="Linux is very good at keeping logs of everything that goes on your system. Quite naturally, it also stores logs about login and login attempts. The login information is stored in three places:  /var/l">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2021-03-05T04:28:17.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux登录日志分析">
-<meta name="twitter:description" content="Linux is very good at keeping logs of everything that goes on your system. Quite naturally, it also stores logs about login and login attempts. The login information is stored in three places:  /var">
+<meta name="twitter:description" content="Linux is very good at keeping logs of everything that goes on your system. Quite naturally, it also stores logs about login and login attempts. The login information is stored in three places:  /var/l">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -107,19 +107,21 @@
 <p>You may see <code>pts</code> and <code>tty</code> when you use the who command, do you know what it is? how they are different?</p>
 <ul>
 <li>A tty is a native terminal device (It could be a server/system console).</li>
-<li>A pty (pseudo terminal device) is a terminal device which is emulated by an other program such as putty, xterm or screen, etc,. pts/0 means the server was accessed via SSH.</li>
+<li>A pty (pseudo terminal device) is a terminal device which is emulated by an other program such as putty, xterm or screen, etc,.<br>
+pts/0 means the server was accessed via SSH.</li>
 </ul>
-<h4 id="last">last</h4>
+<h4 id="last"><a class="markdownIt-Anchor" href="#last"></a> last</h4>
 <p>The last command fetch the details from the <code>/var/log/wtmp</code> file and it displays the list of users logged-in and logged-out from system.</p>
 <p>If the file has more data then use <code>less</code> or <code>more</code> command to view the information page wise.</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># last -15</span><br><span class="line"></span><br><span class="line">daygeek  pts/0        192.168.1.6      Wed Apr  3 00:02   still logged in   </span><br><span class="line">reboot   system boot  3.10.0-957.el7.x Tue Apr  2 23:50 - 00:03  (00:13)    </span><br><span class="line">daygeek  pts/0        192.168.1.6      Tue Apr  2 06:02 - 06:02  (00:00)    </span><br><span class="line">reboot   system boot  3.10.0-957.el7.x Tue Apr  2 06:00 - 00:03  (18:03)</span><br></pre></td></tr></table></figure></p>
-<p>Check Certain user <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">last &lt;username&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="lastb">lastb</h4>
-<p>View all the bad login attempts<br>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">last -f /var/log/btmp</span><br></pre></td></tr></table></figure></p>
-<p>or you can use the lastb command:<br>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lastb</span><br></pre></td></tr></table></figure></p>
-<h3 id="一linux痕迹清理">一：Linux痕迹清理</h3>
+   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># last -15</span><br><span class="line"></span><br><span class="line">daygeek  pts/0        192.168.1.6      Wed Apr  3 00:02   still logged in   </span><br><span class="line">reboot   system boot  3.10.0-957.el7.x Tue Apr  2 23:50 - 00:03  (00:13)    </span><br><span class="line">daygeek  pts/0        192.168.1.6      Tue Apr  2 06:02 - 06:02  (00:00)    </span><br><span class="line">reboot   system boot  3.10.0-957.el7.x Tue Apr  2 06:00 - 00:03  (18:03)</span><br></pre></td></tr></table></figure>
+<p>Check Certain user</p>
+   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">last &lt;username&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="lastb"><a class="markdownIt-Anchor" href="#lastb"></a> lastb</h4>
+<p>View all the bad login attempts</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">last -f /var/log/btmp</span><br></pre></td></tr></table></figure>
+<p>or you can use the lastb command:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lastb</span><br></pre></td></tr></table></figure>
+<h3 id="一linux痕迹清理"><a class="markdownIt-Anchor" href="#一linux痕迹清理"></a> 一：Linux痕迹清理</h3>
 <p>清理命令记录：</p>
 <p>(1)仅清理当前用户： <code>history -c</code></p>
 <p>或者，编辑history记录文件，删除部分不想被保存的历史命令。</p>
@@ -128,21 +130,27 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">kill -9 $$</span><br></pre></td></tr></table></figure>
 <p>(2)使系统不再保存命令记录：<code>vi /etc/profile</code>，找到HISTSIZE这个值，修改为0</p>
 <p>(3)删除记录，至少删除下面几项日志</p>
-<p>删除登录失败记录：<code>echo &gt; /var/log/btmp</code> 删除登录成功记录：<code>echo &gt; /var/log/wtmp</code> （此时执行last命令就会发现没有记录） 删除日志记录：<code>echo &gt; /var/log/secure</code></p>
+<p>删除登录失败记录：<code>echo &gt; /var/log/btmp</code><br>
+删除登录成功记录：<code>echo &gt; /var/log/wtmp</code> （此时执行last命令就会发现没有记录）<br>
+删除日志记录：<code>echo &gt; /var/log/secure</code></p>
 <p>删除：<code>/var/log/message</code></p>
 <p>删除：<code>/var/log/lastlog</code></p>
 <p>日志说明：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/var/log/message 系统启动后的信息和错误日志，是Red Hat Linux中最常用的日志之一</span><br><span class="line">/var/log/secure 与安全相关的日志信息</span><br><span class="line">/var/log/maillog 与邮件相关的日志信息</span><br><span class="line">/var/log/cron 与定时任务相关的日志信息</span><br><span class="line">/var/log/spooler 与UUCP和news设备相关的日志信息</span><br><span class="line">/var/log/boot.log 守护进程启动和停止相关的日志消息</span><br><span class="line">/var/log/btmp – 记录所有失败登录信息  命令:lastb</span><br></pre></td></tr></table></figure>
-<h3 id="二linux文件安全删除工具">二、Linux文件安全删除工具</h3>
-<p>（1）shred命令 实现安全的从硬盘上擦除数据，默认覆盖3次，通过 -n指定数据覆盖次数。</p>
+<h3 id="二-linux文件安全删除工具"><a class="markdownIt-Anchor" href="#二-linux文件安全删除工具"></a> 二、Linux文件安全删除工具</h3>
+<p>（1）shred命令<br>
+实现安全的从硬盘上擦除数据，默认覆盖3次，通过 -n指定数据覆盖次数。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@centos]# shred -f -u -z -v -n 8 1.txt </span><br><span class="line">shred: 1.txt: pass 1/9 (random)...</span><br><span class="line">shred: 1.txt: pass 2/9 (ffffff)...</span><br><span class="line">shred: 1.txt: pass 3/9 (aaaaaa)...</span><br><span class="line">shred: 1.txt: pass 4/9 (random)...</span><br><span class="line">shred: 1.txt: pass 5/9 (000000)...</span><br><span class="line">shred: 1.txt: pass 6/9 (random)...</span><br><span class="line">shred: 1.txt: pass 7/9 (555555)...</span><br><span class="line">shred: 1.txt: pass 8/9 (random)...</span><br><span class="line">shred: 1.txt: pass 9/9 (000000)...</span><br><span class="line">shred: 1.txt: removing</span><br><span class="line">shred: 1.txt: renamed to 00000</span><br><span class="line">shred: 00000: renamed to 0000</span><br><span class="line">shred: 0000: renamed to 000</span><br><span class="line">shred: 000: renamed to 00</span><br><span class="line">shred: 00: renamed to 0</span><br><span class="line">shred: 1.txt: removed</span><br></pre></td></tr></table></figure>
-<p>（2）dd命令 可用于安全地清除硬盘或者分区的内容。</p>
+<p>（2）dd命令<br>
+可用于安全地清除硬盘或者分区的内容。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dd if=/dev/zero of=要删除的文件 bs=大小 count=写入的次数</span><br></pre></td></tr></table></figure>
-<p>（3）wipe Wipe 使用特殊的模式来重复地写文件，从磁性介质中安全擦除文件。</p>
+<p>（3）wipe<br>
+Wipe 使用特殊的模式来重复地写文件，从磁性介质中安全擦除文件。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wipe filename</span><br></pre></td></tr></table></figure>
-<p>（4）Secure-Delete Secure-Delete 是一组工具集合，提供srm、smem、sfill、sswap，4个安全删除文件的命令行工具。</p>
+<p>（4）Secure-Delete<br>
+Secure-Delete 是一组工具集合，提供srm、smem、sfill、sswap，4个安全删除文件的命令行工具。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">srm filename</span><br><span class="line">sfill filename</span><br><span class="line">sswap /dev/sda1</span><br><span class="line">smem</span><br></pre></td></tr></table></figure>
-<h3 id="三隐藏远程ssh登陆记录">三、隐藏远程SSH登陆记录</h3>
+<h3 id="三-隐藏远程ssh登陆记录"><a class="markdownIt-Anchor" href="#三-隐藏远程ssh登陆记录"></a> 三、隐藏远程SSH登陆记录</h3>
 <p>隐身登录系统，不会被w、who、last等指令检测到。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T root@192.168.0.1 /bin/bash -i</span><br></pre></td></tr></table></figure>
 <p>不记录ssh公钥在本地.ssh目录中</p>
@@ -209,7 +217,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#last"><span class="toc-number">1.</span> <span class="toc-text">last</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lastb"><span class="toc-number">2.</span> <span class="toc-text">lastb</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一linux痕迹清理"><span class="toc-number"></span> <span class="toc-text">一：Linux痕迹清理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二linux文件安全删除工具"><span class="toc-number"></span> <span class="toc-text">二、Linux文件安全删除工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三隐藏远程ssh登陆记录"><span class="toc-number"></span> <span class="toc-text">三、隐藏远程SSH登陆记录</span></a>
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#last"><span class="toc-number">1.</span> <span class="toc-text"> last</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lastb"><span class="toc-number">2.</span> <span class="toc-text"> lastb</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一linux痕迹清理"><span class="toc-number"></span> <span class="toc-text"> 一：Linux痕迹清理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-linux文件安全删除工具"><span class="toc-number"></span> <span class="toc-text"> 二、Linux文件安全删除工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-隐藏远程ssh登陆记录"><span class="toc-number"></span> <span class="toc-text"> 三、隐藏远程SSH登陆记录</span></a>
  
   </div>
 
@@ -307,11 +315,11 @@
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -331,7 +339,7 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -339,11 +347,15 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -351,15 +363,11 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

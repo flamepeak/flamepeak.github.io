@@ -13,13 +13,13 @@
     
 
     
-    <meta name="description" content="本文分为四个部分：  单向散列函数 消息认证码 数字签名 证书   一、单向散列函数 单向散列函数也称为消息摘要函数(message digest function)、哈希函数或者杂凑函数; 输入单向散列函数的消息也称为原像(pre-image); 单向散列函数的散列值也称为消息摘要(message digest)或者指纹(fingerprint); 单向散列函数(one-way">
+    <meta name="description" content="本文分为四个部分：  单向散列函数 消息认证码 数字签名 证书    一、单向散列函数 单向散列函数也称为消息摘要函数(message digest function)、哈希函数或者杂凑函数; 输入单向散列函数的消息也称为原像(pre-image); 单向散列函数的散列值也称为消息摘要(message digest)或者指纹(fingerprint); 单向散列函数(one-way hash fu">
 <meta name="keywords" content="笔记,cryptography">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图解密码技术 读书笔记:认证">
 <meta property="og:url" content="http://flamepeak.com/2016/11/23/tu-jie-mi-ma-ji-shu-authentication20161123/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="本文分为四个部分：  单向散列函数 消息认证码 数字签名 证书   一、单向散列函数 单向散列函数也称为消息摘要函数(message digest function)、哈希函数或者杂凑函数; 输入单向散列函数的消息也称为原像(pre-image); 单向散列函数的散列值也称为消息摘要(message digest)或者指纹(fingerprint); 单向散列函数(one-way">
+<meta property="og:description" content="本文分为四个部分：  单向散列函数 消息认证码 数字签名 证书    一、单向散列函数 单向散列函数也称为消息摘要函数(message digest function)、哈希函数或者杂凑函数; 输入单向散列函数的消息也称为原像(pre-image); 单向散列函数的散列值也称为消息摘要(message digest)或者指纹(fingerprint); 单向散列函数(one-way hash fu">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20161123/sha1_description.png">
 <meta property="og:image" content="http://flamepeak.com/sourcepictures/20161123/MAC_steps.png">
@@ -32,7 +32,7 @@
 <meta property="og:updated_time" content="2017-06-01T18:16:47.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图解密码技术 读书笔记:认证">
-<meta name="twitter:description" content="本文分为四个部分：  单向散列函数 消息认证码 数字签名 证书   一、单向散列函数 单向散列函数也称为消息摘要函数(message digest function)、哈希函数或者杂凑函数; 输入单向散列函数的消息也称为原像(pre-image); 单向散列函数的散列值也称为消息摘要(message digest)或者指纹(fingerprint); 单向散列函数(one-way">
+<meta name="twitter:description" content="本文分为四个部分：  单向散列函数 消息认证码 数字签名 证书    一、单向散列函数 单向散列函数也称为消息摘要函数(message digest function)、哈希函数或者杂凑函数; 输入单向散列函数的消息也称为原像(pre-image); 单向散列函数的散列值也称为消息摘要(message digest)或者指纹(fingerprint); 单向散列函数(one-way hash fu">
 <meta name="twitter:image" content="http://flamepeak.com/sourcepictures/20161123/sha1_description.png">
 
     
@@ -114,8 +114,12 @@
 <li>证书</li>
 </ul>
 <hr>
-<h2 id="一单向散列函数">一、单向散列函数</h2>
-<p>单向散列函数也称为<strong>消息摘要函数</strong>(message digest function)、<strong>哈希函数</strong>或者<strong>杂凑函数</strong>; 输入单向散列函数的消息也称为<strong>原像</strong>(pre-image); 单向散列函数的<strong>散列值</strong>也称为<strong>消息摘要</strong>(message digest)或者<strong>指纹</strong>(fingerprint); 单向散列函数(one-way hash function)有一个输入和一个输出，其中输入称为<strong>消息</strong>(message),输出称为<strong>散列值</strong>（hash value）。单向散列函数可以根据消息的内容计算出散列值，而散列值就可以用来检查消息的完整性。 散列值的长度和消息的长度无关。无论消息是1bit，还是100MB，甚至是100GB，单向散列函数都会计算出固定长度的散列值。例如SHA-1单向散列函数，它计算出的散列值长度永远是160bit。</p>
+<h2 id="一-单向散列函数"><a class="markdownIt-Anchor" href="#一-单向散列函数"></a> 一、单向散列函数</h2>
+<p>单向散列函数也称为<strong>消息摘要函数</strong>(message digest function)、<strong>哈希函数</strong>或者<strong>杂凑函数</strong>;<br>
+输入单向散列函数的消息也称为<strong>原像</strong>(pre-image);<br>
+单向散列函数的<strong>散列值</strong>也称为<strong>消息摘要</strong>(message digest)或者<strong>指纹</strong>(fingerprint);<br>
+单向散列函数(one-way hash function)有一个输入和一个输出，其中输入称为<strong>消息</strong>(message),输出称为<strong>散列值</strong>（hash value）。单向散列函数可以根据消息的内容计算出散列值，而散列值就可以用来检查消息的完整性。<br>
+散列值的长度和消息的长度无关。无论消息是1bit，还是100MB，甚至是100GB，单向散列函数都会计算出固定长度的散列值。例如SHA-1单向散列函数，它计算出的散列值长度永远是160bit。</p>
 <p><strong>单向散列函数性质</strong></p>
 <ul>
 <li>根据任意长度的消息计算出固定长度的散列值;</li>
@@ -127,48 +131,62 @@
 <p><strong>应用</strong></p>
 <ul>
 <li>检测软件是否被篡改</li>
-<li>基于口令的加密(Password Based Encryption，PBE) PBE的原理是将口令和盐(salt)混合后计算其散列值，然后将这个散列值用作加密的密钥。通过这样的方法能够防御针对口令的字典攻击。</li>
-<li>构造消息认证码 消息认证码是将“发送者和接收者之间的共享密钥”和“消息”进行混合后计算出的散列值。使用消息认证码可以检测并防止通信过程中的错误、篡改以及伪装。</li>
-<li>数字签名 数字签名的处理过程非常耗时，因此一般不会对整个消息内容直接施加数字签名，而是先通过单向散列函数计算出消息的散列值，然后再对这个散列值施加数字签名。</li>
-<li>伪随机数生成器 密码技术中所使用的随机数需要具备”事实上不可能根据过去的随机数列预测未来的随机数列“这样的性质。为了保证不可预测性，可以利用单向散列函数的单向性。</li>
-<li>一次性口令(one-time password) 一次性口令经常用于服务器对客户端的合法性认证。在这种方式中，通过使用单向散列函数可以保证口令只在通信链路上传送一次(one-time)，因此即使窃听者窃取了口令，也无法使用。</li>
+<li>基于口令的加密(Password Based Encryption，PBE)<br>
+PBE的原理是将口令和盐(salt)混合后计算其散列值，然后将这个散列值用作加密的密钥。通过这样的方法能够防御针对口令的字典攻击。</li>
+<li>构造消息认证码<br>
+消息认证码是将“发送者和接收者之间的共享密钥”和“消息”进行混合后计算出的散列值。使用消息认证码可以检测并防止通信过程中的错误、篡改以及伪装。</li>
+<li>数字签名<br>
+数字签名的处理过程非常耗时，因此一般不会对整个消息内容直接施加数字签名，而是先通过单向散列函数计算出消息的散列值，然后再对这个散列值施加数字签名。</li>
+<li>伪随机数生成器<br>
+密码技术中所使用的随机数需要具备”事实上不可能根据过去的随机数列预测未来的随机数列“这样的性质。为了保证不可预测性，可以利用单向散列函数的单向性。</li>
+<li>一次性口令(one-time password)<br>
+一次性口令经常用于服务器对客户端的合法性认证。在这种方式中，通过使用单向散列函数可以保证口令只在通信链路上传送一次(one-time)，因此即使窃听者窃取了口令，也无法使用。</li>
 </ul>
 <p><strong>具体例子</strong></p>
 <ul>
-<li>MD4、MD5 MD4是由Rivest于1990年设计的单向散列函数，能够产生<strong>128</strong>比特的散列值。但是，随着Dobbertin提出寻找MD4散列碰撞的方法，因此它现在已经不安全了。 MD5是由Rivest于1991年设计的单向散列函数，能够产生<strong>128</strong>比特的散列值。MD5的强抗碰撞性已经被攻破，现在已经能够产生具备相同散列值的两条不同消息，也变得不安全了。</li>
-<li>SHA-1、SHA-256、SHA-384、SHA-512 SHA-1是由NIST（National Institute of Standards and Technology，美国国家标准技术研究所）设计的能产生<strong>160</strong>bit散列值的单向散列函数。 SHA-256、SHA-384、SHA-512都是由NIST设计的单向散列函数，他们的散列值长度分别为<strong>256</strong>、<strong>384</strong>、<strong>512</strong>比特。这些单向散列函数统称为SHA-2。 SHA-1的强抗碰撞性于2005年被攻破，SHA-2还没有被攻破。</li>
-<li>RIPEMD-160 RIPEMD-160是于1996年由Hans Dobbertin、Antoon Bosselaers和Bart Preneel设计的一种能够产生<strong>160</strong>比特散列值的单向散列函数。</li>
-<li>AHS（Advanced Hash Standard）与SHA-3 在2005年，SHA-1的强抗碰撞被攻破的背景下，NIST开始制定取代SHA-1的下一代散列函数SHA-3.</li>
+<li>MD4、MD5<br>
+MD4是由Rivest于1990年设计的单向散列函数，能够产生<strong>128</strong>比特的散列值。但是，随着Dobbertin提出寻找MD4散列碰撞的方法，因此它现在已经不安全了。<br>
+MD5是由Rivest于1991年设计的单向散列函数，能够产生<strong>128</strong>比特的散列值。MD5的强抗碰撞性已经被攻破，现在已经能够产生具备相同散列值的两条不同消息，也变得不安全了。</li>
+<li>SHA-1、SHA-256、SHA-384、SHA-512<br>
+SHA-1是由NIST（National Institute of Standards and Technology，美国国家标准技术研究所）设计的能产生<strong>160</strong>bit散列值的单向散列函数。<br>
+SHA-256、SHA-384、SHA-512都是由NIST设计的单向散列函数，他们的散列值长度分别为<strong>256</strong>、<strong>384</strong>、<strong>512</strong>比特。这些单向散列函数统称为SHA-2。<br>
+SHA-1的强抗碰撞性于2005年被攻破，SHA-2还没有被攻破。</li>
+<li>RIPEMD-160<br>
+RIPEMD-160是于1996年由Hans Dobbertin、Antoon Bosselaers和Bart Preneel设计的一种能够产生<strong>160</strong>比特散列值的单向散列函数。</li>
+<li>AHS（Advanced Hash Standard）与SHA-3<br>
+在2005年，SHA-1的强抗碰撞被攻破的背景下，NIST开始制定取代SHA-1的下一代散列函数SHA-3.</li>
 </ul>
 <p>SHA-3的竞赛已经结束2012年结束，NIST宣布选择Keccak算法作为SHA-3标准。</p>
-<h3 id="sha-1">SHA-1</h3>
+<h3 id="sha-1"><a class="markdownIt-Anchor" href="#sha-1"></a> SHA-1</h3>
 <p>SHA-1概要：</p>
-<figure>
-<img src="/sourcepictures/20161123/sha1_description.png" alt><figcaption>单向散列函数SHA-1的概要</figcaption>
-</figure>
+<p><img src="/sourcepictures/20161123/sha1_description.png" alt="单向散列函数SHA-1的概要"></p>
 <p><strong>攻击方式：</strong></p>
-<p>暴力攻击：寻找与特定散列值相同的另一条消息，即试图破解单向散列函数的”弱抗碰撞性“ 生日攻击(birthday attack):找到散列值相同的两条消息，即试图破解单向散列函数的”强抗碰撞性“</p>
+<p>暴力攻击：寻找与特定散列值相同的另一条消息，即试图破解单向散列函数的”弱抗碰撞性“<br>
+生日攻击(birthday attack):找到散列值相同的两条消息，即试图破解单向散列函数的”强抗碰撞性“</p>
 <p>生日问题：</p>
-<p>设想，随机选出N个人组成的一个集合。在这N个人中，如果要保证至少有两个人生日一样的概率大于二分之一，那么N至少是多少？ 答案是：N=23 这个数字比我们想象的要小很多。任意生日相同的概率比我们想象的要大，这种现象称为<strong>生日悖论</strong>(birthday paradox)</p>
-<p>我们将生日问题一般化，假设一年的天数为Y天，那么N个人的集合中至少有两个人生日一样的概率大于二分之一时，N至少是多少？ 结论是：</p>
-<p>当Y非常大时，近似计算结果为： <code>N ≈ √Y 即Y的平方根</code></p>
+<p>设想，随机选出N个人组成的一个集合。在这N个人中，如果要保证至少有两个人生日一样的概率大于二分之一，那么N至少是多少？<br>
+答案是：N=23<br>
+这个数字比我们想象的要小很多。任意生日相同的概率比我们想象的要大，这种现象称为<strong>生日悖论</strong>(birthday paradox)</p>
+<p>我们将生日问题一般化，假设一年的天数为Y天，那么N个人的集合中至少有两个人生日一样的概率大于二分之一时，N至少是多少？<br>
+结论是：</p>
+<p>当Y非常大时，近似计算结果为：<br>
+<code>N ≈ √Y 即Y的平方根</code></p>
 <p>同理，当单向散列函数散列值长度为M比特时，则M所能产生的全部散列值个数为2的M次方，那么对于N，可以用上面的公式计算得到<code>N ≈ 2的M/2次方</code></p>
 <p>对于SHA-1,暴力破解需要的次数为2的160次方，而生日攻击需要的次数为2的80次方。</p>
 <p>单向散列函数无法解决的问题：</p>
-<p>单向散列函数可以进行完整性检查，但是不能进行身份检查，无法确认来源真实可信，还需要进行认证。 认证技术包括消息验证码和数字签名。消息认证码能够向通信对象保证消息没有被篡改，而数字签名不仅能够向通信对象保证消息没有被篡改，还能向第三方做出这样的保证。</p>
+<p>单向散列函数可以进行完整性检查，但是不能进行身份检查，无法确认来源真实可信，还需要进行认证。<br>
+认证技术包括消息验证码和数字签名。消息认证码能够向通信对象保证消息没有被篡改，而数字签名不仅能够向通信对象保证消息没有被篡改，还能向第三方做出这样的保证。</p>
 <hr>
-<h2 id="二消息认证码">二、消息认证码</h2>
+<h2 id="二-消息认证码"><a class="markdownIt-Anchor" href="#二-消息认证码"></a> 二、消息认证码</h2>
 <p>使用消息认证码可以确认自己收到的消息是否就是发送者的本意，也就是说，使用消息认证码可以判断消息是否被篡改，以及是否有人伪装成发送者发送了该消息。</p>
 <p>消息的完整性（integrity）：消息没有被篡改</p>
 <p>消息的认证（authentication）：消息来自正确的发生者</p>
 <p>消息认证码(message authentication code)是一种确认<strong>完整性</strong>并进行<strong>认证</strong>的技术，简称为MAC。</p>
 <p>消息认证码的输入包括任意长度的消息和一个发送者与接收者之间之间共享的密钥，它可以输出固定长度的数据，这个数据称为MAC值。</p>
-<h3 id="使用步骤">使用步骤：</h3>
+<h3 id="使用步骤"><a class="markdownIt-Anchor" href="#使用步骤"></a> 使用步骤：</h3>
 <p>如图：</p>
-<figure>
-<img src="/sourcepictures/20161123/MAC_steps.png" alt><figcaption>消息认证码的使用步骤</figcaption>
-</figure>
-<ol type="1">
+<p><img src="/sourcepictures/20161123/MAC_steps.png" alt="消息认证码的使用步骤"></p>
+<ol>
 <li>发送者Alice与接受者Bob事先共享密钥;</li>
 <li>发送者Alice根据汇款请求消息计算MAC值（使用共享密钥）;</li>
 <li>发送者Alice将汇款请求消息和MAC值两者发送给接收者Bob;</li>
@@ -178,73 +196,94 @@
 </ol>
 <p>消息认证码的密钥配送问题</p>
 <p>在消息认证码中，需要发送者和接收者之间共享密钥，而这个密钥不能被主动攻击者获取。要解决密钥配送问题，我们要使用公钥密码、Diffie-Hellman密钥交换、密钥分配中心，或者其他安全的方式发送密钥。</p>
-<h3 id="消息认证码的应用实例">消息认证码的应用实例</h3>
+<h3 id="消息认证码的应用实例"><a class="markdownIt-Anchor" href="#消息认证码的应用实例"></a> 消息认证码的应用实例</h3>
 <p><strong>SWIFT</strong></p>
 <p>SWIFT目的是为国际银行间交易保驾护航。银行和银行之间是通过SWIFT来传递消息的，而为了确认消息的完整性以及对消息进行验证，SWIFT中使用了消息认证码。在使用公钥密码进行密钥交换之前，消息认证码所使用的共享密钥都是由人来进行配送的。</p>
 <p><strong>IPsec</strong></p>
 <p>IPsec是互联网基本通信协议——IP协议增加安全的一种方式。在IPsec中，对通信内容的认证和完整性校验都采用消息认证码来完成。</p>
 <p><strong>SSL/TLS</strong></p>
 <p>SSl/TLS中对通信内容的认证和完整性校验也使用了消息认证码。</p>
-<h3 id="消息认证码的实现方法">消息认证码的实现方法</h3>
-<h4 id="使用单向散列函数实现">使用单向散列函数实现</h4>
+<h3 id="消息认证码的实现方法"><a class="markdownIt-Anchor" href="#消息认证码的实现方法"></a> 消息认证码的实现方法</h3>
+<h4 id="使用单向散列函数实现"><a class="markdownIt-Anchor" href="#使用单向散列函数实现"></a> 使用单向散列函数实现</h4>
 <p>使用SHA-1、MD5之类的单向散列函数可以实现消息认证码，其中一种实现方法称为HMAC。</p>
-<h4 id="使用分组密码实现">使用分组密码实现</h4>
-<p>使用DES、AES之类的分组密码可以实现消息认证码。 将分组密码的密钥作为消息认证码的共享密钥来使用，并用CBC模式将消息全部加密。由于消息认证码不需要解密，因此将除最后一个分组以外的密文部分全部丢弃，而将最后一个分组用作MAC值。由于CBC模式的最后一个分组会受到整个消息以及密钥的双重影响，因此可以把它当作消息认证码。 另外，使用流密码和公钥密码也可以实现消息认证码。</p>
-<h3 id="hmac介绍">HMAC介绍</h3>
-<p>HMAC是一种使用单向散列函数来构造消息认证码的方法（RFC2104），其中HMAC中的H就是Hash的意思。 HMAC中所使用的单向散列函数并不仅限于一种，任何高强度的单向散列函数都可以被用于HMAC。使用SHA-1、MD5、RIPEMD-160所构造的HMAC，分别称为HMAC-SHA-1、HMAC-MD5和HMAC-RIPEMD。</p>
-<h4 id="hmac的步骤">HMAC的步骤</h4>
+<h4 id="使用分组密码实现"><a class="markdownIt-Anchor" href="#使用分组密码实现"></a> 使用分组密码实现</h4>
+<p>使用DES、AES之类的分组密码可以实现消息认证码。<br>
+将分组密码的密钥作为消息认证码的共享密钥来使用，并用CBC模式将消息全部加密。由于消息认证码不需要解密，因此将除最后一个分组以外的密文部分全部丢弃，而将最后一个分组用作MAC值。由于CBC模式的最后一个分组会受到整个消息以及密钥的双重影响，因此可以把它当作消息认证码。<br>
+另外，使用流密码和公钥密码也可以实现消息认证码。</p>
+<h3 id="hmac介绍"><a class="markdownIt-Anchor" href="#hmac介绍"></a> HMAC介绍</h3>
+<p>HMAC是一种使用单向散列函数来构造消息认证码的方法（RFC2104），其中HMAC中的H就是Hash的意思。<br>
+HMAC中所使用的单向散列函数并不仅限于一种，任何高强度的单向散列函数都可以被用于HMAC。使用SHA-1、MD5、RIPEMD-160所构造的HMAC，分别称为HMAC-SHA-1、HMAC-MD5和HMAC-RIPEMD。</p>
+<h4 id="hmac的步骤"><a class="markdownIt-Anchor" href="#hmac的步骤"></a> HMAC的步骤</h4>
 <p>HMAC是按照下列步骤计算MAC值的。</p>
-<figure>
-<img src="/sourcepictures/20161123/HMAC_steps.png" alt><figcaption>HMAC步骤</figcaption>
-</figure>
-<ol type="1">
-<li>密钥填充 如果密钥比单向散列函数的分组长度要短，就需要在末尾填充0,直到其长度达到单向散列函数的分组长度为止。如果密钥比分组长度要长，则要用单向散列函数求出密钥的散列值，然后将这个散列值用作HMAC的密钥。HMAC-SHA-1的分组长度为512比特(64字节)。</li>
-<li>填充后的密钥与ipad的XOR 将填充后的密钥与被称为ipad的比特序列进行XOR运算。ipad是将00110110这一比特序列（即16进制的36） 不断循环反复直到达到分组长度所形成的比特序列，其中ipad的i 是inner的意思。 XOR运算所得到的值，就是一个和单向散列函数的分组长度相同，且和密钥相关的比特序列。这里我们将这个比特序列成为ipadkey。</li>
-<li>与消息结合 将ipadkey与消息进行组合，也就是将和密钥相关的比特序列(ipadkey)附加在消息的开头。</li>
-<li>计算散列值 将步骤3的结果输入单向散列函数，并计算出散列值。</li>
-<li>填充后的密钥与opad的XOR 将填充后的密钥与被称为opad的比特序列进行XOR运算。opad是将01011100这一比特序列（即十六进制5C）不断循环反复直到达到分组长度所形成的比特序列，其中opad的o是outer的意思。 XOR运算所得到的结果也是一个和单向散列函数的分组长度相同，且和密钥相关的比特序列。这里我们将这个比特序列称为opadkey。</li>
-<li>与散列值组合 opadkey附加在步骤4的散列值前面。</li>
-<li>计算散列值 将步骤6的结果输入单向散列函数，并计算出散列值。这个值就是最终的MAC值。</li>
+<p><img src="/sourcepictures/20161123/HMAC_steps.png" alt="HMAC步骤"></p>
+<ol>
+<li>密钥填充<br>
+如果密钥比单向散列函数的分组长度要短，就需要在末尾填充0,直到其长度达到单向散列函数的分组长度为止。如果密钥比分组长度要长，则要用单向散列函数求出密钥的散列值，然后将这个散列值用作HMAC的密钥。HMAC-SHA-1的分组长度为512比特(64字节)。</li>
+<li>填充后的密钥与ipad的XOR<br>
+将填充后的密钥与被称为ipad的比特序列进行XOR运算。ipad是将00110110这一比特序列（即16进制的36） 不断循环反复直到达到分组长度所形成的比特序列，其中ipad的i<br>
+是inner的意思。<br>
+XOR运算所得到的值，就是一个和单向散列函数的分组长度相同，且和密钥相关的比特序列。这里我们将这个比特序列成为ipadkey。</li>
+<li>与消息结合<br>
+将ipadkey与消息进行组合，也就是将和密钥相关的比特序列(ipadkey)附加在消息的开头。</li>
+<li>计算散列值<br>
+将步骤3的结果输入单向散列函数，并计算出散列值。</li>
+<li>填充后的密钥与opad的XOR<br>
+将填充后的密钥与被称为opad的比特序列进行XOR运算。opad是将01011100这一比特序列（即十六进制5C）不断循环反复直到达到分组长度所形成的比特序列，其中opad的o是outer的意思。<br>
+XOR运算所得到的结果也是一个和单向散列函数的分组长度相同，且和密钥相关的比特序列。这里我们将这个比特序列称为opadkey。</li>
+<li>与散列值组合<br>
+opadkey附加在步骤4的散列值前面。</li>
+<li>计算散列值<br>
+将步骤6的结果输入单向散列函数，并计算出散列值。这个值就是最终的MAC值。</li>
 </ol>
 <p><strong>HMAC的伪代码</strong></p>
 <blockquote>
-<p>HMAC可以用下列伪代码来描述。 hash(opadkey || hash(ipadkey || message)) 其中: ipadkey为key ^ ipad opadkey为key ^ opad key为密钥，message为消息 hash(x)为x的散列值 A || B为A、B的组合 这样，内部与外部很容易理解</p>
+<p>HMAC可以用下列伪代码来描述。<br>
+hash(opadkey || hash(ipadkey || message))<br>
+其中:<br>
+ipadkey为key ^ ipad<br>
+opadkey为key ^ opad<br>
+key为密钥，message为消息<br>
+hash(x)为x的散列值<br>
+A || B为A、B的组合<br>
+这样，内部与外部很容易理解</p>
 </blockquote>
-<h3 id="对消息认证码的攻击">对消息认证码的攻击</h3>
-<h4 id="重放攻击">重放攻击</h4>
+<h3 id="对消息认证码的攻击"><a class="markdownIt-Anchor" href="#对消息认证码的攻击"></a> 对消息认证码的攻击</h3>
+<h4 id="重放攻击"><a class="markdownIt-Anchor" href="#重放攻击"></a> 重放攻击</h4>
 <p>Alice向Bob发送MAC：向Mallory转账100w<br>
 Bob验证通过后向Mallory转账100w。<br>
 如果Mallory截获Alice发给Bob的MAC，并且重复发送给Bob，那么Bob会向Mallory继续汇款。<br>
 这就是重放攻击(replay attack).</p>
 <p>有几种方法可以防御重放攻击：</p>
-<p><strong>序号</strong>：每次发送消息都赋予一个递增的序号，并在计算MAC值时将序号包含在消息内。 <strong>时间戳</strong>：约定在发送消息时包含当前时间，如果收到以前的消息，即便MAC值正确也要当作错误消息处理。 <strong>nonce</strong>：在通信之前，接收者向发送者发送一个一次性随机数，这个随机数一般成为nooce。发送者在消息中包含这个nonce并计算MAC值。由于每次通信时nonce的值都会发生变化，因此无法进行重放攻击。 #### 密钥推测攻击 和对单向散列函数的攻击一样，对消息认证码也可以进行暴力攻击和生日攻击。</p>
-<h4 id="消息认证码无法解决的问题">消息认证码无法解决的问题</h4>
-<p>对第三方证明 防止否认</p>
+<p><strong>序号</strong>：每次发送消息都赋予一个递增的序号，并在计算MAC值时将序号包含在消息内。<br>
+<strong>时间戳</strong>：约定在发送消息时包含当前时间，如果收到以前的消息，即便MAC值正确也要当作错误消息处理。<br>
+<strong>nonce</strong>：在通信之前，接收者向发送者发送一个一次性随机数，这个随机数一般成为nooce。发送者在消息中包含这个nonce并计算MAC值。由于每次通信时nonce的值都会发生变化，因此无法进行重放攻击。</p>
+<h4 id="密钥推测攻击"><a class="markdownIt-Anchor" href="#密钥推测攻击"></a> 密钥推测攻击</h4>
+<p>和对单向散列函数的攻击一样，对消息认证码也可以进行暴力攻击和生日攻击。</p>
+<h4 id="消息认证码无法解决的问题"><a class="markdownIt-Anchor" href="#消息认证码无法解决的问题"></a> 消息认证码无法解决的问题</h4>
+<p>对第三方证明<br>
+防止否认</p>
 <hr>
-<h2 id="三数字签名">三、数字签名</h2>
-<p>数字签名(digital signature)是一种将现实世界盖章、签字功能在计算机世界实现的技术。 使用数字签名可以识别篡改和伪装，还可以防止否认。</p>
-<h3 id="数字签名的方法">数字签名的方法</h3>
+<h2 id="三-数字签名"><a class="markdownIt-Anchor" href="#三-数字签名"></a> 三、数字签名</h2>
+<p>数字签名(digital signature)是一种将现实世界盖章、签字功能在计算机世界实现的技术。<br>
+使用数字签名可以识别篡改和伪装，还可以防止否认。</p>
+<h3 id="数字签名的方法"><a class="markdownIt-Anchor" href="#数字签名的方法"></a> 数字签名的方法</h3>
 <ul>
 <li>直接对消息签名</li>
 <li>对消息的散列值签名</li>
 </ul>
-<h4 id="直接对消息签名">直接对消息签名</h4>
+<h4 id="直接对消息签名"><a class="markdownIt-Anchor" href="#直接对消息签名"></a> 直接对消息签名</h4>
 <p>Alice需要事先生成一个包括公钥和私钥的密钥对，而需要验证签名的Bob则需要得到Alice的公钥。过程如下：</p>
-<figure>
-<img src="/sourcepictures/20161123/signature1.png" alt><figcaption>数字签名1</figcaption>
-</figure>
-<ol type="1">
+<p><img src="/sourcepictures/20161123/signature1.png" alt="数字签名1"></p>
+<ol>
 <li>Alice用自己的私钥对消息进行加密;</li>
 <li>Alice将消息和签名发送给Bob;</li>
 <li>Bob用Alice的公钥对收到的签名进行解密；</li>
 <li>Bob将签名解密后得到的消息与Alice直接发送的消息进行对比；</li>
 </ol>
-<h4 id="对消息的散列值签名">对消息的散列值签名</h4>
+<h4 id="对消息的散列值签名"><a class="markdownIt-Anchor" href="#对消息的散列值签名"></a> 对消息的散列值签名</h4>
 <p>如果对消息直接签名，加密整个消息会非常耗时。我们可以先用单向散列函数求出消息的散列值，然后再将散列值进行加密(对散列值进行签名)就可以了。</p>
-<figure>
-<img src="/sourcepictures/20161123/signature2.png" alt><figcaption>数字签名2</figcaption>
-</figure>
-<ol type="1">
+<p><img src="/sourcepictures/20161123/signature2.png" alt="数字签名2"></p>
+<ol>
 <li>Alice用单向散列函数计算消息的散列值；</li>
 <li>ALice用自己的私钥对散列值进行加密；</li>
 <li>Alice将消息和签名发送给Bob;</li>
@@ -252,38 +291,58 @@ Bob验证通过后向Mallory转账100w。<br>
 <li>Bob将签名解密后得到的散列值与Alice直接发送的消息的散列值进行对比。</li>
 </ol>
 <p><strong>问题</strong></p>
-<p>数字签名不能保证机密性吗？ 是的，数字签名的作用本来就不是保证机密性的。如果需要保证机密性，则可以不直接发送消息，而是将消息进行加密之后再发送。 消息会不会被任意修改？ 是的，签名之后也可以对消息和签名进行修改，但是这样修改之后，验证签名就会失败，进行验证的人就能发现这一修改行为。数字签名所要实现的并不是防止修改，而是识别修改。修改没问题，但是验证签名会失败。</p>
+<p>数字签名不能保证机密性吗？<br>
+是的，数字签名的作用本来就不是保证机密性的。如果需要保证机密性，则可以不直接发送消息，而是将消息进行加密之后再发送。<br>
+消息会不会被任意修改？<br>
+是的，签名之后也可以对消息和签名进行修改，但是这样修改之后，验证签名就会失败，进行验证的人就能发现这一修改行为。数字签名所要实现的并不是防止修改，而是识别修改。修改没问题，但是验证签名会失败。</p>
 <p><strong>应用</strong></p>
 <p>公钥证书</p>
-<p>在验证数字签名时我们需要合法的公钥，那么怎么才能知道自己得到的公钥是否合法呢？ 我们可以将公钥当作消息，对它加上数字签名。像这样对公钥施加数字签名所得到的就是公钥证书。 SSL/TLS SSL/TLS在认证服务器身份是否合法时会使用服务器证书，它就是加上了数字签名的服务器公钥。相对的，服务器为了对客户端进行认证也会使用客户端证书。</p>
-<h3 id="对数字签名的攻击">对数字签名的攻击</h3>
-<h4 id="中间人攻击">中间人攻击</h4>
-<p>针对公钥密码的中间人攻击对于数字签名来说颇具威胁。 要防止中间人攻击，就需要确认自己所得到的公钥是否真的属于自己的通信对象。比如可以打个电话进行确认，或者使用公钥证书。</p>
-<h4 id="对单向散列函数的攻击">对单向散列函数的攻击</h4>
+<p>在验证数字签名时我们需要合法的公钥，那么怎么才能知道自己得到的公钥是否合法呢？<br>
+我们可以将公钥当作消息，对它加上数字签名。像这样对公钥施加数字签名所得到的就是公钥证书。<br>
+SSL/TLS<br>
+SSL/TLS在认证服务器身份是否合法时会使用服务器证书，它就是加上了数字签名的服务器公钥。相对的，服务器为了对客户端进行认证也会使用客户端证书。</p>
+<h3 id="对数字签名的攻击"><a class="markdownIt-Anchor" href="#对数字签名的攻击"></a> 对数字签名的攻击</h3>
+<h4 id="中间人攻击"><a class="markdownIt-Anchor" href="#中间人攻击"></a> 中间人攻击</h4>
+<p>针对公钥密码的中间人攻击对于数字签名来说颇具威胁。<br>
+要防止中间人攻击，就需要确认自己所得到的公钥是否真的属于自己的通信对象。比如可以打个电话进行确认，或者使用公钥证书。</p>
+<h4 id="对单向散列函数的攻击"><a class="markdownIt-Anchor" href="#对单向散列函数的攻击"></a> 对单向散列函数的攻击</h4>
 <p>数字签名中所使用的单向散列函数必须具有抗碰撞性，否则攻击者就可以生成另外一条不同的消息，使其与签名所绑定的消息具有相同的散列值。</p>
-<h4 id="利用数字签名攻击公钥密码">利用数字签名攻击公钥密码</h4>
+<h4 id="利用数字签名攻击公钥密码"><a class="markdownIt-Anchor" href="#利用数字签名攻击公钥密码"></a> 利用数字签名攻击公钥密码</h4>
 <p>原理：针对同一个密钥对，公钥密钥的解密与数字签名的签名是同一个公式(过程)。可以把公钥加密的消息，让私钥拥有者进行签名，这相当于解密。</p>
-<h3 id="消息认证码与数字签名比较">消息认证码与数字签名比较</h3>
-<figure>
-<img src="/sourcepictures/20161123/signature3.png" alt><figcaption>数字签名3</figcaption>
-</figure>
-<h3 id="数字签名无法解决的问题">数字签名无法解决的问题</h3>
-<p>用数字签名既可以识别出篡改和伪装，还可以防止否认。也就是说，我们同时实现了确认消息的完整性、进行认证以及否认防止。 然而，要正确使用数字签名，有一个打前提，那就是用于验证签名的公钥必须属于真正的发送者。即便数字签名算法再强大，如果你得到的公钥是伪造的，那么数字签名也完全失效。 现在我们发现自己陷入了一个死循环：数字签名是用于识别消息篡改、伪装及否认的，但是为此我们又必须从没有被伪装的发送者得到没有被篡改的公钥才行。 为了能都确认自己得到的公钥是否合法，我们需要使用<strong>证书</strong>。所谓证书，就是将公钥当作一条消息，由一个可信的第三方对其签名后得到的公钥。 这样，我们需要让公钥以及数字签名技术成为一种社会性的基础设施，即<strong>公钥基础设施</strong>（Public Key Intrastrcture）,简称PKI。</p>
+<h3 id="消息认证码与数字签名比较"><a class="markdownIt-Anchor" href="#消息认证码与数字签名比较"></a> 消息认证码与数字签名比较</h3>
+<p><img src="/sourcepictures/20161123/signature3.png" alt="数字签名3"></p>
+<h3 id="数字签名无法解决的问题"><a class="markdownIt-Anchor" href="#数字签名无法解决的问题"></a> 数字签名无法解决的问题</h3>
+<p>用数字签名既可以识别出篡改和伪装，还可以防止否认。也就是说，我们同时实现了确认消息的完整性、进行认证以及否认防止。<br>
+然而，要正确使用数字签名，有一个打前提，那就是用于验证签名的公钥必须属于真正的发送者。即便数字签名算法再强大，如果你得到的公钥是伪造的，那么数字签名也完全失效。<br>
+现在我们发现自己陷入了一个死循环：数字签名是用于识别消息篡改、伪装及否认的，但是为此我们又必须从没有被伪装的发送者得到没有被篡改的公钥才行。<br>
+为了能都确认自己得到的公钥是否合法，我们需要使用<strong>证书</strong>。所谓证书，就是将公钥当作一条消息，由一个可信的第三方对其签名后得到的公钥。<br>
+这样，我们需要让公钥以及数字签名技术成为一种社会性的基础设施，即<strong>公钥基础设施</strong>（Public Key Intrastrcture）,简称PKI。</p>
 <hr>
-<h2 id="四证书">四、证书</h2>
+<h2 id="四-证书"><a class="markdownIt-Anchor" href="#四-证书"></a> 四、证书</h2>
 <p><strong>公钥证书</strong>（Public-Key Certificate，PKC）其实和驾照很相似，里面记有姓名、组织、邮箱地址信息，以及属于此人的公钥，并有<strong>认证机构</strong>（Certification Authority，CA）施加数字签名。只要看到公钥证书，我们就可以知道认证机构认定该公钥确属于此人。公钥证书也简称为<strong>证书</strong>(certificate)。</p>
 <p>世界上最有名的认证机构当属VeriSign公司，其认证服务部门已于2010年出售给赛门铁克。</p>
-<figure>
-<img src="/sourcepictures/20161123/pkc_steps.png" alt><figcaption>公钥证书流程</figcaption>
-</figure>
-<ol type="1">
-<li><p>Bob生成密钥对; 要使用公钥密码进行通信，首先要生成密钥对。Bob生成了一对公钥和私钥，并将私钥自行妥善保管。</p></li>
-<li><p>Bob在认证机构Trent注册自己的公钥; Bob及将公钥发送给认证机构Trent，因为Bob需要请认证机构Trent对他的公钥加上数字签名(也就是生成证书)。Trent收到Bob的公钥后，会确认所收到的公钥是否为Bob本人所有。 &gt; 身份确认和认证业务准则 认证机构确认”本人“身份的方法和认证机构的认证业务准则（Certificate Practice Statement，CPS）的内容有关。如果认证机构提供的是测试用的服务，那么可能完全不会进行任何身份确认。如果是政府部门运行的认证机构，可能就需要根据法律规定来进行身份确认。如果是企业面向内部设立的认证机构，那就可能会给部门负责人打电话直接确认。 例如，VeriSign的认证业务准则中将身份确认分为Class1～3共三个等级： Class 1：通过邮箱发送邮件来确认本人身份 Class 2：通过第三方数据库来确认本人身份 Class 3：通过当面认证和身份证明来确认本人身份 等级越高，身份确认越严格。</p></li>
-<li><p>认证机构Trent用自己的私钥对Bob的公钥施加数字签名并生成证书;</p></li>
-<li><p>Alice得到带有认证机构Trent的数字签名的Bob的公钥(证书)；</p></li>
-<li><p>Alice使用认证机构的公钥验证数字签名，确认Bob的公钥合法性;</p></li>
-<li><p>Alice用Bob的公钥加密消息并发送给Bob；</p></li>
-<li><p>Bob用自己的私钥解密密文得到Alice的消息；</p></li>
+<p><img src="/sourcepictures/20161123/pkc_steps.png" alt="公钥证书流程"></p>
+<ol>
+<li>Bob生成密钥对;<br>
+要使用公钥密码进行通信，首先要生成密钥对。Bob生成了一对公钥和私钥，并将私钥自行妥善保管。</li>
+<li>Bob在认证机构Trent注册自己的公钥;<br>
+Bob及将公钥发送给认证机构Trent，因为Bob需要请认证机构Trent对他的公钥加上数字签名(也就是生成证书)。Trent收到Bob的公钥后，会确认所收到的公钥是否为Bob本人所有。</li>
+</ol>
+<blockquote>
+<p>身份确认和认证业务准则<br>
+认证机构确认”本人“身份的方法和认证机构的认证业务准则（Certificate Practice Statement，CPS）的内容有关。如果认证机构提供的是测试用的服务，那么可能完全不会进行任何身份确认。如果是政府部门运行的认证机构，可能就需要根据法律规定来进行身份确认。如果是企业面向内部设立的认证机构，那就可能会给部门负责人打电话直接确认。<br>
+例如，VeriSign的认证业务准则中将身份确认分为Class1～3共三个等级：<br>
+Class 1：通过邮箱发送邮件来确认本人身份<br>
+Class 2：通过第三方数据库来确认本人身份<br>
+Class 3：通过当面认证和身份证明来确认本人身份<br>
+等级越高，身份确认越严格。</p>
+</blockquote>
+<ol start="3">
+<li>认证机构Trent用自己的私钥对Bob的公钥施加数字签名并生成证书;</li>
+<li>Alice得到带有认证机构Trent的数字签名的Bob的公钥(证书)；</li>
+<li>Alice使用认证机构的公钥验证数字签名，确认Bob的公钥合法性;</li>
+<li>Alice用Bob的公钥加密消息并发送给Bob；</li>
+<li>Bob用自己的私钥解密密文得到Alice的消息；</li>
 </ol>
 <p><strong>证书标准规范X.509</strong></p>
 <p>使用最广泛的证书标准规范是由ITU（国际电信联盟）和ISO（国际标准化组织）制定的X.509规范。</p>
@@ -293,10 +352,11 @@ Bob验证通过后向Mallory转账100w。<br>
 <li>数字签名算法——对证书签名时所使用的算法</li>
 <li>数字签名——对证书施加的数字签名</li>
 </ul>
-<h3 id="公钥基础设施pki">公钥基础设施(PKI)</h3>
-<h4 id="什么是公钥基础设施">什么是公钥基础设施</h4>
-<p>公钥基础设施(Public-Key Infrastructure)是为了能够有效地运用公钥而制定的一系列规范和规格的总称。公钥基础设施一般根据其英语缩写而简称为PKI。 PKI只是一个总称，而并非指某一个单独的规范或规格。例如，RSA公司所制定的PKCS（Public-Key Cryptography Standards,公钥密码标准）系列规范也是PKI的一种，而互联网规格RFC（Request for Comments）中也有很多与PKI相关的文档。</p>
-<h4 id="pki的组成要素">PKI的组成要素</h4>
+<h3 id="公钥基础设施pki"><a class="markdownIt-Anchor" href="#公钥基础设施pki"></a> 公钥基础设施(PKI)</h3>
+<h4 id="什么是公钥基础设施"><a class="markdownIt-Anchor" href="#什么是公钥基础设施"></a> 什么是公钥基础设施</h4>
+<p>公钥基础设施(Public-Key Infrastructure)是为了能够有效地运用公钥而制定的一系列规范和规格的总称。公钥基础设施一般根据其英语缩写而简称为PKI。<br>
+PKI只是一个总称，而并非指某一个单独的规范或规格。例如，RSA公司所制定的PKCS（Public-Key Cryptography Standards,公钥密码标准）系列规范也是PKI的一种，而互联网规格RFC（Request for Comments）中也有很多与PKI相关的文档。</p>
+<h4 id="pki的组成要素"><a class="markdownIt-Anchor" href="#pki的组成要素"></a> PKI的组成要素</h4>
 <p>PKI的组成要素主要有以下三个：</p>
 <ul>
 <li>用户——使用PKI的人</li>
@@ -304,29 +364,35 @@ Bob验证通过后向Mallory转账100w。<br>
 <li>仓库——保存证书的数据库</li>
 </ul>
 <p>如图：</p>
-<figure>
-<img src="/sourcepictures/20161123/pki1.png" alt><figcaption>PKI组成要素</figcaption>
-</figure>
+<p><img src="/sourcepictures/20161123/pki1.png" alt="PKI组成要素"></p>
 <p><strong>用户</strong></p>
 <p>一般包括两种：一种是希望使用PKI注册自己的公钥的人，另一种是希望使用已注册的公钥的人。</p>
 <p><strong>认证机构（CA）</strong></p>
-<p>认证机构（Certification Authority）是对证书进行管理的人。认证机构所进行的工作如下： + 生成密钥对（也可以由用户生成） + 在注册公钥时对本人身份进行认证 + 生成并颁发证书 + 作废（revoke）证书</p>
+<p>认证机构（Certification Authority）是对证书进行管理的人。认证机构所进行的工作如下：</p>
+<ul>
+<li>生成密钥对（也可以由用户生成）</li>
+<li>在注册公钥时对本人身份进行认证</li>
+<li>生成并颁发证书</li>
+<li>作废（revoke）证书</li>
+</ul>
 <p><strong>仓库</strong></p>
 <p>仓库（repository）是一个保存证书的数据库，PKI用户在需要的时候可以从中获取证书。仓库也叫做证书目录。</p>
 <p>假设我们手上有Bob的证书，该证书有合法的认证机构签名，并且也在有效期内，但仅凭这些还不能说明该证书是一定有效的，还需要查询认证机构最新的CRL（Certificate Revocation List，证书作废清单），并确认该证书是否有效。一般来说，这个检查不是由用户自身来完成的，而是应该由处理该证书的软件来完成，但是很多软件并没有及时更新CRL。可以对CRL进行攻击。</p>
-<h3 id="对证书的攻击">对证书的攻击</h3>
-<h4 id="在公钥注册之前进行攻击">在公钥注册之前进行攻击</h4>
+<h3 id="对证书的攻击"><a class="markdownIt-Anchor" href="#对证书的攻击"></a> 对证书的攻击</h3>
+<h4 id="在公钥注册之前进行攻击"><a class="markdownIt-Anchor" href="#在公钥注册之前进行攻击"></a> 在公钥注册之前进行攻击</h4>
 <p>证书是认证机构对公钥及其持有者的信息加上数字签名的产物，由于加上数字签名后会非常难以攻击，因此我们可以考虑对施加数字签名之前的公钥进行攻击。</p>
 <p>假设Bob生成了密钥对，并准备在认证机构注册自己的公钥。在认证机构进行数字签名之前，主动攻击者Mallory将公钥替换成了自己的。这样以来，认证机构就会对”Bob的个人信息“和”Mallory的公钥“这个组合进行数字签名。</p>
 <p>要防止这种攻击，我们可以采用以下做法。例如Bob可以在将公钥发送给认证机构进行注册时，使用认证机构的公钥对Bob的公钥进行加密。此外，认证机构在确认Bob的身份时，也可以将公钥的指纹一并发送给Bob请他进行确认。</p>
-<h4 id="注册相似人名进行攻击">注册相似人名进行攻击</h4>
+<h4 id="注册相似人名进行攻击"><a class="markdownIt-Anchor" href="#注册相似人名进行攻击"></a> 注册相似人名进行攻击</h4>
 <p>证书是认证机构对公钥及其持有者的信息加上数字签名的产物，对于一些相似的身份信息，计算机可以进行区别，但是人类往往很容易认错，而这就可以被用来进行攻击。</p>
-<h4 id="窃取认证机构的私钥进行攻击">窃取认证机构的私钥进行攻击</h4>
-<p>主动攻击者Mallory想出了一个大胆的攻击方法，那就是窃取认证机构的私钥。如果得到了认证机构的私钥，那么任何人都可以以该机构的身份颁发证书了。 要窃取认证机构的私钥，需要入侵认证机构的计算机，或者收买有权访问认证机构私钥的人。但是认证机构必须花费大量的精力来防止自己的私钥被窃取。</p>
-<h4 id="攻击者伪装成认证机构进行攻击">攻击者伪装成认证机构进行攻击</h4>
+<h4 id="窃取认证机构的私钥进行攻击"><a class="markdownIt-Anchor" href="#窃取认证机构的私钥进行攻击"></a> 窃取认证机构的私钥进行攻击</h4>
+<p>主动攻击者Mallory想出了一个大胆的攻击方法，那就是窃取认证机构的私钥。如果得到了认证机构的私钥，那么任何人都可以以该机构的身份颁发证书了。<br>
+要窃取认证机构的私钥，需要入侵认证机构的计算机，或者收买有权访问认证机构私钥的人。但是认证机构必须花费大量的精力来防止自己的私钥被窃取。</p>
+<h4 id="攻击者伪装成认证机构进行攻击"><a class="markdownIt-Anchor" href="#攻击者伪装成认证机构进行攻击"></a> 攻击者伪装成认证机构进行攻击</h4>
 <p>主动攻击者Mallory又想出一个更加大胆的方法，那就是Mallory自己伪装成认证机构的攻击。</p>
-<h4 id="钻crl的空子进行攻击">钻CRL的空子进行攻击</h4>
-<p>从公钥失效到Alice收到证书作废清单（CRL）需要经过一段时间，主动攻击者Mallory可以利用CRL发布的时间差来发动攻击。要防御以上这样利用CRL发布时间差进行的攻击是非常困难的。 同样可以利用CRL来进行否认。</p>
+<h4 id="钻crl的空子进行攻击"><a class="markdownIt-Anchor" href="#钻crl的空子进行攻击"></a> 钻CRL的空子进行攻击</h4>
+<p>从公钥失效到Alice收到证书作废清单（CRL）需要经过一段时间，主动攻击者Mallory可以利用CRL发布的时间差来发动攻击。要防御以上这样利用CRL发布时间差进行的攻击是非常困难的。<br>
+同样可以利用CRL来进行否认。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -389,7 +455,7 @@ Bob验证通过后向Mallory转账100w。<br>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一单向散列函数"><span class="toc-number">1.</span> <span class="toc-text">一、单向散列函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sha-1"><span class="toc-number">1.1.</span> <span class="toc-text">SHA-1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二消息认证码"><span class="toc-number">2.</span> <span class="toc-text">二、消息认证码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用步骤"><span class="toc-number">2.1.</span> <span class="toc-text">使用步骤：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消息认证码的应用实例"><span class="toc-number">2.2.</span> <span class="toc-text">消息认证码的应用实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消息认证码的实现方法"><span class="toc-number">2.3.</span> <span class="toc-text">消息认证码的实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用单向散列函数实现"><span class="toc-number">2.3.1.</span> <span class="toc-text">使用单向散列函数实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用分组密码实现"><span class="toc-number">2.3.2.</span> <span class="toc-text">使用分组密码实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hmac介绍"><span class="toc-number">2.4.</span> <span class="toc-text">HMAC介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hmac的步骤"><span class="toc-number">2.4.1.</span> <span class="toc-text">HMAC的步骤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对消息认证码的攻击"><span class="toc-number">2.5.</span> <span class="toc-text">对消息认证码的攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#重放攻击"><span class="toc-number">2.5.1.</span> <span class="toc-text">重放攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#消息认证码无法解决的问题"><span class="toc-number">2.5.2.</span> <span class="toc-text">消息认证码无法解决的问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三数字签名"><span class="toc-number">3.</span> <span class="toc-text">三、数字签名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数字签名的方法"><span class="toc-number">3.1.</span> <span class="toc-text">数字签名的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#直接对消息签名"><span class="toc-number">3.1.1.</span> <span class="toc-text">直接对消息签名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对消息的散列值签名"><span class="toc-number">3.1.2.</span> <span class="toc-text">对消息的散列值签名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对数字签名的攻击"><span class="toc-number">3.2.</span> <span class="toc-text">对数字签名的攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#中间人攻击"><span class="toc-number">3.2.1.</span> <span class="toc-text">中间人攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对单向散列函数的攻击"><span class="toc-number">3.2.2.</span> <span class="toc-text">对单向散列函数的攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用数字签名攻击公钥密码"><span class="toc-number">3.2.3.</span> <span class="toc-text">利用数字签名攻击公钥密码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消息认证码与数字签名比较"><span class="toc-number">3.3.</span> <span class="toc-text">消息认证码与数字签名比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数字签名无法解决的问题"><span class="toc-number">3.4.</span> <span class="toc-text">数字签名无法解决的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四证书"><span class="toc-number">4.</span> <span class="toc-text">四、证书</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#公钥基础设施pki"><span class="toc-number">4.1.</span> <span class="toc-text">公钥基础设施(PKI)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是公钥基础设施"><span class="toc-number">4.1.1.</span> <span class="toc-text">什么是公钥基础设施</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pki的组成要素"><span class="toc-number">4.1.2.</span> <span class="toc-text">PKI的组成要素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对证书的攻击"><span class="toc-number">4.2.</span> <span class="toc-text">对证书的攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在公钥注册之前进行攻击"><span class="toc-number">4.2.1.</span> <span class="toc-text">在公钥注册之前进行攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注册相似人名进行攻击"><span class="toc-number">4.2.2.</span> <span class="toc-text">注册相似人名进行攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#窃取认证机构的私钥进行攻击"><span class="toc-number">4.2.3.</span> <span class="toc-text">窃取认证机构的私钥进行攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#攻击者伪装成认证机构进行攻击"><span class="toc-number">4.2.4.</span> <span class="toc-text">攻击者伪装成认证机构进行攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#钻crl的空子进行攻击"><span class="toc-number">4.2.5.</span> <span class="toc-text">钻CRL的空子进行攻击</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-单向散列函数"><span class="toc-number">1.</span> <span class="toc-text"> 一、单向散列函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sha-1"><span class="toc-number">1.1.</span> <span class="toc-text"> SHA-1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-消息认证码"><span class="toc-number">2.</span> <span class="toc-text"> 二、消息认证码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用步骤"><span class="toc-number">2.1.</span> <span class="toc-text"> 使用步骤：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消息认证码的应用实例"><span class="toc-number">2.2.</span> <span class="toc-text"> 消息认证码的应用实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消息认证码的实现方法"><span class="toc-number">2.3.</span> <span class="toc-text"> 消息认证码的实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用单向散列函数实现"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 使用单向散列函数实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用分组密码实现"><span class="toc-number">2.3.2.</span> <span class="toc-text"> 使用分组密码实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hmac介绍"><span class="toc-number">2.4.</span> <span class="toc-text"> HMAC介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hmac的步骤"><span class="toc-number">2.4.1.</span> <span class="toc-text"> HMAC的步骤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对消息认证码的攻击"><span class="toc-number">2.5.</span> <span class="toc-text"> 对消息认证码的攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#重放攻击"><span class="toc-number">2.5.1.</span> <span class="toc-text"> 重放攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#密钥推测攻击"><span class="toc-number">2.5.2.</span> <span class="toc-text"> 密钥推测攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#消息认证码无法解决的问题"><span class="toc-number">2.5.3.</span> <span class="toc-text"> 消息认证码无法解决的问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-数字签名"><span class="toc-number">3.</span> <span class="toc-text"> 三、数字签名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数字签名的方法"><span class="toc-number">3.1.</span> <span class="toc-text"> 数字签名的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#直接对消息签名"><span class="toc-number">3.1.1.</span> <span class="toc-text"> 直接对消息签名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对消息的散列值签名"><span class="toc-number">3.1.2.</span> <span class="toc-text"> 对消息的散列值签名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对数字签名的攻击"><span class="toc-number">3.2.</span> <span class="toc-text"> 对数字签名的攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#中间人攻击"><span class="toc-number">3.2.1.</span> <span class="toc-text"> 中间人攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对单向散列函数的攻击"><span class="toc-number">3.2.2.</span> <span class="toc-text"> 对单向散列函数的攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用数字签名攻击公钥密码"><span class="toc-number">3.2.3.</span> <span class="toc-text"> 利用数字签名攻击公钥密码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消息认证码与数字签名比较"><span class="toc-number">3.3.</span> <span class="toc-text"> 消息认证码与数字签名比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数字签名无法解决的问题"><span class="toc-number">3.4.</span> <span class="toc-text"> 数字签名无法解决的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-证书"><span class="toc-number">4.</span> <span class="toc-text"> 四、证书</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#公钥基础设施pki"><span class="toc-number">4.1.</span> <span class="toc-text"> 公钥基础设施(PKI)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是公钥基础设施"><span class="toc-number">4.1.1.</span> <span class="toc-text"> 什么是公钥基础设施</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pki的组成要素"><span class="toc-number">4.1.2.</span> <span class="toc-text"> PKI的组成要素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对证书的攻击"><span class="toc-number">4.2.</span> <span class="toc-text"> 对证书的攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在公钥注册之前进行攻击"><span class="toc-number">4.2.1.</span> <span class="toc-text"> 在公钥注册之前进行攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注册相似人名进行攻击"><span class="toc-number">4.2.2.</span> <span class="toc-text"> 注册相似人名进行攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#窃取认证机构的私钥进行攻击"><span class="toc-number">4.2.3.</span> <span class="toc-text"> 窃取认证机构的私钥进行攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#攻击者伪装成认证机构进行攻击"><span class="toc-number">4.2.4.</span> <span class="toc-text"> 攻击者伪装成认证机构进行攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#钻crl的空子进行攻击"><span class="toc-number">4.2.5.</span> <span class="toc-text"> 钻CRL的空子进行攻击</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -487,11 +553,11 @@ Bob验证通过后向Mallory转账100w。<br>
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -511,7 +577,7 @@ Bob验证通过后向Mallory转账100w。<br>
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -519,11 +585,15 @@ Bob验证通过后向Mallory转账100w。<br>
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -531,15 +601,11 @@ Bob验证通过后向Mallory转账100w。<br>
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

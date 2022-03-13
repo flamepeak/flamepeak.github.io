@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="在使用Slack过程中，想实现一些外部推送通知到channel，刚开始是开发SLACK APP，很是头大感觉杀鸡牛刀,看了一中午，略微对slack api 有所了解，感觉api还是很简单的，把bot代码写了出来。 需求很简单，就是把日志每天让机器人推送到channel。 推荐阅读的文章： How to Build Your First Slack Bot with Python Slack">
+    <meta name="description" content="在使用Slack过程中，想实现一些外部推送通知到channel，刚开始是开发SLACK APP，很是头大感觉杀鸡牛刀,看了一中午，略微对slack api 有所了解，感觉api还是很简单的，把bot代码写了出来。 需求很简单，就是把日志每天让机器人推送到channel。 推荐阅读的文章： How to Build Your First Slack Bot with Python Slack Dev">
 <meta name="keywords" content="Slack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Slack API 使用二三事">
 <meta property="og:url" content="http://flamepeak.com/2017/09/13/Slack-app-develope-tips-20170913/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="在使用Slack过程中，想实现一些外部推送通知到channel，刚开始是开发SLACK APP，很是头大感觉杀鸡牛刀,看了一中午，略微对slack api 有所了解，感觉api还是很简单的，把bot代码写了出来。 需求很简单，就是把日志每天让机器人推送到channel。 推荐阅读的文章： How to Build Your First Slack Bot with Python Slack">
+<meta property="og:description" content="在使用Slack过程中，想实现一些外部推送通知到channel，刚开始是开发SLACK APP，很是头大感觉杀鸡牛刀,看了一中午，略微对slack api 有所了解，感觉api还是很简单的，把bot代码写了出来。 需求很简单，就是把日志每天让机器人推送到channel。 推荐阅读的文章： How to Build Your First Slack Bot with Python Slack Dev">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-09-13T06:50:54.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Slack API 使用二三事">
-<meta name="twitter:description" content="在使用Slack过程中，想实现一些外部推送通知到channel，刚开始是开发SLACK APP，很是头大感觉杀鸡牛刀,看了一中午，略微对slack api 有所了解，感觉api还是很简单的，把bot代码写了出来。 需求很简单，就是把日志每天让机器人推送到channel。 推荐阅读的文章： How to Build Your First Slack Bot with Python Slack">
+<meta name="twitter:description" content="在使用Slack过程中，想实现一些外部推送通知到channel，刚开始是开发SLACK APP，很是头大感觉杀鸡牛刀,看了一中午，略微对slack api 有所了解，感觉api还是很简单的，把bot代码写了出来。 需求很简单，就是把日志每天让机器人推送到channel。 推荐阅读的文章： How to Build Your First Slack Bot with Python Slack Dev">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -99,7 +99,8 @@
 		
 		<p>在使用Slack过程中，想实现一些外部推送通知到channel，刚开始是开发SLACK APP，很是头大感觉杀鸡牛刀,看了一中午，略微对slack api 有所了解，感觉api还是很简单的，把bot代码写了出来。</p>
 <p>需求很简单，就是把日志每天让机器人推送到channel。</p>
-<p>推荐阅读的文章： <a href="https://www.fullstackpython.com/blog/build-first-slack-bot-python.html" target="_blank" rel="noopener">How to Build Your First Slack Bot with Python</a><br>
+<p>推荐阅读的文章：<br>
+<a href="https://www.fullstackpython.com/blog/build-first-slack-bot-python.html" target="_blank" rel="noopener">How to Build Your First Slack Bot with Python</a><br>
 <a href="http://slackapi.github.io/python-slackclient/basic_usage.html" target="_blank" rel="noopener">Slack Developer Kit for Python</a></p>
 <p>下面写一下鄙人的难看的代码：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">SLACK_BOT_TOKEN = xxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">#----------------------------------------------------</span></span><br><span class="line">    <span class="comment"># PostMessage mysql spider count result</span></span><br><span class="line">    <span class="comment"># Great</span></span><br><span class="line">    <span class="comment">#----------------------------------------------------</span></span><br><span class="line">    json_result = crawl_count.mysql_count(<span class="string">'yestoday'</span>, <span class="string">'today'</span>)</span><br><span class="line"></span><br><span class="line">    sc = SlackClient(SLACK_BOT_TOKEN)</span><br><span class="line">    rst = sc.api_call(</span><br><span class="line">        <span class="string">"chat.postMessage"</span>,</span><br><span class="line">        channel = <span class="string">"#news"</span>,</span><br><span class="line">        username = <span class="string">'monitor'</span>,</span><br><span class="line">        <span class="comment">#attachments = json_result,</span></span><br><span class="line">        icon_url = <span class="string">'https://ca.slack-edge.com/T6XLZGS78-U733C4ZPG'</span>,</span><br><span class="line">        text=json_result)</span><br><span class="line">    <span class="keyword">print</span> rst</span><br></pre></td></tr></table></figure>
@@ -264,11 +265,11 @@
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -288,7 +289,7 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -296,11 +297,15 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -308,15 +313,11 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

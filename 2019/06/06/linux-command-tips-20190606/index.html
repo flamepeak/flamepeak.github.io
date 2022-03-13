@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="SS 命令 ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但">
+    <meta name="description" content="SS 命令 ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但请">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux 常用命令的收集与整理">
 <meta property="og:url" content="http://flamepeak.com/2019/06/06/linux-command-tips-20190606/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="SS 命令 ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但">
+<meta property="og:description" content="SS 命令 ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但请">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2021-01-12T07:34:40.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 常用命令的收集与整理">
-<meta name="twitter:description" content="SS 命令 ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但">
+<meta name="twitter:description" content="SS 命令 ss命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。 当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但请">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,79 +97,98 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="ss-命令">SS 命令</h3>
+		<h3 id="ss-命令"><a class="markdownIt-Anchor" href="#ss-命令"></a> SS 命令</h3>
 <p><code>ss</code>命令用来显示处于活动状态的套接字信息。ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比<code>netstat</code>更快速更高效。</p>
 <p>当服务器的socket连接数量变得非常大时，无论是使用<code>netstat</code>命令还是直接<code>cat /proc/net/tcp</code>，执行速度都会很慢。可能你不会有切身的感受，但请相信我，当服务器维持的连接达到上万个的时候，使用<code>netstat</code>等于浪费 生命，而用ss才是节省时间。</p>
 <p>天下武功唯快不破。<code>ss</code>快的秘诀在于，它利用到了TCP协议栈中tcp_diag。tcp_diag是一个用于分析统计的模块，可以获得Linux 内核中第一手的信息，这就确保了ss的快捷高效。当然，如果你的系统中没有tcp_diag，<code>ss</code>也可以正常运行，只是效率会变得稍慢。</p>
-<p>选项： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-h：显示帮助信息；</span><br><span class="line">-V：显示指令版本信息；</span><br><span class="line">-n：不解析服务名称，以数字方式显示；</span><br><span class="line">-a：显示所有的套接字；</span><br><span class="line">-l：显示处于监听状态的套接字；</span><br><span class="line">-o：显示计时器信息；</span><br><span class="line">-m：显示套接字的内存使用情况；</span><br><span class="line">-p：显示使用套接字的进程信息；</span><br><span class="line">-i：显示内部的TCP信息；</span><br><span class="line">-4：只显示ipv4的套接字；</span><br><span class="line">-6：只显示ipv6的套接字；</span><br><span class="line">-t：只显示tcp套接字；</span><br><span class="line">-u：只显示udp套接字；</span><br><span class="line">-d：只显示DCCP套接字；</span><br><span class="line">-w：仅显示RAW套接字；</span><br><span class="line">-x：仅显示UNIX域套接字。</span><br></pre></td></tr></table></figure></p>
-<p>列出所有打开的网络连接端口 <code>ss -l</code></p>
-<p>列出所有打开的网络连接端口，只显示TCP <code>ss -lt</code></p>
+<p>选项：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-h：显示帮助信息；</span><br><span class="line">-V：显示指令版本信息；</span><br><span class="line">-n：不解析服务名称，以数字方式显示；</span><br><span class="line">-a：显示所有的套接字；</span><br><span class="line">-l：显示处于监听状态的套接字；</span><br><span class="line">-o：显示计时器信息；</span><br><span class="line">-m：显示套接字的内存使用情况；</span><br><span class="line">-p：显示使用套接字的进程信息；</span><br><span class="line">-i：显示内部的TCP信息；</span><br><span class="line">-4：只显示ipv4的套接字；</span><br><span class="line">-6：只显示ipv6的套接字；</span><br><span class="line">-t：只显示tcp套接字；</span><br><span class="line">-u：只显示udp套接字；</span><br><span class="line">-d：只显示DCCP套接字；</span><br><span class="line">-w：仅显示RAW套接字；</span><br><span class="line">-x：仅显示UNIX域套接字。</span><br></pre></td></tr></table></figure>
+<p>列出所有打开的网络连接端口<br>
+<code>ss -l</code></p>
+<p>列出所有打开的网络连接端口，只显示TCP<br>
+<code>ss -lt</code></p>
 <hr>
-<h3 id="mkdir">mkdir</h3>
-<p><code>mkdir /data/site{a,b,c} -pv</code> 这个命令可以创建/data/sitea , /data/siteb, /data/sitec，使用<code>-p</code>可以递归创建多层目录</p>
-<h3 id="bc">bc</h3>
+<h3 id="mkdir"><a class="markdownIt-Anchor" href="#mkdir"></a> mkdir</h3>
+<p><code>mkdir /data/site{a,b,c} -pv</code><br>
+这个命令可以创建/data/sitea , /data/siteb, /data/sitec，使用<code>-p</code>可以递归创建多层目录</p>
+<h3 id="bc"><a class="markdownIt-Anchor" href="#bc"></a> bc</h3>
 <p><code>bc</code> 命令是任意精度计算器语言，通常在linux下当计算器用，可以进行基本数学运算。</p>
 <p>输入<code>bc</code>命令，进入交互模式，可以进行加、减、乘、除、指数（^）、模（%）运算，输入<code>quit</code>退出。</p>
-<p>也可以通过管道符使用： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo 15*5 |bc</span><br></pre></td></tr></table></figure></p>
+<p>也可以通过管道符使用：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo 15*5 |bc</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># scale=2 设小数位，2 代表保留两位:</span><br><span class="line">echo &quot;scale=2;sqrt(8)&quot;|bc</span><br><span class="line"></span><br><span class="line">#  ibase 和 obase 来其它进制的运算</span><br><span class="line">abc = 11000000</span><br><span class="line">echo &quot;obase=10;ibase=2;$abc&quot; | bc</span><br><span class="line"></span><br><span class="line">abc=8</span><br><span class="line">echo &quot;obase=2;$abc&quot; | bc</span><br></pre></td></tr></table></figure>
-<h3 id="apt-get-只升级单个包">apt-get 只升级单个包</h3>
+<h3 id="apt-get-只升级单个包"><a class="markdownIt-Anchor" href="#apt-get-只升级单个包"></a> apt-get 只升级单个包</h3>
 <p>只需要做<code>apt-get install --only-upgrade &lt;packagename&gt;</code>。这将仅升级该单个软件包，并且仅在已安装时才升级。</p>
-<h3 id="grep-过滤空行和注释行">grep 过滤空行和注释行</h3>
+<h3 id="grep-过滤空行和注释行"><a class="markdownIt-Anchor" href="#grep-过滤空行和注释行"></a> grep 过滤空行和注释行</h3>
 <p>grep 命令用于查找文件里符合条件的字符串。</p>
-<p>例如：<br>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@kali:~/Downloads<span class="comment"># grep def psexec.py</span></span><br><span class="line">    ...</span><br><span class="line">    def connectPipe(self):                                                                                                </span><br><span class="line">    def __init__(self, transport, pipe, permisssions):                                           </span><br><span class="line">    def run(self):</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure></p>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@kali:~/Downloads<span class="comment"># grep def psexec.py</span></span><br><span class="line">    ...</span><br><span class="line">    def connectPipe(self):                                                                                                </span><br><span class="line">    def __init__(self, transport, pipe, permisssions):                                           </span><br><span class="line">    def run(self):</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">从文件内容查找匹配指定字符串的行：</span><br><span class="line">$ grep <span class="string">"被查找的字符串"</span> 文件名</span><br><span class="line"></span><br><span class="line">例子：在当前目录里第一级文件夹中寻找包含指定字符串的 .<span class="keyword">in</span> 文件</span><br><span class="line">grep <span class="string">"thermcontact"</span> /.<span class="keyword">in</span></span><br><span class="line"></span><br><span class="line">从文件内容查找与正则表达式匹配的行：</span><br><span class="line">$ grep –e <span class="string">"正则表达式"</span> 文件名</span><br><span class="line"></span><br><span class="line">查找时不区分大小写：</span><br><span class="line">$ grep –i <span class="string">"被查找的字符串"</span> 文件名</span><br><span class="line"></span><br><span class="line">查找匹配的行数：</span><br><span class="line">$ grep -c <span class="string">"被查找的字符串"</span> 文件名</span><br><span class="line"></span><br><span class="line">从文件内容查找不匹配指定字符串的行：</span><br><span class="line">$ grep –v <span class="string">"被查找的字符串"</span> 文件名</span><br><span class="line"></span><br><span class="line">从根目录开始查找所有扩展名为 .<span class="built_in">log</span> 的文本文件，并找出包含 <span class="string">"ERROR"</span> 的行：</span><br><span class="line">$ find / -<span class="built_in">type</span> f -name <span class="string">"*.log"</span> | xargs grep <span class="string">"ERROR"</span></span><br><span class="line"></span><br><span class="line">例子：从当前目录开始查找所有扩展名为 .<span class="keyword">in</span> 的文本文件，并找出包含 <span class="string">"thermcontact"</span> 的行：</span><br><span class="line">find . -name <span class="string">"*.in"</span> | xargs grep <span class="string">"thermcontact"</span></span><br></pre></td></tr></table></figure>
 <p>在查看配置文件时，我们希望过滤到注释行和大量的空行，只显示有效的配置信息，这时我们可以使用grep</p>
 <p>grep的排除选项为 -v</p>
-<ol type="1">
+<ol>
 <li>去掉<code>#</code>号开头的行</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grep -v &quot;^#&quot;  filename</span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
+<ol start="2">
 <li>去掉空行</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grep -v &quot;^$&quot; filename</span><br></pre></td></tr></table></figure>
-<ol start="3" type="1">
+<ol start="3">
 <li>去掉空行及<code>#</code>开头的行</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grep -v &quot;^#&quot; |grep -v &quot;^$&quot;</span><br><span class="line"></span><br><span class="line">例如：</span><br><span class="line">more  /etc/zabbix/zabbix_server.conf |grep -v &quot;^#&quot;|grep -v &quot;^$&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="wc命令">WC命令</h3>
+<h3 id="wc命令"><a class="markdownIt-Anchor" href="#wc命令"></a> WC命令</h3>
 <p>Linux wc命令用于计算字数。</p>
-<p>利用wc指令我们可以计算文件的Byte数、字数、或是列数，若不指定文件名称、或是所给予的文件名为"-"，则wc指令会从标准输入设备读取数据。</p>
+<p>利用wc指令我们可以计算文件的Byte数、字数、或是列数，若不指定文件名称、或是所给予的文件名为&quot;-&quot;，则wc指令会从标准输入设备读取数据。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-c或--bytes或--chars 只显示Bytes数。</span><br><span class="line">-l或--lines 只显示行数。</span><br><span class="line">-w或--words 只显示字数。</span><br></pre></td></tr></table></figure>
 <p>例如： ps aux |wc -l</p>
-<h3 id="dig命令">dig命令</h3>
+<h3 id="dig命令"><a class="markdownIt-Anchor" href="#dig命令"></a> dig命令</h3>
 <p>dig 命令主要用来从 DNS 域名服务器查询主机地址信息</p>
-<p>dig 命令默认的输出信息比较丰富，大概可以分为 5 个部分。 第一部分显示 dig 命令的版本和输入的参数。 第二部分显示服务返回的一些技术详情，比较重要的是 status。如果 status 的值为 NOERROR 则说明本次查询成功结束。 第三部分中的 "QUESTION SECTION" 显示我们要查询的域名。 第四部分的 "ANSWER SECTION" 是查询到的结果。 第五部分则是本次查询的一些统计信息，比如用了多长时间，查询了哪个 DNS 服务器，在什么时间进行的查询等等。</p>
+<p>dig 命令默认的输出信息比较丰富，大概可以分为 5 个部分。<br>
+第一部分显示 dig 命令的版本和输入的参数。<br>
+第二部分显示服务返回的一些技术详情，比较重要的是 status。如果 status 的值为 NOERROR 则说明本次查询成功结束。<br>
+第三部分中的 “QUESTION SECTION” 显示我们要查询的域名。<br>
+第四部分的 “ANSWER SECTION” 是查询到的结果。<br>
+第五部分则是本次查询的一些统计信息，比如用了多长时间，查询了哪个 DNS 服务器，在什么时间进行的查询等等。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">从指定的 DNS 服务器上查询，命令：@</span><br><span class="line">如果某网络有自己的dns服务，就需要从指定服务器查询</span><br><span class="line">dig @8.8.8.8 abc.filterinto.com</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">区域传输记录(必须是询问一台授权的服务器)，命令：axfr</span><br><span class="line">dig axfr @server zx.xmgd.com</span><br><span class="line"></span><br><span class="line">用 dig 查看反向解析</span><br><span class="line">dig -x 210.52.83.228 @server</span><br></pre></td></tr></table></figure>
-<h3 id="dhclient">dhclient</h3>
+<h3 id="dhclient"><a class="markdownIt-Anchor" href="#dhclient"></a> dhclient</h3>
 <p>获取动态ip</p>
-<h3 id="stty">stty</h3>
+<h3 id="stty"><a class="markdownIt-Anchor" href="#stty"></a> stty</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">stty [ -a ] [ -g ] [ Options ]   stty(<span class="built_in">set</span> tty)命令用于显示和修改当前注册的终端的属性。</span><br><span class="line"></span><br><span class="line">UNIX系统为键盘的输入和终端的输出提供了重要的控制手段，可以通过stty命令对特定终端或通信线路设置选项。 </span><br><span class="line"></span><br><span class="line">在stty中相应选项前冠以负号（-），该选项被清除；如果无负号，该选项被设置。</span><br><span class="line"></span><br><span class="line">stty -a <span class="comment">#将所有选项设置的当前状态写到标准输出中</span></span><br><span class="line">old_stty_settings=`stty -g`　<span class="comment">#保存当前设置</span></span><br><span class="line">stty <span class="string">"<span class="variable">$old_stty_settings</span>"</span>　<span class="comment">#恢复当前设置</span></span><br><span class="line">stty -<span class="built_in">echo</span> <span class="comment">#禁止回显，当您在键盘上输入时，并不出现在屏幕上</span></span><br><span class="line">stty <span class="built_in">echo</span> <span class="comment">#打开回显</span></span><br><span class="line">stty raw <span class="comment">#设置原始输入</span></span><br><span class="line">stty -raw <span class="comment">#关闭原始输入</span></span><br><span class="line">stty igncr <span class="comment">#开启忽略回车符</span></span><br><span class="line">stty -igncr <span class="comment">#关闭忽略回车符</span></span><br></pre></td></tr></table></figure>
 <p>RAW模式与非RAW模式<br>
 RAW模式简单的来说，就是发送端发动的二进制码原封不动的被接收端接收。</p>
 <p>非RAW模式<br>
 非RAW模式下，系统会对串口收到的数据中某些具有特殊意义的字符或组合进行转义。这种 工作模式的典型是在Linux下使用 minicom 配置交换机或串口登录其他Linux系统。</p>
-<h3 id="sed">sed</h3>
+<h3 id="sed"><a class="markdownIt-Anchor" href="#sed"></a> sed</h3>
 <p>sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># sed [-nefr] [动作]</span></span><br><span class="line">选项与参数：</span><br><span class="line">-n ：使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。</span><br><span class="line">-e ：直接在命令列模式上进行 sed 的动作编辑；</span><br><span class="line">-f ：直接将 sed 的动作写在一个文件内， -f filename 则可以运行 filename 内的 sed 动作；</span><br><span class="line">-r ：sed 的动作支持的是延伸型正规表示法的语法。(默认是基础正规表示法语法)</span><br><span class="line">-i ：直接修改读取的文件内容，而不是输出到终端。</span><br><span class="line"></span><br><span class="line">动作说明： [n1[,n2]]<span class="keyword">function</span></span><br><span class="line">n1, n2 ：不见得会存在，一般代表『选择进行动作的行数』，举例来说，如果我的动作是需要在 10 到 20 行之间进行的，则『 10,20[动作行为] 』</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>：</span><br><span class="line">a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～</span><br><span class="line">c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！</span><br><span class="line">d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；</span><br><span class="line">i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；</span><br><span class="line">p ：列印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～</span><br><span class="line">s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！</span><br></pre></td></tr></table></figure>
 <p>最常用操作：</p>
-<p>数据的搜寻并替换 除了整行的处理模式之外， sed 还可以用行为单位进行部分数据的搜寻并取代。基本上 sed 的搜寻与替代的与 vi 相当的类似！他有点像这样：</p>
+<p>数据的搜寻并替换<br>
+除了整行的处理模式之外， sed 还可以用行为单位进行部分数据的搜寻并取代。基本上 sed 的搜寻与替代的与 vi 相当的类似！他有点像这样：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed <span class="string">'s/要被取代的字串/新的字串/g'</span></span><br></pre></td></tr></table></figure>
-<h3 id="关闭打开端口">关闭、打开端口</h3>
+<h3 id="关闭-打开端口"><a class="markdownIt-Anchor" href="#关闭-打开端口"></a> 关闭、打开端口</h3>
 <p><strong>To open a different port:</strong></p>
 <ul>
-<li><p>Debian:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw allow PORT</span><br></pre></td></tr></table></figure></li>
-<li><p>CentOS:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --zone=public --permanent --add-port=PORT/tcp</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure></li>
+<li>
+<p>Debian:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw allow PORT</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>CentOS:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --zone=public --permanent --add-port=PORT/tcp</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <p><strong>Close Server Ports And Deny Remote Access</strong></p>
 <ul>
-<li><p>Debian:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw deny PORT</span><br></pre></td></tr></table></figure></li>
-<li><p>CentOS:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --zone=public --permanent --remove-port=PORT/tcp</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure></li>
+<li>
+<p>Debian:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw deny PORT</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>CentOS:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --zone=public --permanent --remove-port=PORT/tcp</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
   
 	</div>
@@ -233,7 +252,7 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ss-命令"><span class="toc-number">1.</span> <span class="toc-text">SS 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir"><span class="toc-number">2.</span> <span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bc"><span class="toc-number">3.</span> <span class="toc-text">bc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apt-get-只升级单个包"><span class="toc-number">4.</span> <span class="toc-text">apt-get 只升级单个包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep-过滤空行和注释行"><span class="toc-number">5.</span> <span class="toc-text">grep 过滤空行和注释行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wc命令"><span class="toc-number">6.</span> <span class="toc-text">WC命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dig命令"><span class="toc-number">7.</span> <span class="toc-text">dig命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dhclient"><span class="toc-number">8.</span> <span class="toc-text">dhclient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stty"><span class="toc-number">9.</span> <span class="toc-text">stty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sed"><span class="toc-number">10.</span> <span class="toc-text">sed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭打开端口"><span class="toc-number">11.</span> <span class="toc-text">关闭、打开端口</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ss-命令"><span class="toc-number">1.</span> <span class="toc-text"> SS 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir"><span class="toc-number">2.</span> <span class="toc-text"> mkdir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bc"><span class="toc-number">3.</span> <span class="toc-text"> bc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apt-get-只升级单个包"><span class="toc-number">4.</span> <span class="toc-text"> apt-get 只升级单个包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep-过滤空行和注释行"><span class="toc-number">5.</span> <span class="toc-text"> grep 过滤空行和注释行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wc命令"><span class="toc-number">6.</span> <span class="toc-text"> WC命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dig命令"><span class="toc-number">7.</span> <span class="toc-text"> dig命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dhclient"><span class="toc-number">8.</span> <span class="toc-text"> dhclient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stty"><span class="toc-number">9.</span> <span class="toc-text"> stty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sed"><span class="toc-number">10.</span> <span class="toc-text"> sed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭-打开端口"><span class="toc-number">11.</span> <span class="toc-text"> 关闭、打开端口</span></a></li></ol>
  
   </div>
 
@@ -331,11 +350,11 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -355,7 +374,7 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -363,11 +382,15 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -375,15 +398,11 @@ RAW模式简单的来说，就是发送端发动的二进制码原封不动的�
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

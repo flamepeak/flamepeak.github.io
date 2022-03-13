@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Web technology for developers: JavaScript JavaScript Basic  data types JavaScript provides seven different data types which are undefined, null, boolean, string, symbol, number, and object. In Jav">
+    <meta name="description" content="Web technology for developers: JavaScript  JavaScript Basic   data types JavaScript provides seven different data types which are undefined, null, boolean, string, symbol, number, and object.   In Jav">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript Tips">
 <meta property="og:url" content="http://flamepeak.com/2017/02/08/JavaScript-tips-20170208/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Web technology for developers: JavaScript JavaScript Basic  data types JavaScript provides seven different data types which are undefined, null, boolean, string, symbol, number, and object. In Jav">
+<meta property="og:description" content="Web technology for developers: JavaScript  JavaScript Basic   data types JavaScript provides seven different data types which are undefined, null, boolean, string, symbol, number, and object.   In Jav">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-02-08T13:46:05.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Tips">
-<meta name="twitter:description" content="Web technology for developers: JavaScript JavaScript Basic  data types JavaScript provides seven different data types which are undefined, null, boolean, string, symbol, number, and object. In Jav">
+<meta name="twitter:description" content="Web technology for developers: JavaScript  JavaScript Basic   data types JavaScript provides seven different data types which are undefined, null, boolean, string, symbol, number, and object.   In Jav">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -98,83 +98,238 @@
 	<div class="article-content">
 		
 		<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">Web technology for developers: JavaScript</a></p>
-<h3 id="javascript-basic">JavaScript Basic</h3>
+<h3 id="javascript-basic"><a class="markdownIt-Anchor" href="#javascript-basic"></a> JavaScript Basic</h3>
 <ul>
-<li><p><strong>data types</strong> JavaScript provides seven different data types which are <code>undefined</code>, <code>null</code>, <code>boolean</code>, <code>string</code>, <code>symbol</code>, <code>number</code>, and <code>object</code>.</p></li>
-<li><p>In JavaScript we end statements with semicolons.</p></li>
-<li><p><code>Variable</code> names can be made up of numbers, letters, and <code>$</code> or <code>_</code>, but may not contain spaces or start with a number.</p></li>
-<li><p>In JavaScript all variables and function names are <strong>case sensitive</strong>. This means that capitalization matters.</p></li>
-<li><p>The <code>remainder</code> operator <code>%</code> gives the remainder of the division of two numbers. The <code>remainder</code> operator is sometimes incorrectly referred to as the "modulus" operator. It is very similar to modulus, but does not work properly with negative numbers.</p></li>
-<li><p>String values in JavaScript may be written with <strong>single</strong> or <strong>double</strong> quotes, so long as you start and end with the same type of quote. In JavaScript, you can <code>escape</code> a quote from considering it as an end of string quote by placing a <code>backslash</code> (<code>\</code>) in front of the quote.</p></li>
-<li><p>You can find the length of a <code>String</code> value by writing <code>.length</code> after the string variable or string literal. <code>"Alan Peter".length; // 10</code></p></li>
-<li><p><strong>Bracket notation</strong> is a way to get a character at a specific <code>index</code> within a string. exp:<code>firstName[0]</code></p></li>
-<li><p>In JavaScript, <code>String</code> values are <strong>immutable</strong>, which means that they cannot be altered once created. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myStr = <span class="string">"Bob"</span>;</span><br><span class="line">myStr[<span class="number">0</span>] = <span class="string">"J"</span>;</span><br></pre></td></tr></table></figure></p>
-<p>will <strong>not</strong> change the value of myStr.</p></li>
-<li><p>With JavaScript <code>array</code> variables, we can store several pieces of data in one place. <code>var sandwich = ["peanut butter", 12, "bread"];</code></p></li>
-<li><p>An easy way to append data to the end of an array is via the <code>push()</code> function. <code>.push()</code> takes one or more <code>parameters</code> and "pushes" them onto the end of the array.</p></li>
-<li><p>Another way to change the data in an array is with the <code>.pop()</code> function.</p>
-<p><code>.pop()</code> is used to "pop" a value off of the end of an array. We can store this "popped off" value by assigning it to a variable.</p></li>
-<li><p>The <code>shift()</code> method removes the first element from an array and returns that element. This method changes the length of the array.</p></li>
-<li><p>The <code>unshift()</code> method adds one or more elements to the beginning of an array and returns the new length of the array.</p></li>
-<li><p><em>Functions</em> <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">functionName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Hello World"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testFun</span>(<span class="params">param1, param2</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(param1, param2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>In JavaScript, <code>scope</code> refers to the visibility of variables. Variables which are defined outside of a function block have <code>Global</code> scope. This means, they can be seen everywhere in your JavaScript code. Variables which are used without the <code>var</code> keyword are automatically created in the <code>global</code> scope. This can create unintended consequences elsewhere in your code or when running a function again. You should <strong>always</strong> declare your variables with <code>var</code>.</p></li>
-<li><p>It is possible to have both <code>local</code> and <code>global</code> variables with the same name. When you do this, the <code>local</code> variable takes precedence over the <code>global</code> variable. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> someVar = <span class="string">"Hat"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> someVar = <span class="string">"Head"</span>;</span><br><span class="line">  <span class="keyword">return</span> someVar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>if</strong> <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (condition is <span class="literal">true</span>) &#123;</span><br><span class="line">statement is executed</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Comparison</strong> equality operator (<code>==</code>) In order for JavaScript to compare two different <code>data types</code> (for example, <code>numbers</code> and <code>strings</code>), it must convert one type to another. Once it does, however, it can compare terms as follows: <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="number">1</span>   ==  <span class="number">1</span>    <span class="comment">// true</span></span><br><span class="line"> <span class="number">1</span>   ==  <span class="number">2</span>    <span class="comment">// false</span></span><br><span class="line"> <span class="number">1</span>   == <span class="string">'1'</span>   <span class="comment">// true</span></span><br><span class="line"><span class="string">"3"</span>  ==  <span class="number">3</span>    <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Strict equality</strong> Strict equality (<code>===</code>) is the counterpart to the equality operator (<code>==</code>). Unlike the equality operator, strict equality tests both the <code>data type</code> and value of the compared elements. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">3</span> === <span class="number">3</span>   <span class="comment">// true</span></span><br><span class="line"><span class="number">3</span> === <span class="string">'3'</span> <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>inequality operator</strong> Like the equality operator, the inequality operator will convert data types of values while comparing. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> != <span class="number">2</span>      <span class="comment">// true</span></span><br><span class="line"><span class="number">1</span> != <span class="string">"1"</span>    <span class="comment">// false</span></span><br><span class="line"><span class="number">1</span> != <span class="string">'1'</span>    <span class="comment">// false</span></span><br><span class="line"><span class="number">1</span> != <span class="literal">true</span>   <span class="comment">// false</span></span><br><span class="line"><span class="number">0</span> != <span class="literal">false</span>  <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Strict Inequality Operator</strong> The strict inequality operator (<code>!==</code>) is the opposite of the strict equality operator. It means "Strictly Not Equal" and returns <code>false</code> where strict equality would return <code>true</code> and <em>vice versa</em>. Strict inequality will not convert data types. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">3</span> !== <span class="number">3</span>   <span class="comment">// false</span></span><br><span class="line"><span class="number">3</span> !== <span class="string">'3'</span> <span class="comment">// true</span></span><br><span class="line"><span class="number">4</span> !== <span class="number">3</span>   <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Greater Than Or Equal To Operator</strong> Like the equality operator, <code>greater than or equal to</code> operator will convert data types while comparing. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">6</span>  &gt;=  <span class="number">6</span>  <span class="comment">// true</span></span><br><span class="line"><span class="number">7</span>  &gt;= <span class="string">'3'</span> <span class="comment">// true</span></span><br><span class="line"><span class="number">2</span>  &gt;=  <span class="number">3</span>  <span class="comment">// false</span></span><br><span class="line"><span class="string">'7'</span> &gt;=  <span class="number">9</span>  <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
-<p>Like the equality operator, <code>less than</code> operator converts data types while comparing. Like the equality operator, <code>less than or equal to</code> converts data types.</p></li>
-<li><p><code>if ...else if ... else...</code></p></li>
-<li><p><strong>Switch Statements</strong> Statements are executed from the first matched case value until a <code>break</code> is encountered. <code>case</code> values are tested with <strong>strict equality</strong> (<code>===</code>). The <code>break</code> tells JavaScript to stop executing statements. If the <code>break</code> is omitted, the next statement will be executed. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> (num) &#123;</span><br><span class="line">  <span class="keyword">case</span> value1:</span><br><span class="line">    statement1;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> value2:</span><br><span class="line">    statement2;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">...</span><br><span class="line">  <span class="keyword">case</span> valueN:</span><br><span class="line">    statementN;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    defaultStatement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>JavaScript Object</strong> Objects are similar to <code>arrays</code>, except that instead of using indexes to access and modify their data, you access the data in objects through what are called <code>properties</code>. example: <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> cat = &#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Whiskers"</span>,</span><br><span class="line">  <span class="string">"legs"</span>: <span class="number">4</span>,</span><br><span class="line">  <span class="string">"tails"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="string">"enemies"</span>: [<span class="string">"Water"</span>, <span class="string">"Dogs"</span>]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Accessing Objects Properties with the Dot Operator</strong> There are two ways to access the properties of an object: the dot operator (<code>.</code>) and bracket notation (<code>[]</code>), similar to an array.</p>
-<p>The dot operator is what you use when you know the name of the property you're trying to access ahead of time. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myObj = &#123;</span><br><span class="line">  prop1: <span class="string">"val1"</span>,</span><br><span class="line">  prop2: <span class="string">"val2"</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> prop1val = myObj.prop1; <span class="comment">// val1</span></span><br><span class="line"><span class="keyword">var</span> prop2val = myObj.prop2; <span class="comment">// val2</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Accessing Objects Properties with Bracket Notation</strong> If the property of the object you are trying to access has a <strong>space</strong> in it, you will need to use bracket notation. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myObj = &#123;</span><br><span class="line">  <span class="string">"Space Name"</span>: <span class="string">"Kirk"</span>,</span><br><span class="line">  <span class="string">"More Space"</span>: <span class="string">"Spock"</span>,</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"tru"</span></span><br><span class="line">&#125;;</span><br><span class="line">myObj[<span class="string">"Space Name"</span>]; <span class="comment">// Kirk</span></span><br><span class="line">myObj[<span class="string">'More Space'</span>]; <span class="comment">// Spock</span></span><br></pre></td></tr></table></figure></p>
+<li>
+<p><strong>data types</strong><br>
+JavaScript provides seven different data types which are <code>undefined</code>, <code>null</code>, <code>boolean</code>, <code>string</code>, <code>symbol</code>, <code>number</code>, and <code>object</code>.</p>
+</li>
+<li>
+<p>In JavaScript we end statements with semicolons.</p>
+</li>
+<li>
+<p><code>Variable</code> names can be made up of numbers, letters, and <code>$</code> or <code>_</code>, but may not contain spaces or start with a number.</p>
+</li>
+<li>
+<p>In JavaScript all variables and function names are <strong>case sensitive</strong>. This means that capitalization matters.</p>
+</li>
+<li>
+<p>The <code>remainder</code> operator <code>%</code> gives the remainder of the division of two numbers.<br>
+The <code>remainder</code> operator is sometimes incorrectly referred to as the “modulus” operator. It is very similar to modulus, but does not work properly with negative numbers.</p>
+</li>
+<li>
+<p>String values in JavaScript may be written with <strong>single</strong> or <strong>double</strong> quotes, so long as you start and end with the same type of quote.<br>
+In JavaScript, you can <code>escape</code> a quote from considering it as an end of string quote by placing a <code>backslash</code> (<code>\</code>) in front of the quote.</p>
+</li>
+<li>
+<p>You can find the length of a <code>String</code> value by writing <code>.length</code> after the string variable or string literal.<br>
+<code>&quot;Alan Peter&quot;.length; // 10</code></p>
+</li>
+<li>
+<p><strong>Bracket notation</strong> is a way to get a character at a specific <code>index</code> within a string. exp:<code>firstName[0]</code></p>
+</li>
+<li>
+<p>In JavaScript, <code>String</code> values are <strong>immutable</strong>, which means that they cannot be altered once created.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myStr = <span class="string">"Bob"</span>;</span><br><span class="line">myStr[<span class="number">0</span>] = <span class="string">"J"</span>;</span><br></pre></td></tr></table></figure>
+<p>will <strong>not</strong> change the value of myStr.</p>
+</li>
+<li>
+<p>With JavaScript <code>array</code> variables, we can store several pieces of data in one place.<br>
+<code>var sandwich = [&quot;peanut butter&quot;, 12, &quot;bread&quot;];</code></p>
+</li>
+<li>
+<p>An easy way to append data to the end of an array is via the <code>push()</code> function.<br>
+<code>.push()</code> takes one or more <code>parameters</code> and “pushes” them onto the end of the array.</p>
+</li>
+<li>
+<p>Another way to change the data in an array is with the <code>.pop()</code> function.</p>
+<p><code>.pop()</code> is used to “pop” a value off of the end of an array. We can store this “popped off” value by assigning it to a variable.</p>
+</li>
+<li>
+<p>The <code>shift()</code> method removes the first element from an array and returns that element. This method changes the length of the array.</p>
+</li>
+<li>
+<p>The <code>unshift()</code> method adds one or more elements to the beginning of an array and returns the new length of the array.</p>
+</li>
+<li>
+<p><em>Functions</em></p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">functionName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Hello World"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testFun</span>(<span class="params">param1, param2</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(param1, param2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>Delete Properties from a JavaScript Object</strong> <code>delete myObj["Space Name"]</code> or <code>delete myObj.name</code></li>
-<li>Sometimes it is useful to check if the property of a given object exists or not. We can use the <code>.hasOwnProperty(propname)</code> method of objects to determine if that object has the given property name. <code>.hasOwnProperty()</code> returns <code>true</code> or <code>false</code> if the property is found or not. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myObj = &#123;</span><br><span class="line">  top: <span class="string">"hat"</span>,</span><br><span class="line">  bottom: <span class="string">"pants"</span></span><br><span class="line">&#125;;</span><br><span class="line">myObj.hasOwnProperty(<span class="string">"top"</span>);    <span class="comment">// true</span></span><br><span class="line">myObj.hasOwnProperty(<span class="string">"middle"</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></li>
-</ul></li>
-<li><p><strong>For</strong> <code>for ([initialization]; [condition]; [final-expression])</code></p></li>
-<li><p>JavaScript has a <code>Math.random()</code> function that generates a random decimal number between <code>0</code> (inclusive) and not quite up to <code>1</code> (exclusive).</p></li>
-<li><p>The <code>Math.floor()</code> function returns the largest integer less than or equal to a given number.</p></li>
-<li><p>Generate a random number that falls within a range of two specific numbers. <code>Math.floor(Math.random() * (max - min + 1)) + min</code></p></li>
-<li><p><strong>Regular expressions</strong> <code>/</code> is the start of the regular expression. <code>/</code> is the end of the regular expression. <code>g</code> means <code>global</code>, which causes the pattern to return all matches in the string, not just the first one. <code>i</code> means that we want to ignore the case (uppercase or lowercase) when searching for the pattern. <code>var expressionToGetSoftware = /software/gi;</code> <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> testString = <span class="string">"How many non-space characters are there in this sentence?"</span>;</span><br><span class="line"><span class="keyword">var</span> expression = <span class="regexp">/\S/g</span>;</span><br><span class="line"><span class="keyword">var</span> nonSpaceCount = testString.match(expression).length;</span><br></pre></td></tr></table></figure></p></li>
+<li>
+<p>In JavaScript, <code>scope</code> refers to the visibility of variables. Variables which are defined outside of a function block have <code>Global</code> scope. This means, they can be seen everywhere in your JavaScript code.<br>
+Variables which are used without the <code>var</code> keyword are automatically created in the <code>global</code> scope. This can create unintended consequences elsewhere in your code or when running a function again. You should <strong>always</strong> declare your variables with <code>var</code>.</p>
+</li>
+<li>
+<p>It is possible to have both <code>local</code> and <code>global</code> variables with the same name. When you do this, the <code>local</code> variable takes precedence over the <code>global</code> variable.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> someVar = <span class="string">"Hat"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> someVar = <span class="string">"Head"</span>;</span><br><span class="line">  <span class="keyword">return</span> someVar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>if</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (condition is <span class="literal">true</span>) &#123;</span><br><span class="line">statement is executed</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Comparison</strong> equality operator (<code>==</code>)<br>
+In order for JavaScript to compare two different <code>data types</code> (for example, <code>numbers</code> and <code>strings</code>), it must convert one type to another. Once it does, however, it can compare terms as follows:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="number">1</span>   ==  <span class="number">1</span>    <span class="comment">// true</span></span><br><span class="line"> <span class="number">1</span>   ==  <span class="number">2</span>    <span class="comment">// false</span></span><br><span class="line"> <span class="number">1</span>   == <span class="string">'1'</span>   <span class="comment">// true</span></span><br><span class="line"><span class="string">"3"</span>  ==  <span class="number">3</span>    <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Strict equality</strong><br>
+Strict equality (<code>===</code>) is the counterpart to the equality operator (<code>==</code>). Unlike the equality operator, strict equality tests both the <code>data type</code> and value of the compared elements.</p>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">3</span> === <span class="number">3</span>   <span class="comment">// true</span></span><br><span class="line"><span class="number">3</span> === <span class="string">'3'</span> <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>inequality operator</strong><br>
+Like the equality operator, the inequality operator will convert data types of values while comparing.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> != <span class="number">2</span>      <span class="comment">// true</span></span><br><span class="line"><span class="number">1</span> != <span class="string">"1"</span>    <span class="comment">// false</span></span><br><span class="line"><span class="number">1</span> != <span class="string">'1'</span>    <span class="comment">// false</span></span><br><span class="line"><span class="number">1</span> != <span class="literal">true</span>   <span class="comment">// false</span></span><br><span class="line"><span class="number">0</span> != <span class="literal">false</span>  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Strict Inequality Operator</strong><br>
+The strict inequality operator (<code>!==</code>) is the opposite of the strict equality operator. It means “Strictly Not Equal” and returns <code>false</code> where strict equality would return <code>true</code> and <em>vice versa</em>. Strict inequality will not convert data types.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">3</span> !== <span class="number">3</span>   <span class="comment">// false</span></span><br><span class="line"><span class="number">3</span> !== <span class="string">'3'</span> <span class="comment">// true</span></span><br><span class="line"><span class="number">4</span> !== <span class="number">3</span>   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Greater Than Or Equal To Operator</strong><br>
+Like the equality operator, <code>greater than or equal to</code> operator will convert data types while comparing.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">6</span>  &gt;=  <span class="number">6</span>  <span class="comment">// true</span></span><br><span class="line"><span class="number">7</span>  &gt;= <span class="string">'3'</span> <span class="comment">// true</span></span><br><span class="line"><span class="number">2</span>  &gt;=  <span class="number">3</span>  <span class="comment">// false</span></span><br><span class="line"><span class="string">'7'</span> &gt;=  <span class="number">9</span>  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>Like the equality operator, <code>less than</code> operator converts data types while comparing.<br>
+Like the equality operator, <code>less than or equal to</code> converts data types.</p>
+</li>
+<li>
+<p><code>if ...else if ... else...</code></p>
+</li>
+<li>
+<p><strong>Switch Statements</strong><br>
+Statements are executed from the first matched case value until a <code>break</code> is encountered. <code>case</code> values are tested with <strong>strict equality</strong> (<code>===</code>). The <code>break</code> tells JavaScript to stop executing statements. If the <code>break</code> is omitted, the next statement will be executed.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> (num) &#123;</span><br><span class="line">  <span class="keyword">case</span> value1:</span><br><span class="line">    statement1;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> value2:</span><br><span class="line">    statement2;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">...</span><br><span class="line">  <span class="keyword">case</span> valueN:</span><br><span class="line">    statementN;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    defaultStatement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>JavaScript Object</strong><br>
+Objects are similar to <code>arrays</code>, except that instead of using indexes to access and modify their data, you access the data in objects through what are called <code>properties</code>. example:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> cat = &#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Whiskers"</span>,</span><br><span class="line">  <span class="string">"legs"</span>: <span class="number">4</span>,</span><br><span class="line">  <span class="string">"tails"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="string">"enemies"</span>: [<span class="string">"Water"</span>, <span class="string">"Dogs"</span>]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Accessing Objects Properties with the Dot Operator</strong><br>
+There are two ways to access the properties of an object: the dot operator (<code>.</code>) and bracket notation (<code>[]</code>), similar to an array.</p>
+<p>The dot operator is what you use when you know the name of the property you’re trying to access ahead of time.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myObj = &#123;</span><br><span class="line">  prop1: <span class="string">"val1"</span>,</span><br><span class="line">  prop2: <span class="string">"val2"</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> prop1val = myObj.prop1; <span class="comment">// val1</span></span><br><span class="line"><span class="keyword">var</span> prop2val = myObj.prop2; <span class="comment">// val2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Accessing Objects Properties with Bracket Notation</strong><br>
+If the property of the object you are trying to access has a <strong>space</strong> in it, you will need to use bracket notation.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myObj = &#123;</span><br><span class="line">  <span class="string">"Space Name"</span>: <span class="string">"Kirk"</span>,</span><br><span class="line">  <span class="string">"More Space"</span>: <span class="string">"Spock"</span>,</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"tru"</span></span><br><span class="line">&#125;;</span><br><span class="line">myObj[<span class="string">"Space Name"</span>]; <span class="comment">// Kirk</span></span><br><span class="line">myObj[<span class="string">'More Space'</span>]; <span class="comment">// Spock</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Delete Properties from a JavaScript Object</strong><br>
+<code>delete myObj[&quot;Space Name&quot;]</code> or <code>delete myObj.name</code></li>
+<li>Sometimes it is useful to check if the property of a given object exists or not. We can use the <code>.hasOwnProperty(propname)</code> method of objects to determine if that object has the given property name. <code>.hasOwnProperty()</code> returns <code>true</code> or <code>false</code> if the property is found or not.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myObj = &#123;</span><br><span class="line">  top: <span class="string">"hat"</span>,</span><br><span class="line">  bottom: <span class="string">"pants"</span></span><br><span class="line">&#125;;</span><br><span class="line">myObj.hasOwnProperty(<span class="string">"top"</span>);    <span class="comment">// true</span></span><br><span class="line">myObj.hasOwnProperty(<span class="string">"middle"</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>For</strong><br>
+<code>for ([initialization]; [condition]; [final-expression])</code></p>
+</li>
+<li>
+<p>JavaScript has a <code>Math.random()</code> function that generates a random decimal number between <code>0</code> (inclusive) and not quite up to <code>1</code> (exclusive).</p>
+</li>
+<li>
+<p>The <code>Math.floor()</code> function returns the largest integer less than or equal to a given number.</p>
+</li>
+<li>
+<p>Generate a random number that falls within a range of two specific numbers.<br>
+<code>Math.floor(Math.random() * (max - min + 1)) + min</code></p>
+</li>
+<li>
+<p><strong>Regular expressions</strong><br>
+<code>/</code> is the start of the regular expression.<br>
+<code>/</code> is the end of the regular expression.<br>
+<code>g</code> means <code>global</code>, which causes the pattern to return all matches in the string, not just the first one.<br>
+<code>i</code> means that we want to ignore the case (uppercase or lowercase) when searching for the pattern.<br>
+<code>var expressionToGetSoftware = /software/gi;</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> testString = <span class="string">"How many non-space characters are there in this sentence?"</span>;</span><br><span class="line"><span class="keyword">var</span> expression = <span class="regexp">/\S/g</span>;</span><br><span class="line"><span class="keyword">var</span> nonSpaceCount = testString.match(expression).length;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <hr>
-<h3 id="object-oriented-and-functional-programming">Object Oriented and Functional Programming</h3>
+<h3 id="object-oriented-and-functional-programming"><a class="markdownIt-Anchor" href="#object-oriented-and-functional-programming"></a> Object Oriented and Functional Programming</h3>
 <ul>
-<li><p>We are also able to create objects using <code>constructor</code> functions. 构造器 A <code>constructor</code> function is given a capitalized name to make it clear that it is a <code>constructor</code>. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Car = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.wheels = <span class="number">4</span>;</span><br><span class="line">  <span class="keyword">this</span>.engines = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">this</span>.seats = <span class="number">5</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>In a <code>constructor</code> the <code>this</code> variable refers to the new object being created by the constructor. Inside of the <code>constructor</code> we are giving the new object it creates a property called <code>wheels</code> with a value of <code>4</code>.</p></li>
-<li><p>To use a <code>constructor</code> function we call it with the <code>new</code> keyword in front of it like: <code>var myCar = new Car();</code> <code>myCar</code> is now an instance of the <code>Car</code> constructor that looks like the object it described: <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  wheels: 4,</span><br><span class="line">  engines: 1,</span><br><span class="line">  seats: 5</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Make Unique Objects by Passing Parameters to our Constructor</strong> We can add <code>parameters</code> to our <code>constructor</code>. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Car = <span class="function"><span class="keyword">function</span>(<span class="params">wheels, seats, engines</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.wheels = wheels;</span><br><span class="line">  <span class="keyword">this</span>.seats = seats;</span><br><span class="line">  <span class="keyword">this</span>.engines = engines;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>Now, we can pass <code>arguments</code> like this: <code>var myCar = new Car(6, 3, 1);</code></p></li>
-<li><p><strong>Make Object Properties Private</strong> Objects have their own attributes, called <code>properties</code>, and their own functions, called <code>methods</code>.</p>
-<p>Previously, we used the <code>this</code> keyword to reference <code>public properties</code> of the current object. Now, to create <code>private properties</code>, we create the variable inside the constructor using the <code>var</code> keyword, instead of creating it as a property of <code>this</code>.</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Car = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this is a private variable</span></span><br><span class="line">  <span class="keyword">var</span> speed = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// these are public methods</span></span><br><span class="line">  <span class="keyword">this</span>.accelerate = <span class="function"><span class="keyword">function</span>(<span class="params">change</span>) </span>&#123;</span><br><span class="line">    speed += change;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.decelerate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    speed -= <span class="number">5</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.getSpeed = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> speed;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>Iterate over Arrays with map</strong> The <code>map</code> method is a convenient way to iterate through arrays. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> oldArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> timesFour = oldArray.map(<span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> val * <span class="number">4</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(timesFour); <span class="comment">// returns [4, 8, 12]</span></span><br><span class="line"><span class="built_in">console</span>.log(oldArray);  <span class="comment">// returns [1, 2, 3]</span></span><br></pre></td></tr></table></figure></p>
-<p>The <code>map</code> method will iterate through every element of the array, creating a new array with values that have been modified by the callback function, and return it. Note that it does not modify the original array.</p></li>
-<li><p><strong>Condense arrays with reduce</strong> The array method <code>reduce</code> is used to iterate through an array and condense it into one value.</p>
+<li>
+<p>We are also able to create objects using <code>constructor</code> functions. 构造器<br>
+A <code>constructor</code> function is given a capitalized name to make it clear that it is a <code>constructor</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Car = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.wheels = <span class="number">4</span>;</span><br><span class="line">  <span class="keyword">this</span>.engines = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">this</span>.seats = <span class="number">5</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>In a <code>constructor</code> the <code>this</code> variable refers to the new object being created by the constructor.<br>
+Inside of the <code>constructor</code> we are giving the new object it creates a property called <code>wheels</code> with a value of <code>4</code>.</p>
+</li>
+<li>
+<p>To use a <code>constructor</code> function we call it with the <code>new</code> keyword in front  of it like:<br>
+<code>var myCar = new Car();</code><br>
+<code>myCar</code> is now an instance of the <code>Car</code> constructor that looks like the object it described:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  wheels: 4,</span><br><span class="line">  engines: 1,</span><br><span class="line">  seats: 5</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Make Unique Objects by Passing Parameters to our Constructor</strong><br>
+We can add <code>parameters</code> to our <code>constructor</code>.</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Car = <span class="function"><span class="keyword">function</span>(<span class="params">wheels, seats, engines</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.wheels = wheels;</span><br><span class="line">  <span class="keyword">this</span>.seats = seats;</span><br><span class="line">  <span class="keyword">this</span>.engines = engines;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Now, we can pass <code>arguments</code> like this: <code>var myCar = new Car(6, 3, 1);</code></p>
+</li>
+<li>
+<p><strong>Make Object Properties Private</strong><br>
+Objects have their own attributes, called <code>properties</code>, and their own functions, called <code>methods</code>.</p>
+<p>Previously, we used the <code>this</code> keyword to reference <code>public properties</code> of the current object.<br>
+Now, to create <code>private properties</code>, we create the variable inside the constructor using the <code>var</code> keyword, instead of creating it as a property of <code>this</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Car = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this is a private variable</span></span><br><span class="line">  <span class="keyword">var</span> speed = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// these are public methods</span></span><br><span class="line">  <span class="keyword">this</span>.accelerate = <span class="function"><span class="keyword">function</span>(<span class="params">change</span>) </span>&#123;</span><br><span class="line">    speed += change;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.decelerate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    speed -= <span class="number">5</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.getSpeed = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> speed;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Iterate over Arrays with map</strong><br>
+The <code>map</code> method is a convenient way to iterate through arrays.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> oldArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> timesFour = oldArray.map(<span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> val * <span class="number">4</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(timesFour); <span class="comment">// returns [4, 8, 12]</span></span><br><span class="line"><span class="built_in">console</span>.log(oldArray);  <span class="comment">// returns [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+<p>The <code>map</code> method will iterate through every element of the array, creating a new array with values that have been modified by the callback function, and return it. Note that it does not modify the original array.</p>
+</li>
+<li>
+<p><strong>Condense arrays with reduce</strong><br>
+The array method <code>reduce</code> is used to iterate through an array and condense it into one value.</p>
 <p>To use <code>reduce</code> you pass in a callback whose arguments are an accumulator (in this case, <code>previousVal</code>) and the current value (<code>currentVal</code>).</p>
-<p>The accumulator is like a total that <code>reduce</code> keeps track of after each operation. The current value is just the next element in the array you're iterating through.</p>
-<p><code>reduce</code> has an optional second argument which can be used to set the initial value of the accumulator. If no initial value is specified it will be the first array element and <code>currentVal</code> will start with the second array element. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> singleVal = array.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">previousVal, currentVal</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> previousVal - currentVal;</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Filter Arrays with filter</strong> The <code>filter</code> method is used to iterate through an array and filter out elements where a given condition is <strong>not</strong> true.</p>
+<p>The accumulator is like a total that <code>reduce</code> keeps track of after each operation. The current value is just the next element in the array you’re iterating through.</p>
+<p><code>reduce</code> has an optional second argument which can be used to set the initial value of the accumulator. If no initial value is specified it will be the first array element and <code>currentVal</code> will start with the second array element.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> singleVal = array.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">previousVal, currentVal</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> previousVal - currentVal;</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Filter Arrays with filter</strong><br>
+The <code>filter</code> method is used to iterate through an array and filter out elements where a given condition is <strong>not</strong> true.</p>
 <p><code>filter</code> is passed a callback function which takes the current value as an argument.</p>
 <p>Any array element for which the callback returns true will be kept and elements that return false will be filtered out.</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> oldArray = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newArray = oldArray.filter(<span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> val&lt;<span class="number">6</span>;</span><br><span class="line">&#125;);  <span class="comment">//result: [1,2,3,4,5]</span></span><br></pre></td></tr></table></figure></li>
-<li><p><strong>Sort Arrays with sort</strong> You can use the method <code>sort</code> to easily sort the values in an array alphabetically or numerically.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> oldArray = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newArray = oldArray.filter(<span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> val&lt;<span class="number">6</span>;</span><br><span class="line">&#125;);  <span class="comment">//result: [1,2,3,4,5]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Sort Arrays with sort</strong><br>
+You can use the method <code>sort</code> to easily sort the values in an array alphabetically or numerically.</p>
 <p>Unlike the previous array methods we have been looking at, <code>sort</code> actually alters the array <strong>in place</strong>. However, it also returns this sorted array.</p>
 <p><code>sort</code> can be passed a compare function as a callback. The compare function should return a negative number if <code>a</code> should be before <code>b</code>, a positive number if <code>a</code> should be after <code>b</code>, or <code>0</code> if they are equal.</p>
-<p>If no compare (callback) function is passed in, it will convert the values to strings and sort alphabetically. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">12</span>, <span class="number">21</span>, <span class="number">2</span>];</span><br><span class="line">array.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Reverse Arrays with reverse</strong> You can use the <code>reverse</code> method to reverse the elements of an array.</p>
-<p><code>reverse</code> is another array method that alters the array <strong>in place</strong>, but it also returns the reversed array. <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">myArray.reverse();<span class="comment">//returns [3, 2, 1]</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p><strong>Concatenate Arrays with concat</strong> <code>concat</code> can be used to merge the contents of two arrays into one.</p>
+<p>If no compare (callback) function is passed in, it will convert the values to strings and sort alphabetically.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">12</span>, <span class="number">21</span>, <span class="number">2</span>];</span><br><span class="line">array.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Reverse Arrays with reverse</strong><br>
+You can use the <code>reverse</code> method to reverse the elements of an array.</p>
+<p><code>reverse</code> is another array method that alters the array <strong>in place</strong>, but it also returns the reversed array.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">myArray.reverse();<span class="comment">//returns [3, 2, 1]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>Concatenate Arrays with concat</strong><br>
+<code>concat</code> can be used to merge the contents of two arrays into one.</p>
 <p><code>concat</code> takes an array as an argument and returns a new array with the elements of this array concatenated onto the end.</p>
-<p><code>newArray = oldArray.concat(otherArray);</code></p></li>
-<li><p><strong>Split Strings with split</strong> You can use the <code>split</code> method to split a string into an array.</p>
-<p><code>split</code> uses the argument you pass in as a delimiter to determine which points the string should be split at. <code>var array = string.split('s');</code></p></li>
-<li><p><strong>Join Strings with join</strong> We can use the <code>join</code> method to join each element of an array into a string separated by whatever delimiter you provide as an argument.</p></li>
+<p><code>newArray = oldArray.concat(otherArray);</code></p>
+</li>
+<li>
+<p><strong>Split Strings with split</strong><br>
+You can use the <code>split</code> method to split a string into an array.</p>
+<p><code>split</code> uses the argument you pass in as a delimiter to determine which points the string should be split at.<br>
+<code>var array = string.split('s');</code></p>
+</li>
+<li>
+<p><strong>Join Strings with join</strong><br>
+We can use the <code>join</code> method to join each element of an array into a string separated by whatever delimiter you provide as an argument.</p>
+</li>
 </ul>
   
 	</div>
@@ -238,7 +393,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript-basic"><span class="toc-number">1.</span> <span class="toc-text">JavaScript Basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#object-oriented-and-functional-programming"><span class="toc-number">2.</span> <span class="toc-text">Object Oriented and Functional Programming</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript-basic"><span class="toc-number">1.</span> <span class="toc-text"> JavaScript Basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#object-oriented-and-functional-programming"><span class="toc-number">2.</span> <span class="toc-text"> Object Oriented and Functional Programming</span></a></li></ol>
  
   </div>
 
@@ -336,11 +491,11 @@
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -360,7 +515,7 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -368,11 +523,15 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -380,15 +539,11 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

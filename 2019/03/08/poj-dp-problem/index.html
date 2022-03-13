@@ -211,7 +211,7 @@
 <p>注意：在大量数据读写时，必须用scanf,不然会超时，比如本题使用cin会超时。</p>
 <p>思路：主要不好想到定义问题状态，一开始想枚举第一次股票交易的卖出时间【这样O(1)处理第一次买入时间，logN处理第二次最大利益（第二次交易实际上是取最大值，所以可以用堆维护）】，但T<em>N</em>logN就tle了。</p>
 <p>正解是dp1(i)代表1-i天一次交易的最大收益；再dp2(i)代表i-n天的最大收益。</p>
-<p>以dp1(i) = max( dp1(i-1) , a[i]-prev[i] )，prev是最小前缀，dp2同理。</p>
+<p>以dp1(i)  = max( dp1(i-1) , a[i]-prev[i] )，prev是最小前缀，dp2同理。</p>
 <p>这样O(n)做完。</p>
 <p><a href="https://blog.csdn.net/murmured/article/details/9532357" target="_blank" rel="noopener">类似题UVA 11078 Open Credit System</a></p>
 <hr>
@@ -222,7 +222,9 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 10</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> f[maxn+<span class="number">5</span>][maxn+<span class="number">5</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=maxn;i++) f[<span class="number">0</span>][i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=maxn;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=maxn;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j&lt;=i) f[i][j]=f[i][j<span class="number">-1</span>]+f[i-j][j];</span><br><span class="line">            <span class="keyword">else</span> f[i][j]=f[i][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;m,&amp;n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,f[m][n]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">8471:切割回文</span><br><span class="line">查看 提交 统计 提问</span><br><span class="line">总时间限制: 1000ms 内存限制: 65536kB</span><br><span class="line">描述</span><br><span class="line">阿福最近对回文串产生了非常浓厚的兴趣。</span><br><span class="line"></span><br><span class="line">如果一个字符串从左往右看和从右往左看完全相同的话，那么就认为这个串是一个回文串。例如，“abcaacba”是一个回文串，“abcaaba”则不是一个回文串。</span><br><span class="line"></span><br><span class="line">阿福现在强迫症发作，看到什么字符串都想要把它变成回文的。阿福可以通过切割字符串，使得切割完之后得到的子串都是回文的。</span><br><span class="line"></span><br><span class="line">现在阿福想知道他最少切割多少次就可以达到目的。例如，对于字符串“abaacca”，最少切割一次，就可以得到“aba”和“acca”这两个回文子串。</span><br><span class="line"></span><br><span class="line">输入</span><br><span class="line">输入的第一行是一个整数 T (T &lt;= 20) ，表示一共有 T 组数据。</span><br><span class="line">接下来的 T 行，每一行都包含了一个长度不超过的 1000 的字符串，且字符串只包含了小写字母。</span><br><span class="line">输出</span><br><span class="line">对于每组数据，输出一行。该行包含一个整数，表示阿福最少切割的次数，使得切割完得到的子串都是回文的。</span><br><span class="line">样例输入</span><br><span class="line">3</span><br><span class="line">abaacca</span><br><span class="line">abcd</span><br><span class="line">abcba</span><br><span class="line">样例输出</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">0</span><br><span class="line">提示</span><br><span class="line">对于第一组样例，阿福最少切割 1 次，将原串切割为“aba”和“acca”两个回文子串。</span><br><span class="line">对于第二组样例，阿福最少切割 3 次，将原串切割为“a”、“b”、“c”、“d”这四个回文子串。</span><br><span class="line">对于第三组样例，阿福不需要切割，原串本身就是一个回文串。</span><br></pre></td></tr></table></figure>
-<p>思路： dp[i]表示把前i个都变成回文串最少需要切割的次数。 每次枚举在j后面切一刀，暴力判断(j+1,i)是否是回文，如果是，那就是要切割dp[j]+1次。取最小即可。</p>
+<p>思路：<br>
+dp[i]表示把前i个都变成回文串最少需要切割的次数。<br>
+每次枚举在j后面切一刀，暴力判断(j+1,i)是否是回文，如果是，那就是要切割dp[j]+1次。取最小即可。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> str;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">1005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isHui</span><span class="params">(<span class="keyword">int</span> st, <span class="keyword">int</span> en)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(st&lt;en)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(str[st]!=str[en])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        st++;</span><br><span class="line">        en--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;T;</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;str;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str.size();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i]=(isHui(<span class="number">0</span>,i))?<span class="number">0</span>:i;<span class="comment">//dp[i]初始化</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(isHui(j+<span class="number">1</span>, i))</span><br><span class="line">                    dp[i]=min(dp[i], dp[j]+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;dp[str.size()<span class="number">-1</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">8780:拦截导弹</span><br><span class="line">查看 提交 统计 提问</span><br><span class="line">总时间限制: 1000ms 内存限制: 65536kB</span><br><span class="line">描述</span><br><span class="line">某国为了防御敌国的导弹袭击，发展出一种导弹拦截系统。但是这种导弹拦截系统有一个缺陷：虽然它的第一发炮弹能够到达任意的高度，但是以后每一发炮弹都不能高于前一发的高度。某天，雷达捕捉到敌国的导弹来袭。由于该系统还在试用阶段，所以只有一套系统，因此有可能不能拦截所有的导弹。</span><br><span class="line"></span><br><span class="line">输入导弹依次飞来的高度（雷达给出的高度数据是不大于30000的正整数），计算这套系统最多能拦截多少导弹。</span><br><span class="line"></span><br><span class="line">输入</span><br><span class="line">第一行是一个整数N（不超过15），表示导弹数。</span><br><span class="line">第二行包含N个整数，为导弹依次飞来的高度（雷达给出的高度数据是不大于30000的正整数）。</span><br><span class="line">输出</span><br><span class="line">一个整数，表示最多能拦截的导弹数。</span><br><span class="line">样例输入</span><br><span class="line">8</span><br><span class="line">389 207 155 300 299 170 158 65</span><br><span class="line">样例输出</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
@@ -431,11 +433,11 @@
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -455,7 +457,7 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -463,11 +465,15 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -475,15 +481,11 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

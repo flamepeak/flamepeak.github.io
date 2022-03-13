@@ -22,30 +22,28 @@
     <published>2022-02-28T07:39:55.000Z</published>
     <updated>2022-02-27T13:07:56.372Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="通信">通信</h2>
-<h3 id="fireside">FireSide</h3>
+    <content type="html"><![CDATA[<h2 id="通信"><a class="markdownIt-Anchor" href="#通信"></a> 通信</h2>
+<h3 id="fireside"><a class="markdownIt-Anchor" href="#fireside"></a> FireSide</h3>
 <p>无须互联网的通信工具，可以建立在线社区，安全的分享文件和消息。</p>
 <p>Fireside Messenger 是基于 NewNode 技术的信使，它创建替代网络连接，允许您的设备在资源或应用程序被阻止或不可用的情况下进行通信。</p>
 <p>通过其P2P内容交付平台，Fireside Messenger 可确保您的通信弹性，即使您当地的手机信号塔在自然灾害中被摧毁或访问一个没有可靠互联网基础设施的国家时也是如此。使用它的人越多，连接就越牢固。</p>
 <p>Fireside 在 NewNode 协议上运行，该协议会自动检测数据的最佳路径。如果没有 wifi 连接，NewNode 将通过连接设备网络路由您的流量。</p>
-<h2 id="效率">效率</h2>
+<h2 id="效率"><a class="markdownIt-Anchor" href="#效率"></a> 效率</h2>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;通信&quot;&gt;通信&lt;/h2&gt;
-&lt;h3 id=&quot;fireside&quot;&gt;FireSide&lt;/h3&gt;
-&lt;p&gt;无须互联网的通信工具，可以建立在线社区，安全的分享文件和消息。&lt;/p&gt;
-&lt;p&gt;Fireside Messenger 是基于 NewNode 技术的信使，它创建替代网
+      &lt;h2 id=&quot;通信&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#通信&quot;&gt;&lt;/a&gt; 通信&lt;/h2&gt;
+&lt;h3 id=&quot;fireside&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#fireside&quot;&gt;&lt;/a&gt; FireSi
     
     </summary>
     
       <category term="Android" scheme="http://flamepeak.com/categories/Android/"/>
     
     
-      <category term="Network Security" scheme="http://flamepeak.com/tags/Network-Security/"/>
-    
       <category term="Android" scheme="http://flamepeak.com/tags/Android/"/>
+    
+      <category term="Network Security" scheme="http://flamepeak.com/tags/Network-Security/"/>
     
   </entry>
   
@@ -83,40 +81,36 @@
     <content type="html"><![CDATA[<p>Usage:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sdelete [-p passes] [-r] [-s] [-q] &lt;file or directory&gt; [...]</span><br><span class="line">sdelete [-p passes] [-z|-c [percent free]] &lt;drive letter [...]&gt;</span><br><span class="line">sdelete [-p passes] [-z|-c] &lt;physical disk number&gt;</span><br></pre></td></tr></table></figure>
 <table>
-<colgroup>
-<col style="width: 17%">
-<col style="width: 82%">
-</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: left;">Parameter</th>
-<th style="text-align: left;">Description</th>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>-c</strong></td>
-<td style="text-align: left;">Clean free space. Specify an option amount of space to leave free for use by a running system.</td>
+<tr>
+<td style="text-align:left"><strong>-c</strong></td>
+<td style="text-align:left">Clean free space. Specify an option amount of space to leave free for use by a running system.</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><strong>-p</strong></td>
-<td style="text-align: left;">Specifies number of overwrite passes (default is 1).</td>
+<tr>
+<td style="text-align:left"><strong>-p</strong></td>
+<td style="text-align:left">Specifies number of overwrite passes (default is 1).</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>-r</strong></td>
-<td style="text-align: left;">Remove Read-Only attribute.</td>
+<tr>
+<td style="text-align:left"><strong>-r</strong></td>
+<td style="text-align:left">Remove Read-Only attribute.</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><strong>-s</strong></td>
-<td style="text-align: left;">Recurse subdirectories.</td>
+<tr>
+<td style="text-align:left"><strong>-s</strong></td>
+<td style="text-align:left">Recurse subdirectories.</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>-z</strong></td>
-<td style="text-align: left;">Zero free space (good for virtual disk optimization).</td>
+<tr>
+<td style="text-align:left"><strong>-z</strong></td>
+<td style="text-align:left">Zero free space (good for virtual disk optimization).</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><strong>-nobanner</strong></td>
-<td style="text-align: left;">Do not display the startup banner and copyright message.</td>
+<tr>
+<td style="text-align:left"><strong>-nobanner</strong></td>
+<td style="text-align:left">Do not display the startup banner and copyright message.</td>
 </tr>
 </tbody>
 </table>
@@ -128,16 +122,16 @@
 <p><strong>Deleting files or folders securely</strong></p>
 <p>The command <code>sdelete &lt;file or directory&gt;</code> is the base command for any file or directory operations. Here are some examples that demonstrates the different options that you have:</p>
 <ul>
-<li><code>sdelete -s c:\users\martin\downloads</code> -- This deletes the folder downloads and all subdirectories securely.</li>
-<li><code>sdelete -q c:\users\martin\text.txt</code> -- This deletes the file text.txt securely, and suppresses any error messages.</li>
-<li><code>sdelete -p 5 c:\*.zip</code> -- This deletes all zip files under c:, and runs the operation in five passes.</li>
+<li><code>sdelete -s c:\users\martin\downloads</code> – This deletes the folder downloads and all subdirectories securely.</li>
+<li><code>sdelete -q c:\users\martin\text.txt</code> – This deletes the file text.txt securely, and suppresses any error messages.</li>
+<li><code>sdelete -p 5 c:\*.zip</code> – This deletes all zip files under c:, and runs the operation in five passes.</li>
 </ul>
 <p><strong>Deleting free disk space securely</strong></p>
-<p>The base command <code>sdelete -c &lt;drive letter&gt;</code> deletes free disk space on the specified drive securely. Here are some examples that demonstrate the various options that SDelete offers:</p>
+<p>The base command <code>sdelete -c &lt;drive letter&gt;</code>  deletes free disk space on the specified drive securely. Here are some examples that demonstrate the various options that SDelete offers:</p>
 <ul>
-<li><code>sdelete -c c:</code> -- Deletes the free disk space on drive C: securely.</li>
-<li><code>sdelete -c -p 2 f:</code> -- Runs two delete passes on the free disk space of drive f:</li>
-<li><code>sdelete -z d:</code>-- Zeroes the free disk space of drive d:</li>
+<li><code>sdelete -c c:</code> – Deletes the free disk space on drive C: securely.</li>
+<li><code>sdelete -c -p 2 f:</code> – Runs two delete passes on the free disk space of drive f:</li>
+<li><code>sdelete -z d:</code>– Zeroes the free disk space of drive d:</li>
 </ul>
 <p>SDelete uses the Department of Defense algorithm by default when it deletes files, folders or free disk space. The <code>-z</code> parameter overwrites the free disk space with zeroes instead which is faster.</p>
 <p>The operations may take quite some time to complete. The length it takes depends on the selection. Deleting individual files securely is pretty fast, but it may take hours or even longer if you run the operation on large folders or free space of entire hard drives.</p>
@@ -147,7 +141,7 @@
     <summary type="html">
     
       &lt;p&gt;Usage:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sdelete [-p passes] [-r] [-s] [-q] &amp;lt;fi
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sdelete [-p passes] [-r] [-s] [-q] &amp;lt;fil
     
     </summary>
     
@@ -168,21 +162,21 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-s, (--kernel-name) - Prints the kernel name.</span><br><span class="line">-n, (--nodename) - Prints the system’s node name (hostname). This is the name the system uses when communicating over the network. When used with the -n option, uname produces the same output as the hostname command.</span><br><span class="line">-r, (--kernel-release) - Prints the kernel release.</span><br><span class="line">-v, (--kernel-version) - Prints the kernel version.</span><br><span class="line">-m, (--machine) - Prints the name of the machine’s hardware name.</span><br><span class="line">-p, (--processor) - Prints the architecture of the processor.</span><br><span class="line">-i, (--hardware-platform) - Prints the hardware platform.</span><br><span class="line">-o, (--operating-system) - Print the name of the operating system. On Linux systems that is “GNU/Linux”</span><br><span class="line">-a, (--all) - When the -a option is used, uname behaves the same as if the -snrvmo options have been given.</span><br></pre></td></tr></table></figure>
 <p>示例如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; uname -a</span><br><span class="line">Linux linuxize.com 5.3.18-lp152.19-default #1 SMP Tue Jun 9 20:59:24 UTC 2020 (960cb00) x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line">rui@localhost:~&gt; uname</span><br><span class="line">Linux</span><br><span class="line">rui@localhost:~&gt; uname -n</span><br><span class="line">linuxize.com</span><br><span class="line">lrui@localhost:~&gt; uname -s</span><br><span class="line">Linux</span><br><span class="line">rui@localhost:~&gt; uname -r</span><br><span class="line">5.3.18-lp152.19-default</span><br><span class="line">lrui@localhost:~&gt; uname -p</span><br><span class="line">x86_64</span><br><span class="line">rui@localhost:~&gt; uname -o</span><br><span class="line">GNU/Linux</span><br></pre></td></tr></table></figure>
-<p>有意思的是<code>uname -n</code>,它显示的结果和<code>hostname</code>一致，如下：<br>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; uname -n</span><br><span class="line">linuxize.com</span><br><span class="line">rui@localhost:~&gt; hostname</span><br><span class="line">linuxize.com</span><br></pre></td></tr></table></figure></p>
+<p>有意思的是<code>uname -n</code>,它显示的结果和<code>hostname</code>一致，如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; uname -n</span><br><span class="line">linuxize.com</span><br><span class="line">rui@localhost:~&gt; hostname</span><br><span class="line">linuxize.com</span><br></pre></td></tr></table></figure>
 <p>在uname帮助文件中，这么描述“Prints the system’s node name (hostname). This is the name the system uses when communicating over the network. When used with the -n option, uname produces the same output as the hostname command.”</p>
 <p>那么我们怎么修改hostname呢？</p>
-<p>使用<code>hostnamectl</code>，如下：<br>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; hostnamectl --help</span><br><span class="line">hostnamectl [OPTIONS...] COMMAND ...</span><br><span class="line"></span><br><span class="line">Query or change system hostname.</span><br><span class="line"></span><br><span class="line">  -h --help              Show this help</span><br><span class="line">     --version           Show package version</span><br><span class="line">     --no-ask-password   Do not prompt for password</span><br><span class="line">  -H --host=[USER@]HOST  Operate on remote host</span><br><span class="line">  -M --machine=CONTAINER Operate on local container</span><br><span class="line">     --transient         Only set transient hostname</span><br><span class="line">     --static            Only set static hostname</span><br><span class="line">     --pretty            Only set pretty hostname</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  status                 Show current hostname settings</span><br><span class="line">  set-hostname NAME      Set system hostname</span><br><span class="line">  set-icon-name NAME     Set icon name for host</span><br><span class="line">  set-chassis NAME       Set chassis type for host</span><br><span class="line">  set-deployment NAME    Set deployment environment for host</span><br><span class="line">  set-location NAME      Set location for host</span><br></pre></td></tr></table></figure></p>
-<p>效果如下：<br>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; hostnamectl set-hostname TECHTECH</span><br><span class="line"></span><br><span class="line">rui@localhost:~&gt; uname -a</span><br><span class="line">Linux TECHTECH 5.3.18-lp152.19-default #1 SMP Tue Jun 9 20:59:24 UTC 2020 (960cb00) x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line"></span><br><span class="line">rui@localhost:~&gt; hostnamectl set-hostname linuxize.com</span><br><span class="line"></span><br><span class="line">rui@localhost:~&gt; uname -a</span><br><span class="line">Linux linuxize.com 5.3.18-lp152.19-default #1 SMP Tue Jun 9 20:59:24 UTC 2020 (960cb00) x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure></p>
+<p>使用<code>hostnamectl</code>，如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; hostnamectl --help</span><br><span class="line">hostnamectl [OPTIONS...] COMMAND ...</span><br><span class="line"></span><br><span class="line">Query or change system hostname.</span><br><span class="line"></span><br><span class="line">  -h --help              Show this help</span><br><span class="line">     --version           Show package version</span><br><span class="line">     --no-ask-password   Do not prompt for password</span><br><span class="line">  -H --host=[USER@]HOST  Operate on remote host</span><br><span class="line">  -M --machine=CONTAINER Operate on local container</span><br><span class="line">     --transient         Only set transient hostname</span><br><span class="line">     --static            Only set static hostname</span><br><span class="line">     --pretty            Only set pretty hostname</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  status                 Show current hostname settings</span><br><span class="line">  set-hostname NAME      Set system hostname</span><br><span class="line">  set-icon-name NAME     Set icon name for host</span><br><span class="line">  set-chassis NAME       Set chassis type for host</span><br><span class="line">  set-deployment NAME    Set deployment environment for host</span><br><span class="line">  set-location NAME      Set location for host</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rui@localhost:~&gt; hostnamectl set-hostname TECHTECH</span><br><span class="line"></span><br><span class="line">rui@localhost:~&gt; uname -a</span><br><span class="line">Linux TECHTECH 5.3.18-lp152.19-default #1 SMP Tue Jun 9 20:59:24 UTC 2020 (960cb00) x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line"></span><br><span class="line">rui@localhost:~&gt; hostnamectl set-hostname linuxize.com</span><br><span class="line"></span><br><span class="line">rui@localhost:~&gt; uname -a</span><br><span class="line">Linux linuxize.com 5.3.18-lp152.19-default #1 SMP Tue Jun 9 20:59:24 UTC 2020 (960cb00) x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;&lt;code&gt;uname -a&lt;/code&gt;是一个很常用的查看Linux信息的命令，包括处理器架构、主机名和内核版本。&lt;/p&gt;
 &lt;p&gt;主要参数如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;cod
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;
     
     </summary>
     
@@ -210,19 +204,21 @@
 <p>You may see <code>pts</code> and <code>tty</code> when you use the who command, do you know what it is? how they are different?</p>
 <ul>
 <li>A tty is a native terminal device (It could be a server/system console).</li>
-<li>A pty (pseudo terminal device) is a terminal device which is emulated by an other program such as putty, xterm or screen, etc,. pts/0 means the server was accessed via SSH.</li>
+<li>A pty (pseudo terminal device) is a terminal device which is emulated by an other program such as putty, xterm or screen, etc,.<br>
+pts/0 means the server was accessed via SSH.</li>
 </ul>
-<h4 id="last">last</h4>
+<h4 id="last"><a class="markdownIt-Anchor" href="#last"></a> last</h4>
 <p>The last command fetch the details from the <code>/var/log/wtmp</code> file and it displays the list of users logged-in and logged-out from system.</p>
 <p>If the file has more data then use <code>less</code> or <code>more</code> command to view the information page wise.</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># last -15</span><br><span class="line"></span><br><span class="line">daygeek  pts/0        192.168.1.6      Wed Apr  3 00:02   still logged in   </span><br><span class="line">reboot   system boot  3.10.0-957.el7.x Tue Apr  2 23:50 - 00:03  (00:13)    </span><br><span class="line">daygeek  pts/0        192.168.1.6      Tue Apr  2 06:02 - 06:02  (00:00)    </span><br><span class="line">reboot   system boot  3.10.0-957.el7.x Tue Apr  2 06:00 - 00:03  (18:03)</span><br></pre></td></tr></table></figure></p>
-<p>Check Certain user <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">last &lt;username&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="lastb">lastb</h4>
-<p>View all the bad login attempts<br>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">last -f /var/log/btmp</span><br></pre></td></tr></table></figure></p>
-<p>or you can use the lastb command:<br>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lastb</span><br></pre></td></tr></table></figure></p>
-<h3 id="一linux痕迹清理">一：Linux痕迹清理</h3>
+   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># last -15</span><br><span class="line"></span><br><span class="line">daygeek  pts/0        192.168.1.6      Wed Apr  3 00:02   still logged in   </span><br><span class="line">reboot   system boot  3.10.0-957.el7.x Tue Apr  2 23:50 - 00:03  (00:13)    </span><br><span class="line">daygeek  pts/0        192.168.1.6      Tue Apr  2 06:02 - 06:02  (00:00)    </span><br><span class="line">reboot   system boot  3.10.0-957.el7.x Tue Apr  2 06:00 - 00:03  (18:03)</span><br></pre></td></tr></table></figure>
+<p>Check Certain user</p>
+   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">last &lt;username&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="lastb"><a class="markdownIt-Anchor" href="#lastb"></a> lastb</h4>
+<p>View all the bad login attempts</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">last -f /var/log/btmp</span><br></pre></td></tr></table></figure>
+<p>or you can use the lastb command:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lastb</span><br></pre></td></tr></table></figure>
+<h3 id="一linux痕迹清理"><a class="markdownIt-Anchor" href="#一linux痕迹清理"></a> 一：Linux痕迹清理</h3>
 <p>清理命令记录：</p>
 <p>(1)仅清理当前用户： <code>history -c</code></p>
 <p>或者，编辑history记录文件，删除部分不想被保存的历史命令。</p>
@@ -231,21 +227,27 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">kill -9 $$</span><br></pre></td></tr></table></figure>
 <p>(2)使系统不再保存命令记录：<code>vi /etc/profile</code>，找到HISTSIZE这个值，修改为0</p>
 <p>(3)删除记录，至少删除下面几项日志</p>
-<p>删除登录失败记录：<code>echo &gt; /var/log/btmp</code> 删除登录成功记录：<code>echo &gt; /var/log/wtmp</code> （此时执行last命令就会发现没有记录） 删除日志记录：<code>echo &gt; /var/log/secure</code></p>
+<p>删除登录失败记录：<code>echo &gt; /var/log/btmp</code><br>
+删除登录成功记录：<code>echo &gt; /var/log/wtmp</code> （此时执行last命令就会发现没有记录）<br>
+删除日志记录：<code>echo &gt; /var/log/secure</code></p>
 <p>删除：<code>/var/log/message</code></p>
 <p>删除：<code>/var/log/lastlog</code></p>
 <p>日志说明：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/var/log/message 系统启动后的信息和错误日志，是Red Hat Linux中最常用的日志之一</span><br><span class="line">/var/log/secure 与安全相关的日志信息</span><br><span class="line">/var/log/maillog 与邮件相关的日志信息</span><br><span class="line">/var/log/cron 与定时任务相关的日志信息</span><br><span class="line">/var/log/spooler 与UUCP和news设备相关的日志信息</span><br><span class="line">/var/log/boot.log 守护进程启动和停止相关的日志消息</span><br><span class="line">/var/log/btmp – 记录所有失败登录信息  命令:lastb</span><br></pre></td></tr></table></figure>
-<h3 id="二linux文件安全删除工具">二、Linux文件安全删除工具</h3>
-<p>（1）shred命令 实现安全的从硬盘上擦除数据，默认覆盖3次，通过 -n指定数据覆盖次数。</p>
+<h3 id="二-linux文件安全删除工具"><a class="markdownIt-Anchor" href="#二-linux文件安全删除工具"></a> 二、Linux文件安全删除工具</h3>
+<p>（1）shred命令<br>
+实现安全的从硬盘上擦除数据，默认覆盖3次，通过 -n指定数据覆盖次数。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@centos]# shred -f -u -z -v -n 8 1.txt </span><br><span class="line">shred: 1.txt: pass 1/9 (random)...</span><br><span class="line">shred: 1.txt: pass 2/9 (ffffff)...</span><br><span class="line">shred: 1.txt: pass 3/9 (aaaaaa)...</span><br><span class="line">shred: 1.txt: pass 4/9 (random)...</span><br><span class="line">shred: 1.txt: pass 5/9 (000000)...</span><br><span class="line">shred: 1.txt: pass 6/9 (random)...</span><br><span class="line">shred: 1.txt: pass 7/9 (555555)...</span><br><span class="line">shred: 1.txt: pass 8/9 (random)...</span><br><span class="line">shred: 1.txt: pass 9/9 (000000)...</span><br><span class="line">shred: 1.txt: removing</span><br><span class="line">shred: 1.txt: renamed to 00000</span><br><span class="line">shred: 00000: renamed to 0000</span><br><span class="line">shred: 0000: renamed to 000</span><br><span class="line">shred: 000: renamed to 00</span><br><span class="line">shred: 00: renamed to 0</span><br><span class="line">shred: 1.txt: removed</span><br></pre></td></tr></table></figure>
-<p>（2）dd命令 可用于安全地清除硬盘或者分区的内容。</p>
+<p>（2）dd命令<br>
+可用于安全地清除硬盘或者分区的内容。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dd if=/dev/zero of=要删除的文件 bs=大小 count=写入的次数</span><br></pre></td></tr></table></figure>
-<p>（3）wipe Wipe 使用特殊的模式来重复地写文件，从磁性介质中安全擦除文件。</p>
+<p>（3）wipe<br>
+Wipe 使用特殊的模式来重复地写文件，从磁性介质中安全擦除文件。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wipe filename</span><br></pre></td></tr></table></figure>
-<p>（4）Secure-Delete Secure-Delete 是一组工具集合，提供srm、smem、sfill、sswap，4个安全删除文件的命令行工具。</p>
+<p>（4）Secure-Delete<br>
+Secure-Delete 是一组工具集合，提供srm、smem、sfill、sswap，4个安全删除文件的命令行工具。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">srm filename</span><br><span class="line">sfill filename</span><br><span class="line">sswap /dev/sda1</span><br><span class="line">smem</span><br></pre></td></tr></table></figure>
-<h3 id="三隐藏远程ssh登陆记录">三、隐藏远程SSH登陆记录</h3>
+<h3 id="三-隐藏远程ssh登陆记录"><a class="markdownIt-Anchor" href="#三-隐藏远程ssh登陆记录"></a> 三、隐藏远程SSH登陆记录</h3>
 <p>隐身登录系统，不会被w、who、last等指令检测到。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T root@192.168.0.1 /bin/bash -i</span><br></pre></td></tr></table></figure>
 <p>不记录ssh公钥在本地.ssh目录中</p>
@@ -273,8 +275,8 @@
     <updated>2021-01-26T07:51:43.537Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iwconfig</span><br><span class="line"></span><br><span class="line">lsusb</span><br><span class="line"></span><br><span class="line">demesg | grep 8187</span><br><span class="line"></span><br><span class="line">lsmod | grep -i rtl8187</span><br><span class="line"></span><br><span class="line">airmon-ng</span><br><span class="line"></span><br><span class="line">iwlist wlan0 frequency</span><br><span class="line"></span><br><span class="line">airmon-ng start wlan0</span><br></pre></td></tr></table></figure>
-<h3 id="常见错误">常见错误</h3>
-<h4 id="ignore-negative-one">ignore-negative-one</h4>
+<h3 id="常见错误"><a class="markdownIt-Anchor" href="#常见错误"></a> 常见错误</h3>
+<h4 id="ignore-negative-one"><a class="markdownIt-Anchor" href="#ignore-negative-one"></a> ignore-negative-one</h4>
 <p><strong>方法一：</strong></p>
 <p>在一些kali版本中，会出现这个bug</p>
 <p>可以使用下面的命令替代：</p>
@@ -300,11 +302,11 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo make</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<p>参考：http://black-hat-sec.org/index.php?topic=175.0</p>
+<p>参考：<a href="http://black-hat-sec.org/index.php?topic=175.0" target="_blank" rel="noopener">http://black-hat-sec.org/index.php?topic=175.0</a></p>
 <hr>
-<h3 id="字典生成">字典生成</h3>
+<h3 id="字典生成"><a class="markdownIt-Anchor" href="#字典生成"></a> 字典生成</h3>
 <p><a href="https://miloserdov.org/?p=5721" target="_blank" rel="noopener">How to speed up the generation of dictionaries with passwords</a></p>
-<h4 id="mpfs与maskprocessor">mpfs与maskprocessor</h4>
+<h4 id="mpfs与maskprocessor"><a class="markdownIt-Anchor" href="#mpfs与maskprocessor"></a> mpfs与maskprocessor</h4>
 <p><strong>mpfs</strong> is an in-memory virtual file system.</p>
 <p>The tmpfs file system has the following features:</p>
 <ul>
@@ -314,17 +316,17 @@
 </ul>
 <p>If the tmpfs filesystem is unmounted, its contents are lost (deleted). This is very important – copy all the data from it before turning off the computer, otherwise everything will be lost.</p>
 <p>While this is obvious, just in case: since all data resides in RAM, your computer must have enough RAM to store the data you want to put in tmpfs.</p>
-<p>Let's create a mount point:</p>
+<p>Let’s create a mount point:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir  /tmp/mytmpfs</span><br></pre></td></tr></table></figure>
-<p>Let's create a virtual file system of 20 Gigabytes in RAM:</p>
+<p>Let’s create a virtual file system of 20 Gigabytes in RAM:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount -t tmpfs -o size=20g tmpfs  /tmp/mytmpfs</span><br></pre></td></tr></table></figure>
 <p>We pass into it:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd /tmp/mytmpfs</span><br></pre></td></tr></table></figure>
 <p>To create a dictionary, we will use the <strong>maskprocessor</strong> program. With the following command, we create a dictionary of 5 characters (uppercase and lowercase letters, numbers):</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">time maskprocessor -1 ?l?u?d ?1?1?1?1?1 &gt; dic.txt</span><br></pre></td></tr></table></figure>
-<p>Now, for example, let's create the same dictionary on the hard disk:</p>
+<p>Now, for example, let’s create the same dictionary on the hard disk:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">time maskprocessor -1 ?l?u?d ?1?1?1?1?1 &gt; dic.txt</span><br></pre></td></tr></table></figure>
-<p>As an experiment, let's take the command for converting the dictionary according to the Rule from <a href="https://miloserdov.org/?p=5715" target="_blank" rel="noopener">this article</a>:</p>
+<p>As an experiment, let’s take the command for converting the dictionary according to the Rule from <a href="https://miloserdov.org/?p=5715" target="_blank" rel="noopener">this article</a>:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">john --rules=lud5 --wordlist=dic.txt --stdout &gt; lud5.txt</span><br></pre></td></tr></table></figure>
 <p>On the hard drive, it completed in 43 seconds, and in RAM in 41 seconds. The reason for these results is that in this case the bottleneck is the performance of one processor core (the process of creating and converting dictionaries is performed in one thread).</p>
 ]]></content>
@@ -350,28 +352,28 @@
     <updated>2021-01-20T00:18:34.200Z</updated>
     
     <content type="html"><![CDATA[<hr>
-<h3 id="必要设置">必要设置</h3>
+<h3 id="必要设置"><a class="markdownIt-Anchor" href="#必要设置"></a> 必要设置</h3>
 <p>WIN7安装VS2019需要更新两个补丁才能顺利安装，否则会闪退。</p>
 <p>KB4474419</p>
 <p>KB4490628</p>
 <p>补丁包下载地址：</p>
-<p>https://www.catalog.update.microsoft.com/Search.aspx?q=KB4490628</p>
-<p>https://www.catalog.update.microsoft.com/Search.aspx?q=KB4474419</p>
+<p><a href="https://www.catalog.update.microsoft.com/Search.aspx?q=KB4490628" target="_blank" rel="noopener">https://www.catalog.update.microsoft.com/Search.aspx?q=KB4490628</a></p>
+<p><a href="https://www.catalog.update.microsoft.com/Search.aspx?q=KB4474419" target="_blank" rel="noopener">https://www.catalog.update.microsoft.com/Search.aspx?q=KB4474419</a></p>
 <p>根据自己系统版本选择对应文件下载即可</p>
-<h3 id="下载资源">下载资源</h3>
+<h3 id="下载资源"><a class="markdownIt-Anchor" href="#下载资源"></a> 下载资源</h3>
 <p>首先，在可以上网的电脑上，下载Visual Studio web installer，</p>
-<p>下载地址：https://visualstudio.microsoft.com/downloads</p>
+<p>下载地址：<a href="https://visualstudio.microsoft.com/downloads" target="_blank" rel="noopener">https://visualstudio.microsoft.com/downloads</a></p>
 <p>如果是<code>C++</code>开发环境：</p>
 <p><code>vs_community.exe --layout c:\vslayout --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --lang en-US</code></p>
-<p>如果是<code>.NET web  .NET desktop</code>开发环境：</p>
+<p>如果是<code>.NET web .NET desktop</code>开发环境：</p>
 <p><code>vs_community.exe --layout c:\vslayout --add Microsoft.VisualStudio.Workload.ManagedDesktop --add Microsoft.VisualStudio.Workload.NetWeb --add Component.GitHub.VisualStudio --includeOptional --lang en-US</code></p>
 <p>这样，安装文件就下载到<code>C:\vslayout</code></p>
 <p>将<code>vslayout</code>文件夹拷贝到离线主机的C盘根目录</p>
-<h3 id="离线安装">离线安装</h3>
+<h3 id="离线安装"><a class="markdownIt-Anchor" href="#离线安装"></a> 离线安装</h3>
 <p>然后运行下面的cmd命令：</p>
 <p>如果是<code>C++</code>开发环境：</p>
 <p><code>c:\vslayout\vs_community.exe --noweb --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended</code></p>
-<p>如果是<code>.NET web  .NET desktop</code>开发环境：</p>
+<p>如果是<code>.NET web .NET desktop</code>开发环境：</p>
 <p><code>c:\vslayout\vs_community.exe --noweb --add Microsoft.VisualStudio.Workload.ManagedDesktop --add Microsoft.VisualStudio.Workload.NetWeb --add Component.GitHub.VisualStudio --includeOptional</code></p>
 <p>更多命令参考：</p>
 <p><a href="https://docs.microsoft.com/en-us/visualstudio/install/create-an-offline-installation-of-visual-studio?view=vs-2019#use-the-command-line-to-create-a-local-cache" target="_blank" rel="noopener">Create an offline installation of Visual Studio</a></p>
@@ -380,12 +382,10 @@
     <summary type="html">
     
       &lt;hr&gt;
-&lt;h3 id=&quot;必要设置&quot;&gt;必要设置&lt;/h3&gt;
+&lt;h3 id=&quot;必要设置&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#必要设置&quot;&gt;&lt;/a&gt; 必要设置&lt;/h3&gt;
 &lt;p&gt;WIN7安装VS2019需要更新两个补丁才能顺利安装，否则会闪退。&lt;/p&gt;
 &lt;p&gt;KB4474419&lt;/p&gt;
-&lt;p&gt;KB4490628&lt;/p&gt;
-&lt;p&gt;补丁包下载地址：&lt;/p&gt;
-&lt;p&gt;https://www
+&lt;p&gt;KB4
     
     </summary>
     
@@ -406,12 +406,12 @@
     <content type="html"><![CDATA[<hr>
 <p>windows 7 出现这个情况，一般很多软件安装不上，中间异常退出。例如：net framework， vmware等等</p>
 <p>解决方法如下：</p>
-<ol type="1">
+<ol>
 <li>从微软官方下载证书: <a href="http://go.microsoft.com/fwlink/?linkid=747875&amp;clcid=0x409" target="_blank" rel="noopener">MicrosoftRootCertificateAuthority2011.cer</a></li>
 </ol>
 <p>或者从下面地址下载</p>
 <p><a href="https://github.com/yanglr/WindowsDevTools/raw/master/dotNET/MicrosoftRootCertificateAuthority2011.cer" target="_blank" rel="noopener">MicrosoftRootCertificateAuthority2011.cer - github</a>.</p>
-<ol start="2" type="1">
+<ol start="2">
 <li>双击证书，开始安装</li>
 <li>点击下方<strong>安装证书</strong>按钮</li>
 <li>下一步</li>
@@ -419,7 +419,7 @@
 <li>继续下一步，直至完成</li>
 <li>如果后面弹框的话，就接受。</li>
 </ol>
-<p>参考：https://stackoverflow.com/questions/47176239/a-certificate-chain-could-not-be-built-to-a-trusted-root-authority/60812129#60812129</p>
+<p>参考：<a href="https://stackoverflow.com/questions/47176239/a-certificate-chain-could-not-be-built-to-a-trusted-root-authority/60812129#60812129" target="_blank" rel="noopener">https://stackoverflow.com/questions/47176239/a-certificate-chain-could-not-be-built-to-a-trusted-root-authority/60812129#60812129</a></p>
 ]]></content>
     
     <summary type="html">
@@ -427,8 +427,8 @@
       &lt;hr&gt;
 &lt;p&gt;windows 7 出现这个情况，一般很多软件安装不上，中间异常退出。例如：net framework， vmware等等&lt;/p&gt;
 &lt;p&gt;解决方法如下：&lt;/p&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;从微软官方下载证书: &lt;a href=&quot;http://go
+&lt;ol&gt;
+&lt;li&gt;从微软官方下载证书: &lt;a href=&quot;http://go.microsoft.co
     
     </summary>
     
@@ -446,14 +446,14 @@
     <published>2020-12-28T02:39:50.000Z</published>
     <updated>2020-12-29T06:37:21.878Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="条件">条件</h3>
+    <content type="html"><![CDATA[<h3 id="条件"><a class="markdownIt-Anchor" href="#条件"></a> 条件</h3>
 <p>需要有Google账号，VPN</p>
-<h3 id="参考网址与视频">参考网址与视频</h3>
+<h3 id="参考网址与视频"><a class="markdownIt-Anchor" href="#参考网址与视频"></a> 参考网址与视频</h3>
 <p>需要使用 Googlefier这个工具，前往 <a href="http://bit.ly/3l1cB4o" target="_blank" rel="noopener">bit.ly/3l1cB4o</a>下载,</p>
 <p>也就是下面的网址<a href="https://forum.xda-developers.com/t/googlefier-install-gms-on-huawei-honor.4180485/" target="_blank" rel="noopener">Googlefier - Install GMS on Huawei/Honor</a></p>
 <p>如果可以上YouTube，可以看这个视频<a href="https://www.youtube.com/watch?v=V3WBEF5ljsM" target="_blank" rel="noopener">MOST SIMPLE WAY to install Google Services on Huawei [100% working - december 2020]</a>，讲解非常详细</p>
-<h3 id="大致流程">大致流程</h3>
-<ol type="1">
+<h3 id="大致流程"><a class="markdownIt-Anchor" href="#大致流程"></a> 大致流程</h3>
+<ol>
 <li>安装Googlefier</li>
 <li>打开Googlefier，然后接受条款，继续</li>
 <li>看到界面的1，2，3，4等步骤，接下来就按顺序安装即可，当然此时需要手机连接VPN，需要注意的是，每一步都会有弹框提示，注意阅读注意事项。</li>
@@ -462,10 +462,9 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;条件&quot;&gt;条件&lt;/h3&gt;
+      &lt;h3 id=&quot;条件&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#条件&quot;&gt;&lt;/a&gt; 条件&lt;/h3&gt;
 &lt;p&gt;需要有Google账号，VPN&lt;/p&gt;
-&lt;h3 id=&quot;参考网址与视频&quot;&gt;参考网址与视频&lt;/h3&gt;
-&lt;p&gt;需要使用 Googlefier这个工具，前往 &lt;a href=&quot;http://bit.ly/3l1cB4o&quot; target
+&lt;h3 id=&quot;参考网址与视频&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;
     
     </summary>
     
@@ -487,7 +486,7 @@
     <published>2020-09-03T01:00:39.000Z</published>
     <updated>2020-09-03T02:20:12.252Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="基础知识">基础知识</h3>
+    <content type="html"><![CDATA[<h3 id="基础知识"><a class="markdownIt-Anchor" href="#基础知识"></a> 基础知识</h3>
 <p>OTP（One Time Passowrd）可以分为两种，HOTP和TOTP，即<strong>HMAC-based One Time Password</strong> and <strong>Time-based OTP</strong>。 TOPT并不是一种完全不同的模式，而是HOTP的增强版。</p>
 <p>HOTP算法在 <a href="https://tools.ietf.org/html/rfc4226" target="_blank" rel="noopener">RFC4226</a>中进行了描述，大约有35页，包含了格式描述、例子等。</p>
 <p>HMAC stands for <strong>Hash-based Message Authentication Code</strong>.</p>
@@ -500,7 +499,7 @@
 <p>RFC4226定义的HOTP如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HOTP(K,C) = Truncate(HMAC-SHA-1(K,C))</span><br></pre></td></tr></table></figure>
 <p>So, K is predictably used as our secret key and <strong>C</strong>ounter is used as the message.</p>
-<h3 id="流程与计算">流程与计算</h3>
+<h3 id="流程与计算"><a class="markdownIt-Anchor" href="#流程与计算"></a> 流程与计算</h3>
 <ul>
 <li>Generate HMAC-SHA1 value from our <strong>K</strong> and <strong>C</strong> parameters. This will be a 20-byte string</li>
 <li>Extract 4 bytes from that string in a specific way</li>
@@ -514,9 +513,9 @@
 <p>在我们例子中:</p>
 <ul>
 <li><code>format</code> will be <code>'raw'</code>, meaning that we will supply the key as raw bytes in an <code>ArrayBuffer</code>.</li>
-<li><code>keyData</code> is the ArrayBuffer mentioned above. We'll talk about generating it in a bit</li>
+<li><code>keyData</code> is the ArrayBuffer mentioned above. We’ll talk about generating it in a bit</li>
 <li><code>algorithm</code> will be <code>HMAC-SHA1</code> as per OTP spec. This has to be an <a href="https://developer.mozilla.org/en-US/docs/Web/API/HmacImportParams" target="_blank" rel="noopener">HmacImportParams</a> object</li>
-<li><code>extractable</code> can be false, since we don't plan to export the key</li>
+<li><code>extractable</code> can be false, since we don’t plan to export the key</li>
 <li>And finally, of all possible <code>usages</code> we will only need <code>'sign'</code></li>
 </ul>
 <p>Our secret key will be a long random string. In reality it could be a sequence of bytes that are not necessarily printable。</p>
@@ -537,7 +536,7 @@ Let Sbits = DT(HS) // DT, defined below,<br>
 <p>Now we only need to convert what we got from DT to an integer and off we go to stage 3.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">function <span class="title">truncate</span><span class="params">(uKey)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> Sbits = DT(uKey);</span><br><span class="line">  <span class="keyword">const</span> Snum = parseInt(Sbits, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> Snum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>第三步，获得结果</strong></p>
-<p>Stage 3 is really small. All we need to do now is to divide our resulting number by <code>10 ** (number of digits in OTP)</code> and take the remainder of that division. This way we basically cut last N digits from the resulting number. The spec mentions that you must extract at least 6 digits and possibly 7 or 8. Theoretically since it's a 31-bit integer you can extract up to 9 digits, but in reality I've never seen anything over 6. Have you?</p>
+<p>Stage 3 is really small. All we need to do now is to divide our resulting number by <code>10 ** (number of digits in OTP)</code> and take the remainder of that division. This way we basically cut last N digits from the resulting number. The spec mentions that you must extract at least 6 digits and possibly 7 or 8. Theoretically since it’s a 31-bit integer you can extract up to 9 digits, but in reality I’ve never seen anything over 6. Have you?</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">async function <span class="title">generateHOTP</span><span class="params">(secret, counter)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> key = <span class="function">await <span class="title">generateKey</span><span class="params">(secret, counter)</span></span>;</span><br><span class="line">  <span class="keyword">const</span> uKey = <span class="keyword">new</span> Uint8Array(key);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> Snum = truncate(uKey);</span><br><span class="line">  <span class="comment">// Make sure we keep leading zeroes</span></span><br><span class="line">  <span class="keyword">const</span> padded = (<span class="string">'000000'</span> + (Snum % (<span class="number">10</span> ** <span class="number">6</span>))).slice(-<span class="number">6</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> padded;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>TOTP</strong></p>
 <p>当你打开流行的2FA app，可以看到倒计时，那就是TOTP。</p>
@@ -545,7 +544,7 @@ Let Sbits = DT(HS) // DT, defined below,<br>
 <p>关于TOTP，可以查阅<a href="https://tools.ietf.org/html/rfc6238" target="_blank" rel="noopener">RFC6238</a>。</p>
 <p>Due to time-based scheme being an extension over original algorithm, no changes to the original implementation are required. We will use <code>requestAnimationFrame</code> and check on every tick if we are still inside the time window. If we are not — we will calculate a new time step (counter) and regenerate HOTP with it. Omitting all the administrative code it will look roughly like this:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">let stepWindow = <span class="number">30</span> * <span class="number">1000</span>; <span class="comment">// 30 seconds in ms</span></span><br><span class="line">let lastTimeStep = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> updateTOTPCounter = () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> timeSinceStep = Date.now() - lastTimeStep * stepWindow;</span><br><span class="line">  <span class="keyword">const</span> timeLeft = Math.ceil(stepWindow - timeSinceStep);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (timeLeft &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> requestAnimationFrame(updateTOTPCounter);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  timeStep = getTOTPCounter();</span><br><span class="line">  lastTimeStep = timeStep;</span><br><span class="line">    &lt;...update counter and regenerate...&gt;</span><br><span class="line">  requestAnimationFrame(updateTOTPCounter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="二维码">二维码</h3>
+<h3 id="二维码"><a class="markdownIt-Anchor" href="#二维码"></a> 二维码</h3>
 <p>通常，我们设置2FA时需要扫描二维码，其中包含我们需要的信息：密钥、使用的OTP算法、帐户名、发行者、位数。</p>
 <p>浏览器中二维码扫描可以<a href="https://dev.to/al_khovansky/intro-to-screen-capture-api-scanning-qr-codes-bgi" target="_blank" rel="noopener">参考</a></p>
 <p>二维码中的2FA地址格式通常如下：</p>
@@ -555,16 +554,16 @@ Let Sbits = DT(HS) // DT, defined below,<br>
 <p>解析地址代码如下：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> setupFromQR = data =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> url = <span class="keyword">new</span> URL(data);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// drop the "//" and get TYPE and LABEL</span></span><br><span class="line">  <span class="keyword">const</span> [scheme, label] = url.pathname.slice(<span class="number">2</span>).split(<span class="string">'/'</span>);</span><br><span class="line">  <span class="keyword">const</span> params = <span class="keyword">new</span> URLSearchParams(url.search);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> secret = params.get(<span class="string">'secret'</span>);</span><br><span class="line">  let counter;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (scheme === <span class="string">'hotp'</span>) &#123;</span><br><span class="line">    counter = params.get(<span class="string">'counter'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    stepWindow = parseInt(params.get(<span class="string">'period'</span>), <span class="number">10</span>) * <span class="number">1000</span>;</span><br><span class="line">    counter = getTOTPCounter();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>参考：</p>
-<ol type="1">
-<li>https://dev.to/al_khovansky/generating-2fa-one-time-passwords-in-js-using-web-crypto-api-1hfo</li>
+<ol>
+<li><a href="https://dev.to/al_khovansky/generating-2fa-one-time-passwords-in-js-using-web-crypto-api-1hfo" target="_blank" rel="noopener">https://dev.to/al_khovansky/generating-2fa-one-time-passwords-in-js-using-web-crypto-api-1hfo</a></li>
 <li></li>
 </ol>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;基础知识&quot;&gt;基础知识&lt;/h3&gt;
-&lt;p&gt;OTP（One Time Passowrd）可以分为两种，HOTP和TOTP，即&lt;strong&gt;HMAC-based One Time Password&lt;/strong&gt; and &lt;strong&gt;Time-based OTP
+      &lt;h3 id=&quot;基础知识&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#基础知识&quot;&gt;&lt;/a&gt; 基础知识&lt;/h3&gt;
+&lt;p&gt;OTP（One Time Passowrd）可以分为两种，HOTP和TOTP，即&lt;strong&gt;HMAC-based One Tim
     
     </summary>
     
@@ -582,15 +581,15 @@ Let Sbits = DT(HS) // DT, defined below,<br>
     <published>2020-08-30T15:54:55.000Z</published>
     <updated>2021-01-13T02:16:17.097Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="安装elk">安装ELK</h2>
-<h3 id="安装-elasticsearch">安装 Elasticsearch</h3>
+    <content type="html"><![CDATA[<h2 id="安装elk"><a class="markdownIt-Anchor" href="#安装elk"></a> 安装ELK</h2>
+<h3 id="安装-elasticsearch"><a class="markdownIt-Anchor" href="#安装-elasticsearch"></a> 安装 Elasticsearch</h3>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gz</span><br><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gz.sha512</span><br><span class="line">shasum -a 512 -c elasticsearch-7.7.1-linux-x86_64.tar.gz.sha512 </span><br><span class="line">tar -xzf elasticsearch-7.7.1-linux-x86_64.tar.gz</span><br><span class="line"><span class="built_in">cd</span> elasticsearch-7.7.1/</span><br></pre></td></tr></table></figure>
 <p>运行：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">can not run elasticsearch as root</span><br><span class="line"></span><br><span class="line">su dbuser</span><br><span class="line">./elasticsearch -v</span><br></pre></td></tr></table></figure>
 <p>错误1：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00007f53abbe9000, 33554432, 0) failed; error=&apos;Not enough space&apos; (errno=12)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">free -m </span><br><span class="line">查看可用的swap空间</span><br><span class="line">可以增大swap空间</span><br><span class="line">或者，将/etc/elasticsearch/jvm.options 中的 -Xms512m -Xmx512m，进行修改，低于可用的swap空间</span><br></pre></td></tr></table></figure>
-<h3 id="安装可视化工具elasticsearch-head">安装可视化工具elasticsearch-head</h3>
+<h3 id="安装可视化工具elasticsearch-head"><a class="markdownIt-Anchor" href="#安装可视化工具elasticsearch-head"></a> 安装可视化工具elasticsearch-head</h3>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/mobz/elasticsearch-head.git</span><br><span class="line"><span class="built_in">cd</span> elasticsearch-head</span><br><span class="line">npm install</span><br><span class="line">npm run start</span><br><span class="line">open http://localhost:9100/</span><br><span class="line"></span><br><span class="line">Enable CORS <span class="keyword">in</span> elasticsearch：</span><br><span class="line">In elasticsearch configuration，</span><br><span class="line">1. add http.cors.enabled: <span class="literal">true</span></span><br><span class="line">2. you must also <span class="built_in">set</span> http.cors.allow-origin because no origin allowed by default. </span><br><span class="line">http.cors.allow-origin: <span class="string">"*"</span> is valid value, however it’s considered as a security risk </span><br><span class="line">as your cluster is open to cross origin from anywhere.</span><br></pre></td></tr></table></figure>
 <p>错误1:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">property [elasticsearch.version] is missing for plugin [head]</span><br></pre></td></tr></table></figure>
@@ -608,7 +607,7 @@ Let Sbits = DT(HS) // DT, defined below,<br>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">org.elasticsearch.discovery.MasterNotDiscoveredException:null</span><br><span class="line"></span><br><span class="line">修改：cluster.initial_master_nodes: [&quot;node-1&quot;]</span><br><span class="line">如果有node-2，但是它不存在，可能导致错误</span><br></pre></td></tr></table></figure>
 <p>错误5：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">selinux 可能导致错误</span><br><span class="line"></span><br><span class="line">vi /etc/sysconfig/selinux</span><br></pre></td></tr></table></figure>
-<h3 id="安装kibana">安装Kibana</h3>
+<h3 id="安装kibana"><a class="markdownIt-Anchor" href="#安装kibana"></a> 安装Kibana</h3>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">curl -O https://artifacts.elastic.co/downloads/kibana/kibana-7.7.1-linux-x86_64.tar.gz</span><br><span class="line">curl https://artifacts.elastic.co/downloads/kibana/kibana-7.7.1-linux-x86_64.tar.gz.sha512 | shasum -a 512 -c - </span><br><span class="line">tar -xzf kibana-7.7.1-linux-x86_64.tar.gz</span><br><span class="line"><span class="built_in">cd</span> kibana-7.7.1-linux-x86_64/</span><br></pre></td></tr></table></figure>
 <p>运行：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">./bin/kibana</span><br></pre></td></tr></table></figure>
@@ -616,21 +615,20 @@ Let Sbits = DT(HS) // DT, defined below,<br>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET _cat/indices</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GET how2java/_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;name&quot;: &quot;连衣裙&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;sort&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;_id&quot;: &quot;desc&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>错误1:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">问题描述：[error][reporting] The Reporting plugin encountered issues launching Chromium in a self-test. You may have trouble generating reports.</span><br><span class="line"></span><br><span class="line">error  [10:21:36.799] [error][reporting] Error: Failed to launch chrome! ... ... kibana-7.5.1linux-x86_64/data/headless_shell-linux/headless_shell: cannot execute binary file</span><br><span class="line"></span><br><span class="line">解决方案：Kibana 后端模块 xpack.reporting 的截图功能使用到了 chrome，CentOS 暂时不支持 chrome，因此需要在 kibana.yml 配置文件中增加以下参数禁用 X-Pack reporting。</span><br><span class="line"></span><br><span class="line">xpack.reporting.enabled:  false</span><br></pre></td></tr></table></figure>
-<h3 id="安装logstash">安装LogStash</h3>
+<h3 id="安装logstash"><a class="markdownIt-Anchor" href="#安装logstash"></a> 安装LogStash</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install java-1.8.0-openjdk.x86_64</span><br><span class="line"></span><br><span class="line">java -version</span><br><span class="line"></span><br><span class="line">必须先安装java环境</span><br></pre></td></tr></table></figure>
-<h3 id="安装ik">安装ik</h3>
+<h3 id="安装ik"><a class="markdownIt-Anchor" href="#安装ik"></a> 安装ik</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">download pre-build package from here: https://github.com/medcl/elasticsearch-analysis-ik/releases</span><br><span class="line"></span><br><span class="line">create plugin folder:</span><br><span class="line">cd your-es-root/plugins/ </span><br><span class="line">mkdir ik</span><br><span class="line"></span><br><span class="line">unzip zipfile to folder:</span><br><span class="line">your-es-root/plugins/ik</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET _analyze</span><br><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot;: &quot;ik_max_word&quot;,</span><br><span class="line">  &quot;text&quot;: &quot;你好中国，我叫马小玲&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="mongodb-数据导入es">mongodb 数据导入ES</h3>
+<h3 id="mongodb-数据导入es"><a class="markdownIt-Anchor" href="#mongodb-数据导入es"></a> mongodb 数据导入ES</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Linux bash:</span><br><span class="line">mongoexport --collection=people --db=human60 --out=human60_people.json</span><br><span class="line"></span><br><span class="line">Logstash: import</span><br><span class="line">vi mongodb_to_ES.conf</span><br><span class="line"></span><br><span class="line">input &#123;</span><br><span class="line">  file &#123;</span><br><span class="line">  path =&gt; &quot;/home/dbuser/ELK/human60_people.json&quot;</span><br><span class="line">  start_position =&gt; &quot;beginning&quot;</span><br><span class="line">  sincedb_path =&gt; &quot;/dev/null&quot;</span><br><span class="line">  codec =&gt; json</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">filter &#123;</span><br><span class="line">  mutate &#123;</span><br><span class="line">    remove_field =&gt; [&quot;_id&quot;,&quot;path&quot;,&quot;host&quot;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">output &#123;</span><br><span class="line">  elasticsearch &#123;</span><br><span class="line">  hosts =&gt; [ &quot;localhost:9200&quot; ]</span><br><span class="line">  index =&gt; &quot;human60&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>由于ES中mapping无法修改，所以在数据导入之前一定号</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;安装elk&quot;&gt;安装ELK&lt;/h2&gt;
-&lt;h3 id=&quot;安装-elasticsearch&quot;&gt;安装 Elasticsearch&lt;/h3&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;s
+      &lt;h2 id=&quot;安装elk&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装elk&quot;&gt;&lt;/a&gt; 安装ELK&lt;/h2&gt;
+&lt;h3 id=&quot;安装-elasticsearch&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装-e
     
     </summary>
     
@@ -648,7 +646,7 @@ Let Sbits = DT(HS) // DT, defined below,<br>
     <published>2020-08-28T03:07:36.000Z</published>
     <updated>2020-09-07T09:33:14.688Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="添加本地js">添加本地js</h3>
+    <content type="html"><![CDATA[<h3 id="添加本地js"><a class="markdownIt-Anchor" href="#添加本地js"></a> 添加本地js</h3>
 <p>在Django应用下新建目录static（与templates同级目录），然后修改<code>settings.py</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">STATIC_URL = <span class="string">'/static/'</span></span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">'static'</span>),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>然后把自己的js、css目录放置到static目录下。</p>
@@ -656,108 +654,103 @@ Let Sbits = DT(HS) // DT, defined below,<br>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Bootstrap CSS --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./static/css/bootstrap.min.css"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/js/jquery-3.0.0.min.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/js/bootstrap.bundle.min.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>关于bootstrap的问题，简要提一下：</p>
 <p>因为bootstrap需要jQuery，所以需要先引入jQuery，至于<code>propper.js</code>，<code>popper.min.js</code> 用于设置弹窗、提示、下拉菜单，是第三方插件，目前 <code>bootstrap.bundle.min.js</code> 已经包含了 <code>popper.min.js</code>，所以可以直接按照上面的写法。</p>
-<h3 id="自定义时间格式">自定义时间格式</h3>
+<h3 id="自定义时间格式"><a class="markdownIt-Anchor" href="#自定义时间格式"></a> 自定义时间格式</h3>
 <p><strong>DateTimeField、DateField和TimeField</strong>，其值分别对应着Python里的datetime.datetime、datetime.date和datetime.time三个实例，这三个Field里都有两个参数：<strong>auto_now和auto_now_add，默认值均为False</strong>。</p>
 <p><strong>auto_now参数说明：</strong></p>
 <blockquote>
-<p>每次保存对象时自动将字段值设置为当前时间，能够在保存该字段时,将其值设置为当前时间,并且每次修改model,都会自动更新。因此这个参数在需要存储“最后修改时间”的场景下,十分方便，常用类似“last-modified”或者"update_time"字段。</p>
+<p>每次保存对象时自动将字段值设置为当前时间，能够在保存该字段时,将其值设置为当前时间,并且每次修改model,都会自动更新。因此这个参数在需要存储“最后修改时间”的场景下,十分方便，常用类似“last-modified”或者&quot;update_time&quot;字段。</p>
 </blockquote>
 <p><a href="https://blog.51cto.com/xujpxm/2090382" target="_blank" rel="noopener">参考</a></p>
 <p>如果默认时间格式是英文显示，那么可以修改<code>settings.py</code>进行自定义：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">USE_L10N = <span class="keyword">False</span></span><br><span class="line">DATE_FORMAT = <span class="string">'Y-m-d'</span></span><br><span class="line">DATETIME_FORMAT = <span class="string">'Y-m-d H:i:s'</span></span><br></pre></td></tr></table></figure>
 <p><strong>注意事项：如果USE_L10N设置为了True，那么语言环境规定的格式具有更高的优先级并将被应用，即DATE_FORMAT不生效。</strong></p>
-<h3 id="list-group-设置固定宽度">list-group 设置固定宽度</h3>
+<h3 id="list-group-设置固定宽度"><a class="markdownIt-Anchor" href="#list-group-设置固定宽度"></a> list-group 设置固定宽度</h3>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% for itm in item2FA_list %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list-group list-group-horizontal"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item"</span> <span class="attr">style</span>=<span class="string">"width: 18rem"</span>&gt;</span> &#123;&#123; itm.website_text &#125;&#125; <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item"</span> <span class="attr">style</span>=<span class="string">"width: 28rem"</span>&gt;</span> &#123;&#123; itm.account_text &#125;&#125; <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item"</span> <span class="attr">style</span>=<span class="string">"width: 28rem"</span>&gt;</span> &#123;&#123; itm.pub_date &#125;&#125; <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="django-开启sslhttps">Django 开启SSL（HTTPS）</h3>
-<p>Django development server (run by <code>python manage.py runserver</code>) <strong><em>cannot handle https</em></strong>.</p>
+<h3 id="django-开启sslhttps"><a class="markdownIt-Anchor" href="#django-开启sslhttps"></a> Django 开启SSL（HTTPS）</h3>
+<p>Django development server (run by <code>python manage.py runserver</code>) <em><strong>cannot handle https</strong></em>.</p>
 <p>One of simplest solutions from the answer is to use <a href="https://github.com/teddziuba/django-sslserver" target="_blank" rel="noopener">django-sslserver</a> package.</p>
 <p>Other solutions include running some kind of https proxy locally.</p>
 <p>Or, run it not in development mode (no live reload) using wsgi server and configuring proper https on it.</p>
 <p><a href="https://stackoverflow.com/questions/57849833/how-to-make-django-site-https-in-windows10" target="_blank" rel="noopener">https://stackoverflow.com/questions/57849833/how-to-make-django-site-https-in-windows10</a></p>
-<h3 id="html中value含有空格被截断">html中value含有空格被截断</h3>
+<h3 id="html中value含有空格被截断"><a class="markdownIt-Anchor" href="#html中value含有空格被截断"></a> html中value含有空格被截断</h3>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"&#123;% url 'update2FA' %&#125;"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    &#123;% csrf_token %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">"update_btn"</span> <span class="attr">value</span>=<span class="string">&#123;&#123;</span> <span class="attr">source_key_text</span> &#125;&#125; &gt;</span>更新<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>现在<code>source_key_text</code>的值为<code>aaaa bbbb cccc dddd</code>，在POST传入时，只传入了aaaa，后面的被截断。正确的写法为：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"&#123;% url 'update2FA' %&#125;"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    &#123;% csrf_token %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">"update_btn"</span> <span class="attr">value</span>=<span class="string">'&#123;&#123; source_key_text &#125;&#125;'</span> &gt;</span>更新<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>html的标签属性是按照空格来区分的，如果不加引号会识别出错。</p>
 <p>具体可以参考: <a href="https://axiu.me/coding/value-has-spaces-breaks-in-html/" target="_blank" rel="noopener">参考</a></p>
-<h3 id="前端往后端提交数据-3种方法">前端往后端提交数据( 3种方法)</h3>
-<h4 id="html原生表单">1. <strong>HTML原生表单</strong></h4>
-html原生就带表单
-<form>
-标签，
-<form>
-<p>标签提供设置method，可以使用get/post方法提交数据到后端，而如果加上action，则可以将数据指定提交到特定的url（即对应的后端函数）。对应submit按钮，需要将type="submit"，而不能是普通的type="button"。</p>
+<h3 id="前端往后端提交数据-3种方法"><a class="markdownIt-Anchor" href="#前端往后端提交数据-3种方法"></a> 前端往后端提交数据( 3种方法)</h3>
+<h4 id="1-html原生表单"><a class="markdownIt-Anchor" href="#1-html原生表单"></a> 1. <strong>HTML原生表单</strong></h4>
+<p>html原生就带表单<form>标签，<form>标签提供设置method，可以使用get/post方法提交数据到后端，而如果加上action，则可以将数据指定提交到特定的url（即对应的后端函数）。对应submit按钮，需要将type=“submit”，而不能是普通的type=“button”。</form></form></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;form method=&quot;post&quot; action=&quot;/mopasswd/&quot;&gt;</span><br><span class="line">......</span><br><span class="line">&lt;button type=&quot;submit&quot;&gt;submit&lt;/button&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="jquery的.post">2 . jquery的<code>.post</code></h4>
+<h4 id="2-jquery的post"><a class="markdownIt-Anchor" href="#2-jquery的post"></a> 2 . jquery的<code>.post</code></h4>
 <p>jquery的<code>.post</code>请求格式如下：<code>.post</code>是高层的操作，jQuery会自动封装调用底层的<code>$.ajax</code>。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$.post(url,&#123;json格式的数据&#125;,function (条件) &#123;</span><br><span class="line">           具体业务函数</span><br><span class="line">    &#125;,&apos;返回的数据格式&apos;)</span><br></pre></td></tr></table></figure>
 <p>一般示例如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$.post(&apos;/changepassword/&apos;,&#123;</span><br><span class="line">    &apos;username&apos;:$(&apos;#username&apos;).val(),</span><br><span class="line">    &apos;password&apos;:$(&apos;#password&apos;).val(),</span><br><span class="line">    &#125;,function (res) &#123;</span><br><span class="line">            alert(&quot;添加成功！&quot;);</span><br><span class="line">            window.location.reload();</span><br><span class="line">    &#125;,&apos;json&apos;)</span><br></pre></td></tr></table></figure>
-<h4 id="jquery的.ajax">3. jquery的<code>.ajax</code></h4>
+<h4 id="3-jquery的ajax"><a class="markdownIt-Anchor" href="#3-jquery的ajax"></a> 3. jquery的<code>.ajax</code></h4>
 <p>ajax是jquery另外一种向后台推送数据的方法，格式如下：<code>$.ajax</code>是一种通用的底层封装，<code>$.ajax()</code>请求数据之后，则需要使用回调函数，有beforeSend、error、dataFilter、success、complete等。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$.ajax(</span><br><span class="line">&#123;</span><br><span class="line">    url:url,</span><br><span class="line">    type:&quot;post&quot;,</span><br><span class="line">    data:&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeSend:function()&#123;&#125;,</span><br><span class="line">    async:true,</span><br><span class="line">    success:function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    error:function()&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>一般示例如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$.ajax(</span><br><span class="line">&#123;</span><br><span class="line">    url:&apos;/changepassword/&apos;,</span><br><span class="line">    type:&quot;post&quot;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        &apos;username&apos;:$(&apos;#username&apos;).val(),</span><br><span class="line">        &apos;password&apos;:$(&apos;#password&apos;).val(),</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeSend:function()&#123;&#125;,</span><br><span class="line">    async:true,</span><br><span class="line">    success:function(res)&#123;</span><br><span class="line">        alert(&quot;添加成功！&quot;);</span><br><span class="line">        window.location.reload();</span><br><span class="line">    &#125;,</span><br><span class="line">    error:function()&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="后端往前端返回数据"><strong>后端往前端返回数据</strong></h3>
+<h3 id="后端往前端返回数据"><a class="markdownIt-Anchor" href="#后端往前端返回数据"></a> <strong>后端往前端返回数据</strong></h3>
 <p>后端往前端返回数据有各种render，render_to_response，JsonResponse等，看似不同，其实都是差不多的。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#render只能返回静态页面</span><br><span class="line">render(request,&apos;index.html&apos;)</span><br><span class="line"></span><br><span class="line">#render_to_response可以返回页面与同时向前端返回数据</span><br><span class="line">#locals()表示会把函数内所有的变量数据都会以json格式返回到前端</span><br><span class="line">render_to_response（&apos;index.html&apos;,locals()）</span><br><span class="line">#或者可以按照json格式，指定返回给前端的变量与数值</span><br><span class="line">render_to_response(&apos;index.html&apos;, &#123;&apos;userinfo&apos;:userinfo&#125;)</span><br><span class="line"></span><br><span class="line">#JsonResponse不返回页面，仅以json格式向前端返回数据</span><br><span class="line">JsonResponse(&#123;&apos;result&apos;: result&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="前端接收后端数据并展示">前端接收后端数据并展示</h3>
+<h3 id="前端接收后端数据并展示"><a class="markdownIt-Anchor" href="#前端接收后端数据并展示"></a> 前端接收后端数据并展示</h3>
 <p>####　1．使用python的mako语法</p>
 <p>第一种方式就是使用python的mako语法，就是前面用表格遍历数据库查询结果，并且展示的语法。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% for i in data %&#125;</span><br><span class="line">    &#123;&#123; i.xxx &#125;&#125;</span><br><span class="line">    ......</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
 <p>这种用法好处是简单，易学易用易懂。缺点是只能在页面第一次加载的时候加载数据，页面不刷新/重新加载，无法修改数据。</p>
-<h4 id="使用javascriptjquery">2. 使用javascript/jquery</h4>
+<h4 id="2-使用javascriptjquery"><a class="markdownIt-Anchor" href="#2-使用javascriptjquery"></a> 2. 使用javascript/jquery</h4>
 <p>第二种方式是使用<code>javascript/jquery</code>，控制/修改变量的<code>value</code>。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#在form里面以&lt;h1&gt;标题格式，显示“这是一段文字”</span><br><span class="line">var str = &quot;&lt;h1&gt;这是一段文字&lt;/h1&gt;&quot;</span><br><span class="line">$(&apos;.form&apos;).html(str)</span><br><span class="line"></span><br><span class="line">#将id为&quot;button1&quot;的按钮的文字显示设置为“修改”</span><br><span class="line">$(&apos;#button1&apos;).text(&apos;修改&apos;)</span><br></pre></td></tr></table></figure>
-<h3 id="section"></h3>
-<h3 id="ajax-post请求forbidden-csrf-token-missing-or-incorrect.错误">ajax Post请求Forbidden (CSRF token missing or incorrect.)错误</h3>
+<h3 id><a class="markdownIt-Anchor" href="#"></a> </h3>
+<h3 id="ajax-post请求forbidden-csrf-token-missing-or-incorrect错误"><a class="markdownIt-Anchor" href="#ajax-post请求forbidden-csrf-token-missing-or-incorrect错误"></a> ajax Post请求Forbidden (CSRF token missing or incorrect.)错误</h3>
 <p>需要在请求中加入<code>csrfmiddlewaretoken:''</code></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="string">'#update_btn'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:<span class="string">'/update2FA'</span>,</span><br><span class="line">        type:<span class="string">'post'</span>,</span><br><span class="line">        data:&#123;<span class="string">'source_key_text'</span>: $(<span class="string">'#update_btn'</span>).val(),</span><br><span class="line">              csrfmiddlewaretoken:<span class="string">'&#123;&#123; csrf_token  &#125;&#125;'</span>&#125;,</span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">            $(<span class="string">'#secret_val'</span>).val(data)&#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="django中model的主键的设置与自增">django中model的主键的设置与自增</h3>
+<h3 id="django中model的主键的设置与自增"><a class="markdownIt-Anchor" href="#django中model的主键的设置与自增"></a> django中model的主键的设置与自增</h3>
 <p>在django所定义的model里是可以自己设置主键的，具体方法为</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">AgentInfo_id = models.IntegerField(primary_key=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
 <p>但是要注意的是，为了添加元素的过程中主键的自增，主键的设置中不能加入default属性，否则save()的过程将不再是新建元素而是替换元素。</p>
 <p>google 的一个group中说不要用IntegerField 用AutoField.</p>
 <p>使用AutoField在管理界面输入数据时，不会显示此项。而IntegerField会显示此项。</p>
-<h3 id="ajax-uncaught-referenceerror-is-not-defined">ajax Uncaught ReferenceError: $ is not defined</h3>
+<h3 id="ajax-uncaught-referenceerror-is-not-defined"><a class="markdownIt-Anchor" href="#ajax-uncaught-referenceerror-is-not-defined"></a> ajax  Uncaught ReferenceError: $ is not defined</h3>
 <p>代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script rel=<span class="string">"javascript"</span> type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:<span class="string">'/update2FA'</span>,</span><br><span class="line">        type:<span class="string">'post'</span>,</span><br><span class="line">        data:&#123;<span class="string">'source_key_text'</span>: $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).val(),</span><br><span class="line">              csrfmiddlewaretoken:<span class="string">'&#123;&#123; csrf_token  &#125;&#125;'</span>&#125;,</span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">            $(<span class="string">'#totp_val&#123;&#123;itm.account_id&#125;&#125;'</span>).val(data)&#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <p>代码上没什么错误，从同一个文件其它地方复制过来的。</p>
 <p>错误的原因是，jQuery没有在此之前引入，需要把</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Bootstrap CSS --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./static/css/bootstrap.min.css"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Optional JavaScript --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/js/jquery-3.0.0.min.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/js/bootstrap.bundle.min.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>写在ajax代码的前面，否则识别会出错。</p>
-<h3 id="button按钮文字修改valtext区别">button按钮文字修改val、text区别</h3>
+<h3 id="button按钮文字修改val-text区别"><a class="markdownIt-Anchor" href="#button按钮文字修改val-text区别"></a> button按钮文字修改val、text区别</h3>
 <p>例如：button按钮代码</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span>  <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">id</span>=<span class="string">"totp_val&#123;&#123;itm.account_id&#125;&#125;"</span> <span class="attr">value</span>=<span class="string">"123456"</span>&gt;</span> 000000 <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>如下ajax代码：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:<span class="string">'/update2FA'</span>,</span><br><span class="line">        type:<span class="string">'post'</span>,</span><br><span class="line">        data:&#123;<span class="string">'account_id'</span>: $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).val(),</span><br><span class="line">              csrfmiddlewaretoken:<span class="string">'&#123;&#123; csrf_token  &#125;&#125;'</span>&#125;,</span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">            $(<span class="string">'#totp_val&#123;&#123;itm.account_id&#125;&#125;'</span>).val(data)&#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <p>倒数第四行如果是val，那么修改的是button中value属性的值，即123456的值；</p>
 <p>倒数第四行如果是text，那么修改的是button中显示文本的值，即000000的值。</p>
-<h3 id="ajax返回json数据例子">Ajax返回Json数据例子</h3>
+<h3 id="ajax返回json数据例子"><a class="markdownIt-Anchor" href="#ajax返回json数据例子"></a> Ajax返回Json数据例子</h3>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url: <span class="string">'ajaxfile.php'</span>,</span><br><span class="line">        type: <span class="string">'get'</span>,</span><br><span class="line">        dataType: <span class="string">'JSON'</span>,</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> len = response.length;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">                <span class="keyword">var</span> id = response[i].id;</span><br><span class="line">                <span class="keyword">var</span> username = response[i].username;</span><br><span class="line">                <span class="keyword">var</span> name = response[i].name;</span><br><span class="line">                <span class="keyword">var</span> email = response[i].email;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">var</span> tr_str = <span class="string">"&lt;tr&gt;"</span> +</span><br><span class="line">                    <span class="string">"&lt;td align='center'&gt;"</span> + (i+<span class="number">1</span>) + <span class="string">"&lt;/td&gt;"</span> +</span><br><span class="line">                    <span class="string">"&lt;td align='center'&gt;"</span> + username + <span class="string">"&lt;/td&gt;"</span> +</span><br><span class="line">                    <span class="string">"&lt;td align='center'&gt;"</span> + name + <span class="string">"&lt;/td&gt;"</span> +</span><br><span class="line">                    <span class="string">"&lt;td align='center'&gt;"</span> + email + <span class="string">"&lt;/td&gt;"</span> +</span><br><span class="line">                    <span class="string">"&lt;/tr&gt;"</span>;</span><br><span class="line"></span><br><span class="line">                $(<span class="string">"#userTable tbody"</span>).append(tr_str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>下面是我自己的例子，注意，如果格式解析不正确那么就需要下面的方法，格式化json数据：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:<span class="string">'/update2FA'</span>,</span><br><span class="line">        type:<span class="string">'post'</span>,</span><br><span class="line">        data:&#123;<span class="string">'account_id'</span>: $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).val(),</span><br><span class="line">              csrfmiddlewaretoken:<span class="string">'&#123;&#123; csrf_token  &#125;&#125;'</span></span><br><span class="line">             &#125;,</span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">resp</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> objData = jQuery.parseJSON(resp);</span><br><span class="line">            $(<span class="string">'#totp_val&#123;&#123;itm.account_id&#125;&#125;'</span>).text(objData.totp_val);</span><br><span class="line">            $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).text(objData.time_remain);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="bootstrap-圆形样式设置">bootstrap 圆形样式设置</h3>
-<p><a href="https://www.geeksforgeeks.org/how-to-get-circular-buttons-in-bootstrap-4/" target="_blank" rel="noopener">参考: How to get circular buttons in bootstrap 4</a></p>
+<h3 id="bootstrap-圆形样式设置"><a class="markdownIt-Anchor" href="#bootstrap-圆形样式设置"></a> bootstrap 圆形样式设置</h3>
+<p><a href="https://www.geeksforgeeks.org/how-to-get-circular-buttons-in-bootstrap-4/" target="_blank" rel="noopener">参考: How to get circular buttons in bootstrap 4 </a></p>
 <p><a href="https://www.cnblogs.com/an2333/p/11520832.html" target="_blank" rel="noopener">CSS样式-border-radius圆形边框基本用法</a></p>
 <p>关键设置是<code>border-radius</code>，如果将值设为50%，则实现正圆形。</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;style type="text/css"&gt;</span><br><span class="line"><span class="selector-class">.btn-circle</span><span class="selector-class">.btn-sm</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">6px</span> <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn-circle</span><span class="selector-class">.btn-md</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">7px</span> <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn-circle</span><span class="selector-class">.btn-xl</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">35px</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 <p>html:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span>  <span class="attr">class</span>=<span class="string">"btn btn-danger btn-circle btn-sm"</span>&gt;</span> 30 <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="ajax-实现倒计时">Ajax 实现倒计时</h3>
+<h3 id="ajax-实现倒计时"><a class="markdownIt-Anchor" href="#ajax-实现倒计时"></a> Ajax 实现倒计时</h3>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">30</span>;</span><br><span class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    count--;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// update timer here</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (count === <span class="number">0</span>) &#123;</span><br><span class="line">        count = <span class="number">30</span>;</span><br><span class="line">        <span class="comment">// ajax code here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
 <p><a href="https://stackoverflow.com/questions/21022634/run-ajax-every-30-seconds-and-show-a-countdown-timer" target="_blank" rel="noopener">参考：Run ajax every 30 seconds and show a countdown timer</a></p>
 <p>修改后代码：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> count = objData.time_remain;</span><br><span class="line"><span class="keyword">var</span> refreshId  = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    count--;</span><br><span class="line">    $(<span class="string">'#time_remain&#123;&#123;itm.account_id&#125;&#125;'</span>).text(count);</span><br><span class="line">    <span class="comment">// update timer here</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (count === <span class="number">0</span>) &#123;</span><br><span class="line">        $(<span class="string">'#update_btn&#123;&#123;itm.account_id&#125;&#125;'</span>).text(<span class="string">'更新'</span>);</span><br><span class="line">        clearInterval(refreshId);<span class="comment">//退出计时器</span></span><br><span class="line">        <span class="comment">// ajax code here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
 <p>参考:</p>
 <p><a href="https://zhuanlan.zhihu.com/p/104425834" target="_blank" rel="noopener">Python+Django网站开发系列12-前后端数据交互总结</a></p>
-</form></form>]]></content>
+]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;添加本地js&quot;&gt;添加本地js&lt;/h3&gt;
-&lt;p&gt;在Django应用下新建目录static（与templates同级目录），然后修改&lt;code&gt;settings.py&lt;/code&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;tab
+      &lt;h3 id=&quot;添加本地js&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#添加本地js&quot;&gt;&lt;/a&gt; 添加本地js&lt;/h3&gt;
+&lt;p&gt;在Django应用下新建目录static（与templates同级目录），然后修改&lt;code&gt;settings.py&lt;/
     
     </summary>
     
@@ -781,10 +774,10 @@ html原生就带表单
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> wmi</span><br><span class="line"></span><br><span class="line"><span class="comment"># Obtain network adaptors configurations</span></span><br><span class="line">nic_configs = wmi.WMI().Win32_NetworkAdapterConfiguration(IPEnabled=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># First network adaptor</span></span><br><span class="line">nic = nic_configs[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># IP address, subnetmask and gateway values should be unicode objects</span></span><br><span class="line">ip = <span class="string">u'192.168.0.11'</span></span><br><span class="line">subnetmask = <span class="string">u'255.255.255.0'</span></span><br><span class="line">gateway = <span class="string">u'192.168.0.1'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set IP address, subnetmask and default gateway</span></span><br><span class="line"><span class="comment"># Note: EnableStatic() and SetGateways() methods require *lists* of values to be passed</span></span><br><span class="line">nic.EnableStatic(IPAddress=[ip],SubnetMask=[subnetmask])</span><br><span class="line">nic.SetGateways(DefaultIPGateway=[gateway])</span><br></pre></td></tr></table></figure>
 <p>修改为通过DHCP自动获取ip：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> wmi</span><br><span class="line"></span><br><span class="line"><span class="comment"># Obtain network adaptors configurations</span></span><br><span class="line">nic_configs = wmi.WMI().Win32_NetworkAdapterConfiguration(IPEnabled=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># First network adaptor</span></span><br><span class="line">nic = nic_configs[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable DHCP</span></span><br><span class="line">nic.EnableDHCP()</span><br></pre></td></tr></table></figure>
-<p>需要注意的是，在实际使用过程中，需要检查 <a href="http://msdn.microsoft.com/en-us/library/aa390383(v=VS.85).aspx" target="_blank" rel="noopener">EnableStatic()</a>, <a href="http://msdn.microsoft.com/en-us/library/aa393301(v=VS.85).aspx" target="_blank" rel="noopener">SetGateways()</a> and <a href="http://msdn.microsoft.com/en-us/library/aa390378(v=VS.85).aspx" target="_blank" rel="noopener">EnableDHCP()</a> 的返回值，'0' 代表成功, '1' 代表需要重启，其它值需要查看上面链接的说明。返回值的格式如下：</p>
+<p>需要注意的是，在实际使用过程中，需要检查 <a href="http://msdn.microsoft.com/en-us/library/aa390383(v=VS.85).aspx" target="_blank" rel="noopener">EnableStatic()</a>, <a href="http://msdn.microsoft.com/en-us/library/aa393301(v=VS.85).aspx" target="_blank" rel="noopener">SetGateways()</a> and <a href="http://msdn.microsoft.com/en-us/library/aa390378(v=VS.85).aspx" target="_blank" rel="noopener">EnableDHCP()</a> 的返回值，‘0’ 代表成功, ‘1’ 代表需要重启，其它值需要查看上面链接的说明。返回值的格式如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(0,)</span><br></pre></td></tr></table></figure>
 <p>即，为python中tuple格式。</p>
-<p>之上的方法在win7 python3.8中测试通过。</p>
+<p>之上的方法在win7  python3.8中测试通过。</p>
 ]]></content>
     
     <summary type="html">
@@ -806,14 +799,14 @@ html原生就带表单
     <updated>2021-01-13T02:47:37.718Z</updated>
     
     <content type="html"><![CDATA[<p>首先，如果不是可以自己制作ISO的话，可以尝试it天空的，万能驱动7，已经集成了NVME、USB3驱动和一些更新。</p>
-<h3 id="需要的软件">需要的软件</h3>
+<h3 id="需要的软件"><a class="markdownIt-Anchor" href="#需要的软件"></a> 需要的软件</h3>
 <p>Dism++</p>
-<h3 id="注意事项">注意事项</h3>
+<h3 id="注意事项"><a class="markdownIt-Anchor" href="#注意事项"></a> 注意事项</h3>
 <p>你的硬盘应该能在BIOS中看到，如果看不到，我的方法可能不行</p>
 <p>如果PE没有发现USB3或NVME设备（即PE不支持），那么万能驱动7也发现不了。</p>
-<p>万能驱动7的流程：<br>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">进入PE-&gt;恢复待部署的系统到系统盘-&gt;运行万能驱动7-&gt;导入驱动到系统驱动库-&gt;重启-&gt;开始系统部署-&gt;部署过程中系统会自动安装导入的驱动-&gt;自动重启进入系统，</span><br></pre></td></tr></table></figure></p>
-<h3 id="以下操作可行">以下操作可行</h3>
+<p>万能驱动7的流程：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">进入PE-&gt;恢复待部署的系统到系统盘-&gt;运行万能驱动7-&gt;导入驱动到系统驱动库-&gt;重启-&gt;开始系统部署-&gt;部署过程中系统会自动安装导入的驱动-&gt;自动重启进入系统，</span><br></pre></td></tr></table></figure>
+<h3 id="以下操作可行"><a class="markdownIt-Anchor" href="#以下操作可行"></a> 以下操作可行</h3>
 <p>个人的nvme盘是m2，西部数据SN730</p>
 <p>建议在优启通PE中进行修改wim操作，使用<code>dism++</code>挂载映像，在驱动管理中添加如下驱动：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dfsd</span><br></pre></td></tr></table></figure>
@@ -821,61 +814,33 @@ html原生就带表单
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Windows6.1-KB2990941-v3-x64.msu</span><br><span class="line">Windows6.1-KB3087873-v2-x64.msu</span><br><span class="line">Windows6.1-KB2534111-x64.msu</span><br><span class="line">Windows6.1-KB2999226-x64.msu</span><br></pre></td></tr></table></figure>
 <p>网上有很多说只需两个，但是这里有四个，也建议如此</p>
 <p>wim修改完毕后，保存wim。</p>
-<p>接下来，使用WinNTSetup安装器，进行系统安装。 首先，选择wim文件位置，选择引导驱动器的位置，也就是要安装的系统盘位置（SSD盘），选择完毕后三个指示符应该均为绿色，选择安装驱动器的位置，和上一步一样即可，同一个盘符。</p>
+<p>接下来，使用WinNTSetup安装器，进行系统安装。  首先，选择wim文件位置，选择引导驱动器的位置，也就是要安装的系统盘位置（SSD盘），选择完毕后三个指示符应该均为绿色，选择安装驱动器的位置，和上一步一样即可，同一个盘符。</p>
 <p>注意：SSD系统盘要使用MBR格式，如果是GPT格式，那需要DiskGinus来修改。大致操作，如果SSD没有重要文件，可以先把SSD所有分区删除，然后保存。在SSD上点击右键，将分区表类型转换为MBR格式；然后点击新建分区（不是快速分区），直接下一步、完成即可；点击保存更改，会提示格式化，确定；即可。</p>
 <p>继续WinNTSetup安装器，左下角选项，选择要安装的版本</p>
 <p>下面谈一下wim封装ISO：</p>
 <p>网上有很多方法，都是介绍ultraISO直接替换修改后的install.wim，但是，经过多次尝试，总是失败。</p>
 <p>另外，对于Win10的安装ISO来说，其PE环境是同时支持esd和wim安装的，但win7的安装PE环境不支持esd，因为win7时代esd这个格式还没诞生嘛，所以你把转完之后的ESD直接放到Win7的ISO里肯定是用不了的，那咋办呢？<br>
-其实很简单，你找一个win10原版ISO，把里面的install.wim文件删掉，把win7的自己修改后的install.esd文件放进去就行了，这样虽然安装界面是win10的，但装出来的系统还是win7，同时还避免了PE环境不支持USB3.0的问题。 说简单点，就是自己杂交一个安装ISO，安装环境是Win10的，但install.esd是Win7的就好了，我自己测试过，没有问题。</p>
+其实很简单，你找一个win10原版ISO，把里面的install.wim文件删掉，把win7的自己修改后的install.esd文件放进去就行了，这样虽然安装界面是win10的，但装出来的系统还是win7，同时还避免了PE环境不支持USB3.0的问题。<br>
+说简单点，就是自己杂交一个安装ISO，安装环境是Win10的，但install.esd是Win7的就好了，我自己测试过，没有问题。</p>
 <p>可以将驱动封装到install.wim，然后在杂交生成ISO，既解决了USB3.0问题，又能解决驱动问题。</p>
-<p>推荐阅读：https://www.jianshu.com/p/a93253560d78</p>
-<h3 id="另外一种方法">另外一种方法</h3>
+<p>推荐阅读：<a href="https://www.jianshu.com/p/a93253560d78" target="_blank" rel="noopener">https://www.jianshu.com/p/a93253560d78</a></p>
+<h3 id="另外一种方法"><a class="markdownIt-Anchor" href="#另外一种方法"></a> 另外一种方法</h3>
 <p><a href="https://support.lenovo.com/hk/en/solutions/ht103541/" target="_blank" rel="noopener">How to prepare the Windows 7 installation ISO image with USB3.0 driver and NVM Express (NVMe) driver</a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">NOTE: It is not recommended to install the NVMe hotfix as a step in the task sequence, please follow the steps below for adding it to the install wim for best results.</span><br><span class="line">1. Install the latest Windows ADK for Windows 8.1 update.</span><br><span class="line">2. Create five local folders at C:\temp and name them as src, mount, winremount, hotfix, and drivers.</span><br><span class="line">3. Copy the setup files from the DVD drive or the mounted Windows 7 installation ISO image to C:\temp\src.</span><br><span class="line">4. Download and install the following NVMe driver for Windows 7 from Microsoft Web site, and then copy the hotfix.msu or hotfix.cab file to C:\temp\hotfix..</span><br><span class="line">Update to add native driver support in NVM Express in Windows 7 and Windows Server 2008 R2 li&gt;</span><br><span class="line">5. If you want to install the Windows 7 operating system using a USB flash drive, copy the USB 3.0 driver files to C:\temp\drivers.</span><br><span class="line">6. Click Start, and type deployment. Right-click Deployment and Imaging Tools Environment and then select Run as administrator.</span><br><span class="line">7. Copy the hotfixes and drivers to the boot.wim file, and then update the sources folder by running the following Deployment Image Servicing and Management (DISM) commands: dism /Mount-Image /ImageFile:c:\temp\src\sources\boot.wim /Index:1 /MountDir:c:\temp\mount</span><br><span class="line"></span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Unmount-Image /MountDir:C:\temp\mount /Commit</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\src\sources\boot.wim /Index:2 /MountDir:c:\temp\mount</span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line"></span><br><span class="line">Sort the files at C:\temp\mount\sources by date, and then copy the updated files to C:\temp\src\sources (ensure that C:\temp\mount\sources is closed before running the following DISM command). </span><br><span class="line"></span><br><span class="line">dism /Unmount-Image /MountDir:C:\temp\mount /commit</span><br><span class="line"></span><br><span class="line">8. Obtain the index from the Install.wim file by running the following command, and then check every index to see how many indexes have to be updated.</span><br><span class="line"></span><br><span class="line">dism /Get-WimInfo /WimFile:c:\temp\src\sources\install.wim</span><br><span class="line"></span><br><span class="line">9. Copy the hotfixes and drivers to the install.wim file and the winre.wim file by running the following commands:</span><br><span class="line"></span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\src\sources\install.wim /Index:1 /MountDir:c:\temp\mount</span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\mount\windows\system32\recovery\winre.wim /Index:1 /MountDir:c:\temp\winremount</span><br><span class="line">dism /Image:C:\temp\winremount/Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\winremount /Commit</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\mount /Commit </span><br><span class="line"></span><br><span class="line">Note: In step 8, if you find multiple indexes have to be updated, update them one by one (only the index number of the first line needs to be updated). For example, if there are four indexes, run the following commands: dism /Mount-Image /ImageFile:c:\temp\src\sources\install.wim /Index:1 /MountDir:c:\temp\mount</span><br><span class="line"></span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\mount\windows\system32\recovery\winre.wim /Index:1 /MountDir:c:\temp\winremount</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\winremount /Commit</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\mount /Commit</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\src\sources\install.wim /Index:2 /MountDir:c:\temp\mount</span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\mount\windows\system32\recovery\winre.wim /Index:1 /MountDir:c:\temp\winremount</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\winremount /Commit</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\mount /Commit</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\src\sources\install.wim /Index:3 /MountDir:c:\temp\mount</span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\mount\windows\system32\recovery\winre.wim /Index:1 /MountDir:c:\temp\winremount</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\winremount /Commit</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\mount /Commit</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\src\sources\install.wim /Index:4 /MountDir:c:\temp\mount</span><br><span class="line">dism /Image:C:\temp\mount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\mount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Mount-Image /ImageFile:c:\temp\mount\windows\system32\recovery\winre.wim /Index:1 /MountDir:c:\temp\winremount</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Package /PackagePath:c:\temp\hotfix</span><br><span class="line">dism /Image:C:\temp\winremount /Add-Driver /Driver:c:\temp\drivers /Recurse</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\winremount /Commit</span><br><span class="line">dism /Unmount-Wim /MountDir:C:\temp\mount /Commit</span><br><span class="line"></span><br><span class="line">10. Create an ISO file, and then rename the label by running the following oscdimg commands:</span><br><span class="line">For Legacy BIOS Boot mode:</span><br><span class="line">oscdimg -LTEST -m -u2 -bC:\temp\src\boot\etfsboot.com C:\temp\src C:\temp\Win7.NVME.ISO</span><br><span class="line"></span><br><span class="line">For Legacy and UEFI BIOS multiple Boot mode:</span><br><span class="line">oscdimg -LTEST -m -u2 -bootdata:2#p0,e,bC:\temp\src\boot\etfsboot.com#pEF,e,bC:\temp\src\efi\microsoft\boot\efisys.bin C:\temp\src C:\temp\Win7.NVME.ISO</span><br><span class="line"></span><br><span class="line">11. Use the ISO file to create a bootable USB flash drive with FAT32 or a bootable DVD.</span><br><span class="line">Note: If the ISO file is larger than 4.7 GB, use a dual-layer DVD to burn the ISO file.</span><br><span class="line"></span><br><span class="line">12. For UEFI boot (only applicable for the 64-bit version of Windows 7 operating system or higher), check if the BOOTX64.EFI file is available at EFI\BOOT\ on the USB flash drive. If not, do the following:</span><br><span class="line">a. Copy the bootmgfw.efi file from C:\Windows\Boot\EFI to \EFI\BOOT\ on the USB flash drive.</span><br><span class="line">b. Rename the file to BOOTX64.EFI.</span><br></pre></td></tr></table></figure>
-<h3 id="谈一谈win10的封装">谈一谈Win10的封装</h3>
+<h3 id="谈一谈win10的封装"><a class="markdownIt-Anchor" href="#谈一谈win10的封装"></a> 谈一谈Win10的封装</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">关于优化我这里先说一下几个坑</span><br><span class="line">1.对于1903及以上的系统，不要禁用windows错误报告服务，即Windows Error Reporting Service。这个服务一旦禁用，打开Widows设置会出现数组越界的BUG或者闪退，甚至可能严重影响系统性能。</span><br><span class="line">2.建议不要禁用系统更新服务，即Windows Update服务。如果禁用了，会出现很多问题，比如无法安装.net3.5，无法使用数字激活工具激活系统，无法使用应用商店下载APP等等。</span><br><span class="line">3.不要禁用Windows防火墙服务，即Windows Firewall服务。如果禁用了，就无法共享打印机。</span><br><span class="line">4.优化《解除程序文件风险警告》后会造成IE自带下载器下载的程序，无法在下载器里直接运行。</span><br><span class="line">5.对于1903及以上的系统，优化《禁止商店自动下载更新》后，无法使用新建账户的方式登录系统，会卡在OOBE界面，但不影响内置管理员方式登录系统。所以，如果不是内置管理员封装的系统就不要优化此项。</span><br></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;首先，如果不是可以自己制作ISO的话，可以尝试it天空的，万能驱动7，已经集成了NVME、USB3驱动和一些更新。&lt;/p&gt;
-&lt;h3 id=&quot;需要的软件&quot;&gt;需要的软件&lt;/h3&gt;
-&lt;p&gt;Dism++&lt;/p&gt;
-&lt;h3 id=&quot;注意事项&quot;&gt;注意事项&lt;/h3&gt;
-&lt;p&gt;你的硬盘
+&lt;h3 id=&quot;需要的软件&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#需要的软件&quot;&gt;&lt;/a&gt; 需要的软件&lt;/h3&gt;
+&lt;
     
     </summary>
     
     
       <category term="Windows" scheme="http://flamepeak.com/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 7 最小化安装遇到的问题</title>
-    <link href="http://flamepeak.com/2020/06/16/Linux-CentOS-minimal-install-20200616/"/>
-    <id>http://flamepeak.com/2020/06/16/Linux-CentOS-minimal-install-20200616/</id>
-    <published>2020-06-16T01:35:12.000Z</published>
-    <updated>2020-06-16T00:09:38.480Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="ifconfig-not-found">ifconfig not found</h3>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ifconfig 在centos 最小化安装时，是不自带的</span><br><span class="line">可以使用ip addr 查看ip</span><br></pre></td></tr></table></figure>
-<h3 id="没有ip地址">没有ip地址</h3>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ip addr发现ens33 没有inet 这个属性，那么就没法通过IP地址连接虚拟机。</span><br><span class="line">查看ens33网卡的配置：vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line">从配置清单中可以发现 CentOS 7 默认是不启动网卡的（ONBOOT=no）。</span><br><span class="line">把这一项改为YES（ONBOOT=yes）</span><br><span class="line">重启网络服务： sudo service network restart</span><br></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;ifconfig-not-found&quot;&gt;ifconfig not found&lt;/h3&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ifc
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
-    
-    
-      <category term="CentOS" scheme="http://flamepeak.com/tags/CentOS/"/>
     
   </entry>
   
@@ -887,24 +852,35 @@ html原生就带表单
     <updated>2020-06-19T07:56:55.060Z</updated>
     
     <content type="html"><![CDATA[<p>Blob格式视频下载一直比较困难，在此记录一些思路：</p>
-<ol type="1">
-<li><p>首先找到blob网址，如下：<code>blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978</code></p></li>
-<li><p>在Chrome浏览器中，F12打开开发者工具</p></li>
-<li><p>刷新含有视频的目标网页，然后在Network选项卡中查看请求列表</p></li>
-<li><p>寻找m3u8扩展名，然后打开指定链接：如<code>https://1252524126.vod2.xxxx.com/522ff1e0vodcq1252524126/867b83575285890790665095068/playlist.f3.m3u8?time=1592553016262</code></p></li>
-<li><p>事实上，m3u8是一个文本文件，使用记事本之类工具打开，可以看到如下内容：</p>
+<ol>
+<li>
+<p>首先找到blob网址，如下：<code>blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978</code></p>
+</li>
+<li>
+<p>在Chrome浏览器中，F12打开开发者工具</p>
+</li>
+<li>
+<p>刷新含有视频的目标网页，然后在Network选项卡中查看请求列表</p>
+</li>
+<li>
+<p>寻找m3u8扩展名，然后打开指定链接：如<code>https://1252524126.vod2.xxxx.com/522ff1e0vodcq1252524126/867b83575285890790665095068/playlist.f3.m3u8?time=1592553016262</code></p>
+</li>
+<li>
+<p>事实上，m3u8是一个文本文件，使用记事本之类工具打开，可以看到如下内容：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-TARGETDURATION:18</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXTINF:16.666667,</span><br><span class="line">playlist.f3.ts?start=0&amp;end=5506707&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=5506708&amp;end=8260155&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=8260156&amp;end=11013603&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=11013604&amp;end=13767427&amp;type=mpegts</span><br><span class="line">#EXTINF:8.333333,</span><br><span class="line">playlist.f3.ts?start=13767428&amp;end=16520875&amp;type=mpegts</span><br><span class="line">#EXTINF:16.666667,</span><br><span class="line">playlist.f3.ts?start=16520876&amp;end=22027771&amp;type=mpegts</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>这样就可以分析出视频地址了，就是</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">`https://1252524126.vod2.xxxx.com/522ff1e0vodcq1252524126/867b83575285890790665095068/playlist.f3.ts</span><br></pre></td></tr></table></figure>
-<p>直接下载视频即可</p></li>
+<p>直接下载视频即可</p>
+</li>
 </ol>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;Blob格式视频下载一直比较困难，在此记录一些思路：&lt;/p&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;&lt;p&gt;首先找到blob网址，如下：&lt;code&gt;blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;首先找到blob网址，如下：&lt;code&gt;blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978&lt;/cod
     
     </summary>
     
@@ -916,20 +892,47 @@ html原生就带表单
   </entry>
   
   <entry>
+    <title>CentOS 7 最小化安装遇到的问题</title>
+    <link href="http://flamepeak.com/2020/06/16/Linux-CentOS-minimal-install-20200616/"/>
+    <id>http://flamepeak.com/2020/06/16/Linux-CentOS-minimal-install-20200616/</id>
+    <published>2020-06-16T01:35:12.000Z</published>
+    <updated>2020-06-16T00:09:38.480Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="ifconfig-not-found"><a class="markdownIt-Anchor" href="#ifconfig-not-found"></a> ifconfig not  found</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ifconfig 在centos 最小化安装时，是不自带的</span><br><span class="line">可以使用ip addr 查看ip</span><br></pre></td></tr></table></figure>
+<h3 id="没有ip地址"><a class="markdownIt-Anchor" href="#没有ip地址"></a> 没有ip地址</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ip addr发现ens33 没有inet 这个属性，那么就没法通过IP地址连接虚拟机。</span><br><span class="line">查看ens33网卡的配置：vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line">从配置清单中可以发现 CentOS 7 默认是不启动网卡的（ONBOOT=no）。</span><br><span class="line">把这一项改为YES（ONBOOT=yes）</span><br><span class="line">重启网络服务： sudo service network restart</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;ifconfig-not-found&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#ifconfig-not-found&quot;&gt;&lt;/a&gt; ifconfig not  found&lt;/h3&gt;
+&lt;figure class=&quot;highlight p
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://flamepeak.com/categories/Linux/"/>
+    
+    
+      <category term="CentOS" scheme="http://flamepeak.com/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vim 使用汇总</title>
     <link href="http://flamepeak.com/2020/03/28/vim-usage-20200328/"/>
     <id>http://flamepeak.com/2020/03/28/vim-usage-20200328/</id>
     <published>2020-03-28T01:18:00.000Z</published>
     <updated>2020-03-28T01:20:07.510Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="搜索高亮">搜索高亮</h3>
+    <content type="html"><![CDATA[<h3 id="搜索高亮"><a class="markdownIt-Anchor" href="#搜索高亮"></a> 搜索高亮</h3>
 <p>vim搜索设置高亮</p>
 <p>linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显示。有两种方法：</p>
 <p>1、临时设置：vim打开文档<br>
 命令行形式输入：<code>set hlsearch</code>。<br>
 缺点：关闭文档后，下次打开，又需要重新设置一遍。</p>
 <p>2、永久设置（推荐）：在<code>~/.vimrc</code>中设置<br>
-在文件中加上<code>set hlsearch </code><br>
+在文件中加上<code>set hlsearch</code><br>
 然后保存退出便可。<br>
 优点：一次设置，永久生效。</p>
 <p>取消方法：<br>
@@ -938,11 +941,10 @@ html原生就带表单
     
     <summary type="html">
     
-      &lt;h3 id=&quot;搜索高亮&quot;&gt;搜索高亮&lt;/h3&gt;
+      &lt;h3 id=&quot;搜索高亮&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#搜索高亮&quot;&gt;&lt;/a&gt; 搜索高亮&lt;/h3&gt;
 &lt;p&gt;vim搜索设置高亮&lt;/p&gt;
 &lt;p&gt;linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显示。有两种方法：&lt;/p&gt;
-&lt;p&gt;1、临时设置：vim打开文档&lt;br&gt;
-命令行形式输入：&lt;code&gt;set hlsearc
+&lt;p&gt;1
     
     </summary>
     
@@ -974,7 +976,7 @@ html原生就带表单
     
       &lt;p&gt;PackageKit是基于RedHat的linux中的图形化软件升级工具，下面描述一下如何禁止和启用自动升级。&lt;/p&gt;
 &lt;p&gt;默认状态下是开启的。&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;
     
     </summary>
     
@@ -992,12 +994,14 @@ html原生就带表单
     <published>2020-03-16T00:50:12.000Z</published>
     <updated>2020-03-16T00:52:40.269Z</updated>
     
-    <content type="html"><![CDATA[<p>首先，进入虚拟环境，并激活 然后，运行命令<code>python -m idlelib.idle</code>，即可</p>
+    <content type="html"><![CDATA[<p>首先，进入虚拟环境，并激活<br>
+然后，运行命令<code>python -m idlelib.idle</code>，即可</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;首先，进入虚拟环境，并激活 然后，运行命令&lt;code&gt;python -m idlelib.idle&lt;/code&gt;，即可&lt;/p&gt;
+      &lt;p&gt;首先，进入虚拟环境，并激活&lt;br&gt;
+然后，运行命令&lt;code&gt;python -m idlelib.idle&lt;/code&gt;，即可&lt;/p&gt;
 
     
     </summary>
@@ -1017,25 +1021,26 @@ html原生就带表单
     <updated>2020-03-16T00:48:40.731Z</updated>
     
     <content type="html"><![CDATA[<p>关于读写文件，在Python中提供了<code>read()</code>、<code>write()</code>来读写一行，也提供了<code>readlines()</code>、<code>writelines()</code>读写多行的方式。此外，模块<code>pickle</code>、<code>json</code>允许我们以更方便快捷的方式处理序列化的数据集。</p>
-<h3 id="使用read-和write方法">使用read 和write方法</h3>
+<h3 id="使用read-和write方法"><a class="markdownIt-Anchor" href="#使用read-和write方法"></a> 使用read 和write方法</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># define list of places</span></span><br><span class="line">places = [<span class="string">'Berlin'</span>, <span class="string">'Cape Town'</span>, <span class="string">'Sydney'</span>, <span class="string">'Moscow'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    <span class="keyword">for</span> listitem <span class="keyword">in</span> places:</span><br><span class="line">        filehandle.write(<span class="string">'%s\n'</span> % listitem)</span><br></pre></td></tr></table></figure>
 <p>注意，最后一行添加了<code>\n</code>，从这个文件中读取列表，可以使用以下代码：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># define an empty list</span></span><br><span class="line">places = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># open file and read the content in a list</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> filehandle:</span><br><span class="line">        <span class="comment"># remove linebreak which is the last character of the string</span></span><br><span class="line">        currentPlace = line[:<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># add item to the list</span></span><br><span class="line">        places.append(currentPlace)</span><br></pre></td></tr></table></figure>
 <p>一定要注意，需要把最后的换行符去掉。</p>
-<h3 id="使用readlines-和-writelines方法">使用readlines 和 writelines方法</h3>
+<h3 id="使用readlines-和-writelines方法"><a class="markdownIt-Anchor" href="#使用readlines-和-writelines方法"></a> 使用readlines 和 writelines方法</h3>
 <p>写入文件：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># define list of places</span></span><br><span class="line">places_list = [<span class="string">'Berlin'</span>, <span class="string">'Cape Town'</span>, <span class="string">'Sydney'</span>, <span class="string">'Moscow'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    filehandle.writelines(<span class="string">"%s\n"</span> % place <span class="keyword">for</span> place <span class="keyword">in</span> places_list)</span><br></pre></td></tr></table></figure>
 <p>读取文件：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># define empty list</span></span><br><span class="line">places = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># open file and read the content in a list</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    filecontents = filehandle.readlines()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> filecontents:</span><br><span class="line">        <span class="comment"># remove linebreak which is the last character of the string</span></span><br><span class="line">        current_place = line[:<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># add item to the list</span></span><br><span class="line">        places.append(current_place)</span><br></pre></td></tr></table></figure>
 <p>或者，以更精简的方式：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># define empty list</span></span><br><span class="line">places = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># open file and read the content in a list</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    places = [current_place.rstrip() <span class="keyword">for</span> current_place <span class="keyword">in</span> filehandle.readlines()]</span><br></pre></td></tr></table></figure>
-<h3 id="使用pickle模块">使用pickle模块</h3>
-<p>Its <code>dump()</code> method stores the list efficiently as a binary data stream. Firstly, in line 7 (in the code below) the output file <code>listfile.data</code> is opened for binary writing<code>"wb"</code>. Secondly, in line 9 the list is stored in the opened file using the <code>dump()</code> method.</p>
+<h3 id="使用pickle模块"><a class="markdownIt-Anchor" href="#使用pickle模块"></a> 使用pickle模块</h3>
+<p>Its <code>dump()</code> method stores the list efficiently as a binary data stream. Firstly, in line 7 (in the code below) the output file <code>listfile.data</code> is opened for binary writing<code>&quot;wb&quot;</code>. Secondly, in line 9<br>
+the list is stored in the opened file using the <code>dump()</code> method.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># load additional module</span></span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line"><span class="comment"># define a list of places</span></span><br><span class="line">placesList = [<span class="string">'Berlin'</span>, <span class="string">'Cape Town'</span>, <span class="string">'Sydney'</span>, <span class="string">'Moscow'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.data'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    <span class="comment"># store the data as binary data stream</span></span><br><span class="line">    pickle.dump(placesList, filehandle)</span><br></pre></td></tr></table></figure>
-<p>We read the list from the file as follows. Firstly, the output file <code>listfile.data</code> is opened binary for reading <code>"rb"</code> in line 4. Secondly, the list of places is loaded from the file using the <code>load()</code> method.</p>
+<p>We read the list from the file as follows. Firstly, the output file <code>listfile.data</code> is opened binary for reading <code>&quot;rb&quot;</code> in line 4. Secondly, the list of places is loaded from the file using the <code>load()</code> method.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># load additional module</span></span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.data'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    <span class="comment"># read the data as binary data stream</span></span><br><span class="line">    placesList = pickle.load(filehandle)</span><br></pre></td></tr></table></figure>
 <p><code>pickle</code> works with all kind of Python objects such as strings, numbers, self-defined structures, and every other built-in data structure Python provides.</p>
-<h3 id="使用json">使用JSON</h3>
+<h3 id="使用json"><a class="markdownIt-Anchor" href="#使用json"></a> 使用JSON</h3>
 <p>The binary data format <code>pickle</code> uses is specific to Python. To improve the interoperability between different programs the JavaScript Object Notation (<a href="https://en.wikipedia.org/wiki/JSON" target="_blank" rel="noopener">JSON</a>) provides an easy-to-use and human-readable schema, and thus became very popular.</p>
 <p>写入文件：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment"># define list with values</span></span><br><span class="line">basicList = [<span class="number">1</span>, <span class="string">"Cape Town"</span>, <span class="number">4.6</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># open output file for writing</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'listfile.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> filehandle:</span><br><span class="line">    json.dump(basicList, filehandle)</span><br></pre></td></tr></table></figure>

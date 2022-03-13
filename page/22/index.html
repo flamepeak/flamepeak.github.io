@@ -91,8 +91,10 @@
 证书
 
 
-一、单向散列函数
-单向散列函数也称为消息摘要函数(message digest function)、哈希函数或者杂凑函数; 输入单向散列函数的消息也称为原像(pre-image); 单向散列函数</p>
+ 一、单向散列函数
+单向散列函数也称为消息摘要函数(message digest function)、哈希函数或者杂凑函数;
+输入单向散列函数的消息也称为原像(pre-image);
+单向散列函数的散列值也称为消</p>
         
     
     <time datetime="2016-11-23T13:39:30.000Z" itemprop="datePublished">2016-11-23</time>
@@ -112,11 +114,20 @@
     <h1 itemprop="name">图解密码技术 读书笔记:公钥密码与混合密码系统</h1>
     
      
-           <p itemprop="description" >分为两个部分： + 公钥密码 + 混合密码系统
+           <p itemprop="description" >分为两个部分：
 
-一、公钥密码
-1.密钥分发问题(key distribution problem)
-解决密码分发问题有以下几种方法： + 通过事先共享密钥来解决 + 通过密钥分发中心来解决 + 通过Diffie-Hellman密钥交换来解</p>
+公钥密码
+混合密码系统
+
+
+ 一、公钥密码
+ 1.密钥分发问题(key distribution problem)
+解决密码分发问题有以下几种方法：
+
+通过事先共享密钥来解决
+通过密钥分发中心来解决
+通过Diffie-Hellman密钥交换来解决
+通过公钥密码来</p>
         
     
     <time datetime="2016-11-22T13:36:55.000Z" itemprop="datePublished">2016-11-22</time>
@@ -136,9 +147,40 @@
     <h1 itemprop="name">图解密码技术 读书笔记:对称密码与分组密码</h1>
     
      
-           <p itemprop="description" >本书分为三个部分： 第一部分：密码 + 对称密码 + 分组密码 + 公钥密码 + 混合密码系统
-第二部分：认证 + 单项散列函数 + 消息认证码 + 数字签名 + 证书
-第三部分：密钥、随机数与应用技术 + 密钥 + 随机数 + PGP + SSL/TLS + 密码技术与现实</p>
+           <p itemprop="description" >本书分为三个部分：
+第一部分：密码
+
+对称密码
+分组密码
+公钥密码
+混合密码系统
+
+第二部分：认证
+
+单项散列函数
+消息认证码
+数字签名
+证书
+
+第三部分：密钥、随机数与应用技术
+
+密钥
+随机数
+PGP
+SSL/TLS
+密码技术与现实社会
+
+
+密码角色：
+
+
+
+名称
+说明
+
+
+
+</p>
         
     
     <time datetime="2016-11-17T07:56:05.000Z" itemprop="datePublished">2016-11-17</time>
@@ -161,8 +203,10 @@
            <p itemprop="description" >安装Git
 zypper install git
 
-安装Node.js
-Node.js官方有很详细的帮助，特别是提供了openSUSE官方的链接Download Node.js via openSUSE one-click 按照指引可以很方便的安装Node.js。 如果不</p>
+ 安装Node.js
+Node.js官方有很详细的帮助，特别是提供了openSUSE官方的链接Download Node.js via openSUSE one-click
+按照指引可以很方便的安装Node.js。
+如果不可以，</p>
         
     
     <time datetime="2016-11-15T08:54:26.000Z" itemprop="datePublished">2016-11-15</time>
@@ -184,10 +228,12 @@ Node.js官方有很详细的帮助，特别是提供了openSUSE官方的链接Do
      
            <p itemprop="description" >什么是负载均衡
 通过某种负载分担技术，将外部发送来的请求均匀分配到对称结构中的某一台服务器上，而接收到请求的服务器独立地回应客户的请求。
-负载均衡的实现
+ 负载均衡的实现
 硬件负载均衡、软件负载均衡，DNS
-硬件负载均衡
-代表厂商：NetScaler、F5、Radware、Array 优</p>
+ 硬件负载均衡
+代表厂商：NetScaler、F5、Radware、Array
+优势：
+</p>
         
     
     <time datetime="2016-10-31T14:39:39.000Z" itemprop="datePublished">2016-10-31</time>
@@ -228,7 +274,10 @@ Node.js官方有很详细的帮助，特别是提供了openSUSE官方的链接Do
     
      
            <p itemprop="description" >固定集合
-MongoDb中的“普通”集合是动态创建的，而且可以自动增长以容纳更多的数据。MongoDB中还有另一种不同类型的结合叫做固定集合，固定集合需要事先创建，而且他的大小是固定的。 如果向固定集合插入文档的话，最老的文档会被删除以释放空间。 &amp;gt; capped col</p>
+MongoDb中的“普通”集合是动态创建的，而且可以自动增长以容纳更多的数据。MongoDB中还有另一种不同类型的结合叫做固定集合，固定集合需要事先创建，而且他的大小是固定的。
+如果向固定集合插入文档的话，最老的文档会被删除以释放空间。
+
+capped collecti</p>
         
     
     <time datetime="2016-10-30T03:53:20.000Z" itemprop="datePublished">2016-10-30</time>
@@ -248,10 +297,11 @@ MongoDb中的“普通”集合是动态创建的，而且可以自动增长以�
     <h1 itemprop="name">MongoDB 学习笔记(四)：索引</h1>
     
      
-           <p itemprop="description" >索引可以用来优化查询，而且在某些特定类型的查询中，索引是必不可少的。 为集合选择合适的索引是提高性能的关键。
-索引介绍
+           <p itemprop="description" >索引可以用来优化查询，而且在某些特定类型的查询中，索引是必不可少的。
+为集合选择合适的索引是提高性能的关键。
+ 索引介绍
 官方文档：Indexes
-不使用索引的查询称为全表扫描，服务器必须查找完一整本书才能找到查询结果。通常来说，应该尽量避卖弄全表扫描，因为对于大集合来说，全</p>
+不使用索引的查询称为全表扫描，服务器必须查找完一整本书才能找到查询结果。通常来说，应该尽量避卖弄全表扫描，因为对于大集合来说，全表扫</p>
         
     
     <time datetime="2016-10-26T13:52:38.000Z" itemprop="datePublished">2016-10-26</time>
@@ -271,9 +321,13 @@ MongoDb中的“普通”集合是动态创建的，而且可以自动增长以�
     <h1 itemprop="name">MongoDB 学习笔记(三)：查询</h1>
     
      
-           <p itemprop="description" >官方的一些关于查询的帮助页面： Query Modifiers Query and Projection Operators
-find 简介
-官方定义： &amp;gt; db.collection.find()：Performs a query on a collection an</p>
+           <p itemprop="description" >官方的一些关于查询的帮助页面：
+Query Modifiers
+Query and Projection Operators
+ find 简介
+官方定义：
+
+db.collection.find()：Performs a query on a collection and ret</p>
         
     
     <time datetime="2016-10-25T09:55:49.000Z" itemprop="datePublished">2016-10-25</time>
@@ -294,9 +348,14 @@ find 简介
     
      
            <p itemprop="description" >创建、更新和删除文档
-插入
-官方定义： &amp;gt; db.collection.insert(): Creates a new document in a collection.
-insert：单个插入 batchInsert：批量插入 如果要导入原始数据，可以使用命令行工具</p>
+ 插入
+官方定义：
+
+db.collection.insert(): Creates a new document in a collection.
+
+insert：单个插入
+batchInsert：批量插入
+如果要导入原始数据，可以使用命令行工具，如mon</p>
         
     
     <time datetime="2016-10-25T09:52:30.000Z" itemprop="datePublished">2016-10-25</time>
@@ -410,11 +469,11 @@ insert：单个插入 batchInsert：批量插入 如果要导入原始数据，�
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -434,7 +493,7 @@ insert：单个插入 batchInsert：批量插入 如果要导入原始数据，�
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -442,11 +501,15 @@ insert：单个插入 batchInsert：批量插入 如果要导入原始数据，�
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -454,15 +517,11 @@ insert：单个插入 batchInsert：批量插入 如果要导入原始数据，�
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

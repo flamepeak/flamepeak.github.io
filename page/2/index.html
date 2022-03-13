@@ -84,8 +84,8 @@
     
      
            <p itemprop="description" >安装ELK
-安装 Elasticsearch
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gzwget https://artif</p>
+ 安装 Elasticsearch
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-linux-x86_64.tar.gzwget https://artifa</p>
         
     
     <time datetime="2020-08-30T15:54:55.000Z" itemprop="datePublished">2020-08-30</time>
@@ -107,7 +107,7 @@ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-li
      
            <p itemprop="description" >添加本地js
 在Django应用下新建目录static（与templates同级目录），然后修改settings.py
-import osSTATIC_URL = &#39;/static/&#39;STATICFILES_DIRS = (    os.path.join(BASE_DIR,</p>
+import osSTATIC_URL = &#39;/static/&#39;STATICFILES_DIRS = (    os.path.join(BASE_DIR, &#39;</p>
         
     
     <time datetime="2020-08-28T03:07:36.000Z" itemprop="datePublished">2020-08-28</time>
@@ -130,7 +130,7 @@ import osSTATIC_URL = &#39;/static/&#39;STATICFILES_DIRS = (    os.path.join(BAS
            <p itemprop="description" >在windows中使用python修改ip地址，需要WMI (Windows Management Instrumentation )模块:
 pip install WMI
 设置指定的ip地址：
-import wmi# Obtain network adaptors con</p>
+import wmi# Obtain network adaptors config</p>
         
     
     <time datetime="2020-08-28T03:07:36.000Z" itemprop="datePublished">2020-08-28</time>
@@ -151,37 +151,14 @@ import wmi# Obtain network adaptors con</p>
     
      
            <p itemprop="description" >首先，如果不是可以自己制作ISO的话，可以尝试it天空的，万能驱动7，已经集成了NVME、USB3驱动和一些更新。
-需要的软件
+ 需要的软件
 Dism++
-注意事项
+ 注意事项
 你的硬盘应该能在BIOS中看到，如果看不到，我的方法可能不行
-如果PE没有发现USB3或NVME设备（即PE不支持），</p>
+如果PE没有发现USB3或NVME设备（即PE不支持），那么万</p>
         
     
     <time datetime="2020-08-16T13:09:23.000Z" itemprop="datePublished">2020-08-16</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2020/06/16/Linux-CentOS-minimal-install-20200616/" title="CentOS 7 最小化安装遇到的问题" itemprop="url">
-  
-    <h1 itemprop="name">CentOS 7 最小化安装遇到的问题</h1>
-    
-     
-           <p itemprop="description" >ifconfig not found
-ifconfig 在centos 最小化安装时，是不自带的可以使用ip addr 查看ip
-没有ip地址
-ip addr发现ens33 没有inet 这个属性，那么就没法通过IP地址连接虚拟机。查看ens33网卡的配置：vi /etc/</p>
-        
-    
-    <time datetime="2020-06-16T01:35:12.000Z" itemprop="datePublished">2020-06-16</time>
   </a>
 </section>
 
@@ -200,9 +177,37 @@ ip addr发现ens33 没有inet 这个属性，那么就没法通过IP地址连接
      
            <p itemprop="description" >Blob格式视频下载一直比较困难，在此记录一些思路：
 
+
 首先找到blob网址，如下：blob:https://xxxxx.h5.xxxxx.com/77e8b2d1-81a7-42f4-83bc-0897b5a82978
+
+
 在Chrome浏览器中，F12打开开发者工具
-刷新</p>
+
+
+刷</p>
+        
+    
+    <time datetime="2020-06-16T01:35:12.000Z" itemprop="datePublished">2020-06-16</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2020/06/16/Linux-CentOS-minimal-install-20200616/" title="CentOS 7 最小化安装遇到的问题" itemprop="url">
+  
+    <h1 itemprop="name">CentOS 7 最小化安装遇到的问题</h1>
+    
+     
+           <p itemprop="description" >ifconfig not  found
+ifconfig 在centos 最小化安装时，是不自带的可以使用ip addr 查看ip
+ 没有ip地址
+ip addr发现ens33 没有inet 这个属性，那么就没法通过IP地址连接虚拟机。查看ens33网卡的配置：vi /etc/s</p>
         
     
     <time datetime="2020-06-16T01:35:12.000Z" itemprop="datePublished">2020-06-16</time>
@@ -228,7 +233,7 @@ linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显�
 1、临时设置：vim打开文档
 命令行形式输入：set hlsearch。
 缺点：关闭文档后，下次打开，又需要重新设置一遍。
-2、永久设置（推荐）：在~/.v</p>
+2、永久设置（推荐）：在~/.vimrc中设</p>
         
     
     <time datetime="2020-03-28T01:18:00.000Z" itemprop="datePublished">2020-03-28</time>
@@ -250,7 +255,7 @@ linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显�
      
            <p itemprop="description" >PackageKit是基于RedHat的linux中的图形化软件升级工具，下面描述一下如何禁止和启用自动升级。
 默认状态下是开启的。
-# 查看状态systemctl status packagekit# 停用systemctl stop packagekit# 禁止自启动sy</p>
+# 查看状态systemctl status packagekit# 停用systemctl stop packagekit# 禁止自启动syst</p>
         
     
     <time datetime="2020-03-17T01:35:12.000Z" itemprop="datePublished">2020-03-17</time>
@@ -270,7 +275,8 @@ linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显�
     <h1 itemprop="name">Python 在virtualenv中使用Idle</h1>
     
      
-           <p itemprop="description" >首先，进入虚拟环境，并激活 然后，运行命令python -m idlelib.idle，即可</p>
+           <p itemprop="description" >首先，进入虚拟环境，并激活
+然后，运行命令python -m idlelib.idle，即可</p>
         
     
     <time datetime="2020-03-16T00:50:12.000Z" itemprop="datePublished">2020-03-16</time>
@@ -291,8 +297,8 @@ linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显�
     
      
            <p itemprop="description" >关于读写文件，在Python中提供了read()、write()来读写一行，也提供了readlines()、writelines()读写多行的方式。此外，模块pickle、json允许我们以更方便快捷的方式处理序列化的数据集。
-使用read 和write方法
-# define</p>
+ 使用read 和write方法
+# define </p>
         
     
     <time datetime="2020-03-16T00:20:12.000Z" itemprop="datePublished">2020-03-16</time>
@@ -406,11 +412,11 @@ linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显�
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -430,7 +436,7 @@ linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显�
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -438,11 +444,15 @@ linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显�
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -450,15 +460,11 @@ linux vim打开文档搜索字符串时，设置被搜索到字符串高亮显�
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

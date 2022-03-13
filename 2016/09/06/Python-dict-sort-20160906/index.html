@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Python中的字典元素没有顺序，不能像list一样通过序号读取元素，而且没有重复的键值。 但是我们如何给字典排序呢？ sorted sorted(iterable[, key][, reverse]) &amp;gt; Return a new sorted list from the items in iterable. &amp;gt; iterable 是要排序的对象，key为排序的键值 revers">
+    <meta name="description" content="Python中的字典元素没有顺序，不能像list一样通过序号读取元素，而且没有重复的键值。 但是我们如何给字典排序呢？ sorted sorted(iterable[, key][, reverse])  Return a new sorted list from the items in iterable. iterable 是要排序的对象，key为排序的键值 reverse：注明升序还是降序，">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 字典排序">
 <meta property="og:url" content="http://flamepeak.com/2016/09/06/Python-dict-sort-20160906/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Python中的字典元素没有顺序，不能像list一样通过序号读取元素，而且没有重复的键值。 但是我们如何给字典排序呢？ sorted sorted(iterable[, key][, reverse]) &amp;gt; Return a new sorted list from the items in iterable. &amp;gt; iterable 是要排序的对象，key为排序的键值 revers">
+<meta property="og:description" content="Python中的字典元素没有顺序，不能像list一样通过序号读取元素，而且没有重复的键值。 但是我们如何给字典排序呢？ sorted sorted(iterable[, key][, reverse])  Return a new sorted list from the items in iterable. iterable 是要排序的对象，key为排序的键值 reverse：注明升序还是降序，">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:45:06.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 字典排序">
-<meta name="twitter:description" content="Python中的字典元素没有顺序，不能像list一样通过序号读取元素，而且没有重复的键值。 但是我们如何给字典排序呢？ sorted sorted(iterable[, key][, reverse]) &amp;gt; Return a new sorted list from the items in iterable. &amp;gt; iterable 是要排序的对象，key为排序的键值 revers">
+<meta name="twitter:description" content="Python中的字典元素没有顺序，不能像list一样通过序号读取元素，而且没有重复的键值。 但是我们如何给字典排序呢？ sorted sorted(iterable[, key][, reverse])  Return a new sorted list from the items in iterable. iterable 是要排序的对象，key为排序的键值 reverse：注明升序还是降序，">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -99,10 +99,19 @@
 		
 		<p>Python中的字典元素没有顺序，不能像list一样通过序号读取元素，而且没有重复的键值。</p>
 <p>但是我们如何给字典排序呢？</p>
-<p><strong>sorted</strong> <code>sorted(iterable[, key][, reverse])</code> &gt; Return a new sorted list from the items in iterable. &gt; iterable 是要排序的对象，key为排序的键值 reverse：注明升序还是降序，True--降序，False--升序（默认）</p>
-<p>e.g: <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>dic = &#123;<span class="string">'a'</span>:<span class="number">3</span> , <span class="string">'b'</span>:<span class="number">2</span> , <span class="string">'c'</span>: <span class="number">1</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(dic.iteritems(), key =<span class="keyword">lambda</span> x:x[<span class="number">1</span>], reverse=<span class="keyword">True</span>)</span><br><span class="line">[(<span class="string">'a'</span>, <span class="number">3</span>), (<span class="string">'b'</span>, <span class="number">2</span>), (<span class="string">'c'</span>, <span class="number">1</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(dic.iteritems(), key =<span class="keyword">lambda</span> x:x[<span class="number">1</span>])</span><br><span class="line">[(<span class="string">'c'</span>, <span class="number">1</span>), (<span class="string">'b'</span>, <span class="number">2</span>), (<span class="string">'a'</span>, <span class="number">3</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(dic.iteritems(), key =<span class="keyword">lambda</span> x:x[<span class="number">0</span>], reverse=<span class="keyword">True</span>)</span><br><span class="line">[(<span class="string">'c'</span>, <span class="number">1</span>), (<span class="string">'b'</span>, <span class="number">2</span>), (<span class="string">'a'</span>, <span class="number">3</span>)]</span><br></pre></td></tr></table></figure></p>
+<p><strong>sorted</strong><br>
+<code>sorted(iterable[, key][, reverse])</code></p>
+<blockquote>
+<p>Return a new sorted list from the items in iterable.<br>
+iterable 是要排序的对象，key为排序的键值<br>
+reverse：注明升序还是降序，True–降序，False–升序（默认）</p>
+</blockquote>
+<p>e.g:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>dic = &#123;<span class="string">'a'</span>:<span class="number">3</span> , <span class="string">'b'</span>:<span class="number">2</span> , <span class="string">'c'</span>: <span class="number">1</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(dic.iteritems(), key =<span class="keyword">lambda</span> x:x[<span class="number">1</span>], reverse=<span class="keyword">True</span>)</span><br><span class="line">[(<span class="string">'a'</span>, <span class="number">3</span>), (<span class="string">'b'</span>, <span class="number">2</span>), (<span class="string">'c'</span>, <span class="number">1</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(dic.iteritems(), key =<span class="keyword">lambda</span> x:x[<span class="number">1</span>])</span><br><span class="line">[(<span class="string">'c'</span>, <span class="number">1</span>), (<span class="string">'b'</span>, <span class="number">2</span>), (<span class="string">'a'</span>, <span class="number">3</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(dic.iteritems(), key =<span class="keyword">lambda</span> x:x[<span class="number">0</span>], reverse=<span class="keyword">True</span>)</span><br><span class="line">[(<span class="string">'c'</span>, <span class="number">1</span>), (<span class="string">'b'</span>, <span class="number">2</span>), (<span class="string">'a'</span>, <span class="number">3</span>)]</span><br></pre></td></tr></table></figure>
 <p>在<code>sorted(dic.iteritems(), key =lambda x:x[1], reverse=True)</code>中，第一个参数传给第二个参数“键-键值”，第二个参数取出其中的键([0])或键值(1])</p>
-<p><strong>iteritems()</strong> 功能: iteritems()以迭代器对象返回字典键值对 区别: 和item相比:items以list形式返回字典键值对</p>
+<p><strong>iteritems()</strong><br>
+功能: iteritems()以迭代器对象返回字典键值对<br>
+区别: 和item相比:items以list形式返回字典键值对</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>dic</span><br><span class="line">&#123;<span class="string">'a'</span>: <span class="number">3</span>, <span class="string">'c'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> dic.items()</span><br><span class="line">[(<span class="string">'a'</span>, <span class="number">3</span>), (<span class="string">'c'</span>, <span class="number">1</span>), (<span class="string">'b'</span>, <span class="number">2</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dic.iteritems</span><br><span class="line">&lt;built-<span class="keyword">in</span> method iteritems of dict object at <span class="number">0x0000000002E04378</span>&gt;</span><br></pre></td></tr></table></figure>
   
 	</div>
@@ -264,11 +273,11 @@
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -288,7 +297,7 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -296,11 +305,15 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -308,15 +321,11 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Linux多个文件中查找指定字符串 # find &amp;lt;directory&amp;gt; -type f -name &amp;quot;*.c&amp;quot; | xargs grep &amp;quot;&amp;lt;strings&amp;gt;&amp;quot;&amp;lt;directory&amp;gt;是你要找的文件夹；如果是当前文件夹可以省略-type f 意思是只找文件-name &amp;quot;*.c&amp;quot;  表示只找C语言写的代">
+    <meta name="description" content="Linux多个文件中查找指定字符串 # find &amp;lt;directory&amp;gt; -type f -name &amp;quot;*.c&amp;quot; | xargs grep &amp;quot;&amp;lt;strings&amp;gt;&amp;quot;&amp;lt;directory&amp;gt;是你要找的文件夹；如果是当前文件夹可以省略-type f 意思是只找文件-name &amp;quot;*.c&amp;quot;  表示只找C语言写的代">
 <meta name="keywords" content="Linux,Tips">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 使用技巧">
 <meta property="og:url" content="http://flamepeak.com/2017/01/04/Linux-file-directory-tips-20170104/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Linux多个文件中查找指定字符串 # find &amp;lt;directory&amp;gt; -type f -name &amp;quot;*.c&amp;quot; | xargs grep &amp;quot;&amp;lt;strings&amp;gt;&amp;quot;&amp;lt;directory&amp;gt;是你要找的文件夹；如果是当前文件夹可以省略-type f 意思是只找文件-name &amp;quot;*.c&amp;quot;  表示只找C语言写的代">
+<meta property="og:description" content="Linux多个文件中查找指定字符串 # find &amp;lt;directory&amp;gt; -type f -name &amp;quot;*.c&amp;quot; | xargs grep &amp;quot;&amp;lt;strings&amp;gt;&amp;quot;&amp;lt;directory&amp;gt;是你要找的文件夹；如果是当前文件夹可以省略-type f 意思是只找文件-name &amp;quot;*.c&amp;quot;  表示只找C语言写的代">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-02-17T07:41:47.660Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 使用技巧">
-<meta name="twitter:description" content="Linux多个文件中查找指定字符串 # find &amp;lt;directory&amp;gt; -type f -name &amp;quot;*.c&amp;quot; | xargs grep &amp;quot;&amp;lt;strings&amp;gt;&amp;quot;&amp;lt;directory&amp;gt;是你要找的文件夹；如果是当前文件夹可以省略-type f 意思是只找文件-name &amp;quot;*.c&amp;quot;  表示只找C语言写的代">
+<meta name="twitter:description" content="Linux多个文件中查找指定字符串 # find &amp;lt;directory&amp;gt; -type f -name &amp;quot;*.c&amp;quot; | xargs grep &amp;quot;&amp;lt;strings&amp;gt;&amp;quot;&amp;lt;directory&amp;gt;是你要找的文件夹；如果是当前文件夹可以省略-type f 意思是只找文件-name &amp;quot;*.c&amp;quot;  表示只找C语言写的代">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,20 +97,29 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="linux多个文件中查找指定字符串">Linux多个文件中查找指定字符串</h3>
+		<h3 id="linux多个文件中查找指定字符串"><a class="markdownIt-Anchor" href="#linux多个文件中查找指定字符串"></a> Linux多个文件中查找指定字符串</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># find &lt;directory&gt; -type f -name &quot;*.c&quot; | xargs grep &quot;&lt;strings&gt;&quot;</span><br><span class="line"></span><br><span class="line">&lt;directory&gt;是你要找的文件夹；如果是当前文件夹可以省略</span><br><span class="line">-type f 意思是只找文件</span><br><span class="line">-name &quot;*.c&quot;  表示只找C语言写的代码，从而避免去查binary；也可以不写，表示找所有文件</span><br><span class="line">&lt;strings&gt;是你要找的某个字符串</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="linux-在多个文件中批量替换字符串">Linux 在多个文件中批量替换字符串</h3>
+<h3 id="linux-在多个文件中批量替换字符串"><a class="markdownIt-Anchor" href="#linux-在多个文件中批量替换字符串"></a> Linux 在多个文件中批量替换字符串</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sed -i &quot;s/OldString/NewString/g&quot;  `grep OldString -rl Dir`</span><br></pre></td></tr></table></figure>
-<p>例如： 将当前目录文件中含有的“unpacked”字符串替换为“mathjax27” <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sed -i &quot;s/unpacked/mathjax27/g&quot; `grep unpacked -rl `</span><br></pre></td></tr></table></figure></p>
-<h3 id="linux-find-permission-denied-解决">Linux find "Permission denied" 解决</h3>
+<p>例如：<br>
+将当前目录文件中含有的“unpacked”字符串替换为“mathjax27”</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sed -i &quot;s/unpacked/mathjax27/g&quot; `grep unpacked -rl `</span><br></pre></td></tr></table></figure>
+<h3 id="linux-find-permission-denied-解决"><a class="markdownIt-Anchor" href="#linux-find-permission-denied-解决"></a> Linux find “Permission denied” 解决</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find / -name <span class="string">"admin"</span>  2 &gt; /dev/null</span><br></pre></td></tr></table></figure>
 <p>bash中0，1，2三个数字分别代表STDIN_FILENO、STDOUT_FILENO、STDERR_FILENO，即标准输入（一般是键盘），标准输出（一般是显示屏，准确的说是用户终端控制台），标准错误（出错信息输出）。</p>
 <p>把错误信息写进Linux黑洞文件（<code>/dev/null</code>）,黑洞文件就是只写文件， 写进去后， 就被黑洞吸收了， 只可写， 不可读。</p>
-<h3 id="notify-send-发送桌面通知">notify-send 发送桌面通知</h3>
-<p><code>notify-send</code>是一个可以让你发送桌面通知的命令. <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">notify-send [其他选项...] 标题 [内容]</span><br></pre></td></tr></table></figure></p>
-<p><strong>常用参数</strong> <code>-t –expire-time=TIME</code> 指定通知显示多长时间后消失,单位是毫秒. (Ubuntu的Notify OSD以及GNOME Shell会忽略该参数) 若参数为-1表示使用notification server上配置的超时时间. 若参数为0则表示永不自动消失.</p>
-<p><code>-u –urgency=LEVEL</code> 指定通知的级别,只能是 <code>low</code>, <code>normal</code>, <code>critical</code> 这三个值中的一个. <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">mstr=<span class="string">'Hello'</span></span><br><span class="line">os.system(<span class="string">'notify-send '</span>+mstr) <span class="comment">#subprocess.Popen(['notify-send',msg])</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="notify-send-发送桌面通知"><a class="markdownIt-Anchor" href="#notify-send-发送桌面通知"></a> notify-send 发送桌面通知</h3>
+<p><code>notify-send</code>是一个可以让你发送桌面通知的命令.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">notify-send [其他选项...] 标题 [内容]</span><br></pre></td></tr></table></figure>
+<p><strong>常用参数</strong><br>
+<code>-t –expire-time=TIME</code><br>
+指定通知显示多长时间后消失,单位是毫秒. (Ubuntu的Notify OSD以及GNOME Shell会忽略该参数)<br>
+若参数为-1表示使用notification server上配置的超时时间.<br>
+若参数为0则表示永不自动消失.</p>
+<p><code>-u –urgency=LEVEL</code><br>
+指定通知的级别,只能是 <code>low</code>, <code>normal</code>, <code>critical</code> 这三个值中的一个.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">mstr=<span class="string">'Hello'</span></span><br><span class="line">os.system(<span class="string">'notify-send '</span>+mstr) <span class="comment">#subprocess.Popen(['notify-send',msg])</span></span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -173,7 +182,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#linux多个文件中查找指定字符串"><span class="toc-number">1.</span> <span class="toc-text">Linux多个文件中查找指定字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux-在多个文件中批量替换字符串"><span class="toc-number">2.</span> <span class="toc-text">Linux 在多个文件中批量替换字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux-find-permission-denied-解决"><span class="toc-number">3.</span> <span class="toc-text">Linux find &quot;Permission denied&quot; 解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#notify-send-发送桌面通知"><span class="toc-number">4.</span> <span class="toc-text">notify-send 发送桌面通知</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#linux多个文件中查找指定字符串"><span class="toc-number">1.</span> <span class="toc-text"> Linux多个文件中查找指定字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux-在多个文件中批量替换字符串"><span class="toc-number">2.</span> <span class="toc-text"> Linux 在多个文件中批量替换字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux-find-permission-denied-解决"><span class="toc-number">3.</span> <span class="toc-text"> Linux find “Permission denied” 解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#notify-send-发送桌面通知"><span class="toc-number">4.</span> <span class="toc-text"> notify-send 发送桌面通知</span></a></li></ol>
  
   </div>
 
@@ -271,11 +280,11 @@
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -295,7 +304,7 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -303,11 +312,15 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -315,15 +328,11 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

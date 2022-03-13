@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="The Source page: How to Write a Spelling Corrector &quot;&quot;&quot;Spelling Corrector in Python 3; see http://norvig.com/spell-correct.htmlCopyright (c) 2007-2016 Peter NorvigMIT license: www.opensource.org/licen">
+    <meta name="description" content="The Source page: How to Write a Spelling Corrector &quot;&quot;&quot;Spelling Corrector in Python 3; see http://norvig.com/spell-correct.htmlCopyright (c) 2007-2016 Peter NorvigMIT license: www.opensource.org/licens">
 <meta name="keywords" content="Python,AI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习Spelling Corrector代码">
 <meta property="og:url" content="http://flamepeak.com/2016/09/09/Learn-Spelling-Corrector-20160909/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="The Source page: How to Write a Spelling Corrector &quot;&quot;&quot;Spelling Corrector in Python 3; see http://norvig.com/spell-correct.htmlCopyright (c) 2007-2016 Peter NorvigMIT license: www.opensource.org/licen">
+<meta property="og:description" content="The Source page: How to Write a Spelling Corrector &quot;&quot;&quot;Spelling Corrector in Python 3; see http://norvig.com/spell-correct.htmlCopyright (c) 2007-2016 Peter NorvigMIT license: www.opensource.org/licens">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-08-14T18:39:57.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习Spelling Corrector代码">
-<meta name="twitter:description" content="The Source page: How to Write a Spelling Corrector &quot;&quot;&quot;Spelling Corrector in Python 3; see http://norvig.com/spell-correct.htmlCopyright (c) 2007-2016 Peter NorvigMIT license: www.opensource.org/licen">
+<meta name="twitter:description" content="The Source page: How to Write a Spelling Corrector &quot;&quot;&quot;Spelling Corrector in Python 3; see http://norvig.com/spell-correct.htmlCopyright (c) 2007-2016 Peter NorvigMIT license: www.opensource.org/licens">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,7 +97,8 @@
 </header>
 	<div class="article-content">
 		
-		<p>The Source page: <a href="http://norvig.com/spell-correct.html" target="_blank" rel="noopener">How to Write a Spelling Corrector</a></p>
+		<p>The Source page:<br>
+<a href="http://norvig.com/spell-correct.html" target="_blank" rel="noopener">How to Write a Spelling Corrector</a></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"""Spelling Corrector in Python 3; see http://norvig.com/spell-correct.html</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Copyright (c) 2007-2016 Peter Norvig</span></span><br><span class="line"><span class="string">MIT license: www.opensource.org/licenses/mit-license.php</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">words</span><span class="params">(text)</span>:</span> <span class="keyword">return</span> re.findall(<span class="string">r'\w+'</span>, text.lower())</span><br><span class="line"></span><br><span class="line">WORDS = Counter(words(open(<span class="string">'big.txt'</span>).read()))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">P</span><span class="params">(word, N=sum<span class="params">(WORDS.values<span class="params">()</span>)</span>)</span>:</span></span><br><span class="line">    <span class="string">"Probability of `word`."</span></span><br><span class="line">    <span class="keyword">return</span> WORDS[word] / N</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">correction</span><span class="params">(word)</span>:</span></span><br><span class="line">    <span class="string">"Most probable spelling correction for word."</span></span><br><span class="line">    <span class="keyword">return</span> max(candidates(word), key=P)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">candidates</span><span class="params">(word)</span>:</span></span><br><span class="line">    <span class="string">"Generate possible spelling corrections for word."</span></span><br><span class="line">    <span class="keyword">return</span> (known([word]) <span class="keyword">or</span> known(edits1(word)) <span class="keyword">or</span> known(edits2(word)) <span class="keyword">or</span> [word])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">known</span><span class="params">(words)</span>:</span></span><br><span class="line">    <span class="string">"The subset of `words` that appear in the dictionary of WORDS."</span></span><br><span class="line">    <span class="keyword">return</span> set(w <span class="keyword">for</span> w <span class="keyword">in</span> words <span class="keyword">if</span> w <span class="keyword">in</span> WORDS)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edits1</span><span class="params">(word)</span>:</span></span><br><span class="line">    <span class="string">"All edits that are one edit away from `word`."</span></span><br><span class="line">    letters    = <span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line">    splits     = [(word[:i], word[i:])    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word) + <span class="number">1</span>)]</span><br><span class="line">    deletes    = [L + R[<span class="number">1</span>:]               <span class="keyword">for</span> L, R <span class="keyword">in</span> splits <span class="keyword">if</span> R]</span><br><span class="line">    transposes = [L + R[<span class="number">1</span>] + R[<span class="number">0</span>] + R[<span class="number">2</span>:] <span class="keyword">for</span> L, R <span class="keyword">in</span> splits <span class="keyword">if</span> len(R)&gt;<span class="number">1</span>]</span><br><span class="line">    replaces   = [L + c + R[<span class="number">1</span>:]           <span class="keyword">for</span> L, R <span class="keyword">in</span> splits <span class="keyword">if</span> R <span class="keyword">for</span> c <span class="keyword">in</span> letters]</span><br><span class="line">    inserts    = [L + c + R               <span class="keyword">for</span> L, R <span class="keyword">in</span> splits <span class="keyword">for</span> c <span class="keyword">in</span> letters]</span><br><span class="line">    <span class="keyword">return</span> set(deletes + transposes + replaces + inserts)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edits2</span><span class="params">(word)</span>:</span></span><br><span class="line">    <span class="string">"All edits that are two edits away from `word`."</span></span><br><span class="line">    <span class="keyword">return</span> (e2 <span class="keyword">for</span> e1 <span class="keyword">in</span> edits1(word) <span class="keyword">for</span> e2 <span class="keyword">in</span> edits1(e1))</span><br><span class="line"></span><br><span class="line"><span class="comment">################ Test Code</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unit_tests</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">assert</span> correction(<span class="string">'speling'</span>) == <span class="string">'spelling'</span>              <span class="comment"># insert</span></span><br><span class="line">    <span class="keyword">assert</span> correction(<span class="string">'korrectud'</span>) == <span class="string">'corrected'</span>           <span class="comment"># replace 2</span></span><br><span class="line">    <span class="keyword">assert</span> correction(<span class="string">'bycycle'</span>) == <span class="string">'bicycle'</span>               <span class="comment"># replace</span></span><br><span class="line">    <span class="keyword">assert</span> correction(<span class="string">'inconvient'</span>) == <span class="string">'inconvenient'</span>       <span class="comment"># insert 2</span></span><br><span class="line">    <span class="keyword">assert</span> correction(<span class="string">'arrainged'</span>) == <span class="string">'arranged'</span>            <span class="comment"># delete</span></span><br><span class="line">    <span class="keyword">assert</span> correction(<span class="string">'peotry'</span>) ==<span class="string">'poetry'</span>                  <span class="comment"># transpose</span></span><br><span class="line">    <span class="keyword">assert</span> correction(<span class="string">'peotryy'</span>) ==<span class="string">'poetry'</span>                 <span class="comment"># transpose + delete</span></span><br><span class="line">    <span class="keyword">assert</span> correction(<span class="string">'word'</span>) == <span class="string">'word'</span>                     <span class="comment"># known</span></span><br><span class="line">    <span class="keyword">assert</span> correction(<span class="string">'quintessential'</span>) == <span class="string">'quintessential'</span> <span class="comment"># unknown</span></span><br><span class="line">    <span class="keyword">assert</span> words(<span class="string">'This is a TEST.'</span>) == [<span class="string">'this'</span>, <span class="string">'is'</span>, <span class="string">'a'</span>, <span class="string">'test'</span>]</span><br><span class="line">    <span class="keyword">assert</span> Counter(words(<span class="string">'This is a test. 123; A TEST this is.'</span>)) == (</span><br><span class="line">           Counter(&#123;<span class="string">'123'</span>: <span class="number">1</span>, <span class="string">'a'</span>: <span class="number">2</span>, <span class="string">'is'</span>: <span class="number">2</span>, <span class="string">'test'</span>: <span class="number">2</span>, <span class="string">'this'</span>: <span class="number">2</span>&#125;))</span><br><span class="line">    <span class="keyword">assert</span> len(WORDS) == <span class="number">32192</span></span><br><span class="line">    <span class="keyword">assert</span> sum(WORDS.values()) == <span class="number">1115504</span></span><br><span class="line">    <span class="keyword">assert</span> WORDS.most_common(<span class="number">10</span>) == [</span><br><span class="line">     (<span class="string">'the'</span>, <span class="number">79808</span>),</span><br><span class="line">     (<span class="string">'of'</span>, <span class="number">40024</span>),</span><br><span class="line">     (<span class="string">'and'</span>, <span class="number">38311</span>),</span><br><span class="line">     (<span class="string">'to'</span>, <span class="number">28765</span>),</span><br><span class="line">     (<span class="string">'in'</span>, <span class="number">22020</span>),</span><br><span class="line">     (<span class="string">'a'</span>, <span class="number">21124</span>),</span><br><span class="line">     (<span class="string">'that'</span>, <span class="number">12512</span>),</span><br><span class="line">     (<span class="string">'he'</span>, <span class="number">12401</span>),</span><br><span class="line">     (<span class="string">'was'</span>, <span class="number">11410</span>),</span><br><span class="line">     (<span class="string">'it'</span>, <span class="number">10681</span>)]</span><br><span class="line">    <span class="keyword">assert</span> WORDS[<span class="string">'the'</span>] == <span class="number">79808</span></span><br><span class="line">    <span class="keyword">assert</span> P(<span class="string">'quintessential'</span>) == <span class="number">0</span></span><br><span class="line">    <span class="keyword">assert</span> <span class="number">0.07</span> &lt; P(<span class="string">'the'</span>) &lt; <span class="number">0.08</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'unit_tests pass'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">spelltest</span><span class="params">(tests, verbose=False)</span>:</span></span><br><span class="line">    <span class="string">"Run correction(wrong) on all (right, wrong) pairs; report results."</span></span><br><span class="line">    <span class="keyword">import</span> time</span><br><span class="line">    start = time.clock()</span><br><span class="line">    good, unknown = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    n = len(tests)</span><br><span class="line">    <span class="keyword">for</span> right, wrong <span class="keyword">in</span> tests:</span><br><span class="line">        w = correction(wrong)</span><br><span class="line">        good += (w == right)</span><br><span class="line">        <span class="keyword">if</span> w != right:</span><br><span class="line">            unknown += (right <span class="keyword">not</span> <span class="keyword">in</span> WORDS)</span><br><span class="line">            <span class="keyword">if</span> verbose:</span><br><span class="line">                print(<span class="string">'correction(&#123;&#125;) =&gt; &#123;&#125; (&#123;&#125;); expected &#123;&#125; (&#123;&#125;)'</span></span><br><span class="line">                      .format(wrong, w, WORDS[w], right, WORDS[right]))</span><br><span class="line">    dt = time.clock() - start</span><br><span class="line">    print(<span class="string">'&#123;:.0%&#125; of &#123;&#125; correct (&#123;:.0%&#125; unknown) at &#123;:.0f&#125; words per second '</span></span><br><span class="line">          .format(good / n, n, unknown / n, n / dt))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Testset</span><span class="params">(lines)</span>:</span></span><br><span class="line">    <span class="string">"Parse 'right: wrong1 wrong2' lines into [('right', 'wrong1'), ('right', 'wrong2')] pairs."</span></span><br><span class="line">    <span class="keyword">return</span> [(right, wrong)</span><br><span class="line">            <span class="keyword">for</span> (right, wrongs) <span class="keyword">in</span> (line.split(<span class="string">':'</span>) <span class="keyword">for</span> line <span class="keyword">in</span> lines)</span><br><span class="line">            <span class="keyword">for</span> wrong <span class="keyword">in</span> wrongs.split()]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    print(unit_tests())</span><br><span class="line">    spelltest(Testset(open(<span class="string">'spell-testset1.txt'</span>)))</span><br><span class="line">    spelltest(Testset(open(<span class="string">'spell-testset2.txt'</span>)))</span><br></pre></td></tr></table></figure>
   
 	</div>
@@ -259,11 +260,11 @@
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -283,7 +284,7 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -291,11 +292,15 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -303,15 +308,11 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

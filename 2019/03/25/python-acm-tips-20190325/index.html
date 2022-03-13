@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="收集一下使用Python做ACM的知识点  python的排序，sort与sorted 参考：排序函数(sort()、sorted()、argsort()函数) 注意区别： 如果使用list.sort()，那么list 本身将会被修改；然而，使用sorted(L)会返回一个排序之后的序列，原序列不会被修改 . list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 so">
+    <meta name="description" content="收集一下使用Python做ACM的知识点  python的排序，sort与sorted 参考：排序函数(sort()、sorted()、argsort()函数) 注意区别： 如果使用list.sort()，那么list 本身将会被修改；然而，使用sorted(L)会返回一个排序之后的序列，原序列不会被修改 . list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python acm tips 20190325">
 <meta property="og:url" content="http://flamepeak.com/2019/03/25/python-acm-tips-20190325/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="收集一下使用Python做ACM的知识点  python的排序，sort与sorted 参考：排序函数(sort()、sorted()、argsort()函数) 注意区别： 如果使用list.sort()，那么list 本身将会被修改；然而，使用sorted(L)会返回一个排序之后的序列，原序列不会被修改 . list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 so">
+<meta property="og:description" content="收集一下使用Python做ACM的知识点  python的排序，sort与sorted 参考：排序函数(sort()、sorted()、argsort()函数) 注意区别： 如果使用list.sort()，那么list 本身将会被修改；然而，使用sorted(L)会返回一个排序之后的序列，原序列不会被修改 . list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-03-27T18:17:00.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python acm tips 20190325">
-<meta name="twitter:description" content="收集一下使用Python做ACM的知识点  python的排序，sort与sorted 参考：排序函数(sort()、sorted()、argsort()函数) 注意区别： 如果使用list.sort()，那么list 本身将会被修改；然而，使用sorted(L)会返回一个排序之后的序列，原序列不会被修改 . list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 so">
+<meta name="twitter:description" content="收集一下使用Python做ACM的知识点  python的排序，sort与sorted 参考：排序函数(sort()、sorted()、argsort()函数) 注意区别： 如果使用list.sort()，那么list 本身将会被修改；然而，使用sorted(L)会返回一个排序之后的序列，原序列不会被修改 . list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,12 +97,13 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="收集一下使用python做acm的知识点">收集一下使用Python做ACM的知识点</h3>
+		<h3 id="收集一下使用python做acm的知识点"><a class="markdownIt-Anchor" href="#收集一下使用python做acm的知识点"></a> 收集一下使用Python做ACM的知识点</h3>
 <hr>
 <p>python的排序，sort与sorted</p>
 <p>参考：<a href="https://www.cnblogs.com/yushuo1990/p/5880041.html" target="_blank" rel="noopener">排序函数(sort()、sorted()、argsort()函数)</a></p>
 <p>注意区别：</p>
-<p>如果使用<code>list.sort()</code>，那么list <strong>本身将会被修改</strong>；然而，使用<code>sorted(L)</code>会返回一个排序之后的序列，<strong>原序列不会被修改</strong> . list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted 方法返回的是一个新的 list，而不是在原来的基础上进行的操作。</p>
+<p>如果使用<code>list.sort()</code>，那么list <strong>本身将会被修改</strong>；然而，使用<code>sorted(L)</code>会返回一个排序之后的序列，<strong>原序列不会被修改</strong> .<br>
+list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted 方法返回的是一个新的 list，而不是在原来的基础上进行的操作。</p>
 <p>如下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">L=[<span class="number">9</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> sorted(L)</span><br><span class="line"><span class="keyword">print</span> L</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> L.sort()</span><br><span class="line"><span class="keyword">print</span> L</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出结果</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">9</span>]</span><br><span class="line">[<span class="number">9</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">None</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
 <hr>
@@ -186,7 +187,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#收集一下使用python做acm的知识点"><span class="toc-number">1.</span> <span class="toc-text">收集一下使用Python做ACM的知识点</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#收集一下使用python做acm的知识点"><span class="toc-number">1.</span> <span class="toc-text"> 收集一下使用Python做ACM的知识点</span></a></li></ol>
  
   </div>
 
@@ -284,11 +285,11 @@
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -308,7 +309,7 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -316,11 +317,15 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -328,15 +333,11 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

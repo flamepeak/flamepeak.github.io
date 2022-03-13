@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="Usage: sdelete [-p passes] [-r] [-s] [-q] &amp;lt;file or directory&amp;gt; [...]sdelete [-p passes] [-z|-c [percent free]] &amp;lt;drive letter [...]&amp;gt;sdelete [-p passes] [-z|-c] &amp;lt;physical disk number&amp;gt;">
+    <meta name="description" content="Usage: sdelete [-p passes] [-r] [-s] [-q] &amp;lt;file or directory&amp;gt; [...]sdelete [-p passes] [-z|-c [percent free]] &amp;lt;drive letter [...]&amp;gt;sdelete [-p passes] [-z|-c] &amp;lt;physical disk number&amp;gt;">
 <meta name="keywords" content="Windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows SDelete 清理未使用空间">
 <meta property="og:url" content="http://flamepeak.com/2021/03/17/Windows-SDelete-usage-20210317/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="Usage: sdelete [-p passes] [-r] [-s] [-q] &amp;lt;file or directory&amp;gt; [...]sdelete [-p passes] [-z|-c [percent free]] &amp;lt;drive letter [...]&amp;gt;sdelete [-p passes] [-z|-c] &amp;lt;physical disk number&amp;gt;">
+<meta property="og:description" content="Usage: sdelete [-p passes] [-r] [-s] [-q] &amp;lt;file or directory&amp;gt; [...]sdelete [-p passes] [-z|-c [percent free]] &amp;lt;drive letter [...]&amp;gt;sdelete [-p passes] [-z|-c] &amp;lt;physical disk number&amp;gt;">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2021-03-17T02:33:13.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows SDelete 清理未使用空间">
-<meta name="twitter:description" content="Usage: sdelete [-p passes] [-r] [-s] [-q] &amp;lt;file or directory&amp;gt; [...]sdelete [-p passes] [-z|-c [percent free]] &amp;lt;drive letter [...]&amp;gt;sdelete [-p passes] [-z|-c] &amp;lt;physical disk number&amp;gt;">
+<meta name="twitter:description" content="Usage: sdelete [-p passes] [-r] [-s] [-q] &amp;lt;file or directory&amp;gt; [...]sdelete [-p passes] [-z|-c [percent free]] &amp;lt;drive letter [...]&amp;gt;sdelete [-p passes] [-z|-c] &amp;lt;physical disk number&amp;gt;">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -100,40 +100,36 @@
 		<p>Usage:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sdelete [-p passes] [-r] [-s] [-q] &lt;file or directory&gt; [...]</span><br><span class="line">sdelete [-p passes] [-z|-c [percent free]] &lt;drive letter [...]&gt;</span><br><span class="line">sdelete [-p passes] [-z|-c] &lt;physical disk number&gt;</span><br></pre></td></tr></table></figure>
 <table>
-<colgroup>
-<col style="width: 17%">
-<col style="width: 82%">
-</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: left;">Parameter</th>
-<th style="text-align: left;">Description</th>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>-c</strong></td>
-<td style="text-align: left;">Clean free space. Specify an option amount of space to leave free for use by a running system.</td>
+<tr>
+<td style="text-align:left"><strong>-c</strong></td>
+<td style="text-align:left">Clean free space. Specify an option amount of space to leave free for use by a running system.</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><strong>-p</strong></td>
-<td style="text-align: left;">Specifies number of overwrite passes (default is 1).</td>
+<tr>
+<td style="text-align:left"><strong>-p</strong></td>
+<td style="text-align:left">Specifies number of overwrite passes (default is 1).</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>-r</strong></td>
-<td style="text-align: left;">Remove Read-Only attribute.</td>
+<tr>
+<td style="text-align:left"><strong>-r</strong></td>
+<td style="text-align:left">Remove Read-Only attribute.</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><strong>-s</strong></td>
-<td style="text-align: left;">Recurse subdirectories.</td>
+<tr>
+<td style="text-align:left"><strong>-s</strong></td>
+<td style="text-align:left">Recurse subdirectories.</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>-z</strong></td>
-<td style="text-align: left;">Zero free space (good for virtual disk optimization).</td>
+<tr>
+<td style="text-align:left"><strong>-z</strong></td>
+<td style="text-align:left">Zero free space (good for virtual disk optimization).</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><strong>-nobanner</strong></td>
-<td style="text-align: left;">Do not display the startup banner and copyright message.</td>
+<tr>
+<td style="text-align:left"><strong>-nobanner</strong></td>
+<td style="text-align:left">Do not display the startup banner and copyright message.</td>
 </tr>
 </tbody>
 </table>
@@ -145,16 +141,16 @@
 <p><strong>Deleting files or folders securely</strong></p>
 <p>The command <code>sdelete &lt;file or directory&gt;</code> is the base command for any file or directory operations. Here are some examples that demonstrates the different options that you have:</p>
 <ul>
-<li><code>sdelete -s c:\users\martin\downloads</code> -- This deletes the folder downloads and all subdirectories securely.</li>
-<li><code>sdelete -q c:\users\martin\text.txt</code> -- This deletes the file text.txt securely, and suppresses any error messages.</li>
-<li><code>sdelete -p 5 c:\*.zip</code> -- This deletes all zip files under c:, and runs the operation in five passes.</li>
+<li><code>sdelete -s c:\users\martin\downloads</code> – This deletes the folder downloads and all subdirectories securely.</li>
+<li><code>sdelete -q c:\users\martin\text.txt</code> – This deletes the file text.txt securely, and suppresses any error messages.</li>
+<li><code>sdelete -p 5 c:\*.zip</code> – This deletes all zip files under c:, and runs the operation in five passes.</li>
 </ul>
 <p><strong>Deleting free disk space securely</strong></p>
-<p>The base command <code>sdelete -c &lt;drive letter&gt;</code> deletes free disk space on the specified drive securely. Here are some examples that demonstrate the various options that SDelete offers:</p>
+<p>The base command <code>sdelete -c &lt;drive letter&gt;</code>  deletes free disk space on the specified drive securely. Here are some examples that demonstrate the various options that SDelete offers:</p>
 <ul>
-<li><code>sdelete -c c:</code> -- Deletes the free disk space on drive C: securely.</li>
-<li><code>sdelete -c -p 2 f:</code> -- Runs two delete passes on the free disk space of drive f:</li>
-<li><code>sdelete -z d:</code>-- Zeroes the free disk space of drive d:</li>
+<li><code>sdelete -c c:</code> – Deletes the free disk space on drive C: securely.</li>
+<li><code>sdelete -c -p 2 f:</code> – Runs two delete passes on the free disk space of drive f:</li>
+<li><code>sdelete -z d:</code>– Zeroes the free disk space of drive d:</li>
 </ul>
 <p>SDelete uses the Department of Defense algorithm by default when it deletes files, folders or free disk space. The <code>-z</code> parameter overwrites the free disk space with zeroes instead which is faster.</p>
 <p>The operations may take quite some time to complete. The length it takes depends on the selection. Deleting individual files securely is pretty fast, but it may take hours or even longer if you run the operation on large folders or free space of entire hard drives.</p>
@@ -314,11 +310,11 @@
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -338,7 +334,7 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -346,11 +342,15 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -358,15 +358,11 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

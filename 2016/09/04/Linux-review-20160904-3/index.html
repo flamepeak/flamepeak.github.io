@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="执行顺序 简单的顺序执行你可以使用 ; 来完成 选择性执行用 &amp;amp;&amp;amp; 来实现，它表示如果前面的命令执行结果（不是表示终端输出的内容，而是表示命令执行状态的结果）返回0则执行后面的，否则不执行; || 与&amp;amp;&amp;amp;相反的控制效果，当上一条命令执行结果为≠0($?≠0)时则执行它后面的命令 $? 获取上一次命令的执行结果： e.g: echo $? 管道 匿名管道 |">
+    <meta name="description" content="执行顺序 简单的顺序执行你可以使用 ; 来完成 选择性执行用 &amp;amp;&amp;amp; 来实现，它表示如果前面的命令执行结果（不是表示终端输出的内容，而是表示命令执行状态的结果）返回0则执行后面的，否则不执行; || 与&amp;amp;&amp;amp;相反的控制效果，当上一条命令执行结果为≠0($?≠0)时则执行它后面的命令 $? 获取上一次命令的执行结果： e.g: echo $?  管道 匿名管道 |: e">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 温习(五)：命令执行顺序与管道">
 <meta property="og:url" content="http://flamepeak.com/2016/09/04/Linux-review-20160904-3/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="执行顺序 简单的顺序执行你可以使用 ; 来完成 选择性执行用 &amp;amp;&amp;amp; 来实现，它表示如果前面的命令执行结果（不是表示终端输出的内容，而是表示命令执行状态的结果）返回0则执行后面的，否则不执行; || 与&amp;amp;&amp;amp;相反的控制效果，当上一条命令执行结果为≠0($?≠0)时则执行它后面的命令 $? 获取上一次命令的执行结果： e.g: echo $? 管道 匿名管道 |">
+<meta property="og:description" content="执行顺序 简单的顺序执行你可以使用 ; 来完成 选择性执行用 &amp;amp;&amp;amp; 来实现，它表示如果前面的命令执行结果（不是表示终端输出的内容，而是表示命令执行状态的结果）返回0则执行后面的，否则不执行; || 与&amp;amp;&amp;amp;相反的控制效果，当上一条命令执行结果为≠0($?≠0)时则执行它后面的命令 $? 获取上一次命令的执行结果： e.g: echo $?  管道 匿名管道 |: e">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:46:43.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 温习(五)：命令执行顺序与管道">
-<meta name="twitter:description" content="执行顺序 简单的顺序执行你可以使用 ; 来完成 选择性执行用 &amp;amp;&amp;amp; 来实现，它表示如果前面的命令执行结果（不是表示终端输出的内容，而是表示命令执行状态的结果）返回0则执行后面的，否则不执行; || 与&amp;amp;&amp;amp;相反的控制效果，当上一条命令执行结果为≠0($?≠0)时则执行它后面的命令 $? 获取上一次命令的执行结果： e.g: echo $? 管道 匿名管道 |">
+<meta name="twitter:description" content="执行顺序 简单的顺序执行你可以使用 ; 来完成 选择性执行用 &amp;amp;&amp;amp; 来实现，它表示如果前面的命令执行结果（不是表示终端输出的内容，而是表示命令执行状态的结果）返回0则执行后面的，否则不执行; || 与&amp;amp;&amp;amp;相反的控制效果，当上一条命令执行结果为≠0($?≠0)时则执行它后面的命令 $? 获取上一次命令的执行结果： e.g: echo $?  管道 匿名管道 |: e">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,15 +97,18 @@
 </header>
 	<div class="article-content">
 		
-		<h3 id="执行顺序">执行顺序</h3>
+		<h3 id="执行顺序"><a class="markdownIt-Anchor" href="#执行顺序"></a> 执行顺序</h3>
 <p>简单的顺序执行你可以使用 <code>;</code> 来完成</p>
 <p>选择性执行用 <code>&amp;&amp;</code> 来实现，它表示如果前面的命令执行结果（不是表示终端输出的内容，而是表示命令执行状态的结果）返回0则执行后面的，否则不执行; <code>||</code> 与&amp;&amp;相反的控制效果，当上一条命令执行结果为≠0($?≠0)时则执行它后面的命令</p>
-<p><code>$?</code> 获取上一次命令的执行结果： e.g: <code>echo $?</code></p>
-<h3 id="管道">管道</h3>
-<p>匿名管道 <code>|</code>: e.g: <code>ps aux |grep cron</code>, <code>ls -al /etc |less</code></p>
+<p><code>$?</code> 获取上一次命令的执行结果：<br>
+e.g: <code>echo $?</code></p>
+<h3 id="管道"><a class="markdownIt-Anchor" href="#管道"></a> 管道</h3>
+<p>匿名管道 <code>|</code>:<br>
+e.g: <code>ps aux |grep cron</code>, <code>ls -al /etc |less</code></p>
 <p>cut 命令：打印每一行的某一字段、字符</p>
 <p>grep 命令，在文本中或 stdin 中查找匹配字符串</p>
-<p>sort 排序命令 <code>cat /etc/passswd | sort</code></p>
+<p>sort 排序命令<br>
+<code>cat /etc/passswd | sort</code></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -168,7 +171,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#执行顺序"><span class="toc-number">1.</span> <span class="toc-text">执行顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管道"><span class="toc-number">2.</span> <span class="toc-text">管道</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#执行顺序"><span class="toc-number">1.</span> <span class="toc-text"> 执行顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管道"><span class="toc-number">2.</span> <span class="toc-text"> 管道</span></a></li></ol>
  
   </div>
 
@@ -266,11 +269,11 @@
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -290,7 +293,7 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -298,11 +301,15 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -310,15 +317,11 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>

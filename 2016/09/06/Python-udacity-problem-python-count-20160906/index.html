@@ -13,18 +13,18 @@
     
 
     
-    <meta name="description" content="学习优达学城的机器学习课程，遇到测试题目，用Python统计数字，好久没有写python程序，然后就大致写了一下。 ### 题目 问题 用 Python 实现函数 count_words()，该函数输入字符串 s 和数字 n，返回 s 中 n 个出现频率最高的单词。返回值是一个元组列表，包含出现次数最高的 n 个单词及其次数,即 [(, ), (, ), ... ]，按出现次数降序排列。 您可以假">
+    <meta name="description" content="学习优达学城的机器学习课程，遇到测试题目，用Python统计数字，好久没有写python程序，然后就大致写了一下。  题目 问题 用 Python 实现函数 count_words()，该函数输入字符串 s 和数字 n，返回 s 中 n 个出现频率最高的单词。返回值是一个元组列表，包含出现次数最高的 n 个单词及其次数,即 [(&amp;lt;单词1&amp;gt;, &amp;lt;次数1&amp;gt;), (&amp;lt;单词2">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="优达学城：用Python统计字数">
 <meta property="og:url" content="http://flamepeak.com/2016/09/06/Python-udacity-problem-python-count-20160906/index.html">
 <meta property="og:site_name" content="FlamePeak">
-<meta property="og:description" content="学习优达学城的机器学习课程，遇到测试题目，用Python统计数字，好久没有写python程序，然后就大致写了一下。 ### 题目 问题 用 Python 实现函数 count_words()，该函数输入字符串 s 和数字 n，返回 s 中 n 个出现频率最高的单词。返回值是一个元组列表，包含出现次数最高的 n 个单词及其次数,即 [(, ), (, ), ... ]，按出现次数降序排列。 您可以假">
+<meta property="og:description" content="学习优达学城的机器学习课程，遇到测试题目，用Python统计数字，好久没有写python程序，然后就大致写了一下。  题目 问题 用 Python 实现函数 count_words()，该函数输入字符串 s 和数字 n，返回 s 中 n 个出现频率最高的单词。返回值是一个元组列表，包含出现次数最高的 n 个单词及其次数,即 [(&amp;lt;单词1&amp;gt;, &amp;lt;次数1&amp;gt;), (&amp;lt;单词2">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-01-31T00:44:49.491Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="优达学城：用Python统计字数">
-<meta name="twitter:description" content="学习优达学城的机器学习课程，遇到测试题目，用Python统计数字，好久没有写python程序，然后就大致写了一下。 ### 题目 问题 用 Python 实现函数 count_words()，该函数输入字符串 s 和数字 n，返回 s 中 n 个出现频率最高的单词。返回值是一个元组列表，包含出现次数最高的 n 个单词及其次数,即 [(, ), (, ), ... ]，按出现次数降序排列。 您可以假">
+<meta name="twitter:description" content="学习优达学城的机器学习课程，遇到测试题目，用Python统计数字，好久没有写python程序，然后就大致写了一下。  题目 问题 用 Python 实现函数 count_words()，该函数输入字符串 s 和数字 n，返回 s 中 n 个出现频率最高的单词。返回值是一个元组列表，包含出现次数最高的 n 个单词及其次数,即 [(&amp;lt;单词1&amp;gt;, &amp;lt;次数1&amp;gt;), (&amp;lt;单词2">
 
     
     <link rel="alternative" href="/atom.xml" title="FlamePeak" type="application/atom+xml">
@@ -97,12 +97,21 @@
 </header>
 	<div class="article-content">
 		
-		<p>学习优达学城的机器学习课程，遇到测试题目，用Python统计数字，好久没有写python程序，然后就大致写了一下。 ### 题目 <strong>问题</strong> 用 Python 实现函数 count_words()，该函数输入字符串 s 和数字 n，返回 s 中 n 个出现频率最高的单词。返回值是一个元组列表，包含出现次数最高的 n 个单词及其次数,即 [(<单词1>, <次数1>), (<单词2>, <次数2>), ... ]，按出现次数降序排列。 您可以假设所有输入都是小写形式，并且不含标点符号或其他字符（只包含字母和单个空格）。如果出现次数相同，则按字母顺序排列。 例如： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">print</span> count_words(<span class="string">"betty bought a bit of butter but the butter was bitter"</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure></次数2></单词2></次数1></单词1></p>
-<p>输出： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[(<span class="string">'butter'</span>, <span class="number">2</span>), (<span class="string">'a'</span>, <span class="number">1</span>), (<span class="string">'betty'</span>, <span class="number">1</span>)]</span><br></pre></td></tr></table></figure></p>
+		<p>学习优达学城的机器学习课程，遇到测试题目，用Python统计数字，好久没有写python程序，然后就大致写了一下。</p>
+<h3 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h3>
+<p><strong>问题</strong><br>
+用 Python 实现函数 count_words()，该函数输入字符串 s 和数字 n，返回 s 中 n 个出现频率最高的单词。返回值是一个元组列表，包含出现次数最高的 n 个单词及其次数,即 [(&lt;单词1&gt;, &lt;次数1&gt;), (&lt;单词2&gt;, &lt;次数2&gt;), … ]，按出现次数降序排列。<br>
+您可以假设所有输入都是小写形式，并且不含标点符号或其他字符（只包含字母和单个空格）。如果出现次数相同，则按字母顺序排列。<br>
+例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">print</span> count_words(<span class="string">"betty bought a bit of butter but the butter was bitter"</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[(<span class="string">'butter'</span>, <span class="number">2</span>), (<span class="string">'a'</span>, <span class="number">1</span>), (<span class="string">'betty'</span>, <span class="number">1</span>)]</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="拙作">拙作:</h3>
+<h3 id="拙作"><a class="markdownIt-Anchor" href="#拙作"></a> 拙作:</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_words</span><span class="params">(s, n)</span>:</span></span><br><span class="line">    s_list = s.split()</span><br><span class="line">    s_dict = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> s_per <span class="keyword">in</span> s_list:</span><br><span class="line">        <span class="keyword">if</span> s_dict.has_key(s_per):</span><br><span class="line">            s_dict[s_per] = s_dict[s_per]+<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            s_dict[s_per] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    s_dict_list = sorted(s_dict.iteritems(), key = <span class="keyword">lambda</span> x:x[<span class="number">1</span>], reverse = <span class="keyword">True</span>)</span><br><span class="line">    i = s_dict_list[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line">    dest=[]</span><br><span class="line">    <span class="keyword">while</span> i&gt;<span class="number">0</span>:</span><br><span class="line">        temp =[]</span><br><span class="line">        <span class="keyword">for</span> s_per_ed <span class="keyword">in</span> s_dict_list:</span><br><span class="line">            <span class="keyword">if</span> s_per_ed[<span class="number">1</span>]==i:</span><br><span class="line">                temp.append(s_per_ed)        </span><br><span class="line">        dest.extend(sorted(temp))</span><br><span class="line">        i=i<span class="number">-1</span></span><br><span class="line">    <span class="keyword">return</span> dest[:n]</span><br></pre></td></tr></table></figure>
-<p>09.08 今日看到collections，所以就用collections写了一个简单的版本： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_words</span><span class="params">(s, n)</span>:</span></span><br><span class="line">    cnt = collections.Counter(s.split()).most_common()</span><br><span class="line"></span><br><span class="line">    i = cnt[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line">    dest=[]</span><br><span class="line">    <span class="keyword">while</span> i&gt;<span class="number">0</span>:</span><br><span class="line">        temp =[]</span><br><span class="line">        <span class="keyword">for</span> s_per_ed <span class="keyword">in</span> cnt:</span><br><span class="line">            <span class="keyword">if</span> s_per_ed[<span class="number">1</span>]==i:</span><br><span class="line">                temp.append(s_per_ed)        </span><br><span class="line">        dest.extend(sorted(temp))</span><br><span class="line">        i=i<span class="number">-1</span></span><br><span class="line">    <span class="keyword">return</span> dest[:n]</span><br></pre></td></tr></table></figure></p>
+<p>09.08<br>
+今日看到collections，所以就用collections写了一个简单的版本：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_words</span><span class="params">(s, n)</span>:</span></span><br><span class="line">    cnt = collections.Counter(s.split()).most_common()</span><br><span class="line"></span><br><span class="line">    i = cnt[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line">    dest=[]</span><br><span class="line">    <span class="keyword">while</span> i&gt;<span class="number">0</span>:</span><br><span class="line">        temp =[]</span><br><span class="line">        <span class="keyword">for</span> s_per_ed <span class="keyword">in</span> cnt:</span><br><span class="line">            <span class="keyword">if</span> s_per_ed[<span class="number">1</span>]==i:</span><br><span class="line">                temp.append(s_per_ed)        </span><br><span class="line">        dest.extend(sorted(temp))</span><br><span class="line">        i=i<span class="number">-1</span></span><br><span class="line">    <span class="keyword">return</span> dest[:n]</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -165,7 +174,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#拙作"><span class="toc-number">1.</span> <span class="toc-text">拙作:</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text"> 题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拙作"><span class="toc-number">2.</span> <span class="toc-text"> 拙作:</span></a></li></ol>
  
   </div>
 
@@ -263,11 +272,11 @@
 			
 		
 			
-				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+				<li><a href="/tags/Life/" title="Life">Life<sup>9</sup></a></li>
 			
 		
 			
@@ -287,7 +296,7 @@
 			
 		
 			
-				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
 			
 		
 			
@@ -295,11 +304,15 @@
 			
 		
 			
-				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
+				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Kali/" title="Kali">Kali<sup>4</sup></a></li>
+				<li><a href="/tags/VPN/" title="VPN">VPN<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Learning/" title="Learning">Learning<sup>4</sup></a></li>
 			
 		
 			
@@ -307,15 +320,11 @@
 			
 		
 			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>4</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/WikiLeaks/" title="WikiLeaks">WikiLeaks<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tips/" title="Tips">Tips<sup>3</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>3</sup></a></li>
 			
 		
 		</ul>
